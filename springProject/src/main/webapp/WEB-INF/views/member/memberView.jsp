@@ -106,10 +106,7 @@
 	<h2>회원 상세 정보</h2>
 	<ul>
 		<li>이름 : ${member.name}</li>
-		<li>가입날짜 : ${member.reg_date}</li>
-		<c:if test="${!empty member.modify_date}">
-		<li>정보 수정일 : ${member.modify_date}</li>
-		</c:if>
+		<li>소개 : ${member.introduction}</li>
 	</ul>
 	<hr size="1" width="100%">
 	<p class="align-right">
