@@ -128,3 +128,32 @@ create table dreview_like(
   constraint dreview_like_fk_2 foreign key (mem_num) references dmember (mem_num)
 );
 create sequence dreview_like_seq;
+
+/* 채팅방 테이블 */
+create table dchatboard (
+  chatboard_num number not null,
+  mem_num number not null,
+  title varchar2(150) not null,
+  content clob not null,
+  reg_date date not null,
+  constraint dchatboard_pk primary key(chatboard_num),
+  constraint dchatboard_fk1 foreign key(mem_num) references dmember_detail(mem_num)
+);
+create sequence dchatboard_seq;
+
+/*채팅 정보 테이블*/
+create table dchatting(
+  dchat_num number not null,
+  chatroom_num number not null,
+  mem_num number not null,
+  opponent_num number not null,
+  content varchar2(900) not null,
+  send_date date default sysdate,
+  read_date date,
+  read number(1) default 1,
+  constraint dchatting_pk primary key(dchat_num),
+  constraint dchatting_fk1 foreign key(chatroom_num) references Dchatboard(chatboard_num),
+  constraint dchatting_fk2 foreign key(mem_num) references Dmember_detail(mem_num),
+  constraint dchatting_fk3 foreign key(opponent_num) references Dmember_detail(mem_num)
+);
+CREATE SEQUENCE Dchatting_seq;
