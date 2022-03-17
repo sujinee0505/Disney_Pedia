@@ -9,6 +9,10 @@ body {
 	margin: 0;
 }
 
+#main_body {
+	padding-top: 80px;
+}
+
 .css-6k8tqb {
 	display: none;
 	position: fixed;
@@ -955,8 +959,7 @@ body {
 	content: none !important;
 }
 
-</
-style> <style data-emotion-css ="8y23cj ">.css-8y23cj {
+.css-8y23cj {
 	display: inline-block;
 	vertical-align: top;
 	box-sizing: border-box;
@@ -972,7 +975,6 @@ style> <style data-emotion-css ="8y23cj ">.css-8y23cj {
 	width: 100%;
 }
 
-</
 .css-1qmeemv {
 	position: relative;
 	width: 100%;
@@ -2172,4 +2174,174 @@ style> <style data-emotion-css ="8y23cj ">.css-8y23cj {
 .css-139vxi-StylelessButton:disabled {
 	background: #f6f6f6;
 	color: #d4d4d4;
+}
+
+@media ( min-width : 760px) {
+	.css-a19lp3-VisualUl>li {
+		width: 25%;
+		padding: 0px 5px;
+	}
+}
+
+@media ( min-width : 600px) {
+	.css-a19lp3-VisualUl>li {
+		width: 33.3333%;
+	}
+}
+
+.css-a19lp3-VisualUl>li {
+	width: 33.3333%;
+	padding: 0px 5px;
+	margin-bottom: 0px;
+}
+
+@media ( min-width : 840px) {
+	.css-a19lp3-VisualUl>li {
+		width: 16.6667%;
+	}
+}
+
+@media ( min-width : 680px) {
+	.css-a19lp3-VisualUl>li {
+		width: 20%;
+	}
+}
+
+@media ( min-width : 520px) {
+	.css-a19lp3-VisualUl>li {
+		width: 25%;
+	}
+}
+
+.css-a19lp3-VisualUl>li {
+	padding: 0px 6px !important;
+}
+
+.css-qhzw1o-StyledImg {
+	vertical-align: top;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	object-fit: cover;
+	transition: opacity 420ms ease 0s;
+}
+
+.css-a19lp3-VisualUl {
+	list-style: none;
+	padding: 0px;
+	white-space: nowrap;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+}
+
+.css-1ya1z7z-VisualUl {
+	list-style: none;
+	padding: 0px;
+	white-space: nowrap;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+}
+
+.css-61elmn {
+	display: flex;
+	position: absolute;
+	top: 0px;
+	z-index: 1;
+	left: 0px;
+	width: 6px;
+	height: 100%;
+}
+
+.css-208kx {
+	display: flex;
+	position: absolute;
+	top: 0px;
+	z-index: 1;
+	right: 0px;
+	width: 6px;
+	height: 100%;
+}
+
+.css-18bzhjd {
+	display: none;
+	position: absolute;
+	top: 0px;
+	z-index: 2;
+	left: -11px;
+	-webkit-box-align: center;
+	align-items: center;
+	height: 100%;
+	opacity: 0;
+	transition: all 300ms ease 0s;
+}
+
+.css-8sd0v2 {
+	display: flex;
+	position: absolute;
+	top: 0px;
+	z-index: 2;
+	right: -11px;
+	-webkit-box-align: center;
+	align-items: center;
+	height: 100%;
+	opacity: 0;
+	transition: all 300ms ease 0s;
+}
+
+.css-1hestod {
+	background:
+		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo=)
+		12px center/12px no-repeat rgb(255, 255, 255);
+	box-sizing: border-box;
+	border: 1px solid rgb(249, 249, 249);
+	border-radius: 50%;
+	box-shadow: rgb(0 0 0/ 20%) 0px 0px 4px 0px;
+	width: 34px;
+	height: 34px;
+	cursor: pointer;
+	transition: opacity 300ms ease 0s;
+}
+
+.css-vp7uyl {
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
+	background-color: rgb(255, 255, 255);
+	box-sizing: border-box;
+	border: 1px solid rgb(249, 249, 249);
+	border-radius: 50%;
+	box-shadow: rgb(0 0 0/ 20%) 0px 0px 4px 0px;
+	background-size: 12px;
+	width: 34px;
+	height: 34px;
+	cursor: pointer;
+	transition: opacity 300ms ease 0s;
+}
+
+.css-vp7uyl>img {
+	opacity: 0.4;
+}
+
+@media ( min-width : 760px) {
+	.css-1qq59e8 .arrow_button>div {
+		margin-top: calc(( 100vw - 60px)* 157/108/2/4- 17px);
+	}
+}
+
+@media ( min-width : 760px) {
+	.css-1qq59e8 .arrow_button>div {
+		margin-top: calc(( 100vw - 60px)* 157/108/2/4- 17px);
+	}
+}
+
+.css-1kd6k5d {
+	position: relative;
+	transform: translate3d(0px, 0px, 0px);
+	margin: 0px -8px;
 }
