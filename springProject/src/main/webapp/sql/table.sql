@@ -37,8 +37,7 @@ create table dcontents_like(
   contents_num number not null,
   mem_num number not null,
   constraint dcontents_like_pk primary key (clike_num),
-  constraint dcontents_like_fk foreign key (mem_num) 
-                         references dmember (mem_num)
+  constraint dcontents_like_fk foreign key (mem_num) references dmember (mem_num)
 );
 create sequence dcontents_like_seq;
 
@@ -64,7 +63,7 @@ create table dcontents_cal(
 );
 create sequence dcontents_cal_seq;
 
-/*DLIST*/
+/* 리스트 테이블 */
 create table dlist(
   list_num number not null,
   list_title varchar2(90) not null,
@@ -79,7 +78,7 @@ create table dlist(
 
 create sequence dlist_seq;
 
-/*DLIST_REPLY*/
+/* 리스트 댓글 테이블 */
 create table dlist_reply(
   re_num number not null,
   re_content varchar2(900) not null,
@@ -88,20 +87,20 @@ create table dlist_reply(
   list_num number not null,
   mem_num number not null,
   constraint dlist_reply_pk primary key (re_num),
-  constraint reply_dlist_fk1 foreign key (list_num) references dlist (list_num),
-  constraint reply_dmember_fk2 foreign key (mem_num) references dmember (mem_num)
+  constraint dlist_reply_fk1 foreign key (list_num) references dlist (list_num),
+  constraint dlist_reply_fk2 foreign key (mem_num) references dmember (mem_num)
 );
 
 create sequence dlist_reply_seq;
 
-/*DLIST_LIKE*/
+/* 리스트 좋아요 테이블 */
 create table dlist_like(
   listLike_num number not null,
   list_num number not null,
   mem_num number not null,
   constraint dlist_like_pk primary key (listLike_num),
-  constraint like_dlist_fk1 foreign key (list_num) references dlist (list_num),
-  constraint like_dmember_fk2 foreign key (mem_num) references dmember (mem_num)
+  constraint dlist_like_fk1 foreign key (list_num) references dlist (list_num),
+  constraint dlist_like_fk2 foreign key (mem_num) references dmember (mem_num)
 );
 create sequence dlist_like_seq;
 
