@@ -36,9 +36,12 @@
 							</div>
 						</div></li>
 					<c:if test="${empty user_num}">
+					
+					
 						<li class="css-bj71cw"><button
 								onclick="location.href='${pageContext.request.contextPath}/member/login.do'"
-								class="css-fn0ezc-StylelessButton">로그인</button></li>
+								class="css-fn0ezc-StylelessButton">로그인</button></li> 
+					
 						<li class="css-bj71cw"><button
 								onclick="location.href='${pageContext.request.contextPath}/member/registerUser.do'"
 								class="css-139vxi-StylelessButton">회원가입</button></li>
