@@ -22,7 +22,7 @@ public interface MemberMapper {
 	@Select("SELECT * FROM dmember m JOIN dmember_detail d "
 		  + "ON m.mem_num=d.mem_num WHERE m.mem_num=#{mem_num}")
 	public MemberVO selectMember(Integer mem_num);
-	@Update("UPDATE dmember_detail SET name=#{name},photo=#{photo},introduction=#{introduction},modify_date=SYSDATE "
+	@Update("UPDATE dmember_detail SET name=#{name},introduction=#{introduction},modify_date=SYSDATE "
 		  + "WHERE mem_num=#{mem_num}")
 	public void updateMember(MemberVO member);
 	@Update("UPDATE dmember_detail SET passwd=#{passwd} WHERE mem_num=#{mem_num}")
@@ -31,4 +31,6 @@ public interface MemberMapper {
 	public void deleteMember(Integer mem_num);
 	@Delete("DELETE FROM dmember_detail WHERE mem_num=#{mem_num}")
 	public void deleteMember_detail(Integer mem_num);
+	@Update("UPDATE spmember_detail SET photo=#{photo},photo_name=#{photo_name} WHERE mem_num=#{mem_num}")
+	public void updateProfile(MemberVO member);
 }
