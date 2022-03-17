@@ -11,7 +11,7 @@ create table dmember_detail(
     mem_num number not null,
     name varchar2(18) not null,
     passwd varchar2(18) not null,
-    phone varchar2(100),
+    photo varchar2(100),
     introduction varchar2(900),
     reg_date date default sysdate not null,
     modify_date date,
