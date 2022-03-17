@@ -20,8 +20,7 @@
 		</ul>
 		<div class="align-center">
 			<form:button>로그인</form:button>
-			<input type="button" value="홈으로" 
-			  onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 		</div>
 	</form:form>
 </div>

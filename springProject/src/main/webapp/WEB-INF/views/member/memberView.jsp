@@ -106,11 +106,6 @@
 	<h2>회원 상세 정보</h2>
 	<ul>
 		<li>이름 : ${member.name}</li>
-		<li>전화번호 : ${member.phone}</li>
-		<li>이메일 : ${member.email}</li>
-		<li>우편번호 : ${member.zipcode}</li>
-		<li>주소 : ${member.address1}</li>
-		<li>상세주소 : ${member.address2}</li>
 		<li>가입날짜 : ${member.reg_date}</li>
 		<c:if test="${!empty member.modify_date}">
 		<li>정보 수정일 : ${member.modify_date}</li>
