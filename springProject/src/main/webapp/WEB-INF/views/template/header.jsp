@@ -2166,9 +2166,7 @@
 					<li class="categories css-bj71cw"><button
 							class="css-q65tx9-StylelessButton">TV</button></li>
 					<li class="categories css-bj71cw"><button
-							class="css-q65tx9-StylelessButton">책</button></li>
-					<li class="categories css-8az14u"><button
-							class="css-q65tx9-StylelessButton">웹툰</button></li>
+							class="css-q65tx9-StylelessButton">채팅방</button></li>
 					<li class="css-1c3wwgb"><div class="css-1xm32e0">
 							<div class="css-1okeg7p">
 								<form action="#">
@@ -2182,7 +2180,7 @@
 							</div>
 						</div></li>
 					<li class="css-bj71cw"><a href="/ko-KR/review"><span
-							class="css-1kqg656">평가하기</span></a></li>
+							class="css-1kqg656">여기 뭐였죠</span></a></li>
 					<li class="css-bj71cw"><a title="회원 page" href=""><div
 								class="css-ipiine">
 								<div class="css-1wkpkpw-ProfilePhotoImage"></div>
@@ -2200,7 +2198,7 @@
 		<li class="css-ysxfln"><button
 				class="css-1ezx7y8-StylelessButton">책</button></li>
 		<li class="css-ysxfln"><button
-				class="css-1ezx7y8-StylelessButton">웹툰</button></li>
+				class="css-1ezx7y8-StylelessButton">채팅방</button></li>
 	</ul>
 </header>
 <!-- 상단 끝 -->
