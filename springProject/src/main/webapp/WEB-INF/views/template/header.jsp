@@ -2158,14 +2158,18 @@
 		<div class="css-1gkas1x-Grid e1689zdh0">
 			<div class="css-1djzg97">
 				<ul class="css-6v7b8v-VisualUl">
-					<li class="css-t686xv"><img
-						src="${pageContext.request.contextPath}/resources/images/logo.png"
-						width="150px"> <a href=""></a></li>
+					<li class="css-t686xv"><a
+						href="${pageContext.request.contextPath}/main/main.do"><img
+							src="${pageContext.request.contextPath}/resources/images/logo.png"
+							width="150px"></a></li>
 					<li class="categories css-bj71cw"><button
+							onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
 							class="css-x6oby2-StylelessButton">영화</button></li>
 					<li class="categories css-bj71cw"><button
+							onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
 							class="css-q65tx9-StylelessButton">TV</button></li>
 					<li class="categories css-bj71cw"><button
+							onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
 							class="css-q65tx9-StylelessButton">채팅방</button></li>
 					<li class="css-1c3wwgb"><div class="css-1xm32e0">
 							<div class="css-1okeg7p">
@@ -2192,12 +2196,14 @@
 </header>
 <header class="css-1xl5dyt">
 	<ul class="css-6v7b8v-VisualUl">
-		<li class="css-ysxfln"><button class="css-q3jh7f-StylelessButton">영화</button></li>
 		<li class="css-ysxfln"><button
+				onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
+				class="css-q3jh7f-StylelessButton">영화</button></li>
+		<li class="css-ysxfln"><button
+				onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
 				class="css-1ezx7y8-StylelessButton">TV</button></li>
 		<li class="css-ysxfln"><button
-				class="css-1ezx7y8-StylelessButton">책</button></li>
-		<li class="css-ysxfln"><button
+				onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
 				class="css-1ezx7y8-StylelessButton">채팅방</button></li>
 	</ul>
 </header>

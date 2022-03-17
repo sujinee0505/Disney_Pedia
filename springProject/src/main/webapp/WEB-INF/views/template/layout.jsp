@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title><tiles:getAsString name="title"/></title>
+<link rel="icon" href="${pageContext.request.contextPath}/resources/images/logo.png">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
