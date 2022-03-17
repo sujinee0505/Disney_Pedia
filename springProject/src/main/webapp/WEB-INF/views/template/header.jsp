@@ -54,16 +54,18 @@
 					<c:if test="${!empty user_num}">
 					[<span>${user_id}</span>]
 					<li class="css-bj71cw"><button
-								onclick="location.href='${pageContext.request.contextPath}//member/logout.do'"
+								onclick="location.href='${pageContext.request.contextPath}/member/logout.do'"
 								class="css-fn0ezc-StylelessButton">로그아웃</button></li>
 					 </c:if>
 					<c:if test="${!empty user_num && empty user_photo}">
+				    	<a href="${pageContext.request.contextPath}/member/myPage.do">
 			    		<img src="${pageContext.request.contextPath}/resources/images/face.png" 
-			    	                        width="25" height="25" class="my-photo">
+			    	                        width="25" height="25" class="my-photo"></a>
 			   		 </c:if>
 			   		 <c:if test="${!empty user_num && !empty user_photo}">
+				    	<a href="${pageContext.request.contextPath}/member/myPage.do">
 				    	<img src="${pageContext.request.contextPath}/member/photoView.do" 
-				    	                        width="25" height="25" class="my-photo">
+				    	                        width="25" height="25" class="my-photo"></a>
 				    </c:if>
 
 				</ul>
