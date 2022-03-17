@@ -1,11 +1,12 @@
 /* 테스트용 */
-/*회원관리*/
+/* 멤버 테이블*/
 create table dmember(
     mem_num number not null,
     id varchar2(18) unique not null,
     auth number(1) default 2 not null, /*회원등급:0탈퇴회원,1정지회원,2일반회원,3관리자*/
     constraint dmember_pk primary key (mem_num)
 );
+/* 멤버 디테일 테이블 */
 create table dmember_detail(
     mem_num number not null,
     name varchar2(18) not null,
@@ -19,6 +20,7 @@ create table dmember_detail(
  );
 create sequence dmember_seq;
 
+/* 팔로우 테이블 */
 create table dfollow(
  follow_num number not null,
  active_mem number not null,
