@@ -101,7 +101,7 @@ create table dlist_like(
   listLike_num number not null,
   list_num number not null,
   mem_num number not null,
-  constraint dlist_like_pk primary key (re_num),
+  constraint dlist_like_pk primary key (listLike_num),
   constraint like_dlist_fk1 foreign key (list_num) references dlist (list_num),
   constraint like_dmember_fk2 foreign key (mem_num) references dmember (mem_num)
 );
