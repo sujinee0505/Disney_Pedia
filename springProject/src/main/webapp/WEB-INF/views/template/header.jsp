@@ -2151,6 +2151,146 @@
 	padding-right: 0 !important
 }
 </style>
+<style data-emotion-css="bj71cw">
+.css-bj71cw {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	height: 62px;
+	margin: 0 0 0 24px;
+	-webkit-flex-shrink: 0;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+}
+
+.css-bj71cw.categories {
+	margin: 0 0 0 18px;
+}
+
+@media ( min-width :860px) {
+	.css-bj71cw.categories {
+		margin: 0 0 0 24px;
+	}
+}
+
+.css-bj71cw>a {
+	-webkit-text-decoration: none;
+	text-decoration: none;
+}
+</style>
+<style data-emotion-css="fn0ezc-StylelessButton">
+.css-fn0ezc-StylelessButton {
+	background: none;
+	padding: 0;
+	border: none;
+	margin: 0;
+	cursor: pointer;
+	background: transparent;
+	color: #74747b;
+	font-size: 14px;
+	-webkit-letter-spacing: -0.3px;
+	-moz-letter-spacing: -0.3px;
+	-ms-letter-spacing: -0.3px;
+	letter-spacing: -0.3px;
+	padding: 0;
+	border: 0;
+	margin: 15px 0;
+}
+
+.css-fn0ezc-StylelessButton:focus {
+	outline: none;
+}
+</style>
+<style data-emotion-css="bj71cw">
+.css-bj71cw {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	height: 62px;
+	margin: 0 0 0 24px;
+	-webkit-flex-shrink: 0;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+}
+
+.css-bj71cw.categories {
+	margin: 0 0 0 18px;
+}
+
+@media ( min-width :860px) {
+	.css-bj71cw.categories {
+		margin: 0 0 0 24px;
+	}
+}
+
+.css-bj71cw>a {
+	-webkit-text-decoration: none;
+	text-decoration: none;
+}
+</style>
+<style data-emotion-css="139vxi-StylelessButton">
+.css-139vxi-StylelessButton {
+	background: none;
+	padding: 0;
+	border: none;
+	margin: 0;
+	cursor: pointer;
+	background: #ff2f6e;
+	color: #fff;
+	text-align: center;
+	font-size: 17px;
+	font-weight: 400;
+	-webkit-letter-spacing: -0.7px;
+	-moz-letter-spacing: -0.7px;
+	-ms-letter-spacing: -0.7px;
+	letter-spacing: -0.7px;
+	line-height: 22px;
+	width: 100%;
+	height: 44px;
+	border-radius: 6px;
+	font-size: 15px;
+	font-weight: 500;
+	-webkit-letter-spacing: -0.5px;
+	-moz-letter-spacing: -0.5px;
+	-ms-letter-spacing: -0.5px;
+	letter-spacing: -0.5px;
+	line-height: 20px;
+	box-sizing: border-box;
+	width: auto;
+	min-width: 72px;
+	height: 32px;
+	padding: 5px 12px;
+	background: transparent;
+	color: #353535;
+	font-size: 14px;
+	-webkit-letter-spacing: -0.3px;
+	-moz-letter-spacing: -0.3px;
+	-ms-letter-spacing: -0.3px;
+	letter-spacing: -0.3px;
+	padding: 5px 14px 6px 14px;
+	border: 1px solid rgba(116, 116, 123, 0.5);
+	margin: 15px 0;
+}
+
+.css-139vxi-StylelessButton:focus {
+	outline: none;
+}
+
+.css-139vxi-StylelessButton:disabled {
+	background: #f6f6f6;
+	color: #d4d4d4;
+}
+</style>
 </head>
 <!-- 상단 시작 -->
 <header class="css-6k8tqb">
@@ -2183,12 +2323,24 @@
 								</form>
 							</div>
 						</div></li>
-					<li class="css-bj71cw"><a href="/ko-KR/review"><span
-							class="css-1kqg656">여기 뭐였죠</span></a></li>
-					<li class="css-bj71cw"><a title="회원 page" href=""><div
-								class="css-ipiine">
-								<div class="css-1wkpkpw-ProfilePhotoImage"></div>
-							</div></a></li>
+					<c:if test="${mem_num == null }">
+						<li class="css-bj71cw"><button
+								onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
+								class="css-fn0ezc-StylelessButton">로그인</button></li>
+						<li class="css-bj71cw"><button
+								onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
+								class="css-139vxi-StylelessButton">회원가입</button></li>
+					</c:if>
+					<c:if test="${mem_num != null }">
+						<li class="css-bj71cw"><a href="/ko-KR/review"><span
+								class="css-1kqg656">여기 뭐였죠</span></a></li>
+						<li class="css-bj71cw"><a title="회원 page" href=""><div
+									class="css-ipiine">
+									<div class="css-1wkpkpw-ProfilePhotoImage"></div>
+								</div></a></li>
+					</c:if>
+
+
 				</ul>
 			</div>
 		</div>
