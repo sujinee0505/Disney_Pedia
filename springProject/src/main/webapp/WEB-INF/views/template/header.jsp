@@ -6,7 +6,6 @@
 
 <!-- Google Tag Manager -->
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>왓챠피디아 - 영화, 책, TV 프로그램 추천 및 평가 서비스</title>
 <style data-emotion-css="1xm32e0">
 .css-1xm32e0 {
 	position: relative;
@@ -24,7 +23,7 @@
 	color: #fff;
 	text-align: center;
 	width: 100%;
-	height: 62px;
+	/* height: 62px; */
 	box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.08);
 	-webkit-transition: background-color 200ms;
 	transition: background-color 200ms;
@@ -78,6 +77,7 @@
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	align-items: center;
 	overflow: hidden;
 }
 
