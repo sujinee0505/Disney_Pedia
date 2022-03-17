@@ -6,7 +6,7 @@ create table dmember(
     auth number(1) default 2 not null, /*회원등급:0탈퇴회원,1정지회원,2일반회원,3관리자*/
     constraint dmember_pk primary key (mem_num)
 );
-/* 멤버 디테일 테이블 */
+/*멤버 디테일 테이블 */
 create table dmember_detail(
     mem_num number not null,
     name varchar2(18) not null,
