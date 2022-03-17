@@ -49,8 +49,7 @@ create table dcontents_grade(
   grade number(1) not null,
   mem_num number not null,
   constraint dcontents_grade_pk primary key (grade_num),
-  constraint dcontents_grade_fk foreign key (mem_num) 
-                         references dmember (mem_num)
+  constraint dcontents_grade_fk foreign key (mem_num) references dmember (mem_num)
 );
 create sequence dcontents_grade_seq;
 
@@ -61,8 +60,7 @@ create table dcontents_cal(
   contents_num number not null,
   mem_num number not null,
   constraint dcontents_cal_pk primary key (cal_num),
-  constraint dcontents_grade_fk foreign key (mem_num) 
-                         references dmember (mem_num)
+  constraint dcontents_cal_fk foreign key (mem_num) references dmember (mem_num)
 );
 create sequence dcontents_cal_seq;
 
