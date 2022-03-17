@@ -13,7 +13,7 @@ public interface MemberMapper {
 	public int selectMem_num();
 	@Insert("INSERT INTO dmember (mem_num,id) VALUES (#{mem_num},#{id})")
 	public void insertMember(MemberVO member);
-	@Insert("INSERT INTO dmember_detail (mem_num,name,passwd) VALUES (#{mem_num},#{name},#{passwd}")
+	@Insert("INSERT INTO dmember_detail (mem_num,name,passwd) VALUES (#{mem_num},#{name},#{passwd})")
 	public void insertMember_detail(MemberVO member);
 	@Select("SELECT m.mem_num,m.id,m.auth,d.passwd "
 		  + "FROM dmember m LEFT OUTER JOIN dmember_detail d "

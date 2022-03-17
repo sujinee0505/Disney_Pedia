@@ -35,23 +35,36 @@
 								</form>
 							</div>
 						</div></li>
-					<c:if test="${mem_num == null }">
+					<c:if test="${empty user_num}">
 						<li class="css-bj71cw"><button
-								onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
+								onclick="location.href='${pageContext.request.contextPath}/member/login.do'"
 								class="css-fn0ezc-StylelessButton">로그인</button></li>
 						<li class="css-bj71cw"><button
-								onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
+								onclick="location.href='${pageContext.request.contextPath}/member/registerUser.do'"
 								class="css-139vxi-StylelessButton">회원가입</button></li>
 					</c:if>
-					<c:if test="${mem_num != null }">
+					<%-- <c:if test="${mem_num != null }">
 						<li class="css-bj71cw"><a href="/ko-KR/review"><span
 								class="css-1kqg656">여기 뭐였죠</span></a></li>
 						<li class="css-bj71cw"><a title="회원 page" href=""><div
 									class="css-ipiine">
 									<div class="css-1wkpkpw-ProfilePhotoImage"></div>
 								</div></a></li>
-					</c:if>
-
+					</c:if> --%>
+					<c:if test="${!empty user_num}">
+					[<span>${user_id}</span>]
+					<li class="css-bj71cw"><button
+								onclick="location.href='${pageContext.request.contextPath}//member/logout.do'"
+								class="css-fn0ezc-StylelessButton">로그아웃</button></li>
+					 </c:if>
+					<c:if test="${!empty user_num && empty user_photo}">
+			    		<img src="${pageContext.request.contextPath}/resources/images/face.png" 
+			    	                        width="25" height="25" class="my-photo">
+			   		 </c:if>
+			   		 <c:if test="${!empty user_num && !empty user_photo}">
+				    	<img src="${pageContext.request.contextPath}/member/photoView.do" 
+				    	                        width="25" height="25" class="my-photo">
+				    </c:if>
 
 				</ul>
 			</div>
