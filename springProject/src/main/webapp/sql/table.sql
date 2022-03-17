@@ -158,3 +158,5 @@ create table dchatting(
   constraint dchatting_fk3 foreign key(opponent_num) references Dmember_detail(mem_num)
 );
 CREATE SEQUENCE Dchatting_seq;
+
+--
