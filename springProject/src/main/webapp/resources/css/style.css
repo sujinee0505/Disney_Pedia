@@ -5,6 +5,10 @@
 	width: 100%;
 }
 
+body {
+	margin: 0;
+}
+
 .css-6k8tqb {
 	display: none;
 	position: fixed;
