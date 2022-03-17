@@ -54,15 +54,4 @@ public class MemberServiceImpl implements MemberService{
 	public void updateProfile(MemberVO member) {
 		memberMapper.updateProfile(member);
 	}
-
-	@Override
-	public List<MemberVO> selectList(Map<String, Object> map) {
-		return memberMapper.selectList(map);
-	}
-
-	@Override
-	public int selectRowCount(Map<String, Object> map) {
-		return memberMapper.selectRowCount(map);
-	}
-
 }
