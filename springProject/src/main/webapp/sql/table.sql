@@ -1,5 +1,5 @@
 /* 테스트용 */
-/* 멤버 테이블*/
+/* 멤버 테이블 */
 create table dmember(
     mem_num number not null,
     id varchar2(18) unique not null,
