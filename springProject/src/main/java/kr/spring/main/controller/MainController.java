@@ -1,15 +1,25 @@
 package kr.spring.main.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.spring.contents.vo.ContentsVO;
+import kr.spring.util.GetInfoUtil;
 
 @Controller
 public class MainController {
 
 	@RequestMapping("/main/main.do")
-	public String main() {
-		
-		//타일스 설정
-		return "main";
+	public ModelAndView main() {
+		List<ContentsVO> list = null;
+		GetInfoUtil util = new GetInfoUtil();
+		list = util.getInfoList("movie");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("main");
+		mav.addObject("list", list);
+		return mav;
 	}
 }
