@@ -1,5 +1,18 @@
 @charset "UTF-8";
 
+.my-photo{
+	object-fit:cover;
+	object-position:top;
+	border-radius:50%;
+}
+
+
+/*메인,헤더*/
+#header_logout{
+	margin-right:20px;
+}
+
+
 .css-1xm32e0 {
 	position: relative;
 	width: 100%;
@@ -3828,8 +3841,6 @@ button, input, optgroup, select, textarea {
 	border-bottom: 1px solid #f0f0f0;
 }
 
-<<<<<<< HEAD
-=======
 .css-qhzw1o-StyledImg {
 	vertical-align: top;
 	width: 100%;
@@ -3847,4 +3858,3 @@ button, input, optgroup, select, textarea {
 	/* line-height: 24px; */
 	margin: 8px 0px;
 }
->>>>>>> refs/remotes/origin/main

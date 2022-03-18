@@ -63,7 +63,7 @@
 					[<span>${user_id}</span>]
 					<li class="css-bj71cw"><button
 								onclick="location.href='${pageContext.request.contextPath}/member/logout.do'"
-								class="css-fn0ezc-StylelessButton">로그아웃</button></li>
+								class="css-fn0ezc-StylelessButton" id="header_logout">로그아웃</button></li>
 					 </c:if>
 					<c:if test="${!empty user_num && empty user_photo}">
 				    	<a href="${pageContext.request.contextPath}/member/myPage.do">
