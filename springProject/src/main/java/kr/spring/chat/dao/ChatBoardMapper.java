@@ -19,8 +19,9 @@ public interface ChatBoardMapper {
 	public int selectRowCount(Map<String,Object> map);
 
 	//**글 등록 폼에서 전송된 데이터 처리
-	@Insert("INSERT INTO dchatboard (chatboard_num,mem_num,title,content) "
-			+ "VALUES (dchatboard_seq.nextval,#{mem_num},#{title},#{content})")
+	
+	@Insert("INSERT INTO dchatboard (chatboard_num,mem_num,title,content) " +
+			"VALUES (dchatboard_seq.nextval,#{mem_num},#{title},#{content})")
 	public void insertBoard(ChatBoardVO board); 
 
 	

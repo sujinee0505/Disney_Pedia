@@ -21,7 +21,7 @@
 							onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
 							class="css-q65tx9-StylelessButton">TV</button></li>
 					<li class="categories css-bj71cw"><button
-							onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
+							onclick="location.href='${pageContext.request.contextPath}/chatboard/list.do'"
 							class="css-q65tx9-StylelessButton">채팅방</button></li>
 					<li class="css-1c3wwgb"><div class="css-1xm32e0">
 							<div class="css-1okeg7p">
