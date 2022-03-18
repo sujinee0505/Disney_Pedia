@@ -9,6 +9,7 @@ public class ContentsVO {
 	private String overview;
 	private String poster_path;
 	private Date release_date;
+	private Date first_air_date;
 	private float vote_average;
 
 	public String getId() {
@@ -58,6 +59,14 @@ public class ContentsVO {
 
 	public void setRelease_date(Date release_date) {
 		this.release_date = release_date;
+	}
+
+	public Date getFirst_air_date() {
+		return first_air_date;
+	}
+
+	public void setFirst_air_date(Date first_air_date) {
+		this.first_air_date = first_air_date;
 	}
 
 	public float getVote_average() {

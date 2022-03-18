@@ -13,12 +13,12 @@ import kr.spring.util.GetInfoUtil;
 public class ContentsController {
 	@RequestMapping("/contents/detail.do")
 	public ModelAndView process() {
-		List<ContentsVO> list = null;
+		List<ContentsVO> contents = null;
 		GetInfoUtil util = new GetInfoUtil();
-		list = util.getInfoList("movie");
+		contents = util.getInfoList("movie");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("contentsDetail");
-		mav.addObject("list", list);
+		mav.addObject("contents", contents);
 		return mav;
 	}
 }
