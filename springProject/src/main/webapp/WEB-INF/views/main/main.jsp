@@ -16,7 +16,8 @@
 
 							<li class="css-8y23cj"><c:forEach var="movie" begin="0"
 									end="10" step="1" items="${list}">
-									<a title="영화이름" href="영화상세페이지"><div class="css-1qmeemv">
+									<a href="${pageContext.request.contextPath}/contents/detail.do"><div
+											class="css-1qmeemv">
 											<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 												<img src="${movie.poster_path }"
 													class="css-qhzw1o-StyledImg ezcopuc1">

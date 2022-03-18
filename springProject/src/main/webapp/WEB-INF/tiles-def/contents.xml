@@ -5,9 +5,9 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="two" extends="main">
-    	<put-attribute name="title" value="회원가입"/>
-    	<put-attribute name="body" value="/WEB-INF/views/member/memberRegister.jsp"/>
+    <definition name="contentsDetail" extends="main">
+    	<put-attribute name="title" value="상세 페이지"/>
+    	<put-attribute name="body" value="/WEB-INF/views/contents/detail.jsp"/>
     </definition>
 </tiles-definitions>
 
