@@ -440,94 +440,109 @@
 											</div>
 										</div>
 									</section>
-								</div>
-							</div>
-						</div>
-						<div class="css-wpsvu8">
-							<section class="css-e2gdle-Self e2ouywk0">
-								<div class="css-1wjbj9j-Self e1adaxwi0"></div>
-							</section>
-							<div class="css-1nhig6u-RoundedCornerBlock-RoundedCornerBlock">
-								<div class="css-1wdbx6y-LastDividerDisable e1ezac438">
 									<section class="css-1tywu13">
-										<div class="css-1gkas1x-Grid e1689zdh0">
-											<div class="css-1y901al-Row emmoxnt0">
-												<header class="css-1ue9xs6">
-													<h2 class="css-1wtjsst">갤러리</h2>
-												</header>
-											</div>
-										</div>
-										<div class="css-usdi1z">
-											<div class="css-1x04fwb">
-												<div class="css-174lxc3">
-													<div class="css-1gkas1x-Grid e1689zdh0">
-														<div class="css-1y901al-Row emmoxnt0">
-															<ul class="css-1cduxg0-VisualUl">
-																<li class="css-1cw0vk0"><div
-																		class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																		<span class="css-bhgne5-StyledBackground e1q5rx9q1"
-																			style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/XbPmXI00NoiQaMTVC4hJ8g.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5qUXdlRE0yTUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTNOall4T1RFeU9EY3lORGc1T0RjaWZRLm9vTVp2dWwxQ0NwdzRhdkprSW5mQ1Y3bm9Wc0swdFR4WjNhRnA0aVZMWU0&quot;);"></span>
-																	</div></li>
-																<li class="css-1cw0vk0"><div
-																		class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																		<span class="css-bhgne5-StyledBackground e1q5rx9q1"
-																			style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/fW2LITpGtOhWQ9fl0G8v1Q.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5qUXdlRE0yTUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk1qY3pNalEwTlRnMU56ZzFNRGswTURFaWZRLnV1Ri1hVzY3c3c0Rk9qZm1xYUtLZ2EzRmRDRVpXa0ctRWR4eWpHd1BQT28&quot;);"></span>
-																	</div></li>
-																<li class="css-1cw0vk0"><div
-																		class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																		<span class="css-bhgne5-StyledBackground e1q5rx9q1"
-																			style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/AetOOBaa6LFg0pQye_plgg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5qUXdlRE0yTUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTNOall3T0Rjd01EWXhNakl3TVRnaWZRLkMwaFFmT0JTcG5jRk1iVXZIWnczSnNzd1dsejJBN05xRDhaS3FPcnVweGs&quot;);"></span>
-																	</div></li>
-																<li class="css-1cw0vk0"><div
-																		class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																		<span class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																	</div></li>
-																<li class="css-1cw0vk0"><div
-																		class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																		<span class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																	</div></li>
-																<li class="css-1cw0vk0"><div
-																		class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																		<span class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																	</div></li>
-																<li class="css-1cw0vk0"><div
-																		class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																		<span class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																	</div></li>
-																<li class="css-1cw0vk0"><div
-																		class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																		<span class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																	</div></li>
-																<li class="css-1cw0vk0"><div
-																		class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																		<span class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																	</div></li>
-																<li class="css-1cw0vk0"><div
-																		class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																		<span class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																	</div></li>
-																<li class="css-1cw0vk0"><div
-																		class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																		<span class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																	</div></li>
-																<div class="css-ml096x"></div>
-															</ul>
+										<div class="css-wpsvu8">
+											<section class="css-e2gdle-Self e2ouywk0">
+												<div class="css-1wjbj9j-Self e1adaxwi0"></div>
+											</section>
+											<div
+												class="css-1nhig6u-RoundedCornerBlock-RoundedCornerBlock">
+												<div class="css-1wdbx6y-LastDividerDisable e1ezac438">
+													<section class="css-1tywu13">
+														<div class="css-1gkas1x-Grid e1689zdh0">
+															<div class="css-1y901al-Row emmoxnt0">
+																<header class="css-1ue9xs6">
+																	<h2 class="css-1wtjsst">갤러리</h2>
+																</header>
+															</div>
 														</div>
-													</div>
+														<div class="css-usdi1z">
+															<div class="css-1x04fwb">
+																<div class="css-174lxc3">
+																	<div class="css-1gkas1x-Grid e1689zdh0">
+																		<div class="css-1y901al-Row emmoxnt0">
+																			<ul class="css-1cduxg0-VisualUl">
+																				<li class="css-1cw0vk0"><div
+																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<span
+																							class="css-bhgne5-StyledBackground e1q5rx9q1"
+																							style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/XbPmXI00NoiQaMTVC4hJ8g.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5qUXdlRE0yTUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTNOall4T1RFeU9EY3lORGc1T0RjaWZRLm9vTVp2dWwxQ0NwdzRhdkprSW5mQ1Y3bm9Wc0swdFR4WjNhRnA0aVZMWU0&quot;);"></span>
+																					</div></li>
+																				<li class="css-1cw0vk0"><div
+																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<span
+																							class="css-bhgne5-StyledBackground e1q5rx9q1"
+																							style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/fW2LITpGtOhWQ9fl0G8v1Q.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5qUXdlRE0yTUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk1qY3pNalEwTlRnMU56ZzFNRGswTURFaWZRLnV1Ri1hVzY3c3c0Rk9qZm1xYUtLZ2EzRmRDRVpXa0ctRWR4eWpHd1BQT28&quot;);"></span>
+																					</div></li>
+																				<li class="css-1cw0vk0"><div
+																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<span
+																							class="css-bhgne5-StyledBackground e1q5rx9q1"
+																							style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/AetOOBaa6LFg0pQye_plgg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5qUXdlRE0yTUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTNOall3T0Rjd01EWXhNakl3TVRnaWZRLkMwaFFmT0JTcG5jRk1iVXZIWnczSnNzd1dsejJBN05xRDhaS3FPcnVweGs&quot;);"></span>
+																					</div></li>
+																				<li class="css-1cw0vk0"><div
+																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<span
+																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
+																					</div></li>
+																				<li class="css-1cw0vk0"><div
+																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<span
+																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
+																					</div></li>
+																				<li class="css-1cw0vk0"><div
+																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<span
+																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
+																					</div></li>
+																				<li class="css-1cw0vk0"><div
+																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<span
+																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
+																					</div></li>
+																				<li class="css-1cw0vk0"><div
+																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<span
+																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
+																					</div></li>
+																				<li class="css-1cw0vk0"><div
+																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<span
+																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
+																					</div></li>
+																				<li class="css-1cw0vk0"><div
+																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<span
+																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
+																					</div></li>
+																				<li class="css-1cw0vk0"><div
+																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<span
+																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
+																					</div></li>
+																				<div class="css-ml096x"></div>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div direction="left" class="css-a89h8a"></div>
+															<div direction="right" class="css-1qgb5vh"></div>
+															<div class="arrow_button css-38kpup" direction="left">
+																<div class="css-1hestod"></div>
+															</div>
+															<div class="arrow_button css-pf83cl" direction="right">
+																<div class="css-vp7uyl">
+																	<img
+																		src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+																		alt="forward">
+																</div>
+															</div>
+														</div>
+													</section>
 												</div>
 											</div>
-											<div direction="left" class="css-a89h8a"></div>
-											<div direction="right" class="css-1qgb5vh"></div>
-											<div class="arrow_button css-38kpup" direction="left">
-												<div class="css-1hestod"></div>
-											</div>
-											<div class="arrow_button css-pf83cl" direction="right">
-												<div class="css-vp7uyl">
-													<img
-														src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
-														alt="forward">
-												</div>
-											</div>
+											<div class="css-1s816gj-VisibleBlockOnlyMdScreen e1ezac4311"></div>
 										</div>
 										<div class="css-1gkas1x-Grid e1689zdh0">
 											<div class="css-1y901al-Row emmoxnt0">
@@ -535,244 +550,137 @@
 											</div>
 										</div>
 									</section>
-									<section class="css-1tywu13">
-										<div class="css-1gkas1x-Grid e1689zdh0">
-											<div class="css-1y901al-Row emmoxnt0">
-												<header class="css-1ue9xs6">
-													<h2 class="css-1wtjsst">동영상</h2>
-												</header>
-											</div>
-										</div>
-										<div class="css-usdi1z">
-											<div class="css-1x04fwb">
-												<div class="css-174lxc3">
-													<div class="css-1gkas1x-Grid e1689zdh0">
-														<div class="css-1y901al-Row emmoxnt0">
-															<ul
-																class="e10pt7680 css-wq135y-VisualUl-VideoHorizontalUl">
-																<li class="css-1xgzykb-VideoListItem e10pt7681"><div
-																		class="css-7wh3a0">
-																		<a
-																			href="https://redirect.watcha.com/galaxy/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj1wLTVCd3BsQ0VrUQ"
-																			target="_blank" rel="noopener noreferrer"
-																			class="css-18apgv4"><div
-																				class="css-8g82qf-StyledSelf e1q5rx9q0">
-																				<span class="css-bhgne5-StyledBackground e1q5rx9q1"
-																					style="background-image: url(&quot;https://img.youtube.com/vi/p-5BwplCEkQ/0.jpg&quot;);"></span>
-																				<div class="css-1ytinql">
-																					<span
-																						src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iLjUxIi8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE2IDMwYzcuNzMyIDAgMTQtNi4yNjggMTQtMTQgMC03LjczMS02LjI2OC0xNC0xNC0xNFMyIDguMjY5IDIgMTZjMCA3LjczMiA2LjI2OCAxNCAxNCAxNG0wIDJDNy4xNjMgMzIgMCAyNC44MzcgMCAxNiAwIDcuMTY0IDcuMTYzIDAgMTYgMHMxNiA3LjE2NCAxNiAxNmMwIDguODM3LTcuMTYzIDE2LTE2IDE2Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTEyIDIyLjA5VjkuOTFhLjUuNSAwIDAgMSAuNzY5LS40MjFsOS41NjggNi4wODlhLjUuNSAwIDAgMSAwIC44NDRsLTkuNTY4IDYuMDlBLjUuNSAwIDAgMSAxMiAyMi4wOSIvPgogICAgPC9nPgo8L3N2Zz4K"
-																						width="24px" height="24px" class="css-kr87ki"></span>
-																				</div>
-																			</div>
-																			<div class="css-xghows">
-																				<div class="css-17y9cpn">
-																					<div class=" css-sloxdm-StyledSelf eb5y16b0">
-																						<div class="css-1fucs4t-StyledText eb5y16b1">메인
-																							예고편</div>
-																					</div>
-																				</div>
-																			</div></a>
-																	</div></li>
-																<li class="css-1xgzykb-VideoListItem e10pt7681"><div
-																		class="css-7wh3a0">
-																		<a
-																			href="https://redirect.watcha.com/galaxy/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj1qcl9pV1NUclJ5RQ"
-																			target="_blank" rel="noopener noreferrer"
-																			class="css-18apgv4"><div
-																				class="css-8g82qf-StyledSelf e1q5rx9q0">
-																				<span class="css-bhgne5-StyledBackground e1q5rx9q1"
-																					style="background-image: url(&quot;https://img.youtube.com/vi/jr_iWSTrRyE/0.jpg&quot;);"></span>
-																				<div class="css-1ytinql">
-																					<span
-																						src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iLjUxIi8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE2IDMwYzcuNzMyIDAgMTQtNi4yNjggMTQtMTQgMC03LjczMS02LjI2OC0xNC0xNC0xNFMyIDguMjY5IDIgMTZjMCA3LjczMiA2LjI2OCAxNCAxNCAxNG0wIDJDNy4xNjMgMzIgMCAyNC44MzcgMCAxNiAwIDcuMTY0IDcuMTYzIDAgMTYgMHMxNiA3LjE2NCAxNiAxNmMwIDguODM3LTcuMTYzIDE2LTE2IDE2Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTEyIDIyLjA5VjkuOTFhLjUuNSAwIDAgMSAuNzY5LS40MjFsOS41NjggNi4wODlhLjUuNSAwIDAgMSAwIC44NDRsLTkuNTY4IDYuMDlBLjUuNSAwIDAgMSAxMiAyMi4wOSIvPgogICAgPC9nPgo8L3N2Zz4K"
-																						width="24px" height="24px" class="css-kr87ki"></span>
-																				</div>
-																			</div>
-																			<div class="css-xghows">
-																				<div class="css-17y9cpn">
-																					<div class=" css-sloxdm-StyledSelf eb5y16b0">
-																						<div class="css-1fucs4t-StyledText eb5y16b1">티저
-																							예고편</div>
-																					</div>
-																				</div>
-																			</div></a>
-																	</div></li>
-																<li class="css-1xgzykb-VideoListItem e10pt7681"><div
-																		class="css-7wh3a0">
-																		<a
-																			href="https://redirect.watcha.com/galaxy/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj16RVRWV3hhdFlaQQ"
-																			target="_blank" rel="noopener noreferrer"
-																			class="css-18apgv4"><div
-																				class="css-8g82qf-StyledSelf e1q5rx9q0">
-																				<span class="css-bhgne5-StyledBackground e1q5rx9q1"
-																					style="background-image: url(&quot;https://img.youtube.com/vi/zETVWxatYZA/0.jpg&quot;);"></span>
-																				<div class="css-1ytinql">
-																					<span
-																						src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iLjUxIi8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE2IDMwYzcuNzMyIDAgMTQtNi4yNjggMTQtMTQgMC03LjczMS02LjI2OC0xNC0xNC0xNFMyIDguMjY5IDIgMTZjMCA3LjczMiA2LjI2OCAxNCAxNCAxNG0wIDJDNy4xNjMgMzIgMCAyNC44MzcgMCAxNiAwIDcuMTY0IDcuMTYzIDAgMTYgMHMxNiA3LjE2NCAxNiAxNmMwIDguODM3LTcuMTYzIDE2LTE2IDE2Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTEyIDIyLjA5VjkuOTFhLjUuNSAwIDAgMSAuNzY5LS40MjFsOS41NjggNi4wODlhLjUuNSAwIDAgMSAwIC44NDRsLTkuNTY4IDYuMDlBLjUuNSAwIDAgMSAxMiAyMi4wOSIvPgogICAgPC9nPgo8L3N2Zz4K"
-																						width="24px" height="24px" class="css-kr87ki"></span>
-																				</div>
-																			</div>
-																			<div class="css-xghows">
-																				<div class="css-17y9cpn">
-																					<div class=" css-sloxdm-StyledSelf eb5y16b0">
-																						<div class="css-1fucs4t-StyledText eb5y16b1">마스터
-																							클래스 제작진 영상</div>
-																					</div>
-																				</div>
-																			</div></a>
-																	</div></li>
-																<div class="css-ml096x"></div>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div direction="left" class="css-a89h8a"></div>
-											<div direction="right" class="css-1qgb5vh"></div>
-											<div class="arrow_button css-38kpup" direction="left">
-												<div class="css-1hestod"></div>
-											</div>
-											<div class="arrow_button css-pf83cl" direction="right">
-												<div class="css-vp7uyl">
-													<img
-														src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
-														alt="forward">
-												</div>
-											</div>
-										</div>
-										<div class="css-1gkas1x-Grid e1689zdh0">
-											<div class="css-1y901al-Row emmoxnt0">
-												<hr class="css-god8tc">
-											</div>
-										</div>
-									</section>
-								</div>
-							</div>
-							<div class="css-1s816gj-VisibleBlockOnlyMdScreen e1ezac4311"></div>
-						</div>
-					</div>
-					<div class="css-1po9d5k">
-						<div class="css-uvsgck">
-							<div
-								class="css-1gfvga7-RoundedCornerBlock-RoundedCornerBlock-RoundedCornerBlock-RoundedCornerBlock">
-								<section class="css-1tywu13">
-									<div class="css-1gkas1x-Grid e1689zdh0">
-										<div class="css-1y901al-Row emmoxnt0">
-											<header class="css-1ue9xs6">
-												<h2 class="css-1wtjsst">이 작품이 담긴 컬렉션</h2>
-												<span class="css-wzn7fp">170</span>
-											</header>
-										</div>
-									</div>
-									<div class="css-usdi1z">
-										<div class="css-1x04fwb">
-											<div class="css-174lxc3">
+									<sectionclass="css-1tywu13">
+									<div class="css-1po9d5k">
+										<div class="css-uvsgck">
+											<section class="css-1tywu13">
 												<div class="css-1gkas1x-Grid e1689zdh0">
 													<div class="css-1y901al-Row emmoxnt0">
-														<ul class="ejtmadi0 css-30r08r-VisualUl-DeckHorizontalUl">
-															<li class="css-lzc9tv"><a title="여자에 대하여"
-																href="/ko-KR/decks/YavxV6oii7k1"><div
-																		class="css-8vjban">
-																		<div class="css-zc7t4e">
-																			<div class="css-ff1m0l">
-																				<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																					<span class="css-bhgne5-StyledBackground e1q5rx9q1"
-																						style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/wi0XabQg33Zt5GRSTbiocQ.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EVXdNVGMxTkRBNU5UZ3dPVGszTVRJaWZRLm0wRWF4SUxWbmVPd0d1amdUdzVYNklvS3FHbmRTYmRmMkVjc0gwaGFZa2s&quot;);"></span>
-																				</div>
-																			</div>
-																			<div class="css-ff1m0l">
-																				<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																					<span class="css-bhgne5-StyledBackground e1q5rx9q1"
-																						style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/p-H4_zNexsTwJY8eTfiCcg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTFOemMyTmpNMU1UVTVORFEzTmpZaWZRLjdVVmpYQ01CMDdHMFlCQVdoemtDcW5OYUlKSHA0NGJsQVktQXlmV2VpNW8&quot;);"></span>
-																				</div>
-																			</div>
-																			<div class="css-ff1m0l">
-																				<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																					<span class="css-bhgne5-StyledBackground e1q5rx9q1"
-																						style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/3th5wQ8IaKSialTDxT2cPg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXhMM2c1WjNZMVpESmthbmd6ZVhGNWNYWnNkWGh0SW4wLmtXSGJ0UWZjaDdFdVZ5SlJjSWFBSHdsM3hKVnpOZVFpb3JtblRxcFpVNlE&quot;);"></span>
-																				</div>
-																			</div>
-																			<div class="css-ff1m0l">
-																				<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																					<span class="css-bhgne5-StyledBackground e1q5rx9q1"
-																						style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/wJsIkRcHo3iEcC-vCS5oWg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXhMM1JzWjNSbWJYcHhjbTlzTm5Od2IyWmhZVzV2SW4wLnk3RkdmT1k3eG02TlVMdWRmbjlUcEN2eks2SURLaU9nb3Jvek9Ca2ZYMU0&quot;);"></span>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																	<ul class="css-19qbuza-VisualUl">
-																		<li class="css-iia7hw"><div
-																				class=" css-sloxdm-StyledSelf eb5y16b0">
-																				<div class="css-1fucs4t-StyledText eb5y16b1">여자에
-																					대하여</div>
-																			</div></li>
-																		<li class="css-305x3e">좋아요<!-- --> <!-- -->2736
-																		</li>
-																	</ul></a></li>
-
-															<li class="css-lzc9tv"><a title="관람 대기"
-																href="/ko-KR/decks/KyiaOfaqzWgg"><div
-																		class="css-8vjban">
-																		<div class="css-zc7t4e">
-																			<div class="css-ff1m0l">
-																				<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																					<span class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																				</div>
-																			</div>
-																			<div class="css-ff1m0l">
-																				<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																					<span class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																				</div>
-																			</div>
-																			<div class="css-ff1m0l">
-																				<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																					<span class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																				</div>
-																			</div>
-																			<div class="css-ff1m0l">
-																				<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																					<span class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																	<ul class="css-19qbuza-VisualUl">
-																		<li class="css-iia7hw"><div
-																				class=" css-sloxdm-StyledSelf eb5y16b0">
-																				<div class="css-1fucs4t-StyledText eb5y16b1">관람
-																					대기</div>
-																			</div></li>
-																		<li class="css-305x3e">좋아요 17</li>
-																	</ul></a></li>
-															<div class="css-ml096x"></div>
-														</ul>
+														<header class="css-1ue9xs6">
+															<h2 class="css-1wtjsst">이 작품이 담긴 컬렉션</h2>
+															<span class="css-wzn7fp">170</span>
+														</header>
 													</div>
 												</div>
-											</div>
-										</div>
-										<div direction="left" class="css-a89h8a"></div>
-										<div direction="right" class="css-1qgb5vh"></div>
-										<div class="arrow_button css-38kpup" direction="left">
-											<div class="css-1hestod"></div>
-										</div>
-										<div class="arrow_button css-pf83cl" direction="right">
-											<div class="css-vp7uyl">
-												<img
-													src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
-													alt="forward">
-											</div>
+												<div class="css-usdi1z">
+													<div class="css-1x04fwb">
+														<div class="css-174lxc3">
+															<div class="css-1gkas1x-Grid e1689zdh0">
+																<div class="css-1y901al-Row emmoxnt0">
+																	<ul
+																		class="ejtmadi0 css-30r08r-VisualUl-DeckHorizontalUl">
+																		<li class="css-lzc9tv"><a title="여자에 대하여"
+																			href="/ko-KR/decks/YavxV6oii7k1"><div
+																					class="css-8vjban">
+																					<div class="css-zc7t4e">
+																						<div class="css-ff1m0l">
+																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
+																								<span
+																									class="css-bhgne5-StyledBackground e1q5rx9q1"
+																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/wi0XabQg33Zt5GRSTbiocQ.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EVXdNVGMxTkRBNU5UZ3dPVGszTVRJaWZRLm0wRWF4SUxWbmVPd0d1amdUdzVYNklvS3FHbmRTYmRmMkVjc0gwaGFZa2s&quot;);"></span>
+																							</div>
+																						</div>
+																						<div class="css-ff1m0l">
+																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
+																								<span
+																									class="css-bhgne5-StyledBackground e1q5rx9q1"
+																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/p-H4_zNexsTwJY8eTfiCcg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTFOemMyTmpNMU1UVTVORFEzTmpZaWZRLjdVVmpYQ01CMDdHMFlCQVdoemtDcW5OYUlKSHA0NGJsQVktQXlmV2VpNW8&quot;);"></span>
+																							</div>
+																						</div>
+																						<div class="css-ff1m0l">
+																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
+																								<span
+																									class="css-bhgne5-StyledBackground e1q5rx9q1"
+																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/3th5wQ8IaKSialTDxT2cPg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXhMM2c1WjNZMVpESmthbmd6ZVhGNWNYWnNkWGh0SW4wLmtXSGJ0UWZjaDdFdVZ5SlJjSWFBSHdsM3hKVnpOZVFpb3JtblRxcFpVNlE&quot;);"></span>
+																							</div>
+																						</div>
+																						<div class="css-ff1m0l">
+																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
+																								<span
+																									class="css-bhgne5-StyledBackground e1q5rx9q1"
+																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/wJsIkRcHo3iEcC-vCS5oWg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXhMM1JzWjNSbWJYcHhjbTlzTm5Od2IyWmhZVzV2SW4wLnk3RkdmT1k3eG02TlVMdWRmbjlUcEN2eks2SURLaU9nb3Jvek9Ca2ZYMU0&quot;);"></span>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																				<ul class="css-19qbuza-VisualUl">
+																					<li class="css-iia7hw"><div
+																							class=" css-sloxdm-StyledSelf eb5y16b0">
+																							<div class="css-1fucs4t-StyledText eb5y16b1">여자에
+																								대하여</div>
+																						</div></li>
+																					<li class="css-305x3e">좋아요<!-- --> <!-- -->2736
+																					</li>
+																				</ul></a></li>
+
+																		<li class="css-lzc9tv"><a title="관람 대기"
+																			href="/ko-KR/decks/KyiaOfaqzWgg"><div
+																					class="css-8vjban">
+																					<div class="css-zc7t4e">
+																						<div class="css-ff1m0l">
+																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
+																								<span
+																									class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
+																							</div>
+																						</div>
+																						<div class="css-ff1m0l">
+																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
+																								<span
+																									class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
+																							</div>
+																						</div>
+																						<div class="css-ff1m0l">
+																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
+																								<span
+																									class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
+																							</div>
+																						</div>
+																						<div class="css-ff1m0l">
+																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
+																								<span
+																									class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																				<ul class="css-19qbuza-VisualUl">
+																					<li class="css-iia7hw"><div
+																							class=" css-sloxdm-StyledSelf eb5y16b0">
+																							<div class="css-1fucs4t-StyledText eb5y16b1">관람
+																								대기</div>
+																						</div></li>
+																					<li class="css-305x3e">좋아요 17</li>
+																				</ul></a></li>
+																		<div class="css-ml096x"></div>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div direction="left" class="css-a89h8a"></div>
+													<div direction="right" class="css-1qgb5vh"></div>
+													<div class="arrow_button css-38kpup" direction="left">
+														<div class="css-1hestod"></div>
+													</div>
+													<div class="arrow_button css-pf83cl" direction="right">
+														<div class="css-vp7uyl">
+															<img
+																src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+																alt="forward">
+														</div>
+													</div>
+												</div>
+
+											</section>
 										</div>
 									</div>
-									<div class="css-1gkas1x-Grid e1689zdh0">
-										<div class="css-1y901al-Row emmoxnt0">
-											<hr class="css-god8tc">
-										</div>
-									</div>
-								</section>
+									</section>
+								</div>
 							</div>
 						</div>
+
 					</div>
+
 					<div class="css-ppmf8q-HiddenBlockOnlyMdScreen e1ezac4310"></div>
 				</div>
 			</div>
