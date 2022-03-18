@@ -138,6 +138,7 @@ body {
 
 .profile-userpic img {
   float: none;
+  text-align: center;
   margin: 0 auto;
   width: 50%;
   height: 50%;
@@ -153,6 +154,7 @@ body {
 
 .profile-usertitle-name {
   color: #5a7391;
+  text-align: center;
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 7px;
@@ -160,6 +162,7 @@ body {
 
 .profile-usertitle-intro {
   text-transform: uppercase;
+  text-align: center;
   color: #5b9bd1;
   font-size: 12px;
   font-weight: 600;
@@ -173,6 +176,7 @@ body {
 
 .profile-userbuttons .btn {
   text-transform: uppercase;
+  text-align: center;
   font-size: 11px;
   font-weight: 600;
   padding: 6px 15px;
@@ -181,6 +185,7 @@ body {
 
 .profile-userbuttons .btn:last-child {
   margin-right: 0px;
+  text-align: center;
 }
 
 
@@ -210,6 +215,11 @@ body {
 					<li>${member.name}</li>
 					</ul>
 					</div>
+					<div>
+					<ul>
+					<li>팔로워  | 팔로워 </li>
+					</ul>
+					</div>
 					<div class="profile-usertitle-intro">
 					<ul>
 					<li>${member.introduction}</li>
@@ -220,6 +230,27 @@ body {
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
 					<input type="button"  class="btn btn-success btn-sm" value="프로필수정" onclick="location.href='update.do'">
+					<a href="${pageContext.request.contextPath}/main/main.do">
+			    	<img src="${pageContext.request.contextPath}/resources/images/review.png" width="25" height="25" ></a>
+			    	<a href="${pageContext.request.contextPath}/main/main.do">
+			    	<img src="${pageContext.request.contextPath}/resources/images/list.png" width="25" height="25" ></a>
+			    	<a href="${pageContext.request.contextPath}/main/main.do">
+			    	<img src="${pageContext.request.contextPath}/resources/images/cal.png" width="27" height="27" ></a>
+				</div>
+				<div>
+					<input type="button"  value="영화" onclick="${pageContext.request.contextPath}/main/main.do'">
+					<input type="button"  value="시리즈" onclick="${pageContext.request.contextPath}/main/main.do'">
+				</div>
+				<div>
+				<h2>좋아요</h2>
+					<ul>
+					<li>
+					<input type="button" value="좋아한 컬랙션" onclick="${pageContext.request.contextPath}/main/main.do'">
+					</li>
+					<li>
+					<input type="button" value="좋아한 리뷰" onclick="${pageContext.request.contextPath}/main/main.do'">
+					</li>
+					</ul>
 				</div>
 				<!-- END SIDEBAR BUTTONS -->
 		</div>
