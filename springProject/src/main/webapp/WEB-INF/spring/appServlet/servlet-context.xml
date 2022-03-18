@@ -38,7 +38,7 @@
 			</beans:list>
 		</beans:property>	
 	</beans:bean>
-	
+	 
 	<beans:bean id="viewResolver"
 	   class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<beans:property name="viewClass" 

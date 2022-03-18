@@ -63,7 +63,7 @@
 	
 	<!-- 어노테이션 방식으로 처리할 때 반드시 명시함 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
+	 
 	<!-- mybatis 설정 -->
 	<bean id="sqlSessionFactory"
 	     class="org.mybatis.spring.SqlSessionFactoryBean">

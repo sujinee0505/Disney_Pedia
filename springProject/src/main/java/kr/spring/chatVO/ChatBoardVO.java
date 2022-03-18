@@ -15,7 +15,7 @@ public class ChatBoardVO {
 	private String content; //채팅게시글 내용
 	@NotEmpty
 	private Date reg_date; //채팅게시글 작성일
-	
+	 
 	//*테이블에 없지만 JOIN해서 빈번하게 사용하므로 추가
 	@NotEmpty
 	private String name; //회원이름(닉네임)
