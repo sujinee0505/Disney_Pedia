@@ -35,6 +35,7 @@ public class MemberAjaxController {
 		MemberVO member = memberService.selectCheckMember(id);
 		if(member != null) {
 			//아이디 중복
+			map.put("result","idDuplicated");
 		}else {
 			if(!Pattern.matches("^[A-Za-z0-9]{4,12}$", id)) {
 				//패턴 불일치

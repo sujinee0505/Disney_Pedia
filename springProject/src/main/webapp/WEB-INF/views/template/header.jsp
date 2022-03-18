@@ -2,7 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
+<script type="text/javascript">
 
+</script>
 </head>
 <!-- 상단 시작 -->
 <header class="css-6k8tqb">
@@ -36,11 +38,14 @@
 							</div>
 						</div></li>
 					<c:if test="${empty user_num}">
-					
-					
-						<li class="css-bj71cw"><button
-								onclick="location.href='${pageContext.request.contextPath}/member/login.do'"
-								class="css-fn0ezc-StylelessButton">로그인</button></li> 
+					<!--onclick="location.href='${pageContext.request.contextPath}/member/login.do'"-->
+					<!-- data-target="#myModal" data-toggle="modal" data-remote="${pageContext.request.contextPath}/member/login.do" -->					
+					<!-- 로그인 -->
+						<li class="css-bj71cw">
+						<button id="login-btn" 			
+						onclick="location.href='${pageContext.request.contextPath}/member/login.do'"			
+						class="css-fn0ezc-StylelessButton">로그인</button></li> 
+					<!-- 로그인 -->
 					
 						<li class="css-bj71cw"><button
 								onclick="location.href='${pageContext.request.contextPath}/member/registerUser.do'"
@@ -90,3 +95,4 @@
 	</ul>
 </header>
 <!-- 상단 끝 -->
+

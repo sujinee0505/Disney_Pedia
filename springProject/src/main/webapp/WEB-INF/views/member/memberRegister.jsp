@@ -1,8 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!-- 중앙 컨텐츠 시작 -->
-<script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 		let checkId = 0;
@@ -36,7 +46,7 @@
 						checkId = 0;
 					}else{
 						checkId=0;
-						alert('ID중복체크 오류');
+						alert('ID 중복체크 오류');
 					}
 				},
 				error:function(){
@@ -64,33 +74,155 @@
 		});
 	});
 </script>
-<div class="page-main">
-	<h2>회원 가입</h2>
-	<form:form modelAttribute="memberVO" action="registerUser.do" id="register_form">
-		<form:errors element="div" cssClass="error-color"/>
-		<ul>
-			<li>
-				<form:label path="id">아이디</form:label>
-				<form:input path="id" placeholder="영문,숫자 4~12"/>
-				<input type="button" id="confirmId" value="ID중복체크">
-				<span id="message_id"></span>
-				<form:errors path="id" cssClass="error-color"/>
-			</li>
-			<li>
-				<form:label path="name">이름</form:label>
-				<form:input path="name"/>
-				<form:errors path="name" cssClass="error-color"/>
-			</li>
-			<li>
-				<form:label path="passwd">비밀번호</form:label>
-				<form:password path="passwd" placeholder="영문,숫자 4~12"/>
-				<form:errors path="passwd" cssClass="error-color"/>
-			</li>
-		</ul>
-		<div class="align-center">
-			<form:button>전송</form:button>
-			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {
+	font-family: 'Varela Round', sans-serif;
+}
+
+.modal-login {
+	width: 320px;
+	margin: 30px auto;
+}
+
+.modal-login .modal-content {
+	border-radius: 1px;
+	border: none;
+}
+
+.modal-login .modal-header {
+	position: relative;
+	justify-content: center;
+	background: #f2f2f2;
+}
+
+.modal-login .modal-body {
+	padding: 30px;
+}
+
+.modal-login .modal-footer {
+	background: #f2f2f2;
+}
+
+.modal-login h4 {
+	text-align: center;
+	font-size: 26px;
+}
+
+.modal-login label {
+	font-weight: normal;
+	font-size: 13px;
+}
+
+.modal-login .form-control, .modal-login .btn {
+	min-height: 38px;
+	border-radius: 2px;
+}
+
+.modal-login .hint-text {
+	text-align: center;
+}
+
+.modal-login .close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+
+.modal-login .checkbox-inline {
+	margin-top: 12px;
+}
+
+.modal-login input[type="checkbox"] {
+	margin-top: 2px;
+}
+
+.modal-login .btn {
+	min-width: 100px;
+	background: #3498db;
+	border: none;
+	line-height: normal;
+}
+
+.modal-login .btn:hover, .modal-login .btn:focus {
+	background: #248bd0;
+}
+
+.modal-login .hint-text a {
+	color: #999;
+}
+
+.trigger-btn {
+	display: inline-block;
+	margin: 100px auto;
+}
+</style>
+</head>
+<body>
+	<!-- 모달창 띄우는 부분 -->
+	<div class="text-center">
+		<a href="#myModal2" class="trigger-btn" data-toggle="modal">회원가입</a>
+	</div>
+
+	<!-- Modal HTML -->
+	<div id="myModal2" class="modal fade">
+		<div class="modal-dialog modal-login">
+			<div class="modal-content">
+
+				<form:form modelAttribute="memberVO" action="registerUser.do"
+					id="register_form">
+					<div class="modal-header">
+						<h4 class="modal-title">회원가입</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+
+						<div class="form-group">
+							<%-- <form:label path="name">이름</form:label> --%>
+							<form:input placeholder="이름" path="name" type="text"
+								class="form-control" required="required" />
+							<form:errors path="name" cssClass="error-color" />
+						</div>
+
+						<div class="form-group">
+							<%-- <form:label path="id">아이디</form:label> --%>
+							<form:input placeholder="아이디 " path="id" type="text"
+								class="form-control" required="required" />
+							<input type="button" id="confirmId" value="ID중복체크"> <span
+								id="message_id"></span>
+							<form:errors path="id" cssClass="error-color" />
+						</div>
+
+						<div class="form-group">
+							<%-- <form:label path="passwd">비밀번호</form:label> --%>
+							<form:password placeholder="비밀번호 " path="passwd"
+								class="form-control" required="required" />
+						</div>
+
+						<div class="form-group">
+							<form:button class="btn btn-primary form-control">회원가입</form:button>
+						</div>
+
+						<div class="clearfix">
+							이미 가입하셨나요? 
+							<a href='${pageContext.request.contextPath}/member/login.do'>로그인</a>
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<div class="form-group social">
+							<input type="button" class="btn btn-primary form-control"
+								value="소셜 로그인 들어갈부분">
+						</div>
+
+					</div>
+				</form:form>
+			</div>
 		</div>
-	</form:form>
-</div>
+	</div>
+</body>
+</html>
 <!-- 중앙 컨텐츠 끝 -->
