@@ -1,13 +1,31 @@
 package kr.spring.contents.vo;
 
+import java.util.Date;
+
 public class ContentsVO {
 	private String id;
-	private String popularity;
+	private float popularity;
 	private String title;
 	private String overview;
 	private String poster_path;
-	private String release_date;
-	private String vote_average;
+	private Date release_date;
+	private float vote_average;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public float getPopularity() {
+		return popularity;
+	}
+
+	public void setPopularity(float f) {
+		this.popularity = f;
+	}
 
 	public String getTitle() {
 		return title;
@@ -30,43 +48,23 @@ public class ContentsVO {
 	}
 
 	public void setPoster_path(String poster_path) {
-		if (poster_path != null) {
-			this.poster_path = "https://image.tmdb.org/t/p/original/" + poster_path;
-		} else {
-			this.poster_path = poster_path;
-		}
+		this.poster_path = "https://image.tmdb.org/t/p/original/" + poster_path;
 
 	}
 
-	public String getRelease_date() {
+	public Date getRelease_date() {
 		return release_date;
 	}
 
-	public void setRelease_date(String release_date) {
+	public void setRelease_date(Date release_date) {
 		this.release_date = release_date;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getPopularity() {
-		return popularity;
-	}
-
-	public void setPopularity(String popularity) {
-		this.popularity = popularity;
-	}
-
-	public String getVote_average() {
+	public float getVote_average() {
 		return vote_average;
 	}
 
-	public void setVote_average(String vote_average) {
+	public void setVote_average(float vote_average) {
 		this.vote_average = vote_average;
 	}
 
