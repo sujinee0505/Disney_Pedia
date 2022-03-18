@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="css-16jhzm7-Self e1ezac430">
 	<div class="css-wg0jak">
 		<button class="css-1xc2mdf-StylelessButton">
@@ -40,18 +42,22 @@
 							<div class="css-1d6udxb">
 								<div class="css-11zdk8l-PosterWithRankingInfoBlock e1svyhwg10">
 									<div class=" css-28gyaj-StyledLazyLoadingImage ezcopuc0">
-										<img alt="스펜서의 포스터"
-											src="https://an2-img.amz.wtchn.net/image/v2/_8BzRXrN328-dm3ILdHrEQ.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1qZ3dlRFF3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EVXdNVGMxTkRBNU5UZ3dPVGszTVRJaWZRLklhemxOOEg3cU9KQVV0clZ3QXVjRS03TmZlQnd3RWhobUdPQlpPRDVtTGs"
-											class="css-qhzw1o-StyledImg ezcopuc1">
+										<img alt="포스터" src="${contents.poster_path }"
+											class="css-qhzw1o-StyledImgezcopuc1"
+											style="vertical-align: top; width: 100%; height: 100%; opacity: 1; object-fit: cover; transition: opacity 420ms ease 0s;">
 									</div>
 									<div class="css-r6qxq2-ContentMetaInfoBlock e1svyhwg11">
 										<ul class="css-1v9zk7c-RankingInfoList e1svyhwg14">
 											<li>들어갈<em>내용이</em></li>
 											<li>없는데<em>어쩌죠</em></li>
 										</ul>
-										<h1 class="css-j40qn0-TitleOnPosterBlock e1svyhwg12">스펜서</h1>
-										<div class="css-11h0kfd-Detail e1svyhwg18">2021 ・ 전기/드라마
-											・ 영국/독일/미국</div>
+										<h1 class="css-j40qn0-TitleOnPosterBlock e1svyhwg12">평균
+											평점 ${contents.title }점</h1>
+										<div class="css-11h0kfd-Detail e1svyhwg18">
+											<fmt:formatDate value="${contents.release_date }"
+												pattern="yyyy-MM" />
+											추가로 장르(보류)
+										</div>
 									</div>
 								</div>
 							</div>
@@ -63,11 +69,14 @@
 						<div class="css-1po9d5k">
 							<div class="css-1d6udxb">
 								<div class="css-13h49w0-PaneInner e1svyhwg16">
-									<h1 class="css-171k8ad-Title e1svyhwg17">스펜서</h1>
-									<div class="css-11h0kfd-Detail e1svyhwg18">2021 ・ 전기/드라마
-										・ 영국/독일/미국</div>
+									<h1 class="css-171k8ad-Title e1svyhwg17">${contents.title }</h1>
+									<div class="css-11h0kfd-Detail e1svyhwg18">
+										<fmt:formatDate value="${contents.release_date }"
+											pattern="yyyy-MM" />
+										추가로 장르(보류)
+									</div>
 									<div class="css-og1gu8-ContentRatings e1svyhwg20"
-										style="white-space: nowrap;">평균 ★3.6 (1,460명)</div>
+										style="white-space: nowrap;">${contents.vote_average }</div>
 									<div class="css-5qj1gb-ContentActionSection e1svyhwg19">
 										<div class="css-1jlb6q">
 											<div class="css-yt2kjp">
@@ -190,17 +199,15 @@
 											<div class="css-1y901al-Row emmoxnt0">
 												<article class="css-1k6vajx-Overview eokm2780">
 													<div class="css-wvh1uf-Summary eokm2781">
-														Spencer<br> <span
-															class="css-1t00yeb-OverviewMeta eokm2782">2021 ·
-															영국 · 전기</span><br> <span
+														${contents.title }<br> <span
+															class="css-1t00yeb-OverviewMeta eokm2782"><fmt:formatDate
+																value="${contents.release_date }" pattern="yyyy-MM" />
+															추가로 장르(보류)</span><br> <span
 															class="css-1t00yeb-OverviewMeta eokm2782">1시간 57분
 															· 12세</span>
 													</div>
 													<div class=" css-k82gae-StyledSelf eb5y16b0">
-														<div class="css-kywn6v-StyledText eb5y16b1">1991년,
-															왕실 가족이 샌드링엄 별장에 모여서 보내는 크리스마스. 연휴 3일간 이뤄지는 다이애나 왕세자비의 감정
-															변화에 집중한다. 스펜서는 직접 운전을 하다가 뒤늦게 별장에 도착한다. 모두가 그의 지각을 마뜩잖게
-															생각하고, 그 순간부터 통제는 시작된다...</div>
+														<div class="css-kywn6v-StyledText eb5y16b1">${contents.overview }</div>
 													</div>
 												</article>
 												<hr class="css-g67iqr">

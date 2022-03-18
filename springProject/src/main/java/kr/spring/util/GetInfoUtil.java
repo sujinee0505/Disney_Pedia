@@ -66,9 +66,11 @@ public class GetInfoUtil {
 	public List<ContentsVO> getInfoList(String type) {
 		int pages = getPages(type);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
 
 		List<ContentsVO> infoList = null;
 		try {
+			infoList = new ArrayList<ContentsVO>();
 			// 페이지 마다 루트를 돌며 값 추출 및 저장
 			for (int i = 1; i <= 1; i++) {
 				String apiURL = "https://api.themoviedb.org/3/discover/" + type + "?api_key=" + KEY
@@ -84,8 +86,9 @@ public class GetInfoUtil {
 				JSONParser jsonParser = new JSONParser();
 				JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
 				JSONArray list = (JSONArray) jsonObject.get("results");
-				infoList = new ArrayList<ContentsVO>();
+
 				for (int j = 0; j < list.size(); j++) {
+
 					ContentsVO vo = new ContentsVO();
 					JSONObject contents = (JSONObject) list.get(j);
 					if (contents.get("id") != null) {
@@ -109,17 +112,19 @@ public class GetInfoUtil {
 						vo.setPoster_path("");
 					}
 
-					if (contents.get("release_date") != null) {
+					if (contents.get("release_date") != null && !contents.get("release_date").equals("")) {
 						Date release_date = dateFormat.parse((String) contents.get("release_date"));
 						vo.setRelease_date(release_date);
-					} else if (contents.get("release_date") == null || contents.get("release_date").equals("")) {
-						vo.setRelease_date(null);
+					} else if (contents.get("release_date") == null) {
+						vo.setRelease_date(date);
 					}
 					if (contents.get("first_air_date") != null) {
-						Date release_date = dateFormat.parse((String) contents.get("first_air_date"));
-						vo.setRelease_date(release_date);
+						Date first_air_date = dateFormat.parse((String) contents.get("first_air_date"));
+						vo.setFirst_air_date(first_air_date);
+						;
 					} else if (contents.get("first_air_date") == null || contents.get("first_air_date").equals("")) {
-						vo.setRelease_date(null);
+						vo.setFirst_air_date(date);
+						;
 					}
 
 					if (contents.get("title") != null) {
@@ -141,6 +146,38 @@ public class GetInfoUtil {
 			e.printStackTrace();
 		}
 		return infoList;
+	}
+
+	public ContentsVO getInfoDetail(String type, int id) {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		ContentsVO contents = new ContentsVO();
+
+		try {
+
+			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "?api_key=" + KEY + "&language=ko-KR";
+
+			URL url = new URL(apiURL);
+
+			BufferedReader bf;
+
+			bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+
+			result = bf.readLine();
+
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
+
+			contents.setTitle(jsonObject.get("title").toString());
+			contents.setOverview(jsonObject.get("overview").toString());
+			contents.setPoster_path(jsonObject.get("poster_path").toString());
+			Date release_date = dateFormat.parse((String) jsonObject.get("release_date"));
+			contents.setRelease_date(release_date);
+			contents.setVote_average(Float.parseFloat(String.valueOf(jsonObject.get("vote_average"))));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return contents;
 	}
 
 }
