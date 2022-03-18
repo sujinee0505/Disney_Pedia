@@ -21,6 +21,8 @@
 		<div class="align-center">
 			<form:button>전송</form:button>
 			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+			<input type="button" value="비밀번호변경" onclick="location.href='changePassword.do'"> 
+			<input type="button" value="회원탈퇴" onclick="location.href='delete.do'">  
 		</div>
 	</form:form>
 </div>
