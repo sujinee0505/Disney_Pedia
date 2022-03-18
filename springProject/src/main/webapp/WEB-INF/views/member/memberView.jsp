@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!-- 중앙 컨텐츠 시작 -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -81,7 +84,7 @@
 		
 	});
 </script>
-<div class="page-main">
+<%-- <div class="page-main">
 	<h2>프로필 사진</h2>
 	<ul>
 		<li>
@@ -105,14 +108,120 @@
 	</ul>
 	<h2>회원 상세 정보</h2>
 	<ul>
-		<li>이름 : ${member.name}</li>
-		<li>소개 : ${member.introduction}</li>
+		<li>이름 </li>
+		<li>${member.name}</li>
+		<li>소개</li>
+		<li>${member.introduction}</li>
+		<li>팔로워 {member.active_mem} | 팔로워 {member.passive_mem}</li>
+		
 	</ul>
 	<hr size="1" width="100%">
 	<p class="align-right">
 		<input type="button" value="회원정보수정" onclick="location.href='update.do'">
+		
 		<input type="button" value="비밀번호변경" onclick="location.href='changePassword.do'"> 
 		<input type="button" value="회원탈퇴" onclick="location.href='delete.do'">                                     
 	</p>
-</div>
+</div> --%>
 <!-- 중앙 컨텐츠 끝 -->
+<style>
+body {
+  background: #F1F3FA;
+}
+
+/* Profile container */
+.profile {
+  text-align: center;
+  background: #fff;
+  min-height: 460px;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-intro {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+
+
+</style>
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<ul>
+						<li><c:if test="${empty member.photo_name}">
+								<img
+									src="${pageContext.request.contextPath}/resources/images/face.png"
+									width="200" height="200" class="my-photo">
+							</c:if> <c:if test="${!empty member.photo_name}">
+								<img
+									src="${pageContext.request.contextPath}/member/photoView.do"
+									width="200" height="200" class="my-photo">
+							</c:if></li>
+					</ul>
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+					<ul>
+					<li>${member.name}</li>
+					</ul>
+					</div>
+					<div class="profile-usertitle-intro">
+					<ul>
+					<li>${member.introduction}</li>
+					</ul>
+					</div>
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+					<input type="button"  class="btn btn-success btn-sm" value="프로필수정" onclick="location.href='update.do'">
+				</div>
+				<!-- END SIDEBAR BUTTONS -->
+		</div>
+	</div>
+</div>
