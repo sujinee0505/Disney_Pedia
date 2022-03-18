@@ -76,7 +76,7 @@
 										추가로 장르(보류)
 									</div>
 									<div class="css-og1gu8-ContentRatings e1svyhwg20"
-										style="white-space: nowrap;">${contents.vote_average }</div>
+										style="white-space: nowrap;">${Math.ceil((contents.vote_average)/2*10)/10}</div>
 									<div class="css-5qj1gb-ContentActionSection e1svyhwg19">
 										<div class="css-1jlb6q">
 											<div class="css-yt2kjp">
