@@ -1,4 +1,4 @@
-package kr.spring.chatVO;
+package kr.spring.chat.vo;
 
 import java.sql.Date;
 
@@ -11,7 +11,7 @@ public class ChattingVO {
 	private String content; //내용
 	private Date send_date; //발신일
 	private Date read_date; //수신일
-	private Date read; //수신여부
+	private int read; //수신여부
 	
 	
 	public int getDchat_num() {
@@ -56,10 +56,18 @@ public class ChattingVO {
 	public void setRead_date(Date read_date) {
 		this.read_date = read_date;
 	}
-	public Date getRead() {
+	public int getRead() {
 		return read;
 	}
-	public void setRead(Date read) {
+	public void setRead(int read) {
 		this.read = read;
 	}
+	
+	@Override
+	public String toString() {
+		return "ChattingVO [dchat_num=" + dchat_num + ", chatroom_num=" + chatroom_num + ", mem_num=" + mem_num
+				+ ", opponent_num=" + opponent_num + ", content=" + content + ", send_date=" + send_date
+				+ ", read_date=" + read_date + ", read=" + read + "]";
+	}
+	
 }

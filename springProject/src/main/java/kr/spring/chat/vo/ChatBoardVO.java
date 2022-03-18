@@ -1,4 +1,4 @@
-package kr.spring.chatVO;
+package kr.spring.chat.vo;
 
 import java.sql.Date;
 
