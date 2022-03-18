@@ -134,12 +134,17 @@ body {
   text-align: center;
   background: #fff;
   min-height: 460px;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
 }
-
+ul {
+  list-style: none
+}
 .profile-userpic img {
   float: none;
-  text-align: center;
-  margin: 0 auto;
+  text-align: center; 
+  margin-top: 30px !important;
   width: 50%;
   height: 50%;
   -webkit-border-radius: 50% !important;
@@ -216,9 +221,6 @@ body {
 					</ul>
 					</div>
 					<div>
-					<ul>
-					<li>팔로워  | 팔로워 </li>
-					</ul>
 					</div>
 					<div class="profile-usertitle-intro">
 					<ul>
