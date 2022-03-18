@@ -64,6 +64,7 @@
 		<beans:property name="basenames">
 			<beans:list>
 				<beans:value>messages.validation</beans:value>
+				<beans:value>messages.BoardValidation</beans:value>
 			</beans:list>
 		</beans:property>	
 	</beans:bean>
