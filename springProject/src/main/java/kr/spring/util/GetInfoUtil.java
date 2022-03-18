@@ -148,4 +148,36 @@ public class GetInfoUtil {
 		return infoList;
 	}
 
+	public ContentsVO getInfoDetail(String type, int id) {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		ContentsVO contents = new ContentsVO();
+
+		try {
+
+			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "?api_key=" + KEY + "&language=ko-KR";
+
+			URL url = new URL(apiURL);
+
+			BufferedReader bf;
+
+			bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+
+			result = bf.readLine();
+
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
+
+			contents.setTitle(jsonObject.get("title").toString());
+			contents.setOverview(jsonObject.get("overview").toString());
+			contents.setPoster_path(jsonObject.get("poster_path").toString());
+			Date release_date = dateFormat.parse((String) jsonObject.get("release_date"));
+			contents.setRelease_date(release_date);
+			contents.setVote_average(Float.parseFloat(String.valueOf(jsonObject.get("vote_average"))));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return contents;
+	}
+
 }
