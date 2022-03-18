@@ -46,11 +46,8 @@
 									</div>
 									<div class="css-r6qxq2-ContentMetaInfoBlock e1svyhwg11">
 										<ul class="css-1v9zk7c-RankingInfoList e1svyhwg14">
-											<li class="css-ejhszv-RankingInfoListItem e1svyhwg13">예매
-												순위<em>3위(13%)</em>
-											</li>
-											<li>개봉<em>3일째</em></li>
-											<li>누적 관객<em>2만명</em></li>
+											<li>들어갈<em>내용이</em></li>
+											<li>없는데<em>어쩌죠</em></li>
 										</ul>
 										<h1 class="css-j40qn0-TitleOnPosterBlock e1svyhwg12">스펜서</h1>
 										<div class="css-11h0kfd-Detail e1svyhwg18">2021 ・ 전기/드라마

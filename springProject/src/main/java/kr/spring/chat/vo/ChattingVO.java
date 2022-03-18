@@ -11,7 +11,7 @@ public class ChattingVO {
 	private String content; //내용
 	private Date send_date; //발신일
 	private Date read_date; //수신일
-	private int read; //수신여부
+	private int read; //수신여부 
 	
 	
 	public int getDchat_num() {
