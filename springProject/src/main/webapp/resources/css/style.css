@@ -1,13 +1,89 @@
 @charset "UTF-8";
 
-.my-photo{
+.my-photo{ /*프로필사진설정*/
 	object-fit:cover;
 	object-position:top;
 	border-radius:50%;
 }
+/*==========별아이콘 설정 시작==========*/
+/*별점구역*/
+.css-1jlb6q {
+	width: 228px;
+	height: 66px;
+	margin: 20px auto 24px;
+}
+
+@media ( min-width : 1023px) {
+	.css-1jlb6q {
+		width: 238px;
+		height: 57px;
+	}
+}
+
+@media ( min-width : 719px) { /*평가하기 구역 너비조정*/
+	.css-1jlb6q {
+		width: 396px; /*196*/
+		height: 51px;
+		margin: 0;
+	}
+}
+.css-1m7ruyk { /*별아이콘전체div*/
+	position: relative;
+	text-align: center;
+	width: 200px;
+	margin: 0 auto;
+	cursor: pointer;
+	width: 100%;
+}
+.css-1mbuso5 { /*별아이콘하나*/
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	height: 20px; /*40*/
+}
+
+.css-fnwbjg { /*별아이콘svg*/
+	vertical-align: top;
+	width: 20px;  /*40*/
+	height: 20px;  /*40*/
+}
+
+@media ( min-width : 1023px) {
+	.css-1m7ruyk {
+		width: 190px;
+	}
+}
+
+@media ( min-width : 719px) {
+	.css-1m7ruyk {
+		width: 160px;
+		margin: 3px auto 0; 
+	}
+}
+
+.css-1m7ruyk svg {
+	width: 22px;  /*44*/
+	height: 22px; /*44*/
+}
+
+@media ( min-width : 1023px) {
+	.css-1m7ruyk svg {
+		width: 38px; /*38*/
+		height: 38px; /*38*/
+	}
+}
+
+@media ( min-width : 719px) { /*별사이즈조절*/
+	.css-1m7ruyk svg {
+		width: 26px; /*32*/
+		height: 26px; /*32*/
+	}
+}
+
+/*==========별아이콘 설정 끝==========*/
 
 
-/*메인,헤더*/
+/*메인,헤더 설정*/
 #header_logout{
 	margin-right:20px;
 }
@@ -3151,12 +3227,7 @@ h1, h3, p, hr {
 	display: inline-block;
 }
 
-.css-1mbuso5 {
-	display: inline-block;
-	position: relative;
-	vertical-align: top;
-	height: 40px;
-}
+
 
 @media ( min-width : 719px) {
 	.css-s5x9hn-ContentActionDivider {
@@ -3197,26 +3268,6 @@ h1, h3, p, hr {
 	}
 }
 
-.css-1jlb6q {
-	width: 228px;
-	height: 66px;
-	margin: 20px auto 24px;
-}
-
-@media ( min-width : 1023px) {
-	.css-1jlb6q {
-		width: 238px;
-		height: 57px;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-1jlb6q {
-		width: 196px;
-		height: 51px;
-		margin: 0;
-	}
-}
 
 .css-s5x9hn-ContentActionDivider {
 	float: left;
@@ -3563,52 +3614,6 @@ button, input, optgroup, select, textarea {
 	backface-visibility: hidden;
 }
 
-.css-1m7ruyk {
-	position: relative;
-	text-align: center;
-	width: 200px;
-	margin: 0 auto;
-	cursor: pointer;
-	width: 100%;
-}
-
-@media ( min-width : 1023px) {
-	.css-1m7ruyk {
-		width: 190px;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-1m7ruyk {
-		width: 160px;
-		margin: 3px auto 0;
-	}
-}
-
-.css-1m7ruyk svg {
-	width: 44px;
-	height: 44px;
-}
-
-@media ( min-width : 1023px) {
-	.css-1m7ruyk svg {
-		width: 38px;
-		height: 38px;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-1m7ruyk svg {
-		width: 32px;
-		height: 32px;
-	}
-}
-
-.css-fnwbjg {
-	vertical-align: top;
-	width: 40px;
-	height: 40px;
-}
 
 @media ( min-width : 719px) {
 	.css-1bn16fq-ContentSections {
