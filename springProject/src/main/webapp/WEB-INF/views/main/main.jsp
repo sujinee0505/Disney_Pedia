@@ -32,10 +32,9 @@
 </script>
 
 <!-- 메인 시작 -->
-<!-- 평균별점순 -->
 <div class="css-lufi3b">
 	<div class="css-pbseb6-StyledHomeListTitleRow">
-		<p class="css-16qa0p7">평균별점이 높은 작품</p>
+		<p class="css-16qa0p7">평점 순</p>
 	</div>
 
 	<div class="css-1qq59e8">
@@ -46,14 +45,9 @@
 						<ul class="css-1ya1z7z-VisualUl">
 							<li class="css-8y23cj"><c:forEach var="vote_average"
 									begin="0" end="10" step="1" items="${vote_average}">
-
-									<a href="${pageContext.request.contextPath}/contents/detail.do?id=${vote_average.id}">
-										<div class="css-1qmeemv">
-
 									<a
 										href="${pageContext.request.contextPath}/contents/detail.do?id=${vote_average.id}"><div
 											class="css-1qmeemv">
-
 											<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 												<img src="${vote_average.poster_path }"
 													class="css-qhzw1o-StyledImg ezcopuc1">
@@ -76,9 +70,8 @@
 												<span>
 													${Math.ceil((vote_average.vote_average)/2*10)/10} </span>
 											</div>
-											<div class="css-u4moi6">🔥 ${Math.ceil(vote_average.popularity)/10 }</div>
-										</div>
-									</a>
+											<div class="css-u4moi6">인기도 : ${vote_average.popularity }</div>
+										</div></a>
 								</c:forEach></li>
 							<div class="css-ml096x"></div>
 						</ul>
@@ -108,7 +101,8 @@
 		</div>
 	</div>
 </div>
-<!-- 최신공개순 -->
+
+</div>
 <div class="css-lufi3b">
 	<div class="css-pbseb6-StyledHomeListTitleRow">
 		<p class="css-16qa0p7">최신 공개 순</p>
@@ -149,7 +143,7 @@
 												<span>
 													${Math.ceil((release_date.vote_average)/2*10)/10} </span>
 											</div>
-											<div class="css-u4moi6">인기도 : ${Math.ceil(release_date.popularity)/10 }</div>
+											<div class="css-u4moi6">인기도 : ${release_date.popularity }</div>
 										</div></a>
 								</c:forEach></li>
 							<div class="css-ml096x"></div>
