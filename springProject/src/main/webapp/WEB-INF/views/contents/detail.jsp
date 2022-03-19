@@ -96,9 +96,7 @@
 					$(".my-rating-2").starRating({
 						totalStars : 5,
 						emptyColor : 'lightgray',
-						hoverColor : 'gold',
-						ratedColor : 'gold',
-						activeColor: 'gold',						
+						hoverColor : 'gold',			
 						strokeWidth : 0,
 						useGradient : false
 					});

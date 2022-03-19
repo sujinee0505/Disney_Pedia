@@ -24,7 +24,7 @@
     ratedColor: 'gold',
     useGradient: true,
     readOnly: false,
-    disableAfterRate: true,
+    disableAfterRate: false,
     baseUrl: false,
     starGradient: {
       start: '#FEF7CD',
