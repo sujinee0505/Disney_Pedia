@@ -3,11 +3,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/star-rating-svg.css">
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/jquery.star-rating-svg.js"></script>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/star-rating-svg.css">
-
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/js/jquery.star-rating-svg.js"></script>
 <div class="css-16jhzm7-Self e1ezac430">
 	<div class="css-wg0jak">
 		<button class="css-1xc2mdf-StylelessButton">
@@ -160,23 +164,6 @@
 													<div class="css-ve4kut"></div>
 												</div>
 											</button>
-											<button
-												class="css-1tc9iuk-StylelessButton-ContentActionButton e1svyhwg23">
-												<div class="Icon icEye css-1q1i623-SVG e1282e850">
-													<div>
-														<svg xmlns="http://www.w3.org/2000/svg" width="24"
-															height="24" viewBox="0 0 24 24" fill="none"
-															class="injected-svg"
-															data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDVDNyA1IDIuNzMgOC4xMSAxIDEyLjVDMi43MyAxNi44OSA3IDIwIDEyIDIwQzE3IDIwIDIxLjI3IDE2Ljg5IDIzIDEyLjVDMjEuMjcgOC4xMSAxNyA1IDEyIDVaTTEyIDE3LjVDOS4yNCAxNy41IDcgMTUuMjYgNyAxMi41QzcgOS43NCA5LjI0IDcuNSAxMiA3LjVDMTQuNzYgNy41IDE3IDkuNzQgMTcgMTIuNUMxNyAxNS4yNiAxNC43NiAxNy41IDEyIDE3LjVaTTEyIDkuNUMxMC4zNCA5LjUgOSAxMC44NCA5IDEyLjVDOSAxNC4xNiAxMC4zNCAxNS41IDEyIDE1LjVDMTMuNjYgMTUuNSAxNSAxNC4xNiAxNSAxMi41QzE1IDEwLjg0IDEzLjY2IDkuNSAxMiA5LjVaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4KPC9zdmc+Cg=="
-															xmlns:xlink="http://www.w3.org/1999/xlink">
-<path
-																d="M12 5C7 5 2.73 8.11 1 12.5C2.73 16.89 7 20 12 20C17 20 21.27 16.89 23 12.5C21.27 8.11 17 5 12 5ZM12 17.5C9.24 17.5 7 15.26 7 12.5C7 9.74 9.24 7.5 12 7.5C14.76 7.5 17 9.74 17 12.5C17 15.26 14.76 17.5 12 17.5ZM12 9.5C10.34 9.5 9 10.84 9 12.5C9 14.16 10.34 15.5 12 15.5C13.66 15.5 15 14.16 15 12.5C15 10.84 13.66 9.5 12 9.5Z"
-																fill="currentColor"></path>
-</svg>
-													</div>
-												</div>
-												보는중
-											</button>
 										</div>
 									</div>
 								</div>
@@ -212,7 +199,7 @@
 															· 12세</span>
 													</div>
 													<div class=" css-k82gae-StyledSelf eb5y16b0">
-														<div class="css-kywn6v-StyledText eb5y16b1">${contents.overview }</div>
+														<div class="css-kywn6v-StyledText">${contents.overview }</div>
 													</div>
 												</article>
 												<hr class="css-g67iqr">
@@ -342,6 +329,7 @@
 														<div class="css-1y901al-Row emmoxnt0">
 															<ul
 																class="ew8mnl61 css-nh9j5x-VisualUl-CommentHorizontalUl">
+
 																<li class="css-1fryc54"><div class="css-17dwc6k">
 																		<div class="css-4obf01">
 																			<div class="css-1cvf9dk">
@@ -382,47 +370,6 @@
 																			<button class="css-1h18l7j-StylelessButton">좋아요</button>
 																		</div>
 																	</div></li>
-																<li class="css-1fryc54"><div class="css-17dwc6k">
-																		<div class="css-4obf01">
-																			<div class="css-1cvf9dk">
-																				<a title="주령"
-																					class="css-1f9m1s4-StylelessLocalLink eovgsd01"
-																					href="/ko-KR/users/JYMKqmXBExloD"><div
-																						class="css-107z6xc">
-																						<div class="css-1o69n5v-ProfilePhotoImage"></div>
-																					</div>
-																					<div class="css-1agoci2">
-																						주령<span
-																							src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQuNzcwNDYgMC41NjI0NTlDNS4yNDMyOCAtMC4xNTY0MzIgNi4zMTE0NyAtMC4xOTMwNyA2LjgzNTM1IDAuNDkyMTU1QzcuMTczMzcgMC45MzM3ODggNy43NzM4NSAxLjEwMTEzIDguMzAxODEgMC45MDAxMjFDOS4xMTk4IDAuNTg4MjA1IDEwLjAwNjIgMS4xNjc0OCAxMC4wMTQ0IDIuMDIxMDRDMTAuMDE5NSAyLjU2OTYxIDEwLjQwNTUgMy4wNDc4OCAxMC45NTM5IDMuMTg1NTJDMTEuODA0NiAzLjM5OTQxIDEyLjE3MDIgNC4zNzQ3NiAxMS42NjA2IDUuMDY4OUMxMS4zMzE4IDUuNTE2NDggMTEuMzUzMiA2LjEyMTQ5IDExLjcxMzcgNi41NDYyOUMxMi4yNzIzIDcuMjA0NzggMTEuOTc3MiA4LjIwMTkyIDExLjE0MzggOC40NzIyNUMxMC42MDY3IDguNjQ3NTIgMTAuMjU3NCA5LjE1MDU0IDEwLjI5MTEgOS42OTkxMkMxMC4zNDQyIDEwLjU0OTcgOS41MDE3NCAxMS4xODc0IDguNjYzMzIgMTAuOTMxOUM4LjEyMjA4IDEwLjc2NzYgNy41MzQ4OCAxMC45NzQ1IDcuMjI5NTQgMTEuNDM3OUM2Ljc1NjcyIDEyLjE1NjggNS42ODc1MSAxMi4xOTI1IDUuMTY0NjUgMTEuNTA4MkM0LjgyNjYzIDExLjA2NTYgNC4yMjYxNSAxMC44OTgzIDMuNjk4MTkgMTEuMTAwM0MyLjg4MDIgMTEuNDEyMiAxLjk5Mzc4IDEwLjgzMTkgMS45ODQ1OSA5Ljk4MDM0QzEuOTgwNTEgOS40Mjk3OCAxLjU5NTUxIDguOTUyNSAxLjA0NjEgOC44MTM4N0MwLjE5NTQyOCA4LjU5OTk5IC0wLjE3MDE2NiA3LjYyNjYxIDAuMzM5NDE5IDYuOTMyNDdDMC42NjgyNDkgNi40ODM5MSAwLjY0NjgwNCA1Ljg3NzkgMC4yODYzMTYgNS40NTMxQy0wLjI3MjI4NyA0Ljc5NDYxIDAuMDIyODQzIDMuNzk5NDUgMC44NTYxNTIgMy41MjcxNUMxLjM5MzMxIDMuMzUyODcgMS43NDM1OSAyLjg1MDgzIDEuNzA4ODYgMi4zMDEyN0MxLjY1NTc2IDEuNDUwNjggMi40OTgyNiAwLjgxMTk5MiAzLjMzNjY4IDEuMDY4NDZDMy44Nzc5MiAxLjIzMjgzIDQuNDY1MTIgMS4wMjU4OCA0Ljc3MDQ2IDAuNTYyNDU5WiIgZmlsbD0iIzBFMEYxMCIvPgogIDxwYXRoIGQ9Ik03LjY5NzMzIDIuNDUwMkw3LjI4NjEyIDcuNzkzOTJMNy4xNzc3NCA3Ljc5ODI4TDYuNDUyMjYgMy45Nzk3NUg1LjI2MTIzTDQuNjY1NTggNy44OTE1N0w0LjUzNTc1IDcuODk2OEwzLjk1MDk2IDMuOTc5NzVIMi41TDMuODEwMjcgOS43MTU4Mkw1LjMxNTI4IDkuNjE0MzlMNS44NDU3NCA1Ljk3MTdINS45NjQ5OEw2LjU2MDM1IDkuNTMwMTFMOC4wNzY1MSA5LjQyNzIzTDkuMTA1MTEgMi40NTAySDcuNjk3MzNaIiBmaWxsPSIjRkYwNTU4Ii8+Cjwvc3ZnPgo="
-																							class="css-amcv0d"></span>
-																					</div></a>
-																			</div>
-																			<div class="css-yqs4xl">
-																				<img
-																					src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM0QTRBNEEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDE3Ljk4bC02LjAxNSA0LjM5MmMtLjUwOC4zNzItMS4xOTQtLjEyNi0uOTk4LS43MjVsMi4zMTctNy4wODEtNi4wMzUtNC4zNjdjLS41MS0uMzY5LS4yNDctMS4xNzUuMzgyLTEuMTc0bDcuNDQ3LjAxNiAyLjI4Ni03LjA5MWMuMTkyLS42IDEuMDQtLjYgMS4yMzMgMGwyLjI4NiA3LjA5IDcuNDQ3LS4wMTVjLjYyOS0uMDAxLjg5LjgwNS4zOCAxLjE3NGwtNi4wMzMgNC4zNjcgMi4zMTYgNy4wOGMuMTk2LjYtLjQ5IDEuMDk4LS45OTkuNzI2TDEyIDE3Ljk4eiIvPgo8L3N2Zz4K"
-																					width="16px" height="16px" alt="star"><span>3.5</span>
-																			</div>
-																		</div>
-																		<div class="css-ob93md">
-																			<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
-																				href="/ko-KR/comments/69oMv7xqdLQal"><div
-																					class=" css-12rbc09-StyledSelf eb5y16b0">
-																					<div class="css-qxbzku-StyledText eb5y16b1">창살
-																						없는 감옥을 관객들에게도 체험하게 해주는 크리스틴 스튜어트 왕실 안에서의 압박과 구토,
-																						해변에서 뛰어다닐 때의 미소가 대비되는 모습에 가슴이 찢어진다. - 2022. 03....</div>
-																				</div></a>
-																		</div>
-																		<div class="css-1atijos">
-																			<span
-																				src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgZmlsbD0iIzc4Nzg3OCI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik02Ljc1IDkuNDg1aC0zYTEgMSAwIDAgMC0xIDF2MTBhMSAxIDAgMCAwIDEgMWgzYTEgMSAwIDAgMCAxLTF2LTEwYTEgMSAwIDAgMC0xLTFNMjAuNjU3IDguNTY2YTIuMzYzIDIuMzYzIDAgMCAwLTEuNzc5LS44MTNIMTYuNjJsLjE2NC0uNjI3Yy4xMzctLjUyOC4yMDEtMS4xMi4yMDEtMS44NjMgMC0xLjkxOS0xLjM3NS0yLjc3OC0yLjczOC0yLjc3OC0uNDQ0IDAtLjc2Ni4xMjMtLjk4Ni4zNzYtLjIuMjI3LS4yODIuNTMtLjI0My45MzVsLjAzIDEuMjMtMi45MDMgMi45NGMtLjU5My42LS44OTQgMS4yMy0uODk0IDEuODcydjkuNjQ3YS41LjUgMCAwIDAgLjUuNWg3LjY4N2EyLjM4OCAyLjM4OCAwIDAgMCAyLjM0OC0yLjA3bDEuNDQ1LTcuNDUyYTIuNDQgMi40NCAwIDAgMC0uNTc0LTEuODk3Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-																				width="18px" height="18px" class="css-64x8kr"></span><em>30</em><span
-																				src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM3ODc4NzgiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTkuODU3IDE3Ljc4Nkw2IDIxdi00LjkxYy0xLjg0MS0xLjM3My0zLTMuMzY5LTMtNS41OUMzIDYuMzU4IDcuMDMgMyAxMiAzczkgMy4zNTggOSA3LjVjMCA0LjE0Mi00LjAzIDcuNS05IDcuNS0uNzM5IDAtMS40NTYtLjA3NC0yLjE0My0uMjE0eiIvPgo8L3N2Zz4K"
-																				width="18px" height="18px" class="css-q0vi8"></span><em>0</em>
-																		</div>
-																		<div class="css-hy68ty">
-																			<button class="css-1h18l7j-StylelessButton">좋아요</button>
-																		</div>
-																	</div></li>
 																<div class="css-ml096x"></div>
 															</ul>
 														</div>
@@ -456,98 +403,46 @@
 											<div
 												class="css-1nhig6u-RoundedCornerBlock-RoundedCornerBlock">
 												<div class="css-1wdbx6y-LastDividerDisable e1ezac438">
-													<section class="css-1tywu13">
-														<div class="css-1gkas1x-Grid e1689zdh0">
-															<div class="css-1y901al-Row emmoxnt0">
-																<header class="css-1ue9xs6">
-																	<h2 class="css-1wtjsst">갤러리</h2>
-																</header>
-															</div>
+													<div class="css-1gkas1x-Grid e1689zdh0">
+														<div class="css-1y901al-Row emmoxnt0">
+															<header class="css-1ue9xs6">
+																<h2 class="css-1wtjsst">갤러리</h2>
+															</header>
 														</div>
-														<div class="css-usdi1z">
-															<div class="css-1x04fwb">
-																<div class="css-174lxc3">
-																	<div class="css-1gkas1x-Grid e1689zdh0">
-																		<div class="css-1y901al-Row emmoxnt0">
-																			<ul class="css-1cduxg0-VisualUl">
+													</div>
+													<div class="css-usdi1z">
+														<div class="css-1x04fwb">
+															<div class="css-174lxc3">
+																<div class="css-1gkas1x-Grid e1689zdh0">
+																	<div class="css-1y901al-Row emmoxnt0">
+																		<ul class="css-1cduxg0-VisualUl">
+																			<c:forEach var="images" items="${images}">
 																				<li class="css-1cw0vk0"><div
 																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
 																						<span
 																							class="css-bhgne5-StyledBackground e1q5rx9q1"
-																							style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/XbPmXI00NoiQaMTVC4hJ8g.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5qUXdlRE0yTUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTNOall4T1RFeU9EY3lORGc1T0RjaWZRLm9vTVp2dWwxQ0NwdzRhdkprSW5mQ1Y3bm9Wc0swdFR4WjNhRnA0aVZMWU0&quot;);"></span>
+																							style="background-image: url('https://image.tmdb.org/t/p/original${images }');"></span>
 																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-bhgne5-StyledBackground e1q5rx9q1"
-																							style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/fW2LITpGtOhWQ9fl0G8v1Q.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5qUXdlRE0yTUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk1qY3pNalEwTlRnMU56ZzFNRGswTURFaWZRLnV1Ri1hVzY3c3c0Rk9qZm1xYUtLZ2EzRmRDRVpXa0ctRWR4eWpHd1BQT28&quot;);"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-bhgne5-StyledBackground e1q5rx9q1"
-																							style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/AetOOBaa6LFg0pQye_plgg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5qUXdlRE0yTUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTNOall3T0Rjd01EWXhNakl3TVRnaWZRLkMwaFFmT0JTcG5jRk1iVXZIWnczSnNzd1dsejJBN05xRDhaS3FPcnVweGs&quot;);"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<div class="css-ml096x"></div>
-																			</ul>
-																		</div>
+																			</c:forEach>
+																			<div class="css-ml096x"></div>
+																		</ul>
 																	</div>
 																</div>
 															</div>
-															<div direction="left" class="css-a89h8a"></div>
-															<div direction="right" class="css-1qgb5vh"></div>
-															<div class="arrow_button css-38kpup" direction="left">
-																<div class="css-1hestod"></div>
-															</div>
-															<div class="arrow_button css-pf83cl" direction="right">
-																<div class="css-vp7uyl">
-																	<img
-																		src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
-																		alt="forward">
-																</div>
+														</div>
+														<div direction="left" class="css-a89h8a"></div>
+														<div direction="right" class="css-1qgb5vh"></div>
+														<div class="arrow_button css-38kpup" direction="left">
+															<div class="css-1hestod"></div>
+														</div>
+														<div class="arrow_button css-pf83cl" direction="right">
+															<div class="css-vp7uyl">
+																<img
+																	src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+																	alt="forward">
 															</div>
 														</div>
-													</section>
+													</div>
 												</div>
 											</div>
 											<div class="css-1s816gj-VisibleBlockOnlyMdScreen e1ezac4311"></div>
@@ -582,32 +477,9 @@
 																					<div class="css-zc7t4e">
 																						<div class="css-ff1m0l">
 																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/wi0XabQg33Zt5GRSTbiocQ.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EVXdNVGMxTkRBNU5UZ3dPVGszTVRJaWZRLm0wRWF4SUxWbmVPd0d1amdUdzVYNklvS3FHbmRTYmRmMkVjc0gwaGFZa2s&quot;);"></span>
 																							</div>
 																						</div>
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/p-H4_zNexsTwJY8eTfiCcg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTFOemMyTmpNMU1UVTVORFEzTmpZaWZRLjdVVmpYQ01CMDdHMFlCQVdoemtDcW5OYUlKSHA0NGJsQVktQXlmV2VpNW8&quot;);"></span>
-																							</div>
-																						</div>
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/3th5wQ8IaKSialTDxT2cPg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXhMM2c1WjNZMVpESmthbmd6ZVhGNWNYWnNkWGh0SW4wLmtXSGJ0UWZjaDdFdVZ5SlJjSWFBSHdsM3hKVnpOZVFpb3JtblRxcFpVNlE&quot;);"></span>
-																							</div>
-																						</div>
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/wJsIkRcHo3iEcC-vCS5oWg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXhMM1JzWjNSbWJYcHhjbTlzTm5Od2IyWmhZVzV2SW4wLnk3RkdmT1k3eG02TlVMdWRmbjlUcEN2eks2SURLaU9nb3Jvek9Ca2ZYMU0&quot;);"></span>
-																							</div>
-																						</div>
+
 																					</div>
 																				</div>
 																				<ul class="css-19qbuza-VisualUl">
@@ -620,44 +492,7 @@
 																					</li>
 																				</ul></a></li>
 
-																		<li class="css-lzc9tv"><a title="관람 대기"
-																			href="/ko-KR/decks/KyiaOfaqzWgg"><div
-																					class="css-8vjban">
-																					<div class="css-zc7t4e">
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																							</div>
-																						</div>
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																							</div>
-																						</div>
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																							</div>
-																						</div>
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																							</div>
-																						</div>
-																					</div>
-																				</div>
-																				<ul class="css-19qbuza-VisualUl">
-																					<li class="css-iia7hw"><div
-																							class=" css-sloxdm-StyledSelf eb5y16b0">
-																							<div class="css-1fucs4t-StyledText eb5y16b1">관람
-																								대기</div>
-																						</div></li>
-																					<li class="css-305x3e">좋아요 17</li>
-																				</ul></a></li>
+
 																		<div class="css-ml096x"></div>
 																	</ul>
 																</div>
