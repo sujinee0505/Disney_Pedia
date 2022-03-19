@@ -172,18 +172,17 @@ public class GetInfoUtil {
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
 
 			contents.setTitle(jsonObject.get("title").toString());
-
 			contents.setOverview(jsonObject.get("overview").toString());
 
 			contents.setPoster_path(jsonObject.get("poster_path").toString());
-
-			Date release_date = dateFormat.parse((String) jsonObject.get("release_date"));
-			contents.setRelease_date(release_date);
-			Date first_air_date = dateFormat.parse((String) jsonObject.get("first_air_date"));
-			contents.setFirst_air_date(first_air_date);
-
+			if (type.equals("movie")) {
+				Date release_date = dateFormat.parse((String) jsonObject.get("release_date"));
+				contents.setRelease_date(release_date);
+			} else if (type.equals("tv")) {
+				Date first_air_date = dateFormat.parse((String) jsonObject.get("first_air_date"));
+				contents.setFirst_air_date(first_air_date);
+			}
 			contents.setVote_average(Float.parseFloat(String.valueOf(jsonObject.get("vote_average"))));
-
 			JSONArray genre_list = (JSONArray) jsonObject.get("genres");
 			for (int i = 0; i < genre_list.size(); i++) {
 				JSONObject genre = (JSONObject) genre_list.get(i);
