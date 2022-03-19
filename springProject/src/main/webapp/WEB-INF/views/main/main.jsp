@@ -46,14 +46,14 @@
 						<ul class="css-1ya1z7z-VisualUl">
 							<li class="css-8y23cj"><c:forEach var="vote_average"
 									begin="0" end="10" step="1" items="${vote_average}">
-<<<<<<< HEAD
+
 									<a href="${pageContext.request.contextPath}/contents/detail.do?id=${vote_average.id}">
 										<div class="css-1qmeemv">
-=======
+
 									<a
 										href="${pageContext.request.contextPath}/contents/detail.do?id=${vote_average.id}"><div
 											class="css-1qmeemv">
->>>>>>> refs/remotes/origin/main
+
 											<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 												<img src="${vote_average.poster_path }"
 													class="css-qhzw1o-StyledImg ezcopuc1">
