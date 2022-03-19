@@ -6,28 +6,28 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		let width = $('#average').width();
-		to_right = function() {
-			var _scrollX = $('#average').scrollLeft();
-			$('#average').scrollLeft(_scrollX + width);
-		}
-		to_left = function() {
-			var _scrollX = $('#average').scrollLeft();
-			$('#average').scrollLeft(_scrollX - width);
-		}
+		var width = $('#scroll').width();
+		$(document).on('click', '#right', function() {
+			var scrollX = $(this).siblings('#scroll').scrollLeft();
+			$(this).siblings('#scroll').scrollLeft(scrollX + width);
+		});
+		$(document).on('click', '#left', function() {
+			var scrollX = $(this).siblings('#scroll').scrollLeft();
+			$(this).siblings('#scroll').scrollLeft(scrollX - width);
+		});
 		showGradient = function() {
 			if ($(this).scrollLeft() == 0) {// 스크롤이 0일 때
 				$('#left').hide();
 			} else if ($(this).scrollLeft() != 0) {
 				$('#left').show();
-				/* $('#why').hide(); */
 			} else if (Math.ceil($(this).scrollLeft() + $(this).width()) == $(
 					'.css-119xxd7').width()) {//스크롤이 끝에 왔을 때
-				$('#why').hide();
+				$('#right').hide();
 			}
 		}
 		showGradient();
-		$('#average').on('scroll', showGradient);
+		$(document).on('scroll', showGradient);
+
 	});
 </script>
 
@@ -36,10 +36,9 @@
 	<div class="css-pbseb6-StyledHomeListTitleRow">
 		<p class="css-16qa0p7">평점 순</p>
 	</div>
-
 	<div class="css-1qq59e8">
 		<div class="css-1kd6k5d">
-			<div class="css-9dnzub" id="average">
+			<div class="css-9dnzub" id="scroll">
 				<div class="css-174lxc3">
 					<div class="css-119xxd7">
 						<ul class="css-1ya1z7z-VisualUl">
@@ -81,27 +80,22 @@
 			</div>
 			<div class="arrow_button css-147ng4f" style="right: inherit;"
 				id="left">
-				<div class="">
-					<button type="button" class="css-vp7uyl" onclick="to_left()">
-						<img
-							src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
-							alt="forward">
-					</button>
-				</div>
+				<button type="button" class="css-vp7uyl">
+					<img
+						src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
+						alt="forward">
+				</button>
 			</div>
-			<div class="arrow_button css-147ng4f" id="why">
-				<div class="">
-					<button type="button" class="css-vp7uyl" onclick="to_right()">
-						<img
-							src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
-							alt="forward">
-					</button>
-				</div>
+			<div class="arrow_button css-147ng4f" id="right">
+				<button type="button" class="css-vp7uyl">
+					<img
+						src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+						alt="forward">
+				</button>
 			</div>
 		</div>
 	</div>
 </div>
-
 </div>
 <div class="css-lufi3b">
 	<div class="css-pbseb6-StyledHomeListTitleRow">
@@ -109,17 +103,14 @@
 	</div>
 	<div class="css-1qq59e8">
 		<div class="css-1kd6k5d">
-			<div class="css-9dnzub">
+			<div class="css-9dnzub" id="scroll">
 				<div class="css-174lxc3">
 					<div class="css-119xxd7">
 						<ul class="css-1ya1z7z-VisualUl">
-
 							<li class="css-8y23cj"><c:forEach var="release_date"
 									begin="0" end="10" step="1" items="${release_date}">
-
-									<input value="" hidden="" id="">
-
-									<a href="${pageContext.request.contextPath}/contents/detail.do"><div
+									<a
+										href="${pageContext.request.contextPath}/contents/detail.do?id=${release_date.id}"><div
 											class="css-1qmeemv">
 											<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 												<img src="${release_date.poster_path }"
@@ -152,17 +143,20 @@
 					</div>
 				</div>
 			</div>
-			<div direction="left" class="css-mx7084"></div>
-			<div direction="right" class="css-18v0vc9"></div>
-			<div class="arrow_button css-1553dc" direction="left">
-				<div class="css-1hestod"></div>
+			<div class="arrow_button css-147ng4f" style="right: inherit;"
+				id="left">
+				<button type="button" class="css-vp7uyl">
+					<img
+						src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
+						alt="forward">
+				</button>
 			</div>
-			<div class="arrow_button css-147ng4f" direction="right">
-				<div class="css-vp7uyl">
+			<div class="arrow_button css-147ng4f" id="right">
+				<button type="button" class="css-vp7uyl">
 					<img
 						src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
 						alt="forward">
-				</div>
+				</button>
 			</div>
 		</div>
 	</div>

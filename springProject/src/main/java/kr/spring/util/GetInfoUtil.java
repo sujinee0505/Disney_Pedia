@@ -194,10 +194,43 @@ public class GetInfoUtil {
 			}
 			contents.setGenre(genres);
 			contents.setRuntime(jsonObject.get("runtime").toString());
+
+			// apiURL = "https://api.themoviedb.org/3/" + type + "/" + id +
+			// "/images/?api_key=" + KEY + "&language=ko-KR";
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return contents;
+	}
+
+	public List<String> getImages(String type, int id) {
+		List<String> image_list = null;
+		try {
+			image_list = new ArrayList<String>();
+			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "/images?api_key=" + KEY;
+
+			URL url = new URL(apiURL);
+
+			BufferedReader bf;
+
+			bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+
+			result = bf.readLine();
+
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
+			JSONArray list = (JSONArray) jsonObject.get("backdrops");
+
+			for (int j = 0; j < list.size(); j++) {
+				String file_path = new String();
+				JSONObject images = (JSONObject) list.get(j);
+				file_path = images.get("file_path").toString();
+				image_list.add(file_path);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return image_list;
 	}
 
 }

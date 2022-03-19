@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
-.my-photo{ /*프로필사진설정*/
-	object-fit:cover;
-	object-position:top;
-	border-radius:50%;
+.my-photo { /*프로필사진설정*/
+	object-fit: cover;
+	object-position: top;
+	border-radius: 50%;
 }
 /*==========별아이콘 설정 시작==========*/
 /*별점구역*/
@@ -27,6 +27,7 @@
 		margin: 0;
 	}
 }
+
 .css-1m7ruyk { /*별아이콘전체div*/
 	position: relative;
 	text-align: center;
@@ -35,6 +36,7 @@
 	cursor: pointer;
 	width: 100%;
 }
+
 .css-1mbuso5 { /*별아이콘하나*/
 	display: inline-block;
 	position: relative;
@@ -44,8 +46,8 @@
 
 .css-fnwbjg { /*별아이콘svg*/
 	vertical-align: top;
-	width: 20px;  /*40*/
-	height: 20px;  /*40*/
+	width: 20px; /*40*/
+	height: 20px; /*40*/
 }
 
 @media ( min-width : 1023px) {
@@ -57,12 +59,12 @@
 @media ( min-width : 719px) {
 	.css-1m7ruyk {
 		width: 160px;
-		margin: 3px auto 0; 
+		margin: 3px auto 0;
 	}
 }
 
 .css-1m7ruyk svg {
-	width: 22px;  /*44*/
+	width: 22px; /*44*/
 	height: 22px; /*44*/
 }
 
@@ -82,12 +84,10 @@
 
 /*==========별아이콘 설정 끝==========*/
 
-
 /*메인,헤더 설정*/
-#header_logout{
-	margin-right:20px;
+#header_logout {
+	margin-right: 20px;
 }
-
 
 .css-1xm32e0 {
 	position: relative;
@@ -804,8 +804,6 @@ body {
 
 .css-usdi1z {
 	position: relative;
-	-webkit-transform: translate3d(0, 0, 0);
-	-ms-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 }
 
@@ -816,11 +814,13 @@ body {
 .css-9dnzub {
 	overflow-x: hidden;
 	overflow-y: hidden;
-	-webkit-overflow-scrolling: touch;
-	-webkit-scrollbar-width: none;
-	-moz-scrollbar-width: none;
-	-ms-scrollbar-width: none;
-	scrollbar-width: none;
+	scroll-behavior: smooth;
+}
+
+.css-1x04fwb {
+	overflow: hidden;
+	padding: 0px 5px;
+	margin: 0px -5px;
 }
 
 .css-9dnzub::-webkit-scrollbar {
@@ -3227,8 +3227,6 @@ h1, h3, p, hr {
 	display: inline-block;
 }
 
-
-
 @media ( min-width : 719px) {
 	.css-s5x9hn-ContentActionDivider {
 		display: block;
@@ -3267,7 +3265,6 @@ h1, h3, p, hr {
 		margin-top: 20px;
 	}
 }
-
 
 .css-s5x9hn-ContentActionDivider {
 	float: left;
@@ -3614,7 +3611,6 @@ button, input, optgroup, select, textarea {
 	backface-visibility: hidden;
 }
 
-
 @media ( min-width : 719px) {
 	.css-1bn16fq-ContentSections {
 		padding: 20px 0 48px;
@@ -3682,7 +3678,7 @@ button, input, optgroup, select, textarea {
 }
 
 .css-1tywu13 {
-	padding: 8px 0 0;
+	padding: 10px 10px 0px 10px;
 }
 
 .css-1y901al-Row {
@@ -3838,7 +3834,7 @@ button, input, optgroup, select, textarea {
 .css-g67iqr {
 	border: 0;
 	border-bottom: 1px solid #f0f0f0;
-	margin: 20px 0 0;
+	margin: 10px 0 0;
 }
 
 .css-god8tc {
@@ -3860,6 +3856,61 @@ button, input, optgroup, select, textarea {
 	font-size: 15px;
 	font-weight: 400;
 	letter-spacing: -0.2px;
-	/* line-height: 24px; */
+	line-height: 24px;
 	margin: 8px 0px;
+}
+
+.css-kywn6v-StyledText {
+	white-space: pre-wrap;
+	color: rgb(74, 74, 74);
+	font-size: 15px;
+	font-weight: 400;
+	letter-spacing: -0.2px;
+	line-height: 24px;
+	text-align: justify;
+	padding-bottom: 10px;
+}
+
+.css-1cduxg0-VisualUl {
+	list-style: none;
+	padding: 0px;
+	white-space: nowrap;
+	margin-top: 5px;
+	margin-bottom: 25px;
+	margin-right: -5px !important;
+	margin-left: -5px !important;
+}
+
+/* .css-1cduxg0-VisualUl>li {
+	width: 25%;
+} */
+.css-1cw0vk0 {
+	display: inline-block;
+	vertical-align: top;
+	box-sizing: border-box;
+	/* padding: 0px 5px; */
+	width: 40%;
+	cursor: pointer;
+}
+
+.css-1qwe0o7-StyledSelf {
+	position: relative;
+	overflow: hidden;
+	/* background: rgb(248, 248, 248); */
+	box-sizing: border-box;
+	/* border: 1px solid rgba(0, 0, 0, 0.08); */
+	/* border-radius: 3px; */
+	padding-bottom: 50%;
+}
+
+.css-bhgne5-StyledBackground {
+	width: 100%;
+	display: inline-block;
+	position: absolute;
+	inset: 0px;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	opacity: 1;
+	transition: all 300ms ease 0s;
 }

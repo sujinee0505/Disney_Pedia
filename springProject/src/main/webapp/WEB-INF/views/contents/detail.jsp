@@ -191,23 +191,6 @@
 													<div class="css-ve4kut"></div>
 												</div>
 											</button>
-											<button
-												class="css-1tc9iuk-StylelessButton-ContentActionButton e1svyhwg23">
-												<div class="Icon icEye css-1q1i623-SVG e1282e850">
-													<div>
-														<svg xmlns="http://www.w3.org/2000/svg" width="24"
-															height="24" viewBox="0 0 24 24" fill="none"
-															class="injected-svg"
-															data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDVDNyA1IDIuNzMgOC4xMSAxIDEyLjVDMi43MyAxNi44OSA3IDIwIDEyIDIwQzE3IDIwIDIxLjI3IDE2Ljg5IDIzIDEyLjVDMjEuMjcgOC4xMSAxNyA1IDEyIDVaTTEyIDE3LjVDOS4yNCAxNy41IDcgMTUuMjYgNyAxMi41QzcgOS43NCA5LjI0IDcuNSAxMiA3LjVDMTQuNzYgNy41IDE3IDkuNzQgMTcgMTIuNUMxNyAxNS4yNiAxNC43NiAxNy41IDEyIDE3LjVaTTEyIDkuNUMxMC4zNCA5LjUgOSAxMC44NCA5IDEyLjVDOSAxNC4xNiAxMC4zNCAxNS41IDEyIDE1LjVDMTMuNjYgMTUuNSAxNSAxNC4xNiAxNSAxMi41QzE1IDEwLjg0IDEzLjY2IDkuNSAxMiA5LjVaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4KPC9zdmc+Cg=="
-															xmlns:xlink="http://www.w3.org/1999/xlink">
-<path
-																d="M12 5C7 5 2.73 8.11 1 12.5C2.73 16.89 7 20 12 20C17 20 21.27 16.89 23 12.5C21.27 8.11 17 5 12 5ZM12 17.5C9.24 17.5 7 15.26 7 12.5C7 9.74 9.24 7.5 12 7.5C14.76 7.5 17 9.74 17 12.5C17 15.26 14.76 17.5 12 17.5ZM12 9.5C10.34 9.5 9 10.84 9 12.5C9 14.16 10.34 15.5 12 15.5C13.66 15.5 15 14.16 15 12.5C15 10.84 13.66 9.5 12 9.5Z"
-																fill="currentColor"></path>
-</svg>
-													</div>
-												</div>
-												보는중
-											</button>
 										</div>
 									</div>
 								</div>
@@ -243,7 +226,7 @@
 															· 12세</span>
 													</div>
 													<div class=" css-k82gae-StyledSelf eb5y16b0">
-														<div class="css-kywn6v-StyledText eb5y16b1">${contents.overview }</div>
+														<div class="css-kywn6v-StyledText">${contents.overview }</div>
 													</div>
 												</article>
 												<hr class="css-g67iqr">
@@ -373,6 +356,7 @@
 														<div class="css-1y901al-Row emmoxnt0">
 															<ul
 																class="ew8mnl61 css-nh9j5x-VisualUl-CommentHorizontalUl">
+
 																<li class="css-1fryc54"><div class="css-17dwc6k">
 																		<div class="css-4obf01">
 																			<div class="css-1cvf9dk">
@@ -487,98 +471,48 @@
 											<div
 												class="css-1nhig6u-RoundedCornerBlock-RoundedCornerBlock">
 												<div class="css-1wdbx6y-LastDividerDisable e1ezac438">
-													<section class="css-1tywu13">
-														<div class="css-1gkas1x-Grid e1689zdh0">
-															<div class="css-1y901al-Row emmoxnt0">
-																<header class="css-1ue9xs6">
-																	<h2 class="css-1wtjsst">갤러리</h2>
-																</header>
-															</div>
+													<div class="css-1gkas1x-Grid e1689zdh0">
+														<div class="css-1y901al-Row emmoxnt0">
+															<header class="css-1ue9xs6">
+																<h2 class="css-1wtjsst">갤러리</h2>
+															</header>
 														</div>
-														<div class="css-usdi1z">
-															<div class="css-1x04fwb">
-																<div class="css-174lxc3">
-																	<div class="css-1gkas1x-Grid e1689zdh0">
-																		<div class="css-1y901al-Row emmoxnt0">
-																			<ul class="css-1cduxg0-VisualUl">
+													</div>
+													<div class="css-usdi1z">
+														<div class="css-1x04fwb">
+															<div class="css-174lxc3">
+																<div class="css-1gkas1x-Grid e1689zdh0">
+																	<div class="css-1y901al-Row emmoxnt0">
+																		<ul class="css-1cduxg0-VisualUl">
+																			<c:forEach var="images" items="${images}">
 																				<li class="css-1cw0vk0"><div
 																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<%-- <img class="css-bhgne5-StyledBackground"
+																							src="https://image.tmdb.org/t/p/original${images }"> --%>
 																						<span
 																							class="css-bhgne5-StyledBackground e1q5rx9q1"
-																							style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/XbPmXI00NoiQaMTVC4hJ8g.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5qUXdlRE0yTUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTNOall4T1RFeU9EY3lORGc1T0RjaWZRLm9vTVp2dWwxQ0NwdzRhdkprSW5mQ1Y3bm9Wc0swdFR4WjNhRnA0aVZMWU0&quot;);"></span>
+																							style="background-image: url('https://image.tmdb.org/t/p/original${images }');"></span>
 																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-bhgne5-StyledBackground e1q5rx9q1"
-																							style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/fW2LITpGtOhWQ9fl0G8v1Q.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5qUXdlRE0yTUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk1qY3pNalEwTlRnMU56ZzFNRGswTURFaWZRLnV1Ri1hVzY3c3c0Rk9qZm1xYUtLZ2EzRmRDRVpXa0ctRWR4eWpHd1BQT28&quot;);"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-bhgne5-StyledBackground e1q5rx9q1"
-																							style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/AetOOBaa6LFg0pQye_plgg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5qUXdlRE0yTUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTNOall3T0Rjd01EWXhNakl3TVRnaWZRLkMwaFFmT0JTcG5jRk1iVXZIWnczSnNzd1dsejJBN05xRDhaS3FPcnVweGs&quot;);"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<li class="css-1cw0vk0"><div
-																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<span
-																							class="css-5sjqrq-StyledBackground e1q5rx9q1"></span>
-																					</div></li>
-																				<div class="css-ml096x"></div>
-																			</ul>
-																		</div>
+																			</c:forEach>
+																			<div class="css-ml096x"></div>
+																		</ul>
 																	</div>
 																</div>
 															</div>
-															<div direction="left" class="css-a89h8a"></div>
-															<div direction="right" class="css-1qgb5vh"></div>
-															<div class="arrow_button css-38kpup" direction="left">
-																<div class="css-1hestod"></div>
-															</div>
-															<div class="arrow_button css-pf83cl" direction="right">
-																<div class="css-vp7uyl">
-																	<img
-																		src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
-																		alt="forward">
-																</div>
+														</div>
+														<div direction="left" class="css-a89h8a"></div>
+														<div direction="right" class="css-1qgb5vh"></div>
+														<div class="arrow_button css-38kpup" direction="left">
+															<div class="css-1hestod"></div>
+														</div>
+														<div class="arrow_button css-pf83cl" direction="right">
+															<div class="css-vp7uyl">
+																<img
+																	src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+																	alt="forward">
 															</div>
 														</div>
-													</section>
+													</div>
 												</div>
 											</div>
 											<div class="css-1s816gj-VisibleBlockOnlyMdScreen e1ezac4311"></div>
@@ -613,32 +547,9 @@
 																					<div class="css-zc7t4e">
 																						<div class="css-ff1m0l">
 																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/wi0XabQg33Zt5GRSTbiocQ.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EVXdNVGMxTkRBNU5UZ3dPVGszTVRJaWZRLm0wRWF4SUxWbmVPd0d1amdUdzVYNklvS3FHbmRTYmRmMkVjc0gwaGFZa2s&quot;);"></span>
 																							</div>
 																						</div>
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/p-H4_zNexsTwJY8eTfiCcg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTFOemMyTmpNMU1UVTVORFEzTmpZaWZRLjdVVmpYQ01CMDdHMFlCQVdoemtDcW5OYUlKSHA0NGJsQVktQXlmV2VpNW8&quot;);"></span>
-																							</div>
-																						</div>
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/3th5wQ8IaKSialTDxT2cPg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXhMM2c1WjNZMVpESmthbmd6ZVhGNWNYWnNkWGh0SW4wLmtXSGJ0UWZjaDdFdVZ5SlJjSWFBSHdsM3hKVnpOZVFpb3JtblRxcFpVNlE&quot;);"></span>
-																							</div>
-																						</div>
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/wJsIkRcHo3iEcC-vCS5oWg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXhMM1JzWjNSbWJYcHhjbTlzTm5Od2IyWmhZVzV2SW4wLnk3RkdmT1k3eG02TlVMdWRmbjlUcEN2eks2SURLaU9nb3Jvek9Ca2ZYMU0&quot;);"></span>
-																							</div>
-																						</div>
+
 																					</div>
 																				</div>
 																				<ul class="css-19qbuza-VisualUl">
