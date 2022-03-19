@@ -92,20 +92,21 @@
 											<div class="css-yt2kjp">
 												<div class="css-1k5zzs9">평가하기</div>
 											</div>
-				<!--=======별점 부분=======--><!-- <div class="css-1m7ruyk"> -->											
-				<div class="star_area">
-					<div class="my-rating-2"></div>
-				</div>
-				<script type="text/javascript">
-					$(".my-rating-2").starRating({
-						totalStars : 5,
-						emptyColor : 'lightgray',
-						hoverColor : 'gold',			
-						strokeWidth : 0,
-						useGradient : false
-					});
-				</script>
-				<!--======별점 부분 끝======-->
+											<!--=======별점 부분=======-->
+											<!-- <div class="css-1m7ruyk"> -->
+											<div class="star_area">
+												<div class="my-rating-2"></div>
+											</div>
+											<script type="text/javascript">
+												$(".my-rating-2").starRating({
+													totalStars : 5,
+													emptyColor : 'lightgray',
+													hoverColor : 'gold',
+													strokeWidth : 0,
+													useGradient : false
+												});
+											</script>
+											<!--======별점 부분 끝======-->
 										</div>
 										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 										<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
@@ -195,8 +196,7 @@
 															class="css-1t00yeb-OverviewMeta eokm2782"><fmt:formatDate
 																value="${contents.release_date }" pattern="yyyy-MM" />
 															· ${contents.genre }</span><br> <span
-															class="css-1t00yeb-OverviewMeta eokm2782">1시간 57분
-															· 12세</span>
+															class="css-1t00yeb-OverviewMeta eokm2782">${contents.runtime }</span>
 													</div>
 													<div class=" css-k82gae-StyledSelf eb5y16b0">
 														<div class="css-kywn6v-StyledText">${contents.overview }</div>
@@ -221,69 +221,46 @@
 														<div class="css-13avw3k-PeopleUlRow e5xrf7a1">
 															<ul
 																class="e5xrf7a0 css-1br354h-VisualUl-PeopleStackableUl">
-																<li class="css-54rr1e"><a title="파블로 라라인(감독)"
-																	class="css-1aaqvgs-InnerPartOfListWithImage"
-																	href="/ko-KR/people/305869"><div class="css-cssveg">
-																			<div class="profilePhotoBlock css-13zlig9">
-																				<div class="css-1wfv1im-ProfilePhotoImage"></div>
+																<c:forEach var="crew" items="${crew }" begin="0" end="1"
+																	step="1">
+																	<li class="css-54rr1e"><a
+																		class="css-1aaqvgs-InnerPartOfListWithImage" href=""><div
+																				class="css-cssveg">
+																				<div class="profilePhotoBlock css-13zlig9">
+																					<div class="css-1wfv1im-ProfilePhotoImage">
+																						<img class="css-1mt3oap-ProfilePhotoImage"
+																							src="https://image.tmdb.org/t/p/original/${crew.profile_path }">
+																					</div>
+																				</div>
 																			</div>
-																		</div>
-																		<div class="css-zoy7di">
-																			<div class="css-qkf9j">
-																				<div class="css-17vuhtq">파블로 라라인</div>
-																				<div class="css-1evnpxk-StyledSubtitle">감독</div>
+																			<div class="css-zoy7di">
+																				<div class="css-qkf9j">
+																					<div class="css-17vuhtq">${crew.name }</div>
+																					<div class="css-1evnpxk-StyledSubtitle">감독</div>
+																				</div>
+																				<div></div>
+																			</div></a></li>
+																</c:forEach>
+																<c:forEach var="cast" items="${cast }" begin="0" end="7"
+																	step="1">
+																	<li class="css-54rr1e"><a
+																		class="css-1aaqvgs-InnerPartOfListWithImage" href=""><div
+																				class="css-cssveg">
+																				<div class="profilePhotoBlock css-13zlig9">
+																					<div class="css-1wfv1im-ProfilePhotoImage">
+																						<img class="css-1mt3oap-ProfilePhotoImage"
+																							src="https://image.tmdb.org/t/p/original/${cast.profile_path }">
+																					</div>
+																				</div>
 																			</div>
-																			<div></div>
-																		</div></a></li>
-																<li class="css-54rr1e"><a
-																	title="크리스틴 스튜어트(주연 | 다이애나)"
-																	class="css-1aaqvgs-InnerPartOfListWithImage"
-																	href="/ko-KR/people/85263"><div class="css-cssveg">
-																			<div class="profilePhotoBlock css-13zlig9">
-																				<div class="css-1eobhdb-ProfilePhotoImage"></div>
-																			</div>
-																		</div>
-																		<div class="css-zoy7di">
-																			<div class="css-qkf9j">
-																				<div class="css-17vuhtq">크리스틴 스튜어트</div>
-																				<div class="css-1evnpxk-StyledSubtitle">주연 |
-																					다이애나</div>
-																			</div>
-																			<div></div>
-																		</div></a></li>
-																<li class="css-54rr1e"><a
-																	title="티모시 스폴(조연 | 그레고리 소령)"
-																	class="css-1aaqvgs-InnerPartOfListWithImage"
-																	href="/ko-KR/people/103226"><div class="css-cssveg">
-																			<div class="profilePhotoBlock css-13zlig9">
-																				<div class="css-1vr35ev-ProfilePhotoImage"></div>
-																			</div>
-																		</div>
-																		<div class="css-16n7af8">
-																			<div class="css-qkf9j">
-																				<div class="css-17vuhtq">티모시 스폴</div>
-																				<div class="css-1evnpxk-StyledSubtitle">조연 |
-																					그레고리 소령</div>
-																			</div>
-																			<div></div>
-																		</div></a></li>
-																<li class="css-54rr1e"><a
-																	title="올가 헬싱(조연 | 사라 퍼거슨)"
-																	class="css-1aaqvgs-InnerPartOfListWithImage"
-																	href="/ko-KR/people/10291266"><div
-																			class="css-cssveg">
-																			<div class="profilePhotoBlock css-13zlig9">
-																				<div class="css-3bn3b2-ProfilePhotoImage"></div>
-																			</div>
-																		</div>
-																		<div class="css-zoy7di">
-																			<div class="css-qkf9j">
-																				<div class="css-17vuhtq">올가 헬싱</div>
-																				<div class="css-1evnpxk-StyledSubtitle">조연 |
-																					사라 퍼거슨</div>
-																			</div>
-																			<div></div>
-																		</div></a></li>
+																			<div class="css-zoy7di">
+																				<div class="css-qkf9j">
+																					<div class="css-17vuhtq">${cast.name }</div>
+																					<div class="css-1evnpxk-StyledSubtitle">출연</div>
+																				</div>
+																				<div></div>
+																			</div></a></li>
+																</c:forEach>
 																<div class="css-6qnjre"></div>
 															</ul>
 														</div>

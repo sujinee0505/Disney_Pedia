@@ -71,9 +71,9 @@ ul li {
 	text-align: center;
 }
 /*==========별아이콘 설정 시작==========*/
-.star_area{ /*별점구역*/
+.star_area { /*별점구역*/
 	margin: 0 auto;
-	padding-left:20px;
+	padding-left: 20px;
 	/* background-color:blue; */
 }
 /*별점전체구역(평가하기+별존)*/
@@ -81,7 +81,6 @@ ul li {
 	width: 228px;
 	height: 66px;
 	margin: 20px auto 24px;
-	
 }
 
 @media ( min-width : 1023px) {
@@ -109,7 +108,6 @@ ul li {
 	cursor: pointer;
 	width: 100%;
 }*/
-
 .css-1mbuso5 { /*별아이콘하나*/
 	display: inline-block;
 	position: relative;
@@ -153,11 +151,13 @@ ul li {
 }
 
 @media ( min-width : 719px) { /*별사이즈조절*/
-	.css-1m7ruyk svg {
-		width: 26px; /*32*/
-		height: 26px; /*32*/
-	}
-} */
+.css-1m7ruyk svg {
+	width: 26px; /*32*/
+	height: 26px; /*32*/
+}
+
+}
+* /
 .css-1mbuso5 { /*별아이콘하나*/
 	display: inline-block;
 	position: relative;
@@ -167,11 +167,9 @@ ul li {
 
 .css-fnwbjg { /*별아이콘svg*/
 	vertical-align: top;
-	width: 20px;  /*40*/
-	height: 20px;  /*40*/
+	width: 20px; /*40*/
+	height: 20px; /*40*/
 }
-
-
 
 /*==========별아이콘 설정 끝==========*/
 
@@ -609,7 +607,7 @@ body {
 .css-1wkpkpw-ProfilePhotoImage {
 	position: relative;
 	z-index: 1;
-	background: url("사진 주소") no-repeat center;
+	background: no-repeat center;
 	background-size: cover;
 	width: 100%;
 	height: 100%;
@@ -3972,7 +3970,7 @@ button, input, optgroup, select, textarea {
 	box-sizing: border-box;
 	/* border: 1px solid rgba(0, 0, 0, 0.08); */
 	border-radius: 3px;
-	padding-bottom: 50%;
+	padding-bottom: 60%;
 }
 
 .css-bhgne5-StyledBackground {
@@ -3985,4 +3983,132 @@ button, input, optgroup, select, textarea {
 	background-repeat: no-repeat;
 	opacity: 1;
 	transition: all 300ms ease 0s;
+}
+
+.css-13zlig9 {
+	display: block;
+	border: solid 1px rgba(0, 0, 0, 0.08);
+	border-radius: 50%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	position: relative;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 44px;
+	height: 44px;
+	overflow: hidden;
+	border: none;
+	margin: 0 12px 0 0;
+}
+
+.css-1br354h-VisualUl-PeopleStackableUl .profilePhotoBlock,
+	.css-1br354h-VisualUl-PeopleStackableUl [class*="ProfilePhotoImage"] {
+	border-radius: 5px !important;
+}
+
+.css-1br354h-VisualUl-PeopleStackableUl>li {
+	width: 50%;
+}
+
+.css-13avw3k-PeopleUlRow {
+	margin: 0 15px 0 25px;
+}
+
+.css-1br354h-VisualUl-PeopleStackableUl {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	height: 228px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex-flow: column wrap;
+	align-content: flex-start;
+	margin-right: -5px;
+	margin-left: -5px;
+	margin-top: 4px;
+	margin-bottom: 16px;
+}
+
+.css-zoy7di {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex: 1;
+	align-items: center;
+	box-sizing: border-box;
+	height: 100%;
+	border-bottom: 1px solid #f0f0f0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.css-qkf9j {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 10px 0 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.css-17vuhtq {
+	color: #1e1e1e;
+	font-size: 17px;
+	font-weight: 400;
+	letter-spacing: -0.7px;
+	line-height: 22px;
+	letter-spacing: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.css-1evnpxk-StyledSubtitle {
+	color: #8c8c8c;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: -0.3px;
+	line-height: 19px;
+	white-space: nowrap;
+	margin-top: 4px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.css-1aaqvgs-InnerPartOfListWithImage {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+	color: inherit;
+	text-decoration: none;
+	height: 76px;
+}
+
+.css-cssveg {
+	position: relative;
+}
+
+.css-1mt3oap-ProfilePhotoImage {
+	position: relative;
+	z-index: 1;
+	background-image: center center/cover no-repeat;
+	width: 100%;
+	height: 100%;
 }

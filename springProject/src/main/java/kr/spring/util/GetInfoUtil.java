@@ -14,6 +14,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import kr.spring.contents.vo.ContentsVO;
+import kr.spring.contents.vo.CreditsVO;
 
 public class GetInfoUtil {
 
@@ -198,6 +199,93 @@ public class GetInfoUtil {
 			e.printStackTrace();
 		}
 		return contents;
+	}
+
+	public List<String> getImages(String type, int id) {
+		List<String> image_list = null;
+		try {
+			image_list = new ArrayList<String>();
+			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "/images?api_key=" + KEY;
+
+			URL url = new URL(apiURL);
+
+			BufferedReader bf;
+
+			bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+
+			result = bf.readLine();
+
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
+			JSONArray list = (JSONArray) jsonObject.get("backdrops");
+
+			for (int j = 0; j < list.size(); j++) {
+				String file_path = new String();
+				JSONObject images = (JSONObject) list.get(j);
+				file_path = images.get("file_path").toString();
+				image_list.add(file_path);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return image_list;
+	}
+
+	public List<CreditsVO> getCredits(String type, int id, String kind) {
+
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date = "0001-01-01";
+
+		List<CreditsVO> creditList = null;
+		try {
+			creditList = new ArrayList<CreditsVO>();
+			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "/credits?api_key=" + KEY;
+			URL url = new URL(apiURL);
+
+			BufferedReader bf;
+
+			bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+
+			result = bf.readLine();
+
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
+			JSONArray list = (JSONArray) jsonObject.get(kind);
+
+			if (kind.equals("cast")) {
+				for (int i = 0; i < list.size(); i++) {
+					JSONObject credits = (JSONObject) list.get(i);
+					CreditsVO vo = new CreditsVO();
+					if (credits.get("known_for_department").equals("Acting")) {
+						vo.setName(credits.get("name").toString());
+						if (credits.get("profile_path") == null) {
+							vo.setProfile_path("");
+						} else {
+							vo.setProfile_path(credits.get("profile_path").toString());
+						}
+						creditList.add(vo);
+					}
+				}
+			} else if (kind.equals("crew")) {
+				for (int i = 0; i < list.size(); i++) {
+					JSONObject credits = (JSONObject) list.get(i);
+					CreditsVO vo = new CreditsVO();
+					if (credits.get("known_for_department").equals("Directing")) {
+						vo.setName(credits.get("name").toString());
+						if (credits.get("profile_path") == null) {
+							vo.setProfile_path("");
+						} else {
+							vo.setProfile_path(credits.get("profile_path").toString());
+						}
+						creditList.add(vo);
+					}
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return creditList;
 	}
 
 }
