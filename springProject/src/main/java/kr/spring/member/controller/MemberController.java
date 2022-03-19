@@ -86,6 +86,7 @@ public class MemberController {
 				//인증 성공, 로그인 처리
 				session.setAttribute("user_num", member.getMem_num());
 				session.setAttribute("user_id", member.getId());
+				session.setAttribute("user_name", member.getName());
 				session.setAttribute("user_auth", member.getAuth());
 				session.setAttribute("user_photo", member.getPhoto());
 				
