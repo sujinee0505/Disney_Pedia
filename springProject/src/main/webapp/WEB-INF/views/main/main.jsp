@@ -7,11 +7,27 @@
 <script type="text/javascript">
 	$(function() {
 		let width = $('#average').width();
-		move = function() {
+		to_right = function() {
 			var _scrollX = $('#average').scrollLeft();
 			$('#average').scrollLeft(_scrollX + width);
 		}
-
+		to_left = function() {
+			var _scrollX = $('#average').scrollLeft();
+			$('#average').scrollLeft(_scrollX - width);
+		}
+		showGradient = function() {
+			if ($(this).scrollLeft() == 0) {// 스크롤이 0일 때
+				$('#left').hide();
+			} else if ($(this).scrollLeft() != 0) {
+				$('#left').show();
+				/* $('#why').hide(); */
+			} else if (Math.ceil($(this).scrollLeft() + $(this).width()) == $(
+					'.css-119xxd7').width()) {//스크롤이 끝에 왔을 때
+				$('#why').hide();
+			}
+		}
+		showGradient();
+		$('#average').on('scroll', showGradient);
 	});
 </script>
 
@@ -63,15 +79,19 @@
 					</div>
 				</div>
 			</div>
-			<div direction="left" class="css-mx7084"></div>
-			<div direction="right" class="css-18v0vc9"></div>
-			<div class="arrow_button css-1553dc" direction="left">
-				<div class="css-1hestod"></div>
-			</div>
-			<div class="arrow_button css-147ng4f" direction="right">
+			<div class="arrow_button css-147ng4f" style="right: inherit;"
+				id="left">
 				<div class="">
-					<button type="button" id="to_right" class="css-vp7uyl"
-						onclick="move()">
+					<button type="button" class="css-vp7uyl" onclick="to_left()">
+						<img
+							src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
+							alt="forward">
+					</button>
+				</div>
+			</div>
+			<div class="arrow_button css-147ng4f" id="why">
+				<div class="">
+					<button type="button" class="css-vp7uyl" onclick="to_right()">
 						<img
 							src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
 							alt="forward">
