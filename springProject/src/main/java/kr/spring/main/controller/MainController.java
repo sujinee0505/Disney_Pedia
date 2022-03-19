@@ -19,18 +19,19 @@ public class MainController {
 	@RequestMapping("/main/main.do")
 	public ModelAndView main() {
 		GetInfoUtil util = new GetInfoUtil();
-
+		/* 평점순 */
 		List<ContentsVO> vote_average = null;
 		vote_average = util.getInfoList("movie");
 		Collections.sort(vote_average, new SortByVote());
-
+		/* 개봉순 */
 		List<ContentsVO> release_date = null;
 		release_date = util.getInfoList("movie");
 		Collections.sort(release_date, new SortByDate());
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
 		mav.addObject("vote_average", vote_average);
-		mav.addObject("release_date", release_date);
+		mav.addObject("release_date", release_date);		
 		return mav;
 	}
 }

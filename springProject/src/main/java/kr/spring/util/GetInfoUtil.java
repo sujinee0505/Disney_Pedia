@@ -172,8 +172,7 @@ public class GetInfoUtil {
 			contents.setPoster_path(jsonObject.get("poster_path").toString());
 			Date release_date = dateFormat.parse((String) jsonObject.get("release_date"));
 			contents.setRelease_date(release_date);
-			contents.setVote_average(Float.parseFloat(String.valueOf(jsonObject.get("vote_average"))));
-
+			contents.setVote_average(Float.parseFloat(String.valueOf(jsonObject.get("vote_average"))));			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

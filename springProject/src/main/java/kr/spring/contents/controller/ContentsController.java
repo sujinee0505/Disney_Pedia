@@ -22,4 +22,6 @@ public class ContentsController {
 		mav.addObject("contents", contents);
 		return mav;
 	}
+	
+	
 }
