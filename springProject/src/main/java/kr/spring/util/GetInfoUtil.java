@@ -62,17 +62,18 @@ public class GetInfoUtil {
 		return page;
 	}
 
-	// 컨텐츠 상세 정보 추출 메소드
+	// 컨텐츠 리스트 추출 메소드
 	public List<ContentsVO> getInfoList(String type) {
 		int pages = getPages(type);
+
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = new Date();
+		String date = "0001-01-01";
 
 		List<ContentsVO> infoList = null;
 		try {
 			infoList = new ArrayList<ContentsVO>();
 			// 페이지 마다 루트를 돌며 값 추출 및 저장
-			for (int i = 1; i <= 1; i++) {
+			for (int i = 1; i <= pages; i++) {
 				String apiURL = "https://api.themoviedb.org/3/discover/" + type + "?api_key=" + KEY
 						+ "&with_watch_providers=337&watch_region=KR&language=ko&page=" + i;
 				URL url = new URL(apiURL);
@@ -91,53 +92,55 @@ public class GetInfoUtil {
 
 					ContentsVO vo = new ContentsVO();
 					JSONObject contents = (JSONObject) list.get(j);
-					if (contents.get("id") != null) {
-						vo.setId(contents.get("id").toString());
-					} else if (contents.get("id") == null || contents.get("id").equals("")) {
-						vo.setId("");
-					}
-					if (contents.get("popularity") != null) {
+					if (Float.parseFloat(String.valueOf(contents.get("popularity"))) >= 100) {
 						vo.setPopularity(Float.parseFloat(String.valueOf(contents.get("popularity"))));
-					} else if (contents.get("popularity") == null || contents.get("popularity").equals("")) {
-						vo.setPopularity(0);
-					}
-					if (contents.get("overview") != null) {
-						vo.setOverview(contents.get("overview").toString());
-					} else if (contents.get("overview") == null || contents.get("overview").equals("")) {
-						vo.setOverview("");
-					}
-					if (contents.get("poster_path") != null) {
-						vo.setPoster_path(contents.get("poster_path").toString());
-					} else if (contents.get("poster_path") == null || contents.get("poster_path").equals("")) {
-						vo.setPoster_path("");
-					}
 
-					if (contents.get("release_date") != null && !contents.get("release_date").equals("")) {
-						Date release_date = dateFormat.parse((String) contents.get("release_date"));
-						vo.setRelease_date(release_date);
-					} else if (contents.get("release_date") == null) {
-						vo.setRelease_date(date);
-					}
-					if (contents.get("first_air_date") != null) {
-						Date first_air_date = dateFormat.parse((String) contents.get("first_air_date"));
-						vo.setFirst_air_date(first_air_date);
-						;
-					} else if (contents.get("first_air_date") == null || contents.get("first_air_date").equals("")) {
-						vo.setFirst_air_date(date);
-						;
-					}
+						if (contents.get("id") != null) {
+							vo.setId(contents.get("id").toString());
+						} else if (contents.get("id") == null || contents.get("id").equals("")) {
+							vo.setId("");
+						}
+						/*
+						 * if (contents.get("popularity") != null) {
+						 * vo.setPopularity(Float.parseFloat(String.valueOf(contents.get("popularity")))
+						 * ); } else if (contents.get("popularity") == null ||
+						 * contents.get("popularity").equals("")) { vo.setPopularity(0); }
+						 */
+						if (contents.get("overview") != null) {
+							vo.setOverview(contents.get("overview").toString());
+						}
+						if (contents.get("poster_path") != null) {
+							vo.setPoster_path(contents.get("poster_path").toString());
+						} else if (contents.get("poster_path") == null || contents.get("poster_path").equals("")) {
+							vo.setPoster_path("");
+						}
 
-					if (contents.get("title") != null) {
-						vo.setTitle(contents.get("title").toString());
-					} else if (contents.get("title") == null || contents.get("title").equals("")) {
-						vo.setTitle("");
+						if (contents.get("release_date") != null && !contents.get("release_date").equals("")) {
+							Date release_date = dateFormat.parse((String) contents.get("release_date"));
+							vo.setRelease_date(release_date);
+						} else if (contents.get("release_date") == null || contents.get("release_date").equals("")) {
+							vo.setRelease_date(dateFormat.parse(date));
+						}
+						if (contents.get("first_air_date") != null) {
+							Date first_air_date = dateFormat.parse((String) contents.get("first_air_date"));
+							vo.setFirst_air_date(first_air_date);
+						} else if (contents.get("first_air_date") == null
+								|| contents.get("first_air_date").equals("")) {
+							vo.setFirst_air_date(dateFormat.parse(date));
+						}
+
+						if (contents.get("title") != null) {
+							vo.setTitle(contents.get("title").toString());
+						} else if (contents.get("title") == null || contents.get("title").equals("")) {
+							vo.setTitle("");
+						}
+						if (contents.get("vote_average") != null) {
+							vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
+						} else if (contents.get("vote_average") == null || contents.get("vote_average").equals("")) {
+							vo.setVote_average(0);
+						}
+						infoList.add(vo);
 					}
-					if (contents.get("vote_average") != null) {
-						vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
-					} else if (contents.get("vote_average") == null || contents.get("vote_average").equals("")) {
-						vo.setVote_average(0);
-					}
-					infoList.add(vo);
 				}
 
 			}
@@ -148,10 +151,11 @@ public class GetInfoUtil {
 		return infoList;
 	}
 
+	// 컨텐츠 상세정보 추출 메소드(해당 컨텐츠 id로 검색)
 	public ContentsVO getInfoDetail(String type, int id) {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		ContentsVO contents = new ContentsVO();
-
+		String genres = "";
 		try {
 
 			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "?api_key=" + KEY + "&language=ko-KR";
@@ -168,12 +172,29 @@ public class GetInfoUtil {
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
 
 			contents.setTitle(jsonObject.get("title").toString());
+
 			contents.setOverview(jsonObject.get("overview").toString());
+
 			contents.setPoster_path(jsonObject.get("poster_path").toString());
+
 			Date release_date = dateFormat.parse((String) jsonObject.get("release_date"));
 			contents.setRelease_date(release_date);
+			Date first_air_date = dateFormat.parse((String) jsonObject.get("first_air_date"));
+			contents.setFirst_air_date(first_air_date);
+
 			contents.setVote_average(Float.parseFloat(String.valueOf(jsonObject.get("vote_average"))));
 
+			JSONArray genre_list = (JSONArray) jsonObject.get("genres");
+			for (int i = 0; i < genre_list.size(); i++) {
+				JSONObject genre = (JSONObject) genre_list.get(i);
+				if (i == 0) {
+					genres += genre.get("name");
+				} else {
+					genres += "/" + genre.get("name");
+				}
+			}
+			contents.setGenre(genres);
+			contents.setRuntime(jsonObject.get("runtime").toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

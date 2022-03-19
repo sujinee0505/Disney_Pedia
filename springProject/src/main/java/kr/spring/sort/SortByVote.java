@@ -6,6 +6,7 @@ import java.util.List;
 import kr.spring.util.GetInfoUtil;
 import kr.spring.contents.vo.ContentsVO;
 
+// 평점 순 정렬
 public class SortByVote implements Comparator<ContentsVO> {
 
 	@Override

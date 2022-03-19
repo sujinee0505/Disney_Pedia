@@ -14,10 +14,10 @@
 				<div class="css-174lxc3">
 					<div class="css-119xxd7">
 						<ul class="css-1ya1z7z-VisualUl">
-
 							<li class="css-8y23cj"><c:forEach var="vote_average"
 									begin="0" end="10" step="1" items="${vote_average}">
-									<a href="${pageContext.request.contextPath}/contents/detail.do?id=${vote_average.id}"><div
+									<a
+										href="${pageContext.request.contextPath}/contents/detail.do?id=${vote_average.id}"><div
 											class="css-1qmeemv">
 											<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 												<img src="${vote_average.poster_path }"
