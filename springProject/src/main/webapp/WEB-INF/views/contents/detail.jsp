@@ -39,10 +39,13 @@
 
 					<div class="css-oqg1df-BlurPosterBlock e1svyhwg2">
 						<div color="#19131E" class="css-1brjyj2-LeftBackground e1svyhwg6"></div>
-						<div class="css-8cob0z-BlurPoster e1svyhwg4">
-							<div color="#19131E" class="css-vf68xy-LeftGradient e1svyhwg8"></div>
-							<div color="#988970" class="css-hhk7ai-RightGradient e1svyhwg9"></div>
-						</div>
+						<c:forEach var="images" items="${images}" begin="0" end="0">
+							<div class="css-8cob0z-BlurPoster e1svyhwg4"
+								style="background-image:url('https://image.tmdb.org/t/p/original/${images }');">
+								<div color="#19131E" class="css-vf68xy-LeftGradient e1svyhwg8"></div>
+								<div color="#988970" class="css-hhk7ai-RightGradient e1svyhwg9"></div>
+							</div>
+						</c:forEach>
 						<div color="#988970" class="css-13i7zir-RightBackground e1svyhwg7"></div>
 						<div class="css-1ubeqqm-DimmedLayer e1svyhwg3"></div>
 					</div>
