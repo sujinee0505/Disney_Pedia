@@ -52,11 +52,11 @@
 											<li>없는데<em>어쩌죠</em></li>
 										</ul>
 										<h1 class="css-j40qn0-TitleOnPosterBlock e1svyhwg12">평균
-											평점 ${contents.title }점</h1>
+											★${Math.ceil((contents.vote_average)/2*10)/10}</h1>
 										<div class="css-11h0kfd-Detail e1svyhwg18">
 											<fmt:formatDate value="${contents.release_date }"
 												pattern="yyyy-MM" />
-											추가로 장르(보류)
+											· ${contents.genre }
 										</div>
 									</div>
 								</div>
@@ -73,18 +73,21 @@
 									<div class="css-11h0kfd-Detail e1svyhwg18">
 										<fmt:formatDate value="${contents.release_date }"
 											pattern="yyyy-MM" />
-										추가로 장르(보류)
+										· ${contents.genre }
 									</div>
 									<div class="css-og1gu8-ContentRatings e1svyhwg20"
-										style="white-space: nowrap;">평균 ★${Math.ceil((contents.vote_average)/2*10)/10}</div>
+										style="white-space: nowrap;">평균
+										★${Math.ceil((contents.vote_average)/2*10)/10}</div>
 									<div class="css-5qj1gb-ContentActionSection e1svyhwg19">
 										<div class="css-1jlb6q">
 											<div class="css-yt2kjp">
 												<div class="css-1k5zzs9">평가하기</div>
 											</div>
 											<!-- 별 아이콘 나오는 부분 -->
-											<div class="css-1m7ruyk"> <!-- 별아이콘 전체 div -->
-												<div class="css-1mbuso5"> <!-- 별아이콘 하나 div -->
+											<div class="css-1m7ruyk">
+												<!-- 별아이콘 전체 div -->
+												<div class="css-1mbuso5">
+													<!-- 별아이콘 하나 div -->
 													<svg xmlns="http://www.w3.org/2000/svg" width="44"
 														height="44" viewBox="0 0 44 44" fill="#eee"
 														class="css-fnwbjg">
@@ -92,7 +95,8 @@
 														<path
 															d="M22 33.444L9.83 42.327c-.784.572-1.842-.196-1.539-1.118l4.687-14.32L.769 18.06c-.787-.569-.383-1.812.588-1.81l15.067.033 4.624-14.34c.298-.924 1.606-.924 1.904 0l4.624 14.34 15.067-.033c.971-.002 1.375 1.241.588 1.81l-12.209 8.829 4.688 14.32c.302.922-.756 1.69-1.54 1.118L22 33.444z"></path></g></svg>
 												</div>
-												<div class="css-1mbuso5"> <!-- 별아이콘 하나 div -->
+												<div class="css-1mbuso5">
+													<!-- 별아이콘 하나 div -->
 													<svg xmlns="http://www.w3.org/2000/svg" width="44"
 														height="44" viewBox="0 0 44 44" fill="#eee"
 														class="css-fnwbjg">
@@ -100,7 +104,8 @@
 														<path
 															d="M22 33.444L9.83 42.327c-.784.572-1.842-.196-1.539-1.118l4.687-14.32L.769 18.06c-.787-.569-.383-1.812.588-1.81l15.067.033 4.624-14.34c.298-.924 1.606-.924 1.904 0l4.624 14.34 15.067-.033c.971-.002 1.375 1.241.588 1.81l-12.209 8.829 4.688 14.32c.302.922-.756 1.69-1.54 1.118L22 33.444z"></path></g></svg>
 												</div>
-												<div class="css-1mbuso5"> <!-- 별아이콘 하나 div -->
+												<div class="css-1mbuso5">
+													<!-- 별아이콘 하나 div -->
 													<svg xmlns="http://www.w3.org/2000/svg" width="44"
 														height="44" viewBox="0 0 44 44" fill="#eee"
 														class="css-fnwbjg">
@@ -108,7 +113,8 @@
 														<path
 															d="M22 33.444L9.83 42.327c-.784.572-1.842-.196-1.539-1.118l4.687-14.32L.769 18.06c-.787-.569-.383-1.812.588-1.81l15.067.033 4.624-14.34c.298-.924 1.606-.924 1.904 0l4.624 14.34 15.067-.033c.971-.002 1.375 1.241.588 1.81l-12.209 8.829 4.688 14.32c.302.922-.756 1.69-1.54 1.118L22 33.444z"></path></g></svg>
 												</div>
-												<div class="css-1mbuso5"> <!-- 별아이콘 하나 div -->
+												<div class="css-1mbuso5">
+													<!-- 별아이콘 하나 div -->
 													<svg xmlns="http://www.w3.org/2000/svg" width="44"
 														height="44" viewBox="0 0 44 44" fill="#eee"
 														class="css-fnwbjg">
@@ -116,7 +122,8 @@
 														<path
 															d="M22 33.444L9.83 42.327c-.784.572-1.842-.196-1.539-1.118l4.687-14.32L.769 18.06c-.787-.569-.383-1.812.588-1.81l15.067.033 4.624-14.34c.298-.924 1.606-.924 1.904 0l4.624 14.34 15.067-.033c.971-.002 1.375 1.241.588 1.81l-12.209 8.829 4.688 14.32c.302.922-.756 1.69-1.54 1.118L22 33.444z"></path></g></svg>
 												</div>
-												<div class="css-1mbuso5"> <!-- 별아이콘 하나 div -->
+												<div class="css-1mbuso5">
+													<!-- 별아이콘 하나 div -->
 													<svg xmlns="http://www.w3.org/2000/svg" width="44"
 														height="44" viewBox="0 0 44 44" fill="#eee"
 														class="css-fnwbjg">
@@ -124,7 +131,7 @@
 														<path
 															d="M22 33.444L9.83 42.327c-.784.572-1.842-.196-1.539-1.118l4.687-14.32L.769 18.06c-.787-.569-.383-1.812.588-1.81l15.067.033 4.624-14.34c.298-.924 1.606-.924 1.904 0l4.624 14.34 15.067-.033c.971-.002 1.375 1.241.588 1.81l-12.209 8.829 4.688 14.32c.302.922-.756 1.69-1.54 1.118L22 33.444z"></path></g></svg>
 												</div>
-											</div> 
+											</div>
 											<!-- 별 아이콘 나오는 부분 -->
 										</div>
 										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
@@ -221,11 +228,6 @@
 											<div class="css-1y901al-Row emmoxnt0">
 												<header class="css-1ue9xs6">
 													<h2 class="css-1wtjsst">기본 정보</h2>
-													<div class="css-s289sk">
-														<div class="css-1ugqy9j">
-															<a href="/ko-KR/contents/mOgjGVz/overview">더보기</a>
-														</div>
-													</div>
 												</header>
 											</div>
 										</div>
@@ -236,7 +238,7 @@
 														${contents.title }<br> <span
 															class="css-1t00yeb-OverviewMeta eokm2782"><fmt:formatDate
 																value="${contents.release_date }" pattern="yyyy-MM" />
-															추가로 장르(보류)</span><br> <span
+															· ${contents.genre }</span><br> <span
 															class="css-1t00yeb-OverviewMeta eokm2782">1시간 57분
 															· 12세</span>
 													</div>
@@ -356,7 +358,6 @@
 											<div class="css-1y901al-Row emmoxnt0">
 												<header class="css-1ue9xs6">
 													<h2 class="css-1wtjsst">코멘트</h2>
-													<span class="css-wzn7fp">300+</span>
 													<div class="css-s289sk">
 														<div class="css-1ugqy9j">
 															<a href="/ko-KR/contents/mOgjGVz/comments">더보기</a>
@@ -596,7 +597,6 @@
 													<div class="css-1y901al-Row emmoxnt0">
 														<header class="css-1ue9xs6">
 															<h2 class="css-1wtjsst">이 작품이 담긴 컬렉션</h2>
-															<span class="css-wzn7fp">170</span>
 														</header>
 													</div>
 												</div>

@@ -1,6 +1,7 @@
 package kr.spring.contents.vo;
 
 import java.util.Date;
+import java.util.List;
 
 public class ContentsVO {
 	private String id;
@@ -11,6 +12,8 @@ public class ContentsVO {
 	private Date release_date;
 	private Date first_air_date;
 	private float vote_average;
+	private String genre;
+	private String runtime;
 
 	public String getId() {
 		return id;
@@ -77,10 +80,41 @@ public class ContentsVO {
 		this.vote_average = vote_average;
 	}
 
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public String getRuntime() {
+		return runtime;
+	}
+
+	public void setRuntime(String runtime) {
+		int run_time = Integer.parseInt(runtime);
+		int hours = 0;
+		int minutes = 0;
+		if (run_time < 60) {
+			minutes = run_time;
+			this.runtime = minutes + "분";
+		} else if (run_time % 60 == 0) {
+			hours = run_time % 60;
+			this.runtime = hours + "시간";
+		} else {
+			hours = run_time / 60;
+			minutes = run_time % 60;
+			this.runtime = hours + "시간 " + minutes + "분";
+		}
+
+	}
+
 	@Override
 	public String toString() {
-		return "TestVO [id=" + id + ", popularity=" + popularity + ", title=" + title + ", overview=" + overview
-				+ ", poster_path=" + poster_path + ", release_date=" + release_date + ", vote_average=" + vote_average
-				+ "]";
+		return "ContentsVO [id=" + id + ", popularity=" + popularity + ", title=" + title + ", overview=" + overview
+				+ ", poster_path=" + poster_path + ", release_date=" + release_date + ", first_air_date="
+				+ first_air_date + ", vote_average=" + vote_average + ", genre=" + genre + "]";
 	}
+
 }

@@ -2,6 +2,35 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		let width = $('#average').width();
+		to_right = function() {
+			var _scrollX = $('#average').scrollLeft();
+			$('#average').scrollLeft(_scrollX + width);
+		}
+		to_left = function() {
+			var _scrollX = $('#average').scrollLeft();
+			$('#average').scrollLeft(_scrollX - width);
+		}
+		showGradient = function() {
+			if ($(this).scrollLeft() == 0) {// 스크롤이 0일 때
+				$('#left').hide();
+			} else if ($(this).scrollLeft() != 0) {
+				$('#left').show();
+				/* $('#why').hide(); */
+			} else if (Math.ceil($(this).scrollLeft() + $(this).width()) == $(
+					'.css-119xxd7').width()) {//스크롤이 끝에 왔을 때
+				$('#why').hide();
+			}
+		}
+		showGradient();
+		$('#average').on('scroll', showGradient);
+	});
+</script>
+
 <!-- 메인 시작 -->
 <!-- 평균별점순 -->
 <div class="css-lufi3b">
@@ -11,15 +40,20 @@
 
 	<div class="css-1qq59e8">
 		<div class="css-1kd6k5d">
-			<div class="css-9dnzub">
+			<div class="css-9dnzub" id="average">
 				<div class="css-174lxc3">
 					<div class="css-119xxd7">
 						<ul class="css-1ya1z7z-VisualUl">
-
 							<li class="css-8y23cj"><c:forEach var="vote_average"
 									begin="0" end="10" step="1" items="${vote_average}">
+<<<<<<< HEAD
 									<a href="${pageContext.request.contextPath}/contents/detail.do?id=${vote_average.id}">
 										<div class="css-1qmeemv">
+=======
+									<a
+										href="${pageContext.request.contextPath}/contents/detail.do?id=${vote_average.id}"><div
+											class="css-1qmeemv">
+>>>>>>> refs/remotes/origin/main
 											<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 												<img src="${vote_average.poster_path }"
 													class="css-qhzw1o-StyledImg ezcopuc1">
@@ -40,8 +74,7 @@
 												<path fill-rule="evenodd" clip-rule="evenodd"
 														d="M6 8.02L3.14233 9.91131C2.91094 10.0644 2.61352 9.84836 2.68767 9.58097L3.60334 6.27872L0.921531 4.14536C0.704379 3.97262 0.817982 3.62299 1.0952 3.61087L4.51878 3.46128L5.719 0.251483C5.81619 -0.00842059 6.18381 -0.00842094 6.281 0.251483L7.48122 3.46128L10.9048 3.61087C11.182 3.62299 11.2956 3.97262 11.0785 4.14536L8.39666 6.27872L9.31233 9.58097C9.38648 9.84836 9.08906 10.0644 8.85767 9.91131L6 8.02Z"></path></svg>
 												<span>
-												${Math.ceil((vote_average.vote_average)/2*10)/10}
-												</span>
+													${Math.ceil((vote_average.vote_average)/2*10)/10} </span>
 											</div>
 											<div class="css-u4moi6">🔥 ${Math.ceil(vote_average.popularity)/10 }</div>
 										</div>
@@ -53,16 +86,23 @@
 					</div>
 				</div>
 			</div>
-			<div direction="left" class="css-mx7084"></div>
-			<div direction="right" class="css-18v0vc9"></div>
-			<div class="arrow_button css-1553dc" direction="left">
-				<div class="css-1hestod"></div>
+			<div class="arrow_button css-147ng4f" style="right: inherit;"
+				id="left">
+				<div class="">
+					<button type="button" class="css-vp7uyl" onclick="to_left()">
+						<img
+							src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
+							alt="forward">
+					</button>
+				</div>
 			</div>
-			<div class="arrow_button css-147ng4f" direction="right">
-				<div class="css-vp7uyl">
-					<img
-						src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
-						alt="forward">
+			<div class="arrow_button css-147ng4f" id="why">
+				<div class="">
+					<button type="button" class="css-vp7uyl" onclick="to_right()">
+						<img
+							src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+							alt="forward">
+					</button>
 				</div>
 			</div>
 		</div>
@@ -107,8 +147,7 @@
 												<path fill-rule="evenodd" clip-rule="evenodd"
 														d="M6 8.02L3.14233 9.91131C2.91094 10.0644 2.61352 9.84836 2.68767 9.58097L3.60334 6.27872L0.921531 4.14536C0.704379 3.97262 0.817982 3.62299 1.0952 3.61087L4.51878 3.46128L5.719 0.251483C5.81619 -0.00842059 6.18381 -0.00842094 6.281 0.251483L7.48122 3.46128L10.9048 3.61087C11.182 3.62299 11.2956 3.97262 11.0785 4.14536L8.39666 6.27872L9.31233 9.58097C9.38648 9.84836 9.08906 10.0644 8.85767 9.91131L6 8.02Z"></path></svg>
 												<span>
-												${Math.ceil((release_date.vote_average)/2*10)/10}
-												</span>
+													${Math.ceil((release_date.vote_average)/2*10)/10} </span>
 											</div>
 											<div class="css-u4moi6">인기도 : ${Math.ceil(release_date.popularity)/10 }</div>
 										</div></a>
