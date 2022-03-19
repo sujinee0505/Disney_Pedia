@@ -97,21 +97,17 @@ ul li{
 		margin: 0;
 	}
 }
-<<<<<<< HEAD
-/* .css-1m7ruyk { 별아이콘전체div
-=======
 
-.css-1m7ruyk { /*별아이콘전체div*/
->>>>>>> refs/remotes/origin/main
+/* .css-1m7ruyk { 별아이콘전체div
+
+
 	position: relative;
 	text-align: center;
 	width: 200px;
 	margin: 0 auto;
 	cursor: pointer;
 	width: 100%;
-}
-<<<<<<< HEAD
-=======
+}*/
 
 .css-1mbuso5 { /*별아이콘하나*/
 	display: inline-block;
@@ -126,7 +122,6 @@ ul li{
 	height: 20px; /*40*/
 }
 
->>>>>>> refs/remotes/origin/main
 @media ( min-width : 1023px) {
 	.css-1m7ruyk {
 		width: 190px;
@@ -140,16 +135,15 @@ ul li{
 	}
 }
 
-.css-1m7ruyk svg {
-<<<<<<< HEAD
-	width: 44px;  44
-	height: 44px; 44
-=======
-	width: 22px; /*44*/
-	height: 22px; /*44*/
->>>>>>> refs/remotes/origin/main
-}
+/* .css-1m7ruyk svg {
 
+	width: 44px;  
+	height: 44px; 
+	width: 22px; 44
+	height: 22px; 44
+} */
+
+/*
 @media ( min-width : 1023px) {
 	.css-1m7ruyk svg {
 		width: 44px; 38
@@ -3954,8 +3948,6 @@ button, input, optgroup, select, textarea {
 	letter-spacing: -0.2px;
 	line-height: 24px;
 	margin: 8px 0px;
-<<<<<<< HEAD
-=======
 }
 
 .css-kywn6v-StyledText {
@@ -4011,5 +4003,4 @@ button, input, optgroup, select, textarea {
 	background-repeat: no-repeat;
 	opacity: 1;
 	transition: all 300ms ease 0s;
->>>>>>> refs/remotes/origin/main
 }
