@@ -6,11 +6,17 @@
 	border-radius:50%;
 }
 /*==========별아이콘 설정 시작==========*/
-/*별점구역*/
+.star_area{ /*별점구역*/
+	margin: 0 auto;
+	padding-left:20px;
+	/* background-color:blue; */
+}
+/*별점전체구역(평가하기+별존)*/
 .css-1jlb6q {
 	width: 228px;
 	height: 66px;
 	margin: 20px auto 24px;
+	
 }
 
 @media ( min-width : 1023px) {
@@ -27,7 +33,7 @@
 		margin: 0;
 	}
 }
-.css-1m7ruyk { /*별아이콘전체div*/
+/* .css-1m7ruyk { 별아이콘전체div
 	position: relative;
 	text-align: center;
 	width: 200px;
@@ -35,19 +41,6 @@
 	cursor: pointer;
 	width: 100%;
 }
-.css-1mbuso5 { /*별아이콘하나*/
-	display: inline-block;
-	position: relative;
-	vertical-align: top;
-	height: 20px; /*40*/
-}
-
-.css-fnwbjg { /*별아이콘svg*/
-	vertical-align: top;
-	width: 20px;  /*40*/
-	height: 20px;  /*40*/
-}
-
 @media ( min-width : 1023px) {
 	.css-1m7ruyk {
 		width: 190px;
@@ -62,23 +55,37 @@
 }
 
 .css-1m7ruyk svg {
-	width: 22px;  /*44*/
-	height: 22px; /*44*/
+	width: 44px;  44
+	height: 44px; 44
 }
 
 @media ( min-width : 1023px) {
 	.css-1m7ruyk svg {
-		width: 38px; /*38*/
-		height: 38px; /*38*/
+		width: 44px; 38
+		height: 44px; 38
 	}
+} */
+
+/* @media ( min-width : 719px) { 별사이즈조절
+	.css-1m7ruyk svg {
+		width: 26px; 32
+		height: 26px; 32
+	}
+} */
+.css-1mbuso5 { /*별아이콘하나*/
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	height: 20px; /*40*/
 }
 
-@media ( min-width : 719px) { /*별사이즈조절*/
-	.css-1m7ruyk svg {
-		width: 26px; /*32*/
-		height: 26px; /*32*/
-	}
+.css-fnwbjg { /*별아이콘svg*/
+	vertical-align: top;
+	width: 20px;  /*40*/
+	height: 20px;  /*40*/
 }
+
+
 
 /*==========별아이콘 설정 끝==========*/
 

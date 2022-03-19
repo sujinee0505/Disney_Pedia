@@ -3,6 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.star-rating-svg.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/star-rating-svg.css">
+
 <div class="css-16jhzm7-Self e1ezac430">
 	<div class="css-wg0jak">
 		<button class="css-1xc2mdf-StylelessButton">
@@ -83,56 +88,22 @@
 											<div class="css-yt2kjp">
 												<div class="css-1k5zzs9">평가하기</div>
 											</div>
-											<!-- 별 아이콘 나오는 부분 -->
-											<div class="css-1m7ruyk">
-												<!-- 별아이콘 전체 div -->
-												<div class="css-1mbuso5">
-													<!-- 별아이콘 하나 div -->
-													<svg xmlns="http://www.w3.org/2000/svg" width="44"
-														height="44" viewBox="0 0 44 44" fill="#eee"
-														class="css-fnwbjg">
-														<g fill-rule="evenodd">
-														<path
-															d="M22 33.444L9.83 42.327c-.784.572-1.842-.196-1.539-1.118l4.687-14.32L.769 18.06c-.787-.569-.383-1.812.588-1.81l15.067.033 4.624-14.34c.298-.924 1.606-.924 1.904 0l4.624 14.34 15.067-.033c.971-.002 1.375 1.241.588 1.81l-12.209 8.829 4.688 14.32c.302.922-.756 1.69-1.54 1.118L22 33.444z"></path></g></svg>
-												</div>
-												<div class="css-1mbuso5">
-													<!-- 별아이콘 하나 div -->
-													<svg xmlns="http://www.w3.org/2000/svg" width="44"
-														height="44" viewBox="0 0 44 44" fill="#eee"
-														class="css-fnwbjg">
-														<g fill-rule="evenodd">
-														<path
-															d="M22 33.444L9.83 42.327c-.784.572-1.842-.196-1.539-1.118l4.687-14.32L.769 18.06c-.787-.569-.383-1.812.588-1.81l15.067.033 4.624-14.34c.298-.924 1.606-.924 1.904 0l4.624 14.34 15.067-.033c.971-.002 1.375 1.241.588 1.81l-12.209 8.829 4.688 14.32c.302.922-.756 1.69-1.54 1.118L22 33.444z"></path></g></svg>
-												</div>
-												<div class="css-1mbuso5">
-													<!-- 별아이콘 하나 div -->
-													<svg xmlns="http://www.w3.org/2000/svg" width="44"
-														height="44" viewBox="0 0 44 44" fill="#eee"
-														class="css-fnwbjg">
-														<g fill-rule="evenodd">
-														<path
-															d="M22 33.444L9.83 42.327c-.784.572-1.842-.196-1.539-1.118l4.687-14.32L.769 18.06c-.787-.569-.383-1.812.588-1.81l15.067.033 4.624-14.34c.298-.924 1.606-.924 1.904 0l4.624 14.34 15.067-.033c.971-.002 1.375 1.241.588 1.81l-12.209 8.829 4.688 14.32c.302.922-.756 1.69-1.54 1.118L22 33.444z"></path></g></svg>
-												</div>
-												<div class="css-1mbuso5">
-													<!-- 별아이콘 하나 div -->
-													<svg xmlns="http://www.w3.org/2000/svg" width="44"
-														height="44" viewBox="0 0 44 44" fill="#eee"
-														class="css-fnwbjg">
-														<g fill-rule="evenodd">
-														<path
-															d="M22 33.444L9.83 42.327c-.784.572-1.842-.196-1.539-1.118l4.687-14.32L.769 18.06c-.787-.569-.383-1.812.588-1.81l15.067.033 4.624-14.34c.298-.924 1.606-.924 1.904 0l4.624 14.34 15.067-.033c.971-.002 1.375 1.241.588 1.81l-12.209 8.829 4.688 14.32c.302.922-.756 1.69-1.54 1.118L22 33.444z"></path></g></svg>
-												</div>
-												<div class="css-1mbuso5">
-													<!-- 별아이콘 하나 div -->
-													<svg xmlns="http://www.w3.org/2000/svg" width="44"
-														height="44" viewBox="0 0 44 44" fill="#eee"
-														class="css-fnwbjg">
-														<g fill-rule="evenodd">
-														<path
-															d="M22 33.444L9.83 42.327c-.784.572-1.842-.196-1.539-1.118l4.687-14.32L.769 18.06c-.787-.569-.383-1.812.588-1.81l15.067.033 4.624-14.34c.298-.924 1.606-.924 1.904 0l4.624 14.34 15.067-.033c.971-.002 1.375 1.241.588 1.81l-12.209 8.829 4.688 14.32c.302.922-.756 1.69-1.54 1.118L22 33.444z"></path></g></svg>
-												</div>
-											</div>
-											<!-- 별 아이콘 나오는 부분 -->
+				<!--=======별점 부분=======--><!-- <div class="css-1m7ruyk"> -->											
+				<div class="star_area">
+					<div class="my-rating-2"></div>
+				</div>
+				<script type="text/javascript">
+					$(".my-rating-2").starRating({
+						totalStars : 5,
+						emptyColor : 'lightgray',
+						hoverColor : 'gold',
+						ratedColor : 'gold',
+						activeColor: 'gold',						
+						strokeWidth : 0,
+						useGradient : false
+					});
+				</script>
+				<!--======별점 부분 끝======-->
 										</div>
 										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 										<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
