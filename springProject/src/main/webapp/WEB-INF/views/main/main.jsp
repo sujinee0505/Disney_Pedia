@@ -15,7 +15,7 @@
 			var scrollX = $(this).siblings('#scroll').scrollLeft();
 			$(this).siblings('#scroll').scrollLeft(scrollX - width);
 		});
-		showGradient = function() {
+		/* showGradient = function() {
 			if ($(this).scrollLeft() == 0) {// 스크롤이 0일 때
 				$('#left').hide();
 			} else if ($(this).scrollLeft() != 0) {
@@ -26,7 +26,7 @@
 			}
 		}
 		showGradient(); // 오류 차후 수정
-		$(document).on('scroll', showGradient);
+		$(document).on('scroll', showGradient); */
 	});
 </script>
 
