@@ -27,7 +27,7 @@
 							class="css-q65tx9-StylelessButton">채팅방</button></li>
 					<li class="css-1c3wwgb"><div class="css-1xm32e0">
 							<div class="css-1okeg7p">
-								<form action="#">
+								<form action="search.do" method="get">
 									<label class="css-kyr608"><input type="text"
 										autocomplete="off" placeholder="콘텐츠를 검색해보세요."
 										name="searchKeyword" value="" class="css-13i5xe6">

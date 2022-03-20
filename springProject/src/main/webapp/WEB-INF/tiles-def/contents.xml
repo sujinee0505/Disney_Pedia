@@ -5,10 +5,16 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="contentsDetail" extends="main">
-    	<put-attribute name="title" value="상세 페이지"/>
-    	<put-attribute name="body" value="/WEB-INF/views/contents/detail.jsp"/>
-    </definition>
+	<definition name="contentsDetail" extends="main">
+		<put-attribute name="title" value="상세 페이지" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/contents/detail.jsp" />
+	</definition>
+	<definition name="contentsSearch" extends="main">
+		<put-attribute name="title" value="검색 결과 페이지" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/contents/search.jsp" />
+	</definition>
 </tiles-definitions>
 
 

@@ -28,10 +28,10 @@ public class GetInfoUtil {
 		int page = 0;
 
 		try {
-
 			// 데이터를 받아오기 위한 API 호출 URL, type (영화인지 시리즈인지에 따라 결과 값이 달라짐)
 			URL url = new URL("https://api.themoviedb.org/3/discover/" + type + "?api_key=" + KEY
 					+ "&with_watch_providers=337&watch_region=KR&language=ko");
+
 			// URL 객체를 통해서 url을 연결한 후 API가 제공하는 원본데이터를 가져와서 버퍼에 저장
 			BufferedReader bf;
 
@@ -73,6 +73,7 @@ public class GetInfoUtil {
 		List<ContentsVO> infoList = null;
 		try {
 			infoList = new ArrayList<ContentsVO>();
+
 			// 페이지 마다 루프를 돌며 값 추출 및 저장
 			for (int i = 1; i <= pages; i++) {
 				String apiURL = "https://api.themoviedb.org/3/discover/" + type + "?api_key=" + KEY
@@ -186,11 +187,9 @@ public class GetInfoUtil {
 				}
 			}
 			contents.setGenre(genres);
-			contents.setRuntime(jsonObject.get("runtime").toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(contents);
 		return contents;
 	}
 

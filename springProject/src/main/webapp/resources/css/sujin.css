@@ -5715,7 +5715,6 @@ svg {
 		padding: 0 0 0 166px;
 	}
 } */
-
 @media ( min-width : 1023px) {
 	.css-28gyaj-StyledLazyLoadingImage {
 		width: 166px;
@@ -6871,4 +6870,14 @@ button, input, optgroup, select, textarea {
 	background-image: center center/cover no-repeat;
 	width: 100%;
 	height: 100%;
+}
+
+.css-wzn7fp {
+	display: inline-block;
+	color: #a0a0a0;
+	font-size: 15px;
+	font-weight: 400;
+	letter-spacing: -0.5px;
+	line-height: 20px;
+	margin: 12px 0 12px 6px;
 }
