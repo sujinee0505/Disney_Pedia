@@ -4,16 +4,16 @@ import java.util.Date;
 import java.util.List;
 
 public class ContentsVO {
-	private String id;
-	private float popularity;
-	private String title;
-	private String overview;
-	private String poster_path;
-	private Date release_date;
-	private float vote_average;
-	private String genre;
-	private String runtime;
-	private String type;
+	private String id; // 컨텐츠 id
+	private float popularity; // 인기도
+	private String title; // 컨텐츠 제목
+	private String overview; // 컨텐츠 줄거리
+	private String poster_path; // 컨텐츠 포스터 사진
+	private Date release_date; // 컨텐츠 공개일
+	private float vote_average; // 컨텐츠 평점
+	private String genre; // 컨텐츠 장르
+	private String runtime; // 컨텐츠 런타임
+	private String type; // 컨텐츠 유형(movie, tv)
 
 	public String getId() {
 		return id;
@@ -85,6 +85,7 @@ public class ContentsVO {
 	}
 
 	public void setRuntime(String runtime) {
+		// 영화일 경우 러닝 타임을 숫자 형태의 값을 시간 형태로 변환
 		if (!runtime.contains("시즌")) {
 			int run_time = Integer.parseInt(runtime);
 			int hours = 0;
@@ -112,12 +113,4 @@ public class ContentsVO {
 	public void setType(String type) {
 		this.type = type;
 	}
-
-	@Override
-	public String toString() {
-		return "ContentsVO [id=" + id + ", popularity=" + popularity + ", title=" + title + ", overview=" + overview
-				+ ", poster_path=" + poster_path + ", release_date=" + release_date + ", vote_average=" + vote_average
-				+ ", genre=" + genre + ", runtime=" + runtime + ", type=" + type + "]";
-	}
-
 }

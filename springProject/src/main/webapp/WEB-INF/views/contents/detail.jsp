@@ -265,7 +265,7 @@
 																				<div></div>
 																			</div></a></li>
 																</c:forEach>
-																<c:forEach var="cast" items="${cast }" begin="0" end="7"
+																<c:forEach var="cast" items="${cast }" begin="0" end="14"
 																	step="1">
 																	<li class="css-54rr1e"><a
 																		class="css-1aaqvgs-InnerPartOfListWithImage" href=""><div

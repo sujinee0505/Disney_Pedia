@@ -63,7 +63,7 @@ public class GetInfoUtil {
 		return page;
 	}
 
-	// 컨텐츠 리스트 추출 메소드
+	// 컨텐츠 리스트 추출
 	public List<ContentsVO> getInfoList(String type) {
 		int pages = getPages(type);
 
@@ -73,7 +73,7 @@ public class GetInfoUtil {
 		List<ContentsVO> infoList = null;
 		try {
 			infoList = new ArrayList<ContentsVO>();
-			// 페이지 마다 루트를 돌며 값 추출 및 저장
+			// 페이지 마다 루프를 돌며 값 추출 및 저장
 			for (int i = 1; i <= pages; i++) {
 				String apiURL = "https://api.themoviedb.org/3/discover/" + type + "?api_key=" + KEY
 						+ "&with_watch_providers=337&watch_region=KR&language=ko&page=" + i;
@@ -93,58 +93,44 @@ public class GetInfoUtil {
 
 					ContentsVO vo = new ContentsVO();
 					JSONObject contents = (JSONObject) list.get(j);
+
+					// 메인 화면에는 popularity 지수가 100이상인 목록들로만 출력되게 조건 설정
 					if (Float.parseFloat(String.valueOf(contents.get("popularity"))) >= 100) {
 						vo.setPopularity(Float.parseFloat(String.valueOf(contents.get("popularity"))));
 
-						if (contents.get("id") != null) {
-							vo.setId(contents.get("id").toString());
-						} else if (contents.get("id") == null || contents.get("id").equals("")) {
-							vo.setId("");
-						}
+						vo.setId(contents.get("id").toString());
 						/*
 						 * if (contents.get("popularity") != null) {
 						 * vo.setPopularity(Float.parseFloat(String.valueOf(contents.get("popularity")))
 						 * ); } else if (contents.get("popularity") == null ||
 						 * contents.get("popularity").equals("")) { vo.setPopularity(0); }
 						 */
-						if (contents.get("overview") != null) {
-							vo.setOverview(contents.get("overview").toString());
-						}
-						if (contents.get("poster_path") != null) {
-							vo.setPoster_path(contents.get("poster_path").toString());
-						} else if (contents.get("poster_path") == null || contents.get("poster_path").equals("")) {
-							vo.setPoster_path("");
-						}
-						if (type.equals("movie")) {
-							if (contents.get("release_date") != null && !contents.get("release_date").equals("")) {
-								Date release_date = dateFormat.parse((String) contents.get("release_date"));
-								vo.setRelease_date(release_date);
-							} else if (contents.get("release_date") == null
-									|| contents.get("release_date").equals("")) {
-								vo.setRelease_date(dateFormat.parse(date));
-							}
-						} else if (type.equals("tv")) {
-							if (contents.get("first_air_date") != null) {
-								Date first_air_date = dateFormat.parse((String) contents.get("first_air_date"));
-								vo.setRelease_date(first_air_date);
-							} else if (contents.get("first_air_date") == null
-									|| contents.get("first_air_date").equals("")) {
-								vo.setRelease_date(dateFormat.parse(date));
-							}
-						}
+						vo.setOverview(contents.get("overview").toString());
+						vo.setPoster_path("");
+						vo.setPoster_path(contents.get("poster_path").toString());
 
-						if (contents.get("title") != null) {
+						// 컨텐츠 타입(영화/시리즈)에 따라서 파싱 방법 다르게 설정
+						if (type.equals("movie")) {
+							if (contents.get("release_date") == null || contents.get("release_date").equals("")) {
+								vo.setRelease_date(dateFormat.parse(date));
+							}
+							Date release_date = dateFormat.parse((String) contents.get("release_date"));
+							vo.setRelease_date(release_date);
 							vo.setTitle(contents.get("title").toString());
+						} else if (type.equals("tv")) {
+							if (contents.get("first_air_date") == null || contents.get("first_air_date").equals("")) {
+								vo.setRelease_date(dateFormat.parse(date));
+							}
+							Date first_air_date = dateFormat.parse((String) contents.get("first_air_date"));
+							vo.setRelease_date(first_air_date);
+							vo.setTitle(contents.get("name").toString());
 						}
-						if (contents.get("vote_average") != null) {
-							vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
-						}
+						vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
 						vo.setType(type);
 
 						infoList.add(vo);
 					}
 				}
-
 			}
 
 		} catch (Exception e) {
@@ -153,15 +139,13 @@ public class GetInfoUtil {
 		return infoList;
 	}
 
-	// 컨텐츠 상세정보 추출 메소드(해당 컨텐츠 id로 검색)
+	// 컨텐츠 상세정보 추출 (해당 컨텐츠 id로 검색)
 	public ContentsVO getInfoDetail(String type, int id) {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		ContentsVO contents = new ContentsVO();
 		String genres = "";
 		try {
-
 			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "?api_key=" + KEY + "&language=ko-KR";
-			System.out.println(apiURL);
 			URL url = new URL(apiURL);
 
 			BufferedReader bf;
@@ -179,16 +163,19 @@ public class GetInfoUtil {
 			if (type.equals("movie")) {
 				Date release_date = dateFormat.parse((String) jsonObject.get("release_date"));
 				contents.setRelease_date(release_date);
-				contents.setRuntime(jsonObject.get("runtime").toString());
 				contents.setTitle(jsonObject.get("title").toString());
+				contents.setRuntime(jsonObject.get("runtime").toString());
 			} else if (type.equals("tv")) {
 				Date first_air_date = dateFormat.parse((String) jsonObject.get("first_air_date"));
 				contents.setRelease_date(first_air_date);
 				contents.setTitle(jsonObject.get("name").toString());
+				// 시리즈일 경우 러닝 타임이 아니라 시즌과 에피소드 개수로 표현
 				contents.setRuntime("시즌 : " + jsonObject.get("number_of_seasons").toString() + "개</br>총 에피소드 : "
 						+ jsonObject.get("number_of_episodes").toString() + "개");
 			}
+
 			contents.setVote_average(Float.parseFloat(String.valueOf(jsonObject.get("vote_average"))));
+
 			JSONArray genre_list = (JSONArray) jsonObject.get("genres");
 			for (int i = 0; i < genre_list.size(); i++) {
 				JSONObject genre = (JSONObject) genre_list.get(i);
@@ -207,7 +194,9 @@ public class GetInfoUtil {
 		return contents;
 	}
 
+	// 갤러리에 이미지 출력
 	public List<String> getImages(String type, int id) {
+		// 이미지 주소를 String타입으로 List에 저장
 		List<String> image_list = null;
 		try {
 			image_list = new ArrayList<String>();
@@ -237,11 +226,9 @@ public class GetInfoUtil {
 		return image_list;
 	}
 
+	// 감독 및 배우 추출
 	public List<CreditsVO> getCredits(String type, int id, String kind) {
-
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String date = "0001-01-01";
-
+		// 데이터를 파싱해서 VO객체에 저장한 뒤 List에 저장
 		List<CreditsVO> creditList = null;
 		try {
 			creditList = new ArrayList<CreditsVO>();
@@ -258,6 +245,7 @@ public class GetInfoUtil {
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
 			JSONArray list = (JSONArray) jsonObject.get(kind);
 
+			// 감독 목록
 			if (kind.equals("cast")) {
 				for (int i = 0; i < list.size(); i++) {
 					JSONObject credits = (JSONObject) list.get(i);
@@ -272,6 +260,7 @@ public class GetInfoUtil {
 						creditList.add(vo);
 					}
 				}
+				// 배우 목록
 			} else if (kind.equals("crew")) {
 				for (int i = 0; i < list.size(); i++) {
 					JSONObject credits = (JSONObject) list.get(i);
@@ -287,7 +276,6 @@ public class GetInfoUtil {
 					}
 				}
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

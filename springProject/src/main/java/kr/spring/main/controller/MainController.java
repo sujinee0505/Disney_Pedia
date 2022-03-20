@@ -18,16 +18,21 @@ import kr.spring.util.GetInfoUtil;
 public class MainController {
 
 	@RequestMapping("/main/main.do")
+	/*
+	 * 별도로 페이지를 생성하지 않고 type의 value값에 따라 출력되는 페이지가 달라지게끔 설정 type의 기본 value값은 movie
+	 * value값이 없는 메인페이지는 영화 목록이 보여지고 어떤 메뉴를 누르는지에 따라 출력되는 목록이 달라짐
+	 */
 	public ModelAndView main(@RequestParam(value = "type", defaultValue = "movie") String type) {
 		GetInfoUtil util = new GetInfoUtil();
-		/* 평점순 */
+
 		List<ContentsVO> vote_average = null;
 		vote_average = util.getInfoList(type);
+		// List에 담긴 ContentsVO를 평점 내림차순으로 정렬
 		Collections.sort(vote_average, new SortByVote());
-		/* 개봉순 */
+
 		List<ContentsVO> release_date = null;
 		release_date = util.getInfoList(type);
-
+		// List에 담긴 ContentsVO를 날짜 내림차순으로 정렬
 		Collections.sort(release_date, new SortByDate());
 
 		ModelAndView mav = new ModelAndView();
