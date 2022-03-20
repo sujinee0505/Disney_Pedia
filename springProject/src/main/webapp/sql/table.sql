@@ -147,7 +147,7 @@ create sequence dchatboard_seq;
 ALTER TABLE dchatboard drop COLUMN reg_date;
 ALTER TABLE dchatboard ADD(reg_date date default SYSDATE not null);
 ALTER TABLE dchatboard ADD hit number(5) default 0 not null;
-ALTER TABLE dchatboard ADD mate_state num default 0 not null;
+ALTER TABLE dchatboard ADD mate_state number default 0 not null;
  */
 
 
