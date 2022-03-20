@@ -46,8 +46,8 @@ public class ContentsController {
 		return mav;
 	}
 
-	@RequestMapping("/template/search.do")
-	public ModelAndView process(@RequestParam int id, @RequestParam String keyword) {
+	@RequestMapping("/contents/search.do")
+	public ModelAndView process(@RequestParam String keyword) {
 		GetInfoUtil util = new GetInfoUtil();
 		List<ContentsVO> movie = null;
 		movie = util.getInfoList("movie");
@@ -60,7 +60,7 @@ public class ContentsController {
 			}
 		}
 		List<ContentsVO> tv = null;
-		movie = util.getInfoList("tv");
+		tv = util.getInfoList("tv");
 		List<ContentsVO> tv_result = new ArrayList<ContentsVO>();
 		for (int i = 0; i < tv.size(); i++) {
 			if (tv.get(i).getTitle().contains(keyword) || tv.get(i).getOverview().contains(keyword)) {
