@@ -1,9 +1,5 @@
 package kr.spring.chat.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -12,25 +8,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.chat.service.ChatBoardService;
 import kr.spring.chat.vo.ChatBoardVO;
+import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
-import kr.spring.util.PagingUtil;
 
 @Controller
-public class ChatController {
-	private static final Logger logger = LoggerFactory.getLogger(ChatController.class);
+public class ChatBoardController {
+	private static final Logger logger = LoggerFactory.getLogger(ChatBoardController.class);
 		
 	@Autowired
 	private ChatBoardService chatBoardService;
+	private MemberService memberService;
 	
 	//자바빈(VO)초기화
 	@ModelAttribute
@@ -48,30 +45,45 @@ public class ChatController {
 	@PostMapping("/chatboard/write.do")
 	public String submit(@Valid ChatBoardVO chatboardVO, BindingResult result, 
 								HttpSession session, HttpServletRequest request,
-								MemberVO memberVO) {
-		
+								Model model) {
+							
 		logger.info("<<채팅게시판 글 저장>> : " + chatboardVO );
-		
 		//유효성 체크 
 		//오류가 있으면 폼 호출
 		if(result.hasErrors()) {
 			return form();
 		}
-		logger.info("<<채팅게시판 글 저장2>> : " + chatboardVO );
-
+		//ChatBoardVO chatboardVO2 = chatBoardService.selectBoard(chatboardVO.getChatboard_num());
+		
+		//세션에서 회원번호를 읽어온다
+		Integer user_num = (Integer)session.getAttribute("user_num");
 		//글쓴 회원번호 셋팅
-		Integer mem_num = (Integer)session.getAttribute("mem_num");
-		chatboardVO.setMem_num(mem_num);
-		logger.info("<<채팅게시판 글 저장3>> : " + chatboardVO );
-
-		//회원닉네임 셋팅
-		String name = (String)memberVO.getName();
-		chatboardVO.setName(name);
-		logger.info("<<채팅게시판 글 저장4>> : " + chatboardVO );
-
+		chatboardVO.setMem_num(user_num);
+		logger.info("<<memnum>> : " + chatboardVO );
+		
+		
+		
+		/*
+		//회원이름 셋팅
+		String user_name = (String)session.getAttribute("user_name");
+		logger.info((String)session.getAttribute("user_name"));
+		chatboardVO.setName(user_name);
+		logger.info("<<name>> : " + chatboardVO );
 		//회원사진 셋팅
-		//String photo = memberVO.getPhoto();
-		//chatboardVO.setPhoto(photo);
+		String user_photo = (String)session.getAttribute("user_photo");
+		chatboardVO.setPhoto(user_photo);
+		logger.info("<<photo>> : " + chatboardVO );
+		*/
+		
+		/*
+		MemberVO memberVO2 = memberService.selectMember(user_num);
+		logger.info("<<회원 상세 정보>> : " + memberVO2);
+		
+		chatboardVO.setName(memberVO2.getName());
+		logger.info("<<name>> : " + chatboardVO );
+		*/
+		
+		//ip셋팅 -설정 안햇음 왠지 채팅 떄 필요할지도모르겟다
 		
 		//글쓰기
 		chatBoardService.insertBoard(chatboardVO);
