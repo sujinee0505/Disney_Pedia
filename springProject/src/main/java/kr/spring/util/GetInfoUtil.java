@@ -115,31 +115,32 @@ public class GetInfoUtil {
 						} else if (contents.get("poster_path") == null || contents.get("poster_path").equals("")) {
 							vo.setPoster_path("");
 						}
-
-						if (contents.get("release_date") != null && !contents.get("release_date").equals("")) {
-							Date release_date = dateFormat.parse((String) contents.get("release_date"));
-							vo.setRelease_date(release_date);
-						} else if (contents.get("release_date") == null || contents.get("release_date").equals("")) {
-							vo.setRelease_date(dateFormat.parse(date));
-						}
-						if (contents.get("first_air_date") != null) {
-							Date first_air_date = dateFormat.parse((String) contents.get("first_air_date"));
-							vo.setFirst_air_date(first_air_date);
-						} else if (contents.get("first_air_date") == null
-								|| contents.get("first_air_date").equals("")) {
-							vo.setFirst_air_date(dateFormat.parse(date));
+						if (type.equals("movie")) {
+							if (contents.get("release_date") != null && !contents.get("release_date").equals("")) {
+								Date release_date = dateFormat.parse((String) contents.get("release_date"));
+								vo.setRelease_date(release_date);
+							} else if (contents.get("release_date") == null
+									|| contents.get("release_date").equals("")) {
+								vo.setRelease_date(dateFormat.parse(date));
+							}
+						} else if (type.equals("tv")) {
+							if (contents.get("first_air_date") != null) {
+								Date first_air_date = dateFormat.parse((String) contents.get("first_air_date"));
+								vo.setRelease_date(first_air_date);
+							} else if (contents.get("first_air_date") == null
+									|| contents.get("first_air_date").equals("")) {
+								vo.setRelease_date(dateFormat.parse(date));
+							}
 						}
 
 						if (contents.get("title") != null) {
 							vo.setTitle(contents.get("title").toString());
-						} else if (contents.get("title") == null || contents.get("title").equals("")) {
-							vo.setTitle("");
 						}
 						if (contents.get("vote_average") != null) {
 							vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
-						} else if (contents.get("vote_average") == null || contents.get("vote_average").equals("")) {
-							vo.setVote_average(0);
 						}
+						vo.setType(type);
+
 						infoList.add(vo);
 					}
 				}
@@ -160,7 +161,7 @@ public class GetInfoUtil {
 		try {
 
 			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "?api_key=" + KEY + "&language=ko-KR";
-
+			System.out.println(apiURL);
 			URL url = new URL(apiURL);
 
 			BufferedReader bf;
@@ -172,16 +173,20 @@ public class GetInfoUtil {
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
 
-			contents.setTitle(jsonObject.get("title").toString());
 			contents.setOverview(jsonObject.get("overview").toString());
 
 			contents.setPoster_path(jsonObject.get("poster_path").toString());
 			if (type.equals("movie")) {
 				Date release_date = dateFormat.parse((String) jsonObject.get("release_date"));
 				contents.setRelease_date(release_date);
+				contents.setRuntime(jsonObject.get("runtime").toString());
+				contents.setTitle(jsonObject.get("title").toString());
 			} else if (type.equals("tv")) {
 				Date first_air_date = dateFormat.parse((String) jsonObject.get("first_air_date"));
-				contents.setFirst_air_date(first_air_date);
+				contents.setRelease_date(first_air_date);
+				contents.setTitle(jsonObject.get("name").toString());
+				contents.setRuntime("시즌 : " + jsonObject.get("number_of_seasons").toString() + "개</br>총 에피소드 : "
+						+ jsonObject.get("number_of_episodes").toString() + "개");
 			}
 			contents.setVote_average(Float.parseFloat(String.valueOf(jsonObject.get("vote_average"))));
 			JSONArray genre_list = (JSONArray) jsonObject.get("genres");
@@ -198,6 +203,7 @@ public class GetInfoUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println(contents);
 		return contents;
 	}
 

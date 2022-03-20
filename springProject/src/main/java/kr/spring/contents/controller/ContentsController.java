@@ -15,16 +15,17 @@ import kr.spring.util.GetInfoUtil;
 @Controller
 public class ContentsController {
 	@RequestMapping("/contents/detail.do")
-	public ModelAndView process(@RequestParam int id) {
+	public ModelAndView process(@RequestParam(value = "type", defaultValue = "movie") String type,
+			@RequestParam int id) {
 		ContentsVO contents = new ContentsVO();
 		List<String> images = new ArrayList<String>();
 		List<CreditsVO> cast = new ArrayList<CreditsVO>();
 		List<CreditsVO> crew = new ArrayList<CreditsVO>();
 		GetInfoUtil util = new GetInfoUtil();
-		contents = util.getInfoDetail("movie", id);
-		images = util.getImages("movie", id);
-		cast = util.getCredits("movie", id, "cast");
-		crew = util.getCredits("movie", id, "crew");
+		contents = util.getInfoDetail(type, id);
+		images = util.getImages(type, id);
+		cast = util.getCredits(type, id, "cast");
+		crew = util.getCredits(type, id, "crew");
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("contentsDetail");

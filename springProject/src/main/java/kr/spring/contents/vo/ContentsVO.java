@@ -10,10 +10,10 @@ public class ContentsVO {
 	private String overview;
 	private String poster_path;
 	private Date release_date;
-	private Date first_air_date;
 	private float vote_average;
 	private String genre;
 	private String runtime;
+	private String type;
 
 	public String getId() {
 		return id;
@@ -64,14 +64,6 @@ public class ContentsVO {
 		this.release_date = release_date;
 	}
 
-	public Date getFirst_air_date() {
-		return first_air_date;
-	}
-
-	public void setFirst_air_date(Date first_air_date) {
-		this.first_air_date = first_air_date;
-	}
-
 	public float getVote_average() {
 		return vote_average;
 	}
@@ -93,28 +85,39 @@ public class ContentsVO {
 	}
 
 	public void setRuntime(String runtime) {
-		int run_time = Integer.parseInt(runtime);
-		int hours = 0;
-		int minutes = 0;
-		if (run_time < 60) {
-			minutes = run_time;
-			this.runtime = minutes + "분";
-		} else if (run_time % 60 == 0) {
-			hours = run_time % 60;
-			this.runtime = hours + "시간";
-		} else {
-			hours = run_time / 60;
-			minutes = run_time % 60;
-			this.runtime = hours + "시간 " + minutes + "분";
+		if (!runtime.contains("시즌")) {
+			int run_time = Integer.parseInt(runtime);
+			int hours = 0;
+			int minutes = 0;
+			if (run_time < 60) {
+				minutes = run_time;
+				this.runtime = minutes + "분";
+			} else if (run_time % 60 == 0) {
+				hours = run_time % 60;
+				this.runtime = hours + "시간";
+			} else {
+				hours = run_time / 60;
+				minutes = run_time % 60;
+				this.runtime = hours + "시간 " + minutes + "분";
+			}
 		}
+		this.runtime = runtime;
 
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override
 	public String toString() {
 		return "ContentsVO [id=" + id + ", popularity=" + popularity + ", title=" + title + ", overview=" + overview
-				+ ", poster_path=" + poster_path + ", release_date=" + release_date + ", first_air_date="
-				+ first_air_date + ", vote_average=" + vote_average + ", genre=" + genre + "]";
+				+ ", poster_path=" + poster_path + ", release_date=" + release_date + ", vote_average=" + vote_average
+				+ ", genre=" + genre + ", runtime=" + runtime + ", type=" + type + "]";
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.contents.vo.ContentsVO;
@@ -17,21 +18,22 @@ import kr.spring.util.GetInfoUtil;
 public class MainController {
 
 	@RequestMapping("/main/main.do")
-	public ModelAndView main() {
+	public ModelAndView main(@RequestParam(value = "type", defaultValue = "movie") String type) {
 		GetInfoUtil util = new GetInfoUtil();
 		/* 평점순 */
 		List<ContentsVO> vote_average = null;
-		vote_average = util.getInfoList("movie");
+		vote_average = util.getInfoList(type);
 		Collections.sort(vote_average, new SortByVote());
 		/* 개봉순 */
 		List<ContentsVO> release_date = null;
-		release_date = util.getInfoList("movie");
+		release_date = util.getInfoList(type);
+
 		Collections.sort(release_date, new SortByDate());
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
 		mav.addObject("vote_average", vote_average);
-		mav.addObject("release_date", release_date);		
+		mav.addObject("release_date", release_date);
 		return mav;
 	}
 }

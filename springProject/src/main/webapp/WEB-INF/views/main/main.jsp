@@ -44,7 +44,7 @@
 							<li class="css-8y23cj"><c:forEach var="vote_average"
 									begin="0" end="10" step="1" items="${vote_average}">
 									<a
-										href="${pageContext.request.contextPath}/contents/detail.do?id=${vote_average.id}"><div
+										href="${pageContext.request.contextPath}/contents/detail.do?type=${vote_average.type }&id=${vote_average.id}"><div
 											class="css-1qmeemv">
 											<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 												<img src="${vote_average.poster_path }"
@@ -110,7 +110,7 @@
 							<li class="css-8y23cj"><c:forEach var="release_date"
 									begin="0" end="10" step="1" items="${release_date}">
 									<a
-										href="${pageContext.request.contextPath}/contents/detail.do?id=${release_date.id}"><div
+										href="${pageContext.request.contextPath}/contents/detail.do?type=${release_date.type }&id=${release_date.id}"><div
 											class="css-1qmeemv">
 											<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 												<img src="${release_date.poster_path }"

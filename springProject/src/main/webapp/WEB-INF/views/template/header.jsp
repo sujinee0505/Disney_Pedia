@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 <script type="text/javascript">
-
+	
 </script>
 </head>
 <!-- 상단 시작 -->
@@ -17,10 +17,10 @@
 							src="${pageContext.request.contextPath}/resources/images/logo.png"
 							width="150px"></a></li>
 					<li class="categories css-bj71cw"><button
-							onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
+							onclick="location.href='${pageContext.request.contextPath}/main/main.do?type=movie'"
 							class="css-x6oby2-StylelessButton">영화</button></li>
 					<li class="categories css-bj71cw"><button
-							onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
+							onclick="location.href='${pageContext.request.contextPath}/main/main.do?type=tv'"
 							class="css-q65tx9-StylelessButton">TV</button></li>
 					<li class="categories css-bj71cw"><button
 							onclick="location.href='${pageContext.request.contextPath}/chatboard/list.do'"
@@ -38,15 +38,16 @@
 							</div>
 						</div></li>
 					<c:if test="${empty user_num}">
-					<!--onclick="location.href='${pageContext.request.contextPath}/member/login.do'"-->
-					<!-- data-target="#myModal" data-toggle="modal" data-remote="${pageContext.request.contextPath}/member/login.do" -->					
-					<!-- 로그인 -->
+						<!--onclick="location.href='${pageContext.request.contextPath}/member/login.do'"-->
+						<!-- data-target="#myModal" data-toggle="modal" data-remote="${pageContext.request.contextPath}/member/login.do" -->
+						<!-- 로그인 -->
 						<li class="css-bj71cw">
-						<button id="login-btn" 			
-						onclick="location.href='${pageContext.request.contextPath}/member/login.do'"			
-						class="css-fn0ezc-StylelessButton">로그인</button></li> 
-					<!-- 로그인 -->
-					
+							<button id="login-btn"
+								onclick="location.href='${pageContext.request.contextPath}/member/login.do'"
+								class="css-fn0ezc-StylelessButton">로그인</button>
+						</li>
+						<!-- 로그인 -->
+
 						<li class="css-bj71cw"><button
 								onclick="location.href='${pageContext.request.contextPath}/member/registerUser.do'"
 								class="css-139vxi-StylelessButton">회원가입</button></li>
@@ -64,17 +65,20 @@
 					<li class="css-bj71cw"><button
 								onclick="location.href='${pageContext.request.contextPath}/member/logout.do'"
 								class="css-fn0ezc-StylelessButton" id="header_logout">로그아웃</button></li>
-					 </c:if>
+					</c:if>
 					<c:if test="${!empty user_num && empty user_photo}">
-				    	<a href="${pageContext.request.contextPath}/member/myPage.do">
-			    		<img src="${pageContext.request.contextPath}/resources/images/face.png" 
-			    	                        width="25" height="25" class="my-photo"></a>
-			   		 </c:if>
-			   		 <c:if test="${!empty user_num && !empty user_photo}">
-				    	<a href="${pageContext.request.contextPath}/member/myPage.do">
-				    	<img src="${pageContext.request.contextPath}/member/photoView.do" 
-				    	                        width="25" height="25" class="my-photo"></a>
-				    </c:if>
+						<a href="${pageContext.request.contextPath}/member/myPage.do">
+							<img
+							src="${pageContext.request.contextPath}/resources/images/face.png"
+							width="25" height="25" class="my-photo">
+						</a>
+					</c:if>
+					<c:if test="${!empty user_num && !empty user_photo}">
+						<a href="${pageContext.request.contextPath}/member/myPage.do">
+							<img src="${pageContext.request.contextPath}/member/photoView.do"
+							width="25" height="25" class="my-photo">
+						</a>
+					</c:if>
 
 				</ul>
 			</div>
