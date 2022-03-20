@@ -30,7 +30,7 @@
 								<form action="search.do" method="get">
 									<label class="css-kyr608"><input type="text"
 										autocomplete="off" placeholder="콘텐츠를 검색해보세요."
-										name="searchKeyword" value="" class="css-13i5xe6">
+										name="keyword" value="" class="css-13i5xe6">
 										<div value="false" class="css-ikj5sk">
 											<span aria-label="clear" role="button" class="css-14vwb0g"></span>
 										</div></label>
