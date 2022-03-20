@@ -3,15 +3,36 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<link
-	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/star-rating-svg.css">
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/js/jquery.star-rating-svg.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var width = $('#scroll').width();
+		$(document).on('click', '#right', function() {
+			var scrollX = $(this).siblings('#scroll').scrollLeft();
+			$(this).siblings('#scroll').scrollLeft(scrollX + width);
+		});
+		$(document).on('click', '#left', function() {
+			var scrollX = $(this).siblings('#scroll').scrollLeft();
+			$(this).siblings('#scroll').scrollLeft(scrollX - width);
+		});
+		showGradient = function() {
+			if ($(this).scrollLeft() == 0) {// 스크롤이 0일 때
+				$('#left').hide();
+			} else if ($(this).scrollLeft() != 0) {
+				$('#left').show();
+			} else if (Math.ceil($(this).scrollLeft() + $(this).width()) == $(
+					'.css-119xxd7').width()) {//스크롤이 끝에 왔을 때
+				$('#right').hide();
+			}
+		}
+		showGradient(); // 오류 차후 수정
+		$(document).on('scroll', showGradient);
+	});
+</script>
 <div class="css-16jhzm7-Self e1ezac430">
 	<div class="css-wg0jak">
 		<button class="css-1xc2mdf-StylelessButton">
