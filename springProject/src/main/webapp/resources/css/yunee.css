@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+/*==========별아이콘 설정 시작==========*/
+.star_area { /*별점구역*/
+	margin: 0 auto;
+	padding-left: 20px;
+	/* background-color:blue; */
+}
+/*별점전체구역(평가하기+별존)*/
+.css-1jlb6q {
+	width: 228px;
+	height: 66px;
+	margin: 20px auto 24px;
+}
+
+@media ( min-width : 1023px) {
+	.css-1jlb6q {
+		width: 238px;
+		height: 57px;
+	}
+}
+
+@media ( min-width : 719px) { /*평가하기 구역 너비조정*/
+	.css-1jlb6q {
+		width: 396px; /*196*/
+		height: 51px;
+		margin: 0;
+	}
+}
+
+/* .css-1m7ruyk { 별아이콘전체div
+
+
+	position: relative;
+	text-align: center;
+	width: 200px;
+	margin: 0 auto;
+	cursor: pointer;
+	width: 100%;
+}*/
+.css-1mbuso5 { /*별아이콘하나*/
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	height: 20px; /*40*/
+}
+
+.css-fnwbjg { /*별아이콘svg*/
+	vertical-align: top;
+	width: 20px; /*40*/
+	height: 20px; /*40*/
+}
+
+@media ( min-width : 1023px) {
+	.css-1m7ruyk {
+		width: 190px;
+	}
+}
+
+@media ( min-width : 719px) {
+	.css-1m7ruyk {
+		width: 160px;
+		margin: 3px auto 0;
+	}
+}
+
+/* .css-1m7ruyk svg {
+
+	width: 44px;  
+	height: 44px; 
+	width: 22px; 44
+	height: 22px; 44
+} */
+
+/*
+@media ( min-width : 1023px) {
+	.css-1m7ruyk svg {
+		width: 44px; 38
+		height: 44px; 38
+	}
+}
+
+@media ( min-width : 719px) { /*별사이즈조절*/
+.css-1m7ruyk svg {
+	width: 26px; /*32*/
+	height: 26px; /*32*/
+}
+
+}
+* /
+.css-1mbuso5 { /*별아이콘하나*/
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	height: 20px; /*40*/
+}
+
+.css-fnwbjg { /*별아이콘svg*/
+	vertical-align: top;
+	width: 20px; /*40*/
+	height: 20px; /*40*/
+}
+
+/*==========별아이콘 설정 끝==========*/
+
+/*메인,헤더 설정*/
+#header_logout {
+	margin-right: 20px;
+}
