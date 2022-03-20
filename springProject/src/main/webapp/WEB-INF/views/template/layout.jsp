@@ -6,15 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title><tiles:getAsString name="title" /></title>
-<link rel="icon"
-	href="${pageContext.request.contextPath}/resources/images/logo.png">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/style.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/sujin.css"><link
-	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/star-rating-svg.css">
+<link rel="icon" href="${pageContext.request.contextPath}/resources/images/logo.png">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sujin.css">
 </head>
 <body>
 	<div id="main">
