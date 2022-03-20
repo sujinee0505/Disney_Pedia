@@ -136,11 +136,20 @@ create table dchatboard (
   mem_num number not null,
   title varchar2(150) not null,
   content clob not null,
-  reg_date date not null,
+  reg_date date default sysdate not null,
+  hit number(5) default 0 not null,
+  state num dafault 0 not null, --0 구하는중 / 1 모집완료
   constraint dchatboard_pk primary key(chatboard_num),
   constraint dchatboard_fk1 foreign key(mem_num) references dmember_detail(mem_num)
 );
 create sequence dchatboard_seq;
+/*
+ALTER TABLE dchatboard drop COLUMN reg_date;
+ALTER TABLE dchatboard ADD(reg_date date default SYSDATE not null);
+ALTER TABLE dchatboard ADD hit number(5) default 0 not null;
+ALTER TABLE dchatboard ADD mate_state num default 0 not null;
+ */
+
 
 /*채팅 정보 테이블*/
 create table dchatting(

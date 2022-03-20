@@ -28,36 +28,35 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 	}
 
 	@Override
-	public void insertBoard(ChatBoardVO board) {
-		chatBoardMapper.insertBoard(board);
+	public void insertBoard(ChatBoardVO chatboard) {
+		chatBoardMapper.insertBoard(chatboard);
 	}
 
 	@Override
-	public ChatBoardVO selectBoard(Integer board_num) {
-		// TODO Auto-generated method stub
-		return null;
+	public ChatBoardVO selectBoard(Integer chatboard_num) {
+		return chatBoardMapper.selectBoard(chatboard_num);
 	}
 
 	@Override
-	public void updateHit(Integer board_num) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateBoard(ChatBoardVO board) {
+	public void updateHit(Integer chatboard_num) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteBoard(Integer board_num) {
+	public void updateBoard(ChatBoardVO chatboard) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteFile(Integer board_num) {
+	public void deleteBoard(Integer chatboard_num) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteFile(Integer chatboard_num) {
 		// TODO Auto-generated method stub
 		
 	}
