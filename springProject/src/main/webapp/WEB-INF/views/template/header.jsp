@@ -27,10 +27,12 @@
 							class="css-q65tx9-StylelessButton">채팅방</button></li>
 					<li class="css-1c3wwgb"><div class="css-1xm32e0">
 							<div class="css-1okeg7p">
-								<form action="search.do" method="get">
+								<form
+									action="${pageContext.request.contextPath}/contents/search.do"
+									method="get">
 									<label class="css-kyr608"><input type="text"
-										autocomplete="off" placeholder="콘텐츠를 검색해보세요."
-										name="keyword" value="" class="css-13i5xe6">
+										autocomplete="off" placeholder="콘텐츠를 검색해보세요." name="keyword"
+										value="${param.keyword}" class="css-13i5xe6">
 										<div value="false" class="css-ikj5sk">
 											<span aria-label="clear" role="button" class="css-14vwb0g"></span>
 										</div></label>

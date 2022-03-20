@@ -6794,9 +6794,6 @@ button, input, optgroup, select, textarea {
 }
 
 .css-zoy7di {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	flex: 1;
 	align-items: center;
@@ -6808,9 +6805,6 @@ button, input, optgroup, select, textarea {
 }
 
 .css-qkf9j {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	flex: 1;
 	flex-direction: column;
@@ -7097,10 +7091,15 @@ button, input, optgroup, select, textarea {
 	margin-left: -5px !important;
 }
 
-@media ( min-width : 1100px) {
+.css-1bk3hui-VisualUl>li {
+	width: 33.3333%;
+	padding: 0px 5px;
+	margin-bottom: 0px;
+}
+
+@media ( min-width : 600px) {
 	.css-1bk3hui-VisualUl>li {
-		width: 16.6667%;
-		padding: 0px 8px;
+		width: 25%;
 	}
 }
 
@@ -7111,63 +7110,10 @@ button, input, optgroup, select, textarea {
 	}
 }
 
-@media ( min-width : 600px) {
-	.css-1bk3hui-VisualUl>li {
-		width: 25%;
-	}
-}
-
-.css-1bk3hui-VisualUl>li {
-	width: 33.3333%;
-	padding: 0px 5px;
-	margin-bottom: 0px;
-}
-
-@media ( min-width : 1600px) {
-	.css-1bk3hui-VisualUl>li {
-		width: 9.09091%;
-	}
-}
-
-@media ( min-width : 1360px) {
-	.css-1bk3hui-VisualUl>li {
-		width: 10%;
-	}
-}
-
-@media ( min-width : 1200px) {
-	.css-1bk3hui-VisualUl>li {
-		width: 11.1111%;
-	}
-}
-
 @media ( min-width : 1100px) {
 	.css-1bk3hui-VisualUl>li {
-		width: 12.5%;
-	}
-}
-
-@media ( min-width : 960px) {
-	.css-1bk3hui-VisualUl>li {
-		width: 14.2857%;
-	}
-}
-
-@media ( min-width : 840px) {
-	.css-1bk3hui-VisualUl>li {
 		width: 16.6667%;
-	}
-}
-
-@media ( min-width : 680px) {
-	.css-1bk3hui-VisualUl>li {
-		width: 20%;
-	}
-}
-
-@media ( min-width : 520px) {
-	.css-1bk3hui-VisualUl>li {
-		width: 25%;
+		padding: 0px 8px;
 	}
 }
 
@@ -7208,13 +7154,13 @@ button, input, optgroup, select, textarea {
 	padding: 4px 0px 42px;
 }
 
-@media ( min-width : 1024px) {
+@media ( min-width : 640px) {
 	.css-1a4f9b-VisualUl>li {
-		width: 33.3333%;
+		width: 50%;
 	}
 }
 
-@media ( min-width : 640px) {
+@media ( min-width : 719px) {
 	.css-1a4f9b-VisualUl>li {
 		width: 50%;
 	}
@@ -7226,9 +7172,9 @@ button, input, optgroup, select, textarea {
 	}
 }
 
-@media ( min-width : 719px) {
+@media ( min-width : 1024px) {
 	.css-1a4f9b-VisualUl>li {
-		width: 50%;
+		width: 33.3333%;
 	}
 }
 
@@ -7272,8 +7218,149 @@ button, input, optgroup, select, textarea {
 	}
 }
 
+.css-8y23cj {
+	display: inline-block;
+	vertical-align: top;
+	box-sizing: border-box;
+	width: 33.3333%;
+	padding: 0px 5px;
+	margin: 0px 0px 24px;
+}
+
+.css-cf9e76 {
+	border-width: 0px 0px 1px;
+	border-top-style: initial;
+	border-right-style: initial;
+	border-left-style: initial;
+	border-top-color: initial;
+	border-right-color: initial;
+	border-left-color: initial;
+	border-image: initial;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(240, 240, 240);
+	padding-top: 42px;
+}
+
+.css-11yyw1d {
+	padding: 6px 0px 0px;
+}
+
+.css-e9dkp8-VisualUl {
+	list-style: none;
+	margin: 0px -5px;
+	height: 357px;
+	display: flex;
+	flex-flow: column wrap;
+	align-content: flex-start;
+	padding: 4px 0px 42px;
+}
+
+@media ( min-width : 640px) {
+	.css-e9dkp8-VisualUl>li {
+		width: 50%;
+	}
+}
+
+@media ( min-width : 719px) {
+	.css-e9dkp8-VisualUl>li {
+		width: 100%;
+	}
+}
+
+@media ( min-width : 1023px) {
+	.css-e9dkp8-VisualUl>li {
+		width: 100%;
+	}
+}
+
+@media ( min-width : 1024px) {
+	.css-e9dkp8-VisualUl>li {
+		width: 33.3333%;
+	}
+}
+
 .css-1iuimiv {
 	box-sizing: border-box;
 	width: 100%;
 	padding: 0px 5px;
+}
+
+.css-1iuimiv [class*="InnerPartOfListWithImage"] {
+	height: 119px;
+}
+
+.css-31iyzt {
+	color: rgb(31, 31, 31);
+	font-size: 15px;
+	font-weight: 400;
+	letter-spacing: -0.5px;
+	line-height: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.css-1thqxgo {
+	color: rgb(160, 160, 160);
+	font-size: 13px;
+	font-weight: 400;
+	letter-spacing: -0.2px;
+	line-height: 18px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.css-jgn78h {
+	color: rgb(160, 160, 160);
+	font-size: 12px;
+	font-weight: 400;
+	letter-spacing: -0.2px;
+	line-height: 16px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.css-x62r3q {
+	color: rgb(31, 31, 31);
+	font-size: 17px;
+	font-weight: 400;
+	letter-spacing: -0.7px;
+	line-height: 22px;
+	white-space: nowrap;
+	margin-bottom: 2px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.css-h25two {
+	color: rgb(140, 140, 140);
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: -0.3px;
+	line-height: 19px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.css-14fymwm-StyledSelf {
+	position: relative;
+	overflow: hidden;
+	background: rgb(248, 248, 248);
+	box-sizing: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 3px;
+	width: 71px;
+	height: 103px;
+	margin: 0px 11px 0px 0px;
+}
+
+.css-bhgne5-StyledBackground {
+	display: inline-block;
+	position: absolute;
+	inset: 0px;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	opacity: 1;
+	transition: all 300ms ease 0s;
 }

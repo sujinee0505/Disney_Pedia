@@ -3,9 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/star-rating-svg.css">
-<script	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script	src="${pageContext.request.contextPath}/resources/js/jquery.star-rating-svg.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/js/jquery.star-rating-svg.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var width = $('#scroll').width();

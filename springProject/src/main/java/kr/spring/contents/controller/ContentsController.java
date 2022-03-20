@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.CreditsVO;
+import kr.spring.sort.SortByDate;
 import kr.spring.sort.SortByVote;
 import kr.spring.util.GetInfoUtil;
 
@@ -51,28 +52,28 @@ public class ContentsController {
 		GetInfoUtil util = new GetInfoUtil();
 		List<ContentsVO> movie = null;
 		movie = util.getInfoList("movie");
-		List<ContentsVO> movie_result = new ArrayList<ContentsVO>();
+		List<ContentsVO> search_result = null;
+		search_result = new ArrayList<ContentsVO>();
 		for (int i = 0; i < movie.size(); i++) {
 			if (movie.get(i).getTitle().contains(keyword) || movie.get(i).getOverview().contains(keyword)) {
 				ContentsVO contents = new ContentsVO();
 				contents = movie.get(i);
-				movie_result.add(contents);
+				search_result.add(contents);
 			}
 		}
 		List<ContentsVO> tv = null;
 		tv = util.getInfoList("tv");
-		List<ContentsVO> tv_result = new ArrayList<ContentsVO>();
 		for (int i = 0; i < tv.size(); i++) {
 			if (tv.get(i).getTitle().contains(keyword) || tv.get(i).getOverview().contains(keyword)) {
 				ContentsVO contents = new ContentsVO();
 				contents = tv.get(i);
-				tv_result.add(contents);
+				search_result.add(contents);
 			}
 		}
+		Collections.sort(search_result, new SortByDate());
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("contentsSearch");
-		mav.addObject("movie", movie);
-		mav.addObject("tv", tv);
+		mav.addObject("search_result", search_result);
 		return mav;
 	}
 

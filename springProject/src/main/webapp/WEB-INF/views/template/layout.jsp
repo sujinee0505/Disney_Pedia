@@ -6,10 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title><tiles:getAsString name="title" /></title>
-<link rel="icon" href="${pageContext.request.contextPath}/resources/images/logo.png">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sujin.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/yunee.css">
+<link rel="icon"
+	href="${pageContext.request.contextPath}/resources/images/logo.png">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/sujin.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/yunee.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/star-rating-svg.css">
 </head>
 <body>
 	<div id="main">
