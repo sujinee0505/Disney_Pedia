@@ -95,42 +95,33 @@ public class GetInfoUtil {
 					ContentsVO vo = new ContentsVO();
 					JSONObject contents = (JSONObject) list.get(j);
 
-					// 메인 화면에는 popularity 지수가 100이상인 목록들로만 출력되게 조건 설정
-					if (Float.parseFloat(String.valueOf(contents.get("popularity"))) >= 100) {
-						vo.setPopularity(Float.parseFloat(String.valueOf(contents.get("popularity"))));
+					vo.setPopularity(Float.parseFloat(String.valueOf(contents.get("popularity"))));
 
-						vo.setId(contents.get("id").toString());
-						/*
-						 * if (contents.get("popularity") != null) {
-						 * vo.setPopularity(Float.parseFloat(String.valueOf(contents.get("popularity")))
-						 * ); } else if (contents.get("popularity") == null ||
-						 * contents.get("popularity").equals("")) { vo.setPopularity(0); }
-						 */
-						vo.setOverview(contents.get("overview").toString());
-						vo.setPoster_path("");
-						vo.setPoster_path(contents.get("poster_path").toString());
+					vo.setId(contents.get("id").toString());
 
-						// 컨텐츠 타입(영화/시리즈)에 따라서 파싱 방법 다르게 설정
-						if (type.equals("movie")) {
-							if (contents.get("release_date") == null || contents.get("release_date").equals("")) {
-								vo.setRelease_date(dateFormat.parse(date));
-							}
-							Date release_date = dateFormat.parse((String) contents.get("release_date"));
-							vo.setRelease_date(release_date);
-							vo.setTitle(contents.get("title").toString());
-						} else if (type.equals("tv")) {
-							if (contents.get("first_air_date") == null || contents.get("first_air_date").equals("")) {
-								vo.setRelease_date(dateFormat.parse(date));
-							}
-							Date first_air_date = dateFormat.parse((String) contents.get("first_air_date"));
-							vo.setRelease_date(first_air_date);
-							vo.setTitle(contents.get("name").toString());
+					vo.setOverview(contents.get("overview").toString());
+					vo.setPoster_path(contents.get("poster_path").toString());
+
+					// 컨텐츠 타입(영화/시리즈)에 따라서 파싱 방법 다르게 설정
+					if (type.equals("movie")) {
+						if (contents.get("release_date") == null || contents.get("release_date").equals("")) {
+							vo.setRelease_date(dateFormat.parse(date));
 						}
-						vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
-						vo.setType(type);
-
-						infoList.add(vo);
+						Date release_date = dateFormat.parse((String) contents.get("release_date"));
+						vo.setRelease_date(release_date);
+						vo.setTitle(contents.get("title").toString());
+					} else if (type.equals("tv")) {
+						if (contents.get("first_air_date") == null || contents.get("first_air_date").equals("")) {
+							vo.setRelease_date(dateFormat.parse(date));
+						}
+						Date first_air_date = dateFormat.parse((String) contents.get("first_air_date"));
+						vo.setRelease_date(first_air_date);
+						vo.setTitle(contents.get("name").toString());
 					}
+					vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
+					vo.setType(type);
+
+					infoList.add(vo);
 				}
 			}
 

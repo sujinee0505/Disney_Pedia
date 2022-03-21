@@ -411,10 +411,7 @@
 														<div class="css-1y901al-Row emmoxnt0">
 															<header class="css-1ue9xs6">
 																<h2 class="css-1wtjsst">갤러리</h2>
-																<c:forEach var="images" items="${images}" begin="0"
-																	end="0">
-																	<span class="css-wzn7fp">${fn:length(images) }+</span>
-																</c:forEach>
+																<span class="css-wzn7fp">${fn:length(images) }</span>
 															</header>
 														</div>
 													</div>

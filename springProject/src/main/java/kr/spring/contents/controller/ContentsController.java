@@ -52,8 +52,7 @@ public class ContentsController {
 		GetInfoUtil util = new GetInfoUtil();
 		List<ContentsVO> movie = null;
 		movie = util.getInfoList("movie");
-		List<ContentsVO> search_result = null;
-		search_result = new ArrayList<ContentsVO>();
+		List<ContentsVO> search_result = new ArrayList<ContentsVO>();
 		for (int i = 0; i < movie.size(); i++) {
 			if (movie.get(i).getTitle().contains(keyword) || movie.get(i).getOverview().contains(keyword)) {
 				ContentsVO contents = new ContentsVO();

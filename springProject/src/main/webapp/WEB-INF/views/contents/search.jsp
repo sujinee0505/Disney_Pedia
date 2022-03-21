@@ -16,18 +16,19 @@
 			var scrollX = $(this).siblings('#scroll').scrollLeft();
 			$(this).siblings('#scroll').scrollLeft(scrollX - width);
 		});
-		/* showGradient = function() {
+		showGradient = function() {
 			if ($(this).scrollLeft() == 0) {// 스크롤이 0일 때
 				$('#left').hide();
 			} else if ($(this).scrollLeft() != 0) {
 				$('#left').show();
+				/* alert(x); 2495*/
 			} else if (Math.ceil($(this).scrollLeft() + $(this).width()) == $(
-					'.css-119xxd7').width()) {//스크롤이 끝에 왔을 때
+					'.css-9dnzub').width()) {//스크롤이 끝에 왔을 때
 				$('#right').hide();
 			}
 		}
 		showGradient(); // 오류 차후 수정
-		$(document).on('scroll', showGradient); */
+		$('#scroll').on('scroll', showGradient);
 	});
 </script>
 <section class="css-18gwkcr">
@@ -48,13 +49,14 @@
 				<section class="css-9ebwyf-pageMarginStyle">
 					<section class="css-1s4ow07">
 						<div class="css-usdi1z">
-							<div class="css-9dnzub" id="scroll">
-								<div class="css-174lxc3" style="transform: translateX(0px);">
+							<div class="css-9dnzub" id="scroll" style="width: 1320px;">
+								<div class="css-174lxc3">
 									<ul class="css-1bk3hui-VisualUl">
 										<c:forEach var="search_result" items="${search_result }">
 											<li class="css-8y23cj"><a
 												title="${search_result.title }"
-												href="/ko-KR/contents/mdBzNnP"><div class="css-1qmeemv">
+												href="${pageContext.request.contextPath}/contents/detail.do?type=${search_result.type }&id=${search_result.id}"><div
+														class="css-1qmeemv">
 														<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 															<img
 																src="https://image.tmdb.org/t/p/original/${search_result.poster_path }"
@@ -77,7 +79,7 @@
 									</ul>
 								</div>
 							</div>
-							<
+
 							<div class="arrow_button css-1b9dnd0" direction="left" id="left"
 								style="right: inherit;">
 								<button type="button" class="css-vp7uyl"

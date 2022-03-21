@@ -15,18 +15,31 @@
 			var scrollX = $(this).siblings('#scroll').scrollLeft();
 			$(this).siblings('#scroll').scrollLeft(scrollX - width);
 		});
-		/* showGradient = function() {
+		showGradient = function() {
 			if ($(this).scrollLeft() == 0) {// 스크롤이 0일 때
 				$('#left').hide();
 			} else if ($(this).scrollLeft() != 0) {
 				$('#left').show();
-			} else if (Math.ceil($(this).scrollLeft() + $(this).width()) == $(
-					'.css-119xxd7').width()) {//스크롤이 끝에 왔을 때
-				$('#right').hide();
 			}
 		}
+
 		showGradient(); // 오류 차후 수정
-		$(document).on('scroll', showGradient); */
+		$('#scroll').on('scroll', showGradient);
+
+		$('#scroll')
+				.scroll(
+						function() {
+							if ($(this).scrollLeft() == 0) {// 스크롤이 0일 때
+								$('#left').hide();
+							} else if ($(this).scrollLeft()
+									+ $(this).innerWidth() >= $(this).prop(
+									'scrollWidth')) {
+								$('#right').hide();
+							} else {
+								$('#right').show();
+							}
+						});
+
 	});
 </script>
 
@@ -109,33 +122,36 @@
 						<ul class="css-1ya1z7z-VisualUl">
 							<li class="css-8y23cj"><c:forEach var="release_date"
 									begin="0" end="19" step="1" items="${release_date}">
-									<a
-										href="${pageContext.request.contextPath}/contents/detail.do?type=${release_date.type }&id=${release_date.id}"><div
-											class="css-1qmeemv">
-											<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
-												<img src="${release_date.poster_path }"
-													class="css-qhzw1o-StyledImg ezcopuc1">
+									<c:if test="${release_date.popularity>=10 }">
+										<a
+											href="${pageContext.request.contextPath}/contents/detail.do?type=${release_date.type }&id=${release_date.id}"><div
+												class="css-1qmeemv">
+												<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
+													<img src="${release_date.poster_path }"
+														class="css-qhzw1o-StyledImg ezcopuc1">
+												</div>
+												<div class="css-10hm9rg"></div>
 											</div>
-											<div class="css-10hm9rg"></div>
-										</div>
-										<div class="css-ixy093">
-											<div class="css-5yuqaa">${release_date.title }</div>
-											<div class="css-1rxwuxd">
-												<fmt:formatDate value="${release_date.release_date }"
-													pattern="yyyy-MM-dd" />
-											</div>
-											<div class="average css-xgmur2">
-												<span>평균</span>
-												<svg width="12" height="10" viewBox="0 0 12 10"
-													xmlns="http://www.w3.org/2000/svg" fill="#555765"
-													class="css-1g90l0x">
+											<div class="css-ixy093">
+												<div class="css-5yuqaa">${release_date.title }</div>
+												<div class="css-1rxwuxd">
+													<fmt:formatDate value="${release_date.release_date }"
+														pattern="yyyy-MM-dd" />
+												</div>
+												<div class="average css-xgmur2">
+													<span>평균</span>
+													<svg width="12" height="10" viewBox="0 0 12 10"
+														xmlns="http://www.w3.org/2000/svg" fill="#555765"
+														class="css-1g90l0x">
 												<path fill-rule="evenodd" clip-rule="evenodd"
-														d="M6 8.02L3.14233 9.91131C2.91094 10.0644 2.61352 9.84836 2.68767 9.58097L3.60334 6.27872L0.921531 4.14536C0.704379 3.97262 0.817982 3.62299 1.0952 3.61087L4.51878 3.46128L5.719 0.251483C5.81619 -0.00842059 6.18381 -0.00842094 6.281 0.251483L7.48122 3.46128L10.9048 3.61087C11.182 3.62299 11.2956 3.97262 11.0785 4.14536L8.39666 6.27872L9.31233 9.58097C9.38648 9.84836 9.08906 10.0644 8.85767 9.91131L6 8.02Z"></path></svg>
-												<span>
-													${Math.ceil((release_date.vote_average)/2*10)/10} </span>
-											</div>
-											<div class="css-u4moi6">인기도 : ${release_date.popularity }</div>
-										</div></a>
+															d="M6 8.02L3.14233 9.91131C2.91094 10.0644 2.61352 9.84836 2.68767 9.58097L3.60334 6.27872L0.921531 4.14536C0.704379 3.97262 0.817982 3.62299 1.0952 3.61087L4.51878 3.46128L5.719 0.251483C5.81619 -0.00842059 6.18381 -0.00842094 6.281 0.251483L7.48122 3.46128L10.9048 3.61087C11.182 3.62299 11.2956 3.97262 11.0785 4.14536L8.39666 6.27872L9.31233 9.58097C9.38648 9.84836 9.08906 10.0644 8.85767 9.91131L6 8.02Z"></path></svg>
+													<span>
+														${Math.ceil((release_date.vote_average)/2*10)/10} </span>
+												</div>
+												<div class="css-u4moi6">인기도 :
+													${release_date.popularity }</div>
+											</div></a>
+									</c:if>
 								</c:forEach></li>
 							<div class="css-ml096x"></div>
 						</ul>

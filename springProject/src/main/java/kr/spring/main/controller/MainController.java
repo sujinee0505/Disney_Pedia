@@ -1,5 +1,6 @@
 package kr.spring.main.controller;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -23,10 +24,19 @@ public class MainController {
 	 * value값이 없는 메인페이지는 영화 목록이 보여지고 어떤 메뉴를 누르는지에 따라 출력되는 목록이 달라짐
 	 */
 	public ModelAndView main(@RequestParam(value = "type", defaultValue = "movie") String type) {
+		
 		GetInfoUtil util = new GetInfoUtil();
 
-		List<ContentsVO> vote_average = null;
-		vote_average = util.getInfoList(type);
+		List<ContentsVO> temp = null;
+		temp = util.getInfoList(type);
+		List<ContentsVO> vote_average = new ArrayList<ContentsVO>();
+		for (int i = 0; i < temp.size(); i++) {
+			if (temp.get(i).getPopularity() >= 100) {
+				ContentsVO contents = new ContentsVO();
+				contents = temp.get(i);
+				vote_average.add(contents);
+			}
+		}
 		// List에 담긴 ContentsVO를 평점 내림차순으로 정렬
 		Collections.sort(vote_average, new SortByVote());
 
