@@ -18,7 +18,7 @@ public interface ChatBoardMapper {
 	//xml
 	public int selectRowCount(Map<String,Object> map);
 
-	//**글 등록 폼에서 전송된 데이터 처리
+	//**글 등록 폼에서 전송된 데이터 처리 
 	/*
 	@Insert("INSERT INTO dchatboard (chatboard_num,mem_num,title,content,reg_date) " +
 			"VALUES (dchatboard_seq.nextval,#{mem_num},#{title},#{content},#{reg_date})")
