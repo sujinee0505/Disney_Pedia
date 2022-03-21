@@ -6,39 +6,31 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		var width = $('#scroll').width();
-		$(document).on('click', '#right', function() {
-			var scrollX = $(this).siblings('#scroll').scrollLeft();
-			$(this).siblings('#scroll').scrollLeft(scrollX + width);
+		var width = $('.scroll').width();
+		$(document).on('click', '.right', function() {
+			var scrollX = $(this).siblings('.scroll').scrollLeft();
+			$(this).siblings('.scroll').scrollLeft(scrollX + width);
 		});
-		$(document).on('click', '#left', function() {
-			var scrollX = $(this).siblings('#scroll').scrollLeft();
-			$(this).siblings('#scroll').scrollLeft(scrollX - width);
+		$(document).on('click', '.left', function() {
+			var scrollX = $(this).siblings('.scroll').scrollLeft();
+			$(this).siblings('.scroll').scrollLeft(scrollX - width);
 		});
-		showGradient = function() {
-			if ($(this).scrollLeft() == 0) {// 스크롤이 0일 때
-				$('#left').hide();
+		$('.scroll').scroll(
+				function() {
+					if ($(this).scrollLeft() + $(this).innerWidth() >= $(this)
+							.prop('scrollWidth')) {
+						$(this).parent().find('.right').hide();
+					} else {
+						$(this).parent().find('.right').show();
+					}
+				});
+		$('.scroll').scroll(function() {
+			if ($(this).scrollLeft() == 0) {
+				$(this).parent().find('.left').hide();
 			} else if ($(this).scrollLeft() != 0) {
-				$('#left').show();
+				$(this).parent().find('.left').show();
 			}
-		}
-
-		showGradient(); // 오류 차후 수정
-		$('#scroll').on('scroll', showGradient);
-
-		$('#scroll')
-				.scroll(
-						function() {
-							if ($(this).scrollLeft() == 0) {// 스크롤이 0일 때
-								$('#left').hide();
-							} else if ($(this).scrollLeft()
-									+ $(this).innerWidth() >= $(this).prop(
-									'scrollWidth')) {
-								$('#right').hide();
-							} else {
-								$('#right').show();
-							}
-						});
+		});
 
 	});
 </script>
@@ -50,7 +42,7 @@
 	</div>
 	<div class="css-1qq59e8">
 		<div class="css-1kd6k5d">
-			<div class="css-9dnzub" id="scroll">
+			<div class="css-9dnzub scroll">
 				<div class="css-174lxc3">
 					<div class="css-119xxd7">
 						<ul class="css-1ya1z7z-VisualUl">
@@ -90,7 +82,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="css-147ng4f" style="right: inherit;" id="left">
+			<div class="css-148ng4f left" style="display: none;">
 				<button type="button" class="css-vp7uyl"
 					style="margin-bottom: 60px;">
 					<img
@@ -98,7 +90,7 @@
 						alt="forward">
 				</button>
 			</div>
-			<div class="css-147ng4f" id="right">
+			<div class="css-147ng4f right">
 				<button type="button" class="css-vp7uyl"
 					style="margin-bottom: 60px;">
 					<img
@@ -116,7 +108,7 @@
 	</div>
 	<div class="css-1qq59e8">
 		<div class="css-1kd6k5d">
-			<div class="css-9dnzub" id="scroll">
+			<div class="css-9dnzub scroll">
 				<div class="css-174lxc3">
 					<div class="css-119xxd7">
 						<ul class="css-1ya1z7z-VisualUl">
@@ -159,8 +151,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="arrow_button css-147ng4f" style="right: inherit;"
-				id="left">
+			<div class="css-148ng4f left" style="display: none;">
 				<button type="button" class="css-vp7uyl"
 					style="margin-bottom: 60px;">
 					<img
@@ -168,7 +159,7 @@
 						alt="forward">
 				</button>
 			</div>
-			<div class="css-147ng4f" id="right">
+			<div class="css-147ng4f right">
 				<button type="button" class="css-vp7uyl"
 					style="margin-bottom: 60px;">
 					<img

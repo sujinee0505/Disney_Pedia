@@ -100,22 +100,31 @@ public class GetInfoUtil {
 					vo.setId(contents.get("id").toString());
 
 					vo.setOverview(contents.get("overview").toString());
-					vo.setPoster_path(contents.get("poster_path").toString());
+					if (contents.get("poster_path") == null || contents.get("poster_path").toString().equals("")) {
+						vo.setPoster_path("");
+					} else {
+						vo.setPoster_path(contents.get("poster_path").toString());
+					}
 
 					// 컨텐츠 타입(영화/시리즈)에 따라서 파싱 방법 다르게 설정
 					if (type.equals("movie")) {
+						// 시리즈일 경우 release_date를 key로 데이터 파싱
 						if (contents.get("release_date") == null || contents.get("release_date").equals("")) {
 							vo.setRelease_date(dateFormat.parse(date));
+						} else {
+							Date release_date = dateFormat.parse((String) contents.get("release_date"));
+							vo.setRelease_date(release_date);
 						}
-						Date release_date = dateFormat.parse((String) contents.get("release_date"));
-						vo.setRelease_date(release_date);
 						vo.setTitle(contents.get("title").toString());
 					} else if (type.equals("tv")) {
+						// 시리즈일 경우 first_air_date를 key로 데이터 파싱
 						if (contents.get("first_air_date") == null || contents.get("first_air_date").equals("")) {
 							vo.setRelease_date(dateFormat.parse(date));
+						} else {
+							Date first_air_date = dateFormat.parse((String) contents.get("first_air_date"));
+							vo.setRelease_date(first_air_date);
 						}
-						Date first_air_date = dateFormat.parse((String) contents.get("first_air_date"));
-						vo.setRelease_date(first_air_date);
+						// 시리즈일 경우 title이 아닌 name을 key로 데이터 파싱
 						vo.setTitle(contents.get("name").toString());
 					}
 					vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
@@ -190,6 +199,7 @@ public class GetInfoUtil {
 		List<String> image_list = null;
 		try {
 			image_list = new ArrayList<String>();
+
 			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "/images?api_key=" + KEY;
 
 			URL url = new URL(apiURL);

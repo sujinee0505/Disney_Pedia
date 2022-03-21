@@ -9,27 +9,32 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery.star-rating-svg.js"></script>
 <script type="text/javascript">
 	$(function() {
-		var width = $('#scroll').width();
-		$(document).on('click', '#right', function() {
-			var scrollX = $(this).siblings('#scroll').scrollLeft();
-			$(this).siblings('#scroll').scrollLeft(scrollX + width);
+		var width = $('.scroll').width();
+		$(document).on('click', '.right', function() {
+			var scrollX = $(this).siblings('.scroll').scrollLeft();
+			$(this).siblings('.scroll').scrollLeft(scrollX + width);
 		});
-		$(document).on('click', '#left', function() {
-			var scrollX = $(this).siblings('#scroll').scrollLeft();
-			$(this).siblings('#scroll').scrollLeft(scrollX - width);
+		$(document).on('click', '.left', function() {
+			var scrollX = $(this).siblings('.scroll').scrollLeft();
+			$(this).siblings('.scroll').scrollLeft(scrollX - width);
 		});
-		/* showGradient = function() {
-			if ($(this).scrollLeft() == 0) {// 스크롤이 0일 때
-				$('#left').hide();
+		$('.scroll').scroll(
+				function() {
+					if ($(this).scrollLeft() + $(this).innerWidth() >= $(this)
+							.prop('scrollWidth')) {
+						$(this).parent().find('.right').hide();
+					} else {
+						$(this).parent().find('.right').show();
+					}
+				});
+		$('.scroll').scroll(function() {
+			if ($(this).scrollLeft() == 0) {
+				$(this).parent().find('.left').hide();
 			} else if ($(this).scrollLeft() != 0) {
-				$('#left').show();
-			} else if (Math.ceil($(this).scrollLeft() + $(this).width()) == $(
-					'.css-119xxd7').width()) {//스크롤이 끝에 왔을 때
-				$('#right').hide();
+				$(this).parent().find('.left').show();
 			}
-		}
-		showGradient(); // 오류 차후 수정
-		$(document).on('scroll', showGradient); */
+		});
+
 	});
 </script>
 <div class="css-16jhzm7-Self e1ezac430">
@@ -238,14 +243,14 @@
 											</div>
 										</div>
 										<div class="css-usdi1z">
-											<div class="css-9dnzub" id="scroll">
+											<div class="css-9dnzub scroll">
 												<div class="css-174lxc3">
 													<div class="css-1gkas1x-Grid e1689zdh0">
 														<div class="css-13avw3k-PeopleUlRow e5xrf7a1">
 															<ul
 																class="e5xrf7a0 css-1br354h-VisualUl-PeopleStackableUl">
 																<c:forEach var="crew" items="${crew }" begin="0" end="1"
-																	step="1">
+																	step="1" varStatus="status">
 																	<li class="css-54rr1e"><a
 																		class="css-1aaqvgs-InnerPartOfListWithImage" href=""><div
 																				class="css-cssveg">
@@ -255,8 +260,8 @@
 																							src="https://image.tmdb.org/t/p/original/${crew.profile_path }">
 																					</div>
 																				</div>
-																			</div>
-																			<div class="css-zoy7di">
+																			</div> 
+																			<div class="css-zoy7di" style="">
 																				<div class="css-qkf9j">
 																					<div class="css-17vuhtq">${crew.name }</div>
 																					<div class="css-1evnpxk-StyledSubtitle">감독</div>
@@ -290,17 +295,18 @@
 													</div>
 												</div>
 											</div>
-											<div class="css-147ng4f" style="right: inherit;" id="left">
+											<div class="arrow_button css-1b9dnd0 left"
+												style="display: none;">
 												<button type="button" class="css-vp7uyl"
-													style="margin-bottom: 60px;">
+													style="margin-bottom: 15px;">
 													<img
 														src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
 														alt="forward">
 												</button>
 											</div>
-											<div class="css-147ng4f" id="right">
+											<div class="arrow_button css-pf83cl right">
 												<button type="button" class="css-vp7uyl"
-													style="margin-bottom: 60px;">
+													style="margin-bottom: 15px;">
 													<img
 														src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
 														alt="forward">
@@ -309,7 +315,7 @@
 										</div>
 										<div class="css-1gkas1x-Grid e1689zdh0">
 											<div class="css-1y901al-Row emmoxnt0">
-												<hr class="css-god8tc">
+												<hr class="css-g67iqr">
 											</div>
 										</div>
 									</section>
@@ -327,7 +333,7 @@
 											</div>
 										</div>
 										<div class="css-usdi1z">
-											<div class="css-1x04fwb" id="scroll">
+											<div class="css-1x04fwb scroll">
 												<div class="css-174lxc3">
 													<div class="css-1gkas1x-Grid e1689zdh0">
 														<div class="css-1y901al-Row emmoxnt0">
@@ -380,22 +386,27 @@
 													</div>
 												</div>
 											</div>
-											<div direction="left" class="css-a89h8a"></div>
-											<div direction="right" class="css-1qgb5vh"></div>
-											<div class="arrow_button css-38kpup" direction="left">
-												<div class="css-1hestod"></div>
+											<div class="arrow_button css-1b9dnd0 left"
+												style="display: none;">
+												<button type="button" class="css-vp7uyl"
+													style="margin-bottom: 40px;">
+													<img
+														src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
+														alt="forward">
+												</button>
 											</div>
-											<div class="arrow_button css-pf83cl" direction="right">
-												<div class="css-vp7uyl">
+											<div class="arrow_button css-pf83cl right">
+												<button type="button" class="css-vp7uyl"
+													style="margin-bottom: 40px;">
 													<img
 														src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
 														alt="forward">
-												</div>
+												</button>
 											</div>
 										</div>
 										<div class="css-1gkas1x-Grid e1689zdh0">
 											<div class="css-1y901al-Row emmoxnt0">
-												<hr class="css-god8tc">
+												<hr class="css-g67iqr">
 											</div>
 										</div>
 									</section>
@@ -416,7 +427,7 @@
 														</div>
 													</div>
 													<div class="css-usdi1z">
-														<div class="css-1x04fwb" id="scroll">
+														<div class="css-1x04fwb scroll">
 															<div class="css-174lxc3">
 																<div class="css-1gkas1x-Grid e1689zdh0">
 																	<div class="css-1y901al-Row emmoxnt0">
@@ -435,17 +446,18 @@
 																</div>
 															</div>
 														</div>
-														<div class="css-147ng4f" style="right: inherit;" id="left">
+														<div class="arrow_button css-1b9dnd0 left"
+															style="display: none;">
 															<button type="button" class="css-vp7uyl"
-																style="margin-bottom: 60px;">
+																style="margin-bottom: 40px;">
 																<img
 																	src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
 																	alt="forward">
 															</button>
 														</div>
-														<div class="css-147ng4f" id="right">
+														<div class="arrow_button css-pf83cl right">
 															<button type="button" class="css-vp7uyl"
-																style="margin-bottom: 60px;">
+																style="margin-bottom: 40px;">
 																<img
 																	src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
 																	alt="forward">
@@ -458,7 +470,7 @@
 										</div>
 										<div class="css-1gkas1x-Grid e1689zdh0">
 											<div class="css-1y901al-Row emmoxnt0">
-												<hr class="css-god8tc">
+												<hr class="css-g67iqr">
 											</div>
 										</div>
 									</section>
@@ -508,12 +520,10 @@
 															</div>
 														</div>
 													</div>
-													<div direction="left" class="css-a89h8a"></div>
-													<div direction="right" class="css-1qgb5vh"></div>
-													<div class="arrow_button css-38kpup" direction="left">
+													<div class="arrow_button css-38kpup left">
 														<div class="css-1hestod"></div>
 													</div>
-													<div class="arrow_button css-pf83cl" direction="right">
+													<div class="arrow_button css-pf83cl right">
 														<div class="css-vp7uyl">
 															<img
 																src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"

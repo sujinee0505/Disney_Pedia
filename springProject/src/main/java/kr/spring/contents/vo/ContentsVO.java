@@ -101,9 +101,9 @@ public class ContentsVO {
 				minutes = run_time % 60;
 				this.runtime = hours + "시간 " + minutes + "분";
 			}
+		} else {
+			this.runtime = runtime;
 		}
-		this.runtime = runtime;
-
 	}
 
 	public String getType() {

@@ -7,28 +7,32 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		var width = $('#scroll').width();
-		$(document).on('click', '#right', function() {
-			var scrollX = $(this).siblings('#scroll').scrollLeft();
-			$(this).siblings('#scroll').scrollLeft(scrollX + width);
+		var width = $('.scroll').width();
+		$(document).on('click', '.right', function() {
+			var scrollX = $(this).siblings('.scroll').scrollLeft();
+			$(this).siblings('.scroll').scrollLeft(scrollX + width);
 		});
-		$(document).on('click', '#left', function() {
-			var scrollX = $(this).siblings('#scroll').scrollLeft();
-			$(this).siblings('#scroll').scrollLeft(scrollX - width);
+		$(document).on('click', '.left', function() {
+			var scrollX = $(this).siblings('.scroll').scrollLeft();
+			$(this).siblings('.scroll').scrollLeft(scrollX - width);
 		});
-		showGradient = function() {
-			if ($(this).scrollLeft() == 0) {// 스크롤이 0일 때
-				$('#left').hide();
+		$('.scroll').scroll(
+				function() {
+					if ($(this).scrollLeft() + $(this).innerWidth() >= $(this)
+							.prop('scrollWidth')) {
+						$(this).parent().find('.right').hide();
+					} else {
+						$(this).parent().find('.right').show();
+					}
+				});
+		$('.scroll').scroll(function() {
+			if ($(this).scrollLeft() == 0) {
+				$(this).parent().find('.left').hide();
 			} else if ($(this).scrollLeft() != 0) {
-				$('#left').show();
-				/* alert(x); 2495*/
-			} else if (Math.ceil($(this).scrollLeft() + $(this).width()) == $(
-					'.css-9dnzub').width()) {//스크롤이 끝에 왔을 때
-				$('#right').hide();
+				$(this).parent().find('.left').show();
 			}
-		}
-		showGradient(); // 오류 차후 수정
-		$('#scroll').on('scroll', showGradient);
+		});
+
 	});
 </script>
 <section class="css-18gwkcr">
@@ -49,7 +53,7 @@
 				<section class="css-9ebwyf-pageMarginStyle">
 					<section class="css-1s4ow07">
 						<div class="css-usdi1z">
-							<div class="css-9dnzub" id="scroll" style="width: 1320px;">
+							<div class="css-9dnzub scroll">
 								<div class="css-174lxc3">
 									<ul class="css-1bk3hui-VisualUl">
 										<c:forEach var="search_result" items="${search_result }">
@@ -79,9 +83,7 @@
 									</ul>
 								</div>
 							</div>
-
-							<div class="arrow_button css-1b9dnd0" direction="left" id="left"
-								style="right: inherit;">
+							<div class="arrow_button css-1b9dnd0 left" style="display: none;">
 								<button type="button" class="css-vp7uyl"
 									style="margin-bottom: 60px;">
 									<img
@@ -89,7 +91,7 @@
 										alt="forward">
 								</button>
 							</div>
-							<div class="arrow_button css-pf83cl" direction="right" id="right">
+							<div class="arrow_button css-pf83cl right">
 								<button type="button" class="css-vp7uyl"
 									style="margin-bottom: 60px;">
 									<img
@@ -144,7 +146,8 @@
 										<div class="css-6qnjre"></div>
 									</ul>
 								</div>
-								<div class="css-147ng4f" style="right: inherit;" id="left">
+								<div class="arrow_button css-1b9dnd0 left"
+									style="display: none;">
 									<button type="button" class="css-vp7uyl"
 										style="margin-bottom: 60px;">
 										<img
@@ -152,7 +155,7 @@
 											alt="forward">
 									</button>
 								</div>
-								<div class="arrow_button css-pf83cl" direction="right">
+								<div class="arrow_button css-pf83cl right">
 									<button type="button" class="css-vp7uyl"
 										style="margin-bottom: 60px;">
 										<img
@@ -161,7 +164,7 @@
 									</button>
 								</div>
 							</div>
-							<hr class="css-god8tc">
+							<hr class="css-g67iqr">
 					</section>
 					<section class="css-11yyw1d">
 						<div class="css-1gkas1x-Grid e1689zdh0">
@@ -208,10 +211,15 @@
 								</div>
 							</div>
 
-							<div class="arrow_button css-38kpup" direction="left">
-								<div class="css-1hestod"></div>
+							<div class="arrow_button css-1b9dnd0 left" style="display: none;">
+								<button type="button" class="css-vp7uyl"
+									style="margin-bottom: 60px;">
+									<img
+										src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
+										alt="forward">
+								</button>
 							</div>
-							<div class="arrow_button css-pf83cl" direction="right">
+							<div class="arrow_button css-pf83cl right">
 								<button type="button" class="css-vp7uyl"
 									style="margin-bottom: 60px;">
 									<img
@@ -220,7 +228,7 @@
 								</button>
 							</div>
 						</div>
-						<hr class="css-god8tc">
+						<hr class="css-g67iqr">
 					</section>
 				</section>
 			</div>

@@ -24,16 +24,23 @@ public class MainController {
 	 * value값이 없는 메인페이지는 영화 목록이 보여지고 어떤 메뉴를 누르는지에 따라 출력되는 목록이 달라짐
 	 */
 	public ModelAndView main(@RequestParam(value = "type", defaultValue = "movie") String type) {
-		
+
 		GetInfoUtil util = new GetInfoUtil();
 
+		// 임시로 사용할 List 생성
 		List<ContentsVO> temp = null;
+		// 메인에 출력할 컨텐츠 목록들 저장
 		temp = util.getInfoList(type);
+
+		// 평점순 목록을 출력할 경우 popularity가 100이상인 것들만 출력되게 설정
 		List<ContentsVO> vote_average = new ArrayList<ContentsVO>();
 		for (int i = 0; i < temp.size(); i++) {
+			// popularity 조건 검사
 			if (temp.get(i).getPopularity() >= 100) {
+				// 조건에 해당하는 경우에만 새로운 vo에 따로 저장
 				ContentsVO contents = new ContentsVO();
 				contents = temp.get(i);
+				// 루프를 돌며 List에 저장
 				vote_average.add(contents);
 			}
 		}
