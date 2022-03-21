@@ -7,7 +7,7 @@
 </script>
 </head>
 <!-- 상단 시작 -->
-<header class="css-6k8tqb">
+<header class="css-6k8tqb" id="header">
 	<nav>
 		<div class="css-1gkas1x-Grid e1689zdh0">
 			<div class="css-1djzg97">
@@ -15,10 +15,10 @@
 					<li class="css-t686xv"><a
 						href="${pageContext.request.contextPath}/main/main.do"><img
 							src="${pageContext.request.contextPath}/resources/images/logo.png"
-							width="150px"></a></li>
+							height="62px;"></a></li>
 					<li class="categories css-bj71cw"><button
 							onclick="location.href='${pageContext.request.contextPath}/main/main.do?type=movie'"
-							class="css-x6oby2-StylelessButton">영화</button></li>
+							class="css-q65tx9-StylelessButton">영화</button></li>
 					<li class="categories css-bj71cw"><button
 							onclick="location.href='${pageContext.request.contextPath}/main/main.do?type=tv'"
 							class="css-q65tx9-StylelessButton">TV</button></li>
@@ -30,9 +30,9 @@
 								<form
 									action="${pageContext.request.contextPath}/contents/search.do"
 									method="get">
-									<label class="css-kyr608"><input type="text"
+									<label class="css-kyr608" id="label"><input type="text"
 										autocomplete="off" placeholder="콘텐츠를 검색해보세요." name="keyword"
-										value="${param.keyword}" class="css-13i5xe6">
+										value="${param.keyword}" class="css-13i5xe6" id="keyword">
 										<div value="false" class="css-ikj5sk">
 											<span aria-label="clear" role="button" class="css-14vwb0g"></span>
 										</div></label>
@@ -50,7 +50,7 @@
 						</li>
 						<!-- 로그인 -->
 
-						<li class="css-bj71cw"><button
+						<li class="css-bj71cw"><button id="register-btn"
 								onclick="location.href='${pageContext.request.contextPath}/member/registerUser.do'"
 								class="css-139vxi-StylelessButton">회원가입</button></li>
 					</c:if>
@@ -86,19 +86,6 @@
 			</div>
 		</div>
 	</nav>
-</header>
-<header class="css-1xl5dyt">
-	<ul class="css-6v7b8v-VisualUl">
-		<li class="css-ysxfln"><button
-				onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
-				class="css-q3jh7f-StylelessButton">영화</button></li>
-		<li class="css-ysxfln"><button
-				onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
-				class="css-1ezx7y8-StylelessButton">TV</button></li>
-		<li class="css-ysxfln"><button
-				onclick="location.href='${pageContext.request.contextPath}/main/main.do'"
-				class="css-1ezx7y8-StylelessButton">채팅방</button></li>
-	</ul>
 </header>
 <!-- 상단 끝 -->
 

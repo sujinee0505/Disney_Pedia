@@ -9,10 +9,6 @@ body {
 	margin: 0;
 }
 
-#main_body {
-	padding-top: 77px;
-}
-
 .css-6k8tqb {
 	display: none;
 	position: fixed;
@@ -23,7 +19,7 @@ body {
 	color: #fff;
 	text-align: center;
 	width: 100%;
-	/* height: 62px; */
+	height: 62px;
 	box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.08);
 	-webkit-transition: background-color 200ms;
 	transition: background-color 200ms;
@@ -252,13 +248,7 @@ body {
 }
 
 .css-kyr608 {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-align-items: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
 	background: #f5f5f7
 		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgdmlld0JveD0iMCAwIDIyIDIyIj4KICAgIDxwYXRoIGZpbGw9IiNCQUJBQzMiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTkuODE0IDE1LjczNWMtMy4yMDcgMC01LjgxNy0yLjYzLTUuODE3LTUuODYxIDAtMy4yMzMgMi42MS01Ljg2MiA1LjgxNy01Ljg2MiAzLjIwNyAwIDUuODE4IDIuNjMgNS44MTggNS44NjJzLTIuNjEgNS44Ni01LjgxOCA1Ljg2bTkuODQxIDIuNTRsLTMuNjYtMy43MDRjLjk4LTEuMzEgMS41NzEtMi45MzIgMS41NzEtNC42OTYgMC00LjMwOC0zLjQ3OC03LjgxMi03Ljc1Mi03LjgxMi00LjI3NCAwLTcuNzUyIDMuNTA0LTcuNzUyIDcuODEyIDAgNC4zMDcgMy40NzggNy44MSA3Ljc1MiA3LjgxIDEuODI5IDAgMy41MDctLjY0NCA0LjgzNC0xLjcxNGwzLjYzNyAzLjY4Yy4xODIuMTg2LjQyNi4yODguNjg1LjI4OC4yNTcgMCAuNS0uMS42ODMtLjI4NC4xODItLjE4NC4yODQtLjQzLjI4NS0uNjkgMC0uMjYtLjEtLjUwNS0uMjgzLS42OSIvPgo8L3N2Zz4K)
@@ -281,9 +271,6 @@ body {
 .css-13i5xe6 {
 	font-size: 14px;
 	font-weight: 400;
-	-webkit-letter-spacing: -0.3px;
-	-moz-letter-spacing: -0.3px;
-	-ms-letter-spacing: -0.3px;
 	letter-spacing: -0.3px;
 	line-height: 23px;
 	background: transparent;
@@ -296,7 +283,7 @@ body {
 	caret-color: #353535;
 }
 
-.css-13i5xe6::-moz-placeholder {
+.css-1sc5b20::-moz-placeholder {
 	color: #74747b;
 }
 
@@ -318,6 +305,26 @@ body {
 
 .css-13i5xe6::placeholder {
 	color: #74747b;
+}
+
+.css-1sc5b20:focus {
+	outline: none;
+}
+
+.css-1sc5b20::-webkit-input-placeholder {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.css-1sc5b20::-moz-placeholder {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.css-1sc5b20:-ms-input-placeholder {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.css-1sc5b20::placeholder {
+	color: rgba(255, 255, 255, 0.7);
 }
 
 .css-ikj5sk {
@@ -2044,28 +2051,6 @@ body {
 	text-decoration: none;
 }
 
-.css-fn0ezc-StylelessButton {
-	background: none;
-	padding: 0;
-	border: none;
-	margin: 0;
-	cursor: pointer;
-	background: transparent;
-	color: #74747b;
-	font-size: 14px;
-	-webkit-letter-spacing: -0.3px;
-	-moz-letter-spacing: -0.3px;
-	-ms-letter-spacing: -0.3px;
-	letter-spacing: -0.3px;
-	padding: 0;
-	border: 0;
-	margin: 15px 0;
-}
-
-.css-fn0ezc-StylelessButton:focus {
-	outline: none;
-}
-
 .css-bj71cw {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -2465,14 +2450,6 @@ button, input, optgroup, select, textarea {
 	cursor: pointer;
 	width: 24px;
 	height: 24px;
-}
-
-button, input, optgroup, select, textarea {
-	font-size: 100%;
-}
-
-button, input, optgroup, select, textarea {
-	line-height: normal;
 }
 
 .css-13ol6c1 {
@@ -3214,14 +3191,6 @@ h1, h3, p, hr {
 	}
 }
 
-button, input, optgroup, select, textarea {
-	font-size: 100%;
-}
-
-button, input, optgroup, select, textarea {
-	line-height: normal;
-}
-
 .css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"]
 
 
@@ -3335,14 +3304,6 @@ svg {
 		line-height: 14px;
 		min-width: 55px;
 	}
-}
-
-button, input, optgroup, select, textarea {
-	font-size: 100%;
-}
-
-button, input, optgroup, select, textarea {
-	line-height: normal;
 }
 
 .css-3p9quy-StylelessButton-ContentActionButton-ContentCommentButtonOnXs>[class*="Icon"]
@@ -4268,14 +4229,6 @@ h1, h3, p, hr {
 	}
 }
 
-button, input, optgroup, select, textarea {
-	font-size: 100%;
-}
-
-button, input, optgroup, select, textarea {
-	line-height: normal;
-}
-
 .css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"]
 [class*="rotatingIcon"] {
 	-webkit-transform: rotate(90deg);
@@ -4385,14 +4338,6 @@ svg {
 		line-height: 14px;
 		min-width: 55px;
 	}
-}
-
-button, input, optgroup, select, textarea {
-	font-size: 100%;
-}
-
-button, input, optgroup, select, textarea {
-	line-height: normal;
 }
 
 .css-3p9quy-StylelessButton-ContentActionButton-ContentCommentButtonOnXs>[class*="Icon"]
@@ -5115,14 +5060,6 @@ h1, h3, p, hr {
 	}
 }
 
-button, input, optgroup, select, textarea {
-	font-size: 100%;
-}
-
-button, input, optgroup, select, textarea {
-	line-height: normal;
-}
-
 .css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"]
 [class*="rotatingIcon"] {
 	-webkit-transform: rotate(90deg);
@@ -5232,14 +5169,6 @@ svg {
 		line-height: 14px;
 		min-width: 55px;
 	}
-}
-
-button, input, optgroup, select, textarea {
-	font-size: 100%;
-}
-
-button, input, optgroup, select, textarea {
-	line-height: normal;
 }
 
 .css-3p9quy-StylelessButton-ContentActionButton-ContentCommentButtonOnXs>[class*="Icon"]
@@ -6183,14 +6112,6 @@ h1, h3, p, hr {
 	}
 }
 
-button, input, optgroup, select, textarea {
-	font-size: 100%;
-}
-
-button, input, optgroup, select, textarea {
-	line-height: normal;
-}
-
 .css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"][class*="rotatingIcon"]
 	{
 	-webkit-transform: rotate(90deg);
@@ -6298,14 +6219,6 @@ button, input, optgroup, select, textarea {
 		line-height: 14px;
 		min-width: 55px;
 	}
-}
-
-button, input, optgroup, select, textarea {
-	font-size: 100%;
-}
-
-button, input, optgroup, select, textarea {
-	line-height: normal;
 }
 
 .css-3p9quy-StylelessButton-ContentActionButton-ContentCommentButtonOnXs>[class*="Icon"]
@@ -6881,16 +6794,16 @@ button, input, optgroup, select, textarea {
 }
 
 /* 검색 결과 페이지 */
+.css-18gwkcr {
+	padding-top: 0px;
+	padding-bottom: 56px;
+}
+
 @media ( min-width : 719px) {
 	.css-18gwkcr {
 		padding-top: 62px;
 		padding-bottom: unset;
 	}
-}
-
-.css-18gwkcr {
-	padding-top: 0px;
-	padding-bottom: 56px;
 }
 
 .css-1jehmiq {
@@ -7372,4 +7285,101 @@ button, input, optgroup, select, textarea {
 	background-repeat: no-repeat;
 	opacity: 1;
 	transition: all 300ms ease 0s;
+}
+
+.css-5brfx4 {
+	/* display: none; */
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 51;
+	background: transparent;
+	color: rgb(255, 255, 255);
+	text-align: center;
+	width: 100%;
+	height: 62px;
+	transition: background-color 200ms ease 0s;
+}
+
+.css-y4utrt {
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	background:
+		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgdmlld0JveD0iMCAwIDIyIDIyIj4KICAgIDxwYXRoIGZpbGw9IiNCQUJBQzMiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTkuODE0IDE1LjczNWMtMy4yMDcgMC01LjgxNy0yLjYzLTUuODE3LTUuODYxIDAtMy4yMzMgMi42MS01Ljg2MiA1LjgxNy01Ljg2MiAzLjIwNyAwIDUuODE4IDIuNjMgNS44MTggNS44NjJzLTIuNjEgNS44Ni01LjgxOCA1Ljg2bTkuODQxIDIuNTRsLTMuNjYtMy43MDRjLjk4LTEuMzEgMS41NzEtMi45MzIgMS41NzEtNC42OTYgMC00LjMwOC0zLjQ3OC03LjgxMi03Ljc1Mi03LjgxMi00LjI3NCAwLTcuNzUyIDMuNTA0LTcuNzUyIDcuODEyIDAgNC4zMDcgMy40NzggNy44MSA3Ljc1MiA3LjgxIDEuODI5IDAgMy41MDctLjY0NCA0LjgzNC0xLjcxNGwzLjYzNyAzLjY4Yy4xODIuMTg2LjQyNi4yODguNjg1LjI4OC4yNTcgMCAuNS0uMS42ODMtLjI4NC4xODItLjE4NC4yODQtLjQzLjI4NS0uNjkgMC0uMjYtLjEtLjUwNS0uMjgzLS42OSIvPgo8L3N2Zz4K)
+		9px 8px no-repeat rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	width: 100%;
+	height: 38px;
+	padding: 7px 10px 8px 36px;
+	border-radius: 2px;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+@media ( min-width : 860px) {
+	.css-y4utrt {
+		background:
+			url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxkZWZzPgogICAgICAgIDxmaWx0ZXIgaWQ9InByZWZpeF9fYSIgd2lkdGg9IjEwMC40JSIgaGVpZ2h0PSIxMDguMSUiIHg9Ii0uMiUiIHk9Ii00JSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij4KICAgICAgICAgICAgPGZlT2Zmc2V0IGR5PSIxIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+CiAgICAgICAgICAgIDxmZUNvbG9yTWF0cml4IGluPSJzaGFkb3dPZmZzZXRPdXRlcjEiIHJlc3VsdD0ic2hhZG93TWF0cml4T3V0ZXIxIiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAuMDggMCIvPgogICAgICAgICAgICA8ZmVNZXJnZT4KICAgICAgICAgICAgICAgIDxmZU1lcmdlTm9kZSBpbj0ic2hhZG93TWF0cml4T3V0ZXIxIi8+CiAgICAgICAgICAgICAgICA8ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz4KICAgICAgICAgICAgPC9mZU1lcmdlPgogICAgICAgIDwvZmlsdGVyPgogICAgPC9kZWZzPgogICAgPGcgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjciIGZpbGwtcnVsZT0iZXZlbm9kZCIgZmlsdGVyPSJ1cmwoI3ByZWZpeF9fYSkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NjUgLTIyKSI+CiAgICAgICAgPHBhdGggZD0iTTc3My4wMyAzNC44NzRjLTIuNjI0IDAtNC43Ni0yLjE1MS00Ljc2LTQuNzk1IDAtMi42NDUgMi4xMzYtNC43OTYgNC43Ni00Ljc5NiAyLjYyNCAwIDQuNzYgMi4xNSA0Ljc2IDQuNzk2IDAgMi42NDQtMi4xMzYgNC43OTUtNC43NiA0Ljc5NW04LjA1MSAyLjA3OGwtMi45OTUtMy4wMzFjLjgwMy0xLjA3MSAxLjI4Ni0yLjQgMS4yODYtMy44NDIgMC0zLjUyNS0yLjg0NS02LjM5MS02LjM0Mi02LjM5MS0zLjQ5NyAwLTYuMzQyIDIuODY2LTYuMzQyIDYuMzkgMCAzLjUyNSAyLjg0NSA2LjM5MSA2LjM0MiA2LjM5MSAxLjQ5NiAwIDIuODctLjUyNyAzLjk1NC0xLjQwM2wyLjk3NyAzLjAxMmMuMTQ4LjE1Mi4zNDguMjM0LjU2LjIzNC4yMSAwIC40MDgtLjA4Mi41NTktLjIzMi4xNDktLjE1LjIzMi0uMzUuMjMyLS41NjQuMDAxLS4yMTItLjA4MS0uNDEzLS4yMy0uNTY0Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=)
+			10px 10px no-repeat rgba(0, 0, 0, 0.2);
+	}
+}
+
+.css-1sc5b20 {
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: -0.3px;
+	line-height: 23px;
+	background: transparent;
+	color: rgb(255, 255, 255);
+	width: 100%;
+	padding: 0px 0px 1px;
+	border: 0px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	caret-color: rgba(255, 255, 255, 0.7);
+}
+
+.css-1n4uax5-StylelessButton {
+	cursor: pointer;
+	background: transparent;
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 14px;
+	letter-spacing: -0.3px;
+	padding: 0px;
+	border: 0px;
+	margin: 15px 0px;
+}
+
+.css-fn0ezc-StylelessButton {
+	background: none;
+	padding: 0;
+	border: none;
+	margin: 0;
+	cursor: pointer;
+	background: transparent;
+	color: #74747b;
+	font-size: 14px;
+	letter-spacing: -0.3px;
+	padding: 0;
+	border: 0;
+	margin: 15px 0;
+}
+
+.css-1hpk3gd-StylelessButton {
+	cursor: pointer;
+	text-align: center;
+	border-radius: 6px;
+	font-weight: 500;
+	line-height: 20px;
+	box-sizing: border-box;
+	width: auto;
+	min-width: 72px;
+	height: 32px;
+	background: transparent;
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 14px;
+	letter-spacing: -0.3px;
+	padding: 5px 14px 6px;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	margin: 15px 0px;
 }

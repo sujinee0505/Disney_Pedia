@@ -35,6 +35,32 @@
 			}
 		});
 
+		header = function() {
+			if ($(this).scrollTop() == 0) {
+				$('#header').removeClass('css-6k8tqb').addClass('css-5brfx4');
+				$('.css-q65tx9-StylelessButton').css('color',
+						'rgba(255, 255, 255, 0.7)');
+				$('#keyword').removeClass('css-13i5xe6')
+						.addClass('css-1sc5b20');
+				$('#label').removeClass('css-kyr608').addClass('css-y4utrt');
+				$('#login-btn').removeClass('css-fn0ezc-StylelessButton')
+						.addClass('css-1n4uax5-StylelessButton');
+				$('#register-btn').removeClass('css-139vxi-StylelessButton')
+						.addClass('css-1hpk3gd-StylelessButton');
+			} else {
+				$('#header').removeClass('css-5brfx4').addClass('css-6k8tqb');
+				$('.css-q65tx9-StylelessButton').css('color', '#7e7e7e');
+				$('#keyword').removeClass('css-1sc5b20')
+						.addClass('css-13i5xe6');
+				$('#label').removeClass('css-y4utrt').addClass('css-kyr608');
+				$('#login-btn').removeClass('css-1n4uax5-StylelessButton')
+						.addClass('css-fn0ezc-StylelessButton');
+				$('#register-btn').removeClass('css-1hpk3gd-StylelessButton')
+						.addClass('css-139vxi-StylelessButton');
+			}
+		}
+		header();
+		$(window).on('scroll', header);
 	});
 </script>
 <div class="css-16jhzm7-Self e1ezac430">
@@ -260,7 +286,7 @@
 																							src="https://image.tmdb.org/t/p/original/${crew.profile_path }">
 																					</div>
 																				</div>
-																			</div> 
+																			</div>
 																			<div class="css-zoy7di" style="">
 																				<div class="css-qkf9j">
 																					<div class="css-17vuhtq">${crew.name }</div>
