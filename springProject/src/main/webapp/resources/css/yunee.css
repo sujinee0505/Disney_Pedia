@@ -1,18 +1,64 @@
 @charset "UTF-8";
 /*모달-공통*/
-body {
-	font-family: 'Varela Round', sans-serif;
-}
-
-.modal-login {
-	width: 320px;
-	margin: 30px auto;
-}
 .align-center{
 	text-align:center;
+	margin: 0 auto;
 }
 .align-right{
 	text-align:right;
+}
+.modal-login {
+	width: 350px !important;
+	margin: 50px auto !important ;
+	text-align:center !important;
+	font-size:12pt !important;
+}
+
+.modal-title{
+font-size:13pt;margin: 0 auto;margin-top:5px;font-family: 'BMJUA';
+}
+#login_form input[type="text"],input[type="password"]{
+	font-size:10pt;
+	 background-color:#f2f2f2;
+}
+.sign-btn{
+color:#ffffff !important;
+font-family: 'BMJUA';
+font-size:12pt;
+}
+.alter{
+margin: 35px auto 20px;
+font-size:9pt;
+
+}
+.sign-logo{
+margin-top:20px;
+}
+.social_login{
+margin: 35px auto !important;
+}
+.alter_text{
+color:#10c3eb !important;
+text-decoration:none !important;
+}
+/*로그인 타이틀 폰트 후보들*/
+@font-face { 
+    font-family: 'LeferiPoint-BlackA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SuncheonB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BMJUA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /*==========별아이콘 설정 시작==========*/
