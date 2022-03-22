@@ -32,7 +32,7 @@
 			</div><p>	
 		
 			<div class="form-group">
-			<button class="btn btn-info form-control sign-btn" type="submit">
+			<button class="btn btn-3 form-control sign-btn" type="submit">
 			회원가입
 			</button>
 			</div><p>

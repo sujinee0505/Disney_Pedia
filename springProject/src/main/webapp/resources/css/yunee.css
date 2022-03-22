@@ -48,6 +48,9 @@ margin: 35px auto !important;
 color:#10c3eb !important;
 text-decoration:none !important;
 }
+.btn-3 {
+  background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+}
 /*로그인 타이틀 폰트 후보들*/
 @font-face { 
     font-family: 'LeferiPoint-BlackA';

@@ -24,9 +24,11 @@
 		</div><p>	
 		
 		<div class="form-group">
-			<button class="btn btn-info form-control sign-btn" type="submit"> 
+			<!-- <button class="btn btn-info form-control sign-btn" type="submit">  -->
+			<button class="btn btn-3 form-control sign-btn" type="submit">
 			로그인
 			</button>
+			
 		</div><p>
 		
 		<div class="alter">
