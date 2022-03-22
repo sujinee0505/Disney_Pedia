@@ -1,42 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<body>
-<!-- Modal contents(1) : 일반 폼 태그 버전 -->    
+<body>   
 <!-- Modal Header -->
-<div class="modal-header">
+<div>
+	<img src="${pageContext.request.contextPath}/resources/images/logo.png" height="86px;" class="sign-logo">
 	<h4 class="modal-title">회원가입</h4>
-	<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 </div>
 <!-- Modal body -->
 <div class="modal-body">
 	<form action="${pageContext.request.contextPath}/member/registerUser.do" method="post" class="form-horizontal"
-		role="form" id="register_form">
-			<label class="sr-only">이름</label> 
-			<input type="text" id="name"
-				name="name" class="form-control" placeholder="이름" required autofocus><BR>
+		role="form" id="signUp_form">
+		
+			<div class="form-group">
+			<input type="text" id="name" name="name" class="form-control" 
+			placeholder="이름" autofocus required>
+			</div><p>
 			
-			<label class="sr-only">ID</label> 		
-			<input type="text" id="id" name="id"
-			class="form-control" placeholder="ID" required autofocus>
-			<input type="button" id="confirmId" value="중복체크" class="btn btn-danger btn-xs"><BR>
-			<!-- 중복체크 메시지 부분 -->
+			<div class="form-group">
+			<input type="text" id="id" name="id" class="form-control" 
+			placeholder="아이디"  required>
+			</div><p>
+			<!-- <input type="button" id="confirmId" value="중복체크" class="btn btn-danger btn-xs"><BR>
+			중복체크 메시지 부분
 			<span id="message_id"></span>	
-			<p>
-			
-			<label class="sr-only">Password</label> 
-			<input type="password"
-				id="passwd" name="passwd" class="form-control" placeholder="Password"
-				required><br>
-
-		<button class="btn btn-lg btn-primary btn-block" type="submit" id="signUp-btn">
-			회원가입</button>
-	</form>
-</div>
-
-<!-- Modal footer -->
+			<p> -->
+						
+			<div class="form-group">
+			<input type="password" id="passwd" name="passwd" 
+			class="form-control" placeholder="비밀번호" required>
+			</div><p>	
+		
+			<div class="form-group">
+			<button class="btn btn-info form-control sign-btn" type="submit">
+			회원가입
+			</button>
+			</div><p>
+	
+			<div class="alter">
+			이미 가입하셨나요? 		
+			<a href="#" data-bs-toggle="modal" data-bs-target="#myModal" class="alter_text">
+			회원가입</a>
+			</div>	<p>		
+		</form>
+</div> <!-- 모달바디끝 -->
 <div class="modal-footer">
-	footer
+	<div class="social_login align-center">
+			social sign up
+	</div>
 </div>
+
 </body>
 </html>

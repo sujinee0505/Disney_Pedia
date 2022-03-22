@@ -20,6 +20,12 @@ font-size:13pt;margin: 0 auto;margin-top:5px;font-family: 'BMJUA';
 #login_form input[type="text"],input[type="password"]{
 	font-size:10pt;
 	 background-color:#f2f2f2;
+	 font-family: 'SUIT-Medium';
+}
+#signUp_form input[type="text"],input[type="password"]{
+	font-size:10pt;
+	 background-color:#f2f2f2;
+	 font-family: 'SUIT-Medium';
 }
 .sign-btn{
 color:#ffffff !important;
@@ -28,7 +34,8 @@ font-size:12pt;
 }
 .alter{
 margin: 35px auto 20px;
-font-size:9pt;
+font-size:10pt;
+font-family: 'SUIT-Medium';
 
 }
 .sign-logo{
@@ -60,7 +67,12 @@ text-decoration:none !important;
     font-weight: normal;
     font-style: normal;
 }
-
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 /*==========별아이콘 설정 시작==========*/
 .star_area { /*별점구역*/
 	margin: 0 auto;

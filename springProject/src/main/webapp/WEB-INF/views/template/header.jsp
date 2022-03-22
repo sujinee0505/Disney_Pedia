@@ -131,7 +131,6 @@
 								</div></a></li>
 					</c:if> --%>
 					<c:if test="${!empty user_num}">
-					[<span>${user_id}</span>]
 					<li class="css-bj71cw"><button
 								onclick="location.href='${pageContext.request.contextPath}/member/logout.do'"
 								class="css-fn0ezc-StylelessButton" id="header_logout">로그아웃</button></li>
@@ -158,7 +157,7 @@
 <!-- 상단 끝 -->
 <!--로그인 모달 틀-->
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-login ">
+    <div class="modal-dialog modal-login">
         <div class="modal-content">
         <jsp:include page="/WEB-INF/views/member/memberLogin.jsp"/>
         </div>
@@ -167,7 +166,7 @@
 
 <!--회원가입 모달 틀-->
 <div id="myModal2" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-login">
         <div class="modal-content">
         <jsp:include page="/WEB-INF/views/member/memberRegister.jsp"/>
         </div>
