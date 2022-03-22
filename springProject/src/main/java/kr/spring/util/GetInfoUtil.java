@@ -282,4 +282,51 @@ public class GetInfoUtil {
 		return creditList;
 	}
 
+	public List<ContentsVO> getRecommendations(String type, int id) {
+		List<ContentsVO> reco_List = null;
+		try {
+			reco_List = new ArrayList<ContentsVO>();
+
+			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "/recommendations?api_key=" + KEY
+					+ "&language=ko-KR";
+
+			URL url = new URL(apiURL);
+
+			BufferedReader bf;
+
+			bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+
+			result = bf.readLine();
+
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
+			JSONArray list = (JSONArray) jsonObject.get("results");
+
+			for (int i = 0; i < 10; i++) {
+
+				ContentsVO vo = new ContentsVO();
+				JSONObject contents = (JSONObject) list.get(i);
+
+				if (type.equals("movie")) {
+					vo.setTitle(contents.get("title").toString());
+				} else if (type.equals("tv")) {
+					vo.setTitle(contents.get("name").toString());
+				}
+				vo.setId(contents.get("id").toString());
+				if (contents.get("poster_path") == null || contents.get("poster_path").toString().equals("")) {
+					vo.setPoster_path("");
+				} else {
+					vo.setPoster_path(contents.get("poster_path").toString());
+				}
+				vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
+				vo.setType(type);
+				reco_List.add(vo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return reco_List;
+	}
+
 }

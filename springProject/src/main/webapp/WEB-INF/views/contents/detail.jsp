@@ -72,29 +72,19 @@
 				$('#status').text('더보기');
 			}
 		}
+		$(document).ready(
+				function() {
+					var height = $('#overview').height();
+					if (height > 96) {
+						$('#overview').removeClass('css-kywn6v-StyledText')
+								.addClass('css-kywn7v-StyledText');
+						$('#status').show();
+					}
+				});
 
 	});
 </script>
 <div class="css-16jhzm7-Self e1ezac430">
-	<div class="css-wg0jak">
-		<button class="css-1xc2mdf-StylelessButton">
-			<svg width="24" height="24" fill="#fff" viewBox="0 0 24 24"
-				class="css-dsxoah">
-				<path class="fillTarget" fill-rule="evenodd" clip-rule="evenodd"
-					d="M19.4963 11.2497H6.31529L11.2853 6.27969C11.5783 5.98669 11.5783 5.51269 11.2853 5.21969C10.9923 4.92669 10.5173 4.92669 10.2253 5.21969L3.97529 11.4697C3.90529 11.5387 3.85029 11.6217 3.81229 11.7127C3.73729 11.8967 3.73729 12.1027 3.81229 12.2867C3.85029 12.3777 3.90529 12.4607 3.97529 12.5297L10.2253 18.7797C10.3713 18.9267 10.5623 18.9997 10.7553 18.9997C10.9473 18.9997 11.1393 18.9267 11.2853 18.7797C11.5783 18.4867 11.5783 18.0127 11.2853 17.7197L6.31529 12.7497H19.4963C19.9103 12.7497 20.2463 12.4137 20.2463 11.9997C20.2463 11.5857 19.9103 11.2497 19.4963 11.2497Z"
-					fill="white"></path>
-				<path class="fillTarget"
-					d="M19.4963 11.2497H6.31529L11.2853 6.27969C11.5783 5.98669 11.5783 5.51269 11.2853 5.21969C10.9923 4.92669 10.5173 4.92669 10.2253 5.21969L3.97529 11.4697C3.90529 11.5387 3.85029 11.6217 3.81229 11.7127C3.73729 11.8967 3.73729 12.1027 3.81229 12.2867C3.85029 12.3777 3.90529 12.4607 3.97529 12.5297L10.2253 18.7797C10.3713 18.9267 10.5623 18.9997 10.7553 18.9997C10.9473 18.9997 11.1393 18.9267 11.2853 18.7797C11.5783 18.4867 11.5783 18.0127 11.2853 17.7197L6.31529 12.7497H19.4963C19.9103 12.7497 20.2463 12.4137 20.2463 11.9997C20.2463 11.5857 19.9103 11.2497 19.4963 11.2497"
-					stroke="white" stroke-width="0.5"></path></svg>
-		</button>
-		<button class="css-1xc2mdf-StylelessButton">
-			<svg width="24" height="24" fill="#fff" viewBox="0 0 20 20"
-				class="css-13ol6c1">
-				<path class="fillTarget" fill-rule="evenodd" clip-rule="evenodd"
-					d="M14.6475 13.314C13.9492 13.314 13.3192 13.6015 12.8658 14.0631L6.98249 10.664C7.04166 10.4515 7.08333 10.2315 7.08333 9.99981C7.08333 9.76815 7.04166 9.54815 6.98333 9.33565L12.8658 5.93565C13.3192 6.39731 13.9492 6.68481 14.6475 6.68481C16.0275 6.68481 17.1475 5.56565 17.1475 4.18481C17.1475 2.80481 16.0275 1.68481 14.6475 1.68481C13.2675 1.68481 12.1475 2.80481 12.1475 4.18481C12.1475 4.41648 12.1892 4.63648 12.2483 4.84981L6.365 8.24898C5.91166 7.78731 5.28166 7.49981 4.58333 7.49981C3.20249 7.49981 2.08333 8.61898 2.08333 9.99981C2.08333 11.3806 3.20249 12.4998 4.58333 12.4998C5.28166 12.4998 5.91166 12.2123 6.365 11.7506L12.2483 15.1498C12.1892 15.3623 12.1475 15.5823 12.1475 15.814C12.1475 17.1948 13.2675 18.314 14.6475 18.314C16.0275 18.314 17.1475 17.1948 17.1475 15.814C17.1475 14.4331 16.0275 13.314 14.6475 13.314Z"
-					fill="#87898B"></path></svg>
-		</button>
-	</div>
 	<div class="css-1ihluk0-Content e1ezac431">
 		<div class="css-1iyk86f-Background e1ezac432">
 			<section class="css-x864dh-Self e1svyhwg0">
@@ -255,7 +245,7 @@
 													<div class="css-s289sk">
 														<div class="css-1ugqy9j">
 															<button
-																style="color: #ff2f6e; border: none; background: none; cursor: pointer;"
+																style="color: #ff2f6e; border: none; background: none; cursor: pointer; display: none;"
 																id="status" onclick="more()">더보기</button>
 														</div>
 													</div>
@@ -273,7 +263,9 @@
 															class="css-1t00yeb-OverviewMeta eokm2782">${contents.runtime }</span>
 													</div>
 													<div class=" css-k82gae-StyledSelf eb5y16b0">
-														<div class="css-kywn6v-StyledText" id="overview">${contents.overview }</div>
+														<div class="css-kywn6v-StyledText" id="overview">${contents.overview }
+															<c:if test="${empty contents.overview }">정보가 없습니다.</c:if>
+														</div>
 													</div>
 												</article>
 												<hr class="css-g67iqr" style="padding-top: 15px;">
@@ -577,10 +569,51 @@
 														</div>
 													</div>
 												</div>
-
+												<div class="css-1gkas1x-Grid e1689zdh0">
+													<div class="css-1y901al-Row emmoxnt0">
+														<hr class="css-g67iqr">
+													</div>
+												</div>
 											</section>
 										</div>
 									</div>
+									</section>
+									<section class="css-rwltgb">
+										<div class="css-1gkas1x-Grid e1689zdh0">
+											<div class="css-1y901al-Row emmoxnt0">
+												<header class="css-1ue9xs6">
+													<h2 class="css-1wtjsst">비슷한 작품</h2>
+												</header>
+											</div>
+										</div>
+										<div class="css-1gkas1x-Grid e1689zdh0">
+											<div class="css-1y901al-Row emmoxnt0">
+												<ul class="css-27z1qm-VisualUl-ContentGrid e14whxmg0">
+													<c:forEach var="reco" items="${reco }">
+														<li class="css-1hp6p72"><a title="${reco.title }"
+															href="${pageContext.request.contextPath}/contents/detail.do?type=${reco.type }&id=${reco.id}"><div
+																	class="css-1qmeemv">
+																	<div
+																		class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
+																		<img src="${reco.poster_path }"
+																			class="css-qhzw1o-StyledImg ezcopuc1">
+																	</div>
+																</div>
+																<div class="css-ixy093">
+																	<div class="css-niy0za">${reco.title }</div>
+																	<div>
+																		<div class="css-m9i0qw">평균
+																			★${Math.ceil((reco.vote_average)/2*10)/10}</div>
+																		<div class="css-1vvt4am">
+																			<c:if test="${reco.type eq 'movie' }">영화</c:if>
+																			<c:if test="${reco.type eq 'tv' }">시리즈</c:if>
+																		</div>
+																	</div>
+																</div></a></li>
+													</c:forEach>
+												</ul>
+											</div>
+										</div>
 									</section>
 								</div>
 							</div>

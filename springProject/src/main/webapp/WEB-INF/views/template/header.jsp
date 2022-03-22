@@ -2,9 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
 	
 </script>
@@ -21,10 +25,11 @@
 							height="62px;"></a></li>
 					<li class="categories css-bj71cw"><button
 							onclick="location.href='${pageContext.request.contextPath}/main/main.do?type=movie'"
-							class="css-q65tx9-StylelessButton">영화</button></li>
+							class="<c:if test="${param.type eq 'movie' && empty param.id  }">css-x6oby2-StylelessButton</c:if>
+							<c:if test="${param.type ne 'movie' || !empty param.id }">css-q65tx9-StylelessButton</c:if>">영화</button></li>
 					<li class="categories css-bj71cw"><button
 							onclick="location.href='${pageContext.request.contextPath}/main/main.do?type=tv'"
-							class="css-q65tx9-StylelessButton">TV</button></li>
+							class="<c:if test="${param.type eq 'tv' && empty param.id  }">css-x6oby2-StylelessButton</c:if><c:if test="${param.type ne 'tv' || !empty param.id }">css-q65tx9-StylelessButton</c:if>">TV</button></li>
 					<li class="categories css-bj71cw"><button
 							onclick="location.href='${pageContext.request.contextPath}/chatboard/list.do'"
 							class="css-q65tx9-StylelessButton">채팅방</button></li>
@@ -47,12 +52,12 @@
 						<!-- data-target="#myModal" data-toggle="modal" data-remote="${pageContext.request.contextPath}/member/login.do" -->
 						<!-- 로그인 -->
 						<li class="css-bj71cw">
-							<%-- <button id="login-btn"
+							<%--<button id="login-btn"
 								onclick="location.href='${pageContext.request.contextPath}/member/login.do'"
-								class="css-fn0ezc-StylelessButton">로그인</button> --%>
-								<button type="button" class="css-fn0ezc-StylelessButton" data-bs-toggle="modal" data-bs-target="#myModal">
-							로그인
-						</button>
+								class="css-fn0ezc-StylelessButton">로그인</button>--%>
+							<button id="login-btn" type="button"
+								class="css-fn0ezc-StylelessButton" data-bs-toggle="modal"
+								data-bs-target="#myModal">로그인</button>
 						</li>
 						<!-- 로그인 -->
 
@@ -96,9 +101,9 @@
 <!-- 상단 끝 -->
 <!--모달 틀-->
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <jsp:include page="/WEB-INF/views/member/memberLogin.jsp"/>
-        </div>
-    </div>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<jsp:include page="/WEB-INF/views/member/memberLogin.jsp" />
+		</div>
+	</div>
 </div>
