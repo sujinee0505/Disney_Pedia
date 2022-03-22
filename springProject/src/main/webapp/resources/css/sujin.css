@@ -1999,18 +1999,6 @@ body {
 	z-index: 1000
 }
 
-#select-tooltip, #sfModal, .modal-backdrop, div[id^=reader-helper] {
-	display: none !important
-}
-
-.modal-open {
-	overflow: auto !important
-}
-
-._sf_adjust_body {
-	padding-right: 0 !important
-}
-
 .css-139vxi-StylelessButton {
 	background: none;
 	padding: 0;
@@ -3508,17 +3496,6 @@ h1, h3, p, hr {
 	}
 }
 
-.css-1p7n6er-Pane {
-	text-align: center;
-	padding: 0 15px 0;
-}
-
-@media ( min-width : 719px) {
-	.css-1p7n6er-Pane {
-		padding: 14px 16px 22px;
-	}
-}
-
 @media ( min-width : 1023px) {
 	.css-1d6udxb {
 		padding: 0 8px;
@@ -4115,17 +4092,6 @@ h1, h3, p, hr {
 @media ( min-width : 719px) {
 	.css-11h0kfd-Detail {
 		display: block;
-	}
-}
-
-.css-1p7n6er-Pane {
-	text-align: center;
-	padding: 0 15px 0;
-}
-
-@media ( min-width : 719px) {
-	.css-1p7n6er-Pane {
-		padding: 14px 16px 22px;
 	}
 }
 
@@ -4777,17 +4743,6 @@ h1, h3, p, hr {
 	}
 }
 
-.css-1p7n6er-Pane {
-	text-align: center;
-	padding: 0 15px 0;
-}
-
-@media ( min-width : 719px) {
-	.css-1p7n6er-Pane {
-		padding: 14px 16px 22px;
-	}
-}
-
 @media ( min-width : 1023px) {
 	.css-1d6udxb {
 		padding: 0 8px;
@@ -5426,9 +5381,11 @@ h1, h3, p, hr {
 }
 
 .css-g67iqr {
-	border: 0;
-	border-bottom: 1px solid #f0f0f0;
-	margin: 10px 0 0;
+	border: 0 !important;
+	border-bottom: 1px solid #f0f0f0 !important;
+	margin: 10px 0 0 !important;
+	background-color: transparent !important;
+	opacity: 1 !important;
 }
 
 .css-wvh1uf-Summary {
@@ -5548,7 +5505,7 @@ h1, h3, p, hr {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	height: 228px;
+	max-height: 228px;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
