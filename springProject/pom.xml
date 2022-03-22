@@ -197,6 +197,25 @@
 			<version>1.1.1</version>
 		</dependency>
 		<!-- 라이브러리 추가 -->
+		
+		<!-- Google API -->
+		<dependency>
+			<groupId>com.google.api-client</groupId>
+			<artifactId>google-api-client</artifactId>
+			<version>1.22.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.oauth-client</groupId>
+			<artifactId>google-oauth-client-jetty</artifactId>
+			<version>1.22.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-calendar</artifactId>
+			<version>v3-rev235-1.22.0</version>
+		</dependency>
+		<!-- Google API -->
 
 		<!-- Test -->
 		<dependency>

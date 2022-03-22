@@ -236,7 +236,7 @@ ul {
 			    	<img src="${pageContext.request.contextPath}/resources/images/review.png" width="25" height="25" ></a>
 			    	<a href="${pageContext.request.contextPath}/main/main.do">
 			    	<img src="${pageContext.request.contextPath}/resources/images/list.png" width="25" height="25" ></a>
-			    	<a href="${pageContext.request.contextPath}/main/main.do">
+			    	<a href="${pageContext.request.contextPath}/calendar/calendar.do">
 			    	<img src="${pageContext.request.contextPath}/resources/images/cal.png" width="27" height="27" ></a>
 				</div>
 				<div>

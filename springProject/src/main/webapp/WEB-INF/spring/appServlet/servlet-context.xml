@@ -32,6 +32,7 @@
 				<beans:value>/WEB-INF/tiles-def/main.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/member.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/contents.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/calendar.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/three.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/four.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/chatBoard.xml</beans:value>
