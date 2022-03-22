@@ -29,4 +29,8 @@
     	<put-attribute name="title" value="회원탈퇴"/>
     	<put-attribute name="body" value="/WEB-INF/views/member/memberDelete.jsp"/>
     </definition>
+     <!-- <definition name="map" extends="main">
+    	<put-attribute name="title" value="아이디체크"/>
+    	<put-attribute name="body" value="/WEB-INF/views/common/ajax_view.jsp"/>
+    </definition> -->
 </tiles-definitions>

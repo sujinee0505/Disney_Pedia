@@ -63,7 +63,7 @@ public class MemberController {
 	
 	//회원 등록 처리
 	@PostMapping("/member/registerUser.do")
-	public String submit(MemberVO memberVO, Model model) {
+	public String submit(MemberVO memberVO) {
 		logger.info("<<회원 가입>> : " + memberVO);
 		
 		//회원 가입

@@ -1,4 +1,19 @@
 @charset "UTF-8";
+/*모달-공통*/
+body {
+	font-family: 'Varela Round', sans-serif;
+}
+
+.modal-login {
+	width: 320px;
+	margin: 30px auto;
+}
+.align-center{
+	text-align:center;
+}
+.align-right{
+	text-align:right;
+}
 
 /*==========별아이콘 설정 시작==========*/
 .star_area { /*별점구역*/

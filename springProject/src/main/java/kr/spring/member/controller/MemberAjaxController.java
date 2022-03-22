@@ -19,21 +19,22 @@ import kr.spring.member.vo.MemberVO;
 
 @Controller
 public class MemberAjaxController {
-	private static final Logger logger = LoggerFactory.getLogger(MemberAjaxController.class);
+	private static final Logger logger = 
+			    LoggerFactory.getLogger(MemberAjaxController.class);
 	@Autowired
 	private MemberService memberService;
-
-	//아이디 중복체크
+	
 	@RequestMapping("/member/confirmId.do")
 	@ResponseBody
-	public Map<String, String> process(@RequestParam String id){
-
+	public Map<String,String> process(@RequestParam String id){
+		
 		logger.info("<<id>> : " + id);
-
-		Map<String, String> map = new HashMap<String, String>();
-
-		MemberVO member = memberService.selectCheckMember(id);
-		if(member != null) {
+		
+		Map<String,String> map = new HashMap<String,String>();
+		
+		MemberVO member = 
+				memberService.selectCheckMember(id);
+		if(member!=null) {
 			//아이디 중복
 			map.put("result","idDuplicated");
 		}else {
@@ -47,28 +48,32 @@ public class MemberAjaxController {
 		}
 		return map;
 	}
+	
+	@RequestMapping("/member/updateMyPhoto.do")
+	@ResponseBody
+	public Map<String,String> processProfile(MemberVO memberVO,
+			                      HttpSession session){
+		Map<String,String> map = new HashMap<String,String>();
 		
-		//이미지 업로드
-		@RequestMapping("/member/updateMyPhoto.do")
-		@ResponseBody
-		public Map<String, String> processProfile(MemberVO memberVO, HttpSession session) {
+		Integer user_num = (Integer)session.getAttribute("user_num");
+		if(user_num==null) {//로그인 되지 않은 경우
+			map.put("result", "logout");
+		}else {//로그인 된 경우
+			memberVO.setMem_num(user_num);
+			memberService.updateProfile(memberVO);
 			
-			Map<String, String> map = new HashMap<String, String>();
+			//이미지를 업로드한 후 세션에 저장된 user_photo 값 변경
+			session.setAttribute("user_photo", memberVO.getPhoto());
 			
-			Integer user_num = (Integer)session.getAttribute("user_num");
-			if(user_num == null) {//로그인 되지 않은 경우
-				map.put("result", "logout");
-			}else {//로그인 된 경우
-				memberVO.setMem_num(user_num);
-				memberService.updateProfile(memberVO);
-				
-				//이미지를 업로드한 후 세션에 저장된 user_photo 값 변경
-				session.setAttribute("user_photo", memberVO.getPhoto());
-				
-				map.put("result", "success");
-			}
-			
-			return map;
+			map.put("result","success");			
 		}
-		
+		return map;
 	}
+	
+}
+
+
+
+
+
+
