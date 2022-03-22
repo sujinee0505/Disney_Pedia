@@ -1,5 +1,6 @@
 package kr.spring.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.member.service.MemberService;
@@ -56,26 +58,27 @@ public class MemberController {
 		return "redirect:/main/main.do";
 	}
 	
-	//로그인 폼
-	@GetMapping("/member/login.do")
-	public String formLogin() {
-		return "memberLogin";
+	
+	//로그인 폼	 호출
+	
+	@GetMapping("/member/login.do") 
+	public String formLogin() { 
+		return "memberLogin"; 
 	}
 	
-	//로그인 폼에서 전송된 데이터 처리
+	
+	//로그인처리(일반폼태그버전)
 	@PostMapping("/member/login.do")
-	public String submitLogin(@Valid MemberVO memberVO, BindingResult result, HttpSession session) {
-		logger.info("<<회원 로그인>> : " + memberVO);
-		
-		//유효성 체크 결과 오류가 있으면 폼 호출
-		//id와 passwd 필드만 체크
-		if(result.hasFieldErrors("id") || result.hasFieldErrors("passwd")) {
-			return formLogin();
-		}
-		
+	public String loginmodal(MemberVO memberVO,HttpSession session,
+			HttpServletRequest request,Model model) {
+		//로그확인
+		logger.info("<<회원 로그인>> : " + memberVO.getId());
+		logger.info("<<회원 로그인>> : " + memberVO.getPasswd());
+				
 		//로그인 체크(id,비밀번호 일치 여부 체크)
 		try {
 			MemberVO member = memberService.selectCheckMember(memberVO.getId());
+			logger.info("<<회원 로그인>> : " + member);
 			boolean check = false;
 			
 			if(member!=null) {
@@ -94,13 +97,65 @@ public class MemberController {
 			//인증 실패
 			throw new AuthCheckException();
 		}catch(AuthCheckException e) {
-			//폼에서 보여질 메시지 생성
-			result.reject("invalidIdOrPassword");
 			//인증 실패로 로그인 폼을 호출
-			return formLogin();
+			
+			//view에 표시할 메시지
+			model.addAttribute("message", "아이디 또는 비밀번호 불일치");
+			model.addAttribute("url", request.getContextPath()+"/main/main.do");
+			
+			return "common/resultView";
 		}
+		
 	}
 	
+		  
+	//로그인처리(스프링폼태그버전)
+	/*
+		@PostMapping("/member/login.do")
+		public String submitLogin(@Valid MemberVO memberVO,
+				                                 BindingResult result,
+				                                 HttpSession session) {
+			logger.info("<<회원 로그인>> : " + memberVO);
+			
+			//유효성 체크 결과 오류가 있으면 폼 호출
+			//id와 passwd 필드만 체크
+			if(result.hasFieldErrors("id") || 
+					 result.hasFieldErrors("passwd")) {
+				return formLogin();
+			}
+			
+			//로그인 체크(id,비밀번호 일치 여부 체크)
+			try {
+				MemberVO member = memberService.selectCheckMember(
+						                             memberVO.getId());
+				boolean check = false;
+				
+				if(member!=null) {
+					//비밀번호 일치 여부 체크                               //사용자가 입력한 비밀번호
+					check = member.isCheckedPassword(memberVO.getPasswd());
+				}
+				if(check) {
+					//인증 성공, 로그인 처리
+					session.setAttribute("user_num", member.getMem_num());
+					session.setAttribute("user_id", member.getId());
+					session.setAttribute("user_auth", member.getAuth());
+					session.setAttribute("user_photo", member.getPhoto());
+					
+					return "redirect:/main/main.do";
+				}
+				//인증 실패
+				throw new AuthCheckException();
+			}catch(AuthCheckException e) {
+				//폼에서 보여질 메시지 생성
+				result.reject("invalidIdOrPassword");
+				//인증 실패로 로그인 폼을 호출
+				return formLogin();
+			}
+		}
+		
+	*/
+		
+	 
 	//회원 로그아웃
 	@RequestMapping("/member/logout.do")
 	public String processLogout(HttpSession session) {

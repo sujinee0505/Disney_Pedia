@@ -157,6 +157,13 @@ public class MemberVO {
 	public void setNow_passwd(String now_passwd) {
 		this.now_passwd = now_passwd;
 	}
+	@Override
+	public String toString() {
+		return "MemberVO [mem_num=" + mem_num + ", id=" + id + ", auth=" + auth + ", name=" + name + ", passwd="
+				+ passwd + ", upload=" + upload + ", photo_name=" + photo_name + ", introduction=" + introduction
+				+ ", reg_date=" + reg_date + ", modify_date=" + modify_date + ", follow_num=" + follow_num
+				+ ", active_mem=" + active_mem + ", passive_mem=" + passive_mem + ", now_passwd=" + now_passwd + "]";
+	}
 				
 	
 

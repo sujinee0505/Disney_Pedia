@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  --%>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-	
+
 </script>
 </head>
 <!-- 상단 시작 -->
@@ -44,15 +48,26 @@
 						<!-- data-target="#myModal" data-toggle="modal" data-remote="${pageContext.request.contextPath}/member/login.do" -->
 						<!-- 로그인 -->
 						<li class="css-bj71cw">
-							<button id="login-btn"
-								onclick="location.href='${pageContext.request.contextPath}/member/login.do'"
-								class="css-fn0ezc-StylelessButton">로그인</button>
+						<%-- <button onclick="location.href='${pageContext.request.contextPath}/member/login.do'"
+						class="css-fn0ezc-StylelessButton">로그인</button> --%>
+							
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+							로그인
+						</button>
 						</li>
+<<<<<<< Upstream, based on branch 'main' of https://github.com/sujinee0505/Disney_Pedia.git
 						<!-- 로그인 -->
 
 						<li class="css-bj71cw"><button id="register-btn"
 								onclick="location.href='${pageContext.request.contextPath}/member/registerUser.do'"
 								class="css-139vxi-StylelessButton">회원가입</button></li>
+=======
+						<!-- 로그인 끝-->
+						<li class="css-bj71cw">
+						<button onclick="location.href='${pageContext.request.contextPath}/member/registerUser.do'"
+								class="css-139vxi-StylelessButton">회원가입</button>
+						</li>
+>>>>>>> 2d303b9 로그인 모달 오류 수정
 					</c:if>
 					<%-- <c:if test="${mem_num != null }">
 						<li class="css-bj71cw"><a href="/ko-KR/review"><span
@@ -88,4 +103,10 @@
 	</nav>
 </header>
 <!-- 상단 끝 -->
-
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <jsp:include page="/WEB-INF/views/member/memberLogin.jsp"/>
+        </div>
+    </div>
+</div>
