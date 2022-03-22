@@ -39,7 +39,7 @@
 <section class="css-7klu3x">
 	<div class="css-lufi3b">
 		<div class="css-pbseb6-StyledHomeListTitleRow">
-			<p class="css-16qa0p7">평점 순</p>
+			<p class="css-16qa0p7">평균별점이 높은 작품</p>
 		</div>
 		<div class="css-1qq59e8">
 			<div class="css-1kd6k5d">
