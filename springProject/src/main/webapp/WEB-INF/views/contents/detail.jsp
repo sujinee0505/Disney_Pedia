@@ -61,6 +61,18 @@
 		}
 		header();
 		$(window).on('scroll', header);
+
+		more = function() {
+			var status = $('#status').text();
+			if (status == '더보기') {
+				$('#overview').css('display', 'block');
+				$('#status').text('접기');
+			} else if (status == '접기') {
+				$('#overview').css('display', '-webkit-box');
+				$('#status').text('더보기');
+			}
+		}
+
 	});
 </script>
 <div class="css-16jhzm7-Self e1ezac430">
@@ -236,9 +248,17 @@
 									class="css-1jwavn9-RoundedCornerBlock-RoundedCornerBlock-RoundedCornerBlock-RoundedCornerBlock">
 									<section class="css-1tywu13">
 										<div class="css-1gkas1x-Grid e1689zdh0">
-											<div class="css-1y901al-Row emmoxnt0">
+											<div class="css-1y901al-Row emmoxnt0"
+												style="padding-top: 5px;">
 												<header class="css-1ue9xs6">
 													<h2 class="css-1wtjsst">기본 정보</h2>
+													<div class="css-s289sk">
+														<div class="css-1ugqy9j">
+															<button
+																style="color: #ff2f6e; border: none; background: none; cursor: pointer;"
+																id="status" onclick="more()">더보기</button>
+														</div>
+													</div>
 												</header>
 											</div>
 										</div>
@@ -253,10 +273,10 @@
 															class="css-1t00yeb-OverviewMeta eokm2782">${contents.runtime }</span>
 													</div>
 													<div class=" css-k82gae-StyledSelf eb5y16b0">
-														<div class="css-kywn6v-StyledText">${contents.overview }</div>
+														<div class="css-kywn6v-StyledText" id="overview">${contents.overview }</div>
 													</div>
 												</article>
-												<hr class="css-g67iqr">
+												<hr class="css-g67iqr" style="padding-top: 15px;">
 											</div>
 										</div>
 									</section>
@@ -475,7 +495,7 @@
 														<div class="arrow_button css-1b9dnd0 left"
 															style="display: none;">
 															<button type="button" class="css-vp7uyl"
-																style="margin-bottom: 40px;">
+																style="margin-bottom: 20px;">
 																<img
 																	src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDYgOCkiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjMjkyQTMyIiBzdHJva2U9IiMyOTJBMzIiIHN0cm9rZS13aWR0aD0iLjM1IiBkPSJNMy40MjkgMTMuNDA5TDQuMzU0IDE0LjI1OCAxMC42OCA4LjQ2IDExLjE0MyA4LjAzNiA0LjM1NCAxLjgxMyAzLjQyOSAyLjY2MiA5LjI5MSA4LjAzNnoiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA2IDgpIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
 																	alt="forward">
@@ -483,7 +503,7 @@
 														</div>
 														<div class="arrow_button css-pf83cl right">
 															<button type="button" class="css-vp7uyl"
-																style="margin-bottom: 40px;">
+																style="margin-bottom: 20px;">
 																<img
 																	src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
 																	alt="forward">

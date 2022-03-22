@@ -125,7 +125,7 @@
 												<li class="css-1iuimiv"><a
 													title="${search_result.title }"
 													class="css-1aaqvgs-InnerPartOfListWithImage"
-													href="/ko-KR/contents/mdBzNnP"><div class="css-cssveg">
+													href="${pageContext.request.contextPath}/contents/detail.do?type=${search_result.type }&id=${search_result.id}"><div class="css-cssveg">
 															<div class=" css-14fymwm-StyledSelf e1q5rx9q0">
 																<span class="css-bhgne5-StyledBackground e1q5rx9q1"
 																	style="background-image:url('https://image.tmdb.org/t/p/original/${search_result.poster_path }');"></span>
@@ -185,9 +185,9 @@
 									<ul class="css-e9dkp8-VisualUl">
 										<c:forEach var="search_result" items="${search_result }">
 											<c:if test="${search_result.type eq 'tv' }">
-												<li class="css-1iuimiv"><a title="어벤져스 - 유나이티드 데이 스탠드"
+												<li class="css-1iuimiv"><a title="${search_result.title }"
 													class="css-1aaqvgs-InnerPartOfListWithImage"
-													href="/ko-KR/contents/tPDy5Al"><div class="css-cssveg">
+													href="${pageContext.request.contextPath}/contents/detail.do?type=${search_result.type }&id=${search_result.id}""><div class="css-cssveg">
 															<div class=" css-14fymwm-StyledSelf e1q5rx9q0">
 																<span class="css-bhgne5-StyledBackground e1q5rx9q1"
 																	style="background-image:url('https://image.tmdb.org/t/p/original/${search_result.poster_path }');"></span>
