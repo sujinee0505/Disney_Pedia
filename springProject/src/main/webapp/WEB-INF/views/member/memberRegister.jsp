@@ -40,7 +40,7 @@
 			<div class="alter">
 			이미 가입하셨나요? 		
 			<a href="#" data-bs-toggle="modal" data-bs-target="#myModal" class="alter_text">
-			회원가입</a>
+			로그인</a>
 			</div>	<p>		
 		</form>
 </div> <!-- 모달바디끝 -->
