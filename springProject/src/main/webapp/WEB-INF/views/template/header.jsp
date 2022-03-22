@@ -2,13 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
 	
 </script>
@@ -60,10 +56,13 @@
 								data-bs-target="#myModal">로그인</button>
 						</li>
 						<!-- 로그인 -->
-
-						<li class="css-bj71cw"><button id="register-btn"
+						<li class="css-bj71cw">
+							<%-- <button id="register-btn"
 								onclick="location.href='${pageContext.request.contextPath}/member/registerUser.do'"
-								class="css-139vxi-StylelessButton">회원가입</button></li>
+								class="css-139vxi-StylelessButton">회원가입</button></li> --%>
+							<button type="button" class="css-139vxi-StylelessButton"
+								data-bs-toggle="modal" data-bs-target="#myModal2">회원가입
+							</button>
 					</c:if>
 					<%-- <c:if test="${mem_num != null }">
 						<li class="css-bj71cw"><a href="/ko-KR/review"><span
@@ -99,11 +98,20 @@
 	</nav>
 </header>
 <!-- 상단 끝 -->
-<!--모달 틀-->
+<!--로그인 모달 틀-->
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<jsp:include page="/WEB-INF/views/member/memberLogin.jsp" />
-		</div>
-	</div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <jsp:include page="/WEB-INF/views/member/memberLogin.jsp"/>
+        </div>
+    </div>
+</div>
+
+<!--회원가입 모달 틀-->
+<div id="myModal2" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <jsp:include page="/WEB-INF/views/member/memberRegister.jsp"/>
+        </div>
+    </div>
 </div>

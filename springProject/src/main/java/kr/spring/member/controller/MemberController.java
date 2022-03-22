@@ -42,7 +42,9 @@ public class MemberController {
 		return "memberRegister";
 	}
 	
-	//회원 등록 처리
+	
+	//회원 등록 처리(기존)
+/*
 	@PostMapping("/member/registerUser.do")
 	public String submit(@Valid MemberVO memberVO, BindingResult result) {
 		logger.info("<<회원 가입>> : " + memberVO);
@@ -57,28 +59,43 @@ public class MemberController {
 		
 		return "redirect:/main/main.do";
 	}
+*/
 	
+	//회원 등록 처리
+	@PostMapping("/member/registerUser.do")
+	public String submit(MemberVO memberVO, Model model) {
+		logger.info("<<회원 가입>> : " + memberVO);
+		
+		//회원 가입
+		memberService.insertMember(memberVO);
+		//가입성공시 메인호출
+		return "redirect:/main/main.do";
+	}
 	
-	//로그인 폼	 호출
+	//로그인 폼 호출
 	
 	@GetMapping("/member/login.do") 
 	public String formLogin() { 
 		return "memberLogin"; 
 	}
-	
-	
-	//로그인처리(일반폼태그버전)
+		
+	//로그인처리(일반폼태그버전) : 
+	/*1) @Valid,BindingResult 제거
+	 *2) Model model 추가->유효성체크시 BindingResult 사용x Model에 메시지 저장
+	 *3) 유효성 체크 결과 오류가 있으면 폼 호출-> 사용x alert창으로 알려줌.(resultView.jsp)
+	 */
 	@PostMapping("/member/login.do")
 	public String loginmodal(MemberVO memberVO,HttpSession session,
 			HttpServletRequest request,Model model) {
-		//로그확인
+		
+		//로그확인	
 		logger.info("<<회원 로그인>> : " + memberVO.getId());
-		logger.info("<<회원 로그인>> : " + memberVO.getPasswd());
+		logger.info("<<회원 로그인>> : " + memberVO.getAuth());
 				
 		//로그인 체크(id,비밀번호 일치 여부 체크)
 		try {
 			MemberVO member = memberService.selectCheckMember(memberVO.getId());
-			logger.info("<<회원 로그인>> : " + member);
+
 			boolean check = false;
 			
 			if(member!=null) {
@@ -97,9 +114,8 @@ public class MemberController {
 			//인증 실패
 			throw new AuthCheckException();
 		}catch(AuthCheckException e) {
-			//인증 실패로 로그인 폼을 호출
 			
-			//view에 표시할 메시지
+			//유효성체크-alert창을 통해 view에 표시할 메시지 설정
 			model.addAttribute("message", "아이디 또는 비밀번호 불일치");
 			model.addAttribute("url", request.getContextPath()+"/main/main.do");
 			
