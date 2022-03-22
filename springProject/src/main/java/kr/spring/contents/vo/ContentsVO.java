@@ -14,6 +14,7 @@ public class ContentsVO {
 	private String genre; // 컨텐츠 장르
 	private String runtime; // 컨텐츠 런타임
 	private String type; // 컨텐츠 유형(movie, tv)
+	private List<Integer> genres;
 
 	public String getId() {
 		return id;
@@ -112,5 +113,18 @@ public class ContentsVO {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public List<Integer> getGenres() {
+		return genres;
+	}
+
+	public void setGenres(List<Integer> genres) {
+		this.genres = genres;
+	}
+
+	@Override
+	public String toString() {
+		return "ContentsVO [genres=" + genres + "]";
 	}
 }

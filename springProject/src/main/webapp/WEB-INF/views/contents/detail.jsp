@@ -288,7 +288,7 @@
 															<ul
 																class="e5xrf7a0 css-1br354h-VisualUl-PeopleStackableUl">
 																<c:forEach var="crew" items="${crew }" begin="0" end="1"
-																	step="1" varStatus="status">
+																	step="1">
 																	<li class="css-54rr1e"><a
 																		class="css-1aaqvgs-InnerPartOfListWithImage" href=""><div
 																				class="css-cssveg">
@@ -299,7 +299,7 @@
 																					</div>
 																				</div>
 																			</div>
-																			<div class="css-zoy7di" style="">
+																			<div class="css-zoy7di">
 																				<div class="css-qkf9j">
 																					<div class="css-17vuhtq">${crew.name }</div>
 																					<div class="css-1evnpxk-StyledSubtitle">감독</div>
@@ -589,7 +589,8 @@
 										<div class="css-1gkas1x-Grid e1689zdh0">
 											<div class="css-1y901al-Row emmoxnt0">
 												<ul class="css-27z1qm-VisualUl-ContentGrid e14whxmg0">
-													<c:forEach var="reco" items="${reco }">
+													<c:forEach var="reco" items="${reco }" begin="0" end="9"
+														step="1">
 														<li class="css-1hp6p72"><a title="${reco.title }"
 															href="${pageContext.request.contextPath}/contents/detail.do?type=${reco.type }&id=${reco.id}"><div
 																	class="css-1qmeemv">

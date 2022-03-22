@@ -71,7 +71,9 @@ public class GetInfoUtil {
 		String date = "0001-01-01";
 
 		List<ContentsVO> infoList = null;
+		List<Integer> genreList = null;
 		try {
+
 			infoList = new ArrayList<ContentsVO>();
 
 			// 페이지 마다 루프를 돌며 값 추출 및 저장
@@ -91,7 +93,7 @@ public class GetInfoUtil {
 				JSONArray list = (JSONArray) jsonObject.get("results");
 
 				for (int j = 0; j < list.size(); j++) {
-
+					genreList = new ArrayList<Integer>();
 					ContentsVO vo = new ContentsVO();
 					JSONObject contents = (JSONObject) list.get(j);
 
@@ -130,6 +132,11 @@ public class GetInfoUtil {
 					vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
 					vo.setType(type);
 
+					JSONArray genre_list = (JSONArray) contents.get("genre_ids");
+					for (int k = 0; k < genre_list.size(); k++) {
+						genreList.add(Integer.parseInt(String.valueOf(genre_list.get(k))));
+					}
+					vo.setGenres(genreList);
 					infoList.add(vo);
 				}
 			}
@@ -145,7 +152,9 @@ public class GetInfoUtil {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		ContentsVO contents = new ContentsVO();
 		String genres = "";
+		List<Integer> genreList = null;
 		try {
+
 			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "?api_key=" + KEY + "&language=ko-KR";
 			URL url = new URL(apiURL);
 
@@ -176,16 +185,19 @@ public class GetInfoUtil {
 			}
 
 			contents.setVote_average(Float.parseFloat(String.valueOf(jsonObject.get("vote_average"))));
-
+			genreList = new ArrayList<Integer>();
 			JSONArray genre_list = (JSONArray) jsonObject.get("genres");
 			for (int i = 0; i < genre_list.size(); i++) {
+
 				JSONObject genre = (JSONObject) genre_list.get(i);
+				genreList.add(Integer.parseInt(String.valueOf(genre.get("id"))));
 				if (i == 0) {
 					genres += genre.get("name");
 				} else {
 					genres += "/" + genre.get("name");
 				}
 			}
+			contents.setGenres(genreList);
 			contents.setGenre(genres);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -281,52 +293,4 @@ public class GetInfoUtil {
 		}
 		return creditList;
 	}
-
-	public List<ContentsVO> getRecommendations(String type, int id) {
-		List<ContentsVO> reco_List = null;
-		try {
-			reco_List = new ArrayList<ContentsVO>();
-
-			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "/recommendations?api_key=" + KEY
-					+ "&language=ko-KR";
-
-			URL url = new URL(apiURL);
-
-			BufferedReader bf;
-
-			bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
-
-			result = bf.readLine();
-
-			JSONParser jsonParser = new JSONParser();
-			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
-			JSONArray list = (JSONArray) jsonObject.get("results");
-
-			for (int i = 0; i < 10; i++) {
-
-				ContentsVO vo = new ContentsVO();
-				JSONObject contents = (JSONObject) list.get(i);
-
-				if (type.equals("movie")) {
-					vo.setTitle(contents.get("title").toString());
-				} else if (type.equals("tv")) {
-					vo.setTitle(contents.get("name").toString());
-				}
-				vo.setId(contents.get("id").toString());
-				if (contents.get("poster_path") == null || contents.get("poster_path").toString().equals("")) {
-					vo.setPoster_path("");
-				} else {
-					vo.setPoster_path(contents.get("poster_path").toString());
-				}
-				vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
-				vo.setType(type);
-				reco_List.add(vo);
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return reco_List;
-	}
-
 }

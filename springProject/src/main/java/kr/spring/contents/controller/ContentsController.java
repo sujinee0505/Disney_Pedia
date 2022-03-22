@@ -33,7 +33,25 @@ public class ContentsController {
 		images = util.getImages(type, id);
 		cast = util.getCredits(type, id, "cast");
 		crew = util.getCredits(type, id, "crew");
-		reco = util.getRecommendations(type, id);
+
+		// 임시로 사용할 List 생성
+		List<ContentsVO> temp = new ArrayList<ContentsVO>();
+		// 메인에 출력할 컨텐츠 목록들 저장
+		temp = util.getInfoList(type);
+		for (int i = 0; i < temp.size(); i++) {
+			List<Integer> list1 = new ArrayList<>(temp.get(i).getGenres());
+			List<Integer> list2 = new ArrayList<>(contents.getGenres());
+
+			// 상세페이지의 컨텐츠와 다른 컨텐츠들의 장르를 비교
+			list1.retainAll(list2);
+
+			// 적어도 겹치는 장르가 세개 이상인 경우만 출력
+			if (list1.size() >= 3) {
+				ContentsVO vo = new ContentsVO();
+				vo = temp.get(i);
+				reco.add(vo);
+			}
+		}
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("contentsDetail");
