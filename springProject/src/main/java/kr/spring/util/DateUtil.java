@@ -1,7 +1,6 @@
 package kr.spring.util;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,8 +13,9 @@ public class DateUtil {
 	String month = "";
 	String date = "";
 	String value = "";
-
-	CalendarVO[] schedule_data_arr = new CalendarVO[4];
+	String db_startDate = "";
+	String db_endDate = "";
+	CalendarVO[] contents_data_arr = new CalendarVO[4];
 
 	public String getYear() {
 		return year;
@@ -49,30 +49,24 @@ public class DateUtil {
 		this.value = value;
 	}
 
-	/*
-	 * // 추가된 부분 public String getDb_startDate() { return db_startDate; }
-	 * 
-	 * public void setDb_startDate(String db_startDate) { this.db_startDate =
-	 * db_startDate; }
-	 * 
-	 * public String getDb_endDate() { return db_endDate; }
-	 * 
-	 * public void setDb_endDate(String db_endDate) { this.db_endDate = db_endDate;
-	 * }
-	 */
-
-	public CalendarVO[] getSchedule_data_arr() {
-		return schedule_data_arr;
+	public String getDb_startDate() {
+		return db_startDate;
 	}
 
-	public void setSchedule_data_arr(CalendarVO[] schedule_data_arr) {
-		this.schedule_data_arr = schedule_data_arr;
+	public void setDb_startDate(String db_startDate) {
+		this.db_startDate = db_startDate;
 	}
 
-	// 날짜에 관련된 달력정보를 가지는 메서드
-	public Map<String, Integer> today_info(DateUtil dateData) {
-		// 날짜 캘린더 함수에 삽입.
-		Map<String, Integer> today_Data = new HashMap<String, Integer>();
+	public CalendarVO[] getcontents_data_arr() {
+		return contents_data_arr;
+	}
+
+	public void setcontents_data_arr(CalendarVO[] contents_data_arr) {
+		this.contents_data_arr = contents_data_arr;
+	}
+
+	public Map<String, Object> today_info(DateUtil dateData) {
+		Map<String, Object> today_Data = new HashMap<String, Object>();
 		Calendar cal = Calendar.getInstance();
 		cal.set(Integer.parseInt(dateData.getYear()), Integer.parseInt(dateData.getMonth()), 1);
 
@@ -100,7 +94,6 @@ public class DateUtil {
 
 		Map<String, Integer> before_after_calendar = before_after_calendar(search_year, search_month);
 
-		// 캘린더 함수 end
 		today_Data.put("start", start);
 		today_Data.put("startDay", startDay);
 		today_Data.put("endDay", endDay);
@@ -112,10 +105,15 @@ public class DateUtil {
 		today_Data.put("after_year", before_after_calendar.get("after_year"));
 		today_Data.put("after_month", before_after_calendar.get("after_month"));
 
+		this.db_startDate = String.valueOf(search_year) + "-" + String.valueOf(search_month + 1) + "-"
+				+ String.valueOf(startDay);
+		this.db_endDate = String.valueOf(search_year) + "-" + String.valueOf(search_month + 1) + "-"
+				+ String.valueOf(endDay);
+		today_Data.put("db_startDate", db_startDate);
+		today_Data.put("db_endDate", db_endDate);
 		return today_Data;
 	}
 
-	// 이전달 다음달 및 이전년도 다음년도
 	private Map<String, Integer> before_after_calendar(int search_year, int search_month) {
 		Map<String, Integer> before_after_data = new HashMap<String, Integer>();
 		int before_year = search_year;
@@ -141,24 +139,18 @@ public class DateUtil {
 		return before_after_data;
 	}
 
-	// 스케줄 사용시 사용될 생성자
-	public DateUtil(String year, String month, String date, String value, CalendarVO[] schedule_data_arr) {
+	public DateUtil(String year, String month, String date, String value, CalendarVO[] contents_data_arr) {
 		if ((month != null && month != "") && (date != null && date != "")) {
 			this.year = year;
 			this.month = month;
 			this.date = date;
 			this.value = value;
-			this.schedule_data_arr = schedule_data_arr;
+			this.contents_data_arr = contents_data_arr;
 		}
 
 	}
 
 	public DateUtil() {
-	}
-
-	@Override
-	public String toString() {
-		return "DateData [year=" + year + ", month=" + month + ", date=" + date + ", value=" + value + "]";
 	}
 
 }

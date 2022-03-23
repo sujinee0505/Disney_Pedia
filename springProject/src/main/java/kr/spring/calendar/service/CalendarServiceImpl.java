@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +23,8 @@ public class CalendarServiceImpl implements CalenderService {
 	}
 
 	@Override
-	public ArrayList<CalendarVO> selectList(int mem_num, DateUtil dateData) {
-		return calendarMapper.selectList(mem_num, dateData);
+	public ArrayList<CalendarVO> selectList(int mem_num, String db_startDate, String db_endDate, DateUtil dateData) {
+		return calendarMapper.selectList(mem_num, db_startDate, db_endDate, dateData);
 	}
 
 }
