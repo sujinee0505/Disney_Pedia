@@ -71,7 +71,8 @@
 		<property name="typeAliasesPackage" value="kr.spring.member.vo,
 		                                           kr.spring.board.vo,
 		                                           kr.spring.contents.vo,
-		                                           kr.spring.chat.vo"/>
+		                                           kr.spring.chat.vo,
+		                                           kr.spring.calendar.vo"/>
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="kr.spring.**.dao"/>

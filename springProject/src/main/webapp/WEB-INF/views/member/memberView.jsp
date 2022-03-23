@@ -119,9 +119,11 @@ body {
 section {
 	display: block;
 }
+
 li {
 	list-style: none
 }
+
 ul {
 	display: block;
 	list-style-type: disc;
@@ -131,6 +133,7 @@ ul {
 	margin-inline-end: 0px;
 	padding-inline-start: 40px;
 }
+
 input[type=button] {
 	display: inline-block;
 	outline: 0;
@@ -149,8 +152,9 @@ input[type=button] {
 	transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 	margin: auto;
 }
-input[type=button]: hover { 
-	background : rgba( 0, 118, 255, 0.9);
+
+input[type=button]: hover {
+	background: rgba(0, 118, 255, 0.9);
 	box-shadow: 0 6px 20px rgb(0 118 255/ 23%);
 }
 </style>
@@ -189,25 +193,26 @@ input[type=button]: hover {
 													</div>
 												</div>
 												<div class="profile-userbuttons">
-												<input type="button" value="프로필수정" onclick="location.href='update.do'">
-												<a href="${pageContext.request.contextPath}/main/main.do">
-													<img
-													src="${pageContext.request.contextPath}/resources/images/review.png"
-													width="40" height="40">
-												</a> <a href="${pageContext.request.contextPath}/main/main.do">
-													<img
-													src="${pageContext.request.contextPath}/resources/images/list.png"
-													width="40" height="40">
-												</a> <a
-													href="${pageContext.request.contextPath}/calendar/calendar.do">
-													<img
-													src="${pageContext.request.contextPath}/resources/images/cal.png"
-													width="40" height="40">
-												</a>
-											</div>
+													<input type="button" value="프로필수정"
+														onclick="location.href='update.do'"> <a
+														href="${pageContext.request.contextPath}/main/main.do">
+														<img
+														src="${pageContext.request.contextPath}/resources/images/review.png"
+														width="40" height="40">
+													</a> <a href="${pageContext.request.contextPath}/main/main.do">
+														<img
+														src="${pageContext.request.contextPath}/resources/images/list.png"
+														width="40" height="40">
+													</a> <a
+														href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num=${member.mem_num}">
+														<img
+														src="${pageContext.request.contextPath}/resources/images/cal.png"
+														width="40" height="40">
+													</a>
+												</div>
 										</div>
 										</header>
-											
+
 										<div class="css-usdi1z">
 											<div class="css-9dnzub">
 												<div class="css-174lxc3">
