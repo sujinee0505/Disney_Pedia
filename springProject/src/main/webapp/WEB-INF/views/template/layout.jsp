@@ -14,8 +14,7 @@
 	href="${pageContext.request.contextPath}/resources/css/sujin.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/yunee.css">
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/star-rating-svg.css">
+
 </head>
 <body>
 	<div id="main">

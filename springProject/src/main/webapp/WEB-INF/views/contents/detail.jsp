@@ -3,10 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.star-rating-svg.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/star-rating-svg.css">
+<script	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script	src="${pageContext.request.contextPath}/resources/js/jquery.star-rating-svg.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var width = $('.scroll').width();
@@ -146,23 +145,68 @@
 									<div class="css-5qj1gb-ContentActionSection e1svyhwg19">
 										<div class="css-1jlb6q">
 											<div class="css-yt2kjp">
-												<div class="css-1k5zzs9">평가하기</div>
+												<div class="css-1k5zzs9">
+												<span id="rating1">평가하기</span>
+												<span id="rating2"></span>
+												</div><br>
+												
 											</div>
-											<!--=======별점 부분=======-->
-											<!-- <div class="css-1m7ruyk"> -->
-											<div class="star_area">
-												<div class="my-rating-2"></div>
-											</div>
-											<script type="text/javascript">
-												$(".my-rating-2").starRating({
-													totalStars : 5,
-													emptyColor : 'lightgray',
-													hoverColor : 'gold',
-													strokeWidth : 0,
-													useGradient : false
-												});
-											</script>
-											<!--======별점 부분 끝======-->
+	<!--=======별점 부분=======-->	<!-- <div class="css-1m7ruyk"> -->
+	<div class="star_area">
+		<div class="my-rating-2"></div>
+	</div>
+	<script type="text/javascript">
+		$(".my-rating-2").starRating({
+			totalStars : 5,
+			emptyColor : 'lightgray',
+			hoverColor : 'gold',
+			strokeWidth : 0,
+			useGradient : false,			
+		    callback: function(currentRating, $el){
+		    	/* alert('평가점수: '+currentRating +'점'); */
+		        console.log('DOM element ', $el);
+		    	 value = $($el).data('init'); 
+		    	 if(currentRating >= 5 ){
+		    	 	$('#rating2').text('최고예요');		   
+		    	 }
+		    	 if(currentRating >= 4.5 && currentRating < 5){
+		    		 $('#rating2').text('훌륭해요');		   
+		    	 }
+		    	 if(currentRating >= 4 && currentRating < 4.5){
+		    		 $('#rating2').text('재미있어요');		   
+		    	 }
+		    	 if(currentRating >= 3.5 && currentRating < 4){
+		    		 $('#rating2').text('볼만해요');		   
+		    	 }
+		    	 if(currentRating >= 3 && currentRating < 3.5){
+		    		 $('#rating2').text('보통이에요');		   
+		    	 }
+		    	 if(currentRating >= 2.5 && currentRating < 3){
+		    		 $('#rating2').text('부족해요');		   
+		    	 }
+		    	 if(currentRating >= 2 && currentRating < 2.5){
+		    		 $('#rating2').text('별로예요');		   
+		    	 }
+		    	 if(currentRating >= 1.5 && currentRating < 2){
+		    		 $('#rating2').text('재미없어요');		   
+		    	 }
+		    	 if(currentRating >= 1 && currentRating < 1.5){
+		    		 $('#rating2').text('싫어요');		   
+		    	 }
+		    	 if(currentRating >= 0.5 && currentRating < 1){
+		    		 $('#rating2').text('최악이에요');		   
+		    	 }
+		    },			    		    
+		   /*  onHover: function(currentIndex, currentRating, $el){
+		    	$('.live-rating').text(currentIndex);
+		      } */
+		});
+		$(".my-rating-2").click(function(){				
+			$('#rating1').hide();							
+		});	
+		/* $('.my-rating-2').starRating('getRating'); */
+	</script>
+	<!--======별점 부분 끝======-->
 										</div>
 										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 										<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
