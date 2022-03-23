@@ -48,8 +48,7 @@ public class ChatBoardController {
 	//글 등록 폼에서 전송된 데이터 처리
 	@PostMapping("/chatboard/write.do")
 	public String submit(@Valid ChatBoardVO chatboardVO, BindingResult result, 
-									HttpSession session, HttpServletRequest request,
-									Model model) {
+									HttpSession session, HttpServletRequest request) {
 
 		logger.info("<<채팅게시판 글 저장>> : " + chatboardVO );
 		//유효성 체크 
@@ -64,8 +63,6 @@ public class ChatBoardController {
 		//글쓴 회원번호 셋팅
 		chatboardVO.setMem_num(user_num);
 		logger.info("<<memnum>> : " + chatboardVO );
-
-
 
 		/*
 		//회원이름 셋팅
@@ -100,12 +97,12 @@ public class ChatBoardController {
 	@RequestMapping("/chatboard/list.do")
 
 	public ModelAndView process(
-			@RequestParam(value="pageNum",defaultValue="1")
-			int currentPage,
-			@RequestParam(value="keyfield",defaultValue="")
-			String keyfield,
-			@RequestParam(value="keyword",defaultValue="")
-			String keyword ) {
+							@RequestParam(value="pageNum",defaultValue="1")
+							int currentPage,
+							@RequestParam(value="keyfield",defaultValue="")
+							String keyfield,
+							@RequestParam(value="keyword",defaultValue="")
+							String keyword ) {
 		//데이터 넘기기
 		Map<String,Object> map = new HashMap<String, Object>();
 		map.put("keyfield", keyfield);
@@ -113,31 +110,31 @@ public class ChatBoardController {
 		//글의 총갯수 또는 검색된 글의 갯수		
 		int count = chatBoardService.selectRowCount(map);
 		//페이지 처리
-		PagingUtil page = new PagingUtil(keyfield,keyword,currentPage,count,10,5,"list.do");
-
+		PagingUtil page = new PagingUtil(keyfield,keyword,currentPage,count,10,10,"list.do");
+											//int totalCount, int rowCount,int pageCount,String pageUrl
+											//rowcount 한 화면에 몇개 게시물을 띄울지/ pagecount =페이지 아래 몇개의 페이지(숫자)를 띄우게 할지
 		map.put("start",page.getStartCount());
 		map.put("end",page.getEndCount());
 
 		List<ChatBoardVO> list = null;
 		if(count>0) {
 			list = chatBoardService.selectList(map);
+			logger.info("<<count>> : " + count);
 		}
-
+		logger.info("<<목록테스트2>> : " + list);
+		
+		
 		//데이터가 준비되었으니 데이터를 표시한다.
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("chatBoardList");//tiles설정
+		mav.setViewName("chatBoardList");//tiles설정(definition name)
 
 		mav.addObject("count",count);
 		mav.addObject("list", list);
 		mav.addObject("pagingHtml", page.getPagingHtml());
-		/*
-		public ModelAndView process() {
-			//타일스 설정
-			ModelAndView mav = new ModelAndView();
-			mav.setViewName("chatBoardList");//tiles설정(definition name)
-			return mav;
-		}
-		 */
+		 
 	return mav;
 	}
+	
+	
+	
 }

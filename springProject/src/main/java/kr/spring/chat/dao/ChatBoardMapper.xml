@@ -8,40 +8,40 @@
 		id:메서드명과 일치시킴 / parameterType:전달타입 / resultType:반환타입-->
 <mapper namespace="kr.spring.chat.dao.ChatBoardMapper"> 
 	<select id="selectList" parameterType="map" resultType="chatBoardVO"> 
-		SELECT * 
-		FROM 
-			(SELECT a.*, rownum AS rnum 
-			FROM 
-				(SELECT
-					b.chatboard_num,
-					<![CDATA[
-					REPLACE(REPLACE(b.title,'<','&lt;'),'>','&gt;') title,
-					]]>
-					m.name,
-					b.reg_date,
-					b.hit
-				FROM dchatboard b JOIN dmember_detail m
-				ON b.mem_num = m.mem_num
-				<where>
-					<if test="keyword !='' and keyfield == 1">
-						b.title LIKE '%' || #{keyword} || '%'
-					</if>
-					<if test="keyword != '' and keyfield == 2">
-						m.id LIKE '%' || #{keyword} || '%'
-					</if>
-					<if test="keyword != '' and keyfield == 3">
-						b.content LIKE '%' || #{keyword} || '%'
-					</if>
-					<if test="keyword != '' and keyfield == 4">
-						b.title LIKE '%' || #{keyword} || '%' or
-						b.content LIKE '%' || #{keyword} || '%' 
-					</if>
-				</where>
-				ORDER BY b.reg_date DESC) a)
+		SELECT
+		 *
+		FROM (SELECT 
+		        a.*, rownum rnum 
+		        FROM (SELECT
+				b.chatboard_num,
+				b.title,
+				b.hit,
+				b.reg_date,
+				m.name,
+				b.mate_state
+			FROM dchatboard b
+			JOIN dmember_detail m
+			ON b.mem_num = m.mem_num
+			<where>
+				<if test="keyword !='' and keyfield == 1">
+					b.title LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyword != '' and keyfield == 2">
+					m.name LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyword != '' and keyfield == 3">
+					b.content LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyword != '' and keyfield == 4">
+					b.title LIKE '%' || #{keyword} || '%' or
+					b.content LIKE '%' || #{keyword} || '%' 
+				</if>
+			</where>
+			ORDER BY b.chatboard_num DESC)a)
 		<![CDATA[
 		WHERE rnum >= #{start} AND rnum <= #{end}
 		]]>
-	</select>
+	</select>	
 	
 	<!--** 페이지 처리를 위한 작업 -->
 		<!-- public int selectRowCount(Map<String,Object> map); -->
@@ -49,7 +49,7 @@
 		SELECT 
 			COUNT(*)
 		FROM dchatBoard b
-		JOIN dmember m
+		JOIN dmember_detail m
 		ON b.mem_num = m.mem_num
 		<where>
 			<if test="keyword !='' and keyfield == 1">

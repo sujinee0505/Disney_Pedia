@@ -12,6 +12,9 @@ public class ChatBoardVO {
 	@NotEmpty
 	private String content; //채팅게시글 내용
 	private Date reg_date; //채팅게시글 작성일
+	
+	private int hit; //조회수
+	private int mate_state;//0:모집중/1:모집완료
 	 
 	//*테이블에 없지만 JOIN해서 빈번하게 사용하므로 추가
 	//@NotEmpty
@@ -60,11 +63,23 @@ public class ChatBoardVO {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
+	public int getMate_state() {
+		return mate_state;
+	}
+	public void setMate_state(int mate_state) {
+		this.mate_state = mate_state;
+	}
 	
 	@Override
 	public String toString() {
 		return "ChatBoardVO [chatboard_num=" + chatboard_num + ", mem_num=" + mem_num + ", title=" + title
-				+ ", content=" + content + ", reg_date=" + reg_date + ", name=" + name + ", photo=" + photo + "]";
+				+ ", content=" + content + ", reg_date=" + reg_date + ", hit=" + hit + ", mate_state=" + mate_state
+				+ ", name=" + name + ", photo=" + photo + "]";
 	}
-	
 }

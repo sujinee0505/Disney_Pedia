@@ -17,14 +17,12 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 
 	@Override
 	public List<ChatBoardVO> selectList(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		return chatBoardMapper.selectList(map);
 	}
 
 	@Override
 	public int selectRowCount(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return 0;
+		return chatBoardMapper.selectRowCount(map);
 	}
 
 	@Override
