@@ -118,7 +118,7 @@ ul li {
                      </c:if></li>
                      <li>
 					<div class="align-center">
-						<input type="button" value="사진변경" id="photo_btn"> 
+						<input type="button" class="yWX7d" value="사진변경" id="photo_btn"> 
 					</div>
 					<div id="photo_choice" style="display: none;">
 						<input type="file" id="upload" accept="image/gif,image/png,image/jpeg">
@@ -135,12 +135,12 @@ ul li {
                 <ul>
                		<li>
 						<form:label path="name">이름</form:label>
-						<form:input path="name"/>
+						<form:input class="form1" path="name"/>
 						<form:errors path="name" cssClass="error-color"/>
 					</li>
 					<li>
 						<form:label path="introduction">소개</form:label>
-						<form:textarea path="introduction"/>
+						<form:textarea class="form1" path="introduction"/>
 						<form:errors path="introduction" cssClass="error-color"/>
 					</li>
                </ul>
@@ -149,7 +149,7 @@ ul li {
             <!-- END SIDEBAR USER TITLE -->
             <!-- SIDEBAR BUTTONS -->
             <div class="profile-userbuttons">
-               <form:button>전송</form:button>
+               <form:button>수정</form:button>
 			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			<input type="button" value="비밀번호변경" onclick="location.href='changePassword.do'"> 
 			<input type="button" value="회원탈퇴" onclick="location.href='delete.do'">  
