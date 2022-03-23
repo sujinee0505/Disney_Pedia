@@ -118,6 +118,8 @@ body {
 
 section {
 	display: block;
+	padding-inline-start: 85px;
+	padding-inline-end: 85px;
 }
 
 li {
@@ -131,32 +133,24 @@ ul {
 	margin-block-end: 1em;
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
-	padding-inline-start: 40px;
 }
 
 input[type=button] {
 	display: inline-block;
-	outline: 0;
+	width: 250px;
+	outline: none;
 	cursor: pointer;
-	border: none;
-	padding: 0 56px;
-	width: 300px;
-	height: 45px;
-	line-height: 45px;
-	border-radius: 7px;
-	background-color: #0070f3;
-	color: white;
-	font-weight: 400;
-	font-size: 16px;
-	box-shadow: 0 4px 14px 0 rgb(0 118 255/ 39%);
-	transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-	margin: auto;
+	font-weight: 500;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	height: 36px;
+	line-height: 34px;
+	font-size: 14px;
+	color: #241c15;
+	background-color: #efeeea;
+	padding: 0 18px;
 }
 
-input[type=button]: hover {
-	background: rgba(0, 118, 255, 0.9);
-	box-shadow: 0 6px 20px rgb(0 118 255/ 23%);
-}
 </style>
 <div id="root">
 	<div class="css-5jq76">
@@ -193,9 +187,8 @@ input[type=button]: hover {
 													</div>
 												</div>
 												<div class="profile-userbuttons">
-													<input type="button" value="프로필수정"
-														onclick="location.href='update.do'"> <a
-														href="${pageContext.request.contextPath}/main/main.do">
+													<input type="button" value="프로필수정" onclick="location.href='update.do'"> 
+													<a href="${pageContext.request.contextPath}/main/main.do">
 														<img
 														src="${pageContext.request.contextPath}/resources/images/review.png"
 														width="40" height="40">
