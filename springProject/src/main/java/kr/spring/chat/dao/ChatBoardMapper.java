@@ -29,17 +29,19 @@ public interface ChatBoardMapper {
 
 	
 	
-	@Update("UPDATE dchatboard SET hit=hit+1 WHERE board_num=#{board_num}")
-	public void updateHit(Integer board_num);//조회수
+	@Update("UPDATE dchatboard SET hit=hit+1 WHERE chatboard_num=#{chatboard_num}")
+	public void updateHit(Integer chatboard_num);//조회수
 
 	//xml
-	public void updateBoard(ChatBoardVO board);
+	public void updateBoard(ChatBoardVO chatboard);
 
-	@Delete("DELETE FROM dchatboard WHERE board_num=#{board_num}")
-	public void deleteBoard(Integer board_num);
+	@Delete("DELETE FROM dchatboard WHERE chatboard_num=#{chatboard_num}")
+	public void deleteBoard(Integer chatboard_num);
 
 	@Update("UPDATE dchatboard SET uploadfile='',filename='' "
-			+ "WHERE board_num=#{board_num}")
-	public void deleteFile(Integer board_num);
+			+ "WHERE chatboard_num=#{chatboard_num}")
+	public void deleteFile(Integer chatboard_num);
 
 }
+	
+

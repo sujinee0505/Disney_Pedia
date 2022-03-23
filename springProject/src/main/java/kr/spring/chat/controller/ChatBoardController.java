@@ -25,6 +25,7 @@ import kr.spring.chat.service.ChatBoardService;
 import kr.spring.chat.vo.ChatBoardVO;
 import kr.spring.member.service.MemberService;
 import kr.spring.util.PagingUtil;
+import kr.spring.util.StringUtil;
 
 @Controller
 public class ChatBoardController {
@@ -136,5 +137,95 @@ public class ChatBoardController {
 	}
 	
 	
+	//[글 쓰기]
+	//게시판 글 상세
+	@RequestMapping("/chatboard/detail.do")
+	public ModelAndView process(@RequestParam int chatboard_num) {
+		logger.info("<<게시판 글 상세 - 글 번호>> : " + chatboard_num);
+		
+		//해당 글의 조회수 증가
+		chatBoardService.updateHit(chatboard_num);
+		
+		ChatBoardVO chatboardVO = chatBoardService.selectBoard(chatboard_num);
+		//타이틀 HTML 불허
+		chatboardVO.setTitle(StringUtil.useNoHtml(chatboardVO.getTitle()));
+		                        //타일스 설정      속성명      속성값
+		return new ModelAndView("chatBoardView","chatboardVO",chatboardVO);
+	}
+	
+	//이미지 출력
+/*	@RequestMapping("/chatboard/imageView.do")
+	public ModelAndView viewImage(@RequestParam int chatboard_num) {
+		ChatBoardVO chatboardVO = chatBoardService.selectBoard(chatboard_num);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("imageView");
+		mav.addObject("imageFile",chatboardVO.getUploadfile());
+		mav.addObject("filename", chatboardVO.getFilename());
+		return mav;
+	}
+	
+	//파일 다운로드
+	@RequestMapping("/chatboard/file.do")
+	public ModelAndView download(@RequestParam int chatboard_num) {
+		ChatBoardVO chatboardVO = chatBoardService.selectBoard(chatboard_num);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("downloadView");
+		mav.addObject("downloadFile", chatboardVO.getUploadfile());
+		mav.addObject("filename", chatboardVO.getFilename());
+		
+		return mav;
+	}
+	*/
+	//수정 폼
+	@GetMapping("/chatboard/update.do")
+	public String formUpdate(@RequestParam int chatboard_num,
+			                 Model model) {
+		ChatBoardVO chatboardVO = chatBoardService.selectBoard(chatboard_num);
+		
+		model.addAttribute("chatboardVO", chatboardVO);		
+		
+		return "chatboardModify";
+	}
+	/*
+	//수정 폼에서 전송된 데이터 처리
+	@PostMapping("/chatboard/update.do")
+	public String submitUpdate(@Valid ChatBoardVO chatboardVO,
+			                   BindingResult result,
+			                   HttpServletRequest request,
+			                   Model model) {
+		
+		logger.info("<<글 정보 수정>> : " + chatboardVO);
+		
+		//유효성 체크 결과 오류가 있으면 폼을 호출
+		if(result.hasErrors()) {
+			//title 또는 content가 입력되지 않으면 유효성 체크시 오류가 발생하고
+			//파일 정보을 잃어버리기 때문에 폼을 호출할 때 다시 셋팅
+			ChatBoardVO vo = chatBoardService.selectBoard(chatboardVO.getChatboard_num());
+			chatboardVO.setFilename(vo.getFilename());
+			return "chatboardModify";
+		}
+		
+		//ip셋팅
+		chatboardVO.setIp(request.getRemoteAddr());
+		
+		//글 수정
+		chatBoardService.updateBoard(chatboardVO);
+		
+		//view에 표시할 메시지
+		model.addAttribute("content", "글 수정 완료");
+		model.addAttribute("url", request.getContextPath() + "/chatboard/list.do");
+		
+		return "common/resultView";
+	}
+	*/
+	//게시판 글 삭제
+	@RequestMapping("/chatboard/delete.do")
+	public String submitDelete(@RequestParam int chatboard_num) {
+		chatBoardService.deleteBoard(chatboard_num);
+		return "redirect:/chatboard/list.do";
+	}
 	
 }
+
