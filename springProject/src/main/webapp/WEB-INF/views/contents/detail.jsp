@@ -166,36 +166,36 @@
 		    	/* alert('평가점수: '+currentRating +'점'); */
 		        console.log('DOM element ', $el);
 		    	 value = $($el).data('init'); 
-		    	 if(currentRating >= 5 ){
+		    	 if(currentRating === 5 ){
 		    	 	$('#rating2').text('최고예요');		   
 		    	 }
-		    	 if(currentRating >= 4.5 && currentRating < 5){
+		    	 if(currentRating === 4.5){
 		    		 $('#rating2').text('훌륭해요');		   
 		    	 }
-		    	 if(currentRating >= 4 && currentRating < 4.5){
+		    	 if(currentRating === 4 ){
 		    		 $('#rating2').text('재미있어요');		   
 		    	 }
-		    	 if(currentRating >= 3.5 && currentRating < 4){
+		    	 if(currentRating === 3.5 ){
 		    		 $('#rating2').text('볼만해요');		   
 		    	 }
-		    	 if(currentRating >= 3 && currentRating < 3.5){
+		    	 if(currentRating === 3 ){
 		    		 $('#rating2').text('보통이에요');		   
 		    	 }
-		    	 if(currentRating >= 2.5 && currentRating < 3){
+		    	 if(currentRating === 2.5){
 		    		 $('#rating2').text('부족해요');		   
 		    	 }
-		    	 if(currentRating >= 2 && currentRating < 2.5){
+		    	 if(currentRating === 2){
 		    		 $('#rating2').text('별로예요');		   
 		    	 }
-		    	 if(currentRating >= 1.5 && currentRating < 2){
+		    	 if(currentRating === 1.5){
 		    		 $('#rating2').text('재미없어요');		   
 		    	 }
-		    	 if(currentRating >= 1 && currentRating < 1.5){
+		    	 if(currentRating === 1){
 		    		 $('#rating2').text('싫어요');		   
 		    	 }
-		    	 if(currentRating >= 0.5 && currentRating < 1){
+		    	 if(currentRating === 0.5){
 		    		 $('#rating2').text('최악이에요');		   
-		    	 }
+		    	 } 
 		    },			    		    
 		   /*  onHover: function(currentIndex, currentRating, $el){
 		    	$('.live-rating').text(currentIndex);
