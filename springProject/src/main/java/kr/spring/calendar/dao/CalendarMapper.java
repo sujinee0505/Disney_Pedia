@@ -14,7 +14,7 @@ public interface CalendarMapper {
 			+ "VALUES (dcontents_cal_seq.nextval,#{custom_date},#{contents_num},#{mem_num}")
 	public void insertCalendar(CalendarVO calendarVO);
 
-	@Select("SELECT TO_CHAR(custom_date, 'YYYY-MM-DD') custom_date, contents_num FROM dcontents_cal WHERE mem_num=#{mem_num} AND custom_date BETWEEN #{db_startDate} AND #{db_endDate} ")
+	@Select("SELECT TO_CHAR(custom_date, 'YYYY-MM-DD') custom_date, contents_num, contents_type, poster_path FROM dcontents_cal WHERE mem_num=#{mem_num} AND custom_date BETWEEN #{db_startDate} AND #{db_endDate} ")
 	public ArrayList<CalendarVO> selectList(@Param("mem_num") Integer mem_num,
 			@Param("db_startDate") String db_startDate, @Param("db_endDate") String db_endDate, DateUtil dateData);
 }

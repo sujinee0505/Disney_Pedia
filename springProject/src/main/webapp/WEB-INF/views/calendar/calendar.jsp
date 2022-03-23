@@ -73,8 +73,10 @@
 							<div>
 								<c:forEach var="contents_list"
 									items="${dateList.contents_data_arr}"
-									varStatus="contents_data_arr_status">
-									<p class="date_subject">${contents_list.contents_num}</p>
+									varStatus="contents_data_arr_status" begin="0" end="0">
+									<div style="width: 120px; height: 173px;">
+										<img src="${contents_list.poster_path }" style="width: 100%;">
+									</div>
 								</c:forEach>
 							</div>
 						</td>

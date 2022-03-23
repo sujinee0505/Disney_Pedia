@@ -8,6 +8,8 @@ public class CalendarVO {
 	private int contents_num;
 	private int mem_num;
 	private Date custom_date;
+	private String contents_type;
+	private String poster_path;
 
 	public int getCal_num() {
 		return cal_num;
@@ -41,9 +43,19 @@ public class CalendarVO {
 		this.custom_date = custom_date;
 	}
 
-	@Override
-	public String toString() {
-		return "ScheduleDto [cal_num=" + cal_num + ", contents_num=" + contents_num + ", mem_num=" + mem_num
-				+ ", custom_date=" + custom_date + "]";
+	public String getContents_type() {
+		return contents_type;
+	}
+
+	public void setContents_type(String contents_type) {
+		this.contents_type = contents_type;
+	}
+
+	public String getPoster_path() {
+		return poster_path;
+	}
+
+	public void setPoster_path(String poster_path) {
+		this.poster_path = poster_path;
 	}
 }

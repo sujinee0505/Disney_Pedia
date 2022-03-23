@@ -80,7 +80,6 @@ a:hover {
 
 .calendar_body .today {
 	border: 1px solid white;
-	height: 120px;
 	background-color: #c9c9c9;
 	text-align: left;
 	vertical-align: top;
@@ -107,7 +106,6 @@ a:hover {
 
 .calendar_body .sat_day {
 	border: 1px solid white;
-	height: 120px;
 	background-color: #EFEFEF;
 	text-align: left;
 	vertical-align: top;
@@ -123,7 +121,6 @@ a:hover {
 
 .calendar_body .sun_day {
 	border: 1px solid white;
-	height: 120px;
 	background-color: #EFEFEF;
 	text-align: left;
 	vertical-align: top;
@@ -139,10 +136,10 @@ a:hover {
 
 .calendar_body .normal_day {
 	border: 1px solid white;
-	height: 120px;
 	background-color: #EFEFEF;
 	vertical-align: top;
 	text-align: left;
+	border: 1px solid white;
 }
 
 .before_after_month {

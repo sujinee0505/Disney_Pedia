@@ -58,6 +58,7 @@ create table dcontents_cal(
   cal_num number not null,
   custom_date date not null,
   contents_num number not null,
+  contents_type varchar2(5) not null,
   mem_num number not null,
   constraint dcontents_cal_pk primary key (cal_num),
   constraint dcontents_cal_fk foreign key (mem_num) references dmember (mem_num)
