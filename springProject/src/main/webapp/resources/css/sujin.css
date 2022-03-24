@@ -3394,9 +3394,9 @@ svg {
 }
 
 .css-1ugqy9j>a {
-	color: #ff2f6e;
-	-webkit-text-decoration: none;
-	text-decoration: none;
+	color: #ff2f6e !important;
+	-webkit-text-decoration: none !important;
+	text-decoration: none !important;
 }
 
 .css-1gfvga7-RoundedCornerBlock-RoundedCornerBlock-RoundedCornerBlock-RoundedCornerBlock
@@ -5831,17 +5831,11 @@ h1, h3, p, hr {
 }
 
 .css-cf9e76 {
-	border-width: 0px 0px 1px;
-	border-top-style: initial;
-	border-right-style: initial;
-	border-left-style: initial;
-	border-top-color: initial;
-	border-right-color: initial;
-	border-left-color: initial;
-	border-image: initial;
-	border-bottom-style: solid;
-	border-bottom-color: rgb(240, 240, 240);
-	padding-top: 42px;
+	border: 0 !important;
+	border-bottom: 1px solid #f0f0f0 !important;
+	margin: 10px 0 0 !important;
+	background-color: transparent !important;
+	opacity: 1 !important;
 }
 
 .css-11yyw1d {
@@ -5914,20 +5908,6 @@ h1, h3, p, hr {
 	.css-e9dkp8-VisualUl>li {
 		width: 100%;
 	}
-}
-
-.css-cf9e76 {
-	border-width: 0px 0px 1px;
-	border-top-style: initial;
-	border-right-style: initial;
-	border-left-style: initial;
-	border-top-color: initial;
-	border-right-color: initial;
-	border-left-color: initial;
-	border-image: initial;
-	border-bottom-style: solid;
-	border-bottom-color: rgb(240, 240, 240);
-	padding-top: 42px;
 }
 
 .css-11yyw1d {

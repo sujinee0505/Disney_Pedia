@@ -58,7 +58,7 @@ a:hover {
 }
 
 .calendar {
-	width: 80%;
+	max-width: 1000px;
 	margin: auto;
 }
 
@@ -80,6 +80,7 @@ a:hover {
 
 .calendar_body .today {
 	border: 1px solid white;
+	height: 120px;
 	background-color: #c9c9c9;
 	text-align: left;
 	vertical-align: top;
@@ -93,7 +94,7 @@ a:hover {
 }
 
 .date {
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .sat {
@@ -106,6 +107,7 @@ a:hover {
 
 .calendar_body .sat_day {
 	border: 1px solid white;
+	height: 120px;
 	background-color: #EFEFEF;
 	text-align: left;
 	vertical-align: top;
@@ -121,6 +123,7 @@ a:hover {
 
 .calendar_body .sun_day {
 	border: 1px solid white;
+	height: 120px;
 	background-color: #EFEFEF;
 	text-align: left;
 	vertical-align: top;
@@ -136,10 +139,10 @@ a:hover {
 
 .calendar_body .normal_day {
 	border: 1px solid white;
+	height: 120px;
 	background-color: #EFEFEF;
 	vertical-align: top;
 	text-align: left;
-	border: 1px solid white;
 }
 
 .before_after_month {
@@ -153,16 +156,4 @@ a:hover {
 
 .this_month {
 	margin: 10px;
-}
-
-.schdule_add_button {
-	float: right;
-}
-
-.date_subject {
-	margin: 0px;
-	margin-bottom: 5px;
-	margin-left: 12px;
-	font-size: 12px;
-	font-weight: bold;
 }

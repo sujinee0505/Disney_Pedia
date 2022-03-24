@@ -39,8 +39,12 @@ public class CalendarController {
 		List<DateUtil> dateList = new ArrayList<DateUtil>();
 
 		Integer mem_num = (Integer) session.getAttribute("user_num");
+
+		// 달이 시작하는 날짜
 		String db_startDate = String.valueOf(today_info.get("db_startDate"));
+		// 달이 끝나는 날짜
 		String db_endDate = String.valueOf(today_info.get("db_endDate"));
+		// 본 컨텐츠 내역 불러와서 저장
 		ArrayList<CalendarVO> contents_list = calenderService.selectList(mem_num, db_startDate, db_endDate, dateData);
 
 		CalendarVO[][] contents_data_arr = new CalendarVO[32][4];
@@ -52,18 +56,23 @@ public class CalendarController {
 				int date = Integer.parseInt(String.valueOf(contents_list.get(i).getCustom_date()).substring(
 						String.valueOf(contents_list.get(i).getCustom_date()).length() - 2,
 						String.valueOf(contents_list.get(i).getCustom_date()).length()));
-
+				
+				
 				if (i > 0) {
 					int date_before = Integer.parseInt(String.valueOf(contents_list.get(i - 1).getCustom_date())
 							.substring(String.valueOf(contents_list.get(i - 1).getCustom_date()).length() - 2,
 									String.valueOf(contents_list.get(i - 1).getCustom_date()).length()));
+
+					// 같은 날에 등록하는 컨텐츠 갯수가 1개 이상일 경우
 					if (date_before == date) {
 						j = j + 1;
 						contents_data_arr[date][j] = contents_list.get(i);
+					// 같은 날에 등록하는 컨텐츠 갯수가 1개일 경우
 					} else {
 						j = 0;
 						contents_data_arr[date][j] = contents_list.get(i);
 					}
+					// 총 등록되어 있는 컨텐츠 갯수가 1개일 경우
 				} else {
 					contents_data_arr[date][j] = contents_list.get(i);
 				}
