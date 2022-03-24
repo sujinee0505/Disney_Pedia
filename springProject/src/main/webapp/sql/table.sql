@@ -43,10 +43,10 @@ create table dcontents_like(
 create sequence dcontents_like_seq;
 
 /* 컨텐츠 평가(별점) 테이블*/
-create table dcontents_star(
-  star_num number not null,
+create table dcontents_grade(
+  grade_num number not null,
   contents_num number not null,
-  star number(1) not null,
+  grade number(1) not null,
   mem_num number not null,
   constraint dcontents_grade_pk primary key (grade_num),
   constraint dcontents_grade_fk foreign key (mem_num) references dmember (mem_num)
@@ -139,18 +139,11 @@ create table dchatboard (
   content clob not null,
   reg_date date default sysdate not null,
   hit number(5) default 0 not null,
-  state num dafault 0 not null, --0 구하는중 / 1 모집완료
+  mate_state number default 0 not null, --0 구하는중 / 1 모집완료
   constraint dchatboard_pk primary key(chatboard_num),
   constraint dchatboard_fk1 foreign key(mem_num) references dmember_detail(mem_num)
 );
 create sequence dchatboard_seq;
-/*
-ALTER TABLE dchatboard drop COLUMN reg_date;
-ALTER TABLE dchatboard ADD(reg_date date default SYSDATE not null);
-ALTER TABLE dchatboard ADD hit number(5) default 0 not null;
-ALTER TABLE dchatboard ADD mate_state number default 0 not null;
- */
-
 
 /*채팅 정보 테이블*/
 create table dchatting(

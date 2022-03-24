@@ -29,11 +29,7 @@
 				</a>
 			</div>
 
-			<!-- <div class="today_button_div"> -->
-			<!-- <input type="button" class="today_button" onclick="javascript:location.href='/calendar.do'" value="go today"/> -->
-			<!-- </div> -->
 			<table class="calendar_body">
-
 				<thead>
 					<tr bgcolor="#CECECE">
 						<td class="day sun">일</td>
