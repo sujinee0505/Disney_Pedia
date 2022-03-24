@@ -92,8 +92,6 @@ ul li {
     float: none;
     text-align: center;
     margin-top: 100px !important;
-    width: 50%;
-    height: 50%;
     -webkit-border-radius: 50% !important;
     -moz-border-radius: 50% !important;
     border-radius: 50% !important;
@@ -107,11 +105,11 @@ ul li {
             <!-- SIDEBAR USERPIC -->
             <div class="profile-userpic">
                <ul>
-                  <li><c:if test="${empty member.photo_name}">
+                  <li><c:if test="${empty user_photo}">
                         <img
                            src="${pageContext.request.contextPath}/resources/images/face.png"
                            width="200" height="200" class="my-photo">
-                     </c:if> <c:if test="${!empty member.photo_name}">
+                     </c:if> <c:if test="${!empty user_photo}">
                         <img
                            src="${pageContext.request.contextPath}/member/photoView.do"
                            width="200" height="200" class="my-photo">

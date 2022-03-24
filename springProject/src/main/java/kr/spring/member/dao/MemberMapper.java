@@ -31,6 +31,6 @@ public interface MemberMapper {
 	public void deleteMember(Integer mem_num);
 	@Delete("DELETE FROM dmember_detail WHERE mem_num=#{mem_num}")
 	public void deleteMember_detail(Integer mem_num);
-	@Update("UPDATE spmember_detail SET photo=#{photo},photo_name=#{photo_name} WHERE mem_num=#{mem_num}")
+	@Update("UPDATE dmember_detail SET photo=#{photo},photo_name=#{photo_name} WHERE mem_num=#{mem_num}")
 	public void updateProfile(MemberVO member);
 }

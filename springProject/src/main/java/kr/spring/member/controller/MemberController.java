@@ -315,6 +315,7 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("imageView");
 		mav.addObject("imageFile", memberVO.getPhoto());
+		mav.addObject("filename", memberVO.getPhoto_name());
 		return mav;
 	}
 }
