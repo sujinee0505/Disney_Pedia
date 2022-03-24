@@ -122,10 +122,10 @@ ul li {
 														<div class="align-center">
 															<input type="button" class="yWX7d" value="사진변경" id="photo_btn">
 														</div>
-														<div id="photo_choice" style="display: none;">
+														<div id="photo_choice" class="filebtn" style="display: none;">
 															<input type="file" id="upload" accept="image/gif,image/png,image/jpeg"> 
-															<input type="button" value="전송" id="photo_submit">
-															<input type="button" value="취소" id="photo_reset">
+															<input type="button" class="filebtn" value="전송" id="photo_submit">
+															<input type="button" class="filebtn" value="취소" id="photo_reset">
 														</div>
 													</li>
 												</ul>
@@ -147,7 +147,8 @@ ul li {
 														</li>
 														<li>
 															<form:label path="passwd">비밀번호</form:label>
-															<input type="button" class="passbtn" value="비밀번호변경하기 >" onclick="location.href='changePassword.do'">
+															<input type="button" class="passbtn" value="비밀번호변경하기 >" 
+															data-bs-toggle="modal" data-bs-target="#myModal3" onclick="location.href='changePassword.do'">
 														</li> 
 													</ul>
 												</div>

@@ -150,8 +150,20 @@
     font-weight: 600;
     padding: 10px 9px;
     text-align: center;
-	}
 }
+
+.filebtn {
+	color: gray;
+    position: relative;
+    background: 0 0;
+    border: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 9px;
+    text-align: center;
+}
+
 .form1 {
 	box-sizing: border-box;
 	font-family: inherit;
@@ -162,7 +174,7 @@
 	border-radius: 0;
 	outline: 2px solid transparent;
 	outline-offset: -2px;
-	width: 100%;
+	width: 50%;
 	height: 40px;
 	border: none;
 	border-bottom: 1px solid #8d8d8d;
@@ -171,6 +183,28 @@
 	transition: background-color 70ms cubic-bezier(.2, 0, .38, .9), outline
 		70ms cubic-bezier(.2, 0, .38, .9);
 	margin-bottom: 10px;	 
+}
+
+.passwd {
+	font-size: 15px;
+    background-color: #f2f2f2;
+    font-family: 'SUIT-Medium';
+    border: none;
+    width: 400px;
+    margin-top: 10px;
+    height: 53px;
+    border-radius: 5px;
+}
+.passtitle {
+	margin-top: 30px;
+	color: gray;
+	text-align: center;
+}
+.passtitle2{
+	font-size: 16px;
+    color: #a5a5a5;
+    line-height: 1.5;
+    text-align: center;
 }
 .css-1xm32e0 {
     position: relative;

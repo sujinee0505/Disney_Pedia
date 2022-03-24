@@ -38,8 +38,6 @@ body {
 
 section {
 	display: block;
-	padding-inline-start: 85px;
-	padding-inline-end: 85px;
 }
 
 li {

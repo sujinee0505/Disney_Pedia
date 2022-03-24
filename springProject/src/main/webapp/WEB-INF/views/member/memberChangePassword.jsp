@@ -48,30 +48,62 @@
 		});
 	});
 </script>
-<div class="page-main">
-	<h2>비밀번호 변경</h2>
+<style>
+body {
+	background: #F1F3FA;
+}
+
+ul li {
+	list-style: none;
+	text-align: center !important;
+}
+</style>
+<div id="root">
 	<form:form modelAttribute="memberVO" acceptCharset="changePassword.do" id="change_form">
-		<form:errors element="div" cssClass="error-color"/>
-		<ul>
-			<li>
-				<form:label path="now_passwd">현재 비밀번호</form:label>
-				<form:password path="now_passwd"/>
-				<form:errors path="now_passwd" cssClass="error-color"/>
-			</li>
-			<li>
-				<form:label path="passwd">변경할 비밀번호</form:label>
-				<form:password path="passwd"/>
-				<form:errors path="passwd" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="confirm_passwd">변경할 비밀번호 확인</label>
-				<input type="password" id="confirm_passwd">
-				<span id="message_id"></span>
-			</li>
-		</ul>
-		<div class="align-center">
-			<form:button>전송</form:button>
-			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+		<form:errors element="div" cssClass="error-color" />
+		<div class="css-5jq76">
+			<div class="css-1xm32e0">
+				<section class="css-18gwkcr">
+					<div class="css-egiga7-Self e19zkogf0">
+						<div class="css-19rw4yc-Container e19zkogf1">
+							<div class="css-1xqcv4t">
+								<div class="css-19lj1vd-RoundedCornerBlock-RoundedCornerBlock">
+									<section class="css-q4evg3-MyPage e19zkogf2">
+										<div class="css-1gkas1x-Grid e1689zdh0">
+											<div class="css-1y901al-Row emmoxnt0">
+												<header class="css-1hjjbcz-ProfileHeader e19zkogf4">
+													<div class="css-1gry5r7">
+													<h3 class="passtitle">비밀 번호 변경</h3>
+													<p class="passtitle2">변경할 비밀번호를 입력해주세요.</p>
+													</div>
+													<ul>
+														<li>
+															<form:password class="passwd" path="now_passwd" placeholder="현재 비밀번호를 입력해주세요." /> 
+															<form:errors path="now_passwd" cssClass="error-color" />
+														</li>
+														<li>
+															<form:password class="passwd" path="passwd" placeholder="새 비밀번호를 입력해주세요."/> 
+															<form:errors path="passwd" cssClass="error-color" />
+														</li>
+														<li>
+															<input type="password" id="confirm_passwd" class="passwd" placeholder="새 비밀번호를 한 번 더 입력해주세요."> 
+															<span id="message_id"></span>
+														</li>
+													</ul>
+													<div class="profile-userbuttons">
+														<form:button class="modibtn">수정</form:button>
+														<input type="button" class="homebtn" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+													</div>
+											</div>
+										</header>
+										</div>
+									</section>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
 		</div>
 	</form:form>
 </div>
