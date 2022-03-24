@@ -146,7 +146,7 @@ ul li {
 															<form:errors path="introduction" cssClass="error-color" />
 														</li>
 														<li>
-															<form:label path="passwd">비밀번호</form:label>
+															<form:label  path="passwd" >비밀번호</form:label>
 															<input type="button" class="passbtn" value="비밀번호변경하기 >" 
 															data-bs-toggle="modal" data-bs-target="#myModal3" onclick="location.href='changePassword.do'">
 														</li> 

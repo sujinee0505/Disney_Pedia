@@ -56,6 +56,10 @@
 	text-align: center;
 }
 
+.profile-userbutton {
+	margin-top: 20px;
+}
+
 .profile-userbuttons .btn {
 	text-transform: uppercase;
 	text-align: center;
@@ -185,6 +189,10 @@
 	margin-bottom: 10px;	 
 }
 
+.mylike {
+	margin-inline-start: 85px;
+    margin-inline-end: 85px;
+}
 .passwd {
 	font-size: 15px;
     background-color: #f2f2f2;
@@ -267,12 +275,17 @@
     position: relative;
     padding-bottom: 26px;
     border-bottom: 1px solid #ededed;
+    margin-inline-start: 85px;
+    margin-inline-end: 85px;
 }
 .css-usdi1z {
     position: relative;
     -webkit-transform: translate3d(0,0,0);
     -ms-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
+    margin-inline-start: 85px;
+    margin-inline-end: 85px;
+    border-bottom: 1px solid #ededed;
 }
 .css-9dnzub {
     overflow-x: hidden;

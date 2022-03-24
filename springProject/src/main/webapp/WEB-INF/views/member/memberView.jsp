@@ -49,7 +49,7 @@ ul {
 	list-style-type: disc;
 	margin-block-start: 1em;
 	margin-block-end: 1em;
-	margin-inline-start: 0px;
+	margin-inline-start: 85px;
 	margin-inline-end: 0px;
 }
 
@@ -104,68 +104,71 @@ input[type=button] {
 														<div class="css-1fucs4t-StyledText eb5y16b1">${member.introduction}</div>
 													</div>
 												</div>
-												<div class="profile-userbuttons">
+												<div class="profile-userbutton">
 													<input type="button" value="프로필수정" onclick="location.href='update.do'"> 
 													<a href="${pageContext.request.contextPath}/main/main.do">
-														<img
-														src="${pageContext.request.contextPath}/resources/images/review.png"
+														<img src="${pageContext.request.contextPath}/resources/images/review.png"
 														width="40" height="40">
-													</a> <a href="${pageContext.request.contextPath}/main/main.do">
-														<img
-														src="${pageContext.request.contextPath}/resources/images/list.png"
+													</a> 
+													<a href="${pageContext.request.contextPath}/main/main.do">
+														<img src="${pageContext.request.contextPath}/resources/images/list.png"
 														width="40" height="40">
-													</a> <a
-														href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num=${member.mem_num}">
-														<img
-														src="${pageContext.request.contextPath}/resources/images/cal.png"
+													</a> 
+													<a href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num=${member.mem_num}">
+														<img src="${pageContext.request.contextPath}/resources/images/cal.png"
 														width="40" height="40">
 													</a>
 												</div>
 										</div>
 										</header>
-
 										<div class="css-usdi1z">
 											<div class="css-9dnzub">
 												<div class="css-174lxc3">
 													<div class="css-1gkas1x-Grid e1689zdh0">
 														<div class="css-1y901al-Row emmoxnt0">
-															<ul
-																class="e19zkogf12 css-i1bo8u-VisualUl-CategoryArchivesUl">
-																<li
-																	class="css-1u4jvye-CategoryArchivesListItem e19zkogf13"><a
-																	background="[object Object]"
-																	class="css-h3f67w-CategoryArchivesLink e19zkogf14"
-																	href="/ko-KR/users/87Gv7NW3MDqE6/contents/movies"><ul
-																			class="css-reeb92-VisualUl-CategoryArchives e19zkogf15">
-																			<li
-																				class="css-r3hbc5-CategoryArchivesName e19zkogf16">영화</li>
-																			<li
-																				class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">★61</li>
-																			<li
-																				class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">보고싶어요<strong>
-																					1</strong></li>
-																		</ul></a></li>
-																<li
-																	class="css-1u4jvye-CategoryArchivesListItem e19zkogf13"><a
-																	background="[object Object]"
-																	class="css-1gw6y00-CategoryArchivesLink e19zkogf14"
-																	href="/ko-KR/users/87Gv7NW3MDqE6/contents/tv_seasons"><ul
-																			class="css-1x0nmo-VisualUl-CategoryArchives e19zkogf15">
-																			<li
-																				class="css-r3hbc5-CategoryArchivesName e19zkogf16">TV
-																				프로그램</li>
-																			<li
-																				class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">★3</li>
-																			<li
-																				class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">보고싶어요<strong>
-																					0</strong></li>
-																		</ul></a></li>
-																<div class="css-ml096x"></div>
+															<ul	class="e19zkogf12 css-i1bo8u-VisualUl-CategoryArchivesUl">
+																<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
+																	<a background="[object Object]" class="css-h3f67w-CategoryArchivesLink e19zkogf14"
+																		href="/ko-KR/users/87Gv7NW3MDqE6/contents/movies">
+																		<ul class="css-reeb92-VisualUl-CategoryArchives e19zkogf15">
+																			<li class="css-r3hbc5-CategoryArchivesName e19zkogf16">
+																				영화
+																			</li>
+																			<li class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
+																				★61
+																			</li>
+																			<li class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
+																				보고싶어요<strong>1</strong>
+																			</li>
+																		</ul>
+																	 </a>
+																 </li>
+																 <li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
+																 <a background="[object Object]" class="css-1gw6y00-CategoryArchivesLink e19zkogf14"
+																	href="/ko-KR/users/87Gv7NW3MDqE6/contents/tv_seasons">
+																	<ul class="css-1x0nmo-VisualUl-CategoryArchives e19zkogf15">
+																			<li class="css-r3hbc5-CategoryArchivesName e19zkogf16">
+																				TV프로그램
+																			</li>
+																			<li class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
+																				★3
+																			</li>
+																			<li class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
+																				보고싶어요<strong>0</strong>
+																			</li>
+																		</ul>
+																	</a>
+																	</li>
 															</ul>
 														</div>
 													</div>
 												</div>
 											</div>
+										</div>
+										<div class="mylike">
+											<h2>좋아요</h2>
+											<h4>좋아한 컬렉션</h4>
+											<h4>좋아한 리뷰</h4>
 										</div>
 									</div>
 								</section>
