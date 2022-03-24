@@ -160,13 +160,13 @@
 											</div>
 	<!--=======별점 부분=======-->	 <!-- <div class="css-1m7ruyk"> -->
 	<div class="star_area">
-		<div class="rateit" id="starRate" data-rateit-mode="font"  style="font-size:37px">
+		<div class="rateit" id="starRate" data-rateit-mode="font"  style="font-size:38px;">
+		<%-- letter-spacing:-0.14em; --%>
 		</div>
 	</div>
 	<script type="text/javascript">	
 	    /*rated시->별점에 따른 평가 문구 설정*/		    	
 	    $("#starRate").bind('rated', function (event, value) { 
-	    	$('#rateit-reset-2').css("visibility","hidden");
 	    	$('#do_rating').hide(); //평가하기문구hide
 		   	 if(value === 5 ){ 
 		   	 	$('#rating_text').text('최고예요!');		   
@@ -203,7 +203,8 @@
 	    });
 	     $("#starRate").bind('reset', function () { //reset버튼클릭시
 	    	 $('#rating_text').text('평가하기');	//평가하기문구다시노출
-		}); 	     	    
+	    	 $('#rateit-reset-2').css("visibility","hidden"); //리셋버튼감추기
+		}); 	   
 	</script>  	
 	<!--======별점 부분 끝======-->
 										</div>

@@ -47,7 +47,7 @@
             }
 
             .rateit .rateit-hover {
-                background: url(star.gif) left -32px;
+                background: url(star.gif) left -32px; 
                 color: gold; /*rgb(239, 197, 41)*/
             }
 
@@ -105,7 +105,7 @@
     }
 
     .rateit-font .rateit-empty {
-        color: #ccc;
+        color: #ebebeb; /* #ccc; */
     }
 
     .rateit-font .rateit-range > div, .rateit-font .rateit-range > span {
@@ -126,14 +126,14 @@
     visibility:hidden; /*리셋버튼 안보이게 기본설정*/
 }
 
-    .rateit.rateit-font .rateit-reset span {
+    .rateit.rateit-font .rateit-reset span { /*리셋버튼중앙-표시*/
         display: block;
         font-weight: bold;
         color: white;
-        height: calc(50% - 0.045em);
+        height: calc(70% - 0.045em); /*50%*/
         top: 0;
         position: absolute;
-        border-bottom: 0.09em solid white;
+        border-bottom: 0.05em solid white; /* 0.09em*/
         width: 72%;
         margin-left: 14%;
     }
