@@ -67,6 +67,7 @@ input[type=button] {
 	color: #241c15;
 	background-color: #efeeea;
 	padding: 0 18px;
+	margin-right: 25px;
 }
 
 </style>
