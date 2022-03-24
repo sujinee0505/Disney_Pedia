@@ -169,10 +169,10 @@
 	    	$('#rateit-reset-2').css("visibility","hidden");
 	    	$('#do_rating').hide(); //평가하기문구hide
 		   	 if(value === 5 ){ 
-		   	 	$('#rating_text').text('최고예요');		   
+		   	 	$('#rating_text').text('최고예요!');		   
 		   	 }
 		   	 if(value === 4.5){
-		   		 $('#rating_text').text('훌륭해요');		   
+		   		 $('#rating_text').text('훌륭해요!');		   
 		   	 }
 		   	 if(value === 4 ){
 		   		 $('#rating_text').text('재미있어요');		   
@@ -196,17 +196,14 @@
 		   		 $('#rating_text').text('싫어요');		   
 		   	 }
 		   	 if(value === 0.5){
-		   		 $('#rating_text').text('최악이에요');		
-		   		$('#rateit-reset-2').css("visibility","visible"); //0점 누르기 어려워서 0.5만 눌러도 리셋버튼 나타나게 설정
-		   	 } 
-		   	if(value === 0){ 
-		   		$('#rateit-reset-2').css("visibility","visible"); //0점 누르면 리셋버튼 보이게
-		   		$('#rating_text').text('평가하기');
+		   		 $('#rating_text').text('최악이에요');	
+		   	  //0.5 hover시 리셋버튼 클릭어려워서 0.5클릭 시 리셋버튼 뜨게 설정
+		   	 	$('#rateit-reset-2').css("visibility","visible"); 
 		   	 } 
 	    });
 	     $("#starRate").bind('reset', function () { //reset버튼클릭시
 	    	 $('#rating_text').text('평가하기');	//평가하기문구다시노출
-		}); 	     
+		}); 	     	    
 	</script>  	
 	<!--======별점 부분 끝======-->
 										</div>
