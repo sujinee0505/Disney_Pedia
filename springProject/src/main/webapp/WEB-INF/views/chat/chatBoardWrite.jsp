@@ -10,11 +10,12 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/ckeditor.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/uploadAdapter.js"></script>
 <div class="page-main">
+
      
      
 	<form:form modelAttribute="chatBoardVO" action="write.do" id="register_form" >  
 		<form:errors element="div" cssClass="error-color"/>
-		<ul>
+		<ul> 
 			<li>
 				<form:label path="title">제목</form:label>
 				<form:input path="title"/>
