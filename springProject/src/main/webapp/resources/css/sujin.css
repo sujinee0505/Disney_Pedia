@@ -6188,3 +6188,388 @@ h1, h3, p, hr {
 	margin: 14px -5px 0px;
 	overflow: hidden;
 }
+
+.css-nh9j5x-VisualUl-CommentHorizontalUl {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	white-space: nowrap;
+	margin-right: -5px !important;
+	margin-left: -5px !important;
+	margin-top: 14px;
+	margin-bottom: 30px;
+}
+
+.css-1fryc54 {
+	display: inline-block;
+	vertical-align: top;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0 5px;
+}
+
+@media ( min-width : 719px) {
+	.css-nh9j5x-VisualUl-CommentHorizontalUl>li {
+		width: 50%;
+	}
+}
+
+@media ( min-width : 1023px) {
+	.css-nh9j5x-VisualUl-CommentHorizontalUl>li {
+		width: 50%;
+	}
+}
+
+.css-17dwc6k {
+	background-color: #f2f2f2;
+	box-sizing: border-box;
+	padding: 0 12px;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.css-4obf01 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	border-bottom: 1px solid #e5e5e5;
+	overflow: hidden;
+}
+
+.css-ob93md {
+	position: relative;
+	height: 120px;
+	margin: 12px 0 15px;
+}
+
+.css-1atijos {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	color: #787878;
+	font-size: 14px;
+	font-weight: 400;
+	-webkit-letter-spacing: -0.3px;
+	-moz-letter-spacing: -0.3px;
+	-ms-letter-spacing: -0.3px;
+	letter-spacing: -0.3px;
+	line-height: 19px;
+	height: 44px;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	overflow: hidden;
+}
+
+.css-hy68ty {
+	font-size: 17px;
+	font-weight: 400;
+	-webkit-letter-spacing: -0.7px;
+	-moz-letter-spacing: -0.7px;
+	-ms-letter-spacing: -0.7px;
+	letter-spacing: -0.7px;
+	line-height: 22px;
+	padding: 9.5px 0;
+	margin: 0 -4px;
+}
+
+.css-1cvf9dk {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	font-size: 17px;
+	font-weight: 400;
+	-webkit-letter-spacing: -0.7px;
+	-moz-letter-spacing: -0.7px;
+	-ms-letter-spacing: -0.7px;
+	letter-spacing: -0.7px;
+	line-height: 22px;
+	overflow: hidden;
+}
+
+.css-yqs4xl {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	background: #fff;
+	color: #4a4a4a;
+	font-size: 14px;
+	font-weight: 400;
+	-webkit-letter-spacing: -0.3px;
+	-moz-letter-spacing: -0.3px;
+	-ms-letter-spacing: -0.3px;
+	letter-spacing: -0.3px;
+	line-height: 19px;
+	box-sizing: border-box;
+	min-width: 55px;
+	height: 26px;
+	padding: 0 8px;
+	border: 1px solid #eaeaea;
+	border-radius: 13px;
+	margin: 15px 0 0 16px;
+}
+
+.css-1cvf9dk>a {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	color: #000;
+	-webkit-text-decoration: none;
+	text-decoration: none;
+}
+
+.css-107z6xc {
+	display: block;
+	border: solid 1px rgba(0, 0, 0, 0.08);
+	border-radius: 50%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	position: relative;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 56px;
+	height: 56px;
+	overflow: hidden;
+	width: 32px;
+	height: 32px;
+	-webkit-flex-shrink: 0;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	margin: 11px 8px 11px 0;
+}
+
+.css-1agoci2 {
+	color: #1f1f1f;
+	font-size: 17px;
+	font-weight: 400;
+	-webkit-letter-spacing: -0.7px;
+	-moz-letter-spacing: -0.7px;
+	-ms-letter-spacing: -0.7px;
+	letter-spacing: -0.7px;
+	line-height: 22px;
+	margin-bottom: 2px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.css-10h5a7j-ProfilePhotoImage {
+	position: relative;
+	z-index: 1;
+	background:
+		url(https://an2-img.amz.wtchn.net/image/v2/vWfhipqy6PDn-vgUDouTyg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UQXdlREV3TUNKZExDSndJam9pTDNZeUwzTjBiM0psTDNWelpYSXZSR2QzZUVGbFVWbE9lSEpOYWk5d2NtOW1hV3hsTHpFMk1qazVOekE0TnpBeU5UWXpOemN6TkRRaWZRLm9CUENxSEEwaFFhTjl6TTVLdUx1NVBYNnVPMk90bVgxbHRWcFBxTXFEMEU)
+		no-repeat center;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+}
+
+.css-1f9m1s4-StylelessLocalLink {
+	color: #000;
+	-webkit-text-decoration: none;
+	text-decoration: none;
+}
+
+.css-12rbc09-StyledSelf {
+	word-break: break-all;
+	max-height: 120px;
+	margin: 0;
+	overflow: hidden;
+}
+
+.css-qxbzku-StyledText {
+	white-space: pre-wrap;
+	opacity: 1;
+	transition: opacity 400ms ease 0s;
+}
+
+.css-64x8kr {
+	display: inline-block;
+	background:
+		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgZmlsbD0iIzc4Nzg3OCI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik02Ljc1IDkuNDg1aC0zYTEgMSAwIDAgMC0xIDF2MTBhMSAxIDAgMCAwIDEgMWgzYTEgMSAwIDAgMCAxLTF2LTEwYTEgMSAwIDAgMC0xLTFNMjAuNjU3IDguNTY2YTIuMzYzIDIuMzYzIDAgMCAwLTEuNzc5LS44MTNIMTYuNjJsLjE2NC0uNjI3Yy4xMzctLjUyOC4yMDEtMS4xMi4yMDEtMS44NjMgMC0xLjkxOS0xLjM3NS0yLjc3OC0yLjczOC0yLjc3OC0uNDQ0IDAtLjc2Ni4xMjMtLjk4Ni4zNzYtLjIuMjI3LS4yODIuNTMtLjI0My45MzVsLjAzIDEuMjMtMi45MDMgMi45NGMtLjU5My42LS44OTQgMS4yMy0uODk0IDEuODcydjkuNjQ3YS41LjUgMCAwIDAgLjUuNWg3LjY4N2EyLjM4OCAyLjM4OCAwIDAgMCAyLjM0OC0yLjA3bDEuNDQ1LTcuNDUyYTIuNDQgMi40NCAwIDAgMC0uNTc0LTEuODk3Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K)
+		no-repeat center;
+	background-size: contain;
+	width: 18px;
+	height: 18px;
+	margin: 0 3px;
+}
+
+.css-hy68ty {
+	font-size: 17px;
+	font-weight: 400;
+	-webkit-letter-spacing: -0.7px;
+	-moz-letter-spacing: -0.7px;
+	-ms-letter-spacing: -0.7px;
+	letter-spacing: -0.7px;
+	line-height: 22px;
+	padding: 9.5px 0;
+	margin: 0 -4px;
+}
+
+.css-1h18l7j-StylelessButton {
+	background: none;
+	padding: 0;
+	border: none;
+	margin: 0;
+	cursor: pointer;
+	color: #ff2f6e;
+	font-size: 17px;
+	font-weight: 400;
+	-webkit-letter-spacing: -0.7px;
+	-moz-letter-spacing: -0.7px;
+	-ms-letter-spacing: -0.7px;
+	letter-spacing: -0.7px;
+	line-height: 22px;
+	padding: 2px 8px;
+	cursor: poiner;
+}
+
+.css-30r08r-VisualUl-DeckHorizontalUl {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	white-space: nowrap;
+	margin-right: -5px !important;
+	margin-left: -5px !important;
+	margin-top: 5px;
+	margin-bottom: 25px;
+}
+
+.css-lzc9tv {
+	display: inline-block;
+	vertical-align: top;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0 5px;
+	width: 50%;
+}
+
+@media ( min-width : 719px) {
+	.css-30r08r-VisualUl-DeckHorizontalUl>li {
+		width: 25%;
+	}
+}
+
+@media ( min-width : 1023px) {
+	.css-30r08r-VisualUl-DeckHorizontalUl>li {
+		width: 25%;
+	}
+}
+
+.css-lzc9tv>a {
+	display: inline-block;
+	-webkit-text-decoration: none;
+	text-decoration: none;
+	vertical-align: top;
+	width: 100%;
+}
+
+.css-8vjban {
+	position: relative;
+	background: #cccdcf;
+	box-sizing: border-box;
+	width: 100%;
+	padding-bottom: 140%;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.css-zc7t4e {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding: 2px;
+}
+
+.css-ff1m0l {
+	box-sizing: border-box;
+	width: 50%;
+	padding: 2px;
+}
+
+.css-5tj4gl-StyledSelf {
+	position: relative;
+	overflow: hidden;
+	background: #f8f8f8;
+	background: #c4c4c4;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+}
+
+.css-bhgne5-StyledBackground {
+	display: inline-block;
+	position: absolute;
+	inset: 0px;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	opacity: 1;
+	transition: all 300ms ease 0s;
+}
+
+.css-19qbuza-VisualUl {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	min-height: 60px;
+	margin: 5px 10px 0 0;
+}
+
+.css-iia7hw {
+	color: #292a32;
+	font-size: 15px;
+	font-weight: 400;
+	-webkit-letter-spacing: -0.5px;
+	-moz-letter-spacing: -0.5px;
+	-ms-letter-spacing: -0.5px;
+	letter-spacing: -0.5px;
+	line-height: 20px;
+	font-weight: 500;
+}
+
+.css-sloxdm-StyledSelf {
+	word-break: break-all;
+	max-height: 40px;
+	margin: 0;
+	overflow: hidden;
+}
+
+.css-1fucs4t-StyledText {
+	white-space: pre-wrap;
+}

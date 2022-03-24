@@ -5,36 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-		var width = $('.scroll').width();
-		$(document).on('click', '.right', function() {
-			var scrollX = $(this).siblings('.scroll').scrollLeft();
-			$(this).siblings('.scroll').scrollLeft(scrollX + width);
-		});
-		$(document).on('click', '.left', function() {
-			var scrollX = $(this).siblings('.scroll').scrollLeft();
-			$(this).siblings('.scroll').scrollLeft(scrollX - width);
-		});
-		$('.scroll').scroll(
-				function() {
-					if ($(this).scrollLeft() + $(this).innerWidth() >= $(this)
-							.prop('scrollWidth')) {
-						$(this).parent().find('.right').hide();
-					} else {
-						$(this).parent().find('.right').show();
-					}
-				});
-		$('.scroll').scroll(function() {
-			if ($(this).scrollLeft() == 0) {
-				$(this).parent().find('.left').hide();
-			} else if ($(this).scrollLeft() != 0) {
-				$(this).parent().find('.left').show();
-			}
-		});
-
-	});
-</script>
+<script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
 <section class="css-18gwkcr">
 	<section class="css-le8j8b">
 		<div class="css-1jehmiq">
@@ -125,7 +96,8 @@
 												<li class="css-1iuimiv"><a
 													title="${search_result.title }"
 													class="css-1aaqvgs-InnerPartOfListWithImage"
-													href="${pageContext.request.contextPath}/contents/detail.do?type=${search_result.type }&id=${search_result.id}"><div class="css-cssveg">
+													href="${pageContext.request.contextPath}/contents/detail.do?type=${search_result.type }&id=${search_result.id}"><div
+															class="css-cssveg">
 															<div class=" css-14fymwm-StyledSelf e1q5rx9q0">
 																<span class="css-bhgne5-StyledBackground e1q5rx9q1"
 																	style="background-image:url('https://image.tmdb.org/t/p/original/${search_result.poster_path }');"></span>
@@ -185,9 +157,11 @@
 									<ul class="css-e9dkp8-VisualUl">
 										<c:forEach var="search_result" items="${search_result }">
 											<c:if test="${search_result.type eq 'tv' }">
-												<li class="css-1iuimiv"><a title="${search_result.title }"
+												<li class="css-1iuimiv"><a
+													title="${search_result.title }"
 													class="css-1aaqvgs-InnerPartOfListWithImage"
-													href="${pageContext.request.contextPath}/contents/detail.do?type=${search_result.type }&id=${search_result.id}""><div class="css-cssveg">
+													href="${pageContext.request.contextPath}/contents/detail.do?type=${search_result.type }&id=${search_result.id}""><div
+															class="css-cssveg">
 															<div class=" css-14fymwm-StyledSelf e1q5rx9q0">
 																<span class="css-bhgne5-StyledBackground e1q5rx9q1"
 																	style="background-image:url('https://image.tmdb.org/t/p/original/${search_result.poster_path }');"></span>

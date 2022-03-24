@@ -42,14 +42,32 @@ public class ContentsController {
 			List<Integer> list1 = new ArrayList<>(temp.get(i).getGenres());
 			List<Integer> list2 = new ArrayList<>(contents.getGenres());
 
-			// 상세페이지의 컨텐츠와 다른 컨텐츠들의 장르를 비교
-			list1.retainAll(list2);
+			// 등록되어 있는 장르가 1개일 경우
+			if (list2.size() == 1) {
+				list1.retainAll(list2);
+				if (list1.size() == 1) {
+					ContentsVO vo = new ContentsVO();
+					vo = temp.get(i);
+					reco.add(vo);
+				}
+				// 등록되어 있는 장르가 2개일 경우
+			} else if (list2.size() == 2) {
+				list1.retainAll(list2);
+				if (list1.size() == 2) {
+					ContentsVO vo = new ContentsVO();
+					vo = temp.get(i);
+					reco.add(vo);
+				}
+			} else {
+				// 상세페이지의 컨텐츠와 다른 컨텐츠들의 장르를 비교
+				list1.retainAll(list2);
 
-			// 적어도 겹치는 장르가 세개 이상인 경우만 출력
-			if (list1.size() >= 3) {
-				ContentsVO vo = new ContentsVO();
-				vo = temp.get(i);
-				reco.add(vo);
+				// 적어도 겹치는 장르가 세개 이상인 경우만 출력
+				if (list1.size() >= 3) {
+					ContentsVO vo = new ContentsVO();
+					vo = temp.get(i);
+					reco.add(vo);
+				}
 			}
 		}
 

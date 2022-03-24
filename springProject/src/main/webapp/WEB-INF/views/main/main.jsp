@@ -4,37 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-		var width = $('.scroll').width();
-		$(document).on('click', '.right', function() {
-			var scrollX = $(this).siblings('.scroll').scrollLeft();
-			$(this).siblings('.scroll').scrollLeft(scrollX + width);
-		});
-		$(document).on('click', '.left', function() {
-			var scrollX = $(this).siblings('.scroll').scrollLeft();
-			$(this).siblings('.scroll').scrollLeft(scrollX - width);
-		});
-		$('.scroll').scroll(
-				function() {
-					if ($(this).scrollLeft() + $(this).innerWidth() >= $(this)
-							.prop('scrollWidth')) {
-						$(this).parent().find('.right').hide();
-					} else {
-						$(this).parent().find('.right').show();
-					}
-				});
-		$('.scroll').scroll(function() {
-			if ($(this).scrollLeft() == 0) {
-				$(this).parent().find('.left').hide();
-			} else if ($(this).scrollLeft() != 0) {
-				$(this).parent().find('.left').show();
-			}
-		});
-
-	});
-</script>
-
+<script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
 <!-- 메인 시작 -->
 <section class="css-7klu3x">
 	<div class="css-lufi3b">
