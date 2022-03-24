@@ -15,7 +15,9 @@
 	vertical-align: middle;
 	display: flex;
 	justify-content: center;
-}
+	max-width: 640px;
+	margin: 0 auto;
+	}
 
 .profile-userpic img {
 	float: none;
@@ -36,7 +38,8 @@
 	font-size: 16px;
 	font-weight: 600;
 	margin-bottom: 7px;
-	text-align: left;
+	text-align: center;
+	border-bottom: 1px solid #ededed;
 }
 
 .profile-usertitle-intro {
@@ -49,7 +52,8 @@
 }
 
 .profile-userbuttons {
-	margin-top: 10px;
+	margin-top: 20px;
+	text-align: center;
 }
 
 .profile-userbuttons .btn {
@@ -66,7 +70,7 @@
 	text-align: center;
 }
 
-.yWX7d{
+.yWX7d {
     border: 0;
     color: #0095f6;
     color: rgba(var(--d69,0,149,246),1);
@@ -83,14 +87,70 @@
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     font-size: 14px;
     font-weight: 600;
-    padding: 5px 9px;
+    padding: 10px 9px;
     text-align: center;
-    padding-inline-start: 110px;
+    padding-inline-start: 280px;
     text-overflow: ellipsis;
     text-transform: inherit;
     user-select: none;
-    width: auto;
-    
+    width: auto; 
+}
+
+.yWX7s{
+    color: gray;
+    position: relative;
+    background: 0 0;
+    border: 0;
+    box-sizing: border-box;
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 9px;
+    margin-top: 1px;
+    padding-inline-start: 575px;
+	}
+	
+.modibtn  {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	padding: 0 16px;
+	background-color: #0070d2;
+	border-radius: 0.25rem;
+	border: 1px solid #0070d2;
+	color: #fff;
+	font-size: 13px;
+	line-height: 30px;
+	font-weight: 400;
+	text-align: center; 
+}	
+
+.homebtn  {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	padding: 0 16px;
+	background-color: #fff;
+	border-radius: 0.25rem;
+	border: 1px solid #0070d2;
+	color: #0070d2;
+	font-size: 13px;
+	line-height: 30px;
+	font-weight: 400;
+	text-align: center;
+}
+
+.passbtn {
+	color: gray;
+    position: relative;
+    background: 0 0;
+    border: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 9px;
+    text-align: center;
+	}
 }
 .form1 {
 	box-sizing: border-box;
@@ -112,7 +172,6 @@
 		70ms cubic-bezier(.2, 0, .38, .9);
 	margin-bottom: 10px;	 
 }
-
 .css-1xm32e0 {
     position: relative;
     width: 100%;
@@ -126,7 +185,7 @@
     padding-bottom: 56px;
 }
 .css-egiga7-Self {
-    background: #f8f8f8;
+    background: #F1F3FA;
     overflow: hidden;
 }
 @media (min-width: 719px){
