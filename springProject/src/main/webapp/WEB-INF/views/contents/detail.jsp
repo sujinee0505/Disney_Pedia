@@ -3,12 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/star-rating-svg.css">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.star-rating-svg.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/star-rating-svg.css">
+<script	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script	src="${pageContext.request.contextPath}/resources/js/jquery.star-rating-svg.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var width = $('.scroll').width();
@@ -149,110 +146,96 @@
 										<div class="css-1jlb6q">
 											<div class="css-yt2kjp">
 												<div class="css-1k5zzs9">
-													<span id="rating1">평가하기</span> <span id="rating2"></span>
+													<span id="do_rating">평가하기</span>
+												<!-- 평가 문구 노출영역 -->
+												<span id="rating_text"></span> 
 												</div>
 												<br>
 
 											</div>
-											<!--=======별점 부분=======-->
-											<!-- <div class="css-1m7ruyk"> -->
-											<div class="star_area">
-												<div class="my-rating-2"></div>
-											</div>
-											<script type="text/javascript">
-												$(".my-rating-2")
-														.starRating(
-																{
-																	totalStars : 5,
-																	emptyColor : 'lightgray',
-																	hoverColor : 'gold',
-																	strokeWidth : 0,
-																	useGradient : false,
-																	callback : function(
-																			currentRating,
-																			$el) {
-																		/* alert('평가점수: '+currentRating +'점'); */
-																		console
-																				.log(
-																						'DOM element ',
-																						$el);
-																		value = $(
-																				$el)
-																				.data(
-																						'init');
-																		if (currentRating === 5) {
-																			$(
-																					'#rating2')
-																					.text(
-																							'최고예요');
-																		}
-																		if (currentRating === 4.5) {
-																			$(
-																					'#rating2')
-																					.text(
-																							'훌륭해요');
-																		}
-																		if (currentRating === 4) {
-																			$(
-																					'#rating2')
-																					.text(
-																							'재미있어요');
-																		}
-																		if (currentRating === 3.5) {
-																			$(
-																					'#rating2')
-																					.text(
-																							'볼만해요');
-																		}
-																		if (currentRating === 3) {
-																			$(
-																					'#rating2')
-																					.text(
-																							'보통이에요');
-																		}
-																		if (currentRating === 2.5) {
-																			$(
-																					'#rating2')
-																					.text(
-																							'부족해요');
-																		}
-																		if (currentRating === 2) {
-																			$(
-																					'#rating2')
-																					.text(
-																							'별로예요');
-																		}
-																		if (currentRating === 1.5) {
-																			$(
-																					'#rating2')
-																					.text(
-																							'재미없어요');
-																		}
-																		if (currentRating === 1) {
-																			$(
-																					'#rating2')
-																					.text(
-																							'싫어요');
-																		}
-																		if (currentRating === 0.5) {
-																			$(
-																					'#rating2')
-																					.text(
-																							'최악이에요');
-																		}
-																	},
-																/*  onHover: function(currentIndex, currentRating, $el){
-																 	$('.live-rating').text(currentIndex);
-																   } */
-																});
-												$(".my-rating-2").click(
-														function() {
-															$('#rating1')
-																	.hide();
-														});
-												/* $('.my-rating-2').starRating('getRating'); */
-											</script>
-											<!--======별점 부분 끝======-->
+	<!--=======별점 부분=======-->	<!-- <div class="css-1m7ruyk"> -->
+	<div class="star_area">
+		<div class="my-rating-2"></div>
+	</div>
+	<script type="text/javascript">
+	
+	$(".my-rating-2").click(function(currentRating, $el){				
+		$('#do_rating').hide();	//별점 클릭 시 '평가하기'문구 hide	
+		
+		//별점 클릭 시 ajax로 데이터 전송
+		var value = $($el).data('init');
+		
+		$.ajax({
+			url:'starRating.do',
+			type:'post', 
+			data:{$el:value},  //이거맞나 -_-
+			dataType:json,  // xml/html/script/json/text.. json으로 하는게 베스튼가 
+			cache:false,
+			timeout:30000,
+			success:function(param){
+				if(param.result == 'success'){
+					location.href='detail.do'; 
+				}else{
+					alert('별점 입력 오류 발생');
+				}
+			},
+			error:function(){
+				alert('네크워크 오류 발생');
+			}
+		}); //ajax끝
+		
+	});	//end of click
+	
+		$(".my-rating-2").starRating({
+			totalStars : 5,
+			emptyColor : 'lightgray',
+			hoverColor : 'gold',
+			strokeWidth : 0,
+			useGradient : false,			
+		    callback: function(currentRating, $el){
+		    	// alert('평가점수: '+currentRating +'점'); 
+		        //  console.log('DOM element ', $el); 
+		       
+		    	// value = $($el).data('init');  
+		    	 
+		    	 if(currentRating === 5 ){ /*별점에 따른 평가 문구 설정*/
+		    	 	$('#rating_text').text('최고예요');		   
+		    	 }
+		    	 if(currentRating === 4.5){
+		    		 $('#rating_text').text('훌륭해요');		   
+		    	 }
+		    	 if(currentRating === 4 ){
+		    		 $('#rating_text').text('재미있어요');		   
+		    	 }
+		    	 if(currentRating === 3.5 ){
+		    		 $('#rating_text').text('볼만해요');		   
+		    	 }
+		    	 if(currentRating === 3 ){
+		    		 $('#rating_text').text('보통이에요');		   
+		    	 }
+		    	 if(currentRating === 2.5){
+		    		 $('#rating_text').text('부족해요');		   
+		    	 }
+		    	 if(currentRating === 2){
+		    		 $('#rating_text').text('별로예요');		   
+		    	 }
+		    	 if(currentRating === 1.5){
+		    		 $('#rating_text').text('재미없어요');		   
+		    	 }
+		    	 if(currentRating === 1){
+		    		 $('#rating_text').text('싫어요');		   
+		    	 }
+		    	 if(currentRating === 0.5){
+		    		 $('#rating_text').text('최악이에요');		   
+		    	 } 
+		    },			    		    
+		   /*  onHover: function(currentIndex, currentRating, $el){
+		    	$('.live-rating').text(currentIndex);
+		      } */
+		});
+		/* $('.my-rating-2').starRating('getRating'); */
+	</script>
+	<!--======별점 부분 끝======-->
 										</div>
 										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 										<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
