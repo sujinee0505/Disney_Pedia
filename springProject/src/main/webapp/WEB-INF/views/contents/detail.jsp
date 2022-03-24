@@ -6,10 +6,11 @@
 <!-- <script	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> -->
 <!-- <script src="//code.jquery.com/jquery.min.js"></script>
  -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/css/rateit.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/jquery.rateit.js"></script>
-
+<script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
  <script type="text/javascript">
 	$(function() {
@@ -84,9 +85,13 @@
 								.addClass('css-kywn7v-StyledText');
 						$('#status').show();
 					}
-				});
-
-	});
+				});		
+		//코멘트 커서
+		$('#commentModal').on('shown.bs.modal', function () {
+			  $('#comment').trigger('focus')
+		})	
+	});	
+	
 </script>
 <div class="css-16jhzm7-Self e1ezac430">
 	<div class="css-1ihluk0-Content e1ezac431">
@@ -162,7 +167,7 @@
 	<div class="star_area">
 		<div class="rateit" id="starRate" data-rateit-mode="font"  style="font-size:38px;">
 		<%-- letter-spacing:-0.14em; --%>
-		</div>
+		</div>		
 	</div>
 	<script type="text/javascript">	
 	    /*rated시->별점에 따른 평가 문구 설정*/		    	
@@ -244,8 +249,8 @@
 													</div>
 												</div>
 												코멘트
-											</button>
-											<button
+											</button>	<!-- ======코멘트 모달 설정부분====== -->																										
+											<button  data-bs-target="#commentModal" data-bs-toggle="modal" 
 												class="css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm e1svyhwg25">
 												<div class="Icon icPencil css-1q1i623-SVG e1282e850">
 													<div>
@@ -671,4 +676,12 @@
 			</div>
 		</div>
 	</div>
+</div>
+<!--코멘트 모달 틀-->
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-comment">
+    <div class="modal-content">
+        <jsp:include page="/WEB-INF/views/contents/comment.jsp"/>
+    </div>
+  </div>
 </div>

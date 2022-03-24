@@ -7,6 +7,14 @@
 <script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
 	$(function(){
+		//커서
+		$('#myModal').on('shown.bs.modal', function () { 
+			  $('#id').trigger('focus')
+		})	
+		$('#myModal2').on('shown.bs.modal', function () {
+			  $('#name').trigger('focus')
+		})
+		
 		let checkId = 0;
 		
 		//아이디 중복 체크
