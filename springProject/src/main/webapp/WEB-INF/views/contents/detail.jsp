@@ -202,7 +202,7 @@
 		   	 } 
 	    });
 	     $("#starRate").bind('reset', function () { //reset버튼클릭시
-	    	 $('#rating_text').text('평가하기');	//평가하기문구다시노출
+	    	 $('#rating_text').text('평가하기');	//평가하기문구다시노출 
 	    	 $('#rateit-reset-2').css("visibility","hidden"); //리셋버튼감추기
 		}); 	   
 	</script>  	
