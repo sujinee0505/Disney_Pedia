@@ -120,7 +120,6 @@ public class ChatBoardController {
 		List<ChatBoardVO> list = null;
 		if(count>0) {
 			list = chatBoardService.selectList(map);
-			logger.info("<<count>> : " + count);
 		}
 		logger.info("<<목록테스트2>> : " + list);
 		
@@ -133,38 +132,56 @@ public class ChatBoardController {
 		mav.addObject("list", list);
 		mav.addObject("pagingHtml", page.getPagingHtml());
 		 
-	return mav;
+		return mav;
 	}
 	
-	
-	//[글 쓰기]
+	//**[글 상세]**
 	//게시판 글 상세
 	@RequestMapping("/chatboard/detail.do")
 	public ModelAndView process(@RequestParam int chatboard_num) {
-		logger.info("<<게시판 글 상세 - 글 번호>> : " + chatboard_num);
+		logger.info("<<게시판 글 상세 - 글 번호1>> : " + chatboard_num);
 		
 		//해당 글의 조회수 증가
 		chatBoardService.updateHit(chatboard_num);
 		
-		ChatBoardVO chatboardVO = chatBoardService.selectBoard(chatboard_num);
+		//한건의 레코드를 읽어오고
+		ChatBoardVO chatboard = chatBoardService.selectBoard(chatboard_num);
+		logger.info("<<test>> : " + chatboard_num);
+		logger.info("<<ChatBoardVO>> : " + chatboard);
+
 		//타이틀 HTML 불허
-		chatboardVO.setTitle(StringUtil.useNoHtml(chatboardVO.getTitle()));
-		                        //타일스 설정      속성명      속성값
-		return new ModelAndView("chatBoardView","chatboardVO",chatboardVO);
+		chatboard.setTitle(StringUtil.useNoHtml(chatboard.getTitle()));
+		logger.info("<<ChatBoardVO>> : " + chatboard.getTitle());
+		
+		logger.info("<<게시판 글 상세 - 글 번호>> : " + chatboard_num);
+		//한건의 레코드를 ModelAndView에 넘기는데 생성자를 통해서 하나만 넘긴다.
+		return new ModelAndView("chatBoardView","chatboard",chatboard);
+									//tiles설정,  	 속성명, 	 	속성값
+		
+		/*ModelAndView mav = new ModelAndView();
+		mav.setViewName("chatBoardView");//tiles설정
+		
+		mav.addObject("chatboard",chatboard);//byte배열로 반환
+		mav.addObject("photo",chatboard.getPhoto());//byte배열로 반환
+		mav.addObject("photo_name", chatboard.getPhoto_name());
+		logger.info("<<mav>> : " + mav);
+		
+		return mav;
+		*/
 	}
 	
 	//이미지 출력
-/*	@RequestMapping("/chatboard/imageView.do")
+	@RequestMapping("/chatboard/imageView.do")
 	public ModelAndView viewImage(@RequestParam int chatboard_num) {
-		ChatBoardVO chatboardVO = chatBoardService.selectBoard(chatboard_num);
+		ChatBoardVO chatboard = chatBoardService.selectBoard(chatboard_num);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("imageView");
-		mav.addObject("imageFile",chatboardVO.getUploadfile());
-		mav.addObject("filename", chatboardVO.getFilename());
+		mav.addObject("photo",chatboard.getPhoto());//byte배열로 반환
+		mav.addObject("photo_name", chatboard.getPhoto_name());
 		return mav;
 	}
-	
+	/*
 	//파일 다운로드
 	@RequestMapping("/chatboard/file.do")
 	public ModelAndView download(@RequestParam int chatboard_num) {
@@ -178,16 +195,19 @@ public class ChatBoardController {
 		return mav;
 	}
 	*/
+	
+	/*
 	//수정 폼
 	@GetMapping("/chatboard/update.do")
 	public String formUpdate(@RequestParam int chatboard_num,
 			                 Model model) {
-		ChatBoardVO chatboardVO = chatBoardService.selectBoard(chatboard_num);
+		ChatBoardVO chatboard = chatBoardService.selectBoard(chatboard_num);
 		
-		model.addAttribute("chatboardVO", chatboardVO);		
+		model.addAttribute("chatboard", chatboard);		
 		
 		return "chatboardModify";
 	}
+	*/
 	/*
 	//수정 폼에서 전송된 데이터 처리
 	@PostMapping("/chatboard/update.do")
@@ -219,13 +239,13 @@ public class ChatBoardController {
 		
 		return "common/resultView";
 	}
-	*/
 	//게시판 글 삭제
 	@RequestMapping("/chatboard/delete.do")
 	public String submitDelete(@RequestParam int chatboard_num) {
 		chatBoardService.deleteBoard(chatboard_num);
 		return "redirect:/chatboard/list.do";
 	}
+	 */
 	
 }
 

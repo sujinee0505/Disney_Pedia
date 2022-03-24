@@ -2,21 +2,81 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%><!-- 조건체크 -->
+						<!-- 이미지일경우 보여지게 하고 이미지아닐경우 다운로드하도록 functions이용할 것. -->
 <!-- 중앙 컨텐츠 시작 -->
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/chatboard.reply.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/videoAdapter.js"></script>
-<div class="page-main">
-	<h2>${chatboard.title}</h2>
+
+<style>
+/* 상 우 하 좌/상 좌우 하/상하 좌우 */
+div.page-main{
+margin: 100px 300px; 
+outline:1px dotted red;
+
+}
+div.page-main h2{
+outline:1px dotted red;
+margin:10px auto;
+text-align: left;
+}
+</style>
+
+<div class="page-main container-sm" id="boardView">
+	 <h2>
+		<c:if test="${chatboard.mate_state==0}">
+			<span class="badge rounded-pill bg-danger">모집중!</span>
+		</c:if>
+		<c:if test="${chatboard.mate_state==1}">
+			<span class="badge rounded-pill bg-light text-dark">모집 마감</span>
+		</c:if>
+		&nbsp;
+		${chatboard.title}
+	</h2> 
+	<div id="boardView_middle">
+		<div>
+			<c:if test="${chatboard.photo==null}">
+				<img alt="" src="${pageContext.request.contextPath}/resources/images/face.png">
+			</c:if>
+		</div>
+		<div>
+		 ${chatboard.name}
+		</div>
+		<div>
+		작성일 : ${chatboard.reg_date}
+		</div>
+	</div>
+	<hr size="1" width="100%" noshade="noshade">
+	<div>
+		${chatboard.content}
+	</div>
+	<div>
+		 조회수 : ${chatboard.hit}
+	</div>
+
+<%-- 
+	<c:if test="${fn:endsWith(chatboard.photoname,'.jpg') || fn:endsWith(chatboard.photoname,'.JPG') ||
+				  fn:endsWith(chatboard.photoname,'.gif') || fn:endsWith(chatboard.photoname,'.GIF') ||
+				  fn:endsWith(chatboard.photoname,'.png') || fn:endsWith(chatboard.photoname,'.PNG')}">
+		<div class="align-center">
+			하하
+			<img src="imageView.do?chatboard_num=${chatboard.chatboard_num}"
+					style="max-width: 500px;">
+		</div>
+	</c:if>
+	 
 	<ul>
 		<li>번호 : ${chatboard.chatboard_num}</li>
-		<li>작성자 : ${chatboard.id}</li>
+		<li>작성자 : ${chatboard.name}</li>
 		<li>조회수 : ${chatboard.hit}</li>
-		<c:if test="${!empty chatboard.modify_date}">
-		<li>최근 수정일 : ${chatboard.modify_date}</li>
-		</c:if>
-		<li>작성일 : ${chatboard.reg_date}</li>
 	</ul>
+</table>  
+		<!-- <c:if test="${!empty chatboard.modify_date}">
+		<li>최근 수정일 : ${chatboard.modify_date}</li>
+		</c:if> -->
+		<li>작성일 : ${chatboard.reg_date}</li>
+		<li>메이트 : ${chatboard.mate_state}</li>
 	<p>
 		${chatboard.content}
 	</p>
@@ -39,6 +99,10 @@
 		<input type="button" value="목록" onclick="location.href='list.do'">
 	</div>
 	<hr size="1" width="100%" noshade="noshade">
+	--%>
+	
+	
+	<!-- 
 	<div id="reply_div">
 		<span class="re-title">댓글 달기</span>
 		<form id="re_form">
@@ -58,13 +122,14 @@
 			</c:if>
 		</form>
 	</div>
+	-->
 	<!-- 댓글 목록 출력 -->
-	<div id="output"></div>
+	<%-- <div id="output"></div>
 	<div class="paging-button" style="display:none;">
 		<input type="button" value="다음글 보기">
 	</div>
 	<div id="loading" style="display:none;">
 		<img src="${pageContext.request.contextPath}/resources/images/ajax-loader.gif">
-	</div>
+	</div> --%>
 </div>
 <!-- 중앙 컨텐츠 끝 -->

@@ -38,25 +38,21 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 	@Override
 	public void updateHit(Integer chatboard_num) {
 		chatBoardMapper.updateHit(chatboard_num);
-		
 	}
 
 	@Override
 	public void updateBoard(ChatBoardVO chatboard) {
-		chatBoardMapper.updateBoard(chatboard);
-		
+		//chatBoardMapper.updateBoard(chatboard);
 	}
 
 	@Override
 	public void deleteBoard(Integer chatboard_num) {
-		chatBoardMapper.deleteBoard(chatboard_num);
-		
+		//chatBoardMapper.deleteBoard(chatboard_num);
 	}
 
 	@Override
 	public void deleteFile(Integer chatboard_num) {
-		chatBoardMapper.deleteFile(chatboard_num);
-		
+		//chatBoardMapper.deleteFile(chatboard_num);
 	}
 
 

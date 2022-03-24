@@ -23,15 +23,17 @@ public interface ChatBoardMapper {
 			"VALUES (dchatboard_seq.nextval,#{mem_num},#{title},#{content},SYSDATE)")
 	public void insertBoard(ChatBoardVO board); 
 	
-	@Select("SELECT * FROM dchatboard b JOIN dmember m "
-			+ "ON b.mem_num=m.mem_num WHERE b.(chatboard_num=#{chatboard_num}")
+	//**글 상세
+	@Select("SELECT * FROM dchatboard b JOIN dmember_detail m "
+			+ "ON b.mem_num=m.mem_num WHERE b.chatboard_num=#{chatboard_num}")
 	public ChatBoardVO selectBoard(Integer chatboard_num);
-
 	
-	
+	//**조회수
 	@Update("UPDATE dchatboard SET hit=hit+1 WHERE chatboard_num=#{chatboard_num}")
 	public void updateHit(Integer chatboard_num);//조회수
+	
 
+	//**글 수정
 	//xml
 	public void updateBoard(ChatBoardVO chatboard);
 
@@ -41,7 +43,7 @@ public interface ChatBoardMapper {
 	@Update("UPDATE dchatboard SET uploadfile='',filename='' "
 			+ "WHERE chatboard_num=#{chatboard_num}")
 	public void deleteFile(Integer chatboard_num);
-
+	
 }
 	
 

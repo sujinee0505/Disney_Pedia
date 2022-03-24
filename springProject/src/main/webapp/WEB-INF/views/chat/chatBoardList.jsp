@@ -97,13 +97,8 @@ tr#chatboardList {
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
-
-
 	
 </div>
-
-
 
 
 	<c:if test="${!empty user_num}">
@@ -111,7 +106,6 @@ tr#chatboardList {
 			<input type="button" value="글쓰기" onclick="location.href='write.do'">
 		</div>
 	</c:if>
-
 
 <!-- 유효성체크를 자바스크립트로 사용할 것이기에 form HTML태그 사용-->
 <form action="list.do" id="search_form" method="get">
@@ -140,7 +134,7 @@ tr#chatboardList {
 
 <c:if test="${count > 0}">
 	<div class="table-responsive-lg">
-		<table class="table  table-hover">
+		<table class="table  ">
 			<tr class="table-primary">
 				<th>번호</th>
 				<th width="400">제목</th>
@@ -149,12 +143,14 @@ tr#chatboardList {
 				<th>조회수</th>
 				<th>메이트현황</th>
 			</tr>
+		</table>
+		<table class="table  table-hover">
 			<c:forEach var="dchatboard" items="${list}">
 				<tr id="chatboardList"
 					onClick="location.href='detail.do?chatboard_num=${dchatboard.chatboard_num}'">
 					<td>${dchatboard.chatboard_num}</td>
 					<%-- <td><a href="detail.do?chatboard_num=${dchatboard.chatboard_num}">${dchatboard.title}</a></td> --%>
-					<td>${dchatboard.title}</td>
+					<td width="400">${dchatboard.title}</td>
 					<td>${dchatboard.name}</td>
 					<td>${dchatboard.reg_date}</td>
 					<td>${dchatboard.hit}</td>

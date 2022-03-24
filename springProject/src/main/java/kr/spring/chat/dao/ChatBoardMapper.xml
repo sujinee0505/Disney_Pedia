@@ -69,19 +69,14 @@
 	</select>
 	
 	<!--  
-	<update id="updateBoard" parameterType="boardVO">
-		UPDATE spboard SET
-			<if test="filename != ''">
-				uploadfile=#{uploadfile},
-				filename=#{filename},
-			</if> 
+	<update id="updateBoard" parameterType="chatBoardVO">
+		UPDATE dchatBoard SET
 			title=#{title},
 			content=#{content},
-			ip=#{ip},
-			modify_date=SYSDATE
-		WHERE board_num=#{board_num}
+			mate_state=#{mate_state}
+		WHERE chatboard_num=#{chatboard_num}
 	</update>
-	-->
+	-->  
 	<!-- **댓글** -->
 	<!-- [댓글 목록] -->
 	
