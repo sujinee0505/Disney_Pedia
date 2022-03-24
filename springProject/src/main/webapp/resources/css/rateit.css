@@ -57,7 +57,7 @@
 
             .rateit .rateit-selected {
                 background: url(star.gif) left -16px;
-                color: gold; /*rgb(191,66,66)*/
+                color: gold; /*rgb(191,66,66) */
             }
 
             .rateit .rateit-selected-rtl {

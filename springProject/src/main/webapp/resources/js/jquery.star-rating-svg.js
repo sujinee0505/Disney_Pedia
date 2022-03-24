@@ -91,6 +91,12 @@
       var index = this.getIndex(e);
       this.paintStars(index, 'hovered');
       this.settings.onHover(index + 1, this._state.rating, this.$el);
+      
+      if (stateClass === 'rated') {
+      var index = this.getIndex(e);
+      this.paintStars(index, 'hovered');
+      this.settings.onHover(index + 1, this._state.rating, this.$el);
+      }
     },
 
     // clicked on a rate, apply style and state
@@ -181,7 +187,7 @@
           ratedColor = this._defaults.ratedColor;
         }
 
-        // only override colors in rated stars and when rated number is valid
+        // only override colors in rated stars and when rated number is valid       
        if (stateClass === 'rated' && endIndex > -1) { 
      	  // limit to painting only to rated stars, and specific case for half star 
 		   if (index <= Math.ceil(endIndex) || (index < 1 && endIndex < 0)) { 
@@ -198,7 +204,7 @@
           else { 
           	//lets you deselect stars 
           	$polygonRight.attr('style', 'stroke-opacity: 0;'); 
-          }
+          }          
         }			
       }.bind(this));
     },
