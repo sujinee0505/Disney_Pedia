@@ -158,7 +158,7 @@
 												<br>
 
 											</div>
-	<!--=======별점 부분=======-->	<!-- <div class="css-1m7ruyk"> -->
+	<!--=======별점 부분=======-->	 <!-- <div class="css-1m7ruyk"> -->
 	<div class="star_area">
 		<div class="rateit" id="starRate" data-rateit-mode="font"  style="font-size:37px">
 		</div>
