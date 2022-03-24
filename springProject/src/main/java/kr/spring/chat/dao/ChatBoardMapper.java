@@ -32,7 +32,7 @@ public interface ChatBoardMapper {
 	@Update("UPDATE dchatboard SET hit=hit+1 WHERE chatboard_num=#{chatboard_num}")
 	public void updateHit(Integer chatboard_num);//조회수
 	
-
+ 
 	//**글 수정
 	//xml
 	public void updateBoard(ChatBoardVO chatboard);

@@ -11,22 +11,58 @@
 
 <style>
 /* 상 우 하 좌/상 좌우 하/상하 좌우 */
-div.page-main{
-margin: 100px 300px; 
+div#boardView{
+margin:200px auto;
+width:80%;
 outline:1px dotted red;
-
 }
-div.page-main h2{
+div#boardView h2{
 outline:1px dotted red;
 margin:10px auto;
+padding-left:10px;
 text-align: left;
 }
+div#boardView_middle{
+inline-block;
+}
+div#photo_1 img{
+outline:2px dotted green;
+/* float: left; width: 300px; */ 
+width: 50px; 
+
+}
+#name_2{
+outline:2px dotted yellow;
+/* width: 10%; */
+
+}
+div#boardView_middle div#date_3{
+outline:2px dotted blue;
+/* width: 10%; */
+
+}
+div#boardView_content{
+outline:2px dotted green;
+height: 200px;
+}
+div#boardView_hit{
+outline:2px dotted yellow;
+text-align: right;
+}
+
+img#eye_img{
+width: 30px; 
+opacity: 70%;
+
+}
+
 </style>
 
-<div class="page-main container-sm" id="boardView">
+<div class="page-main " id="boardView">
+
 	 <h2>
 		<c:if test="${chatboard.mate_state==0}">
-			<span class="badge rounded-pill bg-danger">모집중!</span>
+			<span class="badge rounded-pill bg-danger">모집 중!</span>
 		</c:if>
 		<c:if test="${chatboard.mate_state==1}">
 			<span class="badge rounded-pill bg-light text-dark">모집 마감</span>
@@ -34,25 +70,51 @@ text-align: left;
 		&nbsp;
 		${chatboard.title}
 	</h2> 
-	<div id="boardView_middle">
-		<div>
+	<div id="boardView_middle" class="col-12">
+		<div id="photo_1" class="col-4">
 			<c:if test="${chatboard.photo==null}">
-				<img alt="" src="${pageContext.request.contextPath}/resources/images/face.png">
+				<img src="${pageContext.request.contextPath}/resources/images/face.png">
+			</c:if>
+			<c:if test="${chatboard.photo!=null}">
+				<%-- <img src="${pageContext.request.contextPath}/resources/images/face.png"> --%>
+				<!-- db에 프로필 사진 안올라가는 이슈 대기중 -->
 			</c:if>
 		</div>
-		<div>
+		<div id="name_2" class="col-4">
 		 ${chatboard.name}
 		</div>
-		<div>
+		<div id="date_3" class="col-4">
 		작성일 : ${chatboard.reg_date}
 		</div>
 	</div>
-	<hr size="1" width="100%" noshade="noshade">
-	<div>
+	
+	<hr size="2" width="100%" >
+	
+	<div id="boardView_content">
 		${chatboard.content}
 	</div>
-	<div>
-		 조회수 : ${chatboard.hit}
+	<div id="boardView_hit">
+		<img id="eye_img" src="${pageContext.request.contextPath}/resources/images/board/eye.png">
+		${chatboard.hit}
+	</div>
+	
+	
+	<div id="boardView_button">
+		<input type="button" value="목록" onclick="location.href='list.do'">
+		
+		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
+			<input type="button" value="수정" onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'">
+			<input type="button" value="삭제" id="delete_btn">
+				<script type="text/javascript">
+					let delete_btn = document.getElementById('delete_btn');
+					delete_btn.onclick=function(){
+						let choice = confirm('삭제하시겠습니까?');
+						if(choice){
+							location.replace('delete.do?chatboard_num=${chatboard.chatboard_num}');
+						}
+					};
+				</script>
+		</c:if>
 	</div>
 
 <%-- 

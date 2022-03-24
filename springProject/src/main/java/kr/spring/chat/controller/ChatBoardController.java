@@ -180,7 +180,7 @@ public class ChatBoardController {
 		mav.addObject("photo",chatboard.getPhoto());//byte배열로 반환
 		mav.addObject("photo_name", chatboard.getPhoto_name());
 		return mav;
-	}
+	} 
 	/*
 	//파일 다운로드
 	@RequestMapping("/chatboard/file.do")

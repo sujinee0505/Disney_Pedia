@@ -9,7 +9,7 @@
 <mapper namespace="kr.spring.chat.dao.ChatBoardMapper"> 
 	<select id="selectList" parameterType="map" resultType="chatBoardVO"> 
 		SELECT
-		 *
+		 * 
 		FROM (SELECT 
 		        a.*, rownum rnum 
 		        FROM (SELECT

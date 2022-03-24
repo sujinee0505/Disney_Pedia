@@ -140,8 +140,8 @@ tr#chatboardList {
 				<th width="400">제목</th>
 				<th>작성자</th>
 				<th>등록일</th>
-				<th>조회수</th>
 				<th>메이트현황</th>
+				<th>조회수</th>
 			</tr>
 		</table>
 		<table class="table  table-hover">
@@ -153,8 +153,15 @@ tr#chatboardList {
 					<td width="400">${dchatboard.title}</td>
 					<td>${dchatboard.name}</td>
 					<td>${dchatboard.reg_date}</td>
+							
+					<c:if test="${dchatboard.mate_state==0}">
+						<td><span class="badge rounded-pill bg-danger">모집 중!</span></td>
+					</c:if>
+					<c:if test="${dchatboard.mate_state==1}">
+						<td><span class="badge rounded-pill bg-light text-dark">모집 마감</span></td>
+					</c:if> 
+					
 					<td>${dchatboard.hit}</td>
-					<td>${dchatboard.mate_state}</td>
 				</tr>
 			</c:forEach>
 		</table>
