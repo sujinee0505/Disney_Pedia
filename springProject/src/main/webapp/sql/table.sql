@@ -43,13 +43,13 @@ create table dcontents_like(
 create sequence dcontents_like_seq;
 
 /* 컨텐츠 평가(별점) 테이블*/
-create table dcontents_grade(
-  grade_num number not null,
+create table dcontents_star(
+  star_num number not null,
   contents_num number not null,
-  grade number(1) not null,
+  star number(1) not null,
   mem_num number not null,
-  constraint dcontents_grade_pk primary key (grade_num),
-  constraint dcontents_grade_fk foreign key (mem_num) references dmember (mem_num)
+  constraint dcontents_star_pk primary key (star_num),
+  constraint dcontents_star_fk foreign key (mem_num) references dmember (mem_num)
 );
 create sequence dcontents_grade_seq;
 

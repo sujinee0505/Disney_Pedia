@@ -68,6 +68,7 @@ public class MemberController {
 		
 		//회원 가입
 		memberService.insertMember(memberVO);
+		logger.info("<<회원 가입 성공>> : " + memberVO);
 		//가입성공시 메인호출
 		return "redirect:/main/main.do";
 	}
@@ -89,8 +90,7 @@ public class MemberController {
 			HttpServletRequest request,Model model) {
 		
 		//로그확인	
-		logger.info("<<회원 로그인>> : " + memberVO.getId());
-		logger.info("<<회원 로그인>> : " + memberVO.getAuth());
+		logger.info("<<회원 로그인>> : " + memberVO);		
 				
 		//로그인 체크(id,비밀번호 일치 여부 체크)
 		try {
@@ -108,6 +108,9 @@ public class MemberController {
 				session.setAttribute("user_id", member.getId());
 				session.setAttribute("user_auth", member.getAuth());
 				session.setAttribute("user_photo", member.getPhoto());
+				
+				//로그확인	
+				logger.info("<<로그인성공>> : " + member);
 				
 				return "redirect:/main/main.do";
 			}
@@ -208,14 +211,10 @@ public class MemberController {
 	}
 	//수정폼에서 전송된 데이터 처리
 	@PostMapping("/member/update.do")
-	public String submitUpdate(@Valid MemberVO memberVO, BindingResult result, HttpSession session) {
+	public String submitUpdate(MemberVO memberVO, HttpSession session) {
 		
-		logger.info("<<회원 정보 수정>> : " + memberVO);
 		
-		//유효성 체크 결과 오류가 있으면 폼 호출
-		if(result.hasErrors()) {
-			return "memberModify";
-		}
+		logger.info("<<회원 정보 수정>> : " + memberVO);				
 		
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		memberVO.setMem_num(user_num);

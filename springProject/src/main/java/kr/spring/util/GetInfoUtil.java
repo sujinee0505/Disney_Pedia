@@ -12,6 +12,7 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.ui.Model;
 
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.CreditsVO;
@@ -167,6 +168,7 @@ public class GetInfoUtil {
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
 
+			contents.setId(jsonObject.get("id").toString()); //추가
 			contents.setOverview(jsonObject.get("overview").toString());
 
 			contents.setPoster_path(jsonObject.get("poster_path").toString());
@@ -175,6 +177,7 @@ public class GetInfoUtil {
 				contents.setRelease_date(release_date);
 				contents.setTitle(jsonObject.get("title").toString());
 				contents.setRuntime(jsonObject.get("runtime").toString());
+				
 			} else if (type.equals("tv")) {
 				Date first_air_date = dateFormat.parse((String) jsonObject.get("first_air_date"));
 				contents.setRelease_date(first_air_date);
@@ -202,6 +205,7 @@ public class GetInfoUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		return contents;
 	}
 
