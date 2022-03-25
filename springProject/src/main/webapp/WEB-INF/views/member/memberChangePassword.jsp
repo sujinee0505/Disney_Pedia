@@ -13,14 +13,14 @@
 			}else if($('#confirm_passwd').val() != '' 
 					&& $('#confirm_passwd').val() == $(this).val()){
 				$('#message_id').text('비밀번호 일치').css('color','#000');
-			}
+			}                                 
 		});
 		$('#confirm_passwd').keyup(function(){
-			if($('#passwd').val() != '' 
-					&& $('#passwd').val() != $(this).val()){
+			if($('#future_passwd').val() != '' 
+					&& $('#future_passwd').val() != $(this).val()){
 				$('#message_id').text('비밀번호 불일치').css('color','red');
-			}else if($('#passwd').val() != '' 
-					&& $('#passwd').val() == $(this).val()){
+			}else if($('#future_passwd').val() != '' 
+					&& $('#future_passwd').val() == $(this).val()){
 				$('#message_id').text('비밀번호 일치').css('color','#000');
 			}
 		});
@@ -31,9 +31,9 @@
 				$('#now_passwd').val('').focus();
 				return false;
 			}
-			if($('#passwd').val().trim() == ''){
+			if($('#future_passwd').val().trim() == ''){
 				alert('변경할 비밀번호를 입력하세요!');
-				$('#passwd').val('').focus();
+				$('#future_passwd').val('').focus();
 				return false;
 			}
 			if($('#confirm_passwd').val().trim() == ''){
@@ -41,7 +41,7 @@
 				$('#confirm_passwd').val('').focus();
 				return false;
 			}
-			if($('#passwd').val() != $('#confirm_passwd').val()){
+			if($('#future_passwd').val() != $('#confirm_passwd').val()){
 				$('#message_id').text('비밀번호 불일치').css('color','red');
 				return false;
 			}
@@ -82,7 +82,7 @@ ul li {
 															<form:errors path="now_passwd" cssClass="error-color" />
 														</li>
 														<li>
-															<form:password class="passwd" path="passwd" placeholder="새 비밀번호를 입력해주세요."/> 
+															<form:password class="passwd" id="future_passwd" path="passwd" placeholder="새 비밀번호를 입력해주세요."/> 
 															<form:errors path="passwd" cssClass="error-color" />
 														</li>
 														<li>
