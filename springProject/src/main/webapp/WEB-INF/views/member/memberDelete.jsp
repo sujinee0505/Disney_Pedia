@@ -27,7 +27,7 @@ ul li {
 											<div class="css-1y901al-Row emmoxnt0">
 												<header class="css-1hjjbcz-ProfileHeader e19zkogf4">
 													<div class="css-1gry5r7">
-														<h3 class="passtitle">회원탈퇴</h3>
+														<h3 class="deletetitle">회원탈퇴</h3>
 													</div>
 													<ul>
 														<li>
@@ -41,8 +41,8 @@ ul li {
 													</ul>
 													<div class="profile-userbuttons">
 														<form:button class="modibtn">탈퇴</form:button>
-														<input type="button" class="homebtn" value="홈으로"
-															onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+														<input type="button" class="homebtn" value="이전으로"
+															onclick="location.href='${pageContext.request.contextPath}/member/update.do'">
 													</div></div>
 										</header>
 										</div>

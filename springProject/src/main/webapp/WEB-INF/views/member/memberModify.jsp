@@ -124,7 +124,7 @@ ul li {
 														</div>
 														<div id="photo_choice" class="filebtn" style="display: none;">
 															<input type="file" id="upload" accept="image/gif,image/png,image/jpeg"> 
-															<input type="button" class="filebtn" value="전송" id="photo_submit">
+															<input type="button" class="filebtn" value="변경" id="photo_submit">
 															<input type="button" class="filebtn" value="취소" id="photo_reset">
 														</div>
 													</li>
@@ -157,7 +157,7 @@ ul li {
 											<!-- SIDEBAR BUTTONS -->
 											<div class="profile-userbuttons">
 												<form:button class="modibtn">수정</form:button>
-												<input type="button" class="homebtn" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+												<input type="button" class="homebtn" value="이전으로" onclick="location.href='${pageContext.request.contextPath}/member/myPage.do'">
 											<div class="profile-userbuttons">
 												<input type="button" class="yWX7s" value="회원탈퇴 >" onclick="location.href='delete.do'">
 											</div>
