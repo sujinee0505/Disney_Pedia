@@ -45,9 +45,9 @@
 		//코멘트 커서
 		$('#commentModal').on('shown.bs.modal', function() {
 			$('#comment').trigger('focus')
-		})
+		});
 		$('#calendarModal').on('shown.bs.modal', function() {
-		})
+		});
 	});
 </script>
 <div class="css-16jhzm7-Self e1ezac430">

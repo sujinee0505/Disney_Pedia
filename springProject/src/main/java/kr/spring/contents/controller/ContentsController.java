@@ -2,7 +2,6 @@ package kr.spring.contents.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.CreditsVO;
 import kr.spring.sort.SortByDate;
-import kr.spring.sort.SortByVote;
 import kr.spring.util.GetInfoUtil;
 
 @Controller
@@ -122,5 +120,4 @@ public class ContentsController {
 		mav.addObject("search_result", search_result);
 		return mav;
 	}
-
 }

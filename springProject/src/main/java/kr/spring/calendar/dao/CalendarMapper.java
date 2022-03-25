@@ -10,8 +10,8 @@ import kr.spring.calendar.vo.CalendarVO;
 import kr.spring.util.DateUtil;
 
 public interface CalendarMapper {
-	@Insert("INSERT INTO dcontents_cal (cal_num,custom_date,contents_num,mem_num) "
-			+ "VALUES (dcontents_cal_seq.nextval,#{custom_date},#{contents_num},#{mem_num}")
+	@Insert("INSERT INTO dcontents_cal (cal_num,custom_date,contents_num,contents_type,poster_path,mem_num) "
+			+ "VALUES (dcontents_cal_seq.nextval,TO_DATE(#{custom_date},'YYYY-MM-DD'),#{contents_num},#{contents_type},#{poster_path},#{mem_num})")
 	public void insertCalendar(CalendarVO calendarVO);
 
 	@Select("SELECT TO_CHAR(custom_date, 'YYYY-MM-DD') custom_date, contents_num, contents_type, poster_path FROM dcontents_cal "

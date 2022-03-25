@@ -1,13 +1,11 @@
 package kr.spring.calendar.vo;
 
-import java.sql.Date;
-
 public class CalendarVO {
 
 	private int cal_num;
 	private int contents_num;
 	private int mem_num;
-	private Date custom_date;
+	private String custom_date;
 	private String contents_type;
 	private String poster_path;
 
@@ -35,11 +33,11 @@ public class CalendarVO {
 		this.mem_num = mem_num;
 	}
 
-	public Date getCustom_date() {
+	public String getCustom_date() {
 		return custom_date;
 	}
 
-	public void setCustom_date(Date custom_date) {
+	public void setCustom_date(String custom_date) {
 		this.custom_date = custom_date;
 	}
 
@@ -57,5 +55,12 @@ public class CalendarVO {
 
 	public void setPoster_path(String poster_path) {
 		this.poster_path = poster_path;
+	}
+
+	@Override
+	public String toString() {
+		return "CalendarVO [cal_num=" + cal_num + ", contents_num=" + contents_num + ", mem_num=" + mem_num
+				+ ", custom_date=" + custom_date + ", contents_type=" + contents_type + ", poster_path=" + poster_path
+				+ "]";
 	}
 }

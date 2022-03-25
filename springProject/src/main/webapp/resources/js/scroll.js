@@ -45,7 +45,8 @@
 					}
 				});
 		const init = {
-  monList: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  /*monList: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']*/
+  monList: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
   dayList: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
   today: new Date(),
   monForChange: new Date().getMonth(),
@@ -120,7 +121,7 @@ function loadYYMM (fullDate) {
         trtd += '<td>'
       } else {
         let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
-        trtd += '<td class="day2';
+        trtd += '<td id="day" class="day2';
         trtd += (markToday && markToday === countDay + 1) ? ' today" ' : '"';
         trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
       }
@@ -172,8 +173,8 @@ $calBody.addEventListener('click', (e) => {
     e.target.classList.add('day-active');
     init.activeDTag = e.target;
     init.activeDate.setDate(day);
-    reloadTodo();
+    /*reloadTodo();
+    alert(document.querySelector('.cal-year').textContent+ document.querySelector('.cal-month').textContent + day);*/
   }
 });
-
 	});

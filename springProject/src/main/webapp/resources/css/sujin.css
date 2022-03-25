@@ -6411,13 +6411,13 @@ h1, h3, p, hr {
 }
 
 .my-calendar {
-    /* width: 400px; */
-    margin: 30px 30px 0px 30px;;
-    /* padding: 20px 20px 10px; */
-    text-align: center;
-    font-weight: 800;
-    /* border: 1px solid #ddd; */
-    cursor: default;
+	/* width: 400px; */
+	margin: 30px 30px 0px 30px;;
+	/* padding: 20px 20px 10px; */
+	text-align: center;
+	font-weight: 800;
+	/* border: 1px solid #ddd; */
+	cursor: default;
 }
 
 .my-calendar .clicked-date {
@@ -6503,13 +6503,13 @@ h1, h3, p, hr {
 }
 
 .cal-table td.today {
-	background: #ffd255;
+	background: #dae3f3;
 	border-radius: 50%;
 	color: #fff;
 }
 
 .cal-table td.day-active {
-	background: #ff8585;
+	background: #1f6feb;
 	border-radius: 50%;
 	color: #fff;
 }
@@ -6527,4 +6527,20 @@ h1, h3, p, hr {
 
 .dropdown-toggle::after {
 	display: none !important;
+}
+
+.css-1ukikc-StylelessButton {
+	background: #1f6feb;
+	border: none;
+	position: relative;
+	z-index: 51;
+	color: rgb(255, 255, 255);
+	font-size: 15px;
+	letter-spacing: -0.3px;
+	line-height: 18px;
+	height: 38px;
+	padding: 0px 15px;
+	border-radius: 7px;
+	opacity: 0.5;
+	cursor: not-allowed;
 }

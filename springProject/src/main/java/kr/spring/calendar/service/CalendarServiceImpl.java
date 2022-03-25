@@ -19,7 +19,7 @@ public class CalendarServiceImpl implements CalenderService {
 
 	@Override
 	public void insertCalendar(CalendarVO calendarVO) {
-
+		calendarMapper.insertCalendar(calendarVO);
 	}
 
 	@Override

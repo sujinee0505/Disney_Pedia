@@ -2,6 +2,7 @@ package kr.spring.calendar.controller;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.spring.calendar.service.CalenderService;
 import kr.spring.calendar.vo.CalendarVO;
@@ -44,7 +46,7 @@ public class CalendarController {
 
 		String db_startDate = String.valueOf(today_info.get("db_startDate"));
 		String db_endDate = String.valueOf(today_info.get("db_endDate"));
-		
+
 		// 본 컨텐츠 내역 불러와서 저장
 		ArrayList<CalendarVO> contents_list = calenderService.selectList(mem_num, db_startDate, db_endDate, dateData);
 
@@ -121,5 +123,22 @@ public class CalendarController {
 		model.addAttribute("today_info", today_info);
 
 		return "calendar";
+	}
+
+	@RequestMapping("/contents/insertCal.do")
+	@ResponseBody
+	public Map<String, String> insertCal(CalendarVO calendarVO, HttpSession session) {
+
+		Map<String, String> map = new HashMap<String, String>();
+
+		Integer mem_num = (Integer) session.getAttribute("user_num");
+		if (mem_num == null) {// 로그인이 되지 않은 경우
+			map.put("result", "logout");
+		} else {// 로그인 된 경우
+			calendarVO.setMem_num(mem_num);
+			calenderService.insertCalendar(calendarVO);
+			map.put("result", "success");
+		}
+		return map;
 	}
 }
