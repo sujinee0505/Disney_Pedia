@@ -6,8 +6,9 @@
 						<!-- 이미지일경우 보여지게 하고 이미지아닐경우 다운로드하도록 functions이용할 것. -->
 <!-- 중앙 컨텐츠 시작 -->
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/chatboard.reply.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/videoAdapter.js"></script>
+
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <style>
 /* 상 우 하 좌/상 좌우 하/상하 좌우 */
@@ -49,13 +50,10 @@ div#boardView_hit{
 outline:2px dotted yellow;
 text-align: right;
 }
-
 img#eye_img{
 width: 30px; 
 opacity: 70%;
-
 }
-
 </style>
 
 <div class="page-main " id="boardView">
@@ -103,95 +101,64 @@ opacity: 70%;
 		<input type="button" value="목록" onclick="location.href='list.do'">
 		
 		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
-			<input type="button" value="수정" onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'">
-			<input type="button" value="삭제" id="delete_btn">
-				<script type="text/javascript">
-					let delete_btn = document.getElementById('delete_btn');
-					delete_btn.onclick=function(){
-						let choice = confirm('삭제하시겠습니까?');
-						if(choice){
-							location.replace('delete.do?chatboard_num=${chatboard.chatboard_num}');
-						}
-					};
-				</script>
+			<%-- <input type="button" value="수정" onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'"> --%>
+			<!-- <input type="button" value="삭제" id="delete_btn"> -->
+			
+<button class="btn btn-secondary m-2" id="delete_btn">삭제</button>
+			
 		</c:if>
+			<script type="text/javascript">
+				let delete_btn = document.getElementById('delete_btn');//delete_btn에접근
+				
+				delete_btn.onclick=function(){
+					//let choice = confirm('삭제하시겠습니까?');
+					//if(choice){ //choice가true면
+					//	location.replace('delete.do?chatboard_num=${chatboard.chatboard_num}');
+					//여기서부터 테스트
+					Swal.fire({
+						title: '정말로 삭제 하시겠습니까?',
+						text: '다시 되돌릴 수 없습니다. 신중하세요.',
+						icon: 'warning', //success,error,warning,info
+						showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
+						confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
+						cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
+						confirmButtonText: '승인', // confirm 버튼 텍스트 지정
+						cancelButtonText: '취소', // cancel 버튼 텍스트 지정
+						reverseButtons: true, // 버튼 순서 거꾸로
+					}).then(result => {
+						//let url = 'delete.do?board_num=${chatboard.chatboard_num}';
+						// 만약 Promise리턴을 받으면,
+						if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면
+						Swal.fire({
+								title:'삭제가 완료되었습니다.',
+								icon: 'success',
+								showConfirmButton: false});
+				      	}
+				      	setTimeout(function(){
+							location.replace('delete.do?chatboard_num=${chatboard.chatboard_num}');
+							}, 1000);
+				    })
+									
+					//여기까지 테스트
+					//}
+				};
+			</script> 	
+	</div>
+	<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+		 aria-labelledby="offcanvasWithBothOptionsLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop
+				with scrolling</h5>
+			<button type="button" class="btn-close text-reset"
+				data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<p>Try scrolling the rest of the page to see this option in
+				action.</p>
+		</div>
 	</div>
 
-<%-- 
-	<c:if test="${fn:endsWith(chatboard.photoname,'.jpg') || fn:endsWith(chatboard.photoname,'.JPG') ||
-				  fn:endsWith(chatboard.photoname,'.gif') || fn:endsWith(chatboard.photoname,'.GIF') ||
-				  fn:endsWith(chatboard.photoname,'.png') || fn:endsWith(chatboard.photoname,'.PNG')}">
-		<div class="align-center">
-			하하
-			<img src="imageView.do?chatboard_num=${chatboard.chatboard_num}"
-					style="max-width: 500px;">
-		</div>
-	</c:if>
-	 
-	<ul>
-		<li>번호 : ${chatboard.chatboard_num}</li>
-		<li>작성자 : ${chatboard.name}</li>
-		<li>조회수 : ${chatboard.hit}</li>
-	</ul>
-</table>  
-		<!-- <c:if test="${!empty chatboard.modify_date}">
-		<li>최근 수정일 : ${chatboard.modify_date}</li>
-		</c:if> -->
-		<li>작성일 : ${chatboard.reg_date}</li>
-		<li>메이트 : ${chatboard.mate_state}</li>
-	<p>
-		${chatboard.content}
-	</p>
-	<hr size="1" width="100%" noshade="noshade">
-	<div class="align-right">
-		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
-		<input type="button" value="수정"  
-		onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'">
-		<input type="button" value="삭제" id="delete_btn">
-		<script type="text/javascript">
-			let delete_btn = document.getElementById('delete_btn');
-			delete_btn.onclick=function(){
-				let choice = confirm('삭제하시겠습니까?');
-				if(choice){
-					location.replace('delete.do?chatboard_num=${chatboard.chatboard_num}');
-				}
-			};
-		</script>
-		</c:if>
-		<input type="button" value="목록" onclick="location.href='list.do'">
-	</div>
-	<hr size="1" width="100%" noshade="noshade">
-	--%>
-	
-	
-	<!-- 
-	<div id="reply_div">
-		<span class="re-title">댓글 달기</span>
-		<form id="re_form">
-			<input type="hidden" name="chatboard_num" 
-			                 value="${chatboard.chatboard_num}" id="chatboard_num">
-			<textarea rows="3" cols="50" name="re_content"
-			         id="re_content" class="rep-content"
-			         <c:if test="${empty user_num}">disabled="disabled"</c:if>
-			         ><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>                 
-			<c:if test="${!empty user_num}">
-			<div id="re_first">
-				<span class="letter-count">300/300</span>
-			</div>
-			<div id="re_second" class="align-right">
-				<input type="submit" value="전송">
-			</div>
-			</c:if>
-		</form>
-	</div>
-	-->
-	<!-- 댓글 목록 출력 -->
-	<%-- <div id="output"></div>
-	<div class="paging-button" style="display:none;">
-		<input type="button" value="다음글 보기">
-	</div>
-	<div id="loading" style="display:none;">
-		<img src="${pageContext.request.contextPath}/resources/images/ajax-loader.gif">
-	</div> --%>
+
 </div>
+
 <!-- 중앙 컨텐츠 끝 -->

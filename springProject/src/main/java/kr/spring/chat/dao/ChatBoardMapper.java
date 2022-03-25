@@ -15,6 +15,7 @@ public interface ChatBoardMapper {
 	//**글 목록
 	//xml
 	public List<ChatBoardVO> selectList(Map<String,Object> map); 
+	public List<ChatBoardVO> selectListHit(Map<String,Object> map); 
 	//xml
 	public int selectRowCount(Map<String,Object> map);
 
@@ -37,12 +38,16 @@ public interface ChatBoardMapper {
 	//xml
 	public void updateBoard(ChatBoardVO chatboard);
 
+	//**글 삭제
 	@Delete("DELETE FROM dchatboard WHERE chatboard_num=#{chatboard_num}")
 	public void deleteBoard(Integer chatboard_num);
 
+	/*
+	//사진 업로드 안함
 	@Update("UPDATE dchatboard SET uploadfile='',filename='' "
 			+ "WHERE chatboard_num=#{chatboard_num}")
 	public void deleteFile(Integer chatboard_num);
+	*/
 	
 }
 	

@@ -60,6 +60,7 @@ public class ChatBoardController {
 		//ChatBoardVO chatboardVO2 = chatBoardService.selectBoard(chatboardVO.getChatboard_num());
 
 		//세션에서 회원번호를 읽어온다
+		logger.info("<<등록-회원테스트>> : " + chatboardVO );
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		//글쓴 회원번호 셋팅
 		chatboardVO.setMem_num(user_num);
@@ -118,8 +119,10 @@ public class ChatBoardController {
 		map.put("end",page.getEndCount());
 
 		List<ChatBoardVO> list = null;
+		List<ChatBoardVO> list2 = null;
 		if(count>0) {
 			list = chatBoardService.selectList(map);
+			list2 = chatBoardService.selectListHit(map);
 		}
 		logger.info("<<목록테스트2>> : " + list);
 		
@@ -130,6 +133,7 @@ public class ChatBoardController {
 
 		mav.addObject("count",count);
 		mav.addObject("list", list);
+		mav.addObject("list2", list2);
 		mav.addObject("pagingHtml", page.getPagingHtml());
 		 
 		return mav;
@@ -239,13 +243,17 @@ public class ChatBoardController {
 		
 		return "common/resultView";
 	}
+	 */
+	
+	//**[글 삭제]**
 	//게시판 글 삭제
 	@RequestMapping("/chatboard/delete.do")
 	public String submitDelete(@RequestParam int chatboard_num) {
+		
 		chatBoardService.deleteBoard(chatboard_num);
+		
 		return "redirect:/chatboard/list.do";
 	}
-	 */
 	
 }
 

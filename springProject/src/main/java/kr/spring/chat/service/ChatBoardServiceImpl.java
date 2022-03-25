@@ -19,7 +19,13 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 	public List<ChatBoardVO> selectList(Map<String, Object> map) {
 		return chatBoardMapper.selectList(map);
 	}
+	@Override
+	public List<ChatBoardVO> selectListHit(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	
 	@Override
 	public int selectRowCount(Map<String, Object> map) {
 		return chatBoardMapper.selectRowCount(map);
@@ -47,13 +53,12 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 
 	@Override
 	public void deleteBoard(Integer chatboard_num) {
-		//chatBoardMapper.deleteBoard(chatboard_num);
+		chatBoardMapper.deleteBoard(chatboard_num);
 	}
 
 	@Override
 	public void deleteFile(Integer chatboard_num) {
 		//chatBoardMapper.deleteFile(chatboard_num);
 	}
-
 
 }

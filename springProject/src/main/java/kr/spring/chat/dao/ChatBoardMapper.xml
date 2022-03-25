@@ -37,7 +37,44 @@
 					b.content LIKE '%' || #{keyword} || '%' 
 				</if>
 			</where>
-			ORDER BY b.chatboard_num DESC)a)
+			ORDER BY b.reg_date DESC)a)
+		<![CDATA[
+		WHERE rnum >= #{start} AND rnum <= #{end}
+		]]>
+	</select>
+	
+	<!-- 조회수(인기)순 -->
+	<select id="selectListHit" parameterType="map" resultType="chatBoardVO"> 
+		SELECT
+		 * 
+		FROM (SELECT 
+		        a.*, rownum rnum 
+		        FROM (SELECT
+				b.chatboard_num,
+				b.title,
+				b.hit,
+				b.reg_date,
+				m.name,
+				b.mate_state
+			FROM dchatboard b
+			JOIN dmember_detail m
+			ON b.mem_num = m.mem_num
+			<where>
+				<if test="keyword !='' and keyfield == 1">
+					b.title LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyword != '' and keyfield == 2">
+					m.name LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyword != '' and keyfield == 3">
+					b.content LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyword != '' and keyfield == 4">
+					b.title LIKE '%' || #{keyword} || '%' or
+					b.content LIKE '%' || #{keyword} || '%' 
+				</if>
+			</where>
+			ORDER BY b.hit DESC)a)
 		<![CDATA[
 		WHERE rnum >= #{start} AND rnum <= #{end}
 		]]>
