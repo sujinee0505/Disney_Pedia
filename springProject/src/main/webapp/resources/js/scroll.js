@@ -120,7 +120,7 @@ function loadYYMM (fullDate) {
         trtd += '<td>'
       } else {
         let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
-        trtd += '<td class="day';
+        trtd += '<td class="day2';
         trtd += (markToday && markToday === countDay + 1) ? ' today" ' : '"';
         trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
       }
@@ -143,7 +143,7 @@ function createNewList (val) {
   let yy = init.activeDate.getFullYear();
   let mm = init.activeDate.getMonth() + 1;
   let dd = init.activeDate.getDate();
-  const $target = $calBody.querySelector(`.day[data-date="${dd}"]`);
+  const $target = $calBody.querySelector(`.day2[data-date="${dd}"]`);
 
   let date = yy + '.' + init.addZero(mm) + '.' + init.addZero(dd);
 
@@ -163,7 +163,7 @@ $btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
 $btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
 
 $calBody.addEventListener('click', (e) => {
-  if (e.target.classList.contains('day')) {
+  if (e.target.classList.contains('day2')) {
     if (init.activeDTag) {
       init.activeDTag.classList.remove('day-active');
     }

@@ -6411,13 +6411,13 @@ h1, h3, p, hr {
 }
 
 .my-calendar {
-	width: 400px;
-	margin: 30px;
-	padding: 20px 20px 10px;
-	text-align: center;
-	font-weight: 800;
-	border: 1px solid #ddd;
-	cursor: default;
+    /* width: 400px; */
+    margin: 30px 30px 0px 30px;;
+    /* padding: 20px 20px 10px; */
+    text-align: center;
+    font-weight: 800;
+    /* border: 1px solid #ddd; */
+    cursor: default;
 }
 
 .my-calendar .clicked-date {
