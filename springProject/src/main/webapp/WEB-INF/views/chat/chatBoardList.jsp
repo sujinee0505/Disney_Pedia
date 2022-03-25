@@ -19,7 +19,7 @@
 				alert('검색어를 입력하세요');
 				$('#keyword').val('').focus();
 				return false;
-			}
+			} 
 		});
 	});
 		$(document).on$('#carouselExampleIndicators').submit(function () {
