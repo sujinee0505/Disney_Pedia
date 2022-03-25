@@ -98,14 +98,11 @@ opacity: 70%;
 	
 	
 	<div id="boardView_button">
-		<input type="button" value="목록" onclick="location.href='list.do'">
-		
+		<button class="btn btn-secondary m-2" id="list_btn" onclick="location.href='list.do'">목록</button>
 		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
-			<%-- <input type="button" value="수정" onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'"> --%>
-			<!-- <input type="button" value="삭제" id="delete_btn"> -->
-			
-<button class="btn btn-secondary m-2" id="delete_btn">삭제</button>
-			
+			<button class="btn btn-secondary m-2" id="modify_btn" 
+					onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'">수정</button>
+			<button class="btn btn-secondary m-2" id="delete_btn">삭제</button>
 		</c:if>
 			<script type="text/javascript">
 				let delete_btn = document.getElementById('delete_btn');//delete_btn에접근
