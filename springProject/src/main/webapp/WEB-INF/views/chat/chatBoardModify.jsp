@@ -2,11 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dain.css">
+<style>
+.ck-editor__editable_inline{
+	min-height:250px;
+}
+</style>
+
 <!-- 중앙 컨텐츠 시작 -->
-<script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
-<div class="page-main">
-	<form:form modelAttribute="chatBoardVO" action="update.do" id="upate_form"
-	               enctype="multipart/form-data">
+<!-- ckedior 라이브러리 -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/ckeditor.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/uploadAdapter.js"></script>
+<div class="page-main css-1jlb6q">
+
+	<form:form modelAttribute="chatBoardVO" action="update.do" id="update_form">
+	            <!--enctype="multipart/form-data">-->
 		<form:hidden path="chatboard_num"/>
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>
@@ -15,12 +25,32 @@
 				<form:input path="title"/>
 				<form:errors path="title" cssClass="error-color"/>
 			</li>
+						<li>내용</li>
 			<li>
-				<form:label path="content">내용</form:label>
 				<form:textarea path="content"/>
-				<form:errors path="content" cssClass="error-color"/>
+				<form:errors path="content" cssClass="error-color"/>   
+				<script>
+				 function MyCustomUploadAdapterPlugin(editor) {
+					    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+					        return new UploadAdapter(loader);
+					    }
+					}
+				 
+				 ClassicEditor
+		            .create( document.querySelector( '#content' ),{
+		            	extraPlugins: [MyCustomUploadAdapterPlugin]
+		            })
+		            .then( editor => {
+						window.editor = editor;
+					} )
+		            .catch( error => {
+		                console.error( error );
+		            } );
+			    </script>     
 			</li>
-			<li>
+		</ul>	
+			<!-- 
+			 <li>
 				<form:label path="upload">파일업로드</form:label>
 				<input type="file" name="upload" id="upload">
 				<c:if test="${!empty boardVO.filename}">
@@ -59,11 +89,10 @@
 	});
 </script>				
 				</c:if>
-			</li>
-		</ul>
+			</li> -->		
 		<div class="align-center">
-			<form:button>전송</form:button>
-			<input type="button" value="등록" 
+			<form:button>수정</form:button>
+			<input type="button" value="목록으로" 
 			                         onclick="location.href='list.do'">
 		</div>
 	</form:form>

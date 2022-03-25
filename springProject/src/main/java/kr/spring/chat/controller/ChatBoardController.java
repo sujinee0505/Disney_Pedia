@@ -200,7 +200,7 @@ public class ChatBoardController {
 	}
 	*/
 	
-	/*
+	
 	//수정 폼
 	@GetMapping("/chatboard/update.do")
 	public String formUpdate(@RequestParam int chatboard_num,
@@ -209,9 +209,9 @@ public class ChatBoardController {
 		
 		model.addAttribute("chatboard", chatboard);		
 		
-		return "chatboardModify";
+		return "chatBoardModify";
 	}
-	*/
+	
 	/*
 	//수정 폼에서 전송된 데이터 처리
 	@PostMapping("/chatboard/update.do")

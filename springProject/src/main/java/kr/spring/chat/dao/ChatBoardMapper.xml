@@ -105,7 +105,6 @@
 		</where>
 	</select>
 	
-	<!--  
 	<update id="updateBoard" parameterType="chatBoardVO">
 		UPDATE dchatBoard SET
 			title=#{title},
@@ -113,7 +112,7 @@
 			mate_state=#{mate_state}
 		WHERE chatboard_num=#{chatboard_num}
 	</update>
-	-->  
+	 
 	<!-- **댓글** -->
 	<!-- [댓글 목록] -->
 	

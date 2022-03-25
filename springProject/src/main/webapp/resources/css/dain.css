@@ -8,7 +8,7 @@ form{
 	padding:10px 10px 10px 30px;
 }
 /*CKEditor 사용시 등록, 수정폼*/
-form#register_form, form#update_form, form#write_form{
+form#register_form, form#update_form, form#write_form form#update_form{
 	width:700px;
 }
 body {
@@ -20,4 +20,3 @@ body {
 	margin: auto;
 	 width: 980px;
      height:400px;
-}

@@ -46,7 +46,7 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 
 	@Override
 	public void updateBoard(ChatBoardVO chatboard) {
-		//chatBoardMapper.updateBoard(chatboard);
+		chatBoardMapper.updateBoard(chatboard);
 	}
 
 	@Override
