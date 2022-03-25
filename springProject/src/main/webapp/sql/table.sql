@@ -58,7 +58,7 @@ create table dcontents_cal(
   cal_num number not null,
   custom_date date not null,
   contents_num number not null,
-  contetns_type varchar2(5) not null,
+  contents_type varchar2(5) not null,
   poster_path clob ,
   mem_num number not null,
   constraint dcontents_cal_pk primary key (cal_num),
