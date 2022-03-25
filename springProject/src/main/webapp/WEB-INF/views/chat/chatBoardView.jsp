@@ -6,54 +6,13 @@
 						<!-- 이미지일경우 보여지게 하고 이미지아닐경우 다운로드하도록 functions이용할 것. -->
 <!-- 중앙 컨텐츠 시작 -->
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/css/mj.css"></script>
 
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <style>
-/* 상 우 하 좌/상 좌우 하/상하 좌우 */
-div#boardView{
-margin:200px auto;
-width:80%;
-outline:1px dotted red;
-}
-div#boardView h2{
-outline:1px dotted red;
-margin:10px auto;
-padding-left:10px;
-text-align: left;
-}
-div#boardView_middle{
-inline-block;
-}
-div#photo_1 img{
-outline:2px dotted green;
-/* float: left; width: 300px; */ 
-width: 50px; 
 
-}
-#name_2{
-outline:2px dotted yellow;
-/* width: 10%; */
-
-}
-div#boardView_middle div#date_3{
-outline:2px dotted blue;
-/* width: 10%; */
-
-}
-div#boardView_content{
-outline:2px dotted green;
-height: 200px;
-}
-div#boardView_hit{
-outline:2px dotted yellow;
-text-align: right;
-}
-img#eye_img{
-width: 30px; 
-opacity: 70%;
-}
 </style>
 
 <div class="page-main " id="boardView">
@@ -122,6 +81,8 @@ opacity: 70%;
 						confirmButtonText: '승인', // confirm 버튼 텍스트 지정
 						cancelButtonText: '취소', // cancel 버튼 텍스트 지정
 						reverseButtons: true, // 버튼 순서 거꾸로
+						closeOnClickOutside:false,//창 제외하고 다른 곳 클릭시 창안닫히도록?
+						closeOnEsc:false//esc키 안먹히도록(기본true)?
 					}).then(result => {
 						//let url = 'delete.do?board_num=${chatboard.chatboard_num}';
 						// 만약 Promise리턴을 받으면,
