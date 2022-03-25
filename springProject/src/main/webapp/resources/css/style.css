@@ -189,6 +189,27 @@
 	margin-bottom: 10px;	 
 }
 
+.form2 { 
+	box-sizing: border-box;
+	font-family: inherit;
+	font-size: 14px;
+	vertical-align: baseline;
+	font-weight: 400;
+	letter-spacing: .16px;
+	border-radius: 0;
+	outline: 2px solid transparent;
+	outline-offset: -2px;
+	width: 50%;
+	height: 30px;
+	border: none;
+	border-bottom: 1px solid #8d8d8d;
+	padding: 0 16px;
+	color: #161616;
+	transition: background-color 70ms cubic-bezier(.2, 0, .38, .9), outline
+		70ms cubic-bezier(.2, 0, .38, .9);
+	margin-top: 15px; 
+}
+
 .mylike {
 	margin-inline-start: 85px;
     margin-inline-end: 85px;

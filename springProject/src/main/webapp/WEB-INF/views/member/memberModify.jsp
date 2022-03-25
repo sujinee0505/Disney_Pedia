@@ -142,7 +142,7 @@ ul li {
 														</li>
 														<li>
 															<form:label path="introduction">소개</form:label> 
-															<form:textarea class="form1" path="introduction" /> 
+															<form:textarea class="form2" path="introduction" /> 
 															<form:errors path="introduction" cssClass="error-color" />
 														</li>
 														<li>
