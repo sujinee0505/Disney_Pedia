@@ -31,7 +31,7 @@
 
 			<table class="calendar_body">
 				<thead>
-					<tr bgcolor="#CECECE">
+					<tr bgcolor="white">
 						<td class="day sun">일</td>
 						<td class="day">월</td>
 						<td class="day">화</td>
