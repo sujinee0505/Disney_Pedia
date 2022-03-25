@@ -124,7 +124,6 @@
    
 	$('.star_area .rateit').bind('rated reset', function (e) {
         var ri = $(this);
-
         //리셋버튼 누르면->value:0 
         //how?-> e.type == 'reset'인지 체크, 맞으면 value를 null로 set.   
 		var value = ri.rateit('value'); //별점값: value에 담음
