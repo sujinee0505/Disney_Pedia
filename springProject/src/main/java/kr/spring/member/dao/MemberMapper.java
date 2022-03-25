@@ -15,7 +15,7 @@ public interface MemberMapper {
 	public void insertMember(MemberVO member);
 	@Insert("INSERT INTO dmember_detail (mem_num,name,passwd) VALUES (#{mem_num},#{name},#{passwd})")
 	public void insertMember_detail(MemberVO member);
-	@Select("SELECT m.mem_num,m.id,m.auth,d.passwd "
+	@Select("SELECT m.mem_num,m.id,m.auth,d.passwd,d.photo,d.photo_name "
 		  + "FROM dmember m LEFT OUTER JOIN dmember_detail d "
 		  + "ON m.mem_num=d.mem_num WHERE m.id=#{id}")
 	public MemberVO selectCheckMember(String id);
