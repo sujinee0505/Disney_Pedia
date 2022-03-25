@@ -27,7 +27,7 @@
 		
 		$('#change_form').submit(function(){
 			if($('#now_passwd').val().trim() == ''){
-				alert('현재 비밀버호를 입력하세요!');
+				alert('현재 비밀번호를 입력하세요!');
 				$('#now_passwd').val('').focus();
 				return false;
 			}
