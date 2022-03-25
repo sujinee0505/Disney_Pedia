@@ -7,6 +7,8 @@
 
 body {
 	margin: 0;
+	font-family: RobotoInCjk, "Noto Sans KR", "Apple SD Gothic Neo",
+		"Nanum Gothic", "Malgun Gothic", sans-serif !important;
 }
 
 .css-6k8tqb {
@@ -2792,23 +2794,20 @@ h1, h3, p, hr {
 	text-overflow: ellipsis;
 }
 
-@media ( min-width : 1023px) {
-	.css-171k8ad-Title {
-		font-size: 33px;
-		font-weight: 700;
-		-webkit-letter-spacing: -1.2px;
-		-moz-letter-spacing: -1.2px;
-		-ms-letter-spacing: -1.2px;
-		letter-spacing: -1.2px;
-		line-height: 40px;
-		line-height: 41px;
-	}
-}
-
 @media ( min-width : 719px) {
 	.css-171k8ad-Title {
 		display: block;
 		width: 520px;
+	}
+}
+
+@media ( min-width : 1023px) {
+	.css-171k8ad-Title {
+		font-size: 33px;
+		font-weight: 700;
+		letter-spacing: -3px;
+		line-height: 40px;
+		line-height: 41px;
 	}
 }
 
@@ -2980,6 +2979,8 @@ h1, h3, p, hr {
 	width: 100%;
 	padding: 0 22px;
 	margin: 16.5px -1.5px;
+	display: flex;
+	align-items: center;
 }
 
 .css-1tc9iuk-StylelessButton-ContentActionButton {
@@ -3515,40 +3516,6 @@ h1, h3, p, hr {
 	}
 }
 
-.css-171k8ad-Title {
-	display: none;
-	font-size: 25px;
-	font-weight: 700;
-	-webkit-letter-spacing: -0.9px;
-	-moz-letter-spacing: -0.9px;
-	-ms-letter-spacing: -0.9px;
-	letter-spacing: -0.9px;
-	line-height: 30px;
-	line-height: 33px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-@media ( min-width : 1023px) {
-	.css-171k8ad-Title {
-		font-size: 33px;
-		font-weight: 700;
-		-webkit-letter-spacing: -1.2px;
-		-moz-letter-spacing: -1.2px;
-		-ms-letter-spacing: -1.2px;
-		letter-spacing: -1.2px;
-		line-height: 40px;
-		line-height: 41px;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-171k8ad-Title {
-		display: block;
-		width: 520px;
-	}
-}
-
 .css-11h0kfd-Detail {
 	display: none;
 	color: rgba(0, 0, 0, 0.5);
@@ -3696,27 +3663,6 @@ h1, h3, p, hr {
 		width: 1px;
 		height: 100%;
 	}
-}
-
-@media ( min-width : 1023px) {
-	.css-12uh5q5-ButtonBlock {
-		padding: 0 0 0 30px;
-		margin: 0 -16px;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-12uh5q5-ButtonBlock {
-		width: auto;
-		padding: 0 20px;
-		margin: 7.5px -1.5px;
-	}
-}
-
-.css-12uh5q5-ButtonBlock {
-	width: 100%;
-	padding: 0 22px;
-	margin: 16.5px -1.5px;
 }
 
 .css-1tc9iuk-StylelessButton-ContentActionButton {
@@ -4114,40 +4060,6 @@ h1, h3, p, hr {
 	}
 }
 
-.css-171k8ad-Title {
-	display: none;
-	font-size: 25px;
-	font-weight: 700;
-	-webkit-letter-spacing: -0.9px;
-	-moz-letter-spacing: -0.9px;
-	-ms-letter-spacing: -0.9px;
-	letter-spacing: -0.9px;
-	line-height: 30px;
-	line-height: 33px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-@media ( min-width : 1023px) {
-	.css-171k8ad-Title {
-		font-size: 33px;
-		font-weight: 700;
-		-webkit-letter-spacing: -1.2px;
-		-moz-letter-spacing: -1.2px;
-		-ms-letter-spacing: -1.2px;
-		letter-spacing: -1.2px;
-		line-height: 40px;
-		line-height: 41px;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-171k8ad-Title {
-		display: block;
-		width: 520px;
-	}
-}
-
 .css-11h0kfd-Detail {
 	display: none;
 	color: rgba(0, 0, 0, 0.5);
@@ -4295,27 +4207,6 @@ h1, h3, p, hr {
 		width: 1px;
 		height: 100%;
 	}
-}
-
-@media ( min-width : 1023px) {
-	.css-12uh5q5-ButtonBlock {
-		padding: 0 0 0 30px;
-		margin: 0 -16px;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-12uh5q5-ButtonBlock {
-		width: auto;
-		padding: 0 20px;
-		margin: 7.5px -1.5px;
-	}
-}
-
-.css-12uh5q5-ButtonBlock {
-	width: 100%;
-	padding: 0 22px;
-	margin: 16.5px -1.5px;
 }
 
 .css-1tc9iuk-StylelessButton-ContentActionButton {
@@ -4762,40 +4653,6 @@ h1, h3, p, hr {
 	}
 }
 
-.css-171k8ad-Title {
-	display: none;
-	font-size: 25px;
-	font-weight: 700;
-	-webkit-letter-spacing: -0.9px;
-	-moz-letter-spacing: -0.9px;
-	-ms-letter-spacing: -0.9px;
-	letter-spacing: -0.9px;
-	line-height: 30px;
-	line-height: 33px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-@media ( min-width : 1023px) {
-	.css-171k8ad-Title {
-		font-size: 33px;
-		font-weight: 700;
-		-webkit-letter-spacing: -1.2px;
-		-moz-letter-spacing: -1.2px;
-		-ms-letter-spacing: -1.2px;
-		letter-spacing: -1.2px;
-		line-height: 40px;
-		line-height: 41px;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-171k8ad-Title {
-		display: block;
-		width: 520px;
-	}
-}
-
 .css-11h0kfd-Detail {
 	display: none;
 	color: rgba(0, 0, 0, 0.5);
@@ -4943,27 +4800,6 @@ h1, h3, p, hr {
 		width: 1px;
 		height: 100%;
 	}
-}
-
-@media ( min-width : 1023px) {
-	.css-12uh5q5-ButtonBlock {
-		padding: 0 0 0 30px;
-		margin: 0 -16px;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-12uh5q5-ButtonBlock {
-		width: auto;
-		padding: 0 20px;
-		margin: 7.5px -1.5px;
-	}
-}
-
-.css-12uh5q5-ButtonBlock {
-	width: 100%;
-	padding: 0 22px;
-	margin: 16.5px -1.5px;
 }
 
 .css-1tc9iuk-StylelessButton-ContentActionButton {
@@ -5845,7 +5681,7 @@ h1, h3, p, hr {
 .css-1a4f9b-VisualUl {
 	list-style: none;
 	margin: 0px -5px;
-	height: 357px;
+	max-height: 357px;
 	display: flex;
 	flex-flow: column wrap;
 	align-content: flex-start;
@@ -5879,7 +5715,7 @@ h1, h3, p, hr {
 .css-e9dkp8-VisualUl {
 	list-style: none;
 	margin: 0px -5px;
-	height: 357px;
+	max-height: 357px;
 	display: flex;
 	flex-flow: column wrap;
 	align-content: flex-start;
@@ -6572,4 +6408,123 @@ h1, h3, p, hr {
 
 .css-1fucs4t-StyledText {
 	white-space: pre-wrap;
+}
+
+.my-calendar {
+	width: 400px;
+	margin: 30px;
+	padding: 20px 20px 10px;
+	text-align: center;
+	font-weight: 800;
+	border: 1px solid #ddd;
+	cursor: default;
+}
+
+.my-calendar .clicked-date {
+	border-radius: 25px;
+	margin-top: 36px;
+	float: left;
+	width: 42%;
+	padding: 46px 0 26px;
+	background: #ddd;
+}
+/* .my-calendar .calendar-box {
+  float: right;
+  width: 58%;
+  padding-left: 30px;
+} */
+.clicked-date .cal-day {
+	font-size: 24px;
+}
+
+.clicked-date .cal-date {
+	font-size: 130px;
+}
+
+.ctr-box {
+	padding: 0 16px;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+.ctr-box .btn-cal {
+	position: relative;
+	float: left;
+	width: 25px;
+	height: 25px;
+	margin-top: 5px;
+	font-size: 16px;
+	cursor: pointer;
+	border: none;
+	background: none;
+}
+
+.ctr-box .btn-cal:after {
+	content: '<';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	line-height: 25px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.ctr-box .btn-cal.next {
+	float: right;
+}
+
+.ctr-box .btn-cal.next:after {
+	content: '>';
+}
+
+.cal-table {
+	width: 100%;
+}
+
+.cal-table th {
+	width: 14.2857%;
+	padding-bottom: 5px;
+	font-size: 16px;
+	font-weight: 900;
+}
+
+.cal-table td {
+	padding: 3px 0;
+	height: 50px;
+	font-size: 15px;
+	vertical-align: middle;
+}
+
+.cal-table td.day {
+	position: relative;
+	cursor: pointer;
+}
+
+.cal-table td.today {
+	background: #ffd255;
+	border-radius: 50%;
+	color: #fff;
+}
+
+.cal-table td.day-active {
+	background: #ff8585;
+	border-radius: 50%;
+	color: #fff;
+}
+
+.cal-table td.has-event:after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 4px;
+	background: #FFC107;
+}
+
+.dropdown-toggle::after {
+	display: none !important;
 }

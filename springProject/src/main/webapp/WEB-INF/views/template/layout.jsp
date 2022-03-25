@@ -16,7 +16,11 @@
 	href="${pageContext.request.contextPath}/resources/css/yunee.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/calendar.css">
-
+<link href="${pageContext.request.contextPath}/resources/css/rateit.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 </head>
 <body>
 	<div id="main">
