@@ -4,7 +4,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dain.css">
-
+<style>
+.ck-editor__editable_inline{
+	min-height:250px;
+}
+</style>
 <!-- 중앙 컨텐츠 시작 -->
 <!-- ckedior 라이브러리 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/ckeditor.js"></script>
@@ -13,7 +17,7 @@
 
      
      
-	<form:form modelAttribute="chatBoardVO" action="write.do" id="register_form" >  
+	<form:form modelAttribute="chatBoardVO" action="write.do" id="write_form" >  
 		<form:errors element="div" cssClass="error-color"/>
 		<ul> 
 			<li>
