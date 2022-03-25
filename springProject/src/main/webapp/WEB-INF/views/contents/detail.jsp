@@ -3,15 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!-- <script	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> 
- <script src="//code.jquery.com/jquery.min.js"></script>-->
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.rateit.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.rateit.js"></script>
+<script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>	
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
+<script	src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>	
+		
 <script type="text/javascript">
 	$(function() {
 		header = function() {
@@ -114,110 +111,83 @@
 													<!-- 평가 문구 노출영역 -->
 													<span id="rating_text"></span>
 												</div>
-												<br>
+											</div>
 
-											</div>
-											<!--=======별점 부분=======-->
-											<!-- <div class="css-1m7ruyk"> -->
-											<div class="star_area">
-												<div class="rateit" id="starRate" data-rateit-mode="font"
-													style="font-size: 38px;">
-													<%-- letter-spacing:-0.14em; --%>
-												</div>
-											</div>
-											<script type="text/javascript">
-												/*rated시->별점에 따른 평가 문구 설정*/
-												$("#starRate")
-														.bind(
-																'rated',
-																function(event,
-																		value) {
-																	$(
-																			'#do_rating')
-																			.hide(); //평가하기문구hide
-																	if (value === 5) {
-																		$(
-																				'#rating_text')
-																				.text(
-																						'최고예요!');
-																	}
-																	if (value === 4.5) {
-																		$(
-																				'#rating_text')
-																				.text(
-																						'훌륭해요!');
-																	}
-																	if (value === 4) {
-																		$(
-																				'#rating_text')
-																				.text(
-																						'재미있어요');
-																	}
-																	if (value === 3.5) {
-																		$(
-																				'#rating_text')
-																				.text(
-																						'볼만해요');
-																	}
-																	if (value === 3) {
-																		$(
-																				'#rating_text')
-																				.text(
-																						'보통이에요');
-																	}
-																	if (value === 2.5) {
-																		$(
-																				'#rating_text')
-																				.text(
-																						'부족해요');
-																	}
-																	if (value === 2) {
-																		$(
-																				'#rating_text')
-																				.text(
-																						'별로예요');
-																	}
-																	if (value === 1.5) {
-																		$(
-																				'#rating_text')
-																				.text(
-																						'재미없어요');
-																	}
-																	if (value === 1) {
-																		$(
-																				'#rating_text')
-																				.text(
-																						'싫어요');
-																	}
-																	if (value === 0.5) {
-																		$(
-																				'#rating_text')
-																				.text(
-																						'최악이에요');
-																		//0.5 hover시 리셋버튼 클릭어려워서 0.5클릭 시 리셋버튼 뜨게 설정
-																		$(
-																				'#rateit-reset-2')
-																				.css(
-																						"visibility",
-																						"visible");
-																	}
-																});
-												$("#starRate")
-														.bind(
-																'reset',
-																function() { //reset버튼클릭시
-																	$(
-																			'#rating_text')
-																			.text(
-																					'평가하기'); //평가하기문구다시노출 
-																	$(
-																			'#rateit-reset-2')
-																			.css(
-																					"visibility",
-																					"hidden"); //리셋버튼감추기
-																});
-											</script>
-											<!--======별점 부분 끝======-->
+<!--=======별점 부분=======-->	<%-- <div class="css-1m7ruyk"> --%>
+	<div class="star_area">
+		<div data-contentsid="${contents.id}" class="rateit" id="starRate" data-rateit-mode="font"  style="font-size:38px;">
+		<%-- letter-spacing:-0.14em; --%>
+		</div>		
+	</div>
+	<script type="text/javascript">	
+	//ajax로 별점 전송
+   
+	$('.star_area .rateit').bind('rated reset', function (e) {
+        var ri = $(this);
+
+        //리셋버튼 누르면->value:0 
+        //how?-> e.type == 'reset'인지 체크, 맞으면 value를 null로 set.   
+		var value = ri.rateit('value'); //별점값: value에 담음
+        var contentsID = ri.data('contentsid'); //컨텐츠id: contentsID에 담음     
+
+        /*  $.ajax({
+            url: 'starRating.do', 
+            data: { id: productID, value: value }, //our data
+            type: 'POST',
+            success: function (data) {
+                $('#response').append('<li>' + data + '</li>');
+
+            },
+            error: function (jxhr, msg, err) {
+                $('#response').append('<li style="color:red">' + msg + '</li>');
+            }
+        }); */ //end of ajax
+    });
+	    
+	//별점에 따른 평가 문구 설정	    	
+    $("#starRate").bind('rated', function (event, value) { //rated시 이벤트 발생
+    	$('#do_rating').hide(); //평가하기문구hide
+	   	 if(value === 5 ){ 
+	   	 	$('#rating_text').text('최고예요!');		   
+	   	 }
+	   	 if(value === 4.5){
+	   		 $('#rating_text').text('훌륭해요!');		   
+	   	 }
+	   	 if(value === 4 ){
+	   		 $('#rating_text').text('재미있어요');		   
+	   	 }
+	   	 if(value === 3.5 ){
+	   		 $('#rating_text').text('볼만해요');		   
+	   	 }
+	   	 if(value === 3 ){
+	   		 $('#rating_text').text('보통이에요');		   
+	   	 }
+	   	 if(value === 2.5){
+	   		 $('#rating_text').text('부족해요');		   
+	   	 }
+	   	 if(value === 2){
+	   		 $('#rating_text').text('별로예요');		   
+	   	 }
+	   	 if(value === 1.5){
+	   		 $('#rating_text').text('재미없어요');		   
+	   	 }
+	   	 if(value === 1){
+	   		 $('#rating_text').text('싫어요');		   
+	   	 }
+	   	 if(value === 0.5){
+	   		 $('#rating_text').text('최악이에요');	
+	   	  //0.5 hover시 리셋버튼 클릭어려워서 0.5클릭 시 리셋버튼 뜨게 설정
+	   	 	$('#rateit-reset-2').css("visibility","visible"); 
+	   	 } 
+    });
+     $("#starRate").bind('reset', function () { //reset버튼클릭시 이벤트 발생
+    	 $('#rating_text').text('평가하기');	//평가하기문구다시노출 
+    	 $('#rateit-reset-2').css("visibility","hidden"); //리셋버튼감추기
+	}); 	   
+	</script>  	
+	<!--======별점 부분 끝======-->
+
+
 										</div>
 										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 										<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
