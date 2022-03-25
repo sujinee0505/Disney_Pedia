@@ -21,10 +21,8 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 	}
 	@Override
 	public List<ChatBoardVO> selectListHit(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		return chatBoardMapper.selectListHit(map);
 	}
-
 	
 	@Override
 	public int selectRowCount(Map<String, Object> map) {
