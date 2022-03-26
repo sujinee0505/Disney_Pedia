@@ -12,7 +12,6 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.springframework.ui.Model;
 
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.CreditsVO;

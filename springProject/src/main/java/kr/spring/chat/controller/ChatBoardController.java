@@ -212,7 +212,6 @@ public class ChatBoardController {
 		return "chatBoardModify";
 	}
 	
-	/*
 	//수정 폼에서 전송된 데이터 처리
 	@PostMapping("/chatboard/update.do")
 	public String submitUpdate(@Valid ChatBoardVO chatboardVO,
@@ -227,23 +226,23 @@ public class ChatBoardController {
 			//title 또는 content가 입력되지 않으면 유효성 체크시 오류가 발생하고
 			//파일 정보을 잃어버리기 때문에 폼을 호출할 때 다시 셋팅
 			ChatBoardVO vo = chatBoardService.selectBoard(chatboardVO.getChatboard_num());
-			chatboardVO.setFilename(vo.getFilename());
-			return "chatboardModify";
+			 //chatboardVO.setFilename(vo.getFilename());
+			return "chatBoardModify";
 		}
 		
 		//ip셋팅
-		chatboardVO.setIp(request.getRemoteAddr());
+		//chatboardVO.setIp(request.getRemoteAddr());
 		
 		//글 수정
 		chatBoardService.updateBoard(chatboardVO);
 		
 		//view에 표시할 메시지
-		model.addAttribute("content", "글 수정 완료");
+		model.addAttribute("content", "글 수정이 완료되었습니다.");
 		model.addAttribute("url", request.getContextPath() + "/chatboard/list.do");
 		
 		return "common/resultView";
 	}
-	 */
+	 
 	
 	//**[글 삭제]**
 	//게시판 글 삭제
