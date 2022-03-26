@@ -14,9 +14,19 @@
 		</div>
 		<div class="css-15qcwbn-StyledTabBarContainer e1szkzar1">
 			<ul class="css-1gwdxtz-VisualUl-StyledTabBarUl e1szkzar2">
-				<li class="css-s8lqsd-StyledTab e1szkzar0">콘텐츠</li>
-				<li class="css-4tchbd-StyledTab e1szkzar0">컬렉션</li>
-				<li class="css-4tchbd-StyledTab e1szkzar0">유저</li>
+				<li
+					class="<c:if
+					test="${param.category eq 'contents' || empty param.category }">css-s8lqsd-StyledTab e1szkzar0</c:if><c:if test="${param.category ne 'contents' }">css-4tchbd-StyledTab e1szkzar0</c:if>"><a
+					href="${pageContext.request.contextPath}/contents/search.do?keyword=${param.keyword }&category=contents">콘텐츠</a>
+				</li>
+				<li
+					class="<c:if
+					test="${param.category eq 'collections' }">css-s8lqsd-StyledTab e1szkzar0</c:if><c:if test="${param.category ne 'collections' }">css-4tchbd-StyledTab e1szkzar0</c:if>"><a
+					href="${pageContext.request.contextPath}/contents/search.do?keyword=${param.keyword }&category=collections">컬렉션</a></li>
+				<li
+					class="<c:if
+					test="${param.category eq 'users'}">css-s8lqsd-StyledTab e1szkzar0</c:if><c:if test="${param.category ne 'users' }">css-4tchbd-StyledTab e1szkzar0</c:if>"><a
+					href="${pageContext.request.contextPath}/contents/search.do?keyword=${param.keyword }&category=users">유저</a></li>
 			</ul>
 		</div>
 		<div class="css-ipmqep-StyledTabContentContainer e1szkzar3">
@@ -27,30 +37,33 @@
 							<div class="css-9dnzub scroll">
 								<div class="css-174lxc3">
 									<ul class="css-1bk3hui-VisualUl">
-										<c:forEach var="search_result" items="${search_result }">
-											<li class="css-8y23cj"><a
-												title="${search_result.title }"
-												href="${pageContext.request.contextPath}/contents/detail.do?type=${search_result.type }&id=${search_result.id}"><div
-														class="css-1qmeemv">
-														<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
-															<img
-																src="https://image.tmdb.org/t/p/original/${search_result.poster_path }"
-																class="css-qhzw1o-StyledImg ezcopuc1">
+										<c:if
+											test="${param.category eq 'contents' || empty param.category }">
+											<c:forEach var="search_result" items="${search_result }">
+												<li class="css-8y23cj"><a
+													title="${search_result.title }"
+													href="${pageContext.request.contextPath}/contents/detail.do?type=${search_result.type }&id=${search_result.id}"><div
+															class="css-1qmeemv">
+															<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
+																<img
+																	src="https://image.tmdb.org/t/p/original/${search_result.poster_path }"
+																	class="css-qhzw1o-StyledImg ezcopuc1">
+															</div>
 														</div>
-													</div>
-													<div class="css-ixy093">
-														<div class="css-31iyzt">${search_result.title }</div>
-														<div class="css-1thqxgo">
-															<fmt:formatDate value="${search_result.release_date }"
-																pattern="yyyy-MM-dd" />
-														</div>
-														<div class="css-jgn78h">
-															<c:if test="${search_result.type eq 'movie' }">영화</c:if>
-															<c:if test="${search_result.type eq 'tv' }">시리즈</c:if>
-														</div>
-													</div></a></li>
-										</c:forEach>
-										<div class="css-ml096x"></div>
+														<div class="css-ixy093">
+															<div class="css-31iyzt">${search_result.title }</div>
+															<div class="css-1thqxgo">
+																<fmt:formatDate value="${search_result.release_date }"
+																	pattern="yyyy-MM-dd" />
+															</div>
+															<div class="css-jgn78h">
+																<c:if test="${search_result.type eq 'movie' }">영화</c:if>
+																<c:if test="${search_result.type eq 'tv' }">시리즈</c:if>
+															</div>
+														</div></a></li>
+											</c:forEach>
+
+											<div class="css-ml096x"></div>
 									</ul>
 								</div>
 							</div>
@@ -78,12 +91,6 @@
 							<div class="css-1y901al-Row emmoxnt0">
 								<header class="css-1ue9xs6">
 									<h2 class="css-1wtjsst">영화</h2>
-									<!-- <div class="css-s289sk">
-										<div class="css-1ugqy9j">
-											<a
-												href="/ko-KR/searches/movies?query=%EC%96%B4%EB%B2%A4%EC%A0%B8%EC%8A%A4">더보기</a>
-										</div>
-									</div> -->
 								</header>
 							</div>
 						</div>
@@ -142,12 +149,6 @@
 							<div class="css-1y901al-Row emmoxnt0">
 								<header class="css-1ue9xs6">
 									<h2 class="css-1wtjsst">TV 시리즈</h2>
-									<!-- <div class="css-s289sk">
-										<div class="css-1ugqy9j">
-											<a
-												href="/ko-KR/searches/tv_seasons?query=%EC%96%B4%EB%B2%A4%EC%A0%B8%EC%8A%A4">더보기</a>
-										</div>
-									</div> -->
 								</header>
 							</div>
 						</div>
@@ -203,6 +204,39 @@
 						<hr class="css-g67iqr">
 					</section>
 				</section>
+				</c:if>
+				<!-- 유저 -->
+				<c:if test="${param.category eq 'users' }">
+					<div class="css-1djzg97">
+						<ul class="css-paz4zm-VisualUl">
+							<c:forEach var="user_list" items="${user_list }">
+								<li class="css-1tmgvat"><a title="${param.keyword }"
+									class="css-1aaqvgs-InnerPartOfListWithImage" href=""><div
+											class="css-cssveg">
+											<div class="css-lmg4ew">
+												<div class="css-h6h0rq-ProfilePhotoImage">
+													<img
+														src="${pageContext.request.contextPath}/member/photoView.do">
+												</div>
+											</div>
+										</div>
+										<div class="css-zoy7di">
+											<div class="css-qkf9j">
+												<div class="css-17vuhtq">
+													<div class="css-14hy3cw">${user_list.name }</div>
+												</div>
+												<div class="css-1evnpxk-StyledSubtitle">
+													<div class="css-xpswhu">${user_list.introduction }</div>
+												</div>
+											</div>
+											<div>
+												<button class="css-1cekuo0-StylelessButton">팔로우</button>
+											</div>
+										</div></a></li>
+							</c:forEach>
+						</ul>
+					</div>
+				</c:if>
 			</div>
 		</div>
 	</section>

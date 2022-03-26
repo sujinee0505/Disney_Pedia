@@ -93,7 +93,7 @@
 				</div>
 			</div>
 			<div style="display: flex; justify-content: center;">
-				<input class="css-1ukikc-StylelessButton" type="submit" value="전송">
+				<input class="css-1ukikc-StylelessButton" type="submit" value="등록">
 			</div>
 		</form>
 	</div>

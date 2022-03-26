@@ -12,11 +12,11 @@ import kr.spring.member.vo.MemberVO;
 
 @Service
 @Transactional
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private MemberMapper memberMapper;
-	
+
 	@Override
 	public void insertMember(MemberVO member) {
 		member.setMem_num(memberMapper.selectMem_num());
@@ -54,4 +54,11 @@ public class MemberServiceImpl implements MemberService{
 	public void updateProfile(MemberVO member) {
 		memberMapper.updateProfile(member);
 	}
+
+	// 유저 검색 (수진)
+	@Override
+	public List<MemberVO> searchUsers(String name) {
+		return memberMapper.searchUsers(name);
+	}
+
 }

@@ -2,71 +2,81 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-	$(function(){
+	$(function() {
 		//커서
-		$('#myModal').on('shown.bs.modal', function () { 
-			  $('#id').trigger('focus')
-		})	
-		$('#myModal2').on('shown.bs.modal', function () {
-			  $('#name').trigger('focus')
+		$('#myModal').on('shown.bs.modal', function() {
+			$('#id').trigger('focus')
 		})
-		
+		$('#myModal2').on('shown.bs.modal', function() {
+			$('#name').trigger('focus')
+		})
+
 		let checkId = 0;
-		
+
 		//아이디 중복 체크
-		$('#confirmId').click(function(){
-			/* if($('#id').val().trim()==''){
-				$('#message_id').css('color','red').text('아이디를 입력하세요');
-				$('#id').val('').focus();
-				return;
-			} */
-			
-			$.ajax({			
-				url:'../member/confirmId.do',
-				type:'post',
-				data:{id:$('#id').val()},
-				dataType:'json',
-				cache:false,
-				timeout:30000,
-				success:function(param){
-					if(param.result == 'idNotFound'){
-						$('#message_id').css('color','#000').text('등록가능ID');
-						checkId = 1;
-					}else if(param.result == 'idDuplicated'){
-						$('#message_id').css('color','red').text('중복된ID');
+		$('#confirmId').click(
+				function() {
+					/* if($('#id').val().trim()==''){
+						$('#message_id').css('color','red').text('아이디를 입력하세요');
 						$('#id').val('').focus();
-						checkId = 0;
-					}else if(param.result == 'notMatchPattern'){
-						$('#message_id').css('color','red').text('영문,숫자 4~12');
-						$('#id').val('').focus();
-						checkId = 0;
-					}else{
-						checkId=0;
-						alert('ID 중복체크 오류');
-					}
-				},
-				error:function(){
-					checkId = 0;
-					alert('네트워크 오류 발생');
-				}
-			});
-		});//end of click
-		
+						return;
+					} */
+
+					$.ajax({
+						url : '../member/confirmId.do',
+						type : 'post',
+						data : {
+							id : $('#id').val()
+						},
+						dataType : 'json',
+						cache : false,
+						timeout : 30000,
+						success : function(param) {
+							if (param.result == 'idNotFound') {
+								$('#message_id').css('color', '#000').text(
+										'등록가능ID');
+								checkId = 1;
+							} else if (param.result == 'idDuplicated') {
+								$('#message_id').css('color', 'red').text(
+										'중복된ID');
+								$('#id').val('').focus();
+								checkId = 0;
+							} else if (param.result == 'notMatchPattern') {
+								$('#message_id').css('color', 'red').text(
+										'영문,숫자 4~12');
+								$('#id').val('').focus();
+								checkId = 0;
+							} else {
+								checkId = 0;
+								alert('ID 중복체크 오류');
+							}
+						},
+						error : function() {
+							checkId = 0;
+							alert('네트워크 오류 발생');
+						}
+					});
+				});//end of click
+
 		//아이디 중복 안내 메시지 초기화 및 아이디 중복 값 초기화
-		$('#register_form #id').keyup(function(){
-			checkId=0;
+		$('#register_form #id').keyup(function() {
+			checkId = 0;
 			$('#message_id').text('');
 		});
-		
+
 		//submit 이벤트 발생시 아이디 중복 체크 여부 확인
-		$('#register_form').submit(function(){
-			if(checkId == 0){
-				$('#message_id').css('color','red').text('아이디 중복 체크 필수');
-				if($('#id').val().trim()==''){
+		$('#register_form').submit(function() {
+			if (checkId == 0) {
+				$('#message_id').css('color', 'red').text('아이디 중복 체크 필수');
+				if ($('#id').val().trim() == '') {
 					$('#id').val('').focus();
 				}
 				return false;
@@ -139,7 +149,7 @@
 								</div></a></li>
 					</c:if> --%>
 					<c:if test="${!empty user_num}">
-					<li class="css-bj71cw"><button
+						<li class="css-bj71cw"><button
 								onclick="location.href='${pageContext.request.contextPath}/member/logout.do'"
 								class="css-fn0ezc-StylelessButton" id="header_logout">로그아웃</button></li>
 					</c:if>
@@ -165,18 +175,18 @@
 <!-- 상단 끝 -->
 <!--로그인 모달 틀-->
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-login">
-        <div class="modal-content">
-        <jsp:include page="/WEB-INF/views/member/memberLogin.jsp"/>
-        </div>
-    </div>
+	<div class="modal-dialog modal-login">
+		<div class="modal-content">
+			<jsp:include page="/WEB-INF/views/member/memberLogin.jsp" />
+		</div>
+	</div>
 </div>
 
 <!--회원가입 모달 틀-->
 <div id="myModal2" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-login">
-        <div class="modal-content">
-        <jsp:include page="/WEB-INF/views/member/memberRegister.jsp"/>
-        </div>
-    </div>
+	<div class="modal-dialog modal-login">
+		<div class="modal-content">
+			<jsp:include page="/WEB-INF/views/member/memberRegister.jsp" />
+		</div>
+	</div>
 </div>

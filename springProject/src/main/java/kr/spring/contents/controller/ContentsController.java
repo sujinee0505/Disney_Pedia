@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,11 +12,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.CreditsVO;
+import kr.spring.member.service.MemberService;
+import kr.spring.member.vo.MemberVO;
 import kr.spring.sort.SortByDate;
 import kr.spring.util.GetInfoUtil;
 
 @Controller
 public class ContentsController {
+	@Autowired
+	private MemberService memberService;
+
 	@RequestMapping("/contents/detail.do")
 	// 컨텐츠 타입(movie/tv), 컨텐츠 id를 인자로 받음
 	public ModelAndView process(@RequestParam String type, @RequestParam int id) {
@@ -81,43 +87,56 @@ public class ContentsController {
 
 	// 검색 결과 목록 출력
 	@RequestMapping("/contents/search.do")
-	public ModelAndView process(@RequestParam String keyword) {
-		GetInfoUtil util = new GetInfoUtil();
+	public ModelAndView process(@RequestParam String keyword,
+			@RequestParam(value = "category", defaultValue = "contents") String category) {
 
-		// 영화에 해당하는 검색 결과와 시리즈에 해당하는 검색 결과를 각각 추출하여 별도의 새로운 List객체에 담기 위한 List객체 생성
-		List<ContentsVO> search_result = new ArrayList<ContentsVO>();
-
-		// 영화 목록을 저장할 List객체 생성
-		List<ContentsVO> movie = null;
-		// 전체 영화 목록을 List에 저장
-		movie = util.getInfoList("movie");
-		for (int i = 0; i < movie.size(); i++) {
-			// 전체 영화 목록 중 제목과 줄거리에 keyword가 포함되는 vo객체만 따로 추출
-			if (movie.get(i).getTitle().contains(keyword) || movie.get(i).getOverview().contains(keyword)) {
-				// 저장을 위한 새로운 ContentsVO생성
-				ContentsVO contents = new ContentsVO();
-				// 조건에 해당하는 경우에만 vo에 저장
-				contents = movie.get(i);
-				// 루프를 돌면서 List에 추가해준다
-				search_result.add(contents);
-			}
-		}
-
-		List<ContentsVO> tv = null;
-		tv = util.getInfoList("tv");
-		for (int i = 0; i < tv.size(); i++) {
-			if (tv.get(i).getTitle().contains(keyword) || tv.get(i).getOverview().contains(keyword)) {
-				ContentsVO contents = new ContentsVO();
-				contents = tv.get(i);
-				search_result.add(contents);
-			}
-		}
-
-		// 위의 과정을 통해 생성된 List를 공개날짜순으로 다시 정렬
-		Collections.sort(search_result, new SortByDate());
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("contentsSearch");
-		mav.addObject("search_result", search_result);
+
+		if (category.equals("contents") || category == null) {
+			GetInfoUtil util = new GetInfoUtil();
+
+			// 영화에 해당하는 검색 결과와 시리즈에 해당하는 검색 결과를 각각 추출하여 별도의 새로운 List객체에 담기 위한 List객체 생성
+			List<ContentsVO> search_result = new ArrayList<ContentsVO>();
+
+			// 영화 목록을 저장할 List객체 생성
+			List<ContentsVO> movie = null;
+			// 전체 영화 목록을 List에 저장
+			movie = util.getInfoList("movie");
+			for (int i = 0; i < movie.size(); i++) {
+				// 전체 영화 목록 중 제목과 줄거리에 keyword가 포함되는 vo객체만 따로 추출
+				if (movie.get(i).getTitle().contains(keyword) || movie.get(i).getOverview().contains(keyword)) {
+					// 저장을 위한 새로운 ContentsVO생성
+					ContentsVO contents = new ContentsVO();
+					// 조건에 해당하는 경우에만 vo에 저장
+					contents = movie.get(i);
+					// 루프를 돌면서 List에 추가해준다
+					search_result.add(contents);
+				}
+			}
+
+			List<ContentsVO> tv = null;
+			tv = util.getInfoList("tv");
+			for (int i = 0; i < tv.size(); i++) {
+				if (tv.get(i).getTitle().contains(keyword) || tv.get(i).getOverview().contains(keyword)) {
+					ContentsVO contents = new ContentsVO();
+					contents = tv.get(i);
+					search_result.add(contents);
+				}
+			}
+
+			// 위의 과정을 통해 생성된 List를 공개날짜순으로 다시 정렬
+			Collections.sort(search_result, new SortByDate());
+			mav.addObject("search_result", search_result);
+		} else if (category.equals("users")) {
+			List<MemberVO> user_list = new ArrayList<MemberVO>();
+			String name = keyword;
+			user_list = memberService.searchUsers(name);
+			mav.addObject("user_list", user_list);
+		} else {
+
+		}
+
 		return mav;
 	}
 }
