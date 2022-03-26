@@ -162,7 +162,7 @@
 					</c:if>
 					<c:if test="${!empty user_num && !empty user_photo}">
 						<a href="${pageContext.request.contextPath}/member/myPage.do">
-							<img src="${pageContext.request.contextPath}/member/photoView.do"
+							<img src="${pageContext.request.contextPath}/member/photoView.do?user_num=0"
 							width="25" height="25" class="my-photo">
 						</a>
 					</c:if>

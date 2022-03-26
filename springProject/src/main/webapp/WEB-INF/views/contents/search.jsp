@@ -30,7 +30,8 @@
 			</ul>
 		</div>
 		<div class="css-ipmqep-StyledTabContentContainer e1szkzar3">
-			<div class="css-12hxjcc-StyledHideableBlock e1pww8ij0">
+			<div class="css-12hxjcc-StyledHideableBlock e1pww8ij0"
+				style="min-height: 650px;">
 				<section class="css-9ebwyf-pageMarginStyle">
 					<section class="css-1s4ow07">
 						<div class="css-usdi1z">
@@ -155,7 +156,7 @@
 						<div class="css-usdi1z">
 							<div class="css-9dnzub scroll">
 								<div class="css-174lxc3">
-									<ul class="css-e9dkp8-VisualUl">
+									<ul class="css-1a4f9b-VisualUl">
 										<c:forEach var="search_result" items="${search_result }">
 											<c:if test="${search_result.type eq 'tv' }">
 												<li class="css-1iuimiv"><a
@@ -215,8 +216,8 @@
 											class="css-cssveg">
 											<div class="css-lmg4ew">
 												<div class="css-h6h0rq-ProfilePhotoImage">
-													<img
-														src="${pageContext.request.contextPath}/member/photoView.do">
+													<img width="71" height="71" class="my-photo"
+														src="${pageContext.request.contextPath}/member/photoView.do?user_num=${user_list.mem_num}">
 												</div>
 											</div>
 										</div>

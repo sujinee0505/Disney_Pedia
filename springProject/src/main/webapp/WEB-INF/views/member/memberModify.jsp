@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		//프로필 사진 업로드
@@ -94,7 +95,8 @@ ul li {
 }
 </style>
 <div class="container">
-	<form:form modelAttribute="memberVO" action="update.do" id="modify_form">
+	<form:form modelAttribute="memberVO" action="update.do"
+		id="modify_form">
 		<form:errors element="div" cssClass="error-color" />
 		<div id="root">
 			<div class="css-5jq76">
@@ -108,24 +110,27 @@ ul li {
 											<!-- SIDEBAR USERPIC -->
 											<div class="profile-userpic">
 												<ul>
-													<li>
-													<c:if test="${empty user_photo}">
-														<img src="${pageContext.request.contextPath}/resources/images/face.png"
+													<li><c:if test="${empty user_photo}">
+															<img
+																src="${pageContext.request.contextPath}/resources/images/face.png"
 																width="200" height="200" class="my-photo">
-													</c:if> 
-													<c:if test="${!empty user_photo}">
-														<img src="${pageContext.request.contextPath}/member/photoView.do"
+														</c:if> <c:if test="${!empty user_photo}">
+															<img
+																src="${pageContext.request.contextPath}/member/photoView.do?user_num=0"
 																width="200" height="200" class="my-photo">
-													</c:if>
-													</li>
+														</c:if></li>
 													<li>
 														<div class="align-center">
-															<input type="button" class="yWX7d" value="사진변경" id="photo_btn">
+															<input type="button" class="yWX7d" value="사진변경"
+																id="photo_btn">
 														</div>
-														<div id="photo_choice" class="filebtn" style="display: none;">
-															<input type="file" id="upload" accept="image/gif,image/png,image/jpeg"> 
-															<input type="button" class="filebtn" value="변경" id="photo_submit">
-															<input type="button" class="filebtn" value="취소" id="photo_reset">
+														<div id="photo_choice" class="filebtn"
+															style="display: none;">
+															<input type="file" id="upload"
+																accept="image/gif,image/png,image/jpeg"> <input
+																type="button" class="filebtn" value="변경"
+																id="photo_submit"> <input type="button"
+																class="filebtn" value="취소" id="photo_reset">
 														</div>
 													</li>
 												</ul>
@@ -135,21 +140,16 @@ ul li {
 											<div class="profile-usertitle">
 												<div class="profile-usertitle-name">
 													<ul>
-														<li>
-															<form:label path="name">이름</form:label> 
-															<form:input class="form1" path="name" /> 
-															<form:errors path="name" cssClass="error-color" />
-														</li>
-														<li>
-															<form:label path="introduction">소개</form:label> 
-															<form:textarea class="form2" path="introduction" /> 
-															<form:errors path="introduction" cssClass="error-color" />
-														</li>
-														<li>
-															<form:label  path="passwd" >비밀번호</form:label>
-															<input type="button" class="passbtn" value="비밀번호변경하기 >" 
-															data-bs-toggle="modal" data-bs-target="#myModal3" onclick="location.href='changePassword.do'">
-														</li> 
+														<li><form:label path="name">이름</form:label> <form:input
+																class="form1" path="name" /> <form:errors path="name"
+																cssClass="error-color" /></li>
+														<li><form:label path="introduction">소개</form:label> <form:textarea
+																class="form2" path="introduction" /> <form:errors
+																path="introduction" cssClass="error-color" /></li>
+														<li><form:label path="passwd">비밀번호</form:label> <input
+															type="button" class="passbtn" value="비밀번호변경하기 >"
+															data-bs-toggle="modal" data-bs-target="#myModal3"
+															onclick="location.href='changePassword.do'"></li>
 													</ul>
 												</div>
 											</div>
@@ -157,10 +157,12 @@ ul li {
 											<!-- SIDEBAR BUTTONS -->
 											<div class="profile-userbuttons">
 												<form:button class="modibtn">수정</form:button>
-												<input type="button" class="homebtn" value="이전으로" onclick="location.href='${pageContext.request.contextPath}/member/myPage.do'">
-											<div class="profile-userbuttons">
-												<input type="button" class="yWX7s" value="회원탈퇴 >" onclick="location.href='delete.do'">
-											</div>
+												<input type="button" class="homebtn" value="이전으로"
+													onclick="location.href='${pageContext.request.contextPath}/member/myPage.do'">
+												<div class="profile-userbuttons">
+													<input type="button" class="yWX7s" value="회원탈퇴 >"
+														onclick="location.href='delete.do'">
+												</div>
 											</div>
 											<!-- END SIDEBAR BUTTONS -->
 										</section>

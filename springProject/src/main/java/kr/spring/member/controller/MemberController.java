@@ -20,7 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.util.AuthCheckException;
-import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 public class MemberController {
@@ -278,9 +277,11 @@ public class MemberController {
 
 	// 이미지 출력
 	@RequestMapping("/member/photoView.do")
-	public ModelAndView viewImage(HttpSession session) {
+	public ModelAndView viewImage(HttpSession session, @RequestParam int user_num) {
 
-		Integer user_num = (Integer) session.getAttribute("user_num");
+		if (user_num == 0) {
+			user_num = (Integer) session.getAttribute("user_num");
+		}
 		MemberVO memberVO = memberService.selectMember(user_num);
 
 		ModelAndView mav = new ModelAndView();
