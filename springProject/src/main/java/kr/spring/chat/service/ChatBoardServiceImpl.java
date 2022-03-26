@@ -53,7 +53,7 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 	public void deleteBoard(Integer chatboard_num) {
 		chatBoardMapper.deleteBoard(chatboard_num);
 	}
-
+ 
 	@Override
 	public void deleteFile(Integer chatboard_num) {
 		//chatBoardMapper.deleteFile(chatboard_num);
