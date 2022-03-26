@@ -97,18 +97,20 @@ public class ChatBoardController {
 	//**[글 목록]**
 	//게시판 글 목록
 	@RequestMapping("/chatboard/list.do")
-
 	public ModelAndView process(
 							@RequestParam(value="pageNum",defaultValue="1")
 							int currentPage,
 							@RequestParam(value="keyfield",defaultValue="")
 							String keyfield,
 							@RequestParam(value="keyword",defaultValue="")
-							String keyword ) {
+							String keyword,
+							@RequestParam(value="sort",defaultValue="1")
+							int sort) {
 		//데이터 넘기기
 		Map<String,Object> map = new HashMap<String, Object>();
 		map.put("keyfield", keyfield);
 		map.put("keyword", keyword);
+		map.put("sort",sort);
 		//글의 총갯수 또는 검색된 글의 갯수		
 		int count = chatBoardService.selectRowCount(map);
 		//페이지 처리
@@ -125,7 +127,6 @@ public class ChatBoardController {
 			list2 = chatBoardService.selectListHit(map);
 		}
 		logger.info("<<목록테스트2>> : " + list);
-		
 		
 		//데이터가 준비되었으니 데이터를 표시한다.
 		ModelAndView mav = new ModelAndView();
