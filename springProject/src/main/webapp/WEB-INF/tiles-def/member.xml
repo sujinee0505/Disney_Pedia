@@ -33,4 +33,29 @@
     	<put-attribute name="title" value="아이디체크"/>
     	<put-attribute name="body" value="/WEB-INF/views/common/ajax_view.jsp"/>
     </definition> -->
+    <definition name="myComent" extends="main">
+    	<put-attribute name="title" value="내코멘트목록"/>
+    	<put-attribute name="body" value="/WEB-INF/views/member/myComent.jsp"/>
+    </definition>
+    <definition name="myList" extends="main">
+    	<put-attribute name="title" value="내리스트목록"/>
+    	<put-attribute name="body" value="/WEB-INF/views/member/myList.jsp"/>
+    </definition>
+    <definition name="myMovie" extends="main">
+    	<put-attribute name="title" value="영화목록"/>
+    	<put-attribute name="body" value="/WEB-INF/views/member/myMovie.jsp"/>
+    </definition>
+    <definition name="myDrama" extends="main">
+    	<put-attribute name="title" value="드라마목록"/>
+    	<put-attribute name="body" value="/WEB-INF/views/member/myDrama.jsp"/>
+    </definition>
+    <definition name="likeList" extends="main">
+    	<put-attribute name="title" value="좋아한리스트목록"/>
+    	<put-attribute name="body" value="/WEB-INF/views/member/likeList.jsp"/>
+    </definition>
+    <definition name="likeComent" extends="main">
+    	<put-attribute name="title" value="좋아한코멘트목록"/>
+    	<put-attribute name="body" value="/WEB-INF/views/member/myComent.jsp"/>
+    </definition>
+    
 </tiles-definitions>
