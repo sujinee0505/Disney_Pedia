@@ -6,7 +6,7 @@
 						<!-- 이미지일경우 보여지게 하고 이미지아닐경우 다운로드하도록 functions이용할 것. -->
 <!-- 중앙 컨텐츠 시작 -->
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/css/mj.css"></script>
+<link rel="stylesheet" type="text/css" 	href="${pageContext.request.contextPath}/resources/css/mj.css"/>
 
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -26,6 +26,7 @@
 		</c:if>
 		&nbsp;
 		${chatboard.title}
+		
 	</h2> 
 	<div id="boardView_middle" class="col-12">
 		<div id="photo_1" class="col-4">
@@ -33,8 +34,8 @@
 				<img src="${pageContext.request.contextPath}/resources/images/face.png">
 			</c:if>
 			<c:if test="${chatboard.photo!=null}">
-				<%-- <img src="${pageContext.request.contextPath}/resources/images/face.png"> --%>
-				<!-- db에 프로필 사진 안올라가는 이슈 대기중 -->
+				<img src="imageView.do?board_num=${chatboard.chatboard_num}">
+				<img src="${pageContext.request.contextPath}/member/photoView.do">
 			</c:if>
 		</div>
 		<div id="name_2" class="col-4">
@@ -63,6 +64,8 @@
 					onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'">수정</button>
 			<button class="btn btn-secondary m-2" id="delete_btn">삭제</button>
 		</c:if>
+		<button class="btn btn-primary m-3"  id="chat_btn" onclick="location.href='chat.do'">채팅걸기</button>
+		
 			<script type="text/javascript">
 				let delete_btn = document.getElementById('delete_btn');//delete_btn에접근
 				

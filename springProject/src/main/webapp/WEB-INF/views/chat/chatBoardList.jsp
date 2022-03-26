@@ -9,33 +9,10 @@
 
 <!-- 중앙 컨텐츠 시작 -->
 <script type="text/javascript">
-	/*  
-	$(function () {
-		$('#list_search_btn').submit(function () {
-			if($('#keyword').val().trim()==''){
-				Swal.fire({
-				      icon: 'warning',
-				      title: '검색어를 입력하세요!',
-				      text: '찾을 수가 없네요',
-				      showConfirmButton: false,
-				    });
-				  };
-				$('#keyword').val('').focus();
-				return false;
-			}); 
-		});
+
+/* 	
 	*/
-	/*
-	$(function () {
-		$('#list_search_form').submit(function () {
-			if($('#keyword').val().trim()==''){
-				alert('검색어를 입력하세요');
-				$('#keyword').val('').focus();
-				return false;
-			}
-		});
-	});
-	*/
+	
 </script>
 
 <div class="page-main" id="chatBoardList_main">
@@ -162,12 +139,15 @@
 
 </div>
 
+
 <c:if test="${count==0}">
 	<div class="result-display">
 		<div>표시할 게시물이 없습니다</div>
 	</div>
 </c:if>
-
+	
+	<button type="button" class="btn btn-error" id="latest">최신순</button>
+	
 	<c:if test="${count > 0}">
 		<div class="row" id="table_header">
 		<div class="table-responsive-md col-sm-9 mx-auto" id="chatBoardList1">
@@ -183,8 +163,8 @@
 			</table>
 			
 			
-			<table class="table  table-hover" id="table_body" style="table-layout: fixed">
-				<c:forEach var="dchatboard" items="${list}">
+			<table class="table  table-hover" id="table_body" style="table-layout: fixed"  >
+				<c:forEach var="dchatboard" items="${list}" >
 					<tr id="chatboardList"
 						onClick="location.href='detail.do?chatboard_num=${dchatboard.chatboard_num}'">
 						<td style="width: 15%">
@@ -217,6 +197,10 @@
 					</tr>
 				</c:forEach>
 			</table>
+			
+			
+			
+			
 		</div>
 		</div>
 	
