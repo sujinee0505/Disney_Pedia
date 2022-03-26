@@ -62,8 +62,20 @@ form#list_search_form{
 	width:100%;
 
 }
-ul#list_search{
 
+div#container_table{
+	width: 90%;
+	margin: 0 auto;
+}
+
+form#table_sort{
+	/* outline:1px dotted green; */
+	/* width:20px; */
+}
+button#write_btn{
+	/* margin-left:20px; */
+}
+ul#list_search{
 	padding-left: 0 30%;
 	text-align:center; /*li 가로정렬  */
 }
@@ -79,8 +91,7 @@ div#row_write{
 	padding-left: 100px;
 }
 div#table_header{
-	padding-top:50px;
-
+	padding-top:20px;
 }
 div#chatBoardList1{
 	margin-bottom: 100px;

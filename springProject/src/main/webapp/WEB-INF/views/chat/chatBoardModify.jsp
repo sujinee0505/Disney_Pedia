@@ -16,7 +16,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/uploadAdapter.js"></script>
 <div class="page-main css-1jlb6q">
 
-	<form:form modelAttribute="chatBoardVO" action="update.do" id="update_form">
+	<form:form modelAttribute="chatboard" action="update.do" id="update_form">
 	            <!--enctype="multipart/form-data">-->
 		<form:hidden path="chatboard_num"/>
 		<form:errors element="div" cssClass="error-color"/>

@@ -60,31 +60,11 @@ public class ChatBoardController {
 		//ChatBoardVO chatboardVO2 = chatBoardService.selectBoard(chatboardVO.getChatboard_num());
 
 		//세션에서 회원번호를 읽어온다
-		logger.info("<<등록-회원테스트>> : " + chatboardVO );
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		//글쓴 회원번호 셋팅
 		chatboardVO.setMem_num(user_num);
 		logger.info("<<memnum>> : " + chatboardVO );
 
-		/*
-		//회원이름 셋팅
-		String user_name = (String)session.getAttribute("user_name");
-		logger.info((String)session.getAttribute("user_name"));
-		chatboardVO.setName(user_name);
-		logger.info("<<name>> : " + chatboardVO );
-		//회원사진 셋팅
-		String user_photo = (String)session.getAttribute("user_photo");
-		chatboardVO.setPhoto(user_photo);
-		logger.info("<<photo>> : " + chatboardVO );
-		 */
-
-		/*
-		MemberVO memberVO2 = memberService.selectMember(user_num);
-		logger.info("<<회원 상세 정보>> : " + memberVO2);
-
-		chatboardVO.setName(memberVO2.getName());
-		logger.info("<<name>> : " + chatboardVO );
-		 */
 
 		//ip셋팅 -설정 안햇음 왠지 채팅 떄 필요할지도모르겟다
 
@@ -151,14 +131,11 @@ public class ChatBoardController {
 		
 		//한건의 레코드를 읽어오고
 		ChatBoardVO chatboard = chatBoardService.selectBoard(chatboard_num);
-		logger.info("<<test>> : " + chatboard_num);
 		logger.info("<<ChatBoardVO>> : " + chatboard);
 
 		//타이틀 HTML 불허
 		chatboard.setTitle(StringUtil.useNoHtml(chatboard.getTitle()));
-		logger.info("<<ChatBoardVO>> : " + chatboard.getTitle());
 		
-		logger.info("<<게시판 글 상세 - 글 번호>> : " + chatboard_num);
 		//한건의 레코드를 ModelAndView에 넘기는데 생성자를 통해서 하나만 넘긴다.
 		return new ModelAndView("chatBoardView","chatboard",chatboard);
 									//tiles설정,  	 속성명, 	 	속성값

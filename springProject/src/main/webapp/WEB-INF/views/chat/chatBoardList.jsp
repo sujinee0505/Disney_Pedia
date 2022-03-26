@@ -4,14 +4,37 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
 		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 <link rel="stylesheet" type="text/css" 	href="${pageContext.request.contextPath}/resources/css/mj.css"/>
 
 
 <!-- 중앙 컨텐츠 시작 -->
 <script type="text/javascript">
 
-/* 	
-	*/
+/* 	$(function () {
+		$('#list_search_btn').submit(function () {
+			if($('#keyword').val().trim()==''){
+				Swal.fire({
+				      icon: 'warning',
+				      title: '검색어를 입력하세요!',
+				      text: '찾을 수가 없네요',
+				  };
+				$('#keyword').val('').focus();
+				return false;
+			}); 
+		}); 
+	  
+	
+	$(function () {
+		$('#list_search_form').submit(function () {
+			if($('#keyword').val().trim()==''){
+				alert('검색어를 입력하세요');
+				$('#keyword').val('').focus();
+				return false;
+			}
+		});
+	});
+
 	
 </script>
 
@@ -49,14 +72,14 @@
      		</div>
 	    </div>
 	  </div>
-	<!--   <button class="carousel-control-prev w-auto h-auto" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-	    <span class="visually-hidden">Previous</span>
-	  </button>
-	  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-	    <span class="visually-hidden">Next</span>
-	  </button> -->
+		<!--   <button class="carousel-control-prev w-auto h-auto" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="visually-hidden">Previous</span>
+		  </button>
+		  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="visually-hidden">Next</span>
+		  </button> -->
 	</div>
 	<!-- 캐러셀 -->
 
@@ -105,14 +128,15 @@
 			</li>
 			
 			<li>
-				<input type="search" name="keyword" id="keyword" value="${param.keyword}">
+				<%-- <input type="search" name="keyword" id="keyword" value="${param.keyword}"> --%>
+				<input type="search" class="col-sm-2 form-control" name="keyword" id="keyword" value="${param.keyword}">
 			</li>
 			<li>
-				<input type="submit" value="검색">
+				<button type="submit" class="btn btn-outline-primary">검색</button>
 			</li>
 			<li>
-				<input type="button"
-					value="목록" onclick="location.href='list.do'">
+			<button type="button" class="btn btn-outline-secondary" 
+					onclick="location.href='list.do'">목록</button>
 			</li>
 			<!--  
 			<li>
@@ -125,37 +149,50 @@
 			-->
 		</ul>
 	</form>
-	<br><hr style="size:2px; width:90%; align:center;"/><br>
+	<br><hr style="size:2px; width:100%; align:center;"/><br>
 	
+	
+	<!-- 정렬과 게시글 작성 -->
+		<div class="row" id="row_write">
+			<form action="list.do" id="table_sort " method="post" class="col-sm-1 offset-sm-1">
+				<select name="sort" class="form-control " onchange="this.form.submit()" >
+					<option value="1" <c:if test="${param.sort == 1}">selected</c:if>>
+						최신순
+					</option>
+					<option value="2" <c:if test="${param.sort == 2}">selected</c:if>>
+						인기순
+					</option>
+				</select>
+			</form>	
+
 			<c:if test="${!empty user_num}">
-				<div class="row" id="row_write">
 				<!-- <li class="col-md-4 "> -->
-					<button class="col-sm-1 offset-sm-1 btn  btn-primary"  
+					<button class="col-sm-1 offset-sm-7 btn btn-primary"  
 							id="write_btn" 
 							onclick="location.href='write.do'">게시글 작성</button>
 				<!-- </li> -->
-				</div>
 			</c:if>
+		</div>
 
-</div>
 
 
-<c:if test="${count==0}">
-	<div class="result-display">
-		<div>표시할 게시물이 없습니다</div>
-	</div>
-</c:if>
-	
-	<button type="button" class="btn btn-error" id="latest">최신순</button>
+	<c:if test="${count==0}">
+		<div class="result-display">
+			<div>표시할 게시물이 없습니다</div>
+		</div>
+	</c:if>
+	<!-- !!!!!!!버튼테스트!!!!!!!! -->
+	<!-- <button type="button" class="btn btn-error" id="latest">최신순버튼테스트</button> -->
 	
 	<c:if test="${count > 0}">
 		<div class="row" id="table_header">
-		<div class="table-responsive-md col-sm-9 mx-auto" id="chatBoardList1">
+		
+		<div class="table-responsive-md col-md-9 mx-auto" id="chatBoardList1">
 			<table class="table" id="table_header" style="table-layout: fixed">
 				<tr class="table-primary">
-					<th style="width: 15%">번호</th>
+					<th style="width: 10%">번호</th>
 					<th style="width: 35%">제목</th>
-					<th style="width: 10%">작성자</th>
+					<th style="width: 15%">작성자</th>
 					<th style="width: 15%">등록일</th>
 					<th style="width: 15%">메이트현황</th>
 					<th style="width: 10%">조회수</th>
@@ -167,13 +204,13 @@
 				<c:forEach var="dchatboard" items="${list}" >
 					<tr id="chatboardList"
 						onClick="location.href='detail.do?chatboard_num=${dchatboard.chatboard_num}'">
-						<td style="width: 15%">
+						<td style="width: 10%">
 							${dchatboard.chatboard_num}
 						</td>
 						<td style="width: 35%">
 							${dchatboard.title}
 						</td>
-						<td style="width: 10%">
+						<td style="width: 15%">
 							${dchatboard.name}
 						</td>
 						<td style="width: 15%">
@@ -198,9 +235,6 @@
 				</c:forEach>
 			</table>
 			
-			
-			
-			
 		</div>
 		</div>
 	
@@ -214,7 +248,7 @@
 		<!-- <div class="align-center">${pagingHtml}</div> -->
 	
 	</c:if>
-
+</div>
 	
 </div>
 
@@ -224,3 +258,6 @@
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+

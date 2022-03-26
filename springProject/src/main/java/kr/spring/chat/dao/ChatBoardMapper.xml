@@ -37,7 +37,19 @@
 					b.content LIKE '%' || #{keyword} || '%' 
 				</if>
 			</where>
-			ORDER BY b.reg_date DESC)a)
+			
+			<choose>
+				<when test="sort == 1" ><!-- 최신순 -->
+					ORDER BY b.reg_date DESC)a)
+				</when>
+				<when test="sort == 2" ><!-- 인기순 -->
+					ORDER BY b.hit DESC)a)
+				</when>
+				<otherwise><!-- 설정 안했을 때(기본일 때) -->
+					ORDER BY b.reg_date DESC)a)
+				</otherwise>
+			</choose>
+			
 		<![CDATA[
 		WHERE rnum >= #{start} AND rnum <= #{end}
 		]]>
