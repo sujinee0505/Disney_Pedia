@@ -14,18 +14,18 @@
 		</div>
 		<div class="css-15qcwbn-StyledTabBarContainer e1szkzar1">
 			<ul class="css-1gwdxtz-VisualUl-StyledTabBarUl e1szkzar2">
-				<li
+				<li><a
 					class="<c:if
-					test="${param.category eq 'contents' || empty param.category }">css-s8lqsd-StyledTab e1szkzar0</c:if><c:if test="${param.category ne 'contents' }">css-4tchbd-StyledTab e1szkzar0</c:if>"><a
+					test="${param.category eq 'contents' || empty param.category }">css-s8lqsd-StyledTab e1szkzar0</c:if><c:if test="${param.category ne 'contents' }">css-4tchbd-StyledTab e1szkzar0</c:if>"
 					href="${pageContext.request.contextPath}/contents/search.do?keyword=${param.keyword }&category=contents">콘텐츠</a>
 				</li>
-				<li
+				<li><a
 					class="<c:if
-					test="${param.category eq 'collections' }">css-s8lqsd-StyledTab e1szkzar0</c:if><c:if test="${param.category ne 'collections' }">css-4tchbd-StyledTab e1szkzar0</c:if>"><a
+					test="${param.category eq 'collections' }">css-s8lqsd-StyledTab e1szkzar0</c:if><c:if test="${param.category ne 'collections' }">css-4tchbd-StyledTab e1szkzar0</c:if>"
 					href="${pageContext.request.contextPath}/contents/search.do?keyword=${param.keyword }&category=collections">컬렉션</a></li>
-				<li
+				<li><a
 					class="<c:if
-					test="${param.category eq 'users'}">css-s8lqsd-StyledTab e1szkzar0</c:if><c:if test="${param.category ne 'users' }">css-4tchbd-StyledTab e1szkzar0</c:if>"><a
+					test="${param.category eq 'users'}">css-s8lqsd-StyledTab e1szkzar0</c:if><c:if test="${param.category ne 'users' }">css-4tchbd-StyledTab e1szkzar0</c:if>"
 					href="${pageContext.request.contextPath}/contents/search.do?keyword=${param.keyword }&category=users">유저</a></li>
 			</ul>
 		</div>

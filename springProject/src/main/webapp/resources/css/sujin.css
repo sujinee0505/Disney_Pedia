@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+a {
+	color: #74747B;
+}
+
+a:link {
+	color: #74747B;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #74747B !important;
+	text-decoration: none;
+}
+
 .css-1xm32e0 {
 	position: relative;
 	width: 100%;

@@ -3,7 +3,8 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/calendar.css">
 <body>
 	<form name="calendarFrm" id="calendarFrm" action="" method="GET">
 		<input type="hidden" name="year" value="${today_info.search_year}" />

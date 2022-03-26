@@ -14,8 +14,6 @@
 	href="${pageContext.request.contextPath}/resources/css/sujin.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/yunee.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/calendar.css">
 <link href="${pageContext.request.contextPath}/resources/css/rateit.css"
 	rel="stylesheet" type="text/css">
 <link
