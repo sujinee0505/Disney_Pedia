@@ -88,7 +88,7 @@ input[type=button] {
 														width="150" height="150" class="my-photo">
 												</c:if> <c:if test="${!empty user_photo}">
 													<img
-														src="${pageContext.request.contextPath}/member/photoView.do"
+														src="${pageContext.request.contextPath}/member/photoView.do?user_num=0"
 														width="150" height="150" class="my-photo">
 												</c:if></li>
 										</ul>
@@ -106,17 +106,20 @@ input[type=button] {
 													</div>
 												</div>
 												<div class="profile-userbutton">
-													<input type="button" value="프로필수정" onclick="location.href='update.do'"> 
-													<a href="${pageContext.request.contextPath}/main/main.do">
-														<img src="${pageContext.request.contextPath}/resources/images/review.png"
+													<input type="button" value="프로필수정"
+														onclick="location.href='update.do'"> <a
+														href="${pageContext.request.contextPath}/main/main.do">
+														<img
+														src="${pageContext.request.contextPath}/resources/images/review.png"
 														width="40" height="40">
-													</a> 
-													<a href="${pageContext.request.contextPath}/main/main.do">
-														<img src="${pageContext.request.contextPath}/resources/images/list.png"
+													</a> <a href="${pageContext.request.contextPath}/main/main.do">
+														<img
+														src="${pageContext.request.contextPath}/resources/images/list.png"
 														width="40" height="40">
-													</a> 
-													<a href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num=${member.mem_num}">
-														<img src="${pageContext.request.contextPath}/resources/images/cal.png"
+													</a> <a
+														href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num=${member.mem_num}">
+														<img
+														src="${pageContext.request.contextPath}/resources/images/cal.png"
 														width="40" height="40">
 													</a>
 												</div>
@@ -130,7 +133,7 @@ input[type=button] {
 															<ul	class="e19zkogf12 css-i1bo8u-VisualUl-CategoryArchivesUl">
 																<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
 																	<a background="[object Object]" class="css-h3f67w-CategoryArchivesLink e19zkogf14"
-																		href="/ko-KR/users/87Gv7NW3MDqE6/contents/movies">
+																		href="/member/myMovie.do">
 																		<ul class="css-reeb92-VisualUl-CategoryArchives e19zkogf15">
 																			<li class="css-r3hbc5-CategoryArchivesName e19zkogf16">
 																				영화
@@ -146,7 +149,7 @@ input[type=button] {
 																 </li>
 																 <li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
 																 <a background="[object Object]" class="css-1gw6y00-CategoryArchivesLink e19zkogf14"
-																	href="/ko-KR/users/87Gv7NW3MDqE6/contents/tv_seasons">
+																	href="/member/myDrama.do">
 																	<ul class="css-1x0nmo-VisualUl-CategoryArchives e19zkogf15">
 																			<li class="css-r3hbc5-CategoryArchivesName e19zkogf16">
 																				TV프로그램
