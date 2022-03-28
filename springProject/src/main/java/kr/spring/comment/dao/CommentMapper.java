@@ -27,6 +27,9 @@ public interface CommentMapper {
 	
 	public List<CommentVO> selectListByMem_num(int mem_num);
 	
+	//수진
+	@Select("SELECT COUNT(contents_num) count, contents_num  FROM dcomment WHERE contents_type=#{contents_type} GROUP BY contents_num ORDER BY count(contents_num) DESC")
+	public List<CommentVO> getMostCommented(String contents_type);
 	
 	//코멘트 좋아요
 	public List<CommentLikeVO> selectListLike(Map<String,Object> map);

@@ -12,4 +12,7 @@ public interface CommentService {
 	public CommentVO selectComent(Integer coment_num);
 	public void updateComent(CommentVO coment);
 	public void deleteComent(Integer coment_num);
+	
+	// 수진
+	public List<CommentVO> getMostCommented(String contents_type);
 }

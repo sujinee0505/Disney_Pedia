@@ -46,9 +46,17 @@
 		});
 		$('#collectionsModal').on('shown.bs.modal', function() {
 		});
-		
-		var user_num = ${user_num};
-		var check = ${check};
+
+		var user_num = $
+		{
+			user_num
+		}
+		;
+		var check = $
+		{
+			check
+		}
+		;
 		like = function() {
 			if (user_num == 0) { // 로그인 안 한 상태에서 보고싶어요 눌렀을 경우
 				alert('로그인 한 사용자만 가능합니다.');
@@ -68,7 +76,6 @@
 							},
 							success : function(param) {
 								if (param.result == 'success') { // 보고싶어요
-									alert('보고싶어요 성공');
 									check = 1;
 									$('#like')
 											.removeClass(
@@ -76,7 +83,6 @@
 											.addClass(
 													'css-15hndx7-StylelessButton-ContentActionButton');
 								} else if (param.result == 'cancel') { // 보고싶어요 취소
-									alert('보고싶어요 취소');
 									check = 0;
 									$('#like')
 											.removeClass(
@@ -300,28 +306,30 @@
 													class="Icon icPlus rotatingIcon css-1q1i623-SVG e1282e850">
 													<div>
 														<c:if test="${check ==1 }">
-															<svg xmlns="http://www.w3.org/2000/svg"
-																width="24" height="24" viewBox="0 0 24 24" fill="none"
+															<svg xmlns="http://www.w3.org/2000/svg" width="24"
+																height="24" viewBox="0 0 24 24" fill="none"
 																class="injected-svg"
 																data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xOC41OTY5IDcuMTQ5NDFINS4yNjc2MUM1LjAxMzkgNy4xNDk0MSA0LjgwNzk4IDcuMzU1MzMgNC44MDc5OCA3LjYwOTA0VjIwLjAzNjVDNC44MDc5OCAyMC40MDk4IDUuMjI5MDEgMjAuNjI2NyA1LjUzMzI4IDIwLjQxMDdMMTEuOTMyMyAxNS44NzA1TDE4LjMzMTIgMjAuNDEwN0MxOC42MzU1IDIwLjYyNjcgMTkuMDU2NSAyMC40MDk4IDE5LjA1NjUgMjAuMDM2NVY3LjYwOTA0QzE5LjA1NjUgNy4zNTUzMyAxOC44NTA2IDcuMTQ5NDEgMTguNTk2OSA3LjE0OTQxWiIgZmlsbD0iY3VycmVudENvbG9yIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTguMTM3MyAzSDUuNzI3MjVDNS4yMTg4OSAzIDQuODA3OTggMy40MTE4MyA0LjgwNzk4IDMuOTE5MjZWNS4yOTgxNUM0LjgwNzk4IDUuNTUxODcgNS4wMTM5IDUuNzU3NzkgNS4yNjc2MSA1Ljc1Nzc5SDE4LjU5NjlDMTguODUwNiA1Ljc1Nzc5IDE5LjA1NjUgNS41NTE4NyAxOS4wNTY1IDUuMjk4MTVWMy45MTkyNkMxOS4wNTY1IDMuNDExODMgMTguNjQ0NyAzIDE4LjEzNzMgM1oiIGZpbGw9ImN1cnJlbnRDb2xvciIvPgo8L3N2Zz4K"
 																xmlns:xlink="http://www.w3.org/1999/xlink">
-<path 
+<path
 																	d="M18.5969 7.14941H5.26761C5.0139 7.14941 4.80798 7.35533 4.80798 7.60904V20.0365C4.80798 20.4098 5.22901 20.6267 5.53328 20.4107L11.9323 15.8705L18.3312 20.4107C18.6355 20.6267 19.0565 20.4098 19.0565 20.0365V7.60904C19.0565 7.35533 18.8506 7.14941 18.5969 7.14941Z"
 																	fill="currentColor"></path>
-<path 
+<path
 																	d="M18.1373 3H5.72725C5.21889 3 4.80798 3.41183 4.80798 3.91926V5.29815C4.80798 5.55187 5.0139 5.75779 5.26761 5.75779H18.5969C18.8506 5.75779 19.0565 5.55187 19.0565 5.29815V3.91926C19.0565 3.41183 18.6447 3 18.1373 3Z"
 																	fill="currentColor"></path>
 </svg>
 														</c:if>
 														<c:if test="${check!=1 }">
-															<svg xmlns="http://www.w3.org/2000/svg"
-																width="24" height="24" viewBox="0 0 24 24" fill="none"
+															<svg xmlns="http://www.w3.org/2000/svg" width="24"
+																height="24" viewBox="0 0 24 24" fill="none"
 																class="injected-svg"
 																data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwLjUgMTMuMDkyOUgxMy4xNDI4VjIwLjVIMTAuODU3MVYxMy4wOTI5SDMuNVYxMC44MDcxSDEwLjg1NzFWMy41SDEzLjE0MjhWMTAuODA3MUgyMC41VjEzLjA5MjlaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4KPC9zdmc+Cg=="
 																xmlns:xlink="http://www.w3.org/1999/xlink">
 <path
 																	d="M20.5 13.0929H13.1428V20.5H10.8571V13.0929H3.5V10.8071H10.8571V3.5H13.1428V10.8071H20.5V13.0929Z"
 																	fill="currentColor"></path>
+														
+														
 														
 														</c:if>
 														</svg>
@@ -435,8 +443,14 @@
 																				class="css-cssveg">
 																				<div class="profilePhotoBlock css-13zlig9">
 																					<div class="css-1wfv1im-ProfilePhotoImage">
-																						<img class="css-1mt3oap-ProfilePhotoImage"
-																							src="https://image.tmdb.org/t/p/original/${crew.profile_path }">
+																						<c:if test="${!empty crew.profile_path }">
+																							<img class="css-1mt3oap-ProfilePhotoImage"
+																								src="https://image.tmdb.org/t/p/original/${crew.profile_path }">
+																						</c:if>
+																						<c:if test="${empty crew.profile_path }">
+																							<img class="css-1mt3oap-ProfilePhotoImage"
+																								src="${pageContext.request.contextPath}/resources/images/face.png">
+																						</c:if>
 																					</div>
 																				</div>
 																			</div>
@@ -455,8 +469,14 @@
 																				class="css-cssveg">
 																				<div class="profilePhotoBlock css-13zlig9">
 																					<div class="css-1wfv1im-ProfilePhotoImage">
-																						<img class="css-1mt3oap-ProfilePhotoImage"
-																							src="https://image.tmdb.org/t/p/original/${cast.profile_path }">
+																						<c:if test="${!empty cast.profile_path }">
+																							<img class="css-1mt3oap-ProfilePhotoImage"
+																								src="https://image.tmdb.org/t/p/original/${cast.profile_path }">
+																						</c:if>
+																						<c:if test="${empty cast.profile_path }">
+																							<img class="css-1mt3oap-ProfilePhotoImage"
+																								src="${pageContext.request.contextPath}/resources/images/face.png">
+																						</c:if>
 																					</div>
 																				</div>
 																			</div>
@@ -657,93 +677,6 @@
 												<hr class="css-g67iqr">
 											</div>
 										</div>
-									</section>
-
-									<sectionclass="css-1tywu13">
-									<div class="css-1po9d5k">
-										<div class="css-uvsgck">
-											<section class="css-1tywu13">
-												<div class="css-1gkas1x-Grid e1689zdh0">
-													<div class="css-1y901al-Row emmoxnt0">
-														<header class="css-1ue9xs6">
-															<h2 class="css-1wtjsst">이 작품이 담긴 컬렉션</h2>
-														</header>
-													</div>
-												</div>
-												<div class="css-usdi1z">
-													<div class="css-1x04fwb">
-														<div class="css-174lxc3">
-															<div class="css-1gkas1x-Grid e1689zdh0">
-																<div class="css-1y901al-Row emmoxnt0">
-																	<ul
-																		class="ejtmadi0 css-30r08r-VisualUl-DeckHorizontalUl">
-																		<li class="css-lzc9tv"><a title="다양한 스파이디"
-																			href="/ko-KR/decks/YavxV6oii7k1"><div
-																					class="css-8vjban">
-																					<div class="css-zc7t4e">
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url('https://image.tmdb.org/t/p/original//fmjCL1PCAqO5kr8ztOT5UXTouVw.jpg');"></span>
-																							</div>
-																						</div>
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url('https://image.tmdb.org/t/p/original//5xZac4wWUlXQmEBqIIKJ9rqXnUh.jpg');"></span>
-																							</div>
-																						</div>
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url('https://image.tmdb.org/t/p/original//dKdcyyHUR5WTMnrbPdYN5y9xPVp.jpg');"></span>
-																							</div>
-																						</div>
-																						<div class="css-ff1m0l">
-																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
-																								<span
-																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url('https://image.tmdb.org/t/p/original//dA4S18rnLx4sWW8agmLLKUvRM7n.jpg');"></span>
-																							</div>
-																						</div>
-																					</div>
-																				</div>
-																				<ul class="css-19qbuza-VisualUl">
-																					<li class="css-iia7hw"><div
-																							class=" css-sloxdm-StyledSelf eb5y16b0">
-																							<div class="css-1fucs4t-StyledText eb5y16b1">다양한
-																								스파이디</div>
-																						</div></li>
-																					<li class="css-305x3e">좋아요 2746</li>
-																				</ul></a></li>
-																		<div class="css-ml096x"></div>
-																	</ul>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="arrow_button css-38kpup left">
-														<div class="css-1hestod"></div>
-													</div>
-													<div class="arrow_button css-pf83cl right">
-														<div class="css-vp7uyl">
-															<img
-																src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxMlYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMyOTJBMzIiIHN0cm9rZT0iIzI5MkEzMiIgc3Ryb2tlLXdpZHRoPSIuMzUiIGQ9Ik0zLjQyOSAxMy40MDlMNC4zNTQgMTQuMjU4IDEwLjY4IDguNDYgMTEuMTQzIDguMDM2IDQuMzU0IDEuODEzIDMuNDI5IDIuNjYyIDkuMjkxIDguMDM2eiIvPgogICAgPC9nPgo8L3N2Zz4K"
-																alt="forward">
-														</div>
-													</div>
-												</div>
-												<div class="css-1gkas1x-Grid e1689zdh0">
-													<div class="css-1y901al-Row emmoxnt0">
-														<hr class="css-g67iqr">
-													</div>
-												</div>
-											</section>
-										</div>
-									</div>
 									</section>
 									<section class="css-rwltgb">
 										<div class="css-1gkas1x-Grid e1689zdh0">

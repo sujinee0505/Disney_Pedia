@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.comment.dao.CommentMapper;
+import kr.spring.comment.vo.CommentVO;
 import kr.spring.contents.dao.ContentsMapper;
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.LikeVO;
@@ -22,6 +24,8 @@ import kr.spring.util.GetInfoUtil;
 public class MainController {
 	@Autowired
 	private ContentsMapper contentsMapper;
+	@Autowired
+	private CommentMapper commentMapper;
 
 	@RequestMapping("/main/main.do")
 	/*
@@ -57,21 +61,31 @@ public class MainController {
 		// List에 담긴 ContentsVO를 날짜 내림차순으로 정렬
 		Collections.sort(release_date, new SortByDate());
 
-		List<LikeVO> mostLike = null;
-		mostLike = contentsMapper.getMostLike(type);
-		List<ContentsVO> temp2 = new ArrayList<ContentsVO>();
-		for (int i = 0; i < mostLike.size(); i++) {
-			ContentsVO tempvo = new ContentsVO();
-			tempvo = util.getInfoDetail(type, mostLike.get(i).getContents_num());
-			tempvo.setCount(mostLike.get(i).getCount());
-			temp2.add(tempvo);
+		List<LikeVO> mostLike_list = null;
+		mostLike_list = contentsMapper.getMostLike(type);
+		List<ContentsVO> mostLike = new ArrayList<ContentsVO>();
+		for (int i = 0; i < mostLike_list.size(); i++) {
+			ContentsVO mostLike_VO = new ContentsVO();
+			mostLike_VO = util.getInfoDetail(type, mostLike_list.get(i).getContents_num());
+			mostLike_VO.setCount(mostLike_list.get(i).getCount());
+			mostLike.add(mostLike_VO);
+		}
+		List<CommentVO> mostCommented_list = null;
+		mostCommented_list = commentMapper.getMostCommented(type);
+		List<ContentsVO> mostCommented = new ArrayList<ContentsVO>();
+		for (int i = 0; i < mostCommented_list.size(); i++) {
+			ContentsVO mostCommented_VO = new ContentsVO();
+			mostCommented_VO = util.getInfoDetail(type, mostCommented_list.get(i).getContents_num());
+			mostCommented_VO.setCount(mostCommented_list.get(i).getCount());
+			mostCommented.add(mostCommented_VO);
 		}
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
 		mav.addObject("vote_average", vote_average);
 		mav.addObject("release_date", release_date);
-		mav.addObject("temp2", temp2);
+		mav.addObject("mostLike", mostLike);
+		mav.addObject("mostCommented", mostCommented);
 		return mav;
 	}
 }
