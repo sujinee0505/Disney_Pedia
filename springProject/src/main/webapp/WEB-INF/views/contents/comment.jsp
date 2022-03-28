@@ -12,8 +12,11 @@
       	<form action="" method="post" role="form" id="comment_form">	
       	<textarea cols="30" rows="10" id="comment" name="comment" 
       	placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." autofocus></textarea>
+			<!-- <div id="re_first">
+			<span class="letter-count">300/300</span>
+			</div> -->
 			<button type="submit" id="comment_btn" class="btn btn-hover color-9">저장</button>
 		</form> 		
-	  </div>	       
+	  </div>	    
 </body>
 </html>
