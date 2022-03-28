@@ -126,7 +126,7 @@ create table dcomment( /*dreview->dcomment*/
 create sequence dcomment_seq; /*dreview_seq->dcomment_seq*/ 
 
 /* 리뷰 좋아요 테이블 */
-create table dcomment_like( /*dreview_like->dcomment_like*/
+create table dcomment_like( /*dreview_like->dcomment_like*/ 
   rlike_num number not null,
   comment_num number not null,  /*review_num->comment_num*/
   mem_num number not null,
