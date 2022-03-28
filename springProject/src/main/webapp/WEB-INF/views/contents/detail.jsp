@@ -52,10 +52,10 @@
 			}else{//10000자 이하인 경우
 				let remain = 10000 - inputLength;
 				remain += '/10000';
-				$(this).attr('id') == 'comment'){
+				if($(this).attr('id') == 'comment'){
 					//등록폼 글자수
 					$('#re_first .letter-count').text(remain);
-				}
+				});
 			}
 		});
 		//코멘트 커서
