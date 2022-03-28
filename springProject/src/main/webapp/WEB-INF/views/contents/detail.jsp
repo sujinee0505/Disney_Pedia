@@ -51,43 +51,45 @@
 		$('#collectionsModal').on('shown.bs.modal', function() {
 		});
 
-		var user_num = $
-		{
-			user_num
-		}
-		;
+		var user_num = ${user_num};
+		var check = ${check}
+
 		like = function() {
-			if (user_num == 0) { // 로그인 안 한 상태에서 보고싶어요 눌렀을 경우
+			if (user_num == 0) { // 로그인 안 한 상태에서 좋아요 눌렀을 경우
 				alert('로그인 한 사용자만 가능합니다.');
 				return;
 			}
 			if (user_num != 0) {
-				$
-						.ajax({
-							url : 'contentsLike.do',
-							type : 'post',
-							dataType : 'json',
-							data : {
-								contents_num : $('#contents_num').val(),
-								contents_type : $('#contents_type').val(),
-								mem_num : user_num
-							},
-							success : function(param) {
-								if (param.result == 'success') { // 보고싶어요
-									$('#like')
-											.removeClass(
-													'css-1tc9iuk-StylelessButton-ContentActionButton')
-											.addClass(
-													'css-15hndx7-StylelessButton-ContentActionButton');
-								} else if (param.result == 'cancel') { // 보고싶어요 취소
-									$('#like')
-											.removeClass(
-													'css-15hndx7-StylelessButton-ContentActionButton')
-											.addClass(
-													'css-1tc9iuk-StylelessButton-ContentActionButton');
-								}
-							}
-						});
+				$.ajax({
+					url : 'contentsLike.do',
+					type : 'post',
+					dataType : 'json',
+					data : {
+						contents_num : $('#contents_num').val(),
+						contents_type : $('#contents_type').val(),
+						mem_num : user_num,
+						check : check
+					},
+					success : function(param) {
+						if (param.result == 'success') { // 보고싶어요
+							alert('보고싶어요 성공');
+							check = 1;
+							$('#like')
+							.removeClass(
+									'css-1tc9iuk-StylelessButton-ContentActionButton')
+							.addClass(
+									'css-15hndx7-StylelessButton-ContentActionButton');
+						} else if (param.result == 'cancel') { // 보고싶어요 취소
+							alert('보고싶어요 취소');
+							check = 0;
+							$('#like')
+							.removeClass(
+									'css-15hndx7-StylelessButton-ContentActionButton')
+							.addClass(
+									'css-1tc9iuk-StylelessButton-ContentActionButton');
+						}
+					}
+				});
 			}
 		}
 	});
@@ -294,11 +296,10 @@
 										</div>
 										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 										<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
-											<button
-												class="<c:if test="${checkLike ==1 }">css-15hndx7-StylelessButton-ContentActionButton</c:if>
-											<c:if test="${checkLike!=1 }">css-1tc9iuk-StylelessButton-ContentActionButton e1svyhwg23</c:if>"
+											<button id="like"
+												class="<c:if test="${check ==1 }">css-15hndx7-StylelessButton-ContentActionButton</c:if>
+											<c:if test="${check!=1 }">css-1tc9iuk-StylelessButton-ContentActionButton e1svyhwg23</c:if>"
 												onclick="like()">
-												<input type="hidden" value="${checkLike }" id="checkLike">
 												<div
 													class="Icon icPlus rotatingIcon css-1q1i623-SVG e1282e850">
 													<div>

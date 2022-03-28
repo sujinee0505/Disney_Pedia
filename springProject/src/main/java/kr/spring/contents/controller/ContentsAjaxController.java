@@ -22,7 +22,7 @@ public class ContentsAjaxController {
 	// 보고싶어요 등록
 	@RequestMapping("/contents/contentsLike.do")
 	@ResponseBody
-	public Map<String, String> contentsLike(HttpSession session, LikeVO like) {
+	public Map<String, String> contentsLike(HttpSession session, LikeVO like, @RequestParam int check) {
 
 		Map<String, String> map = new HashMap<String, String>();
 
@@ -30,7 +30,6 @@ public class ContentsAjaxController {
 		if (user_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
 		} else {
-			int check = contentsMapper.checkLike(like);
 			if (check == 1) {
 				contentsMapper.cancelLike(like);
 				map.put("check", "checked");
