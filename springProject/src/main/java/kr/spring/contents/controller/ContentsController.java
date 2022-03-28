@@ -84,14 +84,11 @@ public class ContentsController {
 		ModelAndView mav = new ModelAndView();
 
 		Integer user_num = (Integer) session.getAttribute("user_num");
-		if (user_num != 0) {
-			LikeVO like = new LikeVO();
-			like.setContents_num(id);
-			like.setContents_type(type);
-			like.setMem_num(user_num);
-			int check = contentsMapper.checkLike(like);
-			mav.addObject("check", check);
-		}
+		/*
+		 * if (user_num != 0) { LikeVO like = new LikeVO(); like.setContents_num(id);
+		 * like.setContents_type(type); like.setMem_num(user_num); int check =
+		 * contentsMapper.checkLike(like); mav.addObject("check", check); }
+		 */
 
 		mav.setViewName("contentsDetail");
 		mav.addObject("contents", contents);
