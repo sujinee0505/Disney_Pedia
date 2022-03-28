@@ -11,6 +11,7 @@
 </style>
 
 <!-- 중앙 컨텐츠 시작 -->
+<script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
 <!-- ckedior 라이브러리 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/ckeditor.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/uploadAdapter.js"></script>
@@ -26,7 +27,12 @@
 				<form:input path="title"/>
 				<form:errors path="title" cssClass="error-color"/>
 			</li>
-						<li>내용</li>
+			<li>
+			<label>모집 여부</label>
+				<input type="radio" name="mate_state" value="0" id="mate_state0" <c:if test="${chatboard.mate_state == 0}">checked</c:if>>구하는중
+				<input type="radio" name="mate_state" value="1" id="smate_state1" <c:if test="${chatboard.mate_state == 1}">checked</c:if>>모집완료
+              </li>		
+					<li>내용</li>
 			<li>
 				<form:textarea path="content"/>
 				<form:errors path="content" cssClass="error-color"/>   
@@ -92,7 +98,7 @@
 				</c:if>
 			</li> -->		
 		<div class="align-center">
-			<form:button>수정</form:button>
+			<form:button>수정</form:button> 
 			<input type="button" value="수정취소" 
 			                         onclick="location.href='list.do'">
 		</div>
