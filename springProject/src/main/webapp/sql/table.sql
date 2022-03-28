@@ -35,7 +35,7 @@ create sequence dfollow_seq;
 /* 컨텐츠 보고싶어요 테이블 */
 create table dcontents_like(
   clike_num number not null,
-  contents_num number not null,
+  contents_num number not null, /*추가*/
   contents_type varchar2(5) not null,
   mem_num number not null,
   constraint dcontents_like_pk primary key (clike_num),
