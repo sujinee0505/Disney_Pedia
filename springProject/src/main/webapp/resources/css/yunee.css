@@ -109,12 +109,27 @@
 }
 
 /*=====모달-콘텐츠=====*/
+#comment-header{
+	padding-top:20px;
+}
+.modal-header .btn-close { /*닫힘버튼css*/
+  color:black !important;
+	border-radius: 50%;
+	background-color:#e3e3e3;
+	 width: 10px !important;
+    height: 10px !important;
+    font-size:7pt !important;
+	float: right !important;
+    margin-right: 3px !important;
+    margin-top: -20px !important;
+}
 .modal-title2 {
+	float: left;
 	font-size:10pt;
 	font-family: 'SUIT-Medium';
 }
 .modal-comment {
-	width: 450px !important;
+	width: 420px !important;
 	height: 450px !important;
 	margin: 30px auto !important ;	
 	font-size:12pt !important;
@@ -123,7 +138,8 @@
 	border-radius: 15px !important; 
 }
 .comment-body{
-	height: 350px !important; 
+	height: 350px !important; /* background-color:gray; */
+	margin-top:-20px;
 }
 #comment_form textarea{
 	font-family: 'SUIT-Medium';
@@ -135,7 +151,7 @@
 	 /* background-color:gray;  */
 }
 #comment_btn{
-	width: 100px;
+	width: 90px;
 	float: left; 
 	border: none; color:white;font-size:10pt;
 	font-family: 'SUIT-Medium';

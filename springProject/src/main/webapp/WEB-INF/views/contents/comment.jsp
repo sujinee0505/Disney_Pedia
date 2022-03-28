@@ -3,7 +3,7 @@
     <!DOCTYPE html>
 <body>
       <!-- Modal Header -->
-      <div class="modal-header border-0">
+      <div class="modal-header border-0" id="comment-header">
         <p class="modal-title2"><b>${contents.title }</b></p>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
