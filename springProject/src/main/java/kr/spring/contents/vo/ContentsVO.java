@@ -15,6 +15,15 @@ public class ContentsVO {
 	private String runtime; // 컨텐츠 런타임
 	private String type; // 컨텐츠 유형(movie, tv)
 	private List<Integer> genres;
+	private int count;
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
 
 	public String getId() {
 		return id;
@@ -125,6 +134,9 @@ public class ContentsVO {
 
 	@Override
 	public String toString() {
-		return "ContentsVO [genres=" + genres + "]";
+		return "ContentsVO [id=" + id + ", popularity=" + popularity + ", title=" + title + ", overview=" + overview
+				+ ", poster_path=" + poster_path + ", release_date=" + release_date + ", vote_average=" + vote_average
+				+ ", genre=" + genre + ", runtime=" + runtime + ", type=" + type + ", genres=" + genres + "]";
 	}
+
 }

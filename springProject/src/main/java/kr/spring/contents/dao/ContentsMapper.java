@@ -1,5 +1,7 @@
 package kr.spring.contents.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -29,5 +31,7 @@ public interface ContentsMapper {
 
 	@Delete("DELETE FROM dcontents_like WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
 	public void cancelLike(LikeVO like);
-	//
+
+	@Select("SELECT COUNT(contents_num) count, contents_num  FROM dcontents_like WHERE contents_type=#{contents_type} GROUP BY contents_num ORDER BY count(contents_num) DESC")
+	public List<LikeVO> getMostLike(String contents_type);
 }

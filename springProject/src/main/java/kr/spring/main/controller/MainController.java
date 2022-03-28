@@ -5,18 +5,23 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.contents.dao.ContentsMapper;
 import kr.spring.contents.vo.ContentsVO;
+import kr.spring.contents.vo.LikeVO;
 import kr.spring.sort.SortByDate;
 import kr.spring.sort.SortByVote;
 import kr.spring.util.GetInfoUtil;
 
 @Controller
 public class MainController {
+	@Autowired
+	private ContentsMapper contentsMapper;
 
 	@RequestMapping("/main/main.do")
 	/*
@@ -52,10 +57,21 @@ public class MainController {
 		// List에 담긴 ContentsVO를 날짜 내림차순으로 정렬
 		Collections.sort(release_date, new SortByDate());
 
+		List<LikeVO> mostLike = null;
+		mostLike = contentsMapper.getMostLike(type);
+		List<ContentsVO> temp2 = new ArrayList<ContentsVO>();
+		for (int i = 0; i < mostLike.size(); i++) {
+			ContentsVO tempvo = new ContentsVO();
+			tempvo = util.getInfoDetail(type, mostLike.get(i).getContents_num());
+			tempvo.setCount(mostLike.get(i).getCount());
+			temp2.add(tempvo);
+		}
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
 		mav.addObject("vote_average", vote_average);
 		mav.addObject("release_date", release_date);
+		mav.addObject("temp2", temp2);
 		return mav;
 	}
 }

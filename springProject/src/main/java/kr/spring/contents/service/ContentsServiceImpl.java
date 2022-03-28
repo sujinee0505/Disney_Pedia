@@ -1,5 +1,7 @@
 package kr.spring.contents.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +34,11 @@ public class ContentsServiceImpl implements ContentsService {
 	@Override
 	public void cancelLike(LikeVO like) {
 		contentsMapper.cancelLike(like);
+	}
+
+	@Override
+	public List<LikeVO> getMostLike(String contents_type) {
+		return contentsMapper.getMostLike(contents_type);
 	}
 
 	/*

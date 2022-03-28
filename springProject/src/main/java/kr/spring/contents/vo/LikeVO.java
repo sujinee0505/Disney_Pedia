@@ -4,6 +4,15 @@ public class LikeVO {
 	private int contents_num;
 	private String contents_type;
 	private int mem_num;
+	private int count;
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
 
 	public int getContents_num() {
 		return contents_num;
