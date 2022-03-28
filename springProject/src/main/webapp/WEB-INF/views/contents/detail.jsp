@@ -43,7 +43,7 @@
 		$(window).on('scroll', header);
 		
 		//코멘트 글자수체크
-		$(document).on('keyup','textarea',function(){
+		/* $(document).on('keyup','textarea',function(){
 			//입력한 글자수를 구함
 			let inputLength = $(this).val().length;
 			
@@ -57,7 +57,7 @@
 					$('#re_first .letter-count').text(remain);
 				});
 			}
-		});
+		}); */
 		//코멘트 커서
 		$('#commentModal').on('shown.bs.modal', function() {
 			$('#comment').trigger('focus')
@@ -333,7 +333,7 @@
 												보고싶어요
 											</button>
 											<!-- ======코멘트 모달 설정부분====== -->
-											<button id="like"
+											<button data-bs-target="#commentModal" data-bs-toggle="modal"
 												class="css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm e1svyhwg25">
 												<div class="Icon icPencil css-1q1i623-SVG e1282e850">
 													<div>
