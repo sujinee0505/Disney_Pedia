@@ -127,7 +127,8 @@ create sequence dcomment_seq; /*dreview_seq->dcomment_seq*/
 
 /* 리뷰 좋아요 테이블 */
 create table dcomment_like( /*dreview_like->dcomment_like*/ 
-  rlike_num number not null,
+ /* rlike_num number not null, rlike_num->commentlike_num*/ 
+  commentlike_num not null,
   comment_num number not null,  /*review_num->comment_num*/
   mem_num number not null,
   constraint dcomment_like_pk primary key (rlike_num), /*review->comment*/
