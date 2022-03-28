@@ -6,7 +6,7 @@ public class StarVO {
 	private int contents_num; //컨텐츠id
 	private int mem_num; //회원번호
 	private int star; //별점(0.5~5)
-	private ContentsVO contents; //콘텐츠 id 받기위해->?
+	private String contents_type;
 	
 	public int getStar_num() {
 		return star_num;
@@ -32,16 +32,17 @@ public class StarVO {
 	public void setStar(int star) {
 		this.star = star;
 	}
-	public ContentsVO getContents() {
-		return contents;
+
+	public String getContents_type() {
+		return contents_type;
 	}
-	public void setContents(ContentsVO contents) {
-		this.contents = contents;
+	public void setContents_type(String contents_type) {
+		this.contents_type = contents_type;
 	}
 	@Override
 	public String toString() {
 		return "StarVO [star_num=" + star_num + ", contents_num=" + contents_num + ", mem_num=" + mem_num + ", star="
-				+ star + ", contents=" + contents + "]";
+				+ star + "]";
 	}
 	
 	
