@@ -332,7 +332,7 @@
 												</div>
 												보고싶어요
 											</button>
-											<!-- ======코멘트 모달 설정부분====== -->
+											<!-- ======코멘트 모달 설정부분======-->
 											<button data-bs-target="#commentModal" data-bs-toggle="modal"
 												class="css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm e1svyhwg25">
 												<div class="Icon icPencil css-1q1i623-SVG e1282e850">
