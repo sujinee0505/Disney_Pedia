@@ -123,7 +123,7 @@ create table dcomment( /*dreview->dcomment*/
   constraint dcomment_fk_1 foreign key (star_num) references dcontents_star (star_num), /*grade_num->star_num*/
   constraint dcomment_fk_2 foreign key (mem_num) references dmember (mem_num) 
 );
-create sequence dcomment_seq; /*dreview_seq->dcomment_seq*/
+create sequence dcomment_seq; /*dreview_seq->dcomment_seq*/ 
 
 /* 리뷰 좋아요 테이블 */
 create table dcomment_like( /*dreview_like->dcomment_like*/
