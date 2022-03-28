@@ -127,11 +127,10 @@ create sequence dcomment_seq; /*dreview_seq->dcomment_seq*/
 
 /* 리뷰 좋아요 테이블 */
 create table dcomment_like( /*dreview_like->dcomment_like*/ 
- /* rlike_num number not null, rlike_num->commentlike_num*/ 
-  commentlike_num not null,
+  commentlike_num number not null, /*rlike_num->commentlike_num*/ 
   comment_num number not null,  /*review_num->comment_num*/
   mem_num number not null,
-  constraint dcomment_like_pk primary key (rlike_num), /*review->comment*/
+  constraint dcomment_like_pk primary key (commentlike_num), /*review->comment, rlike_num->commentlike_num*/
   constraint dcomment_like_fk_1 foreign key (comment_num) references dcomment (comment_num), /*review_num->comment_num*/
   constraint dcomment_like_fk_2 foreign key (mem_num) references dmember (mem_num)
 );
