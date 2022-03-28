@@ -15,56 +15,61 @@
 
 </style>
 
-<div class="page-main " id="boardView">
-
-	 <h2>
-		<c:if test="${chatboard.mate_state==0}">
-			<span class="badge rounded-pill bg-danger">모집 중!</span>
-		</c:if>
-		<c:if test="${chatboard.mate_state==1}">
-			<span class="badge rounded-pill bg-light text-dark">모집 마감</span>
-		</c:if>
-		&nbsp;
-		${chatboard.title}
-		
-	</h2> 
-	<div id="boardView_middle" class="col-12">
-		<div id="photo_1" class="col-4">
-			<c:if test="${chatboard.photo==null}">
-				<img src="${pageContext.request.contextPath}/resources/images/face.png">
+<div class="page-main border border-primary border-2 rounded" id="boardView">
+	<div>
+		<h2>
+			<c:if test="${chatboard.mate_state==0}">
+				<span class="badge rounded-pill bg-danger">모집 중!</span>
 			</c:if>
-			<c:if test="${chatboard.photo!=null}">
-				<img src="imageView.do?board_num=${chatboard.chatboard_num}">
-				<img src="${pageContext.request.contextPath}/member/photoView.do">
+			<c:if test="${chatboard.mate_state==1}">
+				<span class="badge rounded-pill bg-light text-dark">모집 마감</span>
+			</c:if>
+			&nbsp;
+			<b>${chatboard.title}</b>
+		</h2> 
+	</div>
+	<br>
+	<div id="boardView_middle" class=" row ">
+		<div id="boardView_img" class=" col-md-2 ">
+			<c:if test="${empty user_photo}">
+				<img src="${pageContext.request.contextPath}/resources/images/face.png" >
+			</c:if> 
+			<c:if test="${!empty user_photo}">
+				<img src="${pageContext.request.contextPath}/member/photoView.do?user_num=0">
 			</c:if>
 		</div>
-		<div id="name_2" class="col-4">
-		 ${chatboard.name}
+		<div id="boardView_name" class="col-8  align-self-end ">
+		 <b>${chatboard.name}</b>
 		</div>
-		<div id="date_3" class="col-4">
-		작성일 : ${chatboard.reg_date}
+		<div id="boardView_date" class="col-2 offset-1  align-self-end ">
+		작성일 | ${chatboard.reg_date}
 		</div>
 	</div>
 	
-	<hr size="2" width="100%" >
+	<br>
+	<hr width="100%">
+	<br>
 	
-	<div id="boardView_content">
+	<div id="boardView_content" class="overflow-auto" >
 		${chatboard.content}
 	</div>
-	<div id="boardView_hit">
+	
+	<div id="boardView_hit" class="offset-11">
 		<img id="eye_img" src="${pageContext.request.contextPath}/resources/images/board/eye.png">
 		${chatboard.hit}
 	</div>
 	
+	<hr width="100%">
 	
 	<div id="boardView_button">
-		<button class="btn btn-secondary m-2" id="list_btn" onclick="location.href='list.do'">목록</button>
+		<button class="btn btn-primary "  id="chat_btn" onclick="location.href='chat.do'">채팅하기</button>
 		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
-			<button class="btn btn-secondary m-2" id="modify_btn" 
+			<button class="btn btn-secondary" id="modify_btn" 
 					onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'">수정</button>
-			<button class="btn btn-secondary m-2" id="delete_btn">삭제</button>
+			<button class="btn btn-secondary" id="delete_btn">삭제</button>
 		</c:if>
-		<button class="btn btn-primary m-3"  id="chat_btn" onclick="location.href='chat.do'">채팅걸기</button>
+		<button class="btn btn-secondary " id="list_btn" onclick="location.href='list.do'">목록</button>
+		
 		
 			<script type="text/javascript">
 				let delete_btn = document.getElementById('delete_btn');//delete_btn에접근
@@ -101,23 +106,11 @@
 				    })
 									
 					//여기까지 테스트
-					//}
+					//}f
 				};
 			</script> 	
 	</div>
-	<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-		 aria-labelledby="offcanvasWithBothOptionsLabel">
-		<div class="offcanvas-header">
-			<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop
-				with scrolling</h5>
-			<button type="button" class="btn-close text-reset"
-				data-bs-dismiss="offcanvas" aria-label="Close"></button>
-		</div>
-		<div class="offcanvas-body">
-			<p>Try scrolling the rest of the page to see this option in
-				action.</p>
-		</div>
-	</div>
+
 
 
 </div>

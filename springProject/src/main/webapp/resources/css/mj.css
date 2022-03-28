@@ -1,45 +1,78 @@
 /* ==============chatBoardView============== */
 /* 상 우 하 좌/상 좌우 하/상하 좌우 */
 div#boardView{
+	/* outline:1px solid red; */
 	margin:200px auto;
-	width:80%;
-	outline:1px dotted red;
+	width:70%;
+	padding:40px;
 }
 div#boardView h2{
-	outline:1px dotted red;
 	margin:10px auto;
 	padding-left:10px;
 	text-align: left;
 }
 div#boardView_middle{
-	inline-block;
+/* 	outline:1px dotted red; */
 }
-div#photo_1 img{
-	outline:2px dotted green;
-	/* float: left; width: 300px; */ 
-	width: 50px; 
+div#boardView_img{
+/* 	outline:2px dotted green; */
+	margin-left:1%;
+	width: 60px;
+	height: 60px;
+	margin-right: 2%;
 }
-#name_2{
-outline:2px dotted yellow;
+div#boardView_img img{
+	/* float: left; */ 
+	/* margin-top:20px; */
+	width: 60px; height:60px;
+	object-fit: cover;
+	/* object-position: top; */
+	border-radius: 50%;
+	/* vertical-align: middle; */
+}
+div#boardView_name{
+/* outline:2px dotted yellow; */
 	/* width: 10%; */
-	}
-div#boardView_middle div#date_3{
-	outline:2px dotted blue;
-	/* width: 10%; */
+	font-size: 20px;
+}
+div#boardView_date{
+	/* margin-left:47%; */
+	font-size: 15px;
 }
 div#boardView_content{
-	outline:2px dotted green;
-	height: 200px;
+	/* outline:1px dotted green; */
+	/* height: 200px; */
+	background-color: #f7f9f9;
+	border-radius: 1%; 
+	margin:0 2%;
+	padding:2%;
+	height: 400px;
 }
 div#boardView_hit{
-	outline:2px dotted yellow;
-	text-align: right;
+/* 	outline:2px dotted yellow; */
+	margin-top:1%;
+	margin-right: 100px;
+	text-align: left;
+	padding:0;
+	width: 100px;
 }
 img#eye_img{
 	width: 30px; 
 	opacity: 70%;
 }
-
+div#boardView_button{
+	margin-top:0;
+}
+button#chat_btn{
+	margin-left:1%;
+	width:50%;
+}
+button#modify_btn{
+	margin-left:25%;
+}
+button#delete_btn, button#list_btn{
+	margin-left:3%;
+}
 
 /* ==============chatBoardList============== */
 div#chatBoardList_main {
