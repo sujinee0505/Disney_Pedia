@@ -158,7 +158,7 @@ ul li {
 											<div class="profile-userbuttons">
 												<form:button class="modibtn">수정</form:button>
 												<input type="button" class="homebtn" value="이전으로"
-													onclick="location.href='${pageContext.request.contextPath}/member/myPage.do'">
+													onclick="location.href='myPage.do'">
 												<div class="profile-userbuttons">
 													<input type="button" class="yWX7s" value="회원탈퇴 >"
 														onclick="location.href='delete.do'">

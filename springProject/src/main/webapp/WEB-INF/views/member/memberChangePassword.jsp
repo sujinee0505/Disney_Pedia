@@ -92,7 +92,7 @@ ul li {
 													</ul>
 													<div class="profile-userbuttons">
 														<form:button class="modibtn">수정</form:button>
-														<input type="button" class="homebtn" value="이전으로" onclick="location.href='${pageContext.request.contextPath}/member/update.do'">
+														<input type="button" class="homebtn" value="이전으로" onclick="location.href='update.do'">
 													</div>
 											</div>
 										</header>
