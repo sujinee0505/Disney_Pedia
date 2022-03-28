@@ -5,9 +5,17 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="calendar" extends="main">
+    <definition name="myComment" extends="main">
     	<put-attribute name="title" value="마이코멘트"/>
     	<put-attribute name="body" value="/WEB-INF/views/member/myComment.jsp"/>
+    </definition>
+    <definition name="CommentWrite" extends="main">
+    	<put-attribute name="title" value="코멘트작성"/>
+    	<put-attribute name="body" value="/WEB-INF/views/contents/detail.jsp"/>
+    </definition>
+    <definition name="CommenList" extends="main">
+    	<put-attribute name="title" value="코멘트목록"/>
+    	<put-attribute name="body" value="/WEB-INF/views/contents/detail.jsp"/>
     </definition>
 </tiles-definitions>
 

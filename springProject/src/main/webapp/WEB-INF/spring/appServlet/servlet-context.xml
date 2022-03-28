@@ -36,6 +36,7 @@
 				<beans:value>/WEB-INF/tiles-def/three.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/four.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/chatBoard.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/comment.xml</beans:value>
 			</beans:list>
 		</beans:property>	
 	</beans:bean>

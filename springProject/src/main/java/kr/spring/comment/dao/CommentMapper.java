@@ -16,7 +16,7 @@ public interface CommentMapper {
 	@Select("SELECT COUNT(*) FROM dcomment c JOIN dmember m ON c.mem_num=m.mem_num WHERE c.comment_num=#{comment_num}")
 	public int selectRowCount(Map<String,Object> map);
 	@Insert("INSERT INTO dcomment (comment_num,content,mem_num) VALUES (dcomment_seq.nextval,#{content},#{mem_num})")
-	public void insetComment(CommentVO comment);
+	public void insertComment(CommentVO comment);
 	@Select("SELECT * FROM dcomment c JOIN dmember m ON c.mem_num=m.mem_num WHERE c.comment_num=#{comment_num}")
 	public CommentVO selectComment(Integer comment_num);
 	@Update("UPDATE dcomment SET content=#{content}modify_date=SYSDATE WHERE comment_num=#{comment_num}")
@@ -24,7 +24,6 @@ public interface CommentMapper {
 	@Delete("DELETE FROM dcomment WHERE comment_num=#{comment_num}")
 	public void deleteComment(Integer comment_num);
 	//내가쓴 코멘트 목록
-	
 	public List<CommentVO> selectListByMem_num(int mem_num);
 	
 	//수진
@@ -38,7 +37,7 @@ public interface CommentMapper {
 	@Select("SELECT * FROM dcomment_like c JOIN dmember m ON c.mem_num=m.mem_num WHERE c.commentlike_num=#{commentlike_num}")
 	public CommentLikeVO selectLike(Integer commentlike_num);
 	@Insert("INSERT INTO dcomment_like (commentlike_num, comment_num, mem_num) VALUES (dcomment_seq.nextval,#{comment_num},#{mem_num})")
-	public void insetLike(CommentVO comment);
+	public void insertLike(CommentVO comment);
 	@Delete("DELETE FROM dcomment_like WHERE commentlike_num=#{commentlike_num}")
 	public void deleteLike(Integer commentlike_num);
 	//내가 좋아요한 코멘트 목록
