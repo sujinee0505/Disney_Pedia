@@ -136,13 +136,30 @@
 }
 #comment_btn{
 	width: 100px;
-	float: right;
+	float: left; 
 	border: none; color:white;font-size:10pt;
 	font-family: 'SUIT-Medium';
 	/* background-color:pink; */
+	margin-left:10px;
 }
 .btn-hover.color-9 {
     background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+}
+div #count_area{
+	float: left;font-size:6pt;
+	color:#7d7d7d;
+	/* font-family: 'SUIT-Medium'; */
+	text-align:right;	
+	height:30px;
+	/*텍스트 세로 중앙 정렬*/
+	display: flex !important;
+	align-items:center !important;
+	justify-content:center !important;
+	/* background-color:pink; */
+	
+}
+.float_right{
+	float: right; 
 }
 /*모달-공통*/
 .align-center{
