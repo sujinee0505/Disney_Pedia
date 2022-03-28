@@ -7,7 +7,6 @@
         <p class="modal-title2"><b>${contents.title }</b></p>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-
       <!-- Modal body -->
       <div class="modal-body comment-body">
       	<form action="" method="post" role="form" id="comment_form">	
