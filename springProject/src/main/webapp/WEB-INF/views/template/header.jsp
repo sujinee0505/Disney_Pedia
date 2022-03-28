@@ -136,7 +136,7 @@
 							<%-- <button id="register-btn"
 								onclick="location.href='${pageContext.request.contextPath}/member/registerUser.do'"
 								class="css-139vxi-StylelessButton">회원가입</button></li> --%>
-							<button type="button" class="css-139vxi-StylelessButton"
+							<button id="register-btn" type="button" class="css-139vxi-StylelessButton"
 								data-bs-toggle="modal" data-bs-target="#myModal2">회원가입
 							</button>
 					</c:if>

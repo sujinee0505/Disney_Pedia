@@ -155,7 +155,7 @@ public class MemberController {
 
 	// My페이지
 	@RequestMapping("/member/myPage.do")
-	public String process(HttpSession session, Model model, @RequestParam int user_num) {
+	public String process(HttpSession session, Model model, @RequestParam(value = "user_num", defaultValue = "0") int user_num) {
 
 		if (user_num == 0) {
 			user_num = (Integer) session.getAttribute("user_num");
