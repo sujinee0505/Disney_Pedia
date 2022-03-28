@@ -81,15 +81,16 @@ input[type=button] {
 								<section class="css-q4evg3-MyPage e19zkogf2">
 									<div class="css-ewkqyn-WallPaper e19zkogf3">
 										<ul>
-											<li><c:if test="${empty user_photo}">
-													<img
-														src="${pageContext.request.contextPath}/resources/images/face.png"
+											<li>
+												<c:if test="${empty user_photo}">
+													<img src="${pageContext.request.contextPath}/resources/images/face.png"
 														width="150" height="150" class="my-photo">
-												</c:if> <c:if test="${!empty user_photo}">
-													<img
-														src="${pageContext.request.contextPath}/member/photoView.do?user_num=${member.mem_num}"
+												</c:if> 
+												<c:if test="${!empty user_photo}">
+													<img src="${pageContext.request.contextPath}/member/photoView.do?user_num=${member.mem_num}"
 														width="150" height="150" class="my-photo">
-												</c:if></li>
+												</c:if>
+											</li>
 										</ul>
 									</div>
 									<div class="css-1gkas1x-Grid e1689zdh0">
@@ -106,22 +107,19 @@ input[type=button] {
 												</div>
 												<c:if test="${param.user_num ==0 || user_num == member.mem_num}">
 													<div class="profile-userbutton">
-														<input type="button" value="프로필수정"
-															onclick="location.href='update.do'"> <a
-															href="${pageContext.request.contextPath}/main/main.do">
-															<img
-															src="${pageContext.request.contextPath}/resources/images/review.png"
-															width="40" height="40">
-														</a> <a href="${pageContext.request.contextPath}/main/main.do">
-															<img
-															src="${pageContext.request.contextPath}/resources/images/list.png"
-															width="40" height="40">
-														</a> <a
-															href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num=${member.mem_num}">
-															<img
-															src="${pageContext.request.contextPath}/resources/images/cal.png"
-															width="40" height="40">
-														</a>
+														<input type="button" value="프로필수정" onclick="location.href='update.do'"> 
+															<a href="/member/myComment.do">
+																<img src="${pageContext.request.contextPath}/resources/images/review.png"
+																width="40" height="40">
+															</a> 
+															<a href="/member/myList.do">
+																<img src="${pageContext.request.contextPath}/resources/images/list.png"
+																width="40" height="40">
+															</a> 
+															<a href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num=${member.mem_num}">
+																<img src="${pageContext.request.contextPath}/resources/images/cal.png"
+																width="40" height="40">
+															</a>
 													</div>
 												</c:if>
 										</div>
@@ -131,47 +129,40 @@ input[type=button] {
 												<div class="css-174lxc3">
 													<div class="css-1gkas1x-Grid e1689zdh0">
 														<div class="css-1y901al-Row emmoxnt0">
-															<ul
-																class="e19zkogf12 css-i1bo8u-VisualUl-CategoryArchivesUl">
-																<li
-																	class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
-																	<a background="[object Object]"
-																	class="css-h3f67w-CategoryArchivesLink e19zkogf14"
-																	href="/member/myMovie.do">
-																		<ul
-																			class="css-reeb92-VisualUl-CategoryArchives e19zkogf15">
-																			<li
-																				class="css-r3hbc5-CategoryArchivesName e19zkogf16">
-																				영화</li>
-																			<li
-																				class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
-																				★61</li>
-																			<li
-																				class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
-																				보고싶어요<strong>1</strong>
+															<ul class="e19zkogf12 css-i1bo8u-VisualUl-CategoryArchivesUl">
+																<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
+																	<a background="[object Object]" class="css-h3f67w-CategoryArchivesLink e19zkogf14"
+																		href="/member/myMovie.do">
+																		<ul class="css-reeb92-VisualUl-CategoryArchives e19zkogf15">
+																			<li class="css-r3hbc5-CategoryArchivesName e19zkogf16">
+																			영화
+																			</li>
+																			<li class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
+																			★61
+																			</li>
+																			<li class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
+																			보고싶어요
+																				<strong>1</strong>
 																			</li>
 																		</ul>
-																</a>
+																	</a>
 																</li>
-																<li
-																	class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
-																	<a background="[object Object]"
-																	class="css-1gw6y00-CategoryArchivesLink e19zkogf14"
-																	href="/member/myDrama.do">
-																		<ul
-																			class="css-1x0nmo-VisualUl-CategoryArchives e19zkogf15">
-																			<li
-																				class="css-r3hbc5-CategoryArchivesName e19zkogf16">
-																				TV프로그램</li>
-																			<li
-																				class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
-																				★3</li>
-																			<li
-																				class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
-																				보고싶어요<strong>0</strong>
+																<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
+																	<a background="[object Object]" class="css-1gw6y00-CategoryArchivesLink e19zkogf14"
+																		href="/member/myDrama.do">
+																		<ul class="css-1x0nmo-VisualUl-CategoryArchives e19zkogf15">
+																			<li class="css-r3hbc5-CategoryArchivesName e19zkogf16">
+																			TV프로그램
+																			</li>
+																			<li class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
+																			★3
+																			</li>
+																			<li class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
+																			보고싶어요
+																				<strong>0</strong>
 																			</li>
 																		</ul>
-																</a>
+																	</a>
 																</li>
 															</ul>
 														</div>
