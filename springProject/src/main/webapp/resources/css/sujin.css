@@ -3028,6 +3028,19 @@ h1, h3, p, hr {
 	}
 }
 
+@media ( min-width : 1023px) {
+	.css-15hndx7-StylelessButton-ContentActionButton {
+		-webkit-flex-direction: row;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		font-size: 14px;
+		line-height: 14px;
+		width: auto;
+		height: unset;
+		margin: 0 16px;
+	}
+}
+
 .css-1tc9iuk-StylelessButton-ContentActionButton {
 	background: none;
 	padding: 0;
@@ -3080,32 +3093,6 @@ h1, h3, p, hr {
 	.css-1tc9iuk-StylelessButton-ContentActionButton {
 		line-height: 14px;
 		min-width: 55px;
-	}
-}
-
-.css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"]
-
-
-[class*="rotatingIcon"] {
-	-webkit-transform: rotate(90deg);
-	-ms-transform: rotate(90deg);
-	transform: rotate(90deg);
-}
-
-.css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"] {
-	-webkit-transition: 300ms;
-	transition: 300ms;
-}
-
-@media ( min-width : 1023px) {
-	.css-1tc9iuk-StylelessButton-ContentActionButton [class*="Icon"] {
-		margin: 0 7px 0 0;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"] {
-		margin: 0 0 4px 0;
 	}
 }
 
@@ -3218,30 +3205,6 @@ svg {
 	}
 }
 
-.css-1q1i623-SVG {
-	display: block;
-	color: inherit;
-	font-family: "Inter", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-		"Segoe UI Emoji", "Segoe UI Symbol";
-	width: auto;
-	height: auto;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.css-1q1i623-SVG>div {
-	line-height: 0;
-}
-
-.css-1q1i623-SVG
-
- 
-
-svg {
-	width: 24px;
-	height: auto;
-}
-
 .css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm
 	{
 	background: none;
@@ -3330,17 +3293,6 @@ svg {
 		{
 		margin: 0 0 4px 0;
 	}
-}
-
-.css-1q1i623-SVG {
-	display: block;
-	color: inherit;
-	font-family: "Inter", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-		"Segoe UI Emoji", "Segoe UI Symbol";
-	width: auto;
-	height: auto;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 @media ( min-width : 719px) {
@@ -3763,54 +3715,6 @@ h1, h3, p, hr {
 	}
 }
 
-.css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"]
-[class*="rotatingIcon"] {
-	-webkit-transform: rotate(90deg);
-	-ms-transform: rotate(90deg);
-	transform: rotate(90deg);
-}
-
-.css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"] {
-	-webkit-transition: 300ms;
-	transition: 300ms;
-}
-
-@media ( min-width : 1023px) {
-	.css-1tc9iuk-StylelessButton-ContentActionButton
- 
-[class*="Icon"] {
-		margin: 0 7px 0 0;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"] {
-		margin: 0 0 4px 0;
-	}
-}
-
-.css-1q1i623-SVG {
-	display: block;
-	color: inherit;
-	font-family: "Inter", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-		"Segoe UI Emoji", "Segoe UI Symbol";
-	width: auto;
-	height: auto;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.css-1q1i623-SVG>div {
-	line-height: 0;
-}
-
-.css-1q1i623-SVG
- 
-svg {
-	width: 24px;
-	height: auto;
-}
-
 .css-3p9quy-StylelessButton-ContentActionButton-ContentCommentButtonOnXs
 	{
 	background: none;
@@ -3893,28 +3797,6 @@ svg {
 		{
 		margin: 0 0 4px 0;
 	}
-}
-
-.css-1q1i623-SVG {
-	display: block;
-	color: inherit;
-	font-family: "Inter", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-		"Segoe UI Emoji", "Segoe UI Symbol";
-	width: auto;
-	height: auto;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.css-1q1i623-SVG>div {
-	line-height: 0;
-}
-
-.css-1q1i623-SVG
- 
-svg {
-	width: 24px;
-	height: auto;
 }
 
 .css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm
@@ -4004,17 +3886,6 @@ svg {
 		{
 		margin: 0 0 4px 0;
 	}
-}
-
-.css-1q1i623-SVG {
-	display: block;
-	color: inherit;
-	font-family: "Inter", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-		"Segoe UI Emoji", "Segoe UI Symbol";
-	width: auto;
-	height: auto;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .css-1gfvga7-RoundedCornerBlock-RoundedCornerBlock-RoundedCornerBlock-RoundedCornerBlock
@@ -4307,54 +4178,6 @@ h1, h3, p, hr {
 	}
 }
 
-.css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"]
-[class*="rotatingIcon"] {
-	-webkit-transform: rotate(90deg);
-	-ms-transform: rotate(90deg);
-	transform: rotate(90deg);
-}
-
-.css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"] {
-	-webkit-transition: 300ms;
-	transition: 300ms;
-}
-
-@media ( min-width : 1023px) {
-	.css-1tc9iuk-StylelessButton-ContentActionButton
- 
-[class*="Icon"] {
-		margin: 0 7px 0 0;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"] {
-		margin: 0 0 4px 0;
-	}
-}
-
-.css-1q1i623-SVG {
-	display: block;
-	color: inherit;
-	font-family: "Inter", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-		"Segoe UI Emoji", "Segoe UI Symbol";
-	width: auto;
-	height: auto;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.css-1q1i623-SVG>div {
-	line-height: 0;
-}
-
-.css-1q1i623-SVG
- 
-svg {
-	width: 24px;
-	height: auto;
-}
-
 .css-3p9quy-StylelessButton-ContentActionButton-ContentCommentButtonOnXs
 	{
 	background: none;
@@ -4437,28 +4260,6 @@ svg {
 		{
 		margin: 0 0 4px 0;
 	}
-}
-
-.css-1q1i623-SVG {
-	display: block;
-	color: inherit;
-	font-family: "Inter", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-		"Segoe UI Emoji", "Segoe UI Symbol";
-	width: auto;
-	height: auto;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.css-1q1i623-SVG>div {
-	line-height: 0;
-}
-
-.css-1q1i623-SVG
- 
-svg {
-	width: 24px;
-	height: auto;
 }
 
 .css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm
@@ -4548,17 +4349,6 @@ svg {
 		{
 		margin: 0 0 4px 0;
 	}
-}
-
-.css-1q1i623-SVG {
-	display: block;
-	color: inherit;
-	font-family: "Inter", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-		"Segoe UI Emoji", "Segoe UI Symbol";
-	width: auto;
-	height: auto;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .css-1gfvga7-RoundedCornerBlock-RoundedCornerBlock-RoundedCornerBlock-RoundedCornerBlock
@@ -4898,54 +4688,6 @@ h1, h3, p, hr {
 	}
 }
 
-.css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"][class*="rotatingIcon"]
-	{
-	-webkit-transform: rotate(90deg);
-	-ms-transform: rotate(90deg);
-	transform: rotate(90deg);
-}
-
-.css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"] {
-	-webkit-transition: 300ms;
-	transition: 300ms;
-}
-
-@media ( min-width : 1023px) {
-	.css-1tc9iuk-StylelessButton-ContentActionButton
-
- 
-
-[class*="Icon"] {
-		margin: 0 7px 0 0;
-	}
-}
-
-@media ( min-width : 719px) {
-	.css-1tc9iuk-StylelessButton-ContentActionButton>[class*="Icon"] {
-		margin: 0 0 4px 0;
-	}
-}
-
-.css-1q1i623-SVG {
-	display: block;
-	color: inherit;
-	font-family: "Inter", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-		"Segoe UI Emoji", "Segoe UI Symbol";
-	width: auto;
-	height: auto;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.css-1q1i623-SVG>div {
-	line-height: 0;
-}
-
-.css-1q1i623-SVG svg {
-	width: 24px;
-	height: auto;
-}
-
 .css-3p9quy-StylelessButton-ContentActionButton-ContentCommentButtonOnXs
 	{
 	background: none;
@@ -5028,26 +4770,6 @@ h1, h3, p, hr {
 		{
 		margin: 0 0 4px 0;
 	}
-}
-
-.css-1q1i623-SVG {
-	display: block;
-	color: inherit;
-	font-family: "Inter", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-		"Segoe UI Emoji", "Segoe UI Symbol";
-	width: auto;
-	height: auto;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.css-1q1i623-SVG>div {
-	line-height: 0;
-}
-
-.css-1q1i623-SVG svg {
-	width: 24px;
-	height: auto;
 }
 
 .css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm
@@ -5137,17 +4859,6 @@ h1, h3, p, hr {
 		{
 		margin: 0 0 4px 0;
 	}
-}
-
-.css-1q1i623-SVG {
-	display: block;
-	color: inherit;
-	font-family: "Inter", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-		"Segoe UI Emoji", "Segoe UI Symbol";
-	width: auto;
-	height: auto;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .css-1gfvga7-RoundedCornerBlock-RoundedCornerBlock-RoundedCornerBlock-RoundedCornerBlock
