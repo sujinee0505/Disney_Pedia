@@ -91,7 +91,6 @@ public class ContentsController {
 			like.setMem_num(user_num);
 			int check = contentsMapper.checkLike(like);
 			mav.addObject("check", check);
-			System.out.println(check);
 		}
 
 		mav.setViewName("contentsDetail");

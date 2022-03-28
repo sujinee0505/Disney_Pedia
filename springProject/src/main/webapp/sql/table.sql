@@ -32,10 +32,11 @@ constraint dfollow_fk2 foreign key (passive_mem) references dmember_detail (mem_
  );
 create sequence dfollow_seq;
 
-/* 컨텐츠 좋아요 테이블 */
+/* 컨텐츠 보고싶어요 테이블 */
 create table dcontents_like(
   clike_num number not null,
   contents_num number not null,
+  contents_type varchar2(5) not null,
   mem_num number not null,
   constraint dcontents_like_pk primary key (clike_num),
   constraint dcontents_like_fk foreign key (mem_num) references dmember (mem_num)

@@ -55,7 +55,7 @@
 		var check = ${check}
 
 		like = function() {
-			if (user_num == 0) { // 로그인 안 한 상태에서 좋아요 눌렀을 경우
+			if (user_num == 0) { // 로그인 안 한 상태에서 보고싶어요 눌렀을 경우
 				alert('로그인 한 사용자만 가능합니다.');
 				return;
 			}
