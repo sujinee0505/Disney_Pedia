@@ -119,7 +119,7 @@
 								</form>
 							</div>
 						</div></li>
-					<c:if test="${empty user_num}">
+					<c:if test="${ user_num ==0 }">
 						<!--onclick="location.href='${pageContext.request.contextPath}/member/login.do'"-->
 						<!-- data-target="#myModal" data-toggle="modal" data-remote="${pageContext.request.contextPath}/member/login.do" -->
 						<!-- 로그인 -->
@@ -148,21 +148,24 @@
 									<div class="css-1wkpkpw-ProfilePhotoImage"></div>
 								</div></a></li>
 					</c:if> --%>
-					<c:if test="${!empty user_num}">
+					<c:if test="${user_num !=0}">
 						<li class="css-bj71cw"><button
 								onclick="location.href='${pageContext.request.contextPath}/member/logout.do'"
 								class="css-fn0ezc-StylelessButton" id="header_logout">로그아웃</button></li>
 					</c:if>
-					<c:if test="${!empty user_num && empty user_photo}">
-						<a href="${pageContext.request.contextPath}/member/myPage.do?user_num">
+					<c:if test="${user_num != 0 && empty user_photo}">
+						<a
+							href="${pageContext.request.contextPath}/member/myPage.do?user_num">
 							<img
 							src="${pageContext.request.contextPath}/resources/images/face.png"
 							width="25" height="25" class="my-photo">
 						</a>
 					</c:if>
-					<c:if test="${!empty user_num && !empty user_photo}">
-						<a href="${pageContext.request.contextPath}/member/myPage.do?user_num=0">
-							<img src="${pageContext.request.contextPath}/member/photoView.do?user_num=0"
+					<c:if test="${ user_num !=0 && !empty user_photo}">
+						<a
+							href="${pageContext.request.contextPath}/member/myPage.do?user_num=0">
+							<img
+							src="${pageContext.request.contextPath}/member/photoView.do?user_num=0"
 							width="25" height="25" class="my-photo">
 						</a>
 					</c:if>
