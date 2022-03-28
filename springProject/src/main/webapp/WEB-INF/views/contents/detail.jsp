@@ -41,7 +41,23 @@
 		}
 		header();
 		$(window).on('scroll', header);
-
+		
+		//코멘트 글자수체크
+		$(document).on('keyup','textarea',function(){
+			//입력한 글자수를 구함
+			let inputLength = $(this).val().length;
+			
+			if(inputLength > 10000){//10000자를 넘어선 경우
+				$(this).val($(this).val().substring(0,10000));
+			}else{//10000자 이하인 경우
+				let remain = 10000 - inputLength;
+				remain += '/10000';
+				$(this).attr('id') == 'comment'){
+					//등록폼 글자수
+					$('#re_first .letter-count').text(remain);
+				}
+			}
+		});
 		//코멘트 커서
 		$('#commentModal').on('shown.bs.modal', function() {
 			$('#comment').trigger('focus')
