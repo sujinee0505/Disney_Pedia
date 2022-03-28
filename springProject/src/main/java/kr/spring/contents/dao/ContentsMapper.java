@@ -29,4 +29,5 @@ public interface ContentsMapper {
 
 	@Delete("DELETE FROM dcontents_like WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
 	public void cancelLike(LikeVO like);
+	//
 }
