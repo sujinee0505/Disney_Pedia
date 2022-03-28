@@ -154,14 +154,14 @@
 								class="css-fn0ezc-StylelessButton" id="header_logout">로그아웃</button></li>
 					</c:if>
 					<c:if test="${!empty user_num && empty user_photo}">
-						<a href="${pageContext.request.contextPath}/member/myPage.do">
+						<a href="${pageContext.request.contextPath}/member/myPage.do?user_num">
 							<img
 							src="${pageContext.request.contextPath}/resources/images/face.png"
 							width="25" height="25" class="my-photo">
 						</a>
 					</c:if>
 					<c:if test="${!empty user_num && !empty user_photo}">
-						<a href="${pageContext.request.contextPath}/member/myPage.do">
+						<a href="${pageContext.request.contextPath}/member/myPage.do?user_num=0">
 							<img src="${pageContext.request.contextPath}/member/photoView.do?user_num=0"
 							width="25" height="25" class="my-photo">
 						</a>

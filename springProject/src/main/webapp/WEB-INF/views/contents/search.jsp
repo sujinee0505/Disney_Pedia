@@ -212,7 +212,8 @@
 						<ul class="css-paz4zm-VisualUl">
 							<c:forEach var="user_list" items="${user_list }">
 								<li class="css-1tmgvat"><a title="${param.keyword }"
-									class="css-1aaqvgs-InnerPartOfListWithImage" href=""><div
+									class="css-1aaqvgs-InnerPartOfListWithImage"
+									href="${pageContext.request.contextPath}/member/myPage.do?user_num=${user_list.mem_num}"><div
 											class="css-cssveg">
 											<div class="css-lmg4ew">
 												<div class="css-h6h0rq-ProfilePhotoImage">

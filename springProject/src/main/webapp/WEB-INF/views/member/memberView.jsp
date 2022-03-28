@@ -69,7 +69,6 @@ input[type=button] {
 	padding: 0 18px;
 	margin-right: 25px;
 }
-
 </style>
 <div id="root">
 	<div class="css-5jq76">
@@ -88,7 +87,7 @@ input[type=button] {
 														width="150" height="150" class="my-photo">
 												</c:if> <c:if test="${!empty user_photo}">
 													<img
-														src="${pageContext.request.contextPath}/member/photoView.do?user_num=0"
+														src="${pageContext.request.contextPath}/member/photoView.do?user_num=${member.mem_num}"
 														width="150" height="150" class="my-photo">
 												</c:if></li>
 										</ul>
@@ -105,24 +104,26 @@ input[type=button] {
 														<div class="css-1fucs4t-StyledText eb5y16b1">${member.introduction}</div>
 													</div>
 												</div>
-												<div class="profile-userbutton">
-													<input type="button" value="프로필수정"
-														onclick="location.href='update.do'"> <a
-														href="${pageContext.request.contextPath}/main/main.do">
-														<img
-														src="${pageContext.request.contextPath}/resources/images/review.png"
-														width="40" height="40">
-													</a> <a href="${pageContext.request.contextPath}/main/main.do">
-														<img
-														src="${pageContext.request.contextPath}/resources/images/list.png"
-														width="40" height="40">
-													</a> <a
-														href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num=${member.mem_num}">
-														<img
-														src="${pageContext.request.contextPath}/resources/images/cal.png"
-														width="40" height="40">
-													</a>
-												</div>
+												<c:if test="${param.user_num ==0 || user_num == member.mem_num}">
+													<div class="profile-userbutton">
+														<input type="button" value="프로필수정"
+															onclick="location.href='update.do'"> <a
+															href="${pageContext.request.contextPath}/main/main.do">
+															<img
+															src="${pageContext.request.contextPath}/resources/images/review.png"
+															width="40" height="40">
+														</a> <a href="${pageContext.request.contextPath}/main/main.do">
+															<img
+															src="${pageContext.request.contextPath}/resources/images/list.png"
+															width="40" height="40">
+														</a> <a
+															href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num=${member.mem_num}">
+															<img
+															src="${pageContext.request.contextPath}/resources/images/cal.png"
+															width="40" height="40">
+														</a>
+													</div>
+												</c:if>
 										</div>
 										</header>
 										<div class="css-usdi112">
@@ -130,50 +131,61 @@ input[type=button] {
 												<div class="css-174lxc3">
 													<div class="css-1gkas1x-Grid e1689zdh0">
 														<div class="css-1y901al-Row emmoxnt0">
-															<ul	class="e19zkogf12 css-i1bo8u-VisualUl-CategoryArchivesUl">
-																<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
-																	<a background="[object Object]" class="css-h3f67w-CategoryArchivesLink e19zkogf14"
-																		href="/member/myMovie.do">
-																		<ul class="css-reeb92-VisualUl-CategoryArchives e19zkogf15">
-																			<li class="css-r3hbc5-CategoryArchivesName e19zkogf16">
-																				영화
-																			</li>
-																			<li class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
-																				★61
-																			</li>
-																			<li class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
+															<ul
+																class="e19zkogf12 css-i1bo8u-VisualUl-CategoryArchivesUl">
+																<li
+																	class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
+																	<a background="[object Object]"
+																	class="css-h3f67w-CategoryArchivesLink e19zkogf14"
+																	href="/member/myMovie.do">
+																		<ul
+																			class="css-reeb92-VisualUl-CategoryArchives e19zkogf15">
+																			<li
+																				class="css-r3hbc5-CategoryArchivesName e19zkogf16">
+																				영화</li>
+																			<li
+																				class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
+																				★61</li>
+																			<li
+																				class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
 																				보고싶어요<strong>1</strong>
 																			</li>
 																		</ul>
-																	 </a>
-																 </li>
-																 <li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
-																 <a background="[object Object]" class="css-1gw6y00-CategoryArchivesLink e19zkogf14"
+																</a>
+																</li>
+																<li
+																	class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
+																	<a background="[object Object]"
+																	class="css-1gw6y00-CategoryArchivesLink e19zkogf14"
 																	href="/member/myDrama.do">
-																	<ul class="css-1x0nmo-VisualUl-CategoryArchives e19zkogf15">
-																			<li class="css-r3hbc5-CategoryArchivesName e19zkogf16">
-																				TV프로그램
-																			</li>
-																			<li class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
-																				★3
-																			</li>
-																			<li class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
+																		<ul
+																			class="css-1x0nmo-VisualUl-CategoryArchives e19zkogf15">
+																			<li
+																				class="css-r3hbc5-CategoryArchivesName e19zkogf16">
+																				TV프로그램</li>
+																			<li
+																				class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
+																				★3</li>
+																			<li
+																				class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
 																				보고싶어요<strong>0</strong>
 																			</li>
 																		</ul>
-																	</a>
-																	</li>
+																</a>
+																</li>
 															</ul>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
-										<div class="mylike">
-											<h2>좋아요</h2>
-											<h4>좋아한 컬렉션</h4>
-											<h4>좋아한 리뷰</h4>
-										</div>
+										<c:if test="${param.user_num ==0 || user_num == member.mem_num}">
+											<div class="mylike">
+												<h2>좋아요</h2>
+												<h4>좋아한 컬렉션</h4>
+												<h4>좋아한 리뷰</h4>
+											</div>
+										</c:if>
 									</div>
 								</section>
 							</div>
