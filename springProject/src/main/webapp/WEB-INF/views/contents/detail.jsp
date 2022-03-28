@@ -378,8 +378,14 @@
 																				class="css-cssveg">
 																				<div class="profilePhotoBlock css-13zlig9">
 																					<div class="css-1wfv1im-ProfilePhotoImage">
-																						<img class="css-1mt3oap-ProfilePhotoImage"
-																							src="https://image.tmdb.org/t/p/original/${crew.profile_path }">
+																						<c:if test="${!empty crew.profile_path }">
+																							<img class="css-1mt3oap-ProfilePhotoImage"
+																								src="https://image.tmdb.org/t/p/original/${crew.profile_path }">
+																						</c:if>
+																						<c:if test="${empty crew.profile_path }">
+																							<img class="css-1mt3oap-ProfilePhotoImage"
+																								src="${pageContext.request.contextPath}/resources/images/face.png">
+																						</c:if>
 																					</div>
 																				</div>
 																			</div>
@@ -398,8 +404,14 @@
 																				class="css-cssveg">
 																				<div class="profilePhotoBlock css-13zlig9">
 																					<div class="css-1wfv1im-ProfilePhotoImage">
-																						<img class="css-1mt3oap-ProfilePhotoImage"
-																							src="https://image.tmdb.org/t/p/original/${cast.profile_path }">
+																						<c:if test="${!empty cast.profile_path }">
+																							<img class="css-1mt3oap-ProfilePhotoImage"
+																								src="https://image.tmdb.org/t/p/original/${cast.profile_path }">
+																						</c:if>
+																						<c:if test="${empty cast.profile_path }">
+																							<img class="css-1mt3oap-ProfilePhotoImage"
+																								src="${pageContext.request.contextPath}/resources/images/face.png">
+																						</c:if>
 																					</div>
 																				</div>
 																			</div>
