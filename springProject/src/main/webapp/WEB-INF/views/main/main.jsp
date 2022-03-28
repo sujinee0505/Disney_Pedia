@@ -44,8 +44,9 @@
 													<span>
 														${Math.ceil((vote_average.vote_average)/2*10)/10} </span>
 												</div>
-												<div class="css-u4moi6">인기도 :
-													${vote_average.popularity }</div>
+												<div class="css-u4moi6">
+												인기도 :${vote_average.popularity }
+												</div>
 											</div></a>
 									</c:forEach></li>
 								<div class="css-ml096x"></div>
@@ -112,8 +113,9 @@
 														<span>
 															${Math.ceil((release_date.vote_average)/2*10)/10} </span>
 													</div>
-													<div class="css-u4moi6">인기도 :
-														${release_date.popularity }</div>
+													<div class="css-u4moi6">
+													인기도 : ${release_date.popularity }
+													</div>
 												</div></a>
 										</c:if>
 									</c:forEach></li>
