@@ -48,6 +48,8 @@
 		});
 		$('#calendarModal').on('shown.bs.modal', function() {
 		});
+		$('#collectionsModal').on('shown.bs.modal', function() {
+		});
 	});
 </script>
 <div class="css-16jhzm7-Self e1ezac430">
@@ -252,7 +254,8 @@
 										</div>
 										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 										<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
-											<button
+											<button data-bs-target="#collectionsModal"
+												data-bs-toggle="modal"
 												class="css-1tc9iuk-StylelessButton-ContentActionButton e1svyhwg23">
 												<div
 													class="Icon icPlus rotatingIcon css-1q1i623-SVG e1282e850">
@@ -531,24 +534,29 @@
 																				<a title=""
 																					class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 																					href=""><div class="css-107z6xc">
-																						<div class="css-bv6e27-ProfilePhotoImage"></div>
+																						<div class="css-bv6e27-ProfilePhotoImage">
+																							<img
+																								src="${pageContext.request.contextPath}/resources/images/face.png"
+																								style="object-fit: cover; width: 100%; height: 100%;">
+																						</div>
 																					</div>
 																					<div class="css-1agoci2">
-																						권혜정<span src="" class="css-amcv0d"></span>
+																						박수진<span src="" class="css-amcv0d"></span>
 																					</div></a>
 																			</div>
 																			<div class="css-yqs4xl">
 																				<img
 																					src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM0QTRBNEEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDE3Ljk4bC02LjAxNSA0LjM5MmMtLjUwOC4zNzItMS4xOTQtLjEyNi0uOTk4LS43MjVsMi4zMTctNy4wODEtNi4wMzUtNC4zNjdjLS41MS0uMzY5LS4yNDctMS4xNzUuMzgyLTEuMTc0bDcuNDQ3LjAxNiAyLjI4Ni03LjA5MWMuMTkyLS42IDEuMDQtLjYgMS4yMzMgMGwyLjI4NiA3LjA5IDcuNDQ3LS4wMTVjLjYyOS0uMDAxLjg5LjgwNS4zOCAxLjE3NGwtNi4wMzMgNC4zNjcgMi4zMTYgNy4wOGMuMTk2LjYtLjQ5IDEuMDk4LS45OTkuNzI2TDEyIDE3Ljk4eiIvPgo8L3N2Zz4K"
-																					width="16px" height="16px" alt="star"><span>3.0</span>
+																					width="16px" height="16px" alt="star"><span>4.0</span>
 																			</div>
 																		</div>
 																		<div class="css-ob93md">
 																			<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 																				href="/ko-KR/comments/7JVEod85eV29y"><div
 																					class=" css-12rbc09-StyledSelf eb5y16b0">
-																					<div class="css-qxbzku-StyledText">다이애나의 표정과
-																						몸짓을 통해 그녀의 숨막히는 삶을 고통스럽게 함께 겪는다. @왓챠시사회</div>
+																					<div class="css-qxbzku-StyledText">3명의 스파이더맨을거치면서 더이상의 특별한 스파이더맨은 없을 줄 알았다. 뉴유니버스는 내 생각이 틀렸다고,우린 이렇게 새롭게 태어날 수 있다고 말하는 작품같았다. 만화책을 그대로 스크린으로 옮겨놓은 듯한 이 작품은 굉장히 속도감있고 유쾌하며 힙하다. 스토리는 그렇게 특별하다고 볼 수 없을지도 모른다. 그런데 이 작품은 기존의 스파이더맨을 영리하게 비틀어서 얘기한다.
+																						뻔한장면이 될뻔한 이야기를 뻔하지 않게 재밌게 표현할 줄 아는 작품이다. 이야기는
+																						템포조절이 유려하고 각 캐릭터의 이해도가 높아 더 몰입할 수 있게 만들었다.</div>
 																				</div></a>
 																		</div>
 																		<div class="css-1atijos">
@@ -609,7 +617,7 @@
 																<div class="css-1y901al-Row emmoxnt0">
 																	<ul
 																		class="ejtmadi0 css-30r08r-VisualUl-DeckHorizontalUl">
-																		<li class="css-lzc9tv"><a title="여자에 대하여"
+																		<li class="css-lzc9tv"><a title="다양한 스파이디"
 																			href="/ko-KR/decks/YavxV6oii7k1"><div
 																					class="css-8vjban">
 																					<div class="css-zc7t4e">
@@ -617,28 +625,28 @@
 																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
 																								<span
 																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/tE_KEy9yTAT2c-Zh5Tldag.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk16STBNRFUwTURrd056QTBPRGczT1RnaWZRLmk0WVFLUDBTZDNTNURXdDhxcDdFVUh4d0hUMkxxdXhCQU4xZ01RZC1rWWM&quot;);"></span>
+																									style="background-image: url('https://image.tmdb.org/t/p/original//fmjCL1PCAqO5kr8ztOT5UXTouVw.jpg');"></span>
 																							</div>
 																						</div>
 																						<div class="css-ff1m0l">
 																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
 																								<span
 																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/wi0XabQg33Zt5GRSTbiocQ.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EVXdNVGMxTkRBNU5UZ3dPVGszTVRJaWZRLm0wRWF4SUxWbmVPd0d1amdUdzVYNklvS3FHbmRTYmRmMkVjc0gwaGFZa2s&quot;);"></span>
+																									style="background-image: url('https://image.tmdb.org/t/p/original//5xZac4wWUlXQmEBqIIKJ9rqXnUh.jpg');"></span>
 																							</div>
 																						</div>
 																						<div class="css-ff1m0l">
 																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
 																								<span
 																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/p-H4_zNexsTwJY8eTfiCcg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk5EQTFOemMyTmpNMU1UVTVORFEzTmpZaWZRLjdVVmpYQ01CMDdHMFlCQVdoemtDcW5OYUlKSHA0NGJsQVktQXlmV2VpNW8&quot;);"></span>
+																									style="background-image: url('https://image.tmdb.org/t/p/original//dKdcyyHUR5WTMnrbPdYN5y9xPVp.jpg');"></span>
 																							</div>
 																						</div>
 																						<div class="css-ff1m0l">
 																							<div class=" css-5tj4gl-StyledSelf e1q5rx9q0">
 																								<span
 																									class="css-bhgne5-StyledBackground e1q5rx9q1"
-																									style="background-image: url(&quot;https://an2-img.amz.wtchn.net/image/v2/3th5wQ8IaKSialTDxT2cPg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UZ3dlREkxT0hFNE1DSmRMQ0p3SWpvaUwzWXhMM2c1WjNZMVpESmthbmd6ZVhGNWNYWnNkWGh0SW4wLmtXSGJ0UWZjaDdFdVZ5SlJjSWFBSHdsM3hKVnpOZVFpb3JtblRxcFpVNlE&quot;);"></span>
+																									style="background-image: url('https://image.tmdb.org/t/p/original//dA4S18rnLx4sWW8agmLLKUvRM7n.jpg');"></span>
 																							</div>
 																						</div>
 																					</div>
@@ -646,8 +654,8 @@
 																				<ul class="css-19qbuza-VisualUl">
 																					<li class="css-iia7hw"><div
 																							class=" css-sloxdm-StyledSelf eb5y16b0">
-																							<div class="css-1fucs4t-StyledText eb5y16b1">여자에
-																								대하여</div>
+																							<div class="css-1fucs4t-StyledText eb5y16b1">다양한
+																								스파이디</div>
 																						</div></li>
 																					<li class="css-305x3e">좋아요 2746</li>
 																				</ul></a></li>
@@ -739,6 +747,14 @@
 	<div class="modal-dialog modal-dialog-centered modal-comment">
 		<div class="modal-content">
 			<jsp:include page="/WEB-INF/views/contents/calendar.jsp" />
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="collectionsModal" tabindex="-1"
+	role="dialog">
+	<div class="modal-dialog modal-dialog-centered modal-comment">
+		<div class="modal-content">
+			<jsp:include page="/WEB-INF/views/contents/collections.jsp" />
 		</div>
 	</div>
 </div>

@@ -42,7 +42,7 @@
 												} else if (param.result == 'success') {
 													alert('등록되었습니다.');
 													location
-															.replace('detail.do?type=${param.type }&id=${param.id}');
+															.replace('detail.do?type=${contents.type }&id=${contents.id}');
 												} else {
 													alert('등록시 오류 발생');
 												}

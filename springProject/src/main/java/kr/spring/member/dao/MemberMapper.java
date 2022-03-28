@@ -44,7 +44,5 @@ public interface MemberMapper {
 	public void updateProfile(MemberVO member);
 
 	// 유저 검색 (수진)
-	@Select("SELECT m.mem_num,d.photo,d.photo_name,d.name,d.introduction "
-			+ "FROM dmember m LEFT OUTER JOIN dmember_detail d " + "ON m.mem_num=d.mem_num WHERE d.name=#{name}")
 	public List<MemberVO> searchUsers(String name);
 }

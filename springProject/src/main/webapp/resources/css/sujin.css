@@ -6216,6 +6216,10 @@ h1, h3, p, hr {
 	max-height: 120px;
 	margin: 0;
 	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 5;
+	-webkit-box-orient: vertical;
 }
 
 .css-qxbzku-StyledText {
@@ -6363,8 +6367,8 @@ h1, h3, p, hr {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	min-height: 60px;
-	margin: 5px 10px 0 0;
+	/* min-height: 60px; */
+	margin: 15px 10px 0 0;
 }
 
 .css-iia7hw {
@@ -6386,9 +6390,9 @@ h1, h3, p, hr {
 	overflow: hidden;
 }
 
-.css-1fucs4t-StyledText {
+/* .css-1fucs4t-StyledText {
 	white-space: pre-wrap;
-}
+} */
 
 .my-calendar {
 	/* width: 400px; */
