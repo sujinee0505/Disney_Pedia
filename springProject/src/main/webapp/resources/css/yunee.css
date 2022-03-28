@@ -108,7 +108,7 @@
 	margin-right: 20px;
 }
 
-/*모달-콘텐츠*/
+/*=====모달-콘텐츠=====*/
 .modal-title2 {
 	font-size:10pt;
 	font-family: 'SUIT-Medium';
@@ -142,9 +142,6 @@
 	/* background-color:pink; */
 	margin-left:10px;
 }
-.btn-hover.color-9 {
-    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
-}
 div #count_area{
 	float: left;font-size:6pt;
 	color:#7d7d7d;
@@ -161,6 +158,14 @@ div #count_area{
 .float_right{
 	float: right; 
 }
+.btn-dark-blue {
+    background: #7474BF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #348AC7, #7474BF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    border: 3px solid #eee;
+}
+
 /*모달-공통*/
 .align-center{
 	text-align:center;

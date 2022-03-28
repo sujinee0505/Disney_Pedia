@@ -3,26 +3,32 @@
     <!DOCTYPE html>
 <body>
       <!-- Modal Header -->
-      <div class="modal-header">
+      <div class="modal-header border-0">
         <p class="modal-title2"><b>${contents.title }</b></p>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <!-- Modal body -->
       <div class="modal-body comment-body">
       	<form action="" method="post" role="form" id="comment_form">	
-      	<textarea cols="30" rows="10" id="comment" name="comment" 
-      	placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." autofocus></textarea>
+      	<textarea autofocus required cols="30" rows="10" id="comment" name="comment" 
+      	placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." ></textarea>
       	<div class="float_right">
 			<div id="count_area">
 			<span class="letter-count">0/10000</span>
 			</div> 
-			<button type="submit" id="comment_btn" class="btn btn-hover color-9">저장</button>
+			<button type="submit" id="comment_btn" class="btn btn-dark-blue">저장</button>
+			<!-- btn-hover color-9 -->
 		</div>
 		</form> 		
 	  </div>	    
 	  <script type="text/javascript">
 	  $(function() {
-	  $(document).on('keyup','textarea',function(){
+		  //커서
+		  $('#commentModal').on('shown.bs.modal', function() {
+				$('#comment').trigger('focus')
+			});
+		  //글자수카운트
+	 	 $(document).on('keyup','textarea',function(){
 			//입력한 글자수를 구함
 			let inputLength = $(this).val().length;
 			

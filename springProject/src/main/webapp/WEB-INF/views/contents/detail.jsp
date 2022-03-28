@@ -42,10 +42,6 @@
 		header();
 		$(window).on('scroll', header);
 
-		//코멘트 커서
-		$('#commentModal').on('shown.bs.modal', function() {
-			$('#comment').trigger('focus')
-		});
 		$('#calendarModal').on('shown.bs.modal', function() {
 		});
 		$('#collectionsModal').on('shown.bs.modal', function() {
