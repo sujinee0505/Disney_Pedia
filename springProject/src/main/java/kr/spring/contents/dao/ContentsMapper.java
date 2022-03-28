@@ -5,8 +5,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import kr.spring.function.vo.LikeVO;
-import kr.spring.function.vo.StarVO;
+import kr.spring.contents.vo.LikeVO;
+import kr.spring.contents.vo.StarVO;
 
 public interface ContentsMapper {
 	@Insert("INSERT INTO dcontents_star (star_num,star,contents_num,mem_num) "

@@ -1,6 +1,4 @@
-package kr.spring.function.vo;
-
-import kr.spring.contents.vo.ContentsVO;
+package kr.spring.contents.vo;
 
 public class StarVO {
 	

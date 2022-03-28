@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.spring.contents.dao.ContentsMapper;
-import kr.spring.function.vo.LikeVO;
-import kr.spring.function.vo.StarVO;
+import kr.spring.contents.vo.LikeVO;
+import kr.spring.contents.vo.StarVO;
 
 @Service
 public class ContentsServiceImpl implements ContentsService {

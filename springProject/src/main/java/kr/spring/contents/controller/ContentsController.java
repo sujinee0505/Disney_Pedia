@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.spring.contents.dao.ContentsMapper;
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.CreditsVO;
-import kr.spring.function.vo.LikeVO;
+import kr.spring.contents.vo.LikeVO;
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.sort.SortByDate;

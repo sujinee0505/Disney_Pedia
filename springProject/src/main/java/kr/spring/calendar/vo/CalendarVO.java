@@ -1,4 +1,4 @@
-package kr.spring.function.vo;
+package kr.spring.calendar.vo;
 
 public class CalendarVO {
 

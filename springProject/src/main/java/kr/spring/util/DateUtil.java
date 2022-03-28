@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-import kr.spring.function.vo.CalendarVO;
+import kr.spring.calendar.vo.CalendarVO;
 
 public class DateUtil {
 
