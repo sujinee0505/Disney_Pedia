@@ -46,11 +46,7 @@
 		});
 		$('#collectionsModal').on('shown.bs.modal', function() {
 		});
-<<<<<<< Upstream, based on branch 'main' of https://github.com/sujinee0505/Disney_Pedia.git
 
-=======
-		
->>>>>>> 9fef272 페이지오류 커밋
 		var user_num = ${user_num};
 		var check = ${check};
 		like = function() {
@@ -163,15 +159,11 @@
 												</div>
 											</div>
 
-											<!--=======별점 부분=======-->	<%-- <div class="css-1m7ruyk"> --%>
+
+<!--=======별점 부분=======-->	<%-- <div class="css-1m7ruyk"> --%>
 	<div class="star_area">
-<<<<<<< Upstream, based on branch 'main' of https://github.com/sujinee0505/Disney_Pedia.git
-		<div data-contentsid="${contents.contents_num}" class="rateit" id="starRate" data-rateit-mode="font"  style="font-size:38px;">
+		<div data-contentsid="${contents.id}" class="rateit" id="starRate" data-rateit-mode="font"  style="font-size:38px;">
 		<%-- letter-spacing:-0.14em; --%>
-=======
-		<div  class="rateit" id="starRate" data-rateit-mode="font"  style="font-size:38px;">
-		<%-- letter-spacing:-0.14em; data-contentsid="${contents.id}"--%>
->>>>>>> 9fef272 페이지오류 커밋
 		</div>		
 	</div>
 	<script type="text/javascript">	
@@ -238,12 +230,8 @@
     	 $('#rateit-reset-2').css("visibility","hidden"); //리셋버튼감추기
 	}); 	   
 	</script>  	
-<<<<<<< Upstream, based on branch 'main' of https://github.com/sujinee0505/Disney_Pedia.git
 	<!--======별점 부분 끝======-->	
-=======
-	<!--======별점 부분 끝======-->											
-											
->>>>>>> 9fef272 페이지오류 커밋
+
 										</div>
 										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 										<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
