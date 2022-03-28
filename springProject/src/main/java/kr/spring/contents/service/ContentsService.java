@@ -1,7 +1,7 @@
 package kr.spring.contents.service;
 
-import kr.spring.contents.vo.LikeVO;
-import kr.spring.contents.vo.StarVO;
+import kr.spring.function.vo.LikeVO;
+import kr.spring.function.vo.StarVO;
 
 public interface ContentsService {
 	public void insertStar(StarVO star);

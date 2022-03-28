@@ -1,4 +1,4 @@
-package kr.spring.calendar.service;
+package kr.spring.function.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
-import kr.spring.calendar.vo.CalendarVO;
+import kr.spring.function.vo.CalendarVO;
 import kr.spring.util.DateUtil;
 
 public interface CalenderService {

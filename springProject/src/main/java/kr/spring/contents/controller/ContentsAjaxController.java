@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.spring.contents.dao.ContentsMapper;
-import kr.spring.contents.vo.LikeVO;
+import kr.spring.function.vo.LikeVO;
 
 @Controller
 public class ContentsAjaxController {
@@ -32,11 +32,9 @@ public class ContentsAjaxController {
 		} else {
 			if (check == 1) {
 				contentsMapper.cancelLike(like);
-				map.put("check", "checked");
 				map.put("result", "cancel");
 			} else {
 				contentsMapper.contentsLike(like);
-				map.put("check", "unChecked");
 				map.put("result", "success");
 			}
 		}

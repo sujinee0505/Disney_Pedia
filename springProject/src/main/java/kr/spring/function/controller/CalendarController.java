@@ -1,4 +1,4 @@
-package kr.spring.calendar.controller;
+package kr.spring.function.controller;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -15,8 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.spring.calendar.service.CalenderService;
-import kr.spring.calendar.vo.CalendarVO;
+import kr.spring.function.service.CalenderService;
+import kr.spring.function.vo.CalendarVO;
 import kr.spring.util.DateUtil;
 
 @Controller

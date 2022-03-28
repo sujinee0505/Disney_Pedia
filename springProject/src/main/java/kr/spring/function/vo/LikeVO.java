@@ -1,4 +1,4 @@
-package kr.spring.contents.vo;
+package kr.spring.function.vo;
 
 public class LikeVO {
 	private int contents_num;
