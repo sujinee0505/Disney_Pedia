@@ -11,4 +11,8 @@ public interface ContentsService {
 	 * star_num);
 	 */
 	public void likeContents(LikeVO like);
+
+	public int checkLike(LikeVO like);
+
+	public void cancelLike(LikeVO like);
 }

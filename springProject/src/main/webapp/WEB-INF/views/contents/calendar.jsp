@@ -18,7 +18,6 @@
 								alert('날짜를 선택해주세요.');
 								return false;
 							} else {
-								let data = $(this).serialize();
 								$
 										.ajax({
 											type : 'post',

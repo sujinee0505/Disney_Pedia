@@ -50,6 +50,46 @@
 		});
 		$('#collectionsModal').on('shown.bs.modal', function() {
 		});
+
+		var user_num = $
+		{
+			user_num
+		}
+		;
+		like = function() {
+			if (user_num == 0) { // 로그인 안 한 상태에서 보고싶어요 눌렀을 경우
+				alert('로그인 한 사용자만 가능합니다.');
+				return;
+			}
+			if (user_num != 0) {
+				$
+						.ajax({
+							url : 'contentsLike.do',
+							type : 'post',
+							dataType : 'json',
+							data : {
+								contents_num : $('#contents_num').val(),
+								contents_type : $('#contents_type').val(),
+								mem_num : user_num
+							},
+							success : function(param) {
+								if (param.result == 'success') { // 보고싶어요
+									$('#like')
+											.removeClass(
+													'css-1tc9iuk-StylelessButton-ContentActionButton')
+											.addClass(
+													'css-15hndx7-StylelessButton-ContentActionButton');
+								} else if (param.result == 'cancel') { // 보고싶어요 취소
+									$('#like')
+											.removeClass(
+													'css-15hndx7-StylelessButton-ContentActionButton')
+											.addClass(
+													'css-1tc9iuk-StylelessButton-ContentActionButton');
+								}
+							}
+						});
+			}
+		}
 	});
 </script>
 <div class="css-16jhzm7-Self e1ezac430">
@@ -254,9 +294,11 @@
 										</div>
 										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 										<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
-											<button data-bs-target="#collectionsModal"
-												data-bs-toggle="modal"
-												class="css-1tc9iuk-StylelessButton-ContentActionButton e1svyhwg23">
+											<button
+												class="<c:if test="${checkLike ==1 }">css-15hndx7-StylelessButton-ContentActionButton</c:if>
+											<c:if test="${checkLike!=1 }">css-1tc9iuk-StylelessButton-ContentActionButton e1svyhwg23</c:if>"
+												onclick="like()">
+												<input type="hidden" value="${checkLike }" id="checkLike">
 												<div
 													class="Icon icPlus rotatingIcon css-1q1i623-SVG e1282e850">
 													<div>
@@ -274,7 +316,7 @@
 												보고싶어요
 											</button>
 											<!-- ======코멘트 모달 설정부분====== -->
-											<button data-bs-target="#commentModal" data-bs-toggle="modal"
+											<button id="like"
 												class="css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm e1svyhwg25">
 												<div class="Icon icPencil css-1q1i623-SVG e1282e850">
 													<div>
@@ -554,9 +596,13 @@
 																			<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 																				href="/ko-KR/comments/7JVEod85eV29y"><div
 																					class=" css-12rbc09-StyledSelf eb5y16b0">
-																					<div class="css-qxbzku-StyledText">3명의 스파이더맨을거치면서 더이상의 특별한 스파이더맨은 없을 줄 알았다. 뉴유니버스는 내 생각이 틀렸다고,우린 이렇게 새롭게 태어날 수 있다고 말하는 작품같았다. 만화책을 그대로 스크린으로 옮겨놓은 듯한 이 작품은 굉장히 속도감있고 유쾌하며 힙하다. 스토리는 그렇게 특별하다고 볼 수 없을지도 모른다. 그런데 이 작품은 기존의 스파이더맨을 영리하게 비틀어서 얘기한다.
-																						뻔한장면이 될뻔한 이야기를 뻔하지 않게 재밌게 표현할 줄 아는 작품이다. 이야기는
-																						템포조절이 유려하고 각 캐릭터의 이해도가 높아 더 몰입할 수 있게 만들었다.</div>
+																					<div class="css-qxbzku-StyledText">3명의
+																						스파이더맨을거치면서 더이상의 특별한 스파이더맨은 없을 줄 알았다. 뉴유니버스는 내 생각이
+																						틀렸다고,우린 이렇게 새롭게 태어날 수 있다고 말하는 작품같았다. 만화책을 그대로
+																						스크린으로 옮겨놓은 듯한 이 작품은 굉장히 속도감있고 유쾌하며 힙하다. 스토리는 그렇게
+																						특별하다고 볼 수 없을지도 모른다. 그런데 이 작품은 기존의 스파이더맨을 영리하게 비틀어서
+																						얘기한다. 뻔한장면이 될뻔한 이야기를 뻔하지 않게 재밌게 표현할 줄 아는 작품이다.
+																						이야기는 템포조절이 유려하고 각 캐릭터의 이해도가 높아 더 몰입할 수 있게 만들었다.</div>
 																				</div></a>
 																		</div>
 																		<div class="css-1atijos">

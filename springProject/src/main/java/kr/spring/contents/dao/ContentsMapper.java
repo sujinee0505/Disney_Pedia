@@ -2,6 +2,7 @@ package kr.spring.contents.dao;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import kr.spring.contents.vo.LikeVO;
@@ -20,6 +21,12 @@ public interface ContentsMapper {
 	 * deleteStar(Integer star_num);
 	 */
 
-	@Insert("INSERT INTO dcontents_like (clike_num, contents_num, contents_type, mem_num) VALUES (dcontents_like_seq.nextval,${contents_num},${contents_type},${mem_num})")
+	@Insert("INSERT INTO dcontents_like (clike_num, contents_num, contents_type, mem_num) VALUES (dcontents_like_seq.nextval,#{contents_num},#{contents_type},#{mem_num})")
 	public void contentsLike(LikeVO like);
+
+	@Select("SELECT COUNT(*) FROM dcontents_like WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num} ")
+	public int checkLike(LikeVO like);
+
+	@Delete("DELETE FROM dcontents_like WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
+	public void cancelLike(LikeVO like);
 }

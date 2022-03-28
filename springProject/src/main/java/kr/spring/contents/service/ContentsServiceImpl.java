@@ -24,6 +24,16 @@ public class ContentsServiceImpl implements ContentsService {
 		contentsMapper.contentsLike(like);
 	}
 
+	@Override
+	public int checkLike(LikeVO like) {
+		return contentsMapper.checkLike(like);
+	}
+
+	@Override
+	public void cancelLike(LikeVO like) {
+		contentsMapper.cancelLike(like);
+	}
+
 	/*
 	 * @Override public void updateStar(Integer star_num) { // TODO Auto-generated
 	 * method stub

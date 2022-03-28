@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.contents.dao.ContentsMapper;
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.CreditsVO;
+import kr.spring.contents.vo.LikeVO;
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.sort.SortByDate;
@@ -22,9 +26,12 @@ public class ContentsController {
 	@Autowired
 	private MemberService memberService;
 
+	@Autowired
+	private ContentsMapper contentsMapper;
+
 	@RequestMapping("/contents/detail.do")
 	// 컨텐츠 타입(movie/tv), 컨텐츠 id를 인자로 받음
-	public ModelAndView process(@RequestParam String type, @RequestParam int id) {
+	public ModelAndView process(@RequestParam String type, @RequestParam int id, HttpSession session) {
 		ContentsVO contents = new ContentsVO();
 		List<String> images = new ArrayList<String>();
 		List<CreditsVO> cast = new ArrayList<CreditsVO>();
@@ -74,8 +81,19 @@ public class ContentsController {
 				}
 			}
 		}
-
 		ModelAndView mav = new ModelAndView();
+
+		Integer user_num = (Integer) session.getAttribute("user_num");
+		if (user_num != 0) {
+			LikeVO like = new LikeVO();
+			like.setContents_num(id);
+			like.setContents_type(type);
+			like.setMem_num(user_num);
+			int checkLike = contentsMapper.checkLike(like);
+			mav.addObject("checkLike", checkLike);
+			System.out.println(checkLike);
+		}
+
 		mav.setViewName("contentsDetail");
 		mav.addObject("contents", contents);
 		mav.addObject("images", images);
