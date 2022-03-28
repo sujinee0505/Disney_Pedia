@@ -110,31 +110,31 @@ create table dlist_like(
 create sequence dlist_like_seq;
 
 /* 리뷰 테이블 */
-create table dreview(
-  review_num number not null,
+create table dcomment(
+  comment_num number not null,
   contents_num number not null,
-  contetns_typ number not null,
+  contents_type varchar2(5) not null,
   content clob not null,
   reg_date date not null,
   modify_date date,
-  grade_num number not null,
+  star_num number not null,
   mem_num number not null,
-  constraint dreview_pk primary key (review_num),
-  constraint dreview_fk_1 foreign key (grade_num) references dcontents_grade (grade_num),
-  constraint dreview_fk_2 foreign key (mem_num) references dmember (mem_num)
+  constraint dcomment_pk primary key (comment_num),
+  constraint dcomment_fk_1 foreign key (star_num) references dcontents_star (star_num),
+  constraint dcomment_fk_2 foreign key (mem_num) references dmember (mem_num)
 );
-create sequence dreview_seq;
+create sequence dcomment_seq;
 
 /* 리뷰 좋아요 테이블 */
-create table dreview_like(
+create table dcomment_like(
   rlike_num number not null,
-  review_num number not null,
+  comment_num number not null,
   mem_num number not null,
-  constraint dreview_like_pk primary key (rlike_num),
-  constraint dreview_like_fk_1 foreign key (review_num) references dreview (review_num),
-  constraint dreview_like_fk_2 foreign key (mem_num) references dmember (mem_num)
+  constraint dcomment_like_pk primary key (rlike_num),
+  constraint dcomment_like_fk_1 foreign key (comment_num) references dcomment (comment_num),
+  constraint dcomment_like_fk_2 foreign key (mem_num) references dmember (mem_num)
 );
-create sequence dreview_like_seq;
+create sequence dcomment_like_seq;
 
 /* 채팅방 테이블 */
 create table dchatboard (
