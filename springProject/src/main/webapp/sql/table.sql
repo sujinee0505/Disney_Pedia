@@ -44,16 +44,16 @@ create table dcontents_like(
 create sequence dcontents_like_seq;
 
 /* 컨텐츠 평가(별점) 테이블*/
-create table dcontents_star(
+create table dcontents_star( /*grade->전부star로 변경*/
   star_num number not null,
   contents_num number not null,
-  contents_type varchar2(5) not null,
+  contents_type varchar2(5) not null, /*추가*/
   star number(1) not null,
   mem_num number not null,
   constraint dcontents_star_pk primary key (star_num),
   constraint dcontents_star_fk foreign key (mem_num) references dmember (mem_num)
 );
-create sequence dcontents_grade_seq;
+create sequence dcontents_star_seq;
 
 /* 컨텐츠 캘린더 테이블 */
 create table dcontents_cal(
@@ -110,31 +110,31 @@ create table dlist_like(
 create sequence dlist_like_seq;
 
 /* 리뷰 테이블 */
-create table dcomment(
-  comment_num number not null,
+create table dcomment( /*dreview->dcomment*/
+  comment_num number not null, /*review_num->comment_num*/
   contents_num number not null,
-  contents_type varchar2(5) not null,
+  contents_type varchar2(5) not null, /*추가*/
   content clob not null,
   reg_date date not null,
   modify_date date,
-  star_num number not null,
+  star_num number not null, /*grade_num->star_num*/
   mem_num number not null,
-  constraint dcomment_pk primary key (comment_num),
-  constraint dcomment_fk_1 foreign key (star_num) references dcontents_star (star_num),
-  constraint dcomment_fk_2 foreign key (mem_num) references dmember (mem_num)
+  constraint dcomment_pk primary key (comment_num), /*review->comment*/
+  constraint dcomment_fk_1 foreign key (star_num) references dcontents_star (star_num), /*grade_num->star_num*/
+  constraint dcomment_fk_2 foreign key (mem_num) references dmember (mem_num) 
 );
-create sequence dcomment_seq;
+create sequence dcomment_seq; /*dreview_seq->dcomment_seq*/
 
 /* 리뷰 좋아요 테이블 */
-create table dcomment_like(
+create table dcomment_like( /*dreview_like->dcomment_like*/
   rlike_num number not null,
-  comment_num number not null,
+  comment_num number not null,  /*review_num->comment_num*/
   mem_num number not null,
-  constraint dcomment_like_pk primary key (rlike_num),
-  constraint dcomment_like_fk_1 foreign key (comment_num) references dcomment (comment_num),
+  constraint dcomment_like_pk primary key (rlike_num), /*review->comment*/
+  constraint dcomment_like_fk_1 foreign key (comment_num) references dcomment (comment_num), /*review_num->comment_num*/
   constraint dcomment_like_fk_2 foreign key (mem_num) references dmember (mem_num)
 );
-create sequence dcomment_like_seq;
+create sequence dcomment_like_seq; /*dreview_like_seq->dcomment_like_seq*/
 
 /* 채팅방 테이블 */
 create table dchatboard (
