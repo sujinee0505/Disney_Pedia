@@ -20,7 +20,7 @@
 								<li class="css-8y23cj"><c:forEach var="vote_average"
 										begin="0" end="19" step="1" items="${vote_average}">
 										<a
-											href="${pageContext.request.contextPath}/contents/detail.do?type=${vote_average.type }&id=${vote_average.id}"><div
+											href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${vote_average.contents_type }&contents_num=${vote_average.contents_num}"><div
 												class="css-1qmeemv">
 												<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 													<img src="${vote_average.poster_path }"
@@ -88,7 +88,7 @@
 										begin="0" end="19" step="1" items="${release_date}">
 										<c:if test="${release_date.popularity>=10 }">
 											<a
-												href="${pageContext.request.contextPath}/contents/detail.do?type=${release_date.type }&id=${release_date.id}"><div
+												href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${release_date.contents_type }&contents_num=${release_date.contents_num}"><div
 													class="css-1qmeemv">
 													<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 														<img src="${release_date.poster_path }"
@@ -156,7 +156,7 @@
 									<li class="css-8y23cj"><c:forEach var="mostLike"
 											items="${mostLike}">
 											<a
-												href="${pageContext.request.contextPath}/contents/detail.do?type=${mostLike.type }&id=${mostLike.id}"><div
+												href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${mostLike.contents_type }&contents_num=${mostLike.contents_num}"><div
 													class="css-1qmeemv">
 													<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 														<img src="${mostLike.poster_path }"
@@ -222,7 +222,7 @@
 									<li class="css-8y23cj"><c:forEach var="mostCommented"
 											items="${mostCommented}">
 											<a
-												href="${pageContext.request.contextPath}/contents/detail.do?type=${mostCommented.type }&id=${mostCommented.id}"><div
+												href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${mostCommented.contents_type }&contents_num=${mostCommented.contents_num}"><div
 													class="css-1qmeemv">
 													<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 														<img src="${mostCommented.poster_path }"

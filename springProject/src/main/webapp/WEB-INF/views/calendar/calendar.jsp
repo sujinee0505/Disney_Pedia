@@ -76,7 +76,7 @@
 									items="${dateList.contents_data_arr}"
 									varStatus="contents_data_arr_status" begin="0" end="0">
 									<a
-										href="${pageContext.request.contextPath}/contents/detail.do?type=${contents_list.contents_type }&id=${contents_list.contents_num}">
+										href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${contents_list.contents_type }&contents_num=${contents_list.contents_num}">
 										<div style="width: 100px;">
 											<img src="${contents_list.poster_path }" style="width: 100%;">
 										</div>

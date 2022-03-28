@@ -47,16 +47,8 @@
 		$('#collectionsModal').on('shown.bs.modal', function() {
 		});
 
-		var user_num = $
-		{
-			user_num
-		}
-		;
-		var check = $
-		{
-			check
-		}
-		;
+		var user_num = ${user_num};
+		var check = ${check};
 		like = function() {
 			if (user_num == 0) { // 로그인 안 한 상태에서 보고싶어요 눌렀을 경우
 				alert('로그인 한 사용자만 가능합니다.');
@@ -165,9 +157,9 @@
 												</div>
 											</div>
 
-<!--=======별점 부분=======-->	<%-- <div class="css-1m7ruyk"> --%>
+											<!--=======별점 부분=======-->	<%-- <div class="css-1m7ruyk"> --%>
 	<div class="star_area">
-		<div data-contentsid="${contents.id}" class="rateit" id="starRate" data-rateit-mode="font"  style="font-size:38px;">
+		<div data-contentsid="${contents.contents_num}" class="rateit" id="starRate" data-rateit-mode="font"  style="font-size:38px;">
 		<%-- letter-spacing:-0.14em; --%>
 		</div>		
 	</div>
@@ -235,8 +227,7 @@
     	 $('#rateit-reset-2').css("visibility","hidden"); //리셋버튼감추기
 	}); 	   
 	</script>  	
-	<!--======별점 부분 끝======-->		
-	
+	<!--======별점 부분 끝======-->	
 										</div>
 										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 										<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
@@ -634,7 +625,7 @@
 													<c:forEach var="reco" items="${reco }" begin="0" end="9"
 														step="1">
 														<li class="css-1hp6p72"><a title="${reco.title }"
-															href="${pageContext.request.contextPath}/contents/detail.do?type=${reco.type }&id=${reco.id}"><div
+															href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${reco.contents_type }&contents_num=${reco.contents_num}"><div
 																	class="css-1qmeemv">
 																	<div
 																		class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
@@ -648,8 +639,8 @@
 																		<div class="css-m9i0qw">평균
 																			★${Math.ceil((reco.vote_average)/2*10)/10}</div>
 																		<div class="css-1vvt4am">
-																			<c:if test="${reco.type eq 'movie' }">영화</c:if>
-																			<c:if test="${reco.type eq 'tv' }">시리즈</c:if>
+																			<c:if test="${reco.contents_type eq 'movie' }">영화</c:if>
+																			<c:if test="${reco.contents_type eq 'tv' }">시리즈</c:if>
 																		</div>
 																	</div>
 																</div></a></li>

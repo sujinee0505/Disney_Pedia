@@ -9,8 +9,8 @@
 	<!-- Modal body -->
 	<div class="modal-body calendar-body">
 		<form id="insertCal">
-			<input type="hidden" value="${contents.id }" id="contents_num">
-			<input type="hidden" value="${contents.type }" id="contents_type">
+			<input type="hidden" value="${contents.contents_num }" id="contents_num">
+			<input type="hidden" value="${contents.contents_type }" id="contents_type">
 			<input type="hidden" value="${contents.poster_path }"
 				id="poster_path">
 			<div style="display: flex; justify-content: center;">

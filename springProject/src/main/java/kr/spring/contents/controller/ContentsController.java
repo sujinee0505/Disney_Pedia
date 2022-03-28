@@ -31,7 +31,8 @@ public class ContentsController {
 
 	@RequestMapping("/contents/detail.do")
 	// 컨텐츠 타입(movie/tv), 컨텐츠 id를 인자로 받음
-	public ModelAndView process(@RequestParam String type, @RequestParam int id, HttpSession session) {
+	public ModelAndView process(@RequestParam String contents_type, @RequestParam int contents_num,
+			HttpSession session) {
 		ContentsVO contents = new ContentsVO();
 		List<String> images = new ArrayList<String>();
 		List<CreditsVO> cast = new ArrayList<CreditsVO>();
@@ -40,15 +41,15 @@ public class ContentsController {
 
 		GetInfoUtil util = new GetInfoUtil();
 
-		contents = util.getInfoDetail(type, id);
-		images = util.getImages(type, id);
-		cast = util.getCredits(type, id, "cast");
-		crew = util.getCredits(type, id, "crew");
+		contents = util.getInfoDetail(contents_type, contents_num);
+		images = util.getImages(contents_type, contents_num);
+		cast = util.getCredits(contents_type, contents_num, "cast");
+		crew = util.getCredits(contents_type, contents_num, "crew");
 
 		// 임시로 사용할 List 생성
 		List<ContentsVO> temp = new ArrayList<ContentsVO>();
 		// 메인에 출력할 컨텐츠 목록들 저장
-		temp = util.getInfoList(type);
+		temp = util.getInfoList(contents_type);
 		for (int i = 0; i < temp.size(); i++) {
 			List<Integer> list1 = new ArrayList<>(temp.get(i).getGenres());
 			List<Integer> list2 = new ArrayList<>(contents.getGenres());
@@ -86,12 +87,12 @@ public class ContentsController {
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		if (user_num != null) {
 			LikeVO like = new LikeVO();
-			like.setContents_num(id);
-			like.setContents_type(type);
+			like.setContents_num(contents_num);
+			like.setContents_type(contents_type);
 			like.setMem_num(user_num);
 			int check = contentsMapper.checkLike(like);
 			mav.addObject("check", check);
-		}else if (user_num == null) {
+		} else if (user_num == null) {
 			mav.addObject("user_num", 0);
 			mav.addObject("check", 0);
 		}

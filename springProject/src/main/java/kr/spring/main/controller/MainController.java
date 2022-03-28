@@ -32,14 +32,14 @@ public class MainController {
 	 * 별도로 페이지를 생성하지 않고 type의 value값에 따라 출력되는 페이지가 달라지게끔 설정 type의 기본 value값은 movie
 	 * value값이 없는 메인페이지는 영화 목록이 보여지고 어떤 메뉴를 누르는지에 따라 출력되는 목록이 달라짐
 	 */
-	public ModelAndView main(@RequestParam(value = "type", defaultValue = "movie") String type) {
+	public ModelAndView main(@RequestParam(value = "type", defaultValue = "movie") String contents_type) {
 
 		GetInfoUtil util = new GetInfoUtil();
 
 		// 임시로 사용할 List 생성
 		List<ContentsVO> temp = null;
 		// 메인에 출력할 컨텐츠 목록들 저장
-		temp = util.getInfoList(type);
+		temp = util.getInfoList(contents_type);
 
 		// 평점순 목록을 출력할 경우 popularity가 100이상인 것들만 출력되게 설정
 		List<ContentsVO> vote_average = new ArrayList<ContentsVO>();
@@ -57,25 +57,25 @@ public class MainController {
 		Collections.sort(vote_average, new SortByVote());
 
 		List<ContentsVO> release_date = null;
-		release_date = util.getInfoList(type);
+		release_date = util.getInfoList(contents_type);
 		// List에 담긴 ContentsVO를 날짜 내림차순으로 정렬
 		Collections.sort(release_date, new SortByDate());
 
 		List<LikeVO> mostLike_list = null;
-		mostLike_list = contentsMapper.getMostLike(type);
+		mostLike_list = contentsMapper.getMostLike(contents_type);
 		List<ContentsVO> mostLike = new ArrayList<ContentsVO>();
 		for (int i = 0; i < mostLike_list.size(); i++) {
 			ContentsVO mostLike_VO = new ContentsVO();
-			mostLike_VO = util.getInfoDetail(type, mostLike_list.get(i).getContents_num());
+			mostLike_VO = util.getInfoDetail(contents_type, mostLike_list.get(i).getContents_num());
 			mostLike_VO.setCount(mostLike_list.get(i).getCount());
 			mostLike.add(mostLike_VO);
 		}
 		List<CommentVO> mostCommented_list = null;
-		mostCommented_list = commentMapper.getMostCommented(type);
+		mostCommented_list = commentMapper.getMostCommented(contents_type);
 		List<ContentsVO> mostCommented = new ArrayList<ContentsVO>();
 		for (int i = 0; i < mostCommented_list.size(); i++) {
 			ContentsVO mostCommented_VO = new ContentsVO();
-			mostCommented_VO = util.getInfoDetail(type, mostCommented_list.get(i).getContents_num());
+			mostCommented_VO = util.getInfoDetail(contents_type, mostCommented_list.get(i).getContents_num());
 			mostCommented_VO.setCount(mostCommented_list.get(i).getCount());
 			mostCommented.add(mostCommented_VO);
 		}

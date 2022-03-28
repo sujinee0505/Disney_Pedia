@@ -43,7 +43,7 @@
 											<c:forEach var="search_result" items="${search_result }">
 												<li class="css-8y23cj"><a
 													title="${search_result.title }"
-													href="${pageContext.request.contextPath}/contents/detail.do?type=${search_result.type }&id=${search_result.id}"><div
+													href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${search_result.contents_type }&contents_num=${search_result.contents_num}"><div
 															class="css-1qmeemv">
 															<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
 																<img
@@ -58,8 +58,8 @@
 																	pattern="yyyy-MM-dd" />
 															</div>
 															<div class="css-jgn78h">
-																<c:if test="${search_result.type eq 'movie' }">영화</c:if>
-																<c:if test="${search_result.type eq 'tv' }">시리즈</c:if>
+																<c:if test="${search_result.contents_type eq 'movie' }">영화</c:if>
+																<c:if test="${search_result.contents_type eq 'tv' }">시리즈</c:if>
 															</div>
 														</div></a></li>
 											</c:forEach>
@@ -100,7 +100,7 @@
 								<div class="css-174lxc3">
 									<ul class="css-1a4f9b-VisualUl">
 										<c:forEach var="search_result" items="${search_result }">
-											<c:if test="${search_result.type eq 'movie' }">
+											<c:if test="${search_result.contents_type eq 'movie' }">
 												<li class="css-1iuimiv"><a
 													title="${search_result.title }"
 													class="css-1aaqvgs-InnerPartOfListWithImage"
@@ -158,11 +158,11 @@
 								<div class="css-174lxc3">
 									<ul class="css-1a4f9b-VisualUl">
 										<c:forEach var="search_result" items="${search_result }">
-											<c:if test="${search_result.type eq 'tv' }">
+											<c:if test="${search_result.contents_type eq 'tv' }">
 												<li class="css-1iuimiv"><a
 													title="${search_result.title }"
 													class="css-1aaqvgs-InnerPartOfListWithImage"
-													href="${pageContext.request.contextPath}/contents/detail.do?type=${search_result.type }&id=${search_result.id}""><div
+													href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${search_result.contents_type }&contents_num=${search_result.contents_num}"><div
 															class="css-cssveg">
 															<div class=" css-14fymwm-StyledSelf e1q5rx9q0">
 																<span class="css-bhgne5-StyledBackground e1q5rx9q1"

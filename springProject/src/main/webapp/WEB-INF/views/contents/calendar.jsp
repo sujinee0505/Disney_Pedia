@@ -41,7 +41,7 @@
 												} else if (param.result == 'success') {
 													alert('등록되었습니다.');
 													location
-															.replace('detail.do?type=${contents.type }&id=${contents.id}');
+															.replace('detail.do?contents_type=${contents.contents_type }&contents_num=${contents.contents_num}');
 												} else {
 													alert('등록시 오류 발생');
 												}
@@ -59,8 +59,8 @@
 	<!-- Modal body -->
 	<div class="modal-body calendar-body">
 		<form id="insertCal">
-			<input type="hidden" value="${contents.id }" id="contents_num">
-			<input type="hidden" value="${param.type }" id="contents_type">
+			<input type="hidden" value="${contents.contents_num }" id="contents_num">
+			<input type="hidden" value="${param.contents_type }" id="contents_type">
 			<input type="hidden" value="${contents.poster_path }"
 				id="poster_path"> <input type="hidden" value=""
 				id="custom_date">

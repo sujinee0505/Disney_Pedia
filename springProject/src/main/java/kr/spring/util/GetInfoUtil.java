@@ -99,7 +99,7 @@ public class GetInfoUtil {
 
 					vo.setPopularity(Float.parseFloat(String.valueOf(contents.get("popularity"))));
 
-					vo.setId(contents.get("id").toString());
+					vo.setContents_num(Integer.parseInt(String.valueOf(contents.get("id"))));
 
 					vo.setOverview(contents.get("overview").toString());
 					if (contents.get("poster_path") == null || contents.get("poster_path").toString().equals("")) {
@@ -130,7 +130,7 @@ public class GetInfoUtil {
 						vo.setTitle(contents.get("name").toString());
 					}
 					vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
-					vo.setType(type);
+					vo.setContents_type(type);
 
 					JSONArray genre_list = (JSONArray) contents.get("genre_ids");
 					for (int k = 0; k < genre_list.size(); k++) {
@@ -167,8 +167,8 @@ public class GetInfoUtil {
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
 
-			contents.setType(type);
-			contents.setId(jsonObject.get("id").toString()); // 추가
+			contents.setContents_type(type);
+			contents.setContents_num(Integer.parseInt(String.valueOf(jsonObject.get("id")))); // 추가
 			contents.setOverview(jsonObject.get("overview").toString());
 
 			contents.setPoster_path(jsonObject.get("poster_path").toString());

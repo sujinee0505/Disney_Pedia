@@ -4,7 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 public class ContentsVO {
-	private String id; // 컨텐츠 id
+	private int contents_num; // 컨텐츠 id
+	private String contents_type; // 컨텐츠 유형(movie, tv)
 	private float popularity; // 인기도
 	private String title; // 컨텐츠 제목
 	private String overview; // 컨텐츠 줄거리
@@ -13,32 +14,31 @@ public class ContentsVO {
 	private float vote_average; // 컨텐츠 평점
 	private String genre; // 컨텐츠 장르
 	private String runtime; // 컨텐츠 런타임
-	private String type; // 컨텐츠 유형(movie, tv)
 	private List<Integer> genres;
 	private int count;
 
-	public int getCount() {
-		return count;
+	public int getContents_num() {
+		return contents_num;
 	}
 
-	public void setCount(int count) {
-		this.count = count;
+	public void setContents_num(int contents_num) {
+		this.contents_num = contents_num;
 	}
 
-	public String getId() {
-		return id;
+	public String getContents_type() {
+		return contents_type;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setContents_type(String contents_type) {
+		this.contents_type = contents_type;
 	}
 
 	public float getPopularity() {
 		return popularity;
 	}
 
-	public void setPopularity(float f) {
-		this.popularity = f;
+	public void setPopularity(float popularity) {
+		this.popularity = popularity;
 	}
 
 	public String getTitle() {
@@ -116,14 +116,6 @@ public class ContentsVO {
 		}
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
 	public List<Integer> getGenres() {
 		return genres;
 	}
@@ -132,11 +124,12 @@ public class ContentsVO {
 		this.genres = genres;
 	}
 
-	@Override
-	public String toString() {
-		return "ContentsVO [id=" + id + ", popularity=" + popularity + ", title=" + title + ", overview=" + overview
-				+ ", poster_path=" + poster_path + ", release_date=" + release_date + ", vote_average=" + vote_average
-				+ ", genre=" + genre + ", runtime=" + runtime + ", type=" + type + ", genres=" + genres + "]";
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 }
