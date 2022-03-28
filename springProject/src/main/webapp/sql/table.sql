@@ -154,12 +154,12 @@ create sequence dchatboard_seq;
 create table dchatting(
   dchat_num number not null,
   chatroom_num number not null,
-  mem_num number not null,
-  opponent_num number not null,
+  mem_num number not null,--채팅보낸사람
+  opponent_num number not null,--채팅받는사람(게시글작성자)
   content varchar2(900) not null,
   send_date date default sysdate,
   read_date date,
-  read number(1) default 1,
+  read number(1) default 1 not null,--읽기상태(1읽지 않음, 0 읽음) 
   constraint dchatting_pk primary key(dchat_num),
   constraint dchatting_fk1 foreign key(chatroom_num) references Dchatboard(chatboard_num),
   constraint dchatting_fk2 foreign key(mem_num) references Dmember_detail(mem_num),
