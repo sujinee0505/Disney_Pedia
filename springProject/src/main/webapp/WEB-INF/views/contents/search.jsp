@@ -104,7 +104,7 @@
 												<li class="css-1iuimiv"><a
 													title="${search_result.title }"
 													class="css-1aaqvgs-InnerPartOfListWithImage"
-													href="${pageContext.request.contextPath}/contents/detail.do?type=${search_result.type }&id=${search_result.id}"><div
+													href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${search_result.contents_type }&contents_num=${search_result.contents_num}"><div
 															class="css-cssveg">
 															<div class=" css-14fymwm-StyledSelf e1q5rx9q0">
 																<span class="css-bhgne5-StyledBackground e1q5rx9q1"
