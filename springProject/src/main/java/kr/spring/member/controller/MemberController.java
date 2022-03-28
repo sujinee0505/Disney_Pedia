@@ -155,11 +155,9 @@ public class MemberController {
 
 	// My페이지
 	@RequestMapping("/member/myPage.do")
-	public String process(HttpSession session, Model model, @RequestParam int user_num) {
+	public String process(HttpSession session, Model model) {
 
-		if (user_num == 0) {
-			user_num = (Integer) session.getAttribute("user_num");
-		}
+		Integer user_num = (Integer) session.getAttribute("user_num");
 		MemberVO member = memberService.selectMember(user_num);
 
 		logger.info("<<회원 상세 정보>> : " + member);
