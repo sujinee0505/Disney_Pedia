@@ -46,6 +46,7 @@
 		});
 		$('#collectionsModal').on('shown.bs.modal', function() {
 		});
+		
 		var user_num = ${user_num};
 		var check = ${check};
 		like = function() {
