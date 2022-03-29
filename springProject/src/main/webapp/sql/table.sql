@@ -183,3 +183,17 @@ CREATE SEQUENCE Dchatting_seq;
 ALTER TABLE dchatting MODIFY read number(1) default 1 not null; 
 */
 
+/* =댓글 테스트 = */
+create table dchatboard_reply(
+	re_num number not null,
+	re_content varchar2(900) not null,
+	re_date date default sysdate not null,
+	re_mdate date,
+	chatboard_num number not null,
+	mem_num number not null,
+	constraint dchatboard_reply_pk primary key(re_num),
+	constraint reply_dchatboard_fk1 foreign key (chatboard_num) references dchatboard(chatboard_num),
+	constraint reply_dmember_fk1 foreign key (mem_num) references dmember(mem_num)
+);
+create sequence dchatreply_seq;
+
