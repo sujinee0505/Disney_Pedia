@@ -7,7 +7,9 @@ import kr.spring.contents.vo.StarVO;
 
 public interface ContentsService {
 	public void insertStar(StarVO star);
-
+	
+	public StarVO CheckStar(int contents_num);
+	
 	public void updateStar(StarVO star);
 	
 	public void deleteStar(StarVO star);

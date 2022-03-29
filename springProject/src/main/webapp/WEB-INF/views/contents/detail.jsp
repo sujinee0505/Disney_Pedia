@@ -162,6 +162,7 @@
 
 
 <!--=======별점 부분=======-->	<%-- <div class="css-1m7ruyk"> --%>
+<c:if test="${user_num == 1}"></c:if>
 	<div class="star_area">
 		<div class="rateit" id="starRate" data-contentsid="${contents.contents_num}"
 		data-rateit-mode="font"  style="font-size:38px;"><%-- letter-spacing:-0.14em; --%>
@@ -169,7 +170,7 @@
 	</div>
 	<script type="text/javascript">	
 	$(function(){
-		//(1)별점입력   
+		//(1)별점입력 및 변경
 		$('.star_area .rateit').bind('rated', function (e) { //rated reset		
 	        var ri = $(this);
       
@@ -192,7 +193,9 @@
 	            	if(param.result == 'logout'){
 						alert('로그인 후 사용하세요!');
 	            	}else if(param.result == 'success'){
-						/* alert('success');	 */
+						 /* alert('insert success'); */	 
+	            	}else if(param.result == 'success2'){
+						 /* alert('update success'); */	 
 	            	}else{
 						alert('별점입력 오류 발생');
 					}	
