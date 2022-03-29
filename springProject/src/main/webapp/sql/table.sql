@@ -54,6 +54,13 @@ create table dcontents_star( /*grade->전부star로 변경*/
   constraint dcontents_star_fk foreign key (mem_num) references dmember (mem_num)
 );
 create sequence dcontents_star_seq;
+/*
+[공지] 테이블변경 부탁드립니다!
+1. sql디벨로퍼에서 dcontents_star 우클릭-편집
+2. star컬럼 삭제(x표시클릭)
+3. 실행: alter table dcontents_star add( star number(5,1) not null);
+*/
+
 
 /* 컨텐츠 캘린더 테이블 */
 create table dcontents_cal(
