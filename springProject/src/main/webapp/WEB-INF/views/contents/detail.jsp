@@ -204,7 +204,7 @@
 	            	alert('네트워크 오류 발생');
 	            }
 	        });  //end of ajax
-	    });//별점입력끝
+	    });//별점입력끝 
 	    
 	    //(2)리셋버튼 클릭시 별점 취소
 		 $("#starRate").bind('reset', function () { //reset버튼클릭시 이벤트 발생
