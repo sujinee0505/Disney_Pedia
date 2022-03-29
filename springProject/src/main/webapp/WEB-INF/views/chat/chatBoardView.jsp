@@ -112,6 +112,28 @@
 	</div>
 
 
+<!-- 댓글 -->
+	<hr width="100%" noshade="noshade">
+	<div id="reply_div">
+		<span class="re-title">댓글 달기 테스트</span>
+		<form id="re_form">
+			<input type="hidden" name="board_num" value="${board.board_num}" id="board_num">
+			<textarea rows="3" cols="50" name="re_content" id="re_content" class="rep-content"
+						<c:if test="${empty user_num}">disabled="disabled"</c:if>
+						><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다</c:if></textarea>
+			
+			<c:if test="${!empty user_num}">
+				<div id="re_first">
+					<span class="letter-count">300/300</span>
+				</div>
+				<div id="re_second" class="align-right">
+					<input type="submit" value="전송">
+				</div>
+			</c:if>
+		</form>
+	</div>
+	
+
 
 </div>
 

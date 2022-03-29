@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import kr.spring.chat.vo.ChatBoardReplyVO;
 import kr.spring.chat.vo.ChatBoardVO;
 
 public interface ChatBoardMapper {
@@ -49,6 +50,34 @@ public interface ChatBoardMapper {
 	public void deleteFile(Integer chatboard_num);
 	*/
 	
+	//[댓글]
+	/*
+	//xml
+	public List<ChatBoardReplyVO> selectListReply(Map<String,Object>map);
+	
+	@Select("SELECT COUNT(*) FROM spboard_reply b JOIN spmember m "
+			+ "ON b.mem_num=m.mem_num WHERE b.board_num=#{board_num}")
+	public int selectRowCountReply(Map<String,Object> map);
+	
+	@Select("SELECT * FROM spboard_reply WHERE re_num=#{re_num} ") //update.delete시 사용할 것(작성자와 로그인회원이 일치하는지 확인)
+	public ChatBoardReplyVO selectReply(Integer re_num);
+	*/
+	//**댓글등록
+	@Insert("INSERT INTO dchatboard_reply (re_num,re_content,chatboard_num,mem_num) "
+			+ "VALUES (dchatreply_seq.nextval,#{re_content},#{chatboard_num},#{mem_num})")
+	public void insertReply(ChatBoardReplyVO chatboardReply);
+	
+	/*
+	@Update("UPDATE spboard_reply SET re_content=#{re_content},re_ip=#{re_ip},re_mdate=SYSDATE WHERE re_num=#{re_num}")
+	public void updateReply(ChatBoardReplyVO boardReply);
+	
+	@Delete("DELETE FROM spboard_reply WHERE re_num=#{re_num}")
+	public void deleteReply(Integer re_num);
+	*/
+	//부모글 삭제시 댓글이 존재하면 부모글 삭제 전 댓글 삭제한다
+	//@Delete("DELETE FROM spboard_reply WHERE board_num=#{board_num}")
+	//public void deleteReplyByBoardNum(Integer board_num);
+
 }
 	
 
