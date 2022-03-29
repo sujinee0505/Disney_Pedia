@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<link href="${pageContext.request.contextPath}/resources/css/lightbox.css" rel="stylesheet" />
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script
@@ -12,7 +13,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
-
+<script src="${pageContext.request.contextPath}/resources/js/lightbox.js"></script>
 <script type="text/javascript">
 	$(function() {
 		header = function() {
@@ -495,9 +496,10 @@
 																			<c:forEach var="images" items="${images}">
 																				<li class="css-1cw0vk0"><div
 																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
+																						<a href="https://image.tmdb.org/t/p/original${images }" data-lightbox="roadtrip">
 																						<span
 																							class="css-bhgne5-StyledBackground e1q5rx9q1"
-																							style="background-image: url('https://image.tmdb.org/t/p/original${images }');"></span>
+																							style="background-image: url('https://image.tmdb.org/t/p/original${images }');"></span></a>
 																					</div></li>
 																			</c:forEach>
 																			<div class="css-ml096x"></div>
