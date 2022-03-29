@@ -29,9 +29,6 @@ public class ContentsAjaxController {
 
 		Map<String, String> map = new HashMap<String, String>();
 
-		/*
-		 * double starRate = Double.parseDouble(request.getParameter("value").trim());
-		 */
 		Double starRate = Double.parseDouble(request.getParameter("star"));
 		int contentsNum = Integer.parseInt(request.getParameter("contents_num"));
 		
