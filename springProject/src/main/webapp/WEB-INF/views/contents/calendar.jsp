@@ -60,7 +60,7 @@
 	<div class="modal-body calendar-body">
 		<form id="insertCal">
 			<input type="hidden" value="${contents.contents_num }" id="contents_num">
-			<input type="hidden" value="${param.contents_type }" id="contents_type">
+			<input type="hidden" value="${contents.contents_type }" id="contents_type">
 			<input type="hidden" value="${contents.poster_path }"
 				id="poster_path"> <input type="hidden" value=""
 				id="custom_date">

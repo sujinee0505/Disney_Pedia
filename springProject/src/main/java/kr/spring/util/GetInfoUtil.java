@@ -148,14 +148,14 @@ public class GetInfoUtil {
 	}
 
 	// 컨텐츠 상세정보 추출 (해당 컨텐츠 id로 검색)
-	public ContentsVO getInfoDetail(String type, int id) {
+	public ContentsVO getInfoDetail(String contents_type, int id) {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		ContentsVO contents = new ContentsVO();
 		String genres = "";
 		List<Integer> genreList = null;
 		try {
 
-			String apiURL = "https://api.themoviedb.org/3/" + type + "/" + id + "?api_key=" + KEY + "&language=ko-KR";
+			String apiURL = "https://api.themoviedb.org/3/" + contents_type + "/" + id + "?api_key=" + KEY + "&language=ko-KR";
 			URL url = new URL(apiURL);
 
 			BufferedReader bf;
@@ -167,18 +167,18 @@ public class GetInfoUtil {
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
 
-			contents.setContents_type(type);
+			contents.setContents_type(contents_type);
 			contents.setContents_num(Integer.parseInt(String.valueOf(jsonObject.get("id")))); // 추가
 			contents.setOverview(jsonObject.get("overview").toString());
 
 			contents.setPoster_path(jsonObject.get("poster_path").toString());
-			if (type.equals("movie")) {
+			if (contents_type.equals("movie")) {
 				Date release_date = dateFormat.parse((String) jsonObject.get("release_date"));
 				contents.setRelease_date(release_date);
 				contents.setTitle(jsonObject.get("title").toString());
 				contents.setRuntime(jsonObject.get("runtime").toString());
 
-			} else if (type.equals("tv")) {
+			} else if (contents_type.equals("tv")) {
 				Date first_air_date = dateFormat.parse((String) jsonObject.get("first_air_date"));
 				contents.setRelease_date(first_air_date);
 				contents.setTitle(jsonObject.get("name").toString());
