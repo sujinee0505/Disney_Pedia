@@ -35,8 +35,8 @@ create sequence dfollow_seq;
 /* 컨텐츠 보고싶어요 테이블 */
 create table dcontents_like(
   clike_num number not null,
-  contents_num number not null, /*추가*/
-  contents_type varchar2(5) not null, /*추가*/
+  contents_num number not null,
+  contents_type varchar2(5) not null,
   mem_num number not null,
   constraint dcontents_like_pk primary key (clike_num),
   constraint dcontents_like_fk foreign key (mem_num) references dmember (mem_num)
@@ -46,9 +46,9 @@ create sequence dcontents_like_seq;
 /* 컨텐츠 평가(별점) 테이블*/
 create table dcontents_star( /*grade->전부star로 변경*/
   star_num number not null,
-  contents_num number not null, /*추가*/
+  contents_num number not null,
   contents_type varchar2(5) not null, /*추가*/
-  star number(1) not null,
+  star number(5,1) not null,/*number(1)->number(5,1)*/
   mem_num number not null,
   constraint dcontents_star_pk primary key (star_num),
   constraint dcontents_star_fk foreign key (mem_num) references dmember (mem_num)
@@ -59,9 +59,9 @@ create sequence dcontents_star_seq;
 create table dcontents_cal(
   cal_num number not null,
   custom_date date not null,
-  contents_num number not null, /*추가*/
-  contents_type varchar2(5) not null, /*추가*/
-  poster_path clob , /*추가*/
+  contents_num number not null,
+  contents_type varchar2(5) not null,
+  poster_path clob ,
   mem_num number not null,
   constraint dcontents_cal_pk primary key (cal_num),
   constraint dcontents_cal_fk foreign key (mem_num) references dmember (mem_num)
@@ -114,10 +114,10 @@ create table dcomment( /*dreview->dcomment*/
   comment_num number not null, /*review_num->comment_num*/
   contents_num number not null,
   contents_type varchar2(5) not null, /*추가*/
-  content clob not null, /*추가*/
+  content clob not null,
   reg_date date not null,
   modify_date date,
-  star number(5,1) not null, /*grade_num->star_num*/
+  star_num number not null, /*grade_num->star_num*/
   mem_num number not null,
   constraint dcomment_pk primary key (comment_num), /*review->comment*/
   constraint dcomment_fk_1 foreign key (star_num) references dcontents_star (star_num), /*grade_num->star_num*/
@@ -129,8 +129,6 @@ create sequence dcomment_seq; /*dreview_seq->dcomment_seq*/
 create table dcomment_like( /*dreview_like->dcomment_like*/ 
   commentlike_num number not null, /*rlike_num->commentlike_num*/ 
   comment_num number not null,  /*review_num->comment_num*/
-  contents_num number not null, /*추가*/
-  contents_type varchar2(5) not null, /*추가*/
   mem_num number not null,
   constraint dcomment_like_pk primary key (commentlike_num), /*review->comment, rlike_num->commentlike_num*/
   constraint dcomment_like_fk_1 foreign key (comment_num) references dcomment (comment_num), /*review_num->comment_num*/
