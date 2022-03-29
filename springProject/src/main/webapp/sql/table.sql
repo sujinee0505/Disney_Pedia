@@ -183,6 +183,24 @@ CREATE SEQUENCE Dchatting_seq;
 ALTER TABLE dchatting MODIFY read number(1) default 1 not null; 
 */
 
+/*===============================  테스트   =======================================*/
+/*채팅(chatting) 테이블 영역*/
+CREATE TABLE dchatting(
+   chat_num number not null, --채팅번호
+   to_num number not null, --메시지수신번호(글작성자회원번호)
+   from_num number not null, --메시지발신번호(선채팅자회원번호)
+   chatstate_num number(1) default 0 not null, --읽기상태(0읽지 않음, 1 읽음)
+   content varchar2(900) not null,
+   chatboard_num number not null,
+   send_date date default sysdate,
+   --read_date date,
+   constraint dchatting_pk primary key (chat_num),
+   constraint dchatting_fk1 foreign key (to_num) references dmember (mem_num),
+   constraint dchatting_fk2 foreign key (from_num) references dmember (mem_num),
+   constraint dchatting_fk3 foreign key (chatboard_num) references dchatboard (chatboard_num)
+);
+CREATE SEQUENCE Dchatting_seq;
+
 /* =댓글 테스트 = */
 create table dchatboard_reply(
 	re_num number not null,
