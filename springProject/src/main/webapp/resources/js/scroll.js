@@ -44,6 +44,11 @@
 						$('#status').show();
 					}
 				});
+				
+	let dateCheck = document.getElementById("dateCheck").value;
+	let yearCheck = dateCheck.substr(0, 4);
+	let monthCheck = dateCheck.substr(4, 2);
+	let dayCheck = dateCheck.substr(6, 2); 
 
 		const init = {
   /*monList: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']*/
@@ -102,10 +107,9 @@ function loadYYMM (fullDate) {
   let lastDay = init.getLastDay(yy, mm);
   let markToday;  // for marking today date
   
-  if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
-    markToday = init.today.getDate();
+  if (init.addZero(mm + 1) === monthCheck && yy == yearCheck) {
+    markToday = dayCheck;
   }
-
   document.querySelector('.cal-month').textContent = init.monList[mm];
   document.querySelector('.cal-year').textContent = yy;
 
@@ -123,7 +127,7 @@ function loadYYMM (fullDate) {
       } else {
         let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
         trtd += '<td id="day" class="day2';
-        trtd += (markToday && markToday === countDay + 1) ? ' today" ' : '"';
+        trtd += (markToday && markToday == countDay + 1) ? ' today" ' : '"';
         trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
       }
       trtd += (startCount) ? ++countDay : '';

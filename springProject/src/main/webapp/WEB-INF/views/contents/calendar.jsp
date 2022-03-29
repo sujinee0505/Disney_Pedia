@@ -3,30 +3,6 @@
 
 <script type="text/javascript">
 	$(function() {
-		dateCheck_func = function() {
-			var dateCheck = $('#dateCheck').val();
-			var yearCheck = dateCheck.substring(0, 4);
-			var monthCheck = dateCheck.substring(4, 6);
-			var dayCheck = dateCheck.substring(6, 8);
-
-			var year = $('.cal-year').text();
-			var month = $('.cal-month').text();
-			var day = $('.day-active').text();
-			if (year == yearCheck && month == monthCheck) {
-				$('#calendarModal').on('shown.bs.modal', function() {
-					for (var i = 0; i < $('.day2').length; i++) {
-
-						if ($('.day2').eq(i).text() == dayCheck) {
-							$('.day2').eq(i).addClass('day-active');
-						}
-					}
-				});
-
-			}
-		}
-		if ($('#dateCheck').val() != null) {
-			dateCheck_func();
-		}
 		$('#insertCal')
 				.submit(
 						function(event) {
@@ -41,7 +17,7 @@
 							if ($('.day2').hasClass('day-active') == false) {
 								alert('날짜를 선택해주세요.');
 								return false;
-							} else if ($('.day2').hasClass('day-active') == true) {
+							} else if (doubleCheck == 1) {
 								alert('수정하실?');
 							} else {
 								$
@@ -99,9 +75,9 @@
 				</div>
 				<div class="calendar-box">
 					<div class="ctr-box clearfix">
-						<button type="button" title="prev" class="btn-cal prev"></button>
+						<button type="button" title="prev" class="btn-cal prev" ></button>
 						<span class="cal-year"></span> <span class="cal-month"></span>
-						<button type="button" title="next" class="btn-cal next"></button>
+						<button type="button" title="next" class="btn-cal next" ></button>
 					</div>
 					<table class="cal-table">
 						<thead>
