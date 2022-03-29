@@ -13,7 +13,7 @@ import kr.spring.calendar.vo.CalendarVO;
 import kr.spring.util.DateUtil;
 
 @Service
-public class CalendarServiceImpl implements CalenderService {
+public class CalendarServiceImpl implements CalendarService {
 	@Autowired
 	private CalendarMapper calendarMapper;
 
@@ -25,6 +25,11 @@ public class CalendarServiceImpl implements CalenderService {
 	@Override
 	public ArrayList<CalendarVO> selectList(int mem_num, String db_startDate, String db_endDate, DateUtil dateData) {
 		return calendarMapper.selectList(mem_num, db_startDate, db_endDate, dateData);
+	}
+
+	@Override
+	public String checkDate(CalendarVO calendarVO) {
+		return calendarMapper.checkDate(calendarVO);
 	}
 
 }

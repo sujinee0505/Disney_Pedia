@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.spring.contents.dao.ContentsMapper;
+import kr.spring.calendar.service.CalendarService;
+import kr.spring.calendar.vo.CalendarVO;
+import kr.spring.contents.service.ContentsService;
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.CreditsVO;
 import kr.spring.contents.vo.LikeVO;
-import kr.spring.contents.vo.StarVO;
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.sort.SortByDate;
@@ -28,7 +29,10 @@ public class ContentsController {
 	private MemberService memberService;
 
 	@Autowired
-	private ContentsMapper contentsMapper;
+	private ContentsService contentsService;
+
+	@Autowired
+	private CalendarService calendarService;
 
 	@RequestMapping("/contents/detail.do")
 	// 컨텐츠 타입(movie/tv), 컨텐츠 id를 인자로 받음
@@ -91,8 +95,16 @@ public class ContentsController {
 			like.setContents_num(contents_num);
 			like.setContents_type(contents_type);
 			like.setMem_num(user_num);
-			int check = contentsMapper.checkLike(like);		
-			
+			int check = contentsService.checkLike(like);
+
+			CalendarVO calendar = new CalendarVO();
+			calendar.setContents_num(contents_num);
+			calendar.setContents_type(contents_type);
+			calendar.setMem_num(user_num);
+			String dateCheck = calendarService.checkDate(calendar);
+			if (dateCheck != null) {
+				mav.addObject("dateCheck", dateCheck);
+			}
 			mav.addObject("check", check);
 		} else if (user_num == null) {
 			mav.addObject("user_num", 0);

@@ -1,16 +1,14 @@
 package kr.spring.calendar.service;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.ibatis.annotations.Param;
 
 import kr.spring.calendar.vo.CalendarVO;
 import kr.spring.util.DateUtil;
 
-public interface CalenderService {
+public interface CalendarService {
 	public void insertCalendar(CalendarVO calendarVO);
 
 	public ArrayList<CalendarVO> selectList(int mem_num, String db_startDate, String db_endDate, DateUtil dateData);
+
+	public String checkDate(CalendarVO calendarVO);
 }

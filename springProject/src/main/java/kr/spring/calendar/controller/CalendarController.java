@@ -15,7 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.spring.calendar.service.CalenderService;
+import kr.spring.calendar.service.CalendarService;
 import kr.spring.calendar.vo.CalendarVO;
 import kr.spring.util.DateUtil;
 
@@ -23,7 +23,7 @@ import kr.spring.util.DateUtil;
 public class CalendarController {
 
 	@Autowired
-	private CalenderService calenderService;
+	private CalendarService calenderService;
 
 	@RequestMapping("calendar/calendar.do")
 	public String calendar(Model model, HttpSession session, HttpServletRequest request, DateUtil dateData) {
@@ -118,6 +118,7 @@ public class CalendarController {
 				dateList.add(calendarData);
 			}
 		}
+		
 
 		model.addAttribute("dateList", dateList);
 		model.addAttribute("today_info", today_info);

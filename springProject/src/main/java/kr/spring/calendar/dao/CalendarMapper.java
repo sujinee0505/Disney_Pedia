@@ -18,4 +18,7 @@ public interface CalendarMapper {
 			+ "WHERE mem_num=#{mem_num} AND custom_date BETWEEN #{db_startDate} AND #{db_endDate} ")
 	public ArrayList<CalendarVO> selectList(@Param("mem_num") Integer mem_num,
 			@Param("db_startDate") String db_startDate, @Param("db_endDate") String db_endDate, DateUtil dateData);
+
+	@Select("SELECT TO_CHAR(custom_date, 'YYYYMMDD') custom_date FROM dcontents_cal WHERE contents_num = #{contents_num} AND contents_type = #{contents_type} AND mem_num = ${mem_num}")
+	public String checkDate(CalendarVO calendarVO);
 }

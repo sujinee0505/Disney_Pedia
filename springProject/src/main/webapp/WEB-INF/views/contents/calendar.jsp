@@ -3,6 +3,30 @@
 
 <script type="text/javascript">
 	$(function() {
+		dateCheck_func = function() {
+			var dateCheck = $('#dateCheck').val();
+			var yearCheck = dateCheck.substring(0, 4);
+			var monthCheck = dateCheck.substring(4, 6);
+			var dayCheck = dateCheck.substring(6, 8);
+
+			var year = $('.cal-year').text();
+			var month = $('.cal-month').text();
+			var day = $('.day-active').text();
+			if (year == yearCheck && month == monthCheck) {
+				$('#calendarModal').on('shown.bs.modal', function() {
+					for (var i = 0; i < $('.day2').length; i++) {
+
+						if ($('.day2').eq(i).text() == dayCheck) {
+							$('.day2').eq(i).addClass('day-active');
+						}
+					}
+				});
+
+			}
+		}
+		if ($('#dateCheck').val() != null) {
+			dateCheck_func();
+		}
 		$('#insertCal')
 				.submit(
 						function(event) {
@@ -17,6 +41,8 @@
 							if ($('.day2').hasClass('day-active') == false) {
 								alert('날짜를 선택해주세요.');
 								return false;
+							} else if ($('.day2').hasClass('day-active') == true) {
+								alert('수정하실?');
 							} else {
 								$
 										.ajax({
@@ -41,7 +67,7 @@
 												} else if (param.result == 'success') {
 													alert('등록되었습니다.');
 													location
-															.replace('detail.do?contents_type=${contents.contents_type }&contents_num=${contents.contents_num}');
+															.replace('detail.do?contents_type=${contents.contents_type}&contents_num=${contents.contents_num}');
 												} else {
 													alert('등록시 오류 발생');
 												}
@@ -52,6 +78,7 @@
 										});
 							}
 						});
+
 	});
 </script>
 <!DOCTYPE html>
@@ -59,11 +86,12 @@
 	<!-- Modal body -->
 	<div class="modal-body calendar-body">
 		<form id="insertCal">
-			<input type="hidden" value="${contents.contents_num }" id="contents_num">
-			<input type="hidden" value="${contents.contents_type }" id="contents_type">
-			<input type="hidden" value="${contents.poster_path }"
-				id="poster_path"> <input type="hidden" value=""
-				id="custom_date">
+			<input type="hidden" value="${dateCheck }" id="dateCheck"> <input
+				type="hidden" value="${contents.contents_num }" id="contents_num">
+			<input type="hidden" value="${contents.contents_type }"
+				id="contents_type"> <input type="hidden"
+				value="${contents.poster_path }" id="poster_path"> <input
+				type="hidden" value="" id="custom_date">
 			<div class="my-calendar clearfix">
 				<div class="clicked-date" style="display: none;">
 					<div class="cal-day"></div>
