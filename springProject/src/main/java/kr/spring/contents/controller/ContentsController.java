@@ -104,6 +104,8 @@ public class ContentsController {
 			String dateCheck = calendarService.checkDate(calendar);
 			if (dateCheck != null) {
 				mav.addObject("dateCheck", dateCheck);
+			} else {
+				mav.addObject("dateCheck", "noData");
 			}
 			mav.addObject("check", check);
 		} else if (user_num == null) {

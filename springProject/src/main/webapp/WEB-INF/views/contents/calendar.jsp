@@ -3,6 +3,7 @@
 
 <script type="text/javascript">
 	$(function() {
+		alert($('#dateCheck').val());
 		$('#insertCal')
 				.submit(
 						function(event) {
@@ -17,7 +18,7 @@
 							if ($('.day2').hasClass('day-active') == false) {
 								alert('날짜를 선택해주세요.');
 								return false;
-							} else if ($('.today').val() != null) {
+							} else if ($('#dateCheck').val() != 'noData') {
 								let choice = confirm('수정하시겠습니까?');
 								if (choice == false) {
 									return false;
