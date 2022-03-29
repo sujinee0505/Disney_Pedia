@@ -47,7 +47,7 @@ create sequence dcontents_like_seq;
 create table dcontents_star( /*grade->전부star로 변경*/
   star_num number not null,
   contents_num number not null,
-  contents_type varchar2(5) not null, /*추가*/
+  contents_type varchar2(5) not null, /*추가*/ 
   star number(5,1) not null,/*number(1)->number(5,1)*/
   mem_num number not null,
   constraint dcontents_star_pk primary key (star_num),
