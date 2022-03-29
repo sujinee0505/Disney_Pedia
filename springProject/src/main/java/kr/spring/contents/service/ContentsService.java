@@ -8,10 +8,10 @@ import kr.spring.contents.vo.StarVO;
 public interface ContentsService {
 	public void insertStar(StarVO star);
 
-	/*
-	 * public void updateStar(Integer star_num); public void deleteStar(Integer
-	 * star_num);
-	 */
+	public void updateStar(StarVO star);
+	
+	public void deleteStar(StarVO star);
+	
 	public void likeContents(LikeVO like);
 
 	public int checkLike(LikeVO like);

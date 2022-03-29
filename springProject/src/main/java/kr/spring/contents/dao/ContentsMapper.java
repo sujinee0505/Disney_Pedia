@@ -15,15 +15,12 @@ public interface ContentsMapper {
 			+ "VALUES (dcontents_star_seq.nextval, #{star},#{mem_num}, #{contents_num},#{contents_type})")
 	public void insertStar(StarVO star);
 
-	/*@Insert("INSERT INTO dcontents_star (star_num,star,contents_num,mem_num, contents_type) "
-			+ "VALUES (dcontents_star_seq.nextval, #{star}, #{contents_num}, #{mem_num},#{contents_type})")
-	 * @Update("UPDATE dcontents_star SET star WHERE star=#{star}") public void
-	 * updateStar(Integer star_num);
-	 * 
-	 * @Delete("DELETE FROM dcontents_star WHERE star_num=#{star_num}") public void
-	 * deleteStar(Integer star_num);
-	 */
-
+	@Update("UPDATE dcontents_star SET star=#{star} WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}") 
+	public void updateStar(StarVO star);
+	 
+	@Delete("DELETE FROM dcontents_star WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}") 
+	public void deleteStar(StarVO star);
+	 
 	@Insert("INSERT INTO dcontents_like (clike_num, contents_num, contents_type, mem_num) VALUES (dcontents_like_seq.nextval,#{contents_num},#{contents_type},#{mem_num})")
 	public void contentsLike(LikeVO like);
 

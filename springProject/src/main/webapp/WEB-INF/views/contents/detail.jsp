@@ -163,90 +163,117 @@
 
 <!--=======별점 부분=======-->	<%-- <div class="css-1m7ruyk"> --%>
 	<div class="star_area">
-		<div data-contentsid="${contents.contents_num}" class="rateit" id="starRate" data-rateit-mode="font"  style="font-size:38px;">
-		<%-- letter-spacing:-0.14em; --%>
+		<div class="rateit" id="starRate" data-contentsid="${contents.contents_num}"
+		data-rateit-mode="font"  style="font-size:38px;"><%-- letter-spacing:-0.14em; --%>
 		</div>		
 	</div>
 	<script type="text/javascript">	
-	//ajax로 별점 전송
-   
-	$('.star_area .rateit').bind('rated reset', function (e) {
-		
-        var ri = $(this);
-        //리셋버튼 누르면->value:0 (e.type == 'reset'인지 체크, 맞으면 value를 null로 set)
-        var user_num = ${user_num};
-		var value = ri.rateit('value'); 
-        /* var contents_type = ${contents.contents_type}; */
-		
-        //확인용 alert
-       /*  alert('점수:'+value+',컨텐츠넘버:'+contents_num+',유저넘버:'+user_num+',컨텐츠타입:'); */
-
-       
-          $.ajax({
-            url: 'starRating.do', 
-            data: { 
-				star: value,
-				contents_num : $('#contents_num').val(),
-				contents_type : $('#contents_type').val(),
-				mem_num : user_num,
-				}, 
-            dataType : 'json',
-            type: 'POST',
-            success: function (param) { 
-            	if(param.result == 'logout'){
-					alert('로그인 후 사용하세요!');
-            	}else if(param.result == 'success'){
-					/* alert('success');	 */
-            	}else{
-					alert('별점입력 오류 발생');
-				}	
-            },
-            error: function () {
-            	alert('네트워크 오류 발생');
-            }
-        });  //end of ajax
-    });
+	$(function(){
+		//(1)별점입력   
+		$('.star_area .rateit').bind('rated', function (e) { //rated reset		
+	        var ri = $(this);
+      
+	        var user_num = ${user_num};
+			var value = ri.rateit('value'); 
+	        /* var contents_num = ri.data('contentsid');  
+	        var contents_type = ${contents.contents_type}; */		
+    
+	          $.ajax({
+	            url: 'starRating.do', 
+	            data: { 
+					star: value,
+					contents_num : $('#contents_num').val(), //저장:getInfoUtil/id설정:calendar.jsp
+					contents_type : $('#contents_type').val(),
+					mem_num : user_num
+					}, 
+	            dataType : 'json',
+	            type: 'POST',
+	            success: function (param) { 
+	            	if(param.result == 'logout'){
+						alert('로그인 후 사용하세요!');
+	            	}else if(param.result == 'success'){
+						/* alert('success');	 */
+	            	}else{
+						alert('별점입력 오류 발생');
+					}	
+	            },
+	            error: function () {
+	            	alert('네트워크 오류 발생');
+	            }
+	        });  //end of ajax
+	    });//별점입력끝
 	    
-	//별점에 따른 평가 문구 설정	    	
-    $("#starRate").bind('rated', function (event, value) { //rated시 이벤트 발생
-    	$('#do_rating').hide(); //평가하기문구hide
-	   	 if(value === 5 ){ 
-	   	 	$('#rating_text').text('최고예요!');		   
-	   	 }
-	   	 if(value === 4.5){
-	   		 $('#rating_text').text('훌륭해요!');		   
-	   	 }
-	   	 if(value === 4 ){
-	   		 $('#rating_text').text('재미있어요');		   
-	   	 }
-	   	 if(value === 3.5 ){
-	   		 $('#rating_text').text('볼만해요');		   
-	   	 }
-	   	 if(value === 3 ){
-	   		 $('#rating_text').text('보통이에요');		   
-	   	 }
-	   	 if(value === 2.5){
-	   		 $('#rating_text').text('부족해요');		   
-	   	 }
-	   	 if(value === 2){
-	   		 $('#rating_text').text('별로예요');		   
-	   	 }
-	   	 if(value === 1.5){
-	   		 $('#rating_text').text('재미없어요');		   
-	   	 }
-	   	 if(value === 1){
-	   		 $('#rating_text').text('싫어요');		   
-	   	 }
-	   	 if(value === 0.5){
-	   		 $('#rating_text').text('최악이에요');	
-	   	  //0.5 hover시 리셋버튼 클릭어려워서 0.5클릭 시 리셋버튼 뜨게 설정
-	   	 	$('#rateit-reset-2').css("visibility","visible"); 
-	   	 } 
-    });
-     $("#starRate").bind('reset', function () { //reset버튼클릭시 이벤트 발생
-    	 $('#rating_text').text('평가하기');	//평가하기문구다시노출 
-    	 $('#rateit-reset-2').css("visibility","hidden"); //리셋버튼감추기
-	}); 	   
+	    //(2)리셋버튼 클릭시 별점 취소
+		 $("#starRate").bind('reset', function () { //reset버튼클릭시 이벤트 발생
+			 var user_num = ${user_num};
+		 
+	    	 $('#rating_text').text('평가하기');	//평가하기문구다시노출 
+	    	 $('#rateit-reset-2').css("visibility","hidden"); //리셋버튼감추기
+	    	 /* alert('평가를 취소하시겠습니까?')  */
+	    	 $.ajax({
+					url:'resetRating.do',
+					type:'post',
+					data: {
+						contents_num : $('#contents_num').val(),				
+						contents_type : $('#contents_type').val(),
+						mem_num : user_num
+						},
+					dataType: 'json',
+					cache:false,
+					timeout:30000,
+					success:function(param){
+						if(param.result == 'logout'){
+							alert('로그인 후 사용하세요')					
+						}else if(param.result == 'success'){
+							/* alert('평가취소완료');	 */
+						}else{
+							alert('삭제시 오류 발생');
+						}
+					},
+					error:function(){
+						alert('네트워크 오류 발생')
+					}
+			}); 
+		});	 
+		    
+		//(3)별점에 따른 평가 문구 설정	    	
+	    $("#starRate").bind('rated', function (event, value) { //rated시 이벤트 발생
+	    	$('#do_rating').hide(); //평가하기문구hide
+		   	 if(value === 5 ){ 
+		   	 	$('#rating_text').text('최고예요!');		   
+		   	 }
+		   	 if(value === 4.5){
+		   		 $('#rating_text').text('훌륭해요!');		   
+		   	 }
+		   	 if(value === 4 ){
+		   		 $('#rating_text').text('재미있어요');		   
+		   	 }
+		   	 if(value === 3.5 ){
+		   		 $('#rating_text').text('볼만해요');		   
+		   	 }
+		   	 if(value === 3 ){
+		   		 $('#rating_text').text('보통이에요');		   
+		   	 }
+		   	 if(value === 2.5){
+		   		 $('#rating_text').text('부족해요');		   
+		   	 }
+		   	 if(value === 2){
+		   		 $('#rating_text').text('별로예요');		   
+		   	 }
+		   	 if(value === 1.5){
+		   		 $('#rating_text').text('재미없어요');		   
+		   	 }
+		   	 if(value === 1){
+		   		 $('#rating_text').text('싫어요');		   
+		   	 }
+		   	 if(value === 0.5){
+		   		 $('#rating_text').text('최악이에요');	
+		   	  //0.5 hover시 리셋버튼 클릭어려워서 0.5클릭 시 리셋버튼 뜨게 설정
+		   	 	$('#rateit-reset-2').css("visibility","visible"); 
+		   	 } 
+	    });//평가문구끝
+	 
+	 });    
 	</script>  	
 	<!--======별점 부분 끝======-->	
 

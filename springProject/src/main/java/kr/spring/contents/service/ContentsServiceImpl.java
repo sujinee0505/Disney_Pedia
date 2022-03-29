@@ -15,12 +15,23 @@ public class ContentsServiceImpl implements ContentsService {
 	@Autowired
 	private ContentsMapper contentsMapper;
 
+	//별점
 	@Override
 	public void insertStar(StarVO star) {
 		contentsMapper.insertStar(star);
-
 	}
 
+	@Override
+	public void updateStar(StarVO star) {
+		contentsMapper.updateStar(star);		
+	}
+
+	@Override
+	public void deleteStar(StarVO star) {
+		contentsMapper.deleteStar(star);		
+	}
+
+	//보고싶어요
 	@Override
 	public void likeContents(LikeVO like) {
 		contentsMapper.contentsLike(like);
@@ -41,15 +52,8 @@ public class ContentsServiceImpl implements ContentsService {
 		return contentsMapper.getMostLike(contents_type);
 	}
 
-	/*
-	 * @Override public void updateStar(Integer star_num) { // TODO Auto-generated
-	 * method stub
-	 * 
-	 * }
-	 * 
-	 * @Override public void deleteStar(Integer star_num) { // TODO Auto-generated
-	 * method stub
-	 * 
-	 * }
-	 */
+
+
+
+
 }
