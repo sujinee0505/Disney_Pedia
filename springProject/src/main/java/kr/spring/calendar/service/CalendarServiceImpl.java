@@ -23,6 +23,16 @@ public class CalendarServiceImpl implements CalendarService {
 	}
 
 	@Override
+	public void updateCalendar(CalendarVO calendarVO) {
+		calendarMapper.updateCalendar(calendarVO);
+	}
+
+	@Override
+	public void deleteCalendar(CalendarVO calendarVO) {
+		calendarMapper.deleteCalendar(calendarVO);
+	}
+
+	@Override
 	public ArrayList<CalendarVO> selectList(int mem_num, String db_startDate, String db_endDate, DateUtil dateData) {
 		return calendarMapper.selectList(mem_num, db_startDate, db_endDate, dateData);
 	}

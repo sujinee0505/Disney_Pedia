@@ -168,6 +168,9 @@ loadDate(init.today.getDate(), init.today.getDay());
 $btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
 $btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
 
+const todayEl = document.querySelector('td');
+const classes = todayEl.classList;
+
 $calBody.addEventListener('click', (e) => {
   if (e.target.classList.contains('day2')) {
     if (init.activeDTag) {
@@ -175,7 +178,9 @@ $calBody.addEventListener('click', (e) => {
     }
     let day = Number(e.target.textContent);
     loadDate(day, e.target.cellIndex);
+    if (!classes.contains('today')) {
     e.target.classList.add('day-active');
+    }
     init.activeDTag = e.target;
     init.activeDate.setDate(day);
     /*reloadTodo();

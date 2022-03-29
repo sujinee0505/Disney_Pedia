@@ -17,8 +17,48 @@
 							if ($('.day2').hasClass('day-active') == false) {
 								alert('날짜를 선택해주세요.');
 								return false;
-							} else if (doubleCheck == 1) {
-								alert('수정하실?');
+							} else if ($('.today').val() != null) {
+								let choice = confirm('수정하시겠습니까?');
+								if (choice == false) {
+									return false;
+								} else {
+									$
+											.ajax({
+												type : 'post',
+												data : {
+													contents_num : $(
+															'#contents_num')
+															.val(),
+													custom_date : $(
+															'#custom_date')
+															.val(),
+													contents_type : $(
+															'#contents_type')
+															.val(),
+													poster_path : $(
+															'#poster_path')
+															.val()
+												},
+												url : 'updateCal.do',
+												dataType : 'json',
+												cache : false,
+												timeout : 30000,
+												success : function(param) {
+													if (param.result == 'logout') {
+														alert('로그인후 등록할 수 있습니다.');
+													} else if (param.result == 'success') {
+														alert('수정되었습니다.');
+														location
+																.replace('detail.do?contents_type=${contents.contents_type}&contents_num=${contents.contents_num}');
+													} else {
+														alert('수정시 오류 발생');
+													}
+												},
+												error : function() {
+													alert('네트워크 오류 발생!');
+												}
+											});
+								}
 							} else {
 								$
 										.ajax({
@@ -54,6 +94,48 @@
 										});
 							}
 						});
+		$('.today')
+				.click(
+						function() {
+							let choice = confirm('삭제하시겠습니까?');
+							if (choice == false) {
+								return false;
+							} else {
+								$
+										.ajax({
+											type : 'post',
+											data : {
+												contents_num : $(
+														'#contents_num').val(),
+												custom_date : $('#custom_date')
+														.val(),
+												contents_type : $(
+														'#contents_type').val(),
+												poster_path : $('#poster_path')
+														.val()
+											},
+											url : 'deleteCal.do',
+											dataType : 'json',
+											cache : false,
+											timeout : 30000,
+											success : function(param) {
+												if (param.result == 'logout') {
+													alert('로그인후 삭제할 수 있습니다.');
+												} else if (param.result == 'success') {
+													alert('삭제되었습니다.');
+													location
+															.replace('detail.do?contents_type=${contents.contents_type}&contents_num=${contents.contents_num}');
+												} else {
+													alert('삭제시 오류 발생');
+												}
+											},
+											error : function() {
+												alert('네트워크 오류 발생!');
+											}
+										});
+							}
+
+						});
 
 	});
 </script>
@@ -75,9 +157,9 @@
 				</div>
 				<div class="calendar-box">
 					<div class="ctr-box clearfix">
-						<button type="button" title="prev" class="btn-cal prev" ></button>
+						<button type="button" title="prev" class="btn-cal prev"></button>
 						<span class="cal-year"></span> <span class="cal-month"></span>
-						<button type="button" title="next" class="btn-cal next" ></button>
+						<button type="button" title="next" class="btn-cal next"></button>
 					</div>
 					<table class="cal-table">
 						<thead>

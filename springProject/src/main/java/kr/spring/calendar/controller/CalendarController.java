@@ -118,7 +118,6 @@ public class CalendarController {
 				dateList.add(calendarData);
 			}
 		}
-		
 
 		model.addAttribute("dateList", dateList);
 		model.addAttribute("today_info", today_info);
@@ -138,6 +137,40 @@ public class CalendarController {
 		} else {// 로그인 된 경우
 			calendarVO.setMem_num(mem_num);
 			calenderService.insertCalendar(calendarVO);
+			map.put("result", "success");
+		}
+		return map;
+	}
+
+	@RequestMapping("/contents/updateCal.do")
+	@ResponseBody
+	public Map<String, String> updateCal(CalendarVO calendarVO, HttpSession session) {
+
+		Map<String, String> map = new HashMap<String, String>();
+
+		Integer mem_num = (Integer) session.getAttribute("user_num");
+		if (mem_num == null) {// 로그인이 되지 않은 경우
+			map.put("result", "logout");
+		} else {// 로그인 된 경우
+			calendarVO.setMem_num(mem_num);
+			calenderService.updateCalendar(calendarVO);
+			map.put("result", "success");
+		}
+		return map;
+	}
+
+	@RequestMapping("/contents/deleteCal.do")
+	@ResponseBody
+	public Map<String, String> deleteCal(CalendarVO calendarVO, HttpSession session) {
+
+		Map<String, String> map = new HashMap<String, String>();
+
+		Integer mem_num = (Integer) session.getAttribute("user_num");
+		if (mem_num == null) {// 로그인이 되지 않은 경우
+			map.put("result", "logout");
+		} else {// 로그인 된 경우
+			calendarVO.setMem_num(mem_num);
+			calenderService.deleteCalendar(calendarVO);
 			map.put("result", "success");
 		}
 		return map;

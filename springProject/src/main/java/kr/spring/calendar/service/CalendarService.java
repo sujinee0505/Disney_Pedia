@@ -7,6 +7,10 @@ import kr.spring.util.DateUtil;
 
 public interface CalendarService {
 	public void insertCalendar(CalendarVO calendarVO);
+	
+	public void updateCalendar(CalendarVO calendarVO);
+	
+	public void deleteCalendar(CalendarVO calendarVO);
 
 	public ArrayList<CalendarVO> selectList(int mem_num, String db_startDate, String db_endDate, DateUtil dateData);
 
