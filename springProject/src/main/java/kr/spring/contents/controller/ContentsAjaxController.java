@@ -25,19 +25,14 @@ public class ContentsAjaxController {
 	@RequestMapping("/contents/starRating.do")
 	@ResponseBody
 	public Map<String, String> starRating(HttpServletRequest request, HttpSession session, 
-			StarVO starVO, String value, String contents_num) {
+			StarVO starVO, String value) {
 
 		Map<String, String> map = new HashMap<String, String>();
 
-		Double starRate = Double.parseDouble(request.getParameter("star"));
-		int contentsNum = Integer.parseInt(request.getParameter("contents_num"));
-		
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		if (user_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
 		}else {//로그인 된 경우
-			starVO.setStar(starRate);
-			starVO.setContents_num(contentsNum);
 			contentsMapper.insertStar(starVO);			
 			map.put("result","success");			
 		}

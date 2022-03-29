@@ -173,10 +173,8 @@
 		
         var ri = $(this);
         //리셋버튼 누르면->value:0 (e.type == 'reset'인지 체크, 맞으면 value를 null로 set)
-        
-		var value = ri.rateit('value'); 
-        var contents_num = ri.data('contentsid'); 
         var user_num = ${user_num};
+		var value = ri.rateit('value'); 
         /* var contents_type = ${contents.contents_type}; */
 		
         //확인용 alert
@@ -186,9 +184,10 @@
           $.ajax({
             url: 'starRating.do', 
             data: { 
-            	contents_num: contents_num,
 				star: value,
-				mem_num : user_num
+				contents_num : $('#contents_num').val(),
+				contents_type : $('#contents_type').val(),
+				mem_num : user_num,
 				}, 
             dataType : 'json',
             type: 'POST',
