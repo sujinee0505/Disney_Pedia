@@ -5,7 +5,7 @@ public class StarVO {
 	private int star_num; //별점id
 	private int contents_num; //컨텐츠id
 	private int mem_num; //회원번호
-	private int star; //별점(0.5~5)
+	private Double star; //별점(0.5~5)
 	private String contents_type;
 	
 	public int getStar_num() {
@@ -26,13 +26,13 @@ public class StarVO {
 	public void setMem_num(int mem_num) {
 		this.mem_num = mem_num;
 	}
-	public int getStar() {
+
+	public Double getStar() {
 		return star;
 	}
-	public void setStar(int star) {
+	public void setStar(Double star) {
 		this.star = star;
 	}
-
 	public String getContents_type() {
 		return contents_type;
 	}

@@ -16,6 +16,7 @@ import kr.spring.contents.dao.ContentsMapper;
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.CreditsVO;
 import kr.spring.contents.vo.LikeVO;
+import kr.spring.contents.vo.StarVO;
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.sort.SortByDate;
@@ -90,7 +91,8 @@ public class ContentsController {
 			like.setContents_num(contents_num);
 			like.setContents_type(contents_type);
 			like.setMem_num(user_num);
-			int check = contentsMapper.checkLike(like);
+			int check = contentsMapper.checkLike(like);		
+			
 			mav.addObject("check", check);
 		} else if (user_num == null) {
 			mav.addObject("user_num", 0);

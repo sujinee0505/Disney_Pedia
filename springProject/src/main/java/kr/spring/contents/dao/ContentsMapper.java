@@ -11,11 +11,12 @@ import kr.spring.contents.vo.LikeVO;
 import kr.spring.contents.vo.StarVO;
 
 public interface ContentsMapper {
-	@Insert("INSERT INTO dcontents_star (star_num,star,contents_num,mem_num, contents_type) "
-			+ "VALUES (dcontents_star_seq.nextval, #{star}, #{contents_num}, #{mem_num},#{contents_type})")
+	@Insert("INSERT INTO dcontents_star (star_num,star,mem_num,contents_num) "
+			+ "VALUES (dcontents_star_seq.nextval, #{star},#{mem_num}, #{contents_num})")
 	public void insertStar(StarVO star);
 
-	/*
+	/*@Insert("INSERT INTO dcontents_star (star_num,star,contents_num,mem_num, contents_type) "
+			+ "VALUES (dcontents_star_seq.nextval, #{star}, #{contents_num}, #{mem_num},#{contents_type})")
 	 * @Update("UPDATE dcontents_star SET star WHERE star=#{star}") public void
 	 * updateStar(Integer star_num);
 	 * 

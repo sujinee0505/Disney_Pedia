@@ -3,6 +3,7 @@ package kr.spring.contents.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,39 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.spring.contents.dao.ContentsMapper;
 import kr.spring.contents.vo.LikeVO;
+import kr.spring.contents.vo.StarVO;
 
 @Controller
 public class ContentsAjaxController {
 	@Autowired
 	private ContentsMapper contentsMapper;
+	
+	//별점 등록
+	@RequestMapping("/contents/starRating.do")
+	@ResponseBody
+	public Map<String, String> starRating(HttpServletRequest request, HttpSession session, 
+			StarVO starVO, String value, String contents_num) {
+
+		Map<String, String> map = new HashMap<String, String>();
+
+		/*
+		 * double starRate = Double.parseDouble(request.getParameter("value").trim());
+		 */
+		Double starRate = Double.parseDouble(request.getParameter("star"));
+		int contentsNum = Integer.parseInt(request.getParameter("contents_num"));
+		
+		Integer user_num = (Integer) session.getAttribute("user_num");
+		if (user_num == null) {// 로그인이 되지 않은 경우
+			map.put("result", "logout");
+		}else {//로그인 된 경우
+			starVO.setStar(starRate);
+			starVO.setContents_num(contentsNum);
+			contentsMapper.insertStar(starVO);			
+			map.put("result","success");			
+		}
+
+		return map;
+	}
 
 	// 보고싶어요 등록
 	@RequestMapping("/contents/contentsLike.do")
