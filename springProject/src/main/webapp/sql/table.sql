@@ -117,7 +117,7 @@ create table dcomment( /*dreview->dcomment*/
   content clob not null, /*추가*/
   reg_date date not null,
   modify_date date,
-  star_num number not null, /*grade_num->star_num*/
+  star number(5,1) not null, /*grade_num->star_num*/
   mem_num number not null,
   constraint dcomment_pk primary key (comment_num), /*review->comment*/
   constraint dcomment_fk_1 foreign key (star_num) references dcontents_star (star_num), /*grade_num->star_num*/
