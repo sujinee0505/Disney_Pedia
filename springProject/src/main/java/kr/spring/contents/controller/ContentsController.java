@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.comment.service.CommentService;
+import kr.spring.comment.vo.CommentVO;
 import kr.spring.contents.service.CalendarService;
 import kr.spring.contents.service.ContentsService;
 import kr.spring.contents.vo.CalendarVO;
@@ -33,7 +35,10 @@ public class ContentsController {
 
 	@Autowired
 	private CalendarService calendarService;
-
+	
+	@Autowired
+	private CommentService commentService;
+	
 	@RequestMapping("/contents/detail.do")
 	// 컨텐츠 타입(movie/tv), 컨텐츠 id를 인자로 받음
 	public ModelAndView process(@RequestParam String contents_type, @RequestParam int contents_num,
@@ -93,6 +98,16 @@ public class ContentsController {
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		
 		if (user_num != null) {
+			//CommentVO
+			CommentVO comment = new CommentVO();
+			comment.setContents_num(contents_num);
+			comment.setContents_type(contents_type);
+			comment.setMem_num(user_num);
+			CommentVO getComment = commentService.getComment(comment);
+			int checkComment = commentService.checkComment(comment);			
+			mav.addObject("getComment", getComment);
+			mav.addObject("checkComment", checkComment);
+			
 			LikeVO like = new LikeVO();
 			like.setContents_num(contents_num);
 			like.setContents_type(contents_type);

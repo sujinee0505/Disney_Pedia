@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Update;
 
 import kr.spring.comment.vo.CommentLikeVO;
 import kr.spring.comment.vo.CommentVO;
+import kr.spring.contents.vo.StarVO;
 
 public interface CommentMapper {
 	
@@ -17,20 +18,40 @@ public interface CommentMapper {
 	@Insert("INSERT INTO dcomment (comment_num,contents_num,contents_type,content,mem_num,reg_date) "
 			+ "VALUES (dcomment_seq.nextval,#{contents_num},#{contents_type},#{content},#{mem_num},SYSDATE)")
 	public void insertComment(CommentVO comment); 
+	
+	//코멘트 기록 체크
+	@Select("SELECT COUNT(*) FROM dcomment WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
+	public int checkComment(CommentVO comment);
+	
+	//코멘트 한 건 vo로 반환(영화,회원일치하는)
+	@Select("SELECT * FROM dcomment WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
+	public CommentVO getComment(CommentVO comment);
+	
+	
+	//코멘트 수정
+	@Update("UPDATE dcomment SET content=#{content},modify_date=SYSDATE "
+			+ "WHERE comment_num=#{comment_num}")
+	public void updateComment(CommentVO commentVO);
+	
+	/*
+	 * @Select("SELECT comment_num,contents_num,contents_type,content,mem_num,reg_date FROM dcomment WHERE contents_num=#{contents_num}"
+	 * ) public CommentVO checkComment(int contents_num);
+	 */
+	
+	/*"SELECT * FROM qboard b JOIN qmember m " + "ON b.user_num=m.user_num WHERE b.board_num=?";
 			
-	public List<CommentVO> selectList(Map<String,Object> map); //코멘트목록
+	 * @Select("SELECT * FROM dcomment c JOIN dmember m ON c.mem_num=m.mem_num " +
+	 * "WHERE c.comment_num=#{comment_num}") public CommentVO selectComment(Integer
+	 * comment_num);
+	 */
+	
+	public List<CommentVO> selectList(Map<String,Object> map); //코멘트전체목록
 		
 	  @Select("SELECT COUNT(*) FROM dcomment c JOIN dmember m ON c.mem_num=m.mem_num "
 	  + "WHERE c.comment_num=#{comment_num}") public int
 	  selectRowCount(Map<String,Object> map);
 	 		
-	@Select("SELECT * FROM dcomment c JOIN dmember m ON c.mem_num=m.mem_num "
-			+ "WHERE c.comment_num=#{comment_num}")
-	public CommentVO selectComment(Integer comment_num); //코멘트정보
 	
-	@Update("UPDATE dcomment SET content=#{content}modify_date=SYSDATE "
-			+ "WHERE comment_num=#{comment_num}")
-	public void updateComment(CommentVO commentVO); //코멘트수정
 	
 	@Delete("DELETE FROM dcomment WHERE comment_num=#{comment_num}")
 	public void deleteComment(Integer comment_num); //코멘트삭제

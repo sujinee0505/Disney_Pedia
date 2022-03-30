@@ -278,6 +278,7 @@
 												보고싶어요
 											</button>
 											<!-- ======코멘트 모달 설정부분======-->
+											<c:if test="${checkComment != 1}"> <!-- 등록폼호출 -->
 											<button data-bs-target="#commentModal" data-bs-toggle="modal"
 												class="css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm e1svyhwg25">
 												<div class="Icon icPencil css-1q1i623-SVG e1282e850">
@@ -298,6 +299,29 @@
 													<div class="css-ve4kut"></div>
 												</div>
 											</button>
+											</c:if>
+											<c:if test="${checkComment == 1}"><!-- 수정폼호출 -->
+											<button data-bs-target="#commentUpdateModal" data-bs-toggle="modal"
+												class="css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm e1svyhwg25">
+												<div class="Icon icPencil css-1q1i623-SVG e1282e850">
+													<div>
+														<svg xmlns="http://www.w3.org/2000/svg" width="24"
+															height="24" viewBox="0 0 24 24" fill="none"
+															class="injected-svg"
+															data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMgMTcuMjUyNVYyMS4wMDI1SDYuNzVMMTcuODEgOS45NDI1TDE0LjA2IDYuMTkyNUwzIDE3LjI1MjVaTTIwLjcxIDcuMDQyNUMyMS4xIDYuNjUyNSAyMS4xIDYuMDIyNSAyMC43MSA1LjYzMjVMMTguMzcgMy4yOTI1QzE3Ljk4IDIuOTAyNSAxNy4zNSAyLjkwMjUgMTYuOTYgMy4yOTI1TDE1LjEzIDUuMTIyNUwxOC44OCA4Ljg3MjVMMjAuNzEgNy4wNDI1WiIgZmlsbD0iY3VycmVudENvbG9yIi8+Cjwvc3ZnPgo="
+															xmlns:xlink="http://www.w3.org/1999/xlink">
+																	<path
+																d="M3 17.2525V21.0025H6.75L17.81 9.9425L14.06 6.1925L3 17.2525ZM20.71 7.0425C21.1 6.6525 21.1 6.0225 20.71 5.6325L18.37 3.2925C17.98 2.9025 17.35 2.9025 16.96 3.2925L15.13 5.1225L18.88 8.8725L20.71 7.0425Z"
+																fill="currentColor"></path>
+														</svg>
+													</div>
+												</div>
+												코멘트
+												<div class="css-4w39q2-StyledDropdownWrapper e1svyhwg28">
+													<div class="css-ve4kut"></div>
+												</div>
+											</button>
+											</c:if>
 											<!-- =========캘린더========= -->
 											<button data-bs-target="#calendarModal"
 												data-bs-toggle="modal"
@@ -675,6 +699,14 @@
 	<div class="modal-dialog modal-dialog-centered modal-comment">
 		<div class="modal-content">
 			<jsp:include page="/WEB-INF/views/contents/comment.jsp" />
+		</div>
+	</div>
+</div>
+<!--코멘트 수정폼 모달 틀-->
+<div class="modal fade" id="commentUpdateModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-dialog-centered modal-comment">
+		<div class="modal-content">
+			<jsp:include page="/WEB-INF/views/contents/commentUpdate.jsp" />
 		</div>
 	</div>
 </div>

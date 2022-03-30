@@ -11,10 +11,14 @@ import kr.spring.comment.vo.CommentLikeVO;
 import kr.spring.comment.vo.CommentVO;
 
 public interface CommentService {
-	//코멘트
+	//[코멘트]
+	//작업완료
+	public void insertComment(CommentVO comment);
+	public int checkComment(CommentVO comment);
+	public CommentVO getComment(CommentVO comment);
+	//작업아직
 	public List<CommentVO> selectList(Map<String,Object> map);
 	public int selectRowCount(Map<String,Object> map);
-	public void insertComment(CommentVO comment);
 	public CommentVO selectComment(Integer comment_num);
 	public void updateComment(CommentVO comment);
 	public void deleteComment(Integer comment_num);
@@ -24,7 +28,7 @@ public interface CommentService {
 	// 수진
 	public List<CommentVO> getMostCommented(String contents_type);
 	
-	//코멘트 좋아요
+	//[코멘트 좋아요]
 	public List<CommentLikeVO> selectListLike(Map<String,Object> map);
 	public int selectRowCountLike(Map<String,Object> map);
 	public CommentLikeVO selectLike(Integer commentlike_num);

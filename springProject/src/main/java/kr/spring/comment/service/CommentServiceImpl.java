@@ -15,6 +15,30 @@ public class CommentServiceImpl implements CommentService {
 
 	@Autowired
 	private CommentMapper commentMapper;
+	
+	//작업완료
+	@Override
+	public void insertComment(CommentVO comment) {
+		commentMapper.insertComment(comment);
+	}
+	
+	@Override
+	public int checkComment(CommentVO comment) {		
+		return commentMapper.checkComment(comment);
+	}
+
+	@Override
+	public CommentVO getComment(CommentVO comment) {
+		return commentMapper.getComment(comment);
+	}
+
+	//작업아직
+	@Override
+	public CommentVO selectComment(Integer comment_num) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	@Override
 	public List<CommentVO> selectList(Map<String, Object> map) {
@@ -26,15 +50,8 @@ public class CommentServiceImpl implements CommentService {
 		return commentMapper.selectRowCount(map);
 	}
 
-	@Override
-	public void insertComment(CommentVO comment) {
-		commentMapper.insertComment(comment);
-	}
 
-	@Override
-	public CommentVO selectComment(Integer comment_num) {
-		return commentMapper.selectComment(comment_num);
-	}
+
 
 	@Override
 	public void updateComment(CommentVO comment) {
