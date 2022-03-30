@@ -3,6 +3,9 @@
 
 <script type="text/javascript">
 	$(function() {
+		$('#calendarModal').on('shown.bs.modal', function() {
+		});
+
 		$('#insertCal')
 				.submit(
 						function(event) {

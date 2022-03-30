@@ -1,57 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link href="${pageContext.request.contextPath}/resources/css/lightbox.css" rel="stylesheet" />
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery.rateit.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.rateit.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/lightbox.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/detail.js"></script>
 <script type="text/javascript">
 	$(function() {
-		header = function() {
-			if ($(this).scrollTop() == 0) {
-				$('#header').removeClass('css-6k8tqb').addClass('css-5brfx4');
-				$('.css-q65tx9-StylelessButton').css('color',
-						'rgba(255, 255, 255, 0.7)');
-				$('#keyword').removeClass('css-13i5xe6')
-						.addClass('css-1sc5b20');
-				$('#label').removeClass('css-kyr608').addClass('css-y4utrt');
-				$('#login-btn').removeClass('css-fn0ezc-StylelessButton')
-						.addClass('css-1n4uax5-StylelessButton');
-				$('#register-btn').removeClass('css-139vxi-StylelessButton')
-						.addClass('css-1hpk3gd-StylelessButton');
-			} else {
-				$('#header').removeClass('css-5brfx4').addClass('css-6k8tqb');
-				$('.css-q65tx9-StylelessButton').css('color', '#7e7e7e');
-				$('#keyword').removeClass('css-1sc5b20')
-						.addClass('css-13i5xe6');
-				$('#label').removeClass('css-y4utrt').addClass('css-kyr608');
-				$('#login-btn').removeClass('css-1n4uax5-StylelessButton')
-						.addClass('css-fn0ezc-StylelessButton');
-				$('#register-btn').removeClass('css-1hpk3gd-StylelessButton')
-						.addClass('css-139vxi-StylelessButton');
-			}
-		}
-		header();
-		$(window).on('scroll', header);
-
-		$('#calendarModal').on('shown.bs.modal', function() {
-		});
-		$('#collectionsModal').on('shown.bs.modal', function() {
-		});
-
 		var user_num = ${user_num};
 		var check = ${check};
 		like = function() {
-			if (user_num == 0) { // 로그인 안 한 상태에서 보고싶어요 눌렀을 경우
+			if (user_num == 0) { 
 				alert('로그인 한 사용자만 가능합니다.');
 				return;
 			}
@@ -69,7 +33,6 @@
 							},
 							success : function(param) {
 								if (param.result == 'success') { // 보고싶어요
-									alert('보고싶어요 성공');
 									check = 1;
 									$('#like')
 											.removeClass(
@@ -77,7 +40,6 @@
 											.addClass(
 													'css-15hndx7-StylelessButton-ContentActionButton');
 								} else if (param.result == 'cancel') { // 보고싶어요 취소
-									alert('보고싶어요 취소');
 									check = 0;
 									$('#like')
 											.removeClass(
@@ -88,8 +50,7 @@
 							}
 						});
 			}
-		}//end of like
-				
+		}
 	});
 </script>
 <div class="css-16jhzm7-Self e1ezac430">
