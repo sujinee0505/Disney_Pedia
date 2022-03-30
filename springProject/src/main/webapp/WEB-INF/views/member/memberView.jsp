@@ -147,7 +147,12 @@ input[type=button] {
 																				★61</li>
 																			<li
 																				class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
-																				보고싶어요 <strong>1</strong>
+																				보고싶어요 <strong> <c:forEach var="list"
+																						items="${list}">
+																						<c:if
+																							test="${list.contents_type eq 'movie' && list.contents_type ne 'tv' }">${list.count }</c:if>
+																					</c:forEach>
+																			</strong>
 																			</li>
 																		</ul>
 																</a>
@@ -167,7 +172,12 @@ input[type=button] {
 																				★3</li>
 																			<li
 																				class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
-																				보고싶어요 <strong>0</strong>
+																				보고싶어요 <strong> <c:forEach var="list"
+																						items="${list}">
+																						<c:if
+																							test="${list.contents_type eq 'tv'&& list.contents_type ne 'movie'}">${list.count }</c:if>
+																					</c:forEach>
+																			</strong>
 																			</li>
 																		</ul>
 																</a>

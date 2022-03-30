@@ -7,13 +7,13 @@ import kr.spring.contents.vo.StarVO;
 
 public interface ContentsService {
 	public void insertStar(StarVO star);
-	
+
 	public StarVO CheckStar(int contents_num);
-	
+
 	public void updateStar(StarVO star);
-	
+
 	public void deleteStar(StarVO star);
-	
+
 	public void likeContents(LikeVO like);
 
 	public int checkLike(LikeVO like);
@@ -21,6 +21,8 @@ public interface ContentsService {
 	public void cancelLike(LikeVO like);
 
 	public List<LikeVO> getMostLike(String contents_type);
-	
+
 	public List<LikeVO> getLikeList(LikeVO like);
+
+	public List<LikeVO> getCountList(int mem_num);
 }

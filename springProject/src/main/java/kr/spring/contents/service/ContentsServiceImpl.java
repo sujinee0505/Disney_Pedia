@@ -62,4 +62,9 @@ public class ContentsServiceImpl implements ContentsService {
 		return contentsMapper.getLikeList(like);
 	}
 
+	@Override
+	public List<LikeVO> getCountList(int mem_num) {
+		return contentsMapper.getCountList(mem_num);
+	}
+
 }

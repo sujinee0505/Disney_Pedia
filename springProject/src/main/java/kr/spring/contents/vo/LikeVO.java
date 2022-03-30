@@ -38,4 +38,10 @@ public class LikeVO {
 		this.mem_num = mem_num;
 	}
 
+	@Override
+	public String toString() {
+		return "LikeVO [contents_num=" + contents_num + ", contents_type=" + contents_type + ", mem_num=" + mem_num
+				+ ", count=" + count + "]";
+	}
+
 }

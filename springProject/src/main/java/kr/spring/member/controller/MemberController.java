@@ -165,7 +165,7 @@ public class MemberController {
 
 	// My페이지
 	@RequestMapping("/member/myPage.do")
-	public String process(HttpSession session, Model model,
+	public ModelAndView process(HttpSession session, Model model,
 			@RequestParam(value = "user_num", defaultValue = "0") int user_num) {
 
 		if (user_num == 0) {
@@ -175,10 +175,14 @@ public class MemberController {
 		MemberVO member = memberService.selectMember(user_num);
 
 		logger.info("<<회원 상세 정보>> : " + member);
-
-		model.addAttribute("member", member);
-
-		return "memberView";
+		List<LikeVO> list = new ArrayList<LikeVO>();
+		list = contentsService.getCountList(user_num);
+		System.out.println(list.get(0).toString());
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("memberView");
+		mav.addObject("member", member);
+		mav.addObject("list", list);
+		return mav;
 	}
 
 	// 수정폼
