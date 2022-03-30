@@ -14,7 +14,7 @@ public interface ContentsService {
 
 	public void deleteStar(StarVO star);
 
-	public void likeContents(LikeVO like);
+	public void contentsLike(LikeVO like);
 
 	public int checkLike(LikeVO like);
 

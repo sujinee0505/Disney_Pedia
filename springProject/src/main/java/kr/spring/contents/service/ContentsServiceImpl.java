@@ -40,7 +40,7 @@ public class ContentsServiceImpl implements ContentsService {
 
 	// 보고싶어요
 	@Override
-	public void likeContents(LikeVO like) {
+	public void contentsLike(LikeVO like) {
 		contentsMapper.contentsLike(like);
 	}
 
