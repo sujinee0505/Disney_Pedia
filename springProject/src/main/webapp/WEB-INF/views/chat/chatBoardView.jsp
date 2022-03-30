@@ -99,7 +99,7 @@
 
 		<script type="text/javascript">
 				let delete_btn = document.getElementById('delete_btn');//delete_btn에접근
-				
+				 
 				delete_btn.onclick=function(){
 					//let choice = confirm('삭제하시겠습니까?');
 					//if(choice){ //choice가true면
@@ -132,7 +132,7 @@
 				    })
 									
 					//여기까지 테스트
-					//}f
+					//}
 				};
 			</script>
 	</div>
