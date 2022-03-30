@@ -24,26 +24,26 @@ public class ContentsAjaxController {
 	private ContentsService contentsService;
 	//코멘트 등록
 		
-	//별점 등록
+	//별점 등록,수정
 	@RequestMapping("/contents/starRating.do")
 	@ResponseBody
 	public Map<String, String> starRating(@RequestParam int contents_num, HttpServletRequest request, HttpSession session, StarVO starVO) { //String value,String contents_num 뺐음
 
 		Map<String, String> map = new HashMap<String, String>();
 				
-		//해당 컨텐츠 넘 있나 확인
-		StarVO checkStar = contentsService.CheckStar(contents_num);
+		//해당 컨텐츠 평가기록 있나 확인
+		int checkStar = contentsService.CheckStar(starVO);
 		
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		if (user_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
 		}else {//로그인 된 경우
-			if(checkStar==null) { //별점기록없으면 insert
-				contentsService.insertStar(starVO);			
-				map.put("result","success");	
-			}else { //별점기록있으면 update
+			if(checkStar==1) { //별점기록있으면 update
 				contentsService.updateStar(starVO);
 				map.put("result","success2");
+			}else { //별점기록없으면 insert
+				contentsService.insertStar(starVO);			
+				map.put("result","success");	
 			}		
 		}
 		return map;
@@ -81,8 +81,7 @@ public class ContentsAjaxController {
 				map.put("check", "checked");
 				map.put("result", "cancel");
 			} else {
-				contentsService.likeContents(like); //이걸로 추가해놨어용!!
-				/* contentsService.contentsLike(like);<--이름바뀐건가요?!오류나서 주석처리해놓음 */
+				contentsService.likeContents(like); 
 				map.put("check", "unChecked");
 				map.put("result", "success");
 			}
