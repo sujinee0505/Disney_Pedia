@@ -60,6 +60,7 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 		//chatBoardMapper.deleteFile(chatboard_num);
 	}
 	
+	/*
 	//[댓글]
 	@Override
 	public List<ChatBoardReplyVO> selectListReply(Map<String, Object> map) {
@@ -91,5 +92,5 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 		// TODO Auto-generated method stub
 		
 	}
-	
+	*/
 }

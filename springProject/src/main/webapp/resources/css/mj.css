@@ -67,11 +67,20 @@ button#chat_btn{
 	margin-left:1%;
 	width:50%;
 }
-button#modify_btn{
-	margin-left:25%;
+button#list_btn, button#delete_btn{
+	margin-left:5%;
 }
-button#delete_btn, button#list_btn{
-	margin-left:3%;
+button#modify_btn{
+	/* margin-left:20%; */
+}
+div#mybtn{
+	/* outline:2px dotted yellow; */
+	width: 12%;
+	margin-left:27%;
+}
+div#publicbtn{
+	/* outline:2px dotted red; */
+	width: 9%;
 }
 
 /* ==============chatBoardList============== */

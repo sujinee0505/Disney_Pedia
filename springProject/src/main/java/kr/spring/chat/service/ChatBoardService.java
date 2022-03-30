@@ -17,14 +17,16 @@ public interface ChatBoardService {
 	public void deleteBoard(Integer chatboard_num);
 	public void deleteFile(Integer chatboard_num);
 	
+	
 	//[댓글]
+	/*
 	public List<ChatBoardReplyVO> selectListReply(Map<String,Object>map);
 	public int selectRowCountReply(Map<String,Object> map);
 	public ChatBoardReplyVO selectReply(Integer re_num);
 	public void insertReply(ChatBoardReplyVO boardReply);
 	public void updateReply(ChatBoardReplyVO boardReply);
 	public void deleteReply(Integer re_num);
-	//부모글 삭제시 댓글이 존재하면 부모글 삭제 전 댓글 삭제한다
-//	public void deleteReplyByBoardNum(Integer board_num); X
-
+	//부모글 삭제시 댓글이 존재하면 부모글 삭제 전 댓글 삭제한다 (fk제약조건때문 ,게시물삭제시 service에 명시)
+	public void deleteReplyByBoardNum(Integer board_num); 
+	*/
 }

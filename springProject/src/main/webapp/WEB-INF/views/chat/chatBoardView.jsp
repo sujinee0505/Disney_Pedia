@@ -63,26 +63,38 @@
 
 	<hr width="100%">
 
-	<div id="boardView_button">
+	<div id="boardView_button" class="row">
 		<!-- 글 작성자와 로그인 되어있는 유저 같은 경우 -->
 		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
-			<input type="button" value="채팅하기"
-				onclick="location.href='chattingList.do?chatboard_num=${chatboard.chatboard_num}'">
+			<button class="btn btn-primary "  id="chat_btn" 
+					onclick="location.href='chattingList.do?chatboard_num=${chatboard.chatboard_num}'">채팅 목록</button>
 		</c:if>
-		<!-- 글 작성자와 로그인 되어있는 유저가 다른 경우 -->
-		<c:if
-			test="${!empty user_num && user_num != chatboard.mem_num && chatboard.mate_state != 1}">
-			<input type="button" value="채팅하기"
-				onclick="location.href='chatting.do?chatboard_num=${chatboard.chatboard_num}&trans_num=${chatboard.mem_num}'"> <!-- 게시글 작성자의 회원 번호를 전송 -->
-		</c:if>
-
-		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
-			<button class="btn btn-secondary" id="modify_btn"
-				onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'">수정</button>
-			<button class="btn btn-secondary" id="delete_btn">삭제</button>
-		</c:if>
-		<button class="btn btn-secondary " id="list_btn"
-			onclick="location.href='list.do'">목록</button>
+		<!-- 글 작성자와 로그인 되어있는 유저가 다른 경우 / 모집현황에 따른 경우 --><!-- 게시글 작성자의 회원 번호도 함께 전송 -->
+		<!-- mate_state : 0 모집중/1 모집완료 -->
+		<c:choose>
+			<c:when test="${!empty user_num && user_num != chatboard.mem_num && chatboard.mate_state == 0}">
+				<button class="btn btn-primary "  id="chat_btn" 
+					onclick="location.href='chatting.do?chatboard_num=${chatboard.chatboard_num}&trans_num=${chatboard.mem_num}'"
+					>채팅하기</button>
+			</c:when>
+			<c:when test="${!empty user_num && user_num != chatboard.mem_num && chatboard.mate_state == 1}">
+				<button class="btn btn-primary "  id="chat_btn" 
+					onclick="location.href='chatting.do?chatboard_num=${chatboard.chatboard_num}&trans_num=${chatboard.mem_num}'"
+					 disabled="disabled">채팅하기</button>
+			</c:when>
+		</c:choose>
+		
+		<div id="mybtn">
+			<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
+				<button class="btn btn-secondary" id="modify_btn"
+					onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'">수정</button>
+				<button class="btn btn-secondary" id="delete_btn">삭제</button>
+			</c:if>
+		</div>
+		<div id="publicbtn">
+			<button class="btn btn-secondary " id="list_btn"
+				onclick="location.href='list.do'">글 목록</button>
+		</div>
 
 
 		<script type="text/javascript">
@@ -127,6 +139,7 @@
 
 
 	<!-- 댓글 -->
+	<!--  
 	<hr width="100%" noshade="noshade">
 	<div id="reply_div">
 		<span class="re-title">댓글 달기 테스트</span>
@@ -148,7 +161,7 @@
 			</c:if>
 		</form>
 	</div>
-
+	-->
 
 
 </div>
