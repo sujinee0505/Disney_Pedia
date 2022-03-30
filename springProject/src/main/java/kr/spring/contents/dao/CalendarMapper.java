@@ -1,4 +1,4 @@
-package kr.spring.calendar.dao;
+package kr.spring.contents.dao;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import kr.spring.calendar.vo.CalendarVO;
+import kr.spring.contents.vo.CalendarVO;
 import kr.spring.util.DateUtil;
 
 public interface CalendarMapper {

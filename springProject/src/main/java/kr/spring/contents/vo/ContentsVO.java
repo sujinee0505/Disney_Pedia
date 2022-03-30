@@ -6,17 +6,17 @@ import java.util.List;
 public class ContentsVO {
 	private int contents_num; // 컨텐츠 id
 	private String contents_type; // 컨텐츠 유형(movie, tv)
-	private float popularity; // 인기도
 	private String title; // 컨텐츠 제목
 	private String overview; // 컨텐츠 줄거리
 	private String poster_path; // 컨텐츠 포스터 사진
 	private Date release_date; // 컨텐츠 공개일
 	private float vote_average; // 컨텐츠 평점
-	private String genre; // 컨텐츠 장르
+	private float popularity; // 인기도
+	private String genre; // 컨텐츠 장르(String 타입으로 변환시켜 저장)
 	private String runtime; // 컨텐츠 런타임
-	private List<Integer> genres;
+	private List<Integer> genres; // 컨텐츠 장르(int 타입 그대로 List객체에 저장)
 	private int count;
-	private double star;
+	private double star; // 평점
 
 	public int getContents_num() {
 		return contents_num;

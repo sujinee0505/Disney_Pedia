@@ -1,4 +1,4 @@
-package kr.spring.calendar.service;
+package kr.spring.contents.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.spring.calendar.dao.CalendarMapper;
-import kr.spring.calendar.vo.CalendarVO;
+import kr.spring.contents.dao.CalendarMapper;
+import kr.spring.contents.vo.CalendarVO;
 import kr.spring.util.DateUtil;
 
 @Service

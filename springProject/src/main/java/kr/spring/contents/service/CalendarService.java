@@ -1,8 +1,8 @@
-package kr.spring.calendar.service;
+package kr.spring.contents.service;
 
 import java.util.ArrayList;
 
-import kr.spring.calendar.vo.CalendarVO;
+import kr.spring.contents.vo.CalendarVO;
 import kr.spring.util.DateUtil;
 
 public interface CalendarService {

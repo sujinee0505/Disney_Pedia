@@ -97,17 +97,11 @@ public class GetInfoUtil {
 					ContentsVO vo = new ContentsVO();
 					JSONObject contents = (JSONObject) list.get(j);
 
-					vo.setPopularity(Float.parseFloat(String.valueOf(contents.get("popularity"))));
-
 					vo.setContents_num(Integer.parseInt(String.valueOf(contents.get("id"))));
-
+					vo.setContents_type(type);
 					vo.setOverview(contents.get("overview").toString());
-					if (contents.get("poster_path") == null || contents.get("poster_path").toString().equals("")) {
-						vo.setPoster_path("");
-					} else {
-						vo.setPoster_path(contents.get("poster_path").toString());
-					}
-
+					vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
+					vo.setPopularity(Float.parseFloat(String.valueOf(contents.get("popularity"))));
 					// 컨텐츠 타입(영화/시리즈)에 따라서 파싱 방법 다르게 설정
 					if (type.equals("movie")) {
 						// 시리즈일 경우 release_date를 key로 데이터 파싱
@@ -129,9 +123,13 @@ public class GetInfoUtil {
 						// 시리즈일 경우 title이 아닌 name을 key로 데이터 파싱
 						vo.setTitle(contents.get("name").toString());
 					}
-					vo.setVote_average(Float.parseFloat(String.valueOf(contents.get("vote_average"))));
-					vo.setContents_type(type);
+					if (contents.get("poster_path") == null || contents.get("poster_path").toString().equals("")) {
+						vo.setPoster_path("");
+					} else {
+						vo.setPoster_path(contents.get("poster_path").toString());
+					}
 
+					// 장르 id를 List<integer> 형태로 저장 → 장르 비교를 위한 작업
 					JSONArray genre_list = (JSONArray) contents.get("genre_ids");
 					for (int k = 0; k < genre_list.size(); k++) {
 						genreList.add(Integer.parseInt(String.valueOf(genre_list.get(k))));
@@ -155,7 +153,8 @@ public class GetInfoUtil {
 		List<Integer> genreList = null;
 		try {
 
-			String apiURL = "https://api.themoviedb.org/3/" + contents_type + "/" + id + "?api_key=" + KEY + "&language=ko-KR";
+			String apiURL = "https://api.themoviedb.org/3/" + contents_type + "/" + id + "?api_key=" + KEY
+					+ "&language=ko-KR";
 			URL url = new URL(apiURL);
 
 			BufferedReader bf;
@@ -167,10 +166,10 @@ public class GetInfoUtil {
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
 
+			contents.setContents_num(Integer.parseInt(String.valueOf(jsonObject.get("id"))));
 			contents.setContents_type(contents_type);
-			contents.setContents_num(Integer.parseInt(String.valueOf(jsonObject.get("id")))); // 추가
 			contents.setOverview(jsonObject.get("overview").toString());
-
+			contents.setVote_average(Float.parseFloat(String.valueOf(jsonObject.get("vote_average"))));
 			contents.setPoster_path(jsonObject.get("poster_path").toString());
 			if (contents_type.equals("movie")) {
 				Date release_date = dateFormat.parse((String) jsonObject.get("release_date"));
@@ -187,13 +186,13 @@ public class GetInfoUtil {
 						+ jsonObject.get("number_of_episodes").toString() + "개");
 			}
 
-			contents.setVote_average(Float.parseFloat(String.valueOf(jsonObject.get("vote_average"))));
 			genreList = new ArrayList<Integer>();
 			JSONArray genre_list = (JSONArray) jsonObject.get("genres");
 			for (int i = 0; i < genre_list.size(); i++) {
-
 				JSONObject genre = (JSONObject) genre_list.get(i);
+				// List<Integer> 형태로 저장 → 저장 형태 :  [1, 3, 15]
 				genreList.add(Integer.parseInt(String.valueOf(genre.get("id"))));
+				// String 타입으로 저장 → 저장 형태 : 드라마 / 멜로
 				if (i == 0) {
 					genres += genre.get("name");
 				} else {
@@ -261,7 +260,7 @@ public class GetInfoUtil {
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
 			JSONArray list = (JSONArray) jsonObject.get(kind);
 
-			// 감독 목록
+			// 배우 목록	
 			if (kind.equals("cast")) {
 				for (int i = 0; i < list.size(); i++) {
 					JSONObject credits = (JSONObject) list.get(i);
@@ -276,7 +275,7 @@ public class GetInfoUtil {
 						creditList.add(vo);
 					}
 				}
-				// 배우 목록
+				// 감독 목록
 			} else if (kind.equals("crew")) {
 				for (int i = 0; i < list.size(); i++) {
 					JSONObject credits = (JSONObject) list.get(i);

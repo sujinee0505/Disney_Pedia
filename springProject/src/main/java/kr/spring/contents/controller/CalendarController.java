@@ -1,4 +1,4 @@
-package kr.spring.calendar.controller;
+package kr.spring.contents.controller;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -15,8 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.spring.calendar.service.CalendarService;
-import kr.spring.calendar.vo.CalendarVO;
+import kr.spring.contents.service.CalendarService;
+import kr.spring.contents.vo.CalendarVO;
 import kr.spring.util.DateUtil;
 
 @Controller
@@ -125,6 +125,7 @@ public class CalendarController {
 		return "calendar";
 	}
 
+	// 컨텐츠 디테일 페이지에서 캘린더에 추가하기
 	@RequestMapping("/contents/insertCal.do")
 	@ResponseBody
 	public Map<String, String> insertCal(CalendarVO calendarVO, HttpSession session) {
@@ -132,9 +133,9 @@ public class CalendarController {
 		Map<String, String> map = new HashMap<String, String>();
 
 		Integer mem_num = (Integer) session.getAttribute("user_num");
-		if (mem_num == null) {// 로그인이 되지 않은 경우
+		if (mem_num == null) {
 			map.put("result", "logout");
-		} else {// 로그인 된 경우
+		} else {
 			calendarVO.setMem_num(mem_num);
 			calenderService.insertCalendar(calendarVO);
 			map.put("result", "success");
@@ -142,6 +143,7 @@ public class CalendarController {
 		return map;
 	}
 
+	// 컨텐츠 디테일 페이지에서 캘린더 날짜 수정하기
 	@RequestMapping("/contents/updateCal.do")
 	@ResponseBody
 	public Map<String, String> updateCal(CalendarVO calendarVO, HttpSession session) {
@@ -149,9 +151,9 @@ public class CalendarController {
 		Map<String, String> map = new HashMap<String, String>();
 
 		Integer mem_num = (Integer) session.getAttribute("user_num");
-		if (mem_num == null) {// 로그인이 되지 않은 경우
+		if (mem_num == null) {
 			map.put("result", "logout");
-		} else {// 로그인 된 경우
+		} else {
 			calendarVO.setMem_num(mem_num);
 			calenderService.updateCalendar(calendarVO);
 			map.put("result", "success");
@@ -159,6 +161,7 @@ public class CalendarController {
 		return map;
 	}
 
+	// 컨텐츠 디테일 페이지에서 캘린더 날짜 삭제하기
 	@RequestMapping("/contents/deleteCal.do")
 	@ResponseBody
 	public Map<String, String> deleteCal(CalendarVO calendarVO, HttpSession session) {
@@ -166,9 +169,9 @@ public class CalendarController {
 		Map<String, String> map = new HashMap<String, String>();
 
 		Integer mem_num = (Integer) session.getAttribute("user_num");
-		if (mem_num == null) {// 로그인이 되지 않은 경우
+		if (mem_num == null) {
 			map.put("result", "logout");
-		} else {// 로그인 된 경우
+		} else {
 			calendarVO.setMem_num(mem_num);
 			calenderService.deleteCalendar(calendarVO);
 			map.put("result", "success");

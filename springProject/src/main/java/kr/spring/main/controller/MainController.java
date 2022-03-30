@@ -61,15 +61,20 @@ public class MainController {
 		// List에 담긴 ContentsVO를 날짜 내림차순으로 정렬
 		Collections.sort(release_date, new SortByDate());
 
+		// '보고싶어요 많은 순'을 출력하기 위한 작업
 		List<LikeVO> mostLike_list = null;
-		mostLike_list = contentsMapper.getMostLike(contents_type);
+		mostLike_list = contentsMapper.getMostLike(contents_type); // 보고싶어요가 제일 많은 컨텐츠를 불러옴
 		List<ContentsVO> mostLike = new ArrayList<ContentsVO>();
 		for (int i = 0; i < mostLike_list.size(); i++) {
 			ContentsVO mostLike_VO = new ContentsVO();
-			mostLike_VO = util.getInfoDetail(contents_type, mostLike_list.get(i).getContents_num());
-			mostLike_VO.setCount(mostLike_list.get(i).getCount());
+
+			// 보고싶어요를 누른 컨텐츠들의 상세 정보를 불러옴 (보고싶어요 table에는 contents_num, contents_type만 저장이 되기 때문에 poster등을 불러오기 위함
+			mostLike_VO = util.getInfoDetail(contents_type, mostLike_list.get(i).getContents_num()); 
+			mostLike_VO.setCount(mostLike_list.get(i).getCount()); // 각 컨텐츠의 보고싶어요 갯수를 불러옴
 			mostLike.add(mostLike_VO);
 		}
+		
+		// '코멘트 많은 순'을 출력하기 위한 작업
 		List<CommentVO> mostCommented_list = null;
 		mostCommented_list = commentMapper.getMostCommented(contents_type);
 		List<ContentsVO> mostCommented = new ArrayList<ContentsVO>();
@@ -82,10 +87,10 @@ public class MainController {
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
-		mav.addObject("vote_average", vote_average);
-		mav.addObject("release_date", release_date);
-		mav.addObject("mostLike", mostLike);
-		mav.addObject("mostCommented", mostCommented);
+		mav.addObject("vote_average", vote_average); // 평점 높은 순
+		mav.addObject("release_date", release_date); // 최신 공개 순
+		mav.addObject("mostLike", mostLike); // 보고싶어요 많은 순
+		mav.addObject("mostCommented", mostCommented); // 코멘트 많은 순
 		return mav;
 	}
 }
