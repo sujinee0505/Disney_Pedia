@@ -9,13 +9,13 @@
     	<put-attribute name="title" value="마이코멘트"/>
     	<put-attribute name="body" value="/WEB-INF/views/member/myComment.jsp"/>
     </definition>
-    <definition name="CommentWrite" extends="main">
+    <definition name="commentWrite" extends="main">
     	<put-attribute name="title" value="코멘트작성"/>
-    	<put-attribute name="body" value="/WEB-INF/views/contents/detail.jsp"/>
+    	<put-attribute name="body" value="/WEB-INF/views/contents/comment.jsp"/>
     </definition>
-    <definition name="CommenList" extends="main">
+    <definition name="commenList" extends="main">
     	<put-attribute name="title" value="코멘트목록"/>
-    	<put-attribute name="body" value="/WEB-INF/views/contents/detail.jsp"/>
+    	<put-attribute name="body" value="/WEB-INF/views/contents/commentList.jsp"/>
     </definition>
 </tiles-definitions>
 

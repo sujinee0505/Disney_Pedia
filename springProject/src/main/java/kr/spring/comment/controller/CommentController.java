@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute; 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam; 
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.comment.service.CommentService;
 import kr.spring.comment.vo.CommentLikeVO;
-import kr.spring.comment.vo.CommentVO; 
+import kr.spring.comment.vo.CommentVO;
+import kr.spring.contents.vo.StarVO;
 import kr.spring.util.PagingUtil;
 
 
@@ -36,32 +38,34 @@ public class CommentController {
 	public CommentVO initCommand() { 
 		return new CommentVO(); 
 	}
-	/*
-	//코멘트 등록 폼
-	@GetMapping("/contents/detail.do") 
-	public String form() { 
-		return "/contents/detail"; 
+	
+	//코멘트 등록 폼 호출
+	@GetMapping("/contents/commentWrite.do") 
+	public String commentform() { 
+		return "commentWrite"; 
 	}
+	
+	//코멘트ajax등록
+	@RequestMapping("/contents/commentWrite.do")	  
+	@ResponseBody 
+	public Map<String, String> commentSubmit(CommentVO commentVO, HttpSession session) {	  
+		
+		Map<String, String> map = new HashMap<String, String>();	
+		
+		Integer user_num = (Integer) session.getAttribute("user_num");	  
+		if (user_num == null) {// 로그인이 되지 않은 경우 
+			map.put("result", "logout"); 
+		}else{//로그인 된 경우 
+			//CommentVO에 회원 번호 셋팅
+			commentVO.setMem_num(user_num); 
+			//코멘트 작성 
+			commentService.insertComment(commentVO);
+			map.put("result","success"); 
+		} 
+		return map; 
+	  }
 
-	//코멘트 등록 폼에서 전송된 데이터 처리
-	@PostMapping("/contents/detail.do") 
-	public String submit(@Valid CommentVO
-		commentVO, BindingResult result, HttpSession session, 
-		HttpServletRequest request) {
-
-		logger.info("<<코멘트 저장>> : " + commentVO);
-
-		//유효성 체크 결과 오류가 있으면 폼 호출 
-		if(result.hasErrors()) { 
-			return form(); } 
-		Integer user_num = (Integer)session.getAttribute("user_num"); 
-		//회원 번호 셋팅
-		commentVO.setMem_num(user_num); 
-		//코멘트 작성
-		commentService.insertComment(commentVO);
-
-		return "redirect:/contents/detail.do"; }
-	*/
+	
 	//내가 쓴 코멘트 목록
 	@RequestMapping("/member/myComment.do") 
 	public ModelAndView process(

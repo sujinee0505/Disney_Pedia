@@ -1,12 +1,11 @@
-/* 테스트용 */
-/* 멤버 테이블 */
+/* 멤버-회원정보  */
 create table dmember(
     mem_num number not null,
     id varchar2(18) unique not null,
     auth number(1) default 2 not null, /*회원등급:0탈퇴회원,1정지회원,2일반회원,3관리자*/
     constraint dmember_pk primary key (mem_num)
 );
-/*멤버 디테일 테이블*/
+/*멤버 디테일-회원상세정보 */
 create table dmember_detail(
     mem_num number not null,
     name varchar2(18) not null,
@@ -21,7 +20,7 @@ create table dmember_detail(
  );
 create sequence dmember_seq;
 
-/* 팔로우 테이블 */
+/* 팔로우  */
 create table dfollow(
  follow_num number not null,
  active_mem number not null,
@@ -32,7 +31,7 @@ constraint dfollow_fk2 foreign key (passive_mem) references dmember_detail (mem_
  );
 create sequence dfollow_seq;
 
-/* 컨텐츠 보고싶어요 테이블 */
+/* 컨텐츠 보고싶어요 */
 create table dcontents_like(
   clike_num number not null,
   contents_num number not null,
@@ -43,7 +42,7 @@ create table dcontents_like(
 );
 create sequence dcontents_like_seq;
 
-/* 컨텐츠 평가(별점) 테이블*/
+/* 컨텐츠 평가(별점) */
 create table dcontents_star( /*grade->전부star로 변경*/
   star_num number not null,
   contents_num number not null,
@@ -61,6 +60,32 @@ create sequence dcontents_star_seq;
 3. 실행: alter table dcontents_star add( star number(5,1) not null);
 */
 
+/* 코멘트  */
+create table dcomment( /*dreview->dcomment*/
+  comment_num number not null, /*review_num->comment_num*/
+  contents_num number not null,
+  contents_type varchar2(5) not null, /*추가*/
+  content string not null, /*===코멘트 내용:다시 content로 설정,clob->string===*/
+  reg_date date not null,
+  modify_date date,
+  star_num number, /*grade_num->star_num/===not null->null허용===*/
+  mem_num number not null,
+  constraint dcomment_pk primary key (comment_num), /*review->comment*/
+  constraint dcomment_fk_1 foreign key (star_num) references dcontents_star (star_num), /*grade_num->star_num*/
+  constraint dcomment_fk_2 foreign key (mem_num) references dmember (mem_num) 
+);
+create sequence dcomment_seq; /*dreview_seq->dcomment_seq*/ 
+
+/* 코멘트 좋아요 테이블 */
+create table dcomment_like( /*dreview_like->dcomment_like*/ 
+  commentlike_num number not null, /*rlike_num->commentlike_num*/ 
+  comment_num number not null,  /*review_num->comment_num*/
+  mem_num number not null,
+  constraint dcomment_like_pk primary key (commentlike_num), /*review->comment, rlike_num->commentlike_num*/
+  constraint dcomment_like_fk_1 foreign key (comment_num) references dcomment (comment_num), /*review_num->comment_num*/
+  constraint dcomment_like_fk_2 foreign key (mem_num) references dmember (mem_num)
+);
+create sequence dcomment_like_seq; /*dreview_like_seq->dcomment_like_seq*/
 
 /* 컨텐츠 캘린더 테이블 */
 create table dcontents_cal(
@@ -115,33 +140,6 @@ create table dlist_like(
   constraint dlist_like_fk2 foreign key (mem_num) references dmember (mem_num)
 );
 create sequence dlist_like_seq;
-
-/* 리뷰 테이블 */
-create table dcomment( /*dreview->dcomment*/
-  comment_num number not null, /*review_num->comment_num*/
-  contents_num number not null,
-  contents_type varchar2(5) not null, /*추가*/
-  content clob not null,
-  reg_date date not null,
-  modify_date date,
-  star_num number not null, /*grade_num->star_num*/
-  mem_num number not null,
-  constraint dcomment_pk primary key (comment_num), /*review->comment*/
-  constraint dcomment_fk_1 foreign key (star_num) references dcontents_star (star_num), /*grade_num->star_num*/
-  constraint dcomment_fk_2 foreign key (mem_num) references dmember (mem_num) 
-);
-create sequence dcomment_seq; /*dreview_seq->dcomment_seq*/ 
-
-/* 리뷰 좋아요 테이블 */
-create table dcomment_like( /*dreview_like->dcomment_like*/ 
-  commentlike_num number not null, /*rlike_num->commentlike_num*/ 
-  comment_num number not null,  /*review_num->comment_num*/
-  mem_num number not null,
-  constraint dcomment_like_pk primary key (commentlike_num), /*review->comment, rlike_num->commentlike_num*/
-  constraint dcomment_like_fk_1 foreign key (comment_num) references dcomment (comment_num), /*review_num->comment_num*/
-  constraint dcomment_like_fk_2 foreign key (mem_num) references dmember (mem_num)
-);
-create sequence dcomment_like_seq; /*dreview_like_seq->dcomment_like_seq*/
 
 /* 채팅방 테이블 */
 create table dchatboard (
