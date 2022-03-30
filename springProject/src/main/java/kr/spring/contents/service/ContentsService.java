@@ -24,5 +24,9 @@ public interface ContentsService {
 
 	public List<LikeVO> getLikeList(LikeVO like);
 
-	public List<LikeVO> getCountList(int mem_num);
+	public List<LikeVO> getCountLike(int mem_num);
+	
+	public List<StarVO> getStarList(StarVO star);
+	
+	public List<StarVO> getCountStar(int mem_num);
 }

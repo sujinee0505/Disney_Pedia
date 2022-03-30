@@ -16,6 +16,7 @@ public class ContentsVO {
 	private String runtime; // 컨텐츠 런타임
 	private List<Integer> genres;
 	private int count;
+	private double star;
 
 	public int getContents_num() {
 		return contents_num;
@@ -130,6 +131,14 @@ public class ContentsVO {
 
 	public void setCount(int count) {
 		this.count = count;
+	}
+
+	public double getStar() {
+		return star;
+	}
+
+	public void setStar(double star) {
+		this.star = star;
 	}
 
 }

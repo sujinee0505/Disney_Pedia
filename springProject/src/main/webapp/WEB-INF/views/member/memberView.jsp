@@ -144,13 +144,17 @@ input[type=button] {
 																				영화</li>
 																			<li
 																				class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
-																				★61</li>
+																				★<c:forEach var="star" items="${star}">
+																					<c:if
+																						test="${star.contents_type eq 'tv'&& star.contents_type ne 'movie'}">${star.count }</c:if>
+																				</c:forEach>
+																			</li>
 																			<li
 																				class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
-																				보고싶어요 <strong> <c:forEach var="list"
-																						items="${list}">
+																				보고싶어요 <strong> <c:forEach var="like"
+																						items="${like}">
 																						<c:if
-																							test="${list.contents_type eq 'movie' && list.contents_type ne 'tv' }">${list.count }</c:if>
+																							test="${like.contents_type eq 'movie' && like.contents_type ne 'tv' }">${like.count }</c:if>
 																					</c:forEach>
 																			</strong>
 																			</li>
@@ -169,13 +173,17 @@ input[type=button] {
 																				TV프로그램</li>
 																			<li
 																				class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
-																				★3</li>
+																				★<c:forEach var="star" items="${star}">
+																					<c:if
+																						test="${star.contents_type eq 'tv'&& star.contents_type ne 'movie'}">${star.count }</c:if>
+																				</c:forEach>
+																			</li>
 																			<li
 																				class="css-kcevqh-CategoryArchivesWishedCount e19zkogf18">
-																				보고싶어요 <strong> <c:forEach var="list"
-																						items="${list}">
+																				보고싶어요 <strong> <c:forEach var="like"
+																						items="${like}">
 																						<c:if
-																							test="${list.contents_type eq 'tv'&& list.contents_type ne 'movie'}">${list.count }</c:if>
+																							test="${like.contents_type eq 'tv'&& like.contents_type ne 'movie'}">${like.count }</c:if>
 																					</c:forEach>
 																			</strong>
 																			</li>

@@ -38,7 +38,14 @@ public interface ContentsMapper {
 
 	@Select("SELECT * FROM dcontents_like WHERE mem_num = #{mem_num} AND contents_type = #{contents_type}")
 	public List<LikeVO> getLikeList(LikeVO like);
+	
+	@Select("SELECT * FROM dcontents_star WHERE mem_num = #{mem_num} AND contents_type = #{contents_type}")
+	public List<StarVO> getStarList(StarVO star);
 
 	@Select("SELECT count(*) count, contents_type FROM dcontents_like WHERE mem_num = #{mem_num} GROUP BY contents_type")
-	public List<LikeVO> getCountList(int mem_num);
+	public List<LikeVO> getCountLike(int mem_num);
+
+	@Select("SELECT count(*) count, contents_type FROM dcontents_star WHERE mem_num = #{mem_num} GROUP BY contents_type")
+	public List<StarVO> getCountStar(int mem_num);
+
 }

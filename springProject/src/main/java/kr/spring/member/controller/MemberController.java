@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.spring.contents.service.ContentsService;
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.LikeVO;
+import kr.spring.contents.vo.StarVO;
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.util.AuthCheckException;
@@ -175,13 +176,21 @@ public class MemberController {
 		MemberVO member = memberService.selectMember(user_num);
 
 		logger.info("<<회원 상세 정보>> : " + member);
-		List<LikeVO> list = new ArrayList<LikeVO>();
-		list = contentsService.getCountList(user_num);
-		System.out.println(list.get(0).toString());
+
+		// 수진
+		List<LikeVO> like = new ArrayList<LikeVO>();
+		like = contentsService.getCountLike(user_num);
+
+		List<StarVO> star = new ArrayList<StarVO>();
+		star = contentsService.getCountStar(user_num);
+
 		ModelAndView mav = new ModelAndView();
+
 		mav.setViewName("memberView");
 		mav.addObject("member", member);
-		mav.addObject("list", list);
+		mav.addObject("like", like);
+		mav.addObject("star", star);
+
 		return mav;
 	}
 
@@ -315,16 +324,29 @@ public class MemberController {
 		like.setMem_num(mem_num);
 
 		GetInfoUtil util = new GetInfoUtil();
-		List<ContentsVO> list = new ArrayList<ContentsVO>();
-		List<LikeVO> likeList = contentsService.getLikeList(like);
-		for (int i = 0; i < likeList.size(); i++) {
-			ContentsVO contents = new ContentsVO();
-			contents = util.getInfoDetail(likeList.get(i).getContents_type(), likeList.get(i).getContents_num());
-			list.add(contents);
+		List<ContentsVO> likeList = new ArrayList<ContentsVO>();
+		List<LikeVO> likeVO = contentsService.getLikeList(like);
+		for (int i = 0; i < likeVO.size(); i++) {
+			ContentsVO contents_like = new ContentsVO();
+			contents_like = util.getInfoDetail(likeVO.get(i).getContents_type(), likeVO.get(i).getContents_num());
+			likeList.add(contents_like);
 		}
+		List<ContentsVO> starList = new ArrayList<ContentsVO>();
+		StarVO star = new StarVO();
+		star.setMem_num(like.getMem_num());
+		star.setContents_type(like.getContents_type());
+		List<StarVO> starVO = contentsService.getStarList(star);
+		for (int i = 0; i < starVO.size(); i++) {
+			ContentsVO contents_star = new ContentsVO();
+			contents_star = util.getInfoDetail(starVO.get(i).getContents_type(), starVO.get(i).getContents_num());
+			contents_star.setStar(starVO.get(i).getStar());
+			starList.add(contents_star);
+		}
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("myContents");
-		mav.addObject("list", list);
+		mav.addObject("likeList", likeList);
+		mav.addObject("starList", starList);
 		return mav;
 	}
 }
