@@ -19,9 +19,11 @@ import kr.spring.contents.vo.StarVO;
 
 @Controller
 public class ContentsAjaxController {
+
 	@Autowired
-	private ContentsMapper contentsMapper;
-	
+	private ContentsService contentsService;
+	//코멘트 등록
+		
 	//별점 등록
 	@RequestMapping("/contents/starRating.do")
 	@ResponseBody
@@ -30,17 +32,17 @@ public class ContentsAjaxController {
 		Map<String, String> map = new HashMap<String, String>();
 				
 		//해당 컨텐츠 넘 있나 확인
-		StarVO checkStar = contentsMapper.CheckStar(contents_num);
+		StarVO checkStar = contentsService.CheckStar(contents_num);
 		
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		if (user_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
 		}else {//로그인 된 경우
 			if(checkStar==null) { //별점기록없으면 insert
-				contentsMapper.insertStar(starVO);			
+				contentsService.insertStar(starVO);			
 				map.put("result","success");	
 			}else { //별점기록있으면 update
-				contentsMapper.updateStar(starVO);
+				contentsService.updateStar(starVO);
 				map.put("result","success2");
 			}		
 		}
@@ -57,7 +59,7 @@ public class ContentsAjaxController {
 		if (user_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
 		}else {//로그인 된 경우
-			contentsMapper.deleteStar(starVO);	
+			contentsService.deleteStar(starVO);	
 			map.put("result","success");			
 		}
 		return map;
@@ -75,11 +77,12 @@ public class ContentsAjaxController {
 			map.put("result", "logout");
 		} else {
 			if (check == 1) {
-				contentsMapper.cancelLike(like);
+				contentsService.cancelLike(like);
 				map.put("check", "checked");
 				map.put("result", "cancel");
 			} else {
-				contentsMapper.contentsLike(like);
+				contentsService.likeContents(like); //이걸로 추가해놨어용!!
+				/* contentsService.contentsLike(like);<--이름바뀐건가요?!오류나서 주석처리해놓음 */
 				map.put("check", "unChecked");
 				map.put("result", "success");
 			}
