@@ -64,15 +64,16 @@
 	<hr width="100%">
 
 	<div id="boardView_button">
+		<!-- 글 작성자와 로그인 되어있는 유저 같은 경우 -->
 		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
 			<input type="button" value="채팅하기"
 				onclick="location.href='chattingList.do?chatboard_num=${chatboard.chatboard_num}'">
 		</c:if>
-
+		<!-- 글 작성자와 로그인 되어있는 유저가 다른 경우 -->
 		<c:if
 			test="${!empty user_num && user_num != chatboard.mem_num && chatboard.mate_state != 1}">
 			<input type="button" value="채팅하기"
-				onclick="location.href='chatting.do?chatboard_num=${chatboard.chatboard_num}&trans_num=${chatboard.mem_num}'">
+				onclick="location.href='chatting.do?chatboard_num=${chatboard.chatboard_num}&trans_num=${chatboard.mem_num}'"> <!-- 게시글 작성자의 회원 번호를 전송 -->
 		</c:if>
 
 		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">

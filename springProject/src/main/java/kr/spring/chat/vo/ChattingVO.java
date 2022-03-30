@@ -3,18 +3,17 @@ package kr.spring.chat.vo;
 import java.sql.Date;
 
 public class ChattingVO {
-	/*chatroom_num -> chatboard_num*/
-	private int chat_num; //채팅 번호
-	private int to_num; //메시지수신번호(글작성자회원번호)
-	private int from_num; //메시지발신번호(선채팅자회원번호)
-	private int  chatstate_num; //읽기상태(0읽지 않음, 1 읽음)default 0 
-	private String content; //내용
-	private int  chatboard_num; //게시글번호
-	private Date send_date; //발신일 default sysdate
-	//private Date read_date; //수신일 null허용
-	
-	//테이블에는 없음
-	private String name; //선 채팅자 닉네임(dmember_detail)
+	/* chatroom_num -> chatboard_num */
+	private int chat_num; // 채팅 번호
+	private int to_num; // 메시지수신번호(글작성자회원번호)
+	private int from_num; // 메시지발신번호(선채팅자회원번호)
+	private int chatstate_num; // 읽기상태(0읽지 않음, 1 읽음)default 0
+	private String content; // 내용
+	private int chatboard_num; // 게시글번호
+	private Date send_date; // 발신일 default sysdate
+	// private Date read_date; //수신일 null허용
+
+	private String name;
 
 	public int getChat_num() {
 		return chat_num;
@@ -55,7 +54,7 @@ public class ChattingVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+
 	public int getChatboard_num() {
 		return chatboard_num;
 	}
@@ -71,15 +70,12 @@ public class ChattingVO {
 	public void setSend_date(Date send_date) {
 		this.send_date = send_date;
 	}
-/*
-	public Date getRead_date() {
-		return read_date;
-	}
+	/*
+	 * public Date getRead_date() { return read_date; }
+	 * 
+	 * public void setRead_date(Date read_date) { this.read_date = read_date; }
+	 */
 
-	public void setRead_date(Date read_date) {
-		this.read_date = read_date;
-	}
-*/
 	public String getName() {
 		return name;
 	}
@@ -95,5 +91,4 @@ public class ChattingVO {
 				+ send_date + ", name=" + name + "]";
 	}
 
-	
 }

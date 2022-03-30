@@ -67,12 +67,13 @@
          }
       });
       
+      // 채팅 내용 불러오기
       selectData = function() {
     	 
          $.ajax({
             url:'getChatting.do',
             type:'post',
-            data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:${trans_num}},
+            data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:${trans_num}}, // 그동안의 채팅 이력들을 불러오기 위해 인자로 chatboard_num, user_num(로그인 한 유저), trans_num(글 작성자)을 전송
             dataType:'json',
             cache:false,
             timeout:30000,
@@ -91,9 +92,9 @@
                   $(param.getChatting).each(function(index,item){
                      let output = '';
                      if(item.from_num == ${user_num}){
-                        output += '<div class="from-position">'+item.mem_num;
+                        output += '<div class="from-position">'+item.name;
                      }else{                     
-                        output += '<div class="to-position">'+item.mem_num;
+                        output += '<div class="to-position">'+item.name;
                      }
                      output += '<div class="item">';
                      output += /* (item.chatstate_num !=0 ? '<b>①</b>' : '') +  */' <span>' + item.content + '</span>';
@@ -120,7 +121,8 @@
          
       }
       selectData();
-      //채팅 등록
+      
+      // 채팅 메세지 전송 
       $('#chatting_form').submit(function(event){
          if($('#content').val().trim() == ''){
             alert('내용을 입력하세요!');
@@ -128,10 +130,9 @@
             return false;
          }
          
-         //댓글 등록
          $.ajax({
             type:'post',
-            data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:${trans_num},content:$('#content').val()},
+            data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:${trans_num},content:$('#content').val()}, // dchatting 테이블에 저장돼야하는 값들을 넘겨줍니다
             url:'writeChat.do',
             dataType:'json',
             cache:false,

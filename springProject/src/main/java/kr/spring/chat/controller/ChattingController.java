@@ -37,17 +37,36 @@ public class ChattingController {
 
 	@GetMapping("/chatboard/chatting.do")
 	public ModelAndView process(@RequestParam int chatboard_num, @RequestParam int trans_num, HttpSession session) {
+
 		ChatBoardVO chatBoard = new ChatBoardVO();
-		chatBoard = chatboardService.selectBoard(chatboard_num);
+		chatBoard = chatboardService.selectBoard(chatboard_num); // 게시글 번호로 게시글 정보 불러오기
 
 		MemberVO member = new MemberVO();
-		member = memberService.selectMember(trans_num);
+		member = memberService.selectMember(trans_num); // chatBoardView에서 받아온 trans_num(게시글 작성자의 회원 번호)을 통해 회원 정보 불러오기
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("chatting");
 		mav.addObject("chatBoard", chatBoard);
 		mav.addObject("member", member);
 		mav.addObject("trans_num", trans_num);
 		return mav;
+	}
+
+	@RequestMapping("/chatboard/getChatting.do")
+	@ResponseBody									// chatting.jsp에서 ajax로 넘긴 chatboard_num 등이 알아서 데이터 바인딩 되어서 chattingVO에 저장돼있음
+	public Map<String, Object> getChattingDetailCount(ChattingVO chattingVO, HttpSession session) {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		Integer mem_num = (Integer) session.getAttribute("user_num");
+		if (mem_num == null) {// 로그인이 되지 않은 경우
+			map.put("result", "logout");
+		} else {// 로그인 된 경우
+			List<ChattingVO> getChatting = new ArrayList<ChattingVO>();
+			getChatting = chattingService.getChattingDetail(chattingVO); // chatboard_num 등 chatting.jsp에서 받아온 값을 인자로 넣어서 sql문을 행하여 결과값을 List에 담아준다
+			map.put("getChatting", getChatting);
+			map.put("result", "success");
+		}
+		return map;
 	}
 
 	@RequestMapping("/chatboard/writeChat.do")
@@ -61,24 +80,6 @@ public class ChattingController {
 			map.put("result", "logout");
 		} else {// 로그인 된 경우
 			chattingService.insertChat(chattingVO);
-			map.put("result", "success");
-		}
-		return map;
-	}
-
-	@RequestMapping("/chatboard/getChatting.do")
-	@ResponseBody
-	public Map<String, Object> getChattingDetailCount(ChattingVO chattingVO, HttpSession session) {
-
-		Map<String, Object> map = new HashMap<String, Object>();
-
-		Integer mem_num = (Integer) session.getAttribute("user_num");
-		if (mem_num == null) {// 로그인이 되지 않은 경우
-			map.put("result", "logout");
-		} else {// 로그인 된 경우
-			List<ChattingVO> getChatting = new ArrayList<ChattingVO>();
-			getChatting = chattingService.getChattingDetail(chattingVO);
-			map.put("getChatting", getChatting);
 			map.put("result", "success");
 		}
 		return map;
