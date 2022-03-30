@@ -15,6 +15,8 @@ public interface ChattingService {
 
 	public List<ChattingVO> getChattingDetail(ChattingVO chattingVO);
 
+	public List<ChattingVO> getChattingList(ChattingVO chattingVO);
+
 	// public List<ChatBoardReplyVO> selectListReply(Map<String,Object>map);
 	// public int selectRowCountChat(Map<String,Object> map);
 	// public ChatBoardReplyVO selectChat(Integer re_num);

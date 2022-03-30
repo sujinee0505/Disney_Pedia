@@ -53,12 +53,11 @@
 	color: red;
 }
 </style>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
    $(function(){
-	   let chatboard_num = $('#chatboard_num').val();
-	   let to_num = $('#to_num').val();
+	  let chatboard_num = $('#chatboard_num').val();
       let count=0;
       let scroll_check;
       let loop_check = true;
@@ -69,10 +68,11 @@
       });
       
       selectData = function() {
+    	 
          $.ajax({
-            url:'chattingList.do',
+            url:'getChatting.do',
             type:'post',
-            data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:to_num},
+            data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:${trans_num}},
             dataType:'json',
             cache:false,
             timeout:30000,
@@ -88,7 +88,7 @@
                   
                   $('#chatting_message').empty();
                   
-                  $(param.chatList).each(function(index,item){
+                  $(param.getChatting).each(function(index,item){
                      let output = '';
                      if(item.from_num == ${user_num}){
                         output += '<div class="from-position">'+item.mem_num;
@@ -128,13 +128,10 @@
             return false;
          }
          
-         //form 이하의 태그에 입력한 데이터를 모두 읽어옴
-         let form_data = $(this).serialize();
-         
          //댓글 등록
          $.ajax({
             type:'post',
-            data:form_data,
+            data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:${trans_num},content:$('#content').val()},
             url:'writeChat.do',
             dataType:'json',
             cache:false,
@@ -159,21 +156,20 @@
       
    });
 </script>
-<div class="page-main-chat">
+<div class="page-main-chat" style="margin-top: 100px;">
 	<c:if test="${user_num != chatboard.mem_num}">
-		<span id="trans_id">${chatBoard.title}의 작성자 <small>${chatBoard.name}</small>님과
+		<span id="trans_id">${chatBoard.title}의 작성자 <small>${chatBoard.mem_num}</small>님과
 			채팅
 		</span>
 	</c:if>
-	<%-- <c:if test="${user_num == chatBoard.mem_num}">
-		<span id="trans_id"><b>${member.name}과의 대화</b></span>
+	<c:if test="${user_num == chatBoard.mem_num}">
+		<span id="trans_id"><b>${member.mem_num}과의 대화</b></span>
 		<c:if test="${chatBoard.mate_state == 0}">
 			<input type="button" value="모집중" id="rev_btn">
 		</c:if>
 	</c:if>
-	<span id="rev_msg">  <c:if
-			test="${chatBoard.mate_state == 2}">모집완료</c:if>
-	</span> --%>
+	<span id="rev_msg"> <c:if test="${chatBoard.mate_state == 2}">모집완료</c:if>
+	</span>
 	<div id="chatting_message"></div>
 
 	<form method="post" id="chatting_form"
@@ -184,9 +180,9 @@
 			<input type="hidden" id="to_num" name="to_num"
 				value="${chatBoard.mem_num}">
 		</c:if>
-		<%-- <c:if test="${user_num == chatBoard.mem_num}">
+		<c:if test="${user_num == chatBoard.mem_num}">
 			<input type="hidden" name="to_num" value="${meber.mem_num}">
-		</c:if> --%>
+		</c:if>
 		<ul>
 			<li><label for="content">내용</label> <textarea rows="7" cols="50"
 					name="content" id="content" style="border-radius: 5px;"></textarea>

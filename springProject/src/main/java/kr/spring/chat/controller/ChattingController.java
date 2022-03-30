@@ -36,17 +36,17 @@ public class ChattingController {
 	private MemberService memberService;
 
 	@GetMapping("/chatboard/chatting.do")
-	public ModelAndView process(@RequestParam int chatboard_num, HttpSession session) {
+	public ModelAndView process(@RequestParam int chatboard_num, @RequestParam int trans_num, HttpSession session) {
 		ChatBoardVO chatBoard = new ChatBoardVO();
 		chatBoard = chatboardService.selectBoard(chatboard_num);
 
-		Integer mem_num = (Integer) session.getAttribute("user_num");
 		MemberVO member = new MemberVO();
-		memberService.selectMember(mem_num);
+		member = memberService.selectMember(trans_num);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("chatting");
 		mav.addObject("chatBoard", chatBoard);
 		mav.addObject("member", member);
+		mav.addObject("trans_num", trans_num);
 		return mav;
 	}
 
@@ -60,14 +60,13 @@ public class ChattingController {
 		if (mem_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
 		} else {// 로그인 된 경우
-			chattingVO.setFrom_num(mem_num);
 			chattingService.insertChat(chattingVO);
 			map.put("result", "success");
 		}
 		return map;
 	}
 
-	@RequestMapping("/chatboard/chattingList.do")
+	@RequestMapping("/chatboard/getChatting.do")
 	@ResponseBody
 	public Map<String, Object> getChattingDetailCount(ChattingVO chattingVO, HttpSession session) {
 
@@ -77,10 +76,38 @@ public class ChattingController {
 		if (mem_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
 		} else {// 로그인 된 경우
-			System.out.println(chattingVO);
-			List<ChattingVO> chatList = new ArrayList<ChattingVO>();
-			chatList = chattingService.getChattingDetail(chattingVO);
-			map.put("chatList", chatList);
+			List<ChattingVO> getChatting = new ArrayList<ChattingVO>();
+			getChatting = chattingService.getChattingDetail(chattingVO);
+			map.put("getChatting", getChatting);
+			map.put("result", "success");
+		}
+		return map;
+	}
+
+	@GetMapping("/chatboard/chattingList.do")
+	public ModelAndView getChattingList(@RequestParam int chatboard_num) {
+		ChatBoardVO chatboard = new ChatBoardVO();
+		chatboard = chatboardService.selectBoard(chatboard_num);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("chattingList");
+		mav.addObject("chatboard", chatboard);
+		return mav;
+	}
+
+	@RequestMapping("/chatboard/chattingList.do")
+	@ResponseBody
+	public Map<String, Object> getChattingList(ChattingVO chattingVO, HttpSession session) {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		Integer mem_num = (Integer) session.getAttribute("user_num");
+		if (mem_num == null) {// 로그인이 되지 않은 경우
+			map.put("result", "logout");
+		} else {// 로그인 된 경우
+			chattingVO.setFrom_num(mem_num);
+			List<ChattingVO> chattingList = new ArrayList<ChattingVO>();
+			chattingList = chattingService.getChattingList(chattingVO);
+			map.put("chattingList", chattingList);
 			map.put("result", "success");
 		}
 		return map;
@@ -150,6 +177,6 @@ public class ChattingController {
 	 * mapJson.put("user_num", (Integer)session.getAttribute("user_num"));
 	 * 
 	 * return mapJson; }
-	 * 
 	 */
+
 }

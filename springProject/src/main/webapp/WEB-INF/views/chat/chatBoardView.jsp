@@ -1,21 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%><!-- 조건체크 -->
-						<!-- 이미지일경우 보여지게 하고 이미지아닐경우 다운로드하도록 functions이용할 것. -->
+<!-- 이미지일경우 보여지게 하고 이미지아닐경우 다운로드하도록 functions이용할 것. -->
 <!-- 중앙 컨텐츠 시작 -->
-<script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" type="text/css" 	href="${pageContext.request.contextPath}/resources/css/mj.css"/>
+<script
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/mj.css" />
 
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <style>
-
 </style>
 
-<div class="page-main border border-primary border-2 rounded" id="boardView">
+<div class="page-main border border-primary border-2 rounded"
+	id="boardView">
 	<div>
 		<h2>
 			<c:if test="${chatboard.mate_state==0}">
@@ -24,54 +26,65 @@
 			<c:if test="${chatboard.mate_state==1}">
 				<span class="badge rounded-pill bg-light text-dark">모집 마감</span>
 			</c:if>
-			&nbsp;
-			<b>${chatboard.title}</b>
-		</h2> 
+			&nbsp; <b>${chatboard.title}</b>
+		</h2>
 	</div>
 	<br>
 	<div id="boardView_middle" class=" row ">
 		<div id="boardView_img" class=" col-md-2 ">
 			<c:if test="${empty user_photo}">
-				<img src="${pageContext.request.contextPath}/resources/images/face.png" >
-			</c:if> 
+				<img
+					src="${pageContext.request.contextPath}/resources/images/face.png">
+			</c:if>
 			<c:if test="${!empty user_photo}">
-				<img src="${pageContext.request.contextPath}/member/photoView.do?user_num=0">
+				<img
+					src="${pageContext.request.contextPath}/member/photoView.do?user_num=${chatboard.mem_num}">
 			</c:if>
 		</div>
 		<div id="boardView_name" class="col-8  align-self-end ">
-		 <b>${chatboard.name}</b>
+			<b>${chatboard.name}</b>
 		</div>
 		<div id="boardView_date" class="col-2 offset-1  align-self-end ">
-		작성일 | ${chatboard.reg_date}
-		</div>
+			작성일 | ${chatboard.reg_date}</div>
 	</div>
-	
+
 	<br>
 	<hr width="100%">
 	<br>
-	
-	<div id="boardView_content" class="overflow-auto" >
-		${chatboard.content}
-	</div>
-	
+
+	<div id="boardView_content" class="overflow-auto">
+		${chatboard.content}</div>
+
 	<div id="boardView_hit" class="offset-11">
-		<img id="eye_img" src="${pageContext.request.contextPath}/resources/images/board/eye.png">
+		<img id="eye_img"
+			src="${pageContext.request.contextPath}/resources/images/board/eye.png">
 		${chatboard.hit}
 	</div>
-	
+
 	<hr width="100%">
-	
+
 	<div id="boardView_button">
-		<button class="btn btn-primary "  id="chat_btn" onclick="location.href='chatting.do?chatboard_num=${chatboard.chatboard_num}&mem_num=${user_num }'">채팅하기</button>
 		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
-			<button class="btn btn-secondary" id="modify_btn" 
-					onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'">수정</button>
+			<input type="button" value="채팅하기"
+				onclick="location.href='chattingList.do?chatboard_num=${chatboard.chatboard_num}'">
+		</c:if>
+
+		<c:if
+			test="${!empty user_num && user_num != chatboard.mem_num && chatboard.mate_state != 1}">
+			<input type="button" value="채팅하기"
+				onclick="location.href='chatting.do?chatboard_num=${chatboard.chatboard_num}&trans_num=${chatboard.mem_num}'">
+		</c:if>
+
+		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
+			<button class="btn btn-secondary" id="modify_btn"
+				onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'">수정</button>
 			<button class="btn btn-secondary" id="delete_btn">삭제</button>
 		</c:if>
-		<button class="btn btn-secondary " id="list_btn" onclick="location.href='list.do'">목록</button>
-		
-		
-			<script type="text/javascript">
+		<button class="btn btn-secondary " id="list_btn"
+			onclick="location.href='list.do'">목록</button>
+
+
+		<script type="text/javascript">
 				let delete_btn = document.getElementById('delete_btn');//delete_btn에접근
 				
 				delete_btn.onclick=function(){
@@ -108,20 +121,22 @@
 					//여기까지 테스트
 					//}f
 				};
-			</script> 	
+			</script>
 	</div>
 
 
-<!-- 댓글 -->
+	<!-- 댓글 -->
 	<hr width="100%" noshade="noshade">
 	<div id="reply_div">
 		<span class="re-title">댓글 달기 테스트</span>
 		<form id="re_form">
-			<input type="hidden" name="board_num" value="${board.board_num}" id="board_num">
-			<textarea rows="3" cols="50" name="re_content" id="re_content" class="rep-content"
-						<c:if test="${empty user_num}">disabled="disabled"</c:if>
-						><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다</c:if></textarea>
-			
+			<input type="hidden" name="board_num" value="${board.board_num}"
+				id="board_num">
+			<textarea rows="3" cols="50" name="re_content" id="re_content"
+				class="rep-content"
+				<c:if test="${empty user_num}">disabled="disabled"</c:if>><c:if
+					test="${empty user_num}">로그인해야 작성할 수 있습니다</c:if></textarea>
+
 			<c:if test="${!empty user_num}">
 				<div id="re_first">
 					<span class="letter-count">300/300</span>
@@ -132,7 +147,7 @@
 			</c:if>
 		</form>
 	</div>
-	
+
 
 
 </div>

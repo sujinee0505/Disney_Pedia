@@ -24,4 +24,9 @@ public class ChattingServiceImpl implements ChattingService {
 		return chattingMapper.getChattingDetail(chattingVO);
 	}
 
+	@Override
+	public List<ChattingVO> getChattingList(ChattingVO chattingVO) {
+		return chattingMapper.getChattingList(chattingVO);
+	}
+
 }

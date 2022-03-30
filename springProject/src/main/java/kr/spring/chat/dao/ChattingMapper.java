@@ -30,6 +30,7 @@ public interface ChattingMapper {
 	public void insertChat(ChattingVO chattingVO);
 
 	public List<ChattingVO> getChattingDetail(ChattingVO chattingVO);
+	public List<ChattingVO> getChattingList(ChattingVO chattingVO);
 	// [채팅메서드2. 채팅메시지 갯수 : getCountChat() ]
 	// 1)
 	// public int getCountChat(int item_num)throws Exception{
