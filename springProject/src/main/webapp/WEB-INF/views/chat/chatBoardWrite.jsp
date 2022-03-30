@@ -7,13 +7,14 @@
 <style>
 .ck-editor__editable_inline{
 	min-height:250px;
+	
 }
 </style>
 <!-- 중앙 컨텐츠 시작 -->
 <!-- ckedior 라이브러리 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/ckeditor.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/uploadAdapter.js"></script>
-<div class="page-main css-1jlb6q">
+<div class="page-main">
 
      
      
@@ -21,11 +22,11 @@
 		<form:errors element="div" cssClass="error-color"/>
 		<ul> 
 			<li>
-				<form:label path="title">제목</form:label>
+				<form:label path="title"><b>제목</b></form:label>
 				<form:input path="title"/>
 				<form:errors path="title" cssClass="error-color"/>
 			</li>
-					<li>내용</li>
+					<li><b>내용</b></li>
 			<li>
 				<form:textarea path="content"/>
 				<form:errors path="content" cssClass="error-color"/>   
@@ -50,10 +51,10 @@
 			</li>
 		</ul>
 		<div class="align-center">
-			<input type="button" value="채팅하기" onclick=""> 
-			<form:button>등록</form:button>
-			<input type="button" value="목록" onclick="location.href='list.do'"> 
+		    <button type="submit" value="등록" onclick="location.href='list.do'" class="btn btn-outline-primary">등록</button>
+			<button type="button"  onclick="location.href='list.do'" class="btn btn-outline-secondary">목록</button>
 		</div>
 	</form:form>
 </div>
 <!-- 중앙 컨텐츠 끝 -->
+<section class="css-7klu3x"></section>

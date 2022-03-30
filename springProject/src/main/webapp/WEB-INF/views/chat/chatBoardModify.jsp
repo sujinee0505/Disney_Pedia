@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-   
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dain.css">
 <style>
 .ck-editor__editable_inline{
@@ -15,7 +15,8 @@
 <!-- ckedior 라이브러리 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/ckeditor.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/uploadAdapter.js"></script>
-<div class="page-main css-1jlb6q">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<div class="page-main ">
 
 	<form:form modelAttribute="chatboard" action="update.do" id="update_form">
 	            <!--enctype="multipart/form-data">-->
@@ -23,26 +24,26 @@
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>
 			<li>
-				<form:label path="title">제목</form:label>
+	     		<form:label path="title"><b>제목</b></form:label>
 				<form:input path="title"/>
 				<form:errors path="title" cssClass="error-color"/>
 			</li>
 			<li>
-			<label>모집 여부</label>
+			<label><b>모집 여부</b></label>
 				<input type="radio" name="mate_state" value="0" id="mate_state0" <c:if test="${chatboard.mate_state == 0}">checked</c:if>>구하는중
 				<input type="radio" name="mate_state" value="1" id="smate_state1" <c:if test="${chatboard.mate_state == 1}">checked</c:if>>모집완료
               </li>		
-					<li>내용</li>
+					<li><b>내용</b></li>
 			<li>
 				<form:textarea path="content"/>
 				<form:errors path="content" cssClass="error-color"/>   
 				<script>
-				 function MyCustomUploadAdapterPlugin(editor) {
-					    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
-					        return new UploadAdapter(loader);
-					    }
-					}
-				 
+				function MyCustomUploadAdapterPlugin(editor) {
+				    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+				        return new UploadAdapter(loader);
+				    }
+				}
+			 
 				 ClassicEditor
 		            .create( document.querySelector( '#content' ),{
 		            	extraPlugins: [MyCustomUploadAdapterPlugin]
@@ -98,10 +99,11 @@
 				</c:if>
 			</li> -->		
 		<div class="align-center">
-			<form:button>수정</form:button> 
-			<input type="button" value="수정취소" 
-			                         onclick="location.href='list.do'">
+		    <button type="submit" value="수정" onclick="location.href='list.do'" class="btn btn-outline-primary">수정</button>
+			<button type="button"  onclick="location.href='list.do'" class="btn btn-outline-secondary">수정취소</button>
+			
 		</div>
 	</form:form>
 </div>
+<section class="css-7klu3x"></section>
 <!-- 중앙 컨텐츠 끝 -->
