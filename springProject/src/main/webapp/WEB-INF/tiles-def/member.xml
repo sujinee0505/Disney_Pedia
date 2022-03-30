@@ -53,5 +53,8 @@
     	<put-attribute name="title" value="좋아한코멘트목록"/>
     	<put-attribute name="body" value="/WEB-INF/views/member/myComent.jsp"/>
     </definition>
-    
+     <definition name="calendar" extends="main">
+    	<put-attribute name="title" value="캘린더"/>
+    	<put-attribute name="body" value="/WEB-INF/views/member/calendar.jsp"/>
+    </definition>
 </tiles-definitions>

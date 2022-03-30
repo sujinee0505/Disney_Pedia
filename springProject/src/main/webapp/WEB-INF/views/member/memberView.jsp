@@ -116,7 +116,7 @@ input[type=button] {
 															src="${pageContext.request.contextPath}/resources/images/list.png"
 															width="40" height="40">
 														</a> <a
-															href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num=${member.mem_num}">
+															href="${pageContext.request.contextPath}/member/calendar.do?mem_num=${member.mem_num}">
 															<img
 															src="${pageContext.request.contextPath}/resources/images/cal.png"
 															width="40" height="40">
