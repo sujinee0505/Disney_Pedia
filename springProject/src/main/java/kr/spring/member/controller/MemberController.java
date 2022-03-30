@@ -293,4 +293,9 @@ public class MemberController {
 		mav.addObject("filename", memberVO.getPhoto_name());
 		return mav;
 	}
+	
+	@GetMapping("/member/myContents.do")
+	public String myContents() {
+		return "myContents";
+	}
 }

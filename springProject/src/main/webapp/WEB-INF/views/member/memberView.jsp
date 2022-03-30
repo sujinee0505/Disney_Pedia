@@ -132,7 +132,7 @@ input[type=button] {
 															<ul class="e19zkogf12 css-i1bo8u-VisualUl-CategoryArchivesUl">
 																<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
 																	<a background="[object Object]" class="css-h3f67w-CategoryArchivesLink e19zkogf14"
-																		href="/member/myMovie.do">
+																		href="myContents.do">
 																		<ul class="css-reeb92-VisualUl-CategoryArchives e19zkogf15">
 																			<li class="css-r3hbc5-CategoryArchivesName e19zkogf16">
 																			영화

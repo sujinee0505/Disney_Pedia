@@ -12,8 +12,10 @@
 			<div class="css-10zg79x-pageMarginStyle">"${param.keyword }"의
 				검색결과</div>
 		</div>
-		<div class="css-15qcwbn-StyledTabBarContainer e1szkzar1">
-			<ul class="css-1gwdxtz-VisualUl-StyledTabBarUl e1szkzar2">
+		<div class="css-15qcwbn-StyledTabBarContainer e1szkzar1"
+			style="height: 50px;">
+			<ul class="css-1gwdxtz-VisualUl-StyledTabBarUl e1szkzar2"
+				style="width: 100%; margin: 0px auto;">
 				<li><a
 					class="<c:if
 					test="${param.category eq 'contents' || empty param.category }">css-s8lqsd-StyledTab e1szkzar0</c:if><c:if test="${param.category ne 'contents' }">css-4tchbd-StyledTab e1szkzar0</c:if>"

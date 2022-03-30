@@ -41,13 +41,9 @@
     	<put-attribute name="title" value="내리스트목록"/>
     	<put-attribute name="body" value="/WEB-INF/views/member/myList.jsp"/>
     </definition>
-    <definition name="myMovie" extends="main">
-    	<put-attribute name="title" value="영화목록"/>
-    	<put-attribute name="body" value="/WEB-INF/views/member/myMovie.jsp"/>
-    </definition>
-    <definition name="myDrama" extends="main">
-    	<put-attribute name="title" value="드라마목록"/>
-    	<put-attribute name="body" value="/WEB-INF/views/member/myDrama.jsp"/>
+    <definition name="myContents" extends="main">
+    	<put-attribute name="title" value="컨텐츠"/>
+    	<put-attribute name="body" value="/WEB-INF/views/member/myContents.jsp"/>
     </definition>
     <definition name="likeList" extends="main">
     	<put-attribute name="title" value="좋아한리스트목록"/>
