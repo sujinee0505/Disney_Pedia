@@ -26,9 +26,8 @@ public class ContentsAjaxController {
 	// 별점 등록,수정
 	@RequestMapping("/contents/starRating.do")
 	@ResponseBody
-	public Map<String, String> starRating(@RequestParam int contents_num, HttpServletRequest request,
-			HttpSession session, StarVO starVO) { // String value,String contents_num 뺐음
-
+	public Map<String, String> starRating(HttpSession session, StarVO starVO) { 
+		
 		Map<String, String> map = new HashMap<String, String>();
 
 		// 해당 컨텐츠 평가기록 있나 확인
@@ -52,7 +51,7 @@ public class ContentsAjaxController {
 	// 별점 취소
 	@RequestMapping("/contents/resetRating.do")
 	@ResponseBody
-	public Map<String, String> resetRating(HttpServletRequest request, HttpSession session, StarVO starVO) {
+	public Map<String, String> resetRating(HttpSession session, StarVO starVO) {
 		Map<String, String> map = new HashMap<String, String>();
 
 		Integer user_num = (Integer) session.getAttribute("user_num");
