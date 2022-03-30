@@ -15,28 +15,28 @@ public class ContentsServiceImpl implements ContentsService {
 	@Autowired
 	private ContentsMapper contentsMapper;
 
-	//별점
+	// 별점
 	@Override
 	public void insertStar(StarVO star) {
 		contentsMapper.insertStar(star);
-	}	
+	}
 
 	@Override
-	public StarVO CheckStar(int contents_num) {		
+	public StarVO CheckStar(int contents_num) {
 		return contentsMapper.CheckStar(contents_num);
 	}
 
 	@Override
 	public void updateStar(StarVO star) {
-		contentsMapper.updateStar(star);		
+		contentsMapper.updateStar(star);
 	}
 
 	@Override
 	public void deleteStar(StarVO star) {
-		contentsMapper.deleteStar(star);		
+		contentsMapper.deleteStar(star);
 	}
 
-	//보고싶어요
+	// 보고싶어요
 	@Override
 	public void likeContents(LikeVO like) {
 		contentsMapper.contentsLike(like);
@@ -57,8 +57,9 @@ public class ContentsServiceImpl implements ContentsService {
 		return contentsMapper.getMostLike(contents_type);
 	}
 
-
-
-
+	@Override
+	public List<LikeVO> getLikeList(LikeVO like) {
+		return contentsMapper.getLikeList(like);
+	}
 
 }

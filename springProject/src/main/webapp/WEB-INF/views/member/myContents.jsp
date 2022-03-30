@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
@@ -66,7 +68,7 @@
 			style="margin-top: 20px;">
 			<h2 class="css-1gwdxtz-VisualUl-StyledTabBarUl e1szkzar2 css-1wtjsst">
 				보고싶어요</h2>
-			<span class="css-wzn7fp">542</span>
+			<span class="css-wzn7fp">${fn:length(list) }</span>
 		</div>
 		<div class="css-ipmqep-StyledTabContentContainer e1szkzar3">
 			<div class="css-12hxjcc-StyledHideableBlock e1pww8ij0">
@@ -76,20 +78,20 @@
 							<div class="css-9dnzub scroll">
 								<div class="css-174lxc3">
 									<ul class="css-1bk3hui-VisualUl">
-										<li class="css-8y23cj"><a title="인비저블맨"
-											href="/ko-KR/contents/mOPV7VD"><div class="css-1qmeemv">
-													<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
-														<img
-															src="https://an2-img.amz.wtchn.net/image/v2/zMHLy0G9e40LUO9vFmiN0A.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXhMMmhqZFd0bmFHZzJZakIzTm1ock1EQjBaR0ZoSW4wLlpOSlItdkptVG5hbWNELVUwZEpINnhLd0s4YTMwMUhEQlh3Q1hFcEJ4b2s"
-															class="css-qhzw1o-StyledImg ezcopuc1">
+										<c:forEach var="list" items="${list}">
+											<li class="css-8y23cj"><a title=""
+												href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${list.contents_type }&contents_num=${list.contents_num}"><div
+														class="css-1qmeemv">
+														<div class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
+															<img src="${list.poster_path }"
+																class="css-qhzw1o-StyledImg ezcopuc1">
+														</div>
 													</div>
-												</div>
-												<div class="css-ixy093">
-													<div class="css-niy0za">인비저블맨</div>
-													<div class="css-1kcd80z">평가함 ★ 1.5</div>
-												</div></a></li>
-
-
+													<div class="css-ixy093">
+														<div class="css-niy0za">${list.title }</div>
+														<div class="css-1kcd80z">${Math.ceil((list.vote_average)/2*10)/10}</div>
+													</div></a></li>
+										</c:forEach>
 										<div class="css-ml096x"></div>
 									</ul>
 								</div>

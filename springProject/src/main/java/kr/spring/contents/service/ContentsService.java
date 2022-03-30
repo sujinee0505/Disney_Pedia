@@ -21,4 +21,6 @@ public interface ContentsService {
 	public void cancelLike(LikeVO like);
 
 	public List<LikeVO> getMostLike(String contents_type);
+	
+	public List<LikeVO> getLikeList(LikeVO like);
 }

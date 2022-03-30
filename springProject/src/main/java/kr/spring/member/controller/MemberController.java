@@ -1,5 +1,8 @@
 package kr.spring.member.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -17,9 +20,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.contents.service.ContentsService;
+import kr.spring.contents.vo.ContentsVO;
+import kr.spring.contents.vo.LikeVO;
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.util.AuthCheckException;
+import kr.spring.util.GetInfoUtil;
 
 @Controller
 public class MemberController {
@@ -27,6 +34,9 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+
+	@Autowired
+	private ContentsService contentsService;
 
 	// 자바빈(VO) 초기화
 	@ModelAttribute
@@ -155,7 +165,8 @@ public class MemberController {
 
 	// My페이지
 	@RequestMapping("/member/myPage.do")
-	public String process(HttpSession session, Model model, @RequestParam(value = "user_num", defaultValue = "0") int user_num) {
+	public String process(HttpSession session, Model model,
+			@RequestParam(value = "user_num", defaultValue = "0") int user_num) {
 
 		if (user_num == 0) {
 			user_num = (Integer) session.getAttribute("user_num");
@@ -293,9 +304,23 @@ public class MemberController {
 		mav.addObject("filename", memberVO.getPhoto_name());
 		return mav;
 	}
-	
+
 	@GetMapping("/member/myContents.do")
-	public String myContents() {
-		return "myContents";
+	public ModelAndView myContents(HttpSession session, LikeVO like) {
+		Integer mem_num = (Integer) session.getAttribute("user_num");
+		like.setMem_num(mem_num);
+
+		GetInfoUtil util = new GetInfoUtil();
+		List<ContentsVO> list = new ArrayList<ContentsVO>();
+		List<LikeVO> likeList = contentsService.getLikeList(like);
+		for (int i = 0; i < likeList.size(); i++) {
+			ContentsVO contents = new ContentsVO();
+			contents = util.getInfoDetail(likeList.get(i).getContents_type(), likeList.get(i).getContents_num());
+			list.add(contents);
+		}
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("myContents");
+		mav.addObject("list", list);
+		return mav;
 	}
 }
