@@ -62,7 +62,7 @@
 	<hr width="100%">
 	
 	<div id="boardView_button">
-		<button class="btn btn-primary "  id="chat_btn" onclick="location.href='chat.do'">채팅하기</button>
+		<button class="btn btn-primary "  id="chat_btn" onclick="location.href='chatting.do?chatboard_num=${chatboard.chatboard_num}&mem_num=${user_num }'">채팅하기</button>
 		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
 			<button class="btn btn-secondary" id="modify_btn" 
 					onclick="location.href='update.do?chatboard_num=${chatboard.chatboard_num}'">수정</button>

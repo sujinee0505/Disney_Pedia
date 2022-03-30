@@ -3,7 +3,6 @@
 
 <script type="text/javascript">
 	$(function() {
-		alert($('#dateCheck').val());
 		$('#insertCal')
 				.submit(
 						function(event) {

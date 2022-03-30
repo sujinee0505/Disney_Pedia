@@ -22,7 +22,9 @@ public class ChatBoardAjaxController {
 																//log대상 지정
 	@Autowired
 	private ChatBoardService chatboardService;
-	//[댓글 등록]
+	
+	
+/*	//[댓글 등록]
 		@RequestMapping("/board/writeReply.do")
 		@ResponseBody //AJAX생성 
 		//chatboardReplyVO에 데이터 받고/ HttpSession으로 로그인여부확인/ HttpServletRequest으로 ip주소 구하기
@@ -50,5 +52,5 @@ public class ChatBoardAjaxController {
 			}
 			return map;
 		}
-
+*/
 }
