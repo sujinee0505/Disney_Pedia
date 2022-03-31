@@ -157,98 +157,11 @@
 			event.preventDefault();
 		});
 		
-		
-		//**상태버튼누르기
-			//function ClickState() {
-			
-			/* alert($('#rev_btn').className); */
-			$('#rev_btn').click(function(){
-				alert('모집완료로 바꿀때! mate_state:${chatBoard.mate_state}');
-				
-				$.ajax({
-				url:'updateMateState.do',
-				type:'post',
-				data:{chatboard_num:chatboard_num}, // dchatting 테이블에 저장돼야하는 값들을 넘겨줍니다
-				dataType:'json',
-				cache:false,
-				timeout:30000,
-				success:function(param){
-					if(param.result == 'logout'){
-						alert('로그인해야 작성할 수 있습니다.');
-						
-					}else if(param.result == 'success'){
-						alert('모집완료로 바뀜!');
-						const rev_e_btn_html='<div style="color:black"> 모집 중으로 변경 </div>'
-							$('#rev_btn').innerHTML = rev_e_btn_html;
-						$('#rev_btn').removeClass('bg-danger').addClass('bg-light text-dark');
-						$("#rev_btn span").text("모집 중으로 변경");
-						//$('#rev_btn').hide();
-						//if($('#rev_e_btn').css("display")=="none"){
-						//	$('#rev_e_btn').show();
-						//}
-						//else{$('#rev_e_btn').hide(); }
-						
-						
-						//var element = document.getElementById("rev_btn");
-						//  element.classList.remove("badge rounded bg-danger").add("badge rounded-pill bg-light text-dark");
-					
-					}else{
-						alert('모집완료로 변경시 오류 발생');
-					}
-				},
-				error:function(){
-					alert('네트워크 오류!');
-				}
-				});
-				
-			});
-			
-			$('#rev_e_btn').click(function(){
-				alert('모집 중으로 바꿀때! mate_state:${chatBoard.mate_state}');
-			      
-				$.ajax({
-				url:'updateMateState.do',
-				type:'post',
-				data:{chatboard_num:chatboard_num}, // dchatting 테이블에 저장돼야하는 값들을 넘겨줍니다
-				dataType:'json',
-				cache:false,
-				timeout:30000,
-				success:function(param){
-					if(param.result == 'logout'){
-						alert('로그인해야 변경가능합니다.');
-						
-					}else if(param.result == 'success'){
-						alert('모집 중으로 바뀜!');
-						//$('#rev_btn').removeClass('bg-danger').addClass('bg-light text-dark');
-						//$('#rev_btn').hide();
-						//if($('#rev_e_btn').css("display")=="none"){
-						//	$('#rev_e_btn').show();
-						//}
-						//else{$('#rev_e_btn').hide(); }
-						
-						
-						//var element = document.getElementById("rev_btn");
-						//  element.classList.remove("badge rounded bg-danger").add("badge rounded-pill bg-light text-dark");
-					
-					}else{
-						alert('모집 중으로 변경 시 오류 발생');
-					}
-				},
-				error:function(){
-					alert('네트워크 오류!');
-				}
-				});
-				
-				
-			});
-			
-		//}
-		
-$('.button').click(function() {
+$('#모집').click(function() {
 	var check = 0;
-	 if ($(this).val()=='모집 중') {
+	 if ($(this).text()=='모집중') {
 		 check = 0;
-	}else if($(this).val()=='모집완료'){
+	}else if($(this).text()=='모집완료'){
 		check = 1;
 	} 
 	$.ajax({
@@ -261,25 +174,16 @@ $('.button').click(function() {
 		success:function(param){
 			if(param.result == 'logout'){
 				alert('로그인해야 작성할 수 있습니다.');
-				
 			}else if(param.result == 'success'){
-				if (condition) {
-					
+				if (check==0) {
+					$('#모집').text('모집완료');
+					$('#모집').removeClass('bg-light text-dark').addClass('bg-danger');
+					check = 1;
+				}else if (check==1) {
+					$('#모집').text('모집중');
+					$('#모집').removeClass('bg-danger').addClass('bg-light text-dark');
+					check = 0;
 				}
-				/* const rev_e_btn_html='<div style="color:black"> 모집 중으로 변경 </div>'
-					$('#rev_btn').innerHTML = rev_e_btn_html;
-				$('#rev_btn').removeClass('bg-danger').addClass('bg-light text-dark');
-				$("#rev_btn span").text("모집 중으로 변경"); */
-				//$('#rev_btn').hide();
-				//if($('#rev_e_btn').css("display")=="none"){
-				//	$('#rev_e_btn').show();
-				//}
-				//else{$('#rev_e_btn').hide(); }
-				
-				
-				//var element = document.getElementById("rev_btn");
-				//  element.classList.remove("badge rounded bg-danger").add("badge rounded-pill bg-light text-dark");
-			
 			}else{
 				alert('모집완료로 변경시 오류 발생');
 			}
@@ -289,8 +193,6 @@ $('.button').click(function() {
 		}
 		});
 });
-		
-			
    });	
 
 </script>
@@ -308,23 +210,13 @@ $('.button').click(function() {
 	<c:if test="${user_num == chatBoard.mem_num}">
 		<!-- 얘는 왜 chatBoard -->
 		<span id="trans_id"><b>${member.mem_num}과의 대화</b></span>
-
-		<c:if test="${chatBoard.mate_state == 0}">
-			<!-- <input type="button" class="badge rounded-pill bg-danger"
-				value="모집완료" /> -->
-			<input type="button" class="button" value="모집완료" id="음">
-		</c:if>
-
-		<c:if test="${chatBoard.mate_state == 1}">
-			<!-- <input type="button" class="badge rounded-pill bg-light text-dark"
-				value="모집 중" /> -->
-			<!-- <button class="badge rounded-pill bg-light text-dark" id="rev_e_btn"
-					hidden="hidden">모집 하기</button> -->
-			<input type="button" class="button" value="모집  중" id="음음">
-		</c:if>
+		<button id="모집"
+			class="badge rounded-pill <c:if test="${chatBoard.mate_state == 0}">bg-light text-dark</c:if><c:if test="${chatBoard.mate_state == 1}">bg-danger</c:if>">
+			<c:if test="${chatBoard.mate_state == 0}">모집중</c:if>
+			<c:if test="${chatBoard.mate_state == 1}">모집완료</c:if>
+		</button>
 	</c:if>
-
-
+	
 	<span id="rev_msg"> <c:if test="${chatBoard.mate_state == 1}">모집완료</c:if>
 	</span>
 
