@@ -9,7 +9,9 @@ public interface ContentsService {
 	public void insertStar(StarVO star);
 
 	public int CheckStar(StarVO star);
-
+	
+	public double getStar(StarVO star);
+	
 	public void updateStar(StarVO star);
 
 	public void deleteStar(StarVO star);

@@ -89,16 +89,12 @@ public class CommentController {
 
 		Map<String, String> map = new HashMap<String, String>();
 
-		// 해당 컨텐츠 코멘 기록 있나 확인
-		int checkComment = commentService.checkComment(commentVO);
-
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		if (user_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
 		} else {// 로그인 된 경우
-			if (checkComment == 1) { // 코멘트기록존재(해당회원,해당영화에 대한)
-				// 업데이트
-			}
+			//업데이트
+			commentService.updateComment(commentVO);
 		}
 		return map;
 	}

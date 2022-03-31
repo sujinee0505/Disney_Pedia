@@ -21,12 +21,15 @@ public class ContentsServiceImpl implements ContentsService {
 		contentsMapper.insertStar(star);
 	}
 
-
 	@Override
 	public int CheckStar(StarVO star) {		
 		return contentsMapper.CheckStar(star);
 	}
 
+	@Override
+	public double getStar(StarVO star) {		
+		return contentsMapper.getStar(star);
+	}
 
 	@Override
 	public void updateStar(StarVO star) {

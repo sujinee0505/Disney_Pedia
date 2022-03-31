@@ -21,6 +21,7 @@ import kr.spring.contents.vo.CalendarVO;
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.CreditsVO;
 import kr.spring.contents.vo.LikeVO;
+import kr.spring.contents.vo.StarVO;
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.sort.SortByDate;
@@ -98,7 +99,11 @@ public class ContentsController {
 
 		Integer user_num = (Integer) session.getAttribute("user_num");
 
-		if (user_num != null) {
+		if (user_num != null) {			
+			//star
+			StarVO starVO = new StarVO();
+			contentsService.getStar(starVO);
+			
 			// CommentVO
 			CommentVO comment = new CommentVO();
 			comment.setContents_num(contents_num);

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import kr.spring.comment.vo.CommentVO;
 import kr.spring.contents.vo.LikeVO;
 import kr.spring.contents.vo.StarVO;
 
@@ -17,7 +18,11 @@ public interface ContentsMapper {
 
 	@Select("SELECT COUNT(*) FROM dcontents_star WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
 	public int CheckStar(StarVO star);
-
+	
+	// 영화,회원일치하는 별점 반환
+	@Select("SELECT star FROM dcontents_star WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
+	public double getStar(StarVO star);
+	
 	@Update("UPDATE dcontents_star SET star=#{star} WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
 	public void updateStar(StarVO star);
 

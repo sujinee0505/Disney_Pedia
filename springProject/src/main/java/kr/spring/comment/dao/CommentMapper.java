@@ -37,11 +37,6 @@ public interface CommentMapper {
 
 
 	/*
-	 * @Select("SELECT comment_num,contents_num,contents_type,content,mem_num,reg_date FROM dcomment WHERE contents_num=#{contents_num}"
-	 * ) public CommentVO checkComment(int contents_num);
-	 */
-
-	/*
 	 * "SELECT * FROM qboard b JOIN qmember m " +
 	 * "ON b.user_num=m.user_num WHERE b.board_num=?";
 	 * 
@@ -56,8 +51,6 @@ public interface CommentMapper {
 			+ "WHERE c.comment_num=#{comment_num}")
 	public int selectRowCount(Map<String, Object> map);
 
-	@Delete("DELETE FROM dcomment WHERE comment_num=#{comment_num}")
-	public void deleteComment(Integer comment_num); // 코멘트삭제
 
 	// 내가쓴 코멘트 목록
 	@Select("SELECT * FROM (SELECT star, c.mem_num,  c.contents_type, c.contents_num, content FROM dcomment c LEFT OUTER JOIN dcontents_star s USING (star_num)) JOIN dmember_detail USING (mem_num) WHERE mem_num = #{mem_num}")
