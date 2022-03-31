@@ -59,47 +59,12 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 	public void deleteFile(Integer chatboard_num) {
 		//chatBoardMapper.deleteFile(chatboard_num);
 	}
+	
+	
 	@Override
 	public void update_mateState(Map<String, Object> map) {
 		chatBoardMapper.update_mateState(map);
-		
 	}
 	
-
 	
-
-	
-	/*
-	//[댓글]
-	@Override
-	public List<ChatBoardReplyVO> selectListReply(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public int selectRowCountReply(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public ChatBoardReplyVO selectReply(Integer re_num) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public void insertReply(ChatBoardReplyVO boardReply) {
-		chatBoardMapper.insertReply(boardReply);
-	}
-	
-	@Override
-	public void updateReply(ChatBoardReplyVO boardReply) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void deleteReply(Integer re_num) {
-		// TODO Auto-generated method stub
-		
-	}
-	*/
 }

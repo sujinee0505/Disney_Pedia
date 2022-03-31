@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style type="text/css">
+
 #chatting_message {
 	background-color: #f5efe6;
 	border: 1px solid #999;
@@ -54,22 +55,21 @@
 }
 </style>
 
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 
 <script type="text/javascript">
    $(function(){
-	  let chatboard_num = $('#chatboard_num').val();
-      let count=0;
-      let scroll_check;
-      let loop_check = true;
-      $('#content').keydown(function(event){
-         if(event.keyCode == 13 && !event.shiftKey) {
-            $('#chatting_form').trigger('submit');
-        }
-    });
+	let chatboard_num = $('#chatboard_num').val();
+    let count=0;
+    let scroll_check;
+    let loop_check = true;
+      	$('#content').keydown(function(event){
+			if(event.keyCode == 13 && !event.shiftKey) { //.event.keyCode == 13 : 엔터키눌렀을 때 이벤트
+				$('#chatting_form').trigger('submit');
+			}
+   		});
       
-		// 채팅 내용 불러오기
+		// *** 1)채팅 내용 불러오기 ***
 		selectData = function() {
 			$.ajax({
 				url:'getChatting.do',
@@ -83,10 +83,12 @@
 					loop_check = false;
 					alert('로그인 후 사용하세요!');   
 				}else if(param.result == 'success'){
+					/* count = param.count; 
+					if(count > 0){
+						scroll_check = true;
+					}else scroll_check = false; */
 					
-					/* if(count<param.count) scroll_check = true;
-					else scroll_check = false;
-					count = param.count; */
+					scroll_check = true;
 					
 						$('#chatting_message').empty();
 					
@@ -98,7 +100,7 @@
 								output += '<div class="to-position">'+item.name;
 							}
 							output += '<div class="item">';
-							output += /* (item.chatstate_num !=0 ? '<b>①</b>' : '') +  */' <span>' + item.content + '</span>';
+							output += /* (item.chatstate_num !=0 ? '<b>①읽기전 </b>' : '') +  */' <span>' + item.content + '</span>';
 							output += '</div>';
 							output += '</div>';
 							
@@ -106,14 +108,19 @@
 							$('#chatting_message').append(output);
 							if(scroll_check){
 								//스크롤를 하단으로 위치시킴
-								$('#chatting_message').scrollTop($("#chatting_message")[0].scrollHeight);
+								$('#chatting_message').scrollTop($("#chatting_message").scrollHeight); //jQeury방식
+								//var scrollDown = document.getElementById("chatting_message"); //js방식
+								//scrollDown.scrollTop = scrollDown.scrollHeight;
+
 							}
-						});   
+						});
+						
 					}else{
 					loop_check = false;
 					alert('오류가 발생했습니다!');   
 					}
 				},
+				
 				error:function(){
 				loop_check = false;
 				alert('네트워크 오류 발생');
@@ -122,9 +129,9 @@
 			
 		}
       
-	selectData();
+	selectData(); //페이지에서 항상 대화기록을 불러오고 시작
       
-		// 채팅 메세지 전송 
+		// *** 2)채팅 메세지 전송  ***
 		$('#chatting_form').submit(function(event){
 			if($('#content').val().trim() == ''){
 			alert('내용을 입력하세요!');
@@ -150,6 +157,7 @@
 					alert('등록시 오류 발생');
 				}
 			},
+
 			error:function(){
 				alert('네트워크 오류!');
 			}
@@ -157,42 +165,45 @@
 			event.preventDefault();
 		});
 		
-$('#모집').click(function() {
-	var check = 0;
-	 if ($(this).text()=='모집중') {
-		 check = 0;
-	}else if($(this).text()=='모집완료'){
-		check = 1;
-	} 
-	$.ajax({
-		url:'updateMateState.do',
-		type:'post',
-		data:{chatboard_num:chatboard_num, check : check }, // dchatting 테이블에 저장돼야하는 값들을 넘겨줍니다
-		dataType:'json',
-		cache:false,
-		timeout:30000,
-		success:function(param){
-			if(param.result == 'logout'){
-				alert('로그인해야 작성할 수 있습니다.');
-			}else if(param.result == 'success'){
-				if (check==0) {
-					$('#모집').text('모집완료');
-					$('#모집').removeClass('bg-light text-dark').addClass('bg-danger');
-					check = 1;
-				}else if (check==1) {
-					$('#모집').text('모집중');
-					$('#모집').removeClass('bg-danger').addClass('bg-light text-dark');
-					check = 0;
+		// *** 3)모집 상태 변경  ***
+		$('#모집').click(function() {
+			var check = 0;
+			if ($(this).text()=='모집중') {
+				check = 0;
+			}else if($(this).text()=='모집완료'){
+				check = 1;
+			} 
+			$.ajax({
+				url:'updateMateState.do',
+				type:'post',
+				data:{chatboard_num:chatboard_num, check : check }, // dchatting 테이블에 저장돼야하는 값들을 넘겨줍니다
+				dataType:'json',
+				cache:false,
+				timeout:30000,
+				success:function(param){
+					if(param.result == 'logout'){
+						alert('로그인해야 작성할 수 있습니다.');
+					}else if(param.result == 'success'){
+						if (check==0) {
+							$('#모집').text('모집완료');
+							$('#모집').removeClass('bg-light text-dark').addClass('bg-danger');
+							check = 1;
+						}else if (check==1) {
+							$('#모집').text('모집중');
+							$('#모집').removeClass('bg-danger').addClass('bg-light text-dark');
+							check = 0;
+						}
+					}else{
+						alert('모집완료로 변경시 오류 발생');
+					}
+				},
+
+				error:function(){
+					alert('네트워크 오류!');
 				}
-			}else{
-				alert('모집완료로 변경시 오류 발생');
-			}
-		},
-		error:function(){
-			alert('네트워크 오류!');
-		}
+			});
 		});
-});
+
    });	
 
 </script>

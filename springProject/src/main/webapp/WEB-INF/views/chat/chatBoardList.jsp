@@ -216,7 +216,7 @@
 						<td style="width: 15%">
 							${dchatboard.reg_date}
 						</td>
-								
+						<!-- mate_state : 0 모집중/1 모집완료 -->		
 						<c:if test="${dchatboard.mate_state==0}">
 							<td style="width: 15%">
 								<span class="badge rounded-pill bg-danger">모집 중!</span>

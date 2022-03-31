@@ -117,7 +117,7 @@
 		</where>
 	</select>
 	
-	<!-- 글 수정  -->
+	<!-- **글 수정  -->
 	<update id="updateBoard" parameterType="chatBoardVO">
 		UPDATE dchatboard SET
 			title=#{title},
@@ -127,7 +127,7 @@
 	</update>
 	
 	
-	<!-- 메이트 상태 변경  -->
+	<!-- **메이트 상태 변경  -->
 	<update id="update_mateState" parameterType="map" >
 		UPDATE dchatboard
 		<set>
@@ -140,69 +140,6 @@
 		</set>
 		WHERE chatboard_num=#{chatboard_num}
 	</update>
-	
-	<!-- 
-		<update id="update_mateState" parameterType="chatBoardVO">
-		UPDATE dchatboard 
-			<set>
-				<if test="mate_state == 0">
-					mate_state = 1, 
-				</if>
-				<if test="mate_state == 1">
-					mate_state = 0  
-				</if>
-			</set>
-			
-			
-			<choose>
-				<when test="{mate_state} == 0" >
-					mate_state = 1 
-				</when>
-				<when test="{mate_state} == 1" >
-					mate_state = 0  
-				</when>
-				<otherwise>
-					mate_state = 1 
-				</otherwise>
-			</choose>
-			
-		WHERE chatboard_num=#{chatboard_num}
-	</update>
-	
-	 -->			
-	<!-- **댓글** -->
-	<!-- [댓글 목록] -->
-	
-	<!-- 
-	<select id="selectListReply" parameterType="map" resultType="boardReplyVO">
-						
-						
-		SELECT
-			*
-		FROM (SELECT
-				a.*,
-				rownum rnum
-			  FROM (SELECT
-						re_num,
-						re_content은 HTML태그 불허
-						<![CDATA[
-						REPLACE(REPLACE(re_content,'<','&lt;'),'>','&gt;')AS re_content,						
-						]]>
-						re_date,
-						re_mdate,
-						board_num,
-						mem_num,
-						id
-					FROM spboard_reply
-					JOIN spmember USING(mem_num)
-					WHERE board_num = #{board_num}
-					ORDER BY re_num DESC)a)
-		<![CDATA[
-		WHERE rnum >= #{start} AND rnum <= #{end}
-		]]>
-		페이지 처리에 특수문자가 들어가므로 CDATA사용
-	</select> 
-	-->
 	
 </mapper>
 
