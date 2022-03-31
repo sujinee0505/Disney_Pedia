@@ -46,9 +46,8 @@ public class CommentServiceImpl implements CommentService {
 	
 	//작업아직
 	@Override
-	public CommentVO selectComment(Integer comment_num) {
-		// TODO Auto-generated method stub
-		return null;
+	public CommentVO selectComment(int comment_num) {
+		return commentMapper.selectComment(comment_num);
 	}
 
 

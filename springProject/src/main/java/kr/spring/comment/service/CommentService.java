@@ -22,7 +22,7 @@ public interface CommentService {
 	//작업아직
 	public List<CommentVO> selectList(CommentVO comment);
 	public int selectRowCount(Map<String,Object> map);
-	public CommentVO selectComment(Integer comment_num);
+	public CommentVO selectComment(int comment_num);
 
 	//내가쓴 코멘트 목록
 	public List<CommentVO> selectListByMem_num(int mem_num);

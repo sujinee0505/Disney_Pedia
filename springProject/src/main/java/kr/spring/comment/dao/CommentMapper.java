@@ -35,14 +35,17 @@ public interface CommentMapper {
 	@Delete("DELETE FROM dcomment WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
 	public void deleteComment(CommentVO commentVO);
 
+	
 	/*
 	 * "SELECT * FROM qboard b JOIN qmember m " +
 	 * "ON b.user_num=m.user_num WHERE b.board_num=?";
 	 * 
 	 * @Select("SELECT * FROM dcomment c JOIN dmember m ON c.mem_num=m.mem_num " +
-	 * "WHERE c.comment_num=#{comment_num}") public CommentVO selectComment(Integer
-	 * comment_num);
+	 * "WHERE c.comment_num=#{comment_num}")
 	 */
+	@Select("SELECT a.*, s.star FROM (SELECT d.name, c.* FROM dmember_detail d JOIN dcomment c ON d.mem_num = c.mem_num) a LEFT OUTER JOIN dcontents_star s ON s.star_num = a.star_num WHERE a.comment_num =#{comment_num}")
+	  public CommentVO selectComment(int comment_num);
+	 
 	@Select("SELECT a.*, s.star FROM (SELECT d.name, c.* FROM dmember_detail d JOIN dcomment c ON d.mem_num=c.mem_num ) a LEFT OUTER JOIN dcontents_star s ON a.star_num = s.star_num WHERE a.contents_type=#{contents_type} and a.contents_num=#{contents_num}")
 	public List<CommentVO> selectList(CommentVO comment); // 코멘트전체목록
 

@@ -27,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.spring.comment.service.CommentService;
 import kr.spring.comment.vo.CommentLikeVO;
 import kr.spring.comment.vo.CommentVO;
+import kr.spring.contents.service.ContentsService;
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.StarVO;
 import kr.spring.member.vo.MemberVO;
@@ -40,6 +41,9 @@ public class CommentController {
 
 	@Autowired
 	private CommentService commentService;
+
+	@Autowired
+	private ContentsService contentsService;
 
 	// 자바빈(vo) 초기화
 	@ModelAttribute
@@ -93,13 +97,13 @@ public class CommentController {
 		if (user_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
 		} else {// 로그인 된 경우
-			//업데이트
+			// 업데이트
 			commentService.updateComment(commentVO);
 			map.put("result", "success");
 		}
 		return map;
 	}
-	
+
 	// 코멘트 ajax 삭제
 	@RequestMapping("/contents/commentDelete.do")
 	@ResponseBody
@@ -111,13 +115,12 @@ public class CommentController {
 		if (user_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
 		} else {// 로그인 된 경우
-			//삭제
+			// 삭제
 			commentService.deleteComment(commentVO);
 			map.put("result", "success");
 		}
 		return map;
 	}
-	
 
 	// 내가 쓴 코멘트 목록
 	@RequestMapping("/member/myComment.do")
@@ -138,6 +141,20 @@ public class CommentController {
 		mav.setViewName("myComment");
 		mav.addObject("commentList", commentList);
 		mav.addObject("contentsList", contentsList);
+		return mav;
+	}
+
+	@RequestMapping("/contents/cmtDetail.do")
+	public ModelAndView selectComment(CommentVO commentVO) {
+		CommentVO comment = commentService.selectComment(commentVO.getComment_num());
+		
+		GetInfoUtil util = new GetInfoUtil();
+		ContentsVO contents = util.getInfoDetail(commentVO.getContents_type(), commentVO.getContents_num());
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("commentDetail");
+		mav.addObject("comment", comment);
+		mav.addObject("contents", contents);
 		return mav;
 	}
 

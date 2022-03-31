@@ -673,7 +673,7 @@
 																		</div>
 																		<div class="css-ob93md">
 																			<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
-																				href="cmtDetail.do"><div
+																				href="cmtDetail.do?contents_type=${param.contents_type }&contents_num=${param.contents_num }&comment_num=${commetList.comment_num }"><div
 																					class=" css-12rbc09-StyledSelf eb5y16b0">
 																					<div class="css-qxbzku-StyledText">${commetList.content }
 																						</div>

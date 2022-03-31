@@ -1,47 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <section class="css-18gwkcr">
 	<div class="css-fr521c-StyledSectionContainer e1rmcw6u2">
 		<div class="css-1d7xpnn-CommentContainer e1rmcw6u3">
 			<section class="css-0">
 				<div class="css-1p3jp2v">
 					<div class="css-1cvf9dk">
-						<a title="rushmore"
+						<a title="${comment.name }"
 							class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 							href="/ko-KR/users/6ewxadRLk5Q1m"><div class="css-1byz60h">
-								<div class="css-1l9hju7-ProfilePhotoImage"></div>
+								<div class="css-1l9hju7-ProfilePhotoImage"><img
+									width="20" height="20"	class="my-photo"
+										src="${pageContext.request.contextPath}/member/photoView.do?user_num=${comment.mem_num}"></div>
 							</div>
 							<div class="css-1sg2lsz">
 								<div class="css-a7gqjg">
-									rushmore<span
-										src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQuNzcwNDYgMC41NjI0NTlDNS4yNDMyOCAtMC4xNTY0MzIgNi4zMTE0NyAtMC4xOTMwNyA2LjgzNTM1IDAuNDkyMTU1QzcuMTczMzcgMC45MzM3ODggNy43NzM4NSAxLjEwMTEzIDguMzAxODEgMC45MDAxMjFDOS4xMTk4IDAuNTg4MjA1IDEwLjAwNjIgMS4xNjc0OCAxMC4wMTQ0IDIuMDIxMDRDMTAuMDE5NSAyLjU2OTYxIDEwLjQwNTUgMy4wNDc4OCAxMC45NTM5IDMuMTg1NTJDMTEuODA0NiAzLjM5OTQxIDEyLjE3MDIgNC4zNzQ3NiAxMS42NjA2IDUuMDY4OUMxMS4zMzE4IDUuNTE2NDggMTEuMzUzMiA2LjEyMTQ5IDExLjcxMzcgNi41NDYyOUMxMi4yNzIzIDcuMjA0NzggMTEuOTc3MiA4LjIwMTkyIDExLjE0MzggOC40NzIyNUMxMC42MDY3IDguNjQ3NTIgMTAuMjU3NCA5LjE1MDU0IDEwLjI5MTEgOS42OTkxMkMxMC4zNDQyIDEwLjU0OTcgOS41MDE3NCAxMS4xODc0IDguNjYzMzIgMTAuOTMxOUM4LjEyMjA4IDEwLjc2NzYgNy41MzQ4OCAxMC45NzQ1IDcuMjI5NTQgMTEuNDM3OUM2Ljc1NjcyIDEyLjE1NjggNS42ODc1MSAxMi4xOTI1IDUuMTY0NjUgMTEuNTA4MkM0LjgyNjYzIDExLjA2NTYgNC4yMjYxNSAxMC44OTgzIDMuNjk4MTkgMTEuMTAwM0MyLjg4MDIgMTEuNDEyMiAxLjk5Mzc4IDEwLjgzMTkgMS45ODQ1OSA5Ljk4MDM0QzEuOTgwNTEgOS40Mjk3OCAxLjU5NTUxIDguOTUyNSAxLjA0NjEgOC44MTM4N0MwLjE5NTQyOCA4LjU5OTk5IC0wLjE3MDE2NiA3LjYyNjYxIDAuMzM5NDE5IDYuOTMyNDdDMC42NjgyNDkgNi40ODM5MSAwLjY0NjgwNCA1Ljg3NzkgMC4yODYzMTYgNS40NTMxQy0wLjI3MjI4NyA0Ljc5NDYxIDAuMDIyODQzIDMuNzk5NDUgMC44NTYxNTIgMy41MjcxNUMxLjM5MzMxIDMuMzUyODcgMS43NDM1OSAyLjg1MDgzIDEuNzA4ODYgMi4zMDEyN0MxLjY1NTc2IDEuNDUwNjggMi40OTgyNiAwLjgxMTk5MiAzLjMzNjY4IDEuMDY4NDZDMy44Nzc5MiAxLjIzMjgzIDQuNDY1MTIgMS4wMjU4OCA0Ljc3MDQ2IDAuNTYyNDU5WiIgZmlsbD0iIzBFMEYxMCIvPgogIDxwYXRoIGQ9Ik03LjY5NzMzIDIuNDUwMkw3LjI4NjEyIDcuNzkzOTJMNy4xNzc3NCA3Ljc5ODI4TDYuNDUyMjYgMy45Nzk3NUg1LjI2MTIzTDQuNjY1NTggNy44OTE1N0w0LjUzNTc1IDcuODk2OEwzLjk1MDk2IDMuOTc5NzVIMi41TDMuODEwMjcgOS43MTU4Mkw1LjMxNTI4IDkuNjE0MzlMNS44NDU3NCA1Ljk3MTdINS45NjQ5OEw2LjU2MDM1IDkuNTMwMTFMOC4wNzY1MSA5LjQyNzIzTDkuMTA1MTEgMi40NTAySDcuNjk3MzNaIiBmaWxsPSIjRkYwNTU4Ii8+Cjwvc3ZnPgo="
+									${comment.name }<span
+										src="${pageContext.request.contextPath}/member/photoView.do?user_num=${comment.mem_num}"
 										class="css-19w3a64"></span>
 								</div>
-								<div class="css-1hy7aba">4개월 전</div>
+								<div class="css-1hy7aba">
+									<fmt:formatDate value="${comment.reg_date }" pattern="yy/MM/dd" />
+								</div>
 							</div></a><a title="티탄" class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 							href="/ko-KR/contents/mWLyRm0"><div class="css-0">
-								<div class="css-dbu6le">티탄</div>
-								<div class="css-1futg35">영화 · 2021</div>
+								<div class="css-dbu6le">${contents.title}</div>
+								<div class="css-1futg35">${contents.contents_type}
+									·
+									<fmt:formatDate value="${contents.release_date }"
+										pattern="yyyy/MM" />
+								</div>
 							</div></a>
 						<div class="css-1edcxeb">
 							<div class="css-1cxhrll">
 								<img
 									src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM0QTRBNEEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDE3Ljk4bC02LjAxNSA0LjM5MmMtLjUwOC4zNzItMS4xOTQtLjEyNi0uOTk4LS43MjVsMi4zMTctNy4wODEtNi4wMzUtNC4zNjdjLS41MS0uMzY5LS4yNDctMS4xNzUuMzgyLTEuMTc0bDcuNDQ3LjAxNiAyLjI4Ni03LjA5MWMuMTkyLS42IDEuMDQtLjYgMS4yMzMgMGwyLjI4NiA3LjA5IDcuNDQ3LS4wMTVjLjYyOS0uMDAxLjg5LjgwNS4zOCAxLjE3NGwtNi4wMzMgNC4zNjcgMi4zMTYgNy4wOGMuMTk2LjYtLjQ5IDEuMDk4LS45OTkuNzI2TDEyIDE3Ljk4eiIvPgo8L3N2Zz4K"
-									width="16px" height="16px" alt="star"><span>5.0</span>
+									width="16px" height="16px" alt="star"><span> <c:if
+										test="${comment.star > 0 }">${comment.star }</c:if> <c:if
+										test="${comment.star == 0 }">평가하기</c:if>
+								</span>
 							</div>
 						</div>
 					</div>
-					<a title="티탄" class="css-1f9m1s4-StylelessLocalLink eovgsd01"
+					<a title="${contents.title}"
+						class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 						href="/ko-KR/contents/mWLyRm0"><div
 							class=" css-mnjeq6-StyledLazyLoadingImage ezcopuc0">
-							<img alt="티탄의 포스터"
-								src="https://an2-img.amz.wtchn.net/image/v2/Xo_w6W0yifrBvTyzfAXxbw.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1qZ3dlRFF3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk16WTFNamt6TWpJeU56RXpOVFUzTWpNaWZRLm9NQllPeFBlTTZhR0lwb2YzTnVLRThKYUJqMGUzd3hCUTZORWVZSWplME0"
+							<img alt="${contents.title}의 포스터" src="${contents.poster_path }"
 								class="css-qhzw1o-StyledImg ezcopuc1">
 						</div></a>
 				</div>
 				<div class="css-cb09zq">
 					<div class="css-1g78l7j">
-						<span>난 자동차를 낳을 줄 알았는데 그 정도는 아니었군요 감독님,,, 아무튼 따스한 금속영화..</span>
+						<span>${comment.content }</span>
 					</div>
 				</div>
 				<div class="css-hkgyal">

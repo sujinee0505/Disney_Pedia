@@ -202,8 +202,4 @@ public class ContentsController {
 		return mav;
 	}
 
-	@GetMapping("/contents/cmtDetail.do")
-	public String form() {
-		return "commentDetail";
-	}
 }

@@ -5,22 +5,31 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="myComment" extends="main">
-    	<put-attribute name="title" value="마이코멘트"/>
-    	<put-attribute name="body" value="/WEB-INF/views/member/myComment.jsp"/>
-    </definition>
-    <definition name="commentWrite" extends="main">
-    	<put-attribute name="title" value="코멘트작성"/>
-    	<put-attribute name="body" value="/WEB-INF/views/contents/comment.jsp"/>
-    </definition>
-    <definition name="commentUpdate" extends="main">
-    	<put-attribute name="title" value="코멘트수정"/>
-    	<put-attribute name="body" value="/WEB-INF/views/contents/commentUpdate.jsp"/>
-    </definition>
-    <definition name="commenList" extends="main">
-    	<put-attribute name="title" value="코멘트목록"/>
-    	<put-attribute name="body" value="/WEB-INF/views/contents/commentList.jsp"/>
-    </definition>
+	<definition name="myComment" extends="main">
+		<put-attribute name="title" value="마이코멘트" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/myComment.jsp" />
+	</definition>
+	<definition name="commentWrite" extends="main">
+		<put-attribute name="title" value="코멘트작성" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/contents/comment.jsp" />
+	</definition>
+	<definition name="commentUpdate" extends="main">
+		<put-attribute name="title" value="코멘트수정" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/contents/commentUpdate.jsp" />
+	</definition>
+	<definition name="commenList" extends="main">
+		<put-attribute name="title" value="코멘트목록" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/contents/commentList.jsp" />
+	</definition>
+	<definition name="commentDetail" extends="main">
+		<put-attribute name="title" value="코멘트 상세 페이지" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/contents/cmtDetail.jsp" />
+	</definition>
 </tiles-definitions>
 
 
