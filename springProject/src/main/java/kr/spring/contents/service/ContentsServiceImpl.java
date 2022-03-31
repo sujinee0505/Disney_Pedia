@@ -41,6 +41,7 @@ public class ContentsServiceImpl implements ContentsService {
 		contentsMapper.deleteStar(star);
 	}
 
+	
 	// 보고싶어요
 	@Override
 	public void contentsLike(LikeVO like) {
