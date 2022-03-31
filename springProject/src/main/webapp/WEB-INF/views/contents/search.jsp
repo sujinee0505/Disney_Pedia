@@ -23,10 +23,6 @@
 				</li>
 				<li><a
 					class="<c:if
-					test="${param.category eq 'collections' }">css-s8lqsd-StyledTab e1szkzar0</c:if><c:if test="${param.category ne 'collections' }">css-4tchbd-StyledTab e1szkzar0</c:if>"
-					href="${pageContext.request.contextPath}/contents/search.do?keyword=${param.keyword }&category=collections">컬렉션</a></li>
-				<li><a
-					class="<c:if
 					test="${param.category eq 'users'}">css-s8lqsd-StyledTab e1szkzar0</c:if><c:if test="${param.category ne 'users' }">css-4tchbd-StyledTab e1szkzar0</c:if>"
 					href="${pageContext.request.contextPath}/contents/search.do?keyword=${param.keyword }&category=users">유저</a></li>
 			</ul>

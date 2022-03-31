@@ -109,11 +109,9 @@ input[type=button] {
 													<div class="profile-userbutton">
 														<input type="button" value="프로필수정"
 															onclick="location.href='update.do'"> <a
-															href="myComment.do<%-- ?mem_num${member.mem_num } --%>"> <img
+															href="myComment.do<%-- ?mem_num${member.mem_num } --%>">
+															<img
 															src="${pageContext.request.contextPath}/resources/images/review.png"
-															width="40" height="40">
-														</a> <a href="/member/myList.do"> <img
-															src="${pageContext.request.contextPath}/resources/images/list.png"
 															width="40" height="40">
 														</a> <a href="myCalendar.do?mem_num=${member.mem_num}"> <img
 															src="${pageContext.request.contextPath}/resources/images/cal.png"
@@ -198,7 +196,6 @@ input[type=button] {
 											test="${param.user_num ==0 || user_num == member.mem_num}">
 											<div class="mylike">
 												<h2>좋아요</h2>
-												<h4>좋아한 컬렉션</h4>
 												<h4>좋아한 리뷰</h4>
 											</div>
 										</c:if>

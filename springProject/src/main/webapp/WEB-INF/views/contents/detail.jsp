@@ -552,12 +552,6 @@
 											<div class="css-1y901al-Row emmoxnt0">
 												<header class="css-1ue9xs6">
 													<h2 class="css-1wtjsst">코멘트</h2>
-													<div class="css-s289sk">
-														<div class="css-1ugqy9j">
-															<button
-																style="color: #ff2f6e; border: none; background: none; cursor: pointer;">더보기</button>
-														</div>
-													</div>
 												</header>
 											</div>
 										</div>
@@ -593,7 +587,7 @@
 																		</div>
 																		<div class="css-ob93md">
 																			<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
-																				href="/ko-KR/comments/7JVEod85eV29y"><div
+																				href="cmtDetail.do"><div
 																					class=" css-12rbc09-StyledSelf eb5y16b0">
 																					<div class="css-qxbzku-StyledText">3명의
 																						스파이더맨을거치면서 더이상의 특별한 스파이더맨은 없을 줄 알았다. 뉴유니버스는 내 생각이

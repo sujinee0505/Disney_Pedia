@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,10 +36,10 @@ public class ContentsController {
 
 	@Autowired
 	private CalendarService calendarService;
-	
+
 	@Autowired
 	private CommentService commentService;
-	
+
 	@RequestMapping("/contents/detail.do")
 	// 컨텐츠 타입(movie/tv), 컨텐츠 id를 인자로 받음
 	public ModelAndView process(@RequestParam String contents_type, @RequestParam int contents_num,
@@ -60,12 +61,12 @@ public class ContentsController {
 		List<ContentsVO> temp = new ArrayList<ContentsVO>();
 		// 일단 모든 컨텐츠를 불러와서 저장
 		temp = util.getInfoList(contents_type);
-		
+
 		for (int i = 0; i < temp.size(); i++) {
 			List<Integer> list1 = new ArrayList<>(temp.get(i).getGenres()); // 모든 컨텐츠들의 장르를 for문을 돌면서 계속 바꿔주면서 넣어줌
 			List<Integer> list2 = new ArrayList<>(contents.getGenres()); // 상세 페이지에 출력할 컨텐츠의 장르
-			
-			/* 즉, 하나의 컨텐츠의 장르와 여러개의 컨텐츠의 장르를 루프를 통해 매번 서로 비교하는것   */
+
+			/* 즉, 하나의 컨텐츠의 장르와 여러개의 컨텐츠의 장르를 루프를 통해 매번 서로 비교하는것 */
 
 			// 등록되어 있는 장르가 1개일 경우
 			if (list2.size() == 1) {
@@ -96,37 +97,37 @@ public class ContentsController {
 		ModelAndView mav = new ModelAndView();
 
 		Integer user_num = (Integer) session.getAttribute("user_num");
-		
+
 		if (user_num != null) {
-			//CommentVO
+			// CommentVO
 			CommentVO comment = new CommentVO();
 			comment.setContents_num(contents_num);
 			comment.setContents_type(contents_type);
 			comment.setMem_num(user_num);
 			CommentVO getComment = commentService.getComment(comment);
-			int checkComment = commentService.checkComment(comment);			
+			int checkComment = commentService.checkComment(comment);
 			mav.addObject("getComment", getComment);
 			mav.addObject("checkComment", checkComment);
-			
+
 			LikeVO like = new LikeVO();
 			like.setContents_num(contents_num);
 			like.setContents_type(contents_type);
 			like.setMem_num(user_num);
 			int check = contentsService.checkLike(like); // 보고싶어요 등록 여부 확인
 			mav.addObject("check", check); // 1 → 등록 되어 있음 0 → 등록 되어 있지 않음
-			
+
 			CalendarVO calendar = new CalendarVO();
 			calendar.setContents_num(contents_num);
 			calendar.setContents_type(contents_type);
 			calendar.setMem_num(user_num);
 			String dateCheck = calendarService.checkDate(calendar); // 캘린더 등록 여부 확인
-			
+
 			if (dateCheck != null) {
 				mav.addObject("dateCheck", dateCheck); // 캘린더에 등록이 되어 있을 경우 날짜를 전달
 			} else {
 				mav.addObject("dateCheck", "noData"); // 캘린더에 등록이 되어 있지 않을 경우 noData라고 전달
 			}
-			
+
 		} else if (user_num == null) { // 로그인 안돼있는 상태에서 디테일 페이지를 열람하면 오류가 발생하길래 임의의 값 전달
 			mav.addObject("user_num", 0);
 			mav.addObject("check", 0);
@@ -184,14 +185,19 @@ public class ContentsController {
 			// 위의 과정을 통해 생성된 List를 공개날짜순으로 다시 정렬
 			Collections.sort(search_result, new SortByDate());
 			mav.addObject("search_result", search_result);
-			
+
 			// 검색 대상이 user일 경우
 		} else if (category.equals("users")) {
 			List<MemberVO> user_list = new ArrayList<MemberVO>();
 			String name = keyword;
 			user_list = memberService.searchUsers(name);
 			mav.addObject("user_list", user_list);
-		} 
+		}
 		return mav;
+	}
+
+	@GetMapping("/contents/cmtDetail.do")
+	public String form() {
+		return "commentDetail";
 	}
 }
