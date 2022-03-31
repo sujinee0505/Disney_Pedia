@@ -108,9 +108,9 @@
 							$('#chatting_message').append(output);
 							if(scroll_check){
 								//스크롤를 하단으로 위치시킴
-								$('#chatting_message').scrollTop($("#chatting_message").scrollHeight); //jQeury방식
-								//var scrollDown = document.getElementById("chatting_message"); //js방식
-								//scrollDown.scrollTop = scrollDown.scrollHeight;
+								//$('#chatting_message').scrollTop($("#chatting_message").scrollHeight); //jQeury방식
+								var scrollDown = document.getElementById("chatting_message"); //js방식
+								scrollDown.scrollTop = scrollDown.scrollHeight;
 
 							}
 						});
