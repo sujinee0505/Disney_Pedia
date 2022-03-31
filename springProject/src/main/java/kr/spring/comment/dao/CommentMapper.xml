@@ -3,7 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
 <mapper namespace="kr.spring.comment.dao.CommentMapper"> 
-	<select id="selectList" parameterType="map" resultType="CommentVO"> 
+<!-- 	<select id="selectList" parameterType="map" resultType="CommentVO"> 
 		SELECT
 		  *
 		FROM (SELECT 
@@ -21,6 +21,6 @@
 		<![CDATA[
 		WHERE rnum >= #{start} AND rnum <= #{end}
 		]]>
-	</select>	
+	</select>	 -->
 </mapper>
 

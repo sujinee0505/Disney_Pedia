@@ -14,6 +14,7 @@ public class CommentVO {
 	// 수진
 	private int count;
 	private double star;
+	private String name;
 
 	public int getComment_num() {
 		return comment_num;
@@ -85,6 +86,14 @@ public class CommentVO {
 
 	public void setStar(double star) {
 		this.star = star;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

@@ -45,18 +45,12 @@ public class ContentsController {
 	// 컨텐츠 타입(movie/tv), 컨텐츠 id를 인자로 받음
 	public ModelAndView process(@RequestParam String contents_type, @RequestParam int contents_num,
 			HttpSession session) {
-		ContentsVO contents = new ContentsVO();
-		List<String> images = new ArrayList<String>();
-		List<CreditsVO> cast = new ArrayList<CreditsVO>();
-		List<CreditsVO> crew = new ArrayList<CreditsVO>();
-		List<ContentsVO> reco = new ArrayList<ContentsVO>();
-
 		GetInfoUtil util = new GetInfoUtil();
-
-		contents = util.getInfoDetail(contents_type, contents_num);
-		images = util.getImages(contents_type, contents_num);
-		cast = util.getCredits(contents_type, contents_num, "cast");
-		crew = util.getCredits(contents_type, contents_num, "crew");
+		ContentsVO contents = util.getInfoDetail(contents_type, contents_num);
+		List<String> images = util.getImages(contents_type, contents_num);
+		List<CreditsVO> cast =util.getCredits(contents_type, contents_num, "cast");
+		List<CreditsVO> crew = util.getCredits(contents_type, contents_num, "crew");
+		List<ContentsVO> reco = new ArrayList<ContentsVO>();
 
 		// 임시로 사용할 List 생성
 		List<ContentsVO> temp = new ArrayList<ContentsVO>();
@@ -117,6 +111,9 @@ public class ContentsController {
 			int checkComment = commentService.checkComment(comment);
 			mav.addObject("getComment", getComment);
 			mav.addObject("checkComment", checkComment);
+			// 죄송해요 시험해볼게있어서
+			List<CommentVO> commetList = commentService.selectList(comment);
+			mav.addObject("commetList",commetList);
 
 			LikeVO like = new LikeVO();
 			like.setContents_num(contents_num);

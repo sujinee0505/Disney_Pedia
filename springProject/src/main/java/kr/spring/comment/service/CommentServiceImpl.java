@@ -53,8 +53,8 @@ public class CommentServiceImpl implements CommentService {
 
 
 	@Override
-	public List<CommentVO> selectList(Map<String, Object> map) {
-		return commentMapper.selectList(map);
+	public List<CommentVO> selectList(CommentVO comment) {
+		return commentMapper.selectList(comment);
 	}
 
 	@Override

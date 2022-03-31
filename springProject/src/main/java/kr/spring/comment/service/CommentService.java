@@ -20,7 +20,7 @@ public interface CommentService {
 	public void updateComment(CommentVO comment);
 	public void deleteComment(CommentVO comment);
 	//작업아직
-	public List<CommentVO> selectList(Map<String,Object> map);
+	public List<CommentVO> selectList(CommentVO comment);
 	public int selectRowCount(Map<String,Object> map);
 	public CommentVO selectComment(Integer comment_num);
 

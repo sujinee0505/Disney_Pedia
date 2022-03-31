@@ -317,6 +317,7 @@
 		 });    
 		</script>  	
 		<!--======별점 부분 끝======-->	
+
 											</div>
 											<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 											<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
@@ -391,7 +392,7 @@
 											<button data-bs-target="#calendarModal"
 												data-bs-toggle="modal"
 												class="css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm e1svyhwg25"
-												style="color:<c:if test="${dateCheck ne 'noData'}">#1eb0d9;</c:if><c:if test="${dateCheck eq 'noData'}">black;</c:if>">
+												style="color:<c:if test="${!empty dateCheck && dateCheck ne 'noData'}">#1eb0d9;</c:if><c:if test="${!empty dateCheck && dateCheck eq 'noData'}">black;</c:if>">
 												<div class="Icon icPencil css-1q1i623-SVG e1282e850">
 													<div id="calOn" style="display: none;">
 														<svg version="1.1" id="Capa_1"
@@ -648,7 +649,7 @@
 														<div class="css-1y901al-Row emmoxnt0">
 															<ul
 																class="ew8mnl61 css-nh9j5x-VisualUl-CommentHorizontalUl">
-
+																<c:forEach var="commetList" items="${commetList }">
 																<li class="css-1fryc54"><div class="css-17dwc6k">
 																		<div class="css-4obf01">
 																			<div class="css-1cvf9dk">
@@ -656,32 +657,26 @@
 																					class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 																					href=""><div class="css-107z6xc">
 																						<div class="css-bv6e27-ProfilePhotoImage">
-																							<img
-																								src="${pageContext.request.contextPath}/resources/images/face.png"
-																								style="object-fit: cover; width: 100%; height: 100%;">
+																							<img width="32" height="32" class="my-photo"
+																								src="${pageContext.request.contextPath}/member/photoView.do?user_num=${commetList.mem_num}">
 																						</div>
 																					</div>
 																					<div class="css-1agoci2">
-																						박수진<span src="" class="css-amcv0d"></span>
+																						${commetList.name }<span src="" class="css-amcv0d"></span>
 																					</div></a>
 																			</div>
 																			<div class="css-yqs4xl">
 																				<img
 																					src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM0QTRBNEEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDE3Ljk4bC02LjAxNSA0LjM5MmMtLjUwOC4zNzItMS4xOTQtLjEyNi0uOTk4LS43MjVsMi4zMTctNy4wODEtNi4wMzUtNC4zNjdjLS41MS0uMzY5LS4yNDctMS4xNzUuMzgyLTEuMTc0bDcuNDQ3LjAxNiAyLjI4Ni03LjA5MWMuMTkyLS42IDEuMDQtLjYgMS4yMzMgMGwyLjI4NiA3LjA5IDcuNDQ3LS4wMTVjLjYyOS0uMDAxLjg5LjgwNS4zOCAxLjE3NGwtNi4wMzMgNC4zNjcgMi4zMTYgNy4wOGMuMTk2LjYtLjQ5IDEuMDk4LS45OTkuNzI2TDEyIDE3Ljk4eiIvPgo8L3N2Zz4K"
-																					width="16px" height="16px" alt="star"><span>4.0</span>
+																					width="16px" height="16px" alt="star"><span><c:if test="${commetList.star > 0 }">${commetList.star }</c:if> </span>
 																			</div>
 																		</div>
 																		<div class="css-ob93md">
 																			<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 																				href="cmtDetail.do"><div
 																					class=" css-12rbc09-StyledSelf eb5y16b0">
-																					<div class="css-qxbzku-StyledText">3명의
-																						스파이더맨을거치면서 더이상의 특별한 스파이더맨은 없을 줄 알았다. 뉴유니버스는 내 생각이
-																						틀렸다고,우린 이렇게 새롭게 태어날 수 있다고 말하는 작품같았다. 만화책을 그대로
-																						스크린으로 옮겨놓은 듯한 이 작품은 굉장히 속도감있고 유쾌하며 힙하다. 스토리는 그렇게
-																						특별하다고 볼 수 없을지도 모른다. 그런데 이 작품은 기존의 스파이더맨을 영리하게 비틀어서
-																						얘기한다. 뻔한장면이 될뻔한 이야기를 뻔하지 않게 재밌게 표현할 줄 아는 작품이다.
-																						이야기는 템포조절이 유려하고 각 캐릭터의 이해도가 높아 더 몰입할 수 있게 만들었다.</div>
+																					<div class="css-qxbzku-StyledText">${commetList.content }
+																						</div>
 																				</div></a>
 																		</div>
 																		<div class="css-1atijos">
@@ -693,6 +688,7 @@
 																			<button class="css-1h18l7j-StylelessButton">좋아요</button>
 																		</div>
 																	</div></li>
+																	</c:forEach>
 																<div class="css-ml096x"></div>
 															</ul>
 														</div>
@@ -794,14 +790,6 @@
 	<div class="modal-dialog modal-dialog-centered modal-comment">
 		<div class="modal-content">
 			<jsp:include page="/WEB-INF/views/contents/calendar.jsp" />
-		</div>
-	</div>
-</div>
-<div class="modal fade" id="collectionsModal" tabindex="-1"
-	role="dialog">
-	<div class="modal-dialog modal-dialog-centered modal-comment">
-		<div class="modal-content">
-			<jsp:include page="/WEB-INF/views/contents/collections.jsp" />
 		</div>
 	</div>
 </div>
