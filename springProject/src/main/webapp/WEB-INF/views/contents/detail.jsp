@@ -144,8 +144,11 @@
 														<span id="rating_text"></span>
 													</div>
 												</div>
-	<!--=======별점 부분=======-->	<%-- <div class="css-1m7ruyk"> --%>
-			<div class="star_area">
+	<!--=======별점 부분=======-->
+	<%--평가 기록이 없으면(starVO == null) 평가할수있는 별점 div를 표시, 
+	기록이 있으면(starVO != null) starVO에서 star(별점)을 불러와 점수에 따라 별점 width 변화
+	설정: ContentsController line 104~ --%>
+	<div class="star_area">
 	    <c:if test="${starVO == null}">
 			<div class="rateit" id="starRate" data-contentsid="${contents.contents_num}"
 			data-rateit-mode="font"  style="font-size:38px;"><%-- letter-spacing:-0.14em; --%>
@@ -314,7 +317,6 @@
 		 });    
 		</script>  	
 		<!--======별점 부분 끝======-->	
-
 											</div>
 											<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 											<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
