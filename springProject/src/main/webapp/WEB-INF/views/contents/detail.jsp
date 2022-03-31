@@ -157,17 +157,48 @@
 			</div>
 			<script type="text/javascript">
 			$(function(){
-				var rate = ${starVO.star};
-				if(rate==0.5){$('.rateit-selected').css('width','18.9965px');}
-				if(rate==1){$('.rateit-selected').css('width','37.993px');}
-				if(rate==1.5){$('.rateit-selected').css('width','56.9895px');}
-				if(rate==2){$('.rateit-selected').css('width','75.986px');}
-				if(rate==2.5){$('.rateit-selected').css('width','94.9825px');}
-				if(rate==3){$('.rateit-selected').css('width','113.979px');}
-				if(rate==3.5){$('.rateit-selected').css('width','132.976px');}
-				if(rate==4){$('.rateit-selected').css('width','151.972px');}
-				if(rate==4.5){$('.rateit-selected').css('width','170.969px');}
-				if(rate==5){$('.rateit-selected').css('width','189.965px');}
+				$('#do_rating').hide(); //평가하기문구hide
+				var rate = ${starVO.star};				
+				if(rate==0.5){
+					$('.rateit-selected').css('width','18.9965px');
+					$('#rating_text').text('최악이에요');	
+					}
+				if(rate==1){
+					$('.rateit-selected').css('width','37.993px');
+					$('#rating_text').text('싫어요');	
+					}
+				if(rate==1.5){
+					$('.rateit-selected').css('width','56.9895px');
+					$('#rating_text').text('재미없어요');	
+					}
+				if(rate==2){
+					$('.rateit-selected').css('width','75.986px');
+					$('#rating_text').text('별로예요');	
+					}
+				if(rate==2.5){
+					$('.rateit-selected').css('width','94.9825px');
+					$('#rating_text').text('부족해요');	
+					}
+				if(rate==3){
+					$('.rateit-selected').css('width','113.979px');
+					$('#rating_text').text('보통이에요');	
+					}
+				if(rate==3.5){
+					$('.rateit-selected').css('width','132.976px');
+					$('#rating_text').text('볼만해요');	
+					}
+				if(rate==4){
+					$('.rateit-selected').css('width','151.972px');
+					$('#rating_text').text('재미있어요');	
+					}
+				if(rate==4.5){
+					$('.rateit-selected').css('width','170.969px');
+					$('#rating_text').text('훌륭해요!');	
+					}
+				if(rate==5){
+					$('.rateit-selected').css('width','189.965px');
+					$('#rating_text').text('최고예요!');					
+				}
 			});
 			</script>			
 		</c:if>
