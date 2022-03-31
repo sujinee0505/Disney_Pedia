@@ -53,8 +53,10 @@
 	color: red;
 }
 </style>
+
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
+
 <script type="text/javascript">
    $(function(){
 	  let chatboard_num = $('#chatboard_num').val();
@@ -64,113 +66,268 @@
       $('#content').keydown(function(event){
          if(event.keyCode == 13 && !event.shiftKey) {
             $('#chatting_form').trigger('submit');
-         }
-      });
+        }
+    });
       
-      // 채팅 내용 불러오기
-      selectData = function() {
-    	 
-         $.ajax({
-            url:'getChatting.do',
-            type:'post',
-            data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:${trans_num}}, // 그동안의 채팅 이력들을 불러오기 위해 인자로 chatboard_num, user_num(로그인 한 유저), trans_num(글 작성자)을 전송
-            dataType:'json',
-            cache:false,
-            timeout:30000,
-            success:function(param){
-               if(param.result == 'logout'){
-                  loop_check = false;
-                  alert('로그인 후 사용하세요!');   
-               }else if(param.result == 'success'){
-            	  
-                  /* if(count<param.count) scroll_check = true;
-                  else scroll_check = false;
-                  count = param.count; */
-                  
-                  $('#chatting_message').empty();
-                  
-                  $(param.getChatting).each(function(index,item){
-                     let output = '';
-                     if(item.from_num == ${user_num}){
-                        output += '<div class="from-position">'+item.name;
-                     }else{                     
-                        output += '<div class="to-position">'+item.name;
-                     }
-                     output += '<div class="item">';
-                     output += /* (item.chatstate_num !=0 ? '<b>①</b>' : '') +  */' <span>' + item.content + '</span>';
-                     output += '</div>';
-                     output += '</div>';
-                     
-                     //문서 객체에 추가
-                     $('#chatting_message').append(output);
-                     if(scroll_check){
-                        //스크롤를 하단으로 위치시킴
-                        $('#chatting_message').scrollTop($("#chatting_message")[0].scrollHeight);
-                     }
-                  });   
-               }else{
-                  loop_check = false;
-                  alert('오류가 발생했습니다!');   
-               }
-            },
-            error:function(){
-               loop_check = false;
-               alert('네트워크 오류 발생');
-            }
-         });
-         
-      }
-      selectData();
+		// 채팅 내용 불러오기
+		selectData = function() {
+			$.ajax({
+				url:'getChatting.do',
+				type:'post',
+				data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:${trans_num}}, // 그동안의 채팅 이력들을 불러오기 위해 인자로 chatboard_num, user_num(로그인 한 유저), trans_num(글 작성자)을 전송
+				dataType:'json',
+				cache:false,
+				timeout:30000,
+				success:function(param){
+				if(param.result == 'logout'){
+					loop_check = false;
+					alert('로그인 후 사용하세요!');   
+				}else if(param.result == 'success'){
+					
+					/* if(count<param.count) scroll_check = true;
+					else scroll_check = false;
+					count = param.count; */
+					
+						$('#chatting_message').empty();
+					
+						$(param.getChatting).each(function(index,item){
+							let output = '';
+							if(item.from_num == ${user_num}){
+								output += '<div class="from-position">'+item.name;
+							}else{                     
+								output += '<div class="to-position">'+item.name;
+							}
+							output += '<div class="item">';
+							output += /* (item.chatstate_num !=0 ? '<b>①</b>' : '') +  */' <span>' + item.content + '</span>';
+							output += '</div>';
+							output += '</div>';
+							
+							//문서 객체에 추가
+							$('#chatting_message').append(output);
+							if(scroll_check){
+								//스크롤를 하단으로 위치시킴
+								$('#chatting_message').scrollTop($("#chatting_message")[0].scrollHeight);
+							}
+						});   
+					}else{
+					loop_check = false;
+					alert('오류가 발생했습니다!');   
+					}
+				},
+				error:function(){
+				loop_check = false;
+				alert('네트워크 오류 발생');
+				}
+			});
+			
+		}
       
-      // 채팅 메세지 전송 
-      $('#chatting_form').submit(function(event){
-         if($('#content').val().trim() == ''){
-            alert('내용을 입력하세요!');
-            $('#content').val('').focus();
-            return false;
-         }
-         
-         $.ajax({
-            type:'post',
-            data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:${trans_num},content:$('#content').val()}, // dchatting 테이블에 저장돼야하는 값들을 넘겨줍니다
-            url:'writeChat.do',
-            dataType:'json',
-            cache:false,
-            timeout:30000,
-            success:function(param){
-               if(param.result == 'logout'){
-                  alert('로그인해야 작성할 수 있습니다.');
-               }else if(param.result == 'success'){
-                  //폼 초기화
-                  $('#content').val('').focus();
-                  selectData();
-               }else{
-                  alert('등록시 오류 발생');
-               }
-            },
-            error:function(){
-               alert('네트워크 오류!');
-            }
-         });
-         event.preventDefault();
-      });
+	selectData();
       
-   });
+		// 채팅 메세지 전송 
+		$('#chatting_form').submit(function(event){
+			if($('#content').val().trim() == ''){
+			alert('내용을 입력하세요!');
+			$('#content').val('').focus();
+			return false;
+			}
+			
+			$.ajax({
+			type:'post',
+			data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:${trans_num},content:$('#content').val()}, // dchatting 테이블에 저장돼야하는 값들을 넘겨줍니다
+			url:'writeChat.do',
+			dataType:'json',
+			cache:false,
+			timeout:30000,
+			success:function(param){
+				if(param.result == 'logout'){
+					alert('로그인해야 작성할 수 있습니다.');
+				}else if(param.result == 'success'){
+					//폼 초기화
+					$('#content').val('').focus();
+					selectData();
+				}else{
+					alert('등록시 오류 발생');
+				}
+			},
+			error:function(){
+				alert('네트워크 오류!');
+			}
+			});
+			event.preventDefault();
+		});
+		
+		
+		//**상태버튼누르기
+			//function ClickState() {
+			
+			/* alert($('#rev_btn').className); */
+			$('#rev_btn').click(function(){
+				alert('모집완료로 바꿀때! mate_state:${chatBoard.mate_state}');
+				
+				$.ajax({
+				url:'updateMateState.do',
+				type:'post',
+				data:{chatboard_num:chatboard_num}, // dchatting 테이블에 저장돼야하는 값들을 넘겨줍니다
+				dataType:'json',
+				cache:false,
+				timeout:30000,
+				success:function(param){
+					if(param.result == 'logout'){
+						alert('로그인해야 작성할 수 있습니다.');
+						
+					}else if(param.result == 'success'){
+						alert('모집완료로 바뀜!');
+						const rev_e_btn_html='<div style="color:black"> 모집 중으로 변경 </div>'
+							$('#rev_btn').innerHTML = rev_e_btn_html;
+						$('#rev_btn').removeClass('bg-danger').addClass('bg-light text-dark');
+						$("#rev_btn span").text("모집 중으로 변경");
+						//$('#rev_btn').hide();
+						//if($('#rev_e_btn').css("display")=="none"){
+						//	$('#rev_e_btn').show();
+						//}
+						//else{$('#rev_e_btn').hide(); }
+						
+						
+						//var element = document.getElementById("rev_btn");
+						//  element.classList.remove("badge rounded bg-danger").add("badge rounded-pill bg-light text-dark");
+					
+					}else{
+						alert('모집완료로 변경시 오류 발생');
+					}
+				},
+				error:function(){
+					alert('네트워크 오류!');
+				}
+				});
+				
+			});
+			
+			$('#rev_e_btn').click(function(){
+				alert('모집 중으로 바꿀때! mate_state:${chatBoard.mate_state}');
+			      
+				$.ajax({
+				url:'updateMateState.do',
+				type:'post',
+				data:{chatboard_num:chatboard_num}, // dchatting 테이블에 저장돼야하는 값들을 넘겨줍니다
+				dataType:'json',
+				cache:false,
+				timeout:30000,
+				success:function(param){
+					if(param.result == 'logout'){
+						alert('로그인해야 변경가능합니다.');
+						
+					}else if(param.result == 'success'){
+						alert('모집 중으로 바뀜!');
+						//$('#rev_btn').removeClass('bg-danger').addClass('bg-light text-dark');
+						//$('#rev_btn').hide();
+						//if($('#rev_e_btn').css("display")=="none"){
+						//	$('#rev_e_btn').show();
+						//}
+						//else{$('#rev_e_btn').hide(); }
+						
+						
+						//var element = document.getElementById("rev_btn");
+						//  element.classList.remove("badge rounded bg-danger").add("badge rounded-pill bg-light text-dark");
+					
+					}else{
+						alert('모집 중으로 변경 시 오류 발생');
+					}
+				},
+				error:function(){
+					alert('네트워크 오류!');
+				}
+				});
+				
+				
+			});
+			
+		//}
+		
+$('.button').click(function() {
+	var check = 0;
+	 if ($(this).val()=='모집 중') {
+		 check = 0;
+	}else if($(this).val()=='모집완료'){
+		check = 1;
+	} 
+	$.ajax({
+		url:'updateMateState.do',
+		type:'post',
+		data:{chatboard_num:chatboard_num, check : check }, // dchatting 테이블에 저장돼야하는 값들을 넘겨줍니다
+		dataType:'json',
+		cache:false,
+		timeout:30000,
+		success:function(param){
+			if(param.result == 'logout'){
+				alert('로그인해야 작성할 수 있습니다.');
+				
+			}else if(param.result == 'success'){
+				if (condition) {
+					
+				}
+				/* const rev_e_btn_html='<div style="color:black"> 모집 중으로 변경 </div>'
+					$('#rev_btn').innerHTML = rev_e_btn_html;
+				$('#rev_btn').removeClass('bg-danger').addClass('bg-light text-dark');
+				$("#rev_btn span").text("모집 중으로 변경"); */
+				//$('#rev_btn').hide();
+				//if($('#rev_e_btn').css("display")=="none"){
+				//	$('#rev_e_btn').show();
+				//}
+				//else{$('#rev_e_btn').hide(); }
+				
+				
+				//var element = document.getElementById("rev_btn");
+				//  element.classList.remove("badge rounded bg-danger").add("badge rounded-pill bg-light text-dark");
+			
+			}else{
+				alert('모집완료로 변경시 오류 발생');
+			}
+		},
+		error:function(){
+			alert('네트워크 오류!');
+		}
+		});
+});
+		
+			
+   });	
+
 </script>
+
 <div class="page-main-chat" style="margin-top: 100px;">
 	<c:if test="${user_num != chatboard.mem_num}">
-		<span id="trans_id">${chatBoard.title}의 작성자 <small>${chatBoard.mem_num}</small>님과
-			채팅
+		<!-- 얘는 왜 chatboard 나중에 통일시키자-->
+		<span id="trans_id"> ${chatBoard.title}의 작성자 <small>${chatBoard.name}</small>님과
+			채팅 ${chatBoard.mate_state}
 		</span>
 	</c:if>
+	<p />
+
+	<!-- mate_state : 0 모집중/1 모집완료 -->
 	<c:if test="${user_num == chatBoard.mem_num}">
+		<!-- 얘는 왜 chatBoard -->
 		<span id="trans_id"><b>${member.mem_num}과의 대화</b></span>
+
 		<c:if test="${chatBoard.mate_state == 0}">
-			<input type="button" value="모집중" id="rev_btn">
+			<!-- <input type="button" class="badge rounded-pill bg-danger"
+				value="모집완료" /> -->
+			<input type="button" class="button" value="모집완료" id="음">
+		</c:if>
+
+		<c:if test="${chatBoard.mate_state == 1}">
+			<!-- <input type="button" class="badge rounded-pill bg-light text-dark"
+				value="모집 중" /> -->
+			<!-- <button class="badge rounded-pill bg-light text-dark" id="rev_e_btn"
+					hidden="hidden">모집 하기</button> -->
+			<input type="button" class="button" value="모집  중" id="음음">
 		</c:if>
 	</c:if>
-	<span id="rev_msg"> <c:if test="${chatBoard.mate_state == 2}">모집완료</c:if>
+
+
+	<span id="rev_msg"> <c:if test="${chatBoard.mate_state == 1}">모집완료</c:if>
 	</span>
+
 	<div id="chatting_message"></div>
 
 	<form method="post" id="chatting_form"

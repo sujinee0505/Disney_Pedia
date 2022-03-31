@@ -128,7 +128,7 @@ public class ChatBoardController {
 		
 		//해당 글의 조회수 증가
 		chatBoardService.updateHit(chatboard_num);
-		
+		logger.info("<<조회수..>> : " + chatboard_num);
 		//한건의 레코드를 읽어오고
 		ChatBoardVO chatboard = chatBoardService.selectBoard(chatboard_num);
 		logger.info("<<ChatBoardVO>> : " + chatboard);

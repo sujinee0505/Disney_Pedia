@@ -43,6 +43,12 @@ public interface ChatBoardMapper {
 	@Delete("DELETE FROM dchatboard WHERE chatboard_num=#{chatboard_num}")
 	public void deleteBoard(Integer chatboard_num);
 
+	
+	//**메이트 상태 변경하기
+	//xml
+	public void update_mateState(Map<String, Object> map);
+	
+	
 	/*
 	//사진 업로드 안함
 	@Update("UPDATE dchatboard SET uploadfile='',filename='' "

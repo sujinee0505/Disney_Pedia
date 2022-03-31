@@ -17,6 +17,7 @@ public interface ChatBoardService {
 	public void deleteBoard(Integer chatboard_num);
 	public void deleteFile(Integer chatboard_num);
 	
+	public void update_mateState(Map<String,Object>map);
 	
 	//[댓글]
 	/*

@@ -59,6 +59,15 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 	public void deleteFile(Integer chatboard_num) {
 		//chatBoardMapper.deleteFile(chatboard_num);
 	}
+	@Override
+	public void update_mateState(Map<String, Object> map) {
+		chatBoardMapper.update_mateState(map);
+		
+	}
+	
+
+	
+
 	
 	/*
 	//[댓글]

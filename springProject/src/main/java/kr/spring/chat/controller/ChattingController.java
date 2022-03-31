@@ -52,7 +52,7 @@ public class ChattingController {
 	}
 
 	@RequestMapping("/chatboard/getChatting.do")
-	@ResponseBody									// chatting.jsp에서 ajax로 넘긴 chatboard_num 등이 알아서 데이터 바인딩 되어서 chattingVO에 저장돼있음
+	@ResponseBody // chatting.jsp에서 ajax로 넘긴 chatboard_num 등이 알아서 데이터 바인딩 되어서 chattingVO에 저장돼있음
 	public Map<String, Object> getChattingDetailCount(ChattingVO chattingVO, HttpSession session) {
 
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -62,7 +62,8 @@ public class ChattingController {
 			map.put("result", "logout");
 		} else {// 로그인 된 경우
 			List<ChattingVO> getChatting = new ArrayList<ChattingVO>();
-			getChatting = chattingService.getChattingDetail(chattingVO); // chatboard_num 등 chatting.jsp에서 받아온 값을 인자로 넣어서 sql문을 행하여 결과값을 List에 담아준다
+			getChatting = chattingService.getChattingDetail(chattingVO); // chatboard_num 등 chatting.jsp에서 받아온 값을 인자로
+																			// 넣어서 sql문을 행하여 결과값을 List에 담아준다
 			map.put("getChatting", getChatting);
 			map.put("result", "success");
 		}
@@ -112,6 +113,38 @@ public class ChattingController {
 			map.put("result", "success");
 		}
 		return map;
+	}
+
+	/*
+	 * public ModelAndView getChattingList(@RequestParam int chatboard_num) {
+	 * ChatBoardVO chatboard = new ChatBoardVO(); chatboard =
+	 * chatboardService.selectBoard(chatboard_num); ModelAndView mav = new
+	 * ModelAndView(); mav.setViewName("chattingList"); mav.addObject("chatboard",
+	 * chatboard); return mav; }
+	 */
+	// mate_state변경하기
+	@RequestMapping("/chatboard/updateMateState.do")
+	@ResponseBody
+	public Map<String, Object> update_mateState(ChatBoardVO chatboardVO, HttpSession session, int check) {
+		logger.info("<<mate_state변경하기>> : " + chatboardVO);
+		Map<String, Object> map1 = new HashMap<String, Object>();
+		Map<String, Object> map2 = new HashMap<String, Object>();
+
+		map1.put("check", check);
+		map1.put("chatboard_num", chatboardVO.getChatboard_num());
+		// 해당 글의 조회수 증가가 왜되는거지 하나 빼면될까
+		// chatBoardService.updateHit(chatboard_num);
+
+		Integer mem_num = (Integer) session.getAttribute("user_num");
+		if (mem_num == null) {// 로그인이 되지 않은 경우
+			map2.put("result", "logout");
+
+		} else {// 로그인 된 경우
+			chatboardService.update_mateState(map1);
+			logger.info("<<mate_state변경하기2>> : " + chatboardVO);
+			map2.put("result", "success");
+		}
+		return map2;
 	}
 
 	/*
