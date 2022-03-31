@@ -144,15 +144,34 @@
 														<span id="rating_text"></span>
 													</div>
 												</div>
-
-
 	<!--=======별점 부분=======-->	<%-- <div class="css-1m7ruyk"> --%>
-		<div class="star_area">
-		    ${starVO.star}
+			<div class="star_area">
+	    <c:if test="${starVO == null}">
 			<div class="rateit" id="starRate" data-contentsid="${contents.contents_num}"
 			data-rateit-mode="font"  style="font-size:38px;"><%-- letter-spacing:-0.14em; --%>
-			</div>		
-		</div>
+			</div>	
+		</c:if>
+		<c:if test="${starVO != null}">			
+			<div class="rateit" id="starRate" data-contentsid="${contents.contents_num}"
+			data-rateit-mode="font"  style="font-size:38px;">
+			</div>
+			<script type="text/javascript">
+			$(function(){
+				var rate = ${starVO.star};
+				if(rate==0.5){$('.rateit-selected').css('width','18.9965px');}
+				if(rate==1){$('.rateit-selected').css('width','37.993px');}
+				if(rate==1.5){$('.rateit-selected').css('width','56.9895px');}
+				if(rate==2){$('.rateit-selected').css('width','75.986px');}
+				if(rate==2.5){$('.rateit-selected').css('width','94.9825px');}
+				if(rate==3){$('.rateit-selected').css('width','113.979px');}
+				if(rate==3.5){$('.rateit-selected').css('width','132.976px');}
+				if(rate==4){$('.rateit-selected').css('width','151.972px');}
+				if(rate==4.5){$('.rateit-selected').css('width','170.969px');}
+				if(rate==5){$('.rateit-selected').css('width','189.965px');}
+			});
+			</script>			
+		</c:if>
+	</div>
 		<script type="text/javascript">	
 		$(function(){
 			//(1)별점입력 및 변경

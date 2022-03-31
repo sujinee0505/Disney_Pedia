@@ -106,7 +106,6 @@ public class ContentsController {
 			star.setContents_type(contents_type);
 			star.setMem_num(user_num);
 			StarVO starVO = contentsService.getStar(star);
-			/* contents.setStar(starRate); */
 			mav.addObject("starVO", starVO);
 			
 			// CommentVO
