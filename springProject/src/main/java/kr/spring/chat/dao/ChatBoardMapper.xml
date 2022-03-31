@@ -43,7 +43,7 @@
 					ORDER BY b.reg_date DESC)a)
 				</when>
 				<when test="sort == 2" ><!-- 인기순 -->
-					ORDER BY b.hit DESC)a)
+					ORDER BY b.mate_state ASC,b.hit DESC)a)
 				</when>
 				<otherwise><!-- 설정 안했을 때(기본일 때) -->
 					ORDER BY b.reg_date DESC)a)
@@ -53,9 +53,10 @@
 		<![CDATA[
 		WHERE rnum >= #{start} AND rnum <= #{end}
 		]]>
+	
 	</select>
 	
-	<!-- 조회수(인기)순 -->
+	<!-- 조회수(인기)순 + "모집중"상태 우선순위 -->
 	<select id="selectListHit" parameterType="map" resultType="chatBoardVO"> 
 		SELECT
 		 * 
