@@ -22,21 +22,5 @@
 		WHERE rnum >= #{start} AND rnum <= #{end}
 		]]>
 	</select>	
-	<!-- 내가쓴 코멘트 목록 -->
-	<select id="myCommentList" parameterType="map" resultType="CommentVO">
-		SELECT
-		  *
-		FROM (SELECT 
-		       a.*,
-		       rownum rnum
-		      FROM (SELECT 
-		      		  *
-		      		 FROM
-		      		 dcomment WHERE mem_num={mem_num}
-		      		 ORDER BY comment_num DESC)a)
-		      <![CDATA[
-      		 WHERE rnum >= #{start} AND rnum <= #{end}
-      		 ]]>  		 
-	</select>
 </mapper>
 

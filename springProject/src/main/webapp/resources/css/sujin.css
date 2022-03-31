@@ -946,6 +946,12 @@ body {
 	content: none !important;
 }
 
+@media ( min-width : 680px) {
+	.css-w29x4j-VisualUl-ContentGrid-ContentGridUsedInArchive>li {
+		width: 20%;
+	}
+}
+
 .css-8y23cj {
 	display: inline-block;
 	vertical-align: top;
@@ -5212,7 +5218,7 @@ h1, h3, p, hr {
 	letter-spacing: -0.3px;
 	line-height: 26px;
 	width: 100%;
-	height: 43px;
+	height: 60px;
 }
 
 .css-10zg79x-pageMarginStyle {
@@ -5793,6 +5799,7 @@ h1, h3, p, hr {
 	display: flex;
 	border-bottom: 1px solid #e5e5e5;
 	overflow: hidden;
+	flex-direction: column;
 }
 
 .css-ob93md {
@@ -6601,4 +6608,47 @@ h1, h3, p, hr {
 	border-bottom: 1px solid #f0f0f0;
 	margin: 0 20px;
 	opacity: 1;
+}
+
+.css-1y901al-Row {
+	margin: 0 20px;
+}
+
+.css-tbg13q-CommentLists {
+	max-width: 540px;
+	margin: 40px auto 20px auto;
+}
+
+.css-10n5vg9-VisualUl {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.css-bawlbm {
+	background-color: rgb(242, 242, 242);
+	box-sizing: border-box;
+	padding: 15px 15px 0px 15px;
+	border-radius: 6px;
+	overflow: hidden;
+	margin: 0px 0px 20px;
+}
+
+.css-4tkoly {
+	position: relative;
+	margin: 12px 0px 15px;
+	height: auto;
+}
+
+.css-1g78l7j {
+	 white-space: normal;
+	color: black;
+	font-size: 15px;
+	font-weight: 400;
+	letter-spacing: -0.2px;
+	line-height: 24px;
+	overflow: hidden;
+	opacity: 1;
+	transition: all 400ms ease 0s;
+	font-size: 15px;
 }

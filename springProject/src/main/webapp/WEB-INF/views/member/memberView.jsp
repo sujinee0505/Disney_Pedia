@@ -109,15 +109,13 @@ input[type=button] {
 													<div class="profile-userbutton">
 														<input type="button" value="프로필수정"
 															onclick="location.href='update.do'"> <a
-															href="/member/myComment.do"> <img
+															href="myComment.do<%-- ?mem_num${member.mem_num } --%>"> <img
 															src="${pageContext.request.contextPath}/resources/images/review.png"
 															width="40" height="40">
 														</a> <a href="/member/myList.do"> <img
 															src="${pageContext.request.contextPath}/resources/images/list.png"
 															width="40" height="40">
-														</a> <a
-															href="myCalendar.do?mem_num=${member.mem_num}">
-															<img
+														</a> <a href="myCalendar.do?mem_num=${member.mem_num}"> <img
 															src="${pageContext.request.contextPath}/resources/images/cal.png"
 															width="40" height="40">
 														</a>
