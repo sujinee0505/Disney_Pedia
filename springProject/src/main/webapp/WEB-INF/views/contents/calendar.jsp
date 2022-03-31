@@ -17,7 +17,7 @@
 							}
 							var custom_date = year + '-' + month + '-' + day;
 							$('#custom_date').val(custom_date);
-							if ($('.day2').hasClass('day-active') == false) {
+							if ($('.day').hasClass('day-active') == false) {
 								alert('날짜를 선택해주세요.');
 								return false;
 							} else if ($('#dateCheck').val() != 'noData') {
@@ -97,7 +97,7 @@
 										});
 							}
 						});
-		$('.today')
+		$('.dayMark')
 				.click(
 						function() {
 							let choice = confirm('삭제하시겠습니까?');

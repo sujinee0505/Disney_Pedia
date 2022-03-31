@@ -55,6 +55,6 @@
     </definition>
      <definition name="calendar" extends="main">
     	<put-attribute name="title" value="캘린더"/>
-    	<put-attribute name="body" value="/WEB-INF/views/member/calendar.jsp"/>
+    	<put-attribute name="body" value="/WEB-INF/views/member/myCalendar.jsp"/>
     </definition>
 </tiles-definitions>

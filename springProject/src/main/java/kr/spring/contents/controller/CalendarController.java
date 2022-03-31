@@ -25,7 +25,7 @@ public class CalendarController {
 	@Autowired
 	private CalendarService calenderService;
 
-	@RequestMapping("member/calendar.do")
+	@RequestMapping("/member/myCalendar.do")
 	public String calendar(Model model, HttpSession session, HttpServletRequest request, DateUtil dateData) {
 
 		// 날짜 함수를 이용하기 위한 Calendar 클래스의 인스턴스 호출

@@ -6227,7 +6227,7 @@ h1, h3, p, hr {
 	cursor: pointer;
 }
 
-.cal-table td.today {
+.cal-table td.dayMark {
 	background: #dae3f3;
 	border-radius: 50%;
 	color: #fff;

@@ -134,8 +134,8 @@ $(function(){
 		                trtd += '<td>'
 		            } else {
 		                let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
-		                trtd += '<td id="day" class="day2';
-		                trtd += (markToday && markToday == countDay + 1) ? ' today" ' : '"';
+		                trtd += '<td id="day" class="day';
+		                trtd += (markToday && markToday == countDay + 1) ? ' dayMark" ' : '"';
 		                trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
 		            }
 		            trtd += (startCount) ? ++countDay : '';
@@ -157,7 +157,7 @@ $(function(){
 		    let yy = init.activeDate.getFullYear();
 		    let mm = init.activeDate.getMonth() + 1;
 		    let dd = init.activeDate.getDate();
-		    const $target = $calBody.querySelector(`.day2[data-date="${dd}"]`);
+		    const $target = $calBody.querySelector(`.day[data-date="${dd}"]`);
 		
 		    let date = yy + '.' + init.addZero(mm) + '.' + init.addZero(dd);
 		
@@ -176,17 +176,17 @@ $(function(){
 		$btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
 		$btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
 		
-		const todayEl = document.querySelector('td');
-		const classes = todayEl.classList;
+		const dayMarkEl = document.querySelector('td');
+		const classes = dayMarkEl.classList;
 		
 		$calBody.addEventListener('click', (e) => {
-		    if (e.target.classList.contains('day2')) {
+		    if (e.target.classList.contains('day')) {
 		        if (init.activeDTag) {
 		            init.activeDTag.classList.remove('day-active');
 		        }
 		        let day = Number(e.target.textContent);
 		        loadDate(day, e.target.cellIndex);
-		        if (!classes.contains('today')) {
+		        if (!classes.contains('dayMark')) {
 		            e.target.classList.add('day-active');
 		        }
 		        init.activeDTag = e.target;
