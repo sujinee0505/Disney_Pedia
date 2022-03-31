@@ -75,14 +75,14 @@ public class CommentController {
 		return map;
 	}
 
-	// =====코멘트 수정=====
-	// 코멘트 수정 폼 호출
+	// =====코멘트 수정=====(작업중)
+	// 코멘트 수정 폼 호출(작업완료)
 	@GetMapping("/contents/commentUpdate.do")
 	public String commentUpdate() {
 		return "commentUpdate";
 	}
 
-	// 코멘트 ajax 수정
+	// 코멘트 ajax 수정(작업중)
 	@RequestMapping("/contents/commentUpdate.do")
 	@ResponseBody
 	public Map<String, String> commentUpdate(CommentVO commentVO, HttpSession session) {

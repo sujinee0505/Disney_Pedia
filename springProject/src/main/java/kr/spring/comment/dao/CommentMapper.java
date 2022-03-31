@@ -19,17 +19,22 @@ public interface CommentMapper {
 			+ "VALUES (dcomment_seq.nextval,#{contents_num},#{contents_type},#{content},#{mem_num},SYSDATE)")
 	public void insertComment(CommentVO comment);
 
-	// 코멘트 기록 체크
+	// 코멘트 기록 체크(1->기록있음,0->기록없음)
 	@Select("SELECT COUNT(*) FROM dcomment WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
 	public int checkComment(CommentVO comment);
 
-	// 코멘트 한 건 vo로 반환(영화,회원일치하는)
+	// 코멘트 한 건 vo로 반환(영화,회원일치하는 레코드)
 	@Select("SELECT * FROM dcomment WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
 	public CommentVO getComment(CommentVO comment);
 
 	// 코멘트 수정
-	@Update("UPDATE dcomment SET content=#{content},modify_date=SYSDATE " + "WHERE comment_num=#{comment_num}")
+	@Update("UPDATE dcomment SET content=#{content}, modify_date=SYSDATE WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
 	public void updateComment(CommentVO commentVO);
+
+	//코멘트 삭제
+	@Delete("DELETE FROM dcomment WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
+	public void deleteComment(CommentVO commentVO);
+
 
 	/*
 	 * @Select("SELECT comment_num,contents_num,contents_type,content,mem_num,reg_date FROM dcomment WHERE contents_num=#{contents_num}"

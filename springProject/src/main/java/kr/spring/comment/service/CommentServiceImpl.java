@@ -32,6 +32,18 @@ public class CommentServiceImpl implements CommentService {
 		return commentMapper.getComment(comment);
 	}
 
+	//작업중
+	@Override
+	public void updateComment(CommentVO comment) {
+		commentMapper.updateComment(comment);
+	}
+
+	@Override
+	public void deleteComment(CommentVO comment) {
+		commentMapper.deleteComment(comment);
+	}
+
+	
 	//작업아직
 	@Override
 	public CommentVO selectComment(Integer comment_num) {
@@ -53,15 +65,6 @@ public class CommentServiceImpl implements CommentService {
 
 
 
-	@Override
-	public void updateComment(CommentVO comment) {
-		commentMapper.updateComment(comment);
-	}
-
-	@Override
-	public void deleteComment(Integer comment_num) {
-		commentMapper.deleteComment(comment_num);
-	}
 
 	// 수진
 	@Override
