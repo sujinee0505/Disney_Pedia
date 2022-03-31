@@ -51,8 +51,40 @@ $(function() {
 				error:function(){
 					alert('네트워크 오류 발생');
 				}
-		}); //end of comment ajax
+		}); //end of comment update ajax
  	}); //end of submit
+ 	
+ 	//코멘트 삭제
+ 	$('#cmt_delbtn').click(function(){
+ 		 var user_num = ${user_num};
+		 $.ajax({
+				url:'commentDelete.do',
+				type:'post',
+				data: {
+					contents_num : $('#contents_num').val(),				
+					contents_type : $('#contents_type').val(),
+					mem_num : user_num
+					},
+				dataType: 'json',
+				cache:false,
+				timeout:30000,
+				success:function(param){
+					if(param.result == 'logout'){
+						alert('로그인 후 사용하세요');					
+					}else if(param.result == 'success'){
+						 alert('코멘트를 삭제했습니다.');	 
+						/*  location.href='detail.do'; */
+						 /* history.go(-1); */
+					}else{
+						 alert('코멘트 삭제 오류 발생'); 
+					}
+				},
+				error:function(){
+					alert('네트워크 오류 발생');
+				}
+		}); //end of comment delete ajax
+ 	}); //end of click
+ 	
   });
 </script>
 <!DOCTYPE html>

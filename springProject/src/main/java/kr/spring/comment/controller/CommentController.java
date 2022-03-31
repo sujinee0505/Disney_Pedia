@@ -100,6 +100,24 @@ public class CommentController {
 		return map;
 	}
 	
+	// 코멘트 ajax 삭제
+	@RequestMapping("/contents/commentDelete.do")
+	@ResponseBody
+	public Map<String, String> commentDelete(CommentVO commentVO, HttpSession session) {
+
+		Map<String, String> map = new HashMap<String, String>();
+
+		Integer user_num = (Integer) session.getAttribute("user_num");
+		if (user_num == null) {// 로그인이 되지 않은 경우
+			map.put("result", "logout");
+		} else {// 로그인 된 경우
+			//삭제
+			commentService.deleteComment(commentVO);
+			map.put("result", "success");
+		}
+		return map;
+	}
+	
 
 	// 내가 쓴 코멘트 목록
 	@RequestMapping("/member/myComment.do")
