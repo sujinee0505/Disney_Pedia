@@ -16,7 +16,7 @@ public class ContentsVO {
 	private String runtime; // 컨텐츠 런타임
 	private List<Integer> genres; // 컨텐츠 장르(int 타입 그대로 List객체에 저장)
 	private int count;
-	private double star; // 평점
+	private Double star; // 평점
 
 	public int getContents_num() {
 		return contents_num;
@@ -133,12 +133,14 @@ public class ContentsVO {
 		this.count = count;
 	}
 
-	public double getStar() {
+	public Double getStar() {
 		return star;
 	}
 
-	public void setStar(double star) {
+	public void setStar(Double star) {
 		this.star = star;
 	}
+
+
 
 }

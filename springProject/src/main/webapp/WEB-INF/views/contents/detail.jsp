@@ -124,7 +124,7 @@
 
 <!--=======별점 부분=======-->	<%-- <div class="css-1m7ruyk"> --%>
 	<div class="star_area">
-	    ${contents.star}
+	    ${starVO.star}
 		<div class="rateit" id="starRate" data-contentsid="${contents.contents_num}"
 		data-rateit-mode="font"  style="font-size:38px;"><%-- letter-spacing:-0.14em; --%>
 		</div>		

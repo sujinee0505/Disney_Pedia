@@ -101,8 +101,13 @@ public class ContentsController {
 
 		if (user_num != null) {			
 			//star
-			StarVO starVO = new StarVO();
-			contentsService.getStar(starVO);
+			StarVO star = new StarVO();
+			star.setContents_num(contents_num);
+			star.setContents_type(contents_type);
+			star.setMem_num(user_num);
+			StarVO starVO = contentsService.getStar(star);
+			/* contents.setStar(starRate); */
+			mav.addObject("starVO", starVO);
 			
 			// CommentVO
 			CommentVO comment = new CommentVO();

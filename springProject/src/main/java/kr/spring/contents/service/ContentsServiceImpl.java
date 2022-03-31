@@ -25,9 +25,9 @@ public class ContentsServiceImpl implements ContentsService {
 	public int CheckStar(StarVO star) {		
 		return contentsMapper.CheckStar(star);
 	}
-
+	
 	@Override
-	public double getStar(StarVO star) {		
+	public StarVO getStar(StarVO star) {
 		return contentsMapper.getStar(star);
 	}
 

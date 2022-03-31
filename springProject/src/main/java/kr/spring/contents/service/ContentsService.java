@@ -10,7 +10,7 @@ public interface ContentsService {
 
 	public int CheckStar(StarVO star);
 	
-	public double getStar(StarVO star);
+	public StarVO getStar(StarVO star);
 	
 	public void updateStar(StarVO star);
 
