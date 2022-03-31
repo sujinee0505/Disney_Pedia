@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <script type="text/javascript">
 $(function() {	
+	/* (확인용) 
+	let com = $('#comment2').val();
+	alert(com); */
 	
 	//글자수 불러오기
 	$('#commentUpdateModal').on('shown.bs.modal', function() {
@@ -33,7 +36,8 @@ $(function() {
 				data: {
 					contents_num : $('#contents_num').val(),				
 					contents_type : $('#contents_type').val(),
-					content : $('#comment2').val()
+					content : $('#comment2').val(),
+					mem_num : user_num
 					},
 				dataType: 'json',
 				cache:false,
@@ -42,9 +46,9 @@ $(function() {
 					if(param.result == 'logout'){
 						alert('로그인 후 사용하세요');					
 					}else if(param.result == 'success'){
-						alert('코멘트가 수정되었습니다.');	 
+						/* alert('코멘트가 수정되었습니다.');	 */ 
 					}else{
-						alert('코멘트 수정 오류 발생');
+						/* alert('코멘트 수정 오류 발생'); */
 					}
 				},
 				error:function(){
@@ -69,11 +73,16 @@ $(function() {
       	<textarea autofocus required cols="30" rows="10" id="comment2" name="comment" 
       	placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." >${getComment.content }</textarea>
       	<div class="float_right">
+      		<!-- 글자수 체크 -->
 			<div id="count_area">
 			<span class="letter-count">0/1000</span>
 			</div> 
-			<button type="submit" id="comment_btn" class="btn btn-dark-blue">저장</button>
-			<!-- btn-hover color-9 -->
+			<!-- 삭제 아이콘 -->
+			<a href="#">
+				<img src="${pageContext.request.contextPath}/resources/images/trash.png" id="cmt_delbtn">
+			</a>
+			<button type="submit" id="comment_btn" class="btn btn-dark-blue">수정</button>
+			
 		</div>
 		</form> 		
 	  </div>	    

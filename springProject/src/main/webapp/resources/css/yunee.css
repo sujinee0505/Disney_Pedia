@@ -57,6 +57,13 @@
 	 resize: none;
 	 /* background-color:gray;  */
 }
+#cmt_delbtn{
+	float: left;
+	padding-top: 6px;
+	height: 26px;
+	/* margin-right:3px; */
+	margin-left:7px;
+}
 #comment_btn{
 	width: 90px;
 	float: left; 

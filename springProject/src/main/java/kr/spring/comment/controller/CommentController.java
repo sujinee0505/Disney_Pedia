@@ -98,6 +98,7 @@ public class CommentController {
 		}
 		return map;
 	}
+	
 
 	// 내가 쓴 코멘트 목록
 	@RequestMapping("/member/myComment.do")
