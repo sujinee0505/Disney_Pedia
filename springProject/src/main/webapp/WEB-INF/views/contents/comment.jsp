@@ -37,9 +37,9 @@
 				timeout:30000,
 				success:function(param){
 					if(param.result == 'logout'){
-						alert('로그인 후 사용하세요');					
+						alert('평가하시려면 로그인이 필요해요.');					
 					}else if(param.result == 'success'){
-						alert('코멘트가 등록되었습니다.');	 
+						alert('코멘트를 등록했습니다.');	 
 					}else{
 						alert('코멘트 등록 오류 발생');
 					}

@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
 <script type="text/javascript">
 $(function() {	
-	/* (확인용) 
-	let com = $('#comment2').val();
-	alert(com); */
 	
 	//글자수 불러오기
 	$('#commentUpdateModal').on('shown.bs.modal', function() {
@@ -46,9 +43,9 @@ $(function() {
 					if(param.result == 'logout'){
 						alert('로그인 후 사용하세요');					
 					}else if(param.result == 'success'){
-						/* alert('코멘트가 수정되었습니다.');	 */ 
+						 alert('코멘트를 수정했습니다.');	 
 					}else{
-						/* alert('코멘트 수정 오류 발생'); */
+						 alert('코멘트 수정 오류 발생'); 
 					}
 				},
 				error:function(){
