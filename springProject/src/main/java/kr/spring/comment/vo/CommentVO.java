@@ -1,29 +1,19 @@
 package kr.spring.comment.vo;
 
-
 import java.sql.Date;
 
 public class CommentVO {
 	private int comment_num; // 코멘트번호
-	private String contents_type; //컨텐츠 타입
-	private int contents_num; //컨텐츠 넘버
+	private String contents_type; // 컨텐츠 타입
+	private int contents_num; // 컨텐츠 넘버
 	private String content; // 코멘트 내용
 	private Date reg_date; // 등록날짜
 	private Date modify_date; // 수정날짜
 	private int mem_num; // 회원 번호
-	private int star_num; //별점 번호
-	
-	//수진
+
+	// 수진
 	private int count;
-
-	
-	public int getStar_num() {
-		return star_num;
-	}
-
-	public void setStar_num(int star_num) {
-		this.star_num = star_num;
-	}
+	private double star;
 
 	public int getComment_num() {
 		return comment_num;
@@ -89,5 +79,12 @@ public class CommentVO {
 		this.count = count;
 	}
 
+	public double getStar() {
+		return star;
+	}
+
+	public void setStar(double star) {
+		this.star = star;
+	}
 
 }

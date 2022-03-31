@@ -55,7 +55,7 @@ public interface CommentMapper {
 	public void deleteComment(Integer comment_num); // 코멘트삭제
 
 	// 내가쓴 코멘트 목록
-	@Select("SELECT * FROM dcomment JOIN dmember_detail USING (mem_num) WHERE mem_num = #{mem_num}")
+	@Select("SELECT * FROM (SELECT star, c.mem_num,  c.contents_type, c.contents_num, content FROM dcomment c LEFT OUTER JOIN dcontents_star s USING (star_num)) JOIN dmember_detail USING (mem_num) WHERE mem_num = #{mem_num}")
 	public List<CommentVO> selectListByMem_num(int mem_num);
 
 	// 수진

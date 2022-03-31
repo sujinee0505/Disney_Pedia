@@ -89,7 +89,8 @@
 													</div>
 													<div class="css-ixy093">
 														<div class="css-niy0za">${likeList.title }</div>
-														<div class="css-1kcd80z">★ ${Math.ceil((likeList.vote_average)/2*10)/10}</div>
+														<div class="css-1kcd80z">★
+															${Math.ceil((likeList.vote_average)/2*10)/10}</div>
 													</div></a></li>
 										</c:forEach>
 										<div class="css-ml096x"></div>
