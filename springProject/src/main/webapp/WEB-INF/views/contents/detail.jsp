@@ -64,276 +64,306 @@
 			}
 		}
 		toggle();
+		calToggle = function() {
+			if ($('#dateCheck').val() != 'noData') {
+				$('#calOn').show();
+				$('#calOff').hide();
+			} else {
+				$('#calOff').show();
+				$('#calOn').hide();
+			}
+		}
+		calToggle();
 	});
-</script>
-<div class="css-16jhzm7-Self e1ezac430">
-	<div class="css-1ihluk0-Content e1ezac431">
-		<div class="css-1iyk86f-Background e1ezac432">
-			<section class="css-x864dh-Self e1svyhwg0">
-				<div class="css-cshjoi-PosterContainer e1svyhwg1">
+	</script>
+	<div class="css-16jhzm7-Self e1ezac430">
+		<div class="css-1ihluk0-Content e1ezac431">
+			<div class="css-1iyk86f-Background e1ezac432">
+				<section class="css-x864dh-Self e1svyhwg0">
+					<div class="css-cshjoi-PosterContainer e1svyhwg1">
 
-					<div class="css-oqg1df-BlurPosterBlock e1svyhwg2">
-						<div color="#19131E" class="css-1brjyj2-LeftBackground e1svyhwg6"></div>
-						<c:forEach var="images" items="${images}" begin="0" end="0">
-							<div class="css-8cob0z-BlurPoster e1svyhwg4"
-								style="background-image:url('https://image.tmdb.org/t/p/original${images }');">
-								<div color="#19131E" class="css-vf68xy-LeftGradient e1svyhwg8"></div>
-								<div color="#988970" class="css-hhk7ai-RightGradient e1svyhwg9"></div>
-							</div>
-						</c:forEach>
-						<div color="#988970" class="css-13i7zir-RightBackground e1svyhwg7"></div>
-						<div class="css-1ubeqqm-DimmedLayer e1svyhwg3"></div>
-					</div>
-					<div class="css-569z5v">
-						<div class="css-1po9d5k">
-							<div class="css-1d6udxb">
-								<div class="css-11zdk8l-PosterWithRankingInfoBlock e1svyhwg10">
-									<div class=" css-28gyaj-StyledLazyLoadingImage ezcopuc0">
-										<img alt="포스터" src="${contents.poster_path }"
-											class="css-qhzw1o-StyledImgezcopuc1"
-											style="vertical-align: top; width: 100%; height: 100%; opacity: 1; object-fit: cover; transition: opacity 420ms ease 0s;">
-									</div>
-									<div class="css-r6qxq2-ContentMetaInfoBlock e1svyhwg11">
-										<ul class="css-1v9zk7c-RankingInfoList e1svyhwg14">
-											<li>들어갈<em>내용이</em></li>
-											<li>없는데<em>어쩌죠</em></li>
-										</ul>
-										<h1 class="css-j40qn0-TitleOnPosterBlock e1svyhwg12">평균
-											★${Math.ceil((contents.vote_average)/2*10)/10}</h1>
-										<div class="css-11h0kfd-Detail e1svyhwg18">
-											<fmt:formatDate value="${contents.release_date }"
-												pattern="yyyy-MM" />
-											· ${contents.genre }
+						<div class="css-oqg1df-BlurPosterBlock e1svyhwg2">
+							<div color="#19131E" class="css-1brjyj2-LeftBackground e1svyhwg6"></div>
+							<c:forEach var="images" items="${images}" begin="0" end="0">
+								<div class="css-8cob0z-BlurPoster e1svyhwg4"
+									style="background-image:url('https://image.tmdb.org/t/p/original${images }');">
+									<div color="#19131E" class="css-vf68xy-LeftGradient e1svyhwg8"></div>
+									<div color="#988970" class="css-hhk7ai-RightGradient e1svyhwg9"></div>
+								</div>
+							</c:forEach>
+							<div color="#988970" class="css-13i7zir-RightBackground e1svyhwg7"></div>
+							<div class="css-1ubeqqm-DimmedLayer e1svyhwg3"></div>
+						</div>
+						<div class="css-569z5v">
+							<div class="css-1po9d5k">
+								<div class="css-1d6udxb">
+									<div class="css-11zdk8l-PosterWithRankingInfoBlock e1svyhwg10">
+										<div class=" css-28gyaj-StyledLazyLoadingImage ezcopuc0">
+											<img alt="포스터" src="${contents.poster_path }"
+												class="css-qhzw1o-StyledImgezcopuc1"
+												style="vertical-align: top; width: 100%; height: 100%; opacity: 1; object-fit: cover; transition: opacity 420ms ease 0s;">
+										</div>
+										<div class="css-r6qxq2-ContentMetaInfoBlock e1svyhwg11">
+											<ul class="css-1v9zk7c-RankingInfoList e1svyhwg14">
+												<li>들어갈<em>내용이</em></li>
+												<li>없는데<em>어쩌죠</em></li>
+											</ul>
+											<h1 class="css-j40qn0-TitleOnPosterBlock e1svyhwg12">평균
+												★${Math.ceil((contents.vote_average)/2*10)/10}</h1>
+											<div class="css-11h0kfd-Detail e1svyhwg18">
+												<fmt:formatDate value="${contents.release_date }"
+													pattern="yyyy-MM" />
+												· ${contents.genre }
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="css-1p7n6er-Pane e1svyhwg15">
-					<div class="css-569z5v">
-						<div class="css-1po9d5k">
-							<div class="css-1d6udxb">
-								<div class="css-13h49w0-PaneInner e1svyhwg16">
-									<h1 class="css-171k8ad-Title e1svyhwg17">${contents.title }</h1>
-									<div class="css-11h0kfd-Detail e1svyhwg18">
-										<fmt:formatDate value="${contents.release_date }"
-											pattern="yyyy-MM" />
-										· ${contents.genre }
-									</div>
-									<div class="css-og1gu8-ContentRatings e1svyhwg20"
-										style="white-space: nowrap;">평균
-										★${Math.ceil((contents.vote_average)/2*10)/10}</div>
-									<div class="css-5qj1gb-ContentActionSection e1svyhwg19">
-										<div class="css-1jlb6q">
-											<div class="css-yt2kjp">
-												<div class="css-1k5zzs9">
-													<span id="do_rating">평가하기</span>
-													<!-- 평가 문구 노출영역 -->
-													<span id="rating_text"></span>
+					<div class="css-1p7n6er-Pane e1svyhwg15">
+						<div class="css-569z5v">
+							<div class="css-1po9d5k">
+								<div class="css-1d6udxb">
+									<div class="css-13h49w0-PaneInner e1svyhwg16">
+										<h1 class="css-171k8ad-Title e1svyhwg17">${contents.title }</h1>
+										<div class="css-11h0kfd-Detail e1svyhwg18">
+											<fmt:formatDate value="${contents.release_date }"
+												pattern="yyyy-MM" />
+											· ${contents.genre }
+										</div>
+										<div class="css-og1gu8-ContentRatings e1svyhwg20"
+											style="white-space: nowrap;">평균
+											★${Math.ceil((contents.vote_average)/2*10)/10}</div>
+										<div class="css-5qj1gb-ContentActionSection e1svyhwg19">
+											<div class="css-1jlb6q">
+												<div class="css-yt2kjp">
+													<div class="css-1k5zzs9">
+														<span id="do_rating">평가하기</span>
+														<!-- 평가 문구 노출영역 -->
+														<span id="rating_text"></span>
+													</div>
 												</div>
-											</div>
 
 
-<!--=======별점 부분=======-->	<%-- <div class="css-1m7ruyk"> --%>
-	<div class="star_area">
-	    ${starVO.star}
-		<div class="rateit" id="starRate" data-contentsid="${contents.contents_num}"
-		data-rateit-mode="font"  style="font-size:38px;"><%-- letter-spacing:-0.14em; --%>
-		</div>		
-	</div>
-	<script type="text/javascript">	
-	$(function(){
-		//(1)별점입력 및 변경
-		$('.star_area .rateit').bind('rated', function (e) { //rated reset		
-	        var ri = $(this);
-      
-	        var user_num = ${user_num};
-			var value = ri.rateit('value'); 
-	        /* var contents_num = ri.data('contentsid');  
-	        var contents_type = ${contents.contents_type}; */		
-    
-	          $.ajax({
-	            url: 'starRating.do', 
-	            data: { 
-					star: value,
-					contents_num : $('#contents_num').val(), //저장:getInfoUtil/id설정:calendar.jsp
-					contents_type : $('#contents_type').val(),
-					mem_num : user_num
-					}, 
-	            dataType : 'json',
-	            type: 'POST',
-	            success: function (param) { 
-	            	if(param.result == 'logout'){
-						alert('로그인 후 사용하세요!');
-	            	}else if(param.result == 'success'){
-						 /* alert('insert success'); */	 
-	            	}else if(param.result == 'success2'){
-						 /* alert('update success'); */	 
-	            	}else{
-						alert('별점입력 오류 발생');
-					}	
-	            },
-	            error: function () {
-	            	alert('네트워크 오류 발생');
-	            }
-	        });  //end of ajax
-	    });//별점입력끝 
+	<!--=======별점 부분=======-->	<%-- <div class="css-1m7ruyk"> --%>
+		<div class="star_area">
+		    ${starVO.star}
+			<div class="rateit" id="starRate" data-contentsid="${contents.contents_num}"
+			data-rateit-mode="font"  style="font-size:38px;"><%-- letter-spacing:-0.14em; --%>
+			</div>		
+		</div>
+		<script type="text/javascript">	
+		$(function(){
+			//(1)별점입력 및 변경
+			$('.star_area .rateit').bind('rated', function (e) { //rated reset		
+		        var ri = $(this);
+	      
+		        var user_num = ${user_num};
+				var value = ri.rateit('value'); 
+		        /* var contents_num = ri.data('contentsid');  
+		        var contents_type = ${contents.contents_type}; */		
 	    
-	    //(2)리셋버튼 클릭시 별점 취소
-		 $("#starRate").bind('reset', function () { //reset버튼클릭시 이벤트 발생
-			 var user_num = ${user_num};
-		 
-	    	 $('#rating_text').text('평가하기');	//평가하기문구다시노출 
-	    	 $('#rateit-reset-2').css("visibility","hidden"); //리셋버튼감추기
-	    	 /* alert('평가를 취소하시겠습니까?')  */
-	    	 $.ajax({
-					url:'resetRating.do',
-					type:'post',
-					data: {
-						contents_num : $('#contents_num').val(),				
+		          $.ajax({
+		            url: 'starRating.do', 
+		            data: { 
+						star: value,
+						contents_num : $('#contents_num').val(), //저장:getInfoUtil/id설정:calendar.jsp
 						contents_type : $('#contents_type').val(),
 						mem_num : user_num
-						},
-					dataType: 'json',
-					cache:false,
-					timeout:30000,
-					success:function(param){
-						if(param.result == 'logout'){
-							alert('로그인 후 사용하세요')					
-						}else if(param.result == 'success'){
-							/* alert('평가취소완료');	 */
-						}else{
-							alert('삭제시 오류 발생');
-						}
-					},
-					error:function(){
-						alert('네트워크 오류 발생')
-					}
-			}); 
-		});	 
+						}, 
+		            dataType : 'json',
+		            type: 'POST',
+		            success: function (param) { 
+		            	if(param.result == 'logout'){
+							alert('로그인 후 사용하세요!');
+		            	}else if(param.result == 'success'){
+							 /* alert('insert success'); */	 
+		            	}else if(param.result == 'success2'){
+							 /* alert('update success'); */	 
+		            	}else{
+							alert('별점입력 오류 발생');
+						}	
+		            },
+		            error: function () {
+		            	alert('네트워크 오류 발생');
+		            }
+		        });  //end of ajax
+		    });//별점입력끝 
 		    
-		//(3)별점에 따른 평가 문구 설정	    	
-	    $("#starRate").bind('rated', function (event, value) { //rated시 이벤트 발생
-	    	$('#do_rating').hide(); //평가하기문구hide
-		   	 if(value === 5 ){ 
-		   	 	$('#rating_text').text('최고예요!');		   
-		   	 }
-		   	 if(value === 4.5){
-		   		 $('#rating_text').text('훌륭해요!');		   
-		   	 }
-		   	 if(value === 4 ){
-		   		 $('#rating_text').text('재미있어요');		   
-		   	 }
-		   	 if(value === 3.5 ){
-		   		 $('#rating_text').text('볼만해요');		   
-		   	 }
-		   	 if(value === 3 ){
-		   		 $('#rating_text').text('보통이에요');		   
-		   	 }
-		   	 if(value === 2.5){
-		   		 $('#rating_text').text('부족해요');		   
-		   	 }
-		   	 if(value === 2){
-		   		 $('#rating_text').text('별로예요');		   
-		   	 }
-		   	 if(value === 1.5){
-		   		 $('#rating_text').text('재미없어요');		   
-		   	 }
-		   	 if(value === 1){
-		   		 $('#rating_text').text('싫어요');		   
-		   	 }
-		   	 if(value === 0.5){
-		   		 $('#rating_text').text('최악이에요');	
-		   	  //0.5 hover시 리셋버튼 클릭어려워서 0.5클릭 시 리셋버튼 뜨게 설정
-		   	 	$('#rateit-reset-2').css("visibility","visible"); 
-		   	 } 
-	    });//평가문구끝
-	 
-	 });    
-	</script>  	
-	<!--======별점 부분 끝======-->	
+		    //(2)리셋버튼 클릭시 별점 취소
+			 $("#starRate").bind('reset', function () { //reset버튼클릭시 이벤트 발생
+				 var user_num = ${user_num};
+			 
+		    	 $('#rating_text').text('평가하기');	//평가하기문구다시노출 
+		    	 $('#rateit-reset-2').css("visibility","hidden"); //리셋버튼감추기
+		    	 /* alert('평가를 취소하시겠습니까?')  */
+		    	 $.ajax({
+						url:'resetRating.do',
+						type:'post',
+						data: {
+							contents_num : $('#contents_num').val(),				
+							contents_type : $('#contents_type').val(),
+							mem_num : user_num
+							},
+						dataType: 'json',
+						cache:false,
+						timeout:30000,
+						success:function(param){
+							if(param.result == 'logout'){
+								alert('로그인 후 사용하세요')					
+							}else if(param.result == 'success'){
+								/* alert('평가취소완료');	 */
+							}else{
+								alert('삭제시 오류 발생');
+							}
+						},
+						error:function(){
+							alert('네트워크 오류 발생')
+						}
+				}); 
+			});	 
+			    
+			//(3)별점에 따른 평가 문구 설정	    	
+		    $("#starRate").bind('rated', function (event, value) { //rated시 이벤트 발생
+		    	$('#do_rating').hide(); //평가하기문구hide
+			   	 if(value === 5 ){ 
+			   	 	$('#rating_text').text('최고예요!');		   
+			   	 }
+			   	 if(value === 4.5){
+			   		 $('#rating_text').text('훌륭해요!');		   
+			   	 }
+			   	 if(value === 4 ){
+			   		 $('#rating_text').text('재미있어요');		   
+			   	 }
+			   	 if(value === 3.5 ){
+			   		 $('#rating_text').text('볼만해요');		   
+			   	 }
+			   	 if(value === 3 ){
+			   		 $('#rating_text').text('보통이에요');		   
+			   	 }
+			   	 if(value === 2.5){
+			   		 $('#rating_text').text('부족해요');		   
+			   	 }
+			   	 if(value === 2){
+			   		 $('#rating_text').text('별로예요');		   
+			   	 }
+			   	 if(value === 1.5){
+			   		 $('#rating_text').text('재미없어요');		   
+			   	 }
+			   	 if(value === 1){
+			   		 $('#rating_text').text('싫어요');		   
+			   	 }
+			   	 if(value === 0.5){
+			   		 $('#rating_text').text('최악이에요');	
+			   	  //0.5 hover시 리셋버튼 클릭어려워서 0.5클릭 시 리셋버튼 뜨게 설정
+			   	 	$('#rateit-reset-2').css("visibility","visible"); 
+			   	 } 
+		    });//평가문구끝
+		 
+		 });    
+		</script>  	
+		<!--======별점 부분 끝======-->	
 
-										</div>
-										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
-										<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
-											<button id="like"
-												class="<c:if test="${check ==1 }">css-15hndx7-StylelessButton-ContentActionButton</c:if>
-											<c:if test="${check!=1 }">css-1tc9iuk-StylelessButton-ContentActionButton e1svyhwg23</c:if>"
-												onclick="like()">
-												<div
-													class="Icon icPlus rotatingIcon css-1q1i623-SVG e1282e850">
-													<div>
-														<div id="on" style="display: none;">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xOC41OTY5IDcuMTQ5NDFINS4yNjc2MUM1LjAxMzkgNy4xNDk0MSA0LjgwNzk4IDcuMzU1MzMgNC44MDc5OCA3LjYwOTA0VjIwLjAzNjVDNC44MDc5OCAyMC40MDk4IDUuMjI5MDEgMjAuNjI2NyA1LjUzMzI4IDIwLjQxMDdMMTEuOTMyMyAxNS44NzA1TDE4LjMzMTIgMjAuNDEwN0MxOC42MzU1IDIwLjYyNjcgMTkuMDU2NSAyMC40MDk4IDE5LjA1NjUgMjAuMDM2NVY3LjYwOTA0QzE5LjA1NjUgNy4zNTUzMyAxOC44NTA2IDcuMTQ5NDEgMTguNTk2OSA3LjE0OTQxWiIgZmlsbD0iY3VycmVudENvbG9yIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTguMTM3MyAzSDUuNzI3MjVDNS4yMTg4OSAzIDQuODA3OTggMy40MTE4MyA0LjgwNzk4IDMuOTE5MjZWNS4yOTgxNUM0LjgwNzk4IDUuNTUxODcgNS4wMTM5IDUuNzU3NzkgNS4yNjc2MSA1Ljc1Nzc5SDE4LjU5NjlDMTguODUwNiA1Ljc1Nzc5IDE5LjA1NjUgNS41NTE4NyAxOS4wNTY1IDUuMjk4MTVWMy45MTkyNkMxOS4wNTY1IDMuNDExODMgMTguNjQ0NyAzIDE4LjEzNzMgM1oiIGZpbGw9ImN1cnJlbnRDb2xvciIvPgo8L3N2Zz4K" xmlns:xlink="http://www.w3.org/1999/xlink">
-															<path d="M18.5969 7.14941H5.26761C5.0139 7.14941 4.80798 7.35533 4.80798 7.60904V20.0365C4.80798 20.4098 5.22901 20.6267 5.53328 20.4107L11.9323 15.8705L18.3312 20.4107C18.6355 20.6267 19.0565 20.4098 19.0565 20.0365V7.60904C19.0565 7.35533 18.8506 7.14941 18.5969 7.14941Z" fill="currentColor"></path>
-															<path d="M18.1373 3H5.72725C5.21889 3 4.80798 3.41183 4.80798 3.91926V5.29815C4.80798 5.55187 5.0139 5.75779 5.26761 5.75779H18.5969C18.8506 5.75779 19.0565 5.55187 19.0565 5.29815V3.91926C19.0565 3.41183 18.6447 3 18.1373 3Z" fill="currentColor"></path>
+											</div>
+											<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
+											<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
+												<button id="like"
+													class="<c:if test="${check ==1 }">css-15hndx7-StylelessButton-ContentActionButton</c:if>
+												<c:if test="${check!=1 }">css-1tc9iuk-StylelessButton-ContentActionButton e1svyhwg23</c:if>"
+													onclick="like()">
+													<div
+														class="Icon icPlus rotatingIcon css-1q1i623-SVG e1282e850">
+														<div>
+															<div id="on" style="display: none;">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xOC41OTY5IDcuMTQ5NDFINS4yNjc2MUM1LjAxMzkgNy4xNDk0MSA0LjgwNzk4IDcuMzU1MzMgNC44MDc5OCA3LjYwOTA0VjIwLjAzNjVDNC44MDc5OCAyMC40MDk4IDUuMjI5MDEgMjAuNjI2NyA1LjUzMzI4IDIwLjQxMDdMMTEuOTMyMyAxNS44NzA1TDE4LjMzMTIgMjAuNDEwN0MxOC42MzU1IDIwLjYyNjcgMTkuMDU2NSAyMC40MDk4IDE5LjA1NjUgMjAuMDM2NVY3LjYwOTA0QzE5LjA1NjUgNy4zNTUzMyAxOC44NTA2IDcuMTQ5NDEgMTguNTk2OSA3LjE0OTQxWiIgZmlsbD0iY3VycmVudENvbG9yIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTguMTM3MyAzSDUuNzI3MjVDNS4yMTg4OSAzIDQuODA3OTggMy40MTE4MyA0LjgwNzk4IDMuOTE5MjZWNS4yOTgxNUM0LjgwNzk4IDUuNTUxODcgNS4wMTM5IDUuNzU3NzkgNS4yNjc2MSA1Ljc1Nzc5SDE4LjU5NjlDMTguODUwNiA1Ljc1Nzc5IDE5LjA1NjUgNS41NTE4NyAxOS4wNTY1IDUuMjk4MTVWMy45MTkyNkMxOS4wNTY1IDMuNDExODMgMTguNjQ0NyAzIDE4LjEzNzMgM1oiIGZpbGw9ImN1cnJlbnRDb2xvciIvPgo8L3N2Zz4K" xmlns:xlink="http://www.w3.org/1999/xlink">
+																<path d="M18.5969 7.14941H5.26761C5.0139 7.14941 4.80798 7.35533 4.80798 7.60904V20.0365C4.80798 20.4098 5.22901 20.6267 5.53328 20.4107L11.9323 15.8705L18.3312 20.4107C18.6355 20.6267 19.0565 20.4098 19.0565 20.0365V7.60904C19.0565 7.35533 18.8506 7.14941 18.5969 7.14941Z" fill="currentColor"></path>
+																<path d="M18.1373 3H5.72725C5.21889 3 4.80798 3.41183 4.80798 3.91926V5.29815C4.80798 5.55187 5.0139 5.75779 5.26761 5.75779H18.5969C18.8506 5.75779 19.0565 5.55187 19.0565 5.29815V3.91926C19.0565 3.41183 18.6447 3 18.1373 3Z" fill="currentColor"></path>
+																</svg>
+															</div>
+															<div id="off" style="display: none;">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwLjUgMTMuMDkyOUgxMy4xNDI4VjIwLjVIMTAuODU3MVYxMy4wOTI5SDMuNVYxMC44MDcxSDEwLjg1NzFWMy41SDEzLjE0MjhWMTAuODA3MUgyMC41VjEzLjA5MjlaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4KPC9zdmc+Cg==" xmlns:xlink="http://www.w3.org/1999/xlink">
+																<path d="M20.5 13.0929H13.1428V20.5H10.8571V13.0929H3.5V10.8071H10.8571V3.5H13.1428V10.8071H20.5V13.0929Z" fill="currentColor"></path>
+																</svg>
+															</div>
+														</div>
+													</div>
+													보고싶어요
+												</button>
+												<!-- ======코멘트 모달 설정부분======-->
+												<c:if test="${checkComment != 1}"> <!-- 등록폼호출 -->
+												<button data-bs-target="#commentModal" data-bs-toggle="modal"
+													class="css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm e1svyhwg25" style="color:black;">
+													<div class="Icon icPencil css-1q1i623-SVG e1282e850">
+														<div>
+															<svg xmlns="http://www.w3.org/2000/svg" width="24"
+																height="24" viewBox="0 0 24 24" fill="none"
+																class="injected-svg"
+																data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMgMTcuMjUyNVYyMS4wMDI1SDYuNzVMMTcuODEgOS45NDI1TDE0LjA2IDYuMTkyNUwzIDE3LjI1MjVaTTIwLjcxIDcuMDQyNUMyMS4xIDYuNjUyNSAyMS4xIDYuMDIyNSAyMC43MSA1LjYzMjVMMTguMzcgMy4yOTI1QzE3Ljk4IDIuOTAyNSAxNy4zNSAyLjkwMjUgMTYuOTYgMy4yOTI1TDE1LjEzIDUuMTIyNUwxOC44OCA4Ljg3MjVMMjAuNzEgNy4wNDI1WiIgZmlsbD0iY3VycmVudENvbG9yIi8+Cjwvc3ZnPgo="
+																xmlns:xlink="http://www.w3.org/1999/xlink">
+																		<path
+																	d="M3 17.2525V21.0025H6.75L17.81 9.9425L14.06 6.1925L3 17.2525ZM20.71 7.0425C21.1 6.6525 21.1 6.0225 20.71 5.6325L18.37 3.2925C17.98 2.9025 17.35 2.9025 16.96 3.2925L15.13 5.1225L18.88 8.8725L20.71 7.0425Z"
+																	fill="currentColor"></path>
 															</svg>
 														</div>
-														<div id="off" style="display: none;">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwLjUgMTMuMDkyOUgxMy4xNDI4VjIwLjVIMTAuODU3MVYxMy4wOTI5SDMuNVYxMC44MDcxSDEwLjg1NzFWMy41SDEzLjE0MjhWMTAuODA3MUgyMC41VjEzLjA5MjlaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4KPC9zdmc+Cg==" xmlns:xlink="http://www.w3.org/1999/xlink">
-															<path d="M20.5 13.0929H13.1428V20.5H10.8571V13.0929H3.5V10.8071H10.8571V3.5H13.1428V10.8071H20.5V13.0929Z" fill="currentColor"></path>
+													</div>
+													코멘트
+													<div class="css-4w39q2-StyledDropdownWrapper e1svyhwg28">
+														<div class="css-ve4kut"></div>
+													</div>
+												</button>
+												</c:if>
+												<c:if test="${checkComment == 1}"><!-- 수정폼호출 -->
+												<button data-bs-target="#commentUpdateModal" data-bs-toggle="modal"
+													class="css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm e1svyhwg25"style="color:#1eb0d9;">
+													<div class="Icon icPencil css-1q1i623-SVG e1282e850">
+														<div>
+															<svg xmlns="http://www.w3.org/2000/svg" width="24"
+																height="24" viewBox="0 0 24 24" fill="none"
+																class="injected-svg"
+																data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMgMTcuMjUyNVYyMS4wMDI1SDYuNzVMMTcuODEgOS45NDI1TDE0LjA2IDYuMTkyNUwzIDE3LjI1MjVaTTIwLjcxIDcuMDQyNUMyMS4xIDYuNjUyNSAyMS4xIDYuMDIyNSAyMC43MSA1LjYzMjVMMTguMzcgMy4yOTI1QzE3Ljk4IDIuOTAyNSAxNy4zNSAyLjkwMjUgMTYuOTYgMy4yOTI1TDE1LjEzIDUuMTIyNUwxOC44OCA4Ljg3MjVMMjAuNzEgNy4wNDI1WiIgZmlsbD0iY3VycmVudENvbG9yIi8+Cjwvc3ZnPgo="
+																xmlns:xlink="http://www.w3.org/1999/xlink">
+																		<path
+																	d="M3 17.2525V21.0025H6.75L17.81 9.9425L14.06 6.1925L3 17.2525ZM20.71 7.0425C21.1 6.6525 21.1 6.0225 20.71 5.6325L18.37 3.2925C17.98 2.9025 17.35 2.9025 16.96 3.2925L15.13 5.1225L18.88 8.8725L20.71 7.0425Z"
+																	fill="currentColor"></path>
 															</svg>
 														</div>
 													</div>
-												</div>
-												보고싶어요
-											</button>
-											<!-- ======코멘트 모달 설정부분======-->
-											<c:if test="${checkComment != 1}"> <!-- 등록폼호출 -->
-											<button data-bs-target="#commentModal" data-bs-toggle="modal"
-												class="css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm e1svyhwg25" style="color:black;">
-												<div class="Icon icPencil css-1q1i623-SVG e1282e850">
-													<div>
-														<svg xmlns="http://www.w3.org/2000/svg" width="24"
-															height="24" viewBox="0 0 24 24" fill="none"
-															class="injected-svg"
-															data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMgMTcuMjUyNVYyMS4wMDI1SDYuNzVMMTcuODEgOS45NDI1TDE0LjA2IDYuMTkyNUwzIDE3LjI1MjVaTTIwLjcxIDcuMDQyNUMyMS4xIDYuNjUyNSAyMS4xIDYuMDIyNSAyMC43MSA1LjYzMjVMMTguMzcgMy4yOTI1QzE3Ljk4IDIuOTAyNSAxNy4zNSAyLjkwMjUgMTYuOTYgMy4yOTI1TDE1LjEzIDUuMTIyNUwxOC44OCA4Ljg3MjVMMjAuNzEgNy4wNDI1WiIgZmlsbD0iY3VycmVudENvbG9yIi8+Cjwvc3ZnPgo="
-															xmlns:xlink="http://www.w3.org/1999/xlink">
-																	<path
-																d="M3 17.2525V21.0025H6.75L17.81 9.9425L14.06 6.1925L3 17.2525ZM20.71 7.0425C21.1 6.6525 21.1 6.0225 20.71 5.6325L18.37 3.2925C17.98 2.9025 17.35 2.9025 16.96 3.2925L15.13 5.1225L18.88 8.8725L20.71 7.0425Z"
-																fill="currentColor"></path>
-														</svg>
+													코멘트
+													<div class="css-4w39q2-StyledDropdownWrapper e1svyhwg28">
+														<div class="css-ve4kut"></div>
 													</div>
-												</div>
-												코멘트
-												<div class="css-4w39q2-StyledDropdownWrapper e1svyhwg28">
-													<div class="css-ve4kut"></div>
-												</div>
-											</button>
-											</c:if>
-											<c:if test="${checkComment == 1}"><!-- 수정폼호출 -->
-											<button data-bs-target="#commentUpdateModal" data-bs-toggle="modal"
-												class="css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm e1svyhwg25"style="color:#1eb0d9;">
-												<div class="Icon icPencil css-1q1i623-SVG e1282e850">
-													<div>
-														<svg xmlns="http://www.w3.org/2000/svg" width="24"
-															height="24" viewBox="0 0 24 24" fill="none"
-															class="injected-svg"
-															data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMgMTcuMjUyNVYyMS4wMDI1SDYuNzVMMTcuODEgOS45NDI1TDE0LjA2IDYuMTkyNUwzIDE3LjI1MjVaTTIwLjcxIDcuMDQyNUMyMS4xIDYuNjUyNSAyMS4xIDYuMDIyNSAyMC43MSA1LjYzMjVMMTguMzcgMy4yOTI1QzE3Ljk4IDIuOTAyNSAxNy4zNSAyLjkwMjUgMTYuOTYgMy4yOTI1TDE1LjEzIDUuMTIyNUwxOC44OCA4Ljg3MjVMMjAuNzEgNy4wNDI1WiIgZmlsbD0iY3VycmVudENvbG9yIi8+Cjwvc3ZnPgo="
-															xmlns:xlink="http://www.w3.org/1999/xlink">
-																	<path
-																d="M3 17.2525V21.0025H6.75L17.81 9.9425L14.06 6.1925L3 17.2525ZM20.71 7.0425C21.1 6.6525 21.1 6.0225 20.71 5.6325L18.37 3.2925C17.98 2.9025 17.35 2.9025 16.96 3.2925L15.13 5.1225L18.88 8.8725L20.71 7.0425Z"
-																fill="currentColor"></path>
-														</svg>
-													</div>
-												</div>
-												코멘트
-												<div class="css-4w39q2-StyledDropdownWrapper e1svyhwg28">
-													<div class="css-ve4kut"></div>
-												</div>
-											</button>
-											</c:if>
+												</button>
+												</c:if>
 											<!-- =========캘린더========= -->
 											<button data-bs-target="#calendarModal"
 												data-bs-toggle="modal"
 												class="css-orm7r7-StylelessButton-ContentActionButton-ContentCommentButtonOnSm e1svyhwg25"
 												style="color:<c:if test="${dateCheck ne 'noData'}">#1eb0d9;</c:if><c:if test="${dateCheck eq 'noData'}">black;</c:if>">
 												<div class="Icon icPencil css-1q1i623-SVG e1282e850">
-													<div>
-														<svg style="enable-background:new 0 0 100.353 100.353;" version="1.1" viewBox="0 0 100.353 100.353" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M32.286,42.441h-9.762c-0.829,0-1.5,0.671-1.5,1.5v9.762c0,0.828,0.671,1.5,1.5,1.5h9.762c0.829,0,1.5-0.672,1.5-1.5   v-9.762C33.786,43.113,33.115,42.441,32.286,42.441z M30.786,52.203h-6.762v-6.762h6.762V52.203z" fill="currentColor"/><path d="M55.054,42.441h-9.762c-0.829,0-1.5,0.671-1.5,1.5v9.762c0,0.828,0.671,1.5,1.5,1.5h9.762c0.828,0,1.5-0.672,1.5-1.5   v-9.762C56.554,43.113,55.882,42.441,55.054,42.441z M53.554,52.203h-6.762v-6.762h6.762V52.203z"fill="currentColor"/><path d="M77.12,42.441h-9.762c-0.828,0-1.5,0.671-1.5,1.5v9.762c0,0.828,0.672,1.5,1.5,1.5h9.762c0.828,0,1.5-0.672,1.5-1.5v-9.762   C78.62,43.113,77.948,42.441,77.12,42.441z M75.62,52.203h-6.762v-6.762h6.762V52.203z"fill="currentColor"/><path d="M32.286,64.677h-9.762c-0.829,0-1.5,0.672-1.5,1.5v9.762c0,0.828,0.671,1.5,1.5,1.5h9.762c0.829,0,1.5-0.672,1.5-1.5   v-9.762C33.786,65.349,33.115,64.677,32.286,64.677z M30.786,74.439h-6.762v-6.762h6.762V74.439z"fill="currentColor"/><path d="M55.054,64.677h-9.762c-0.829,0-1.5,0.672-1.5,1.5v9.762c0,0.828,0.671,1.5,1.5,1.5h9.762c0.828,0,1.5-0.672,1.5-1.5   v-9.762C56.554,65.349,55.882,64.677,55.054,64.677z M53.554,74.439h-6.762v-6.762h6.762V74.439z"fill="currentColor"/><path d="M77.12,64.677h-9.762c-0.828,0-1.5,0.672-1.5,1.5v9.762c0,0.828,0.672,1.5,1.5,1.5h9.762c0.828,0,1.5-0.672,1.5-1.5v-9.762   C78.62,65.349,77.948,64.677,77.12,64.677z M75.62,74.439h-6.762v-6.762h6.762V74.439z"fill="currentColor"/><path d="M89,13.394h-9.907c-0.013,0-0.024,0.003-0.037,0.004V11.4c0-3.268-2.658-5.926-5.926-5.926s-5.926,2.659-5.926,5.926v1.994   H56.041V11.4c0-3.268-2.658-5.926-5.926-5.926s-5.926,2.659-5.926,5.926v1.994H33.025V11.4c0-3.268-2.658-5.926-5.926-5.926   s-5.926,2.659-5.926,5.926v1.995c-0.005,0-0.01-0.001-0.015-0.001h-9.905c-0.829,0-1.5,0.671-1.5,1.5V92.64   c0,0.828,0.671,1.5,1.5,1.5H89c0.828,0,1.5-0.672,1.5-1.5V14.894C90.5,14.065,89.828,13.394,89,13.394z M70.204,11.4   c0-1.614,1.312-2.926,2.926-2.926s2.926,1.312,2.926,2.926v8.277c0,1.613-1.312,2.926-2.926,2.926s-2.926-1.312-2.926-2.926V11.4z    M50.115,8.474c1.613,0,2.926,1.312,2.926,2.926v8.277c0,1.613-1.312,2.926-2.926,2.926c-1.614,0-2.926-1.312-2.926-2.926v-4.643   c0.004-0.047,0.014-0.092,0.014-0.141s-0.01-0.094-0.014-0.141V11.4C47.189,9.786,48.501,8.474,50.115,8.474z M24.173,11.4   c0-1.614,1.312-2.926,2.926-2.926c1.613,0,2.926,1.312,2.926,2.926v8.277c0,1.613-1.312,2.926-2.926,2.926   c-1.614,0-2.926-1.312-2.926-2.926V11.4z M87.5,91.14H12.753V16.394h8.405c0.005,0,0.01-0.001,0.015-0.001v3.285   c0,3.268,2.659,5.926,5.926,5.926s5.926-2.658,5.926-5.926v-3.283h11.164v3.283c0,3.268,2.659,5.926,5.926,5.926   s5.926-2.658,5.926-5.926v-3.283h11.163v3.283c0,3.268,2.658,5.926,5.926,5.926s5.926-2.658,5.926-5.926V16.39   c0.013,0,0.024,0.004,0.037,0.004H87.5V91.14z" fill="currentColor" /></g></svg>
+													<div id="calOn" style="display: none;">
+														<svg version="1.1" id="Capa_1"
+															xmlns="http://www.w3.org/2000/svg"
+															xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+															y="0px" viewBox="0 0 525.153 525.153"
+															style="enable-background: new 0 0 525.153 525.153;"
+															xml:space="preserve">
+<path
+																d="M381.523,264.152l-27.789-27.811L225.575,364.478l-55.688-55.71l-27.811,27.811l83.499,83.499L381.523,264.152z
+		 M446.336,52.471H420.1V0h-52.471v52.471H157.524V0h-52.471v52.471H78.817c-29.146,0-52.275,23.719-52.275,52.559l-0.306,367.651
+		c0,28.84,23.435,52.471,52.581,52.471h367.541c28.927,0,52.559-23.632,52.559-52.471V105.052
+		C498.917,76.191,475.285,52.471,446.336,52.471z M446.336,472.681H78.817V183.76h367.541v288.921H446.336z"
+																fill="currentColor" /></svg>
 													</div>
+													<div id="calOff" style="display: none;">
+														<svg xmlns="http://www.w3.org/2000/svg"
+															xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+															id="mdi-calendar-blank" width="24" height="24"
+															viewBox="0 0 24 22">
+															<path
+																d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1" /></svg>
+													</div>
+
 												</div>
 												캘린더
 											</button>
@@ -510,8 +540,9 @@
 																			<c:forEach var="images" items="${images}">
 																				<li class="css-1cw0vk0"><div
 																						class="css-1qwe0o7-StyledSelf e1q5rx9q0">
-																						<a href="https://image.tmdb.org/t/p/original${images }" data-lightbox="roadtrip">
-																						<span
+																						<a
+																							href="https://image.tmdb.org/t/p/original${images }"
+																							data-lightbox="roadtrip"> <span
 																							class="css-bhgne5-StyledBackground e1q5rx9q1"
 																							style="background-image: url('https://image.tmdb.org/t/p/original${images }');"></span></a>
 																					</div></li>
@@ -699,7 +730,8 @@
 	</div>
 </div>
 <!--코멘트 수정폼 모달 틀-->
-<div class="modal fade" id="commentUpdateModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="commentUpdateModal" tabindex="-1"
+	role="dialog">
 	<div class="modal-dialog modal-dialog-centered modal-comment">
 		<div class="modal-content">
 			<jsp:include page="/WEB-INF/views/contents/commentUpdate.jsp" />
