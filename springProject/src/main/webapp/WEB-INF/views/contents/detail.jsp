@@ -63,48 +63,48 @@
 				$('#on').hide();
 			}
 		}
+		toggle();
 		var checkCmtLike = $('#checkCmtLike').val();
 		var comment_num = $('#comment_num').val();
-		cmtlike = function() {
-			if (user_num == 0) { 
-				alert('로그인 한 사용자만 가능합니다.');
-				return;
-			}
-			if (user_num != 0) {
-				$
-						.ajax({
-							url : 'cmtLike.do',
-							type : 'post',
-							dataType : 'json',
-							data : {
-								comment_num : comment_num,
-								mem_num : user_num,
-								checkCmtLike : checkCmtLike
-							},
-							success: function(param) {
-			                    if (param.result == 'success') { // 코멘트 좋아요
-			                    	checkCmtLike = 1;
-			                    	$(this)
-			                            .removeClass(
-			                                'css-1h18l7j-StylelessButton cmtLike')
-			                            .addClass(
-			                                'css-jj4q3s-StylelessButton-UserActionButton cmtLike');
-			                    	$('#countLike').text(param.countLike);
-			                    } else if (param.result == 'cancel') { // 코멘트 좋아요 취소
-			                    	checkCmtLike = 0;
-			                    	$(this)
-			                            .removeClass(
-			                                'css-jj4q3s-StylelessButton-UserActionButton cmtLike')
-			                            .addClass(
-			                                'css-1h18l7j-StylelessButton cmtLike');
-			                    	$('#countLike').text(param.countLike);
-			                    }
-			                }
-						});
-			}
-		}
-		
-		toggle();
+		 $(document).on('click', '.cmtLike', function(event) {
+			 if (user_num == 0) { 
+					alert('로그인 한 사용자만 가능합니다.');
+					return;
+				}
+				if (user_num != 0) {
+					$
+							.ajax({
+								url : 'cmtLike.do',
+								type : 'post',
+								dataType : 'json',
+								data : {
+									comment_num : comment_num,
+									mem_num : user_num,
+									checkCmtLike : checkCmtLike
+								},
+								success: function(param) {
+				                    if (param.result == 'success') { // 코멘트 좋아요
+				                    	checkCmtLike = 1;
+				                    	$(event.target)
+				                            .removeClass(
+				                                'css-1h18l7j-StylelessButton cmtLike')
+				                            .addClass(
+				                                'css-jj4q3s-StylelessButton-UserActionButton cmtLike');
+				                    	$(event.target).parent().siblings('.css-1atijos').find('em').text(param.countLike);
+				                    } else if (param.result == 'cancel') { // 코멘트 좋아요 취소
+				                    	checkCmtLike = 0;
+				                    	$(event.target)
+				                            .removeClass(
+				                                'css-jj4q3s-StylelessButton-UserActionButton cmtLike')
+				                            .addClass(
+				                                'css-1h18l7j-StylelessButton cmtLike');
+				                    	$(event.target).parent().siblings('.css-1atijos').find('em').text(param.countLike);
+				                    }
+				                }
+							});
+				}
+		 });
+	
 		calToggle = function() {
 			if ($('#dateCheck').val() != 'noData') {
 				$('#calOn').show();
@@ -728,10 +728,10 @@
 																		<div class="css-1atijos">
 																			<span 
 																				src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgZmlsbD0iIzc4Nzg3OCI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik02Ljc1IDkuNDg1aC0zYTEgMSAwIDAgMC0xIDF2MTBhMSAxIDAgMCAwIDEgMWgzYTEgMSAwIDAgMCAxLTF2LTEwYTEgMSAwIDAgMC0xLTFNMjAuNjU3IDguNTY2YTIuMzYzIDIuMzYzIDAgMCAwLTEuNzc5LS44MTNIMTYuNjJsLjE2NC0uNjI3Yy4xMzctLjUyOC4yMDEtMS4xMi4yMDEtMS44NjMgMC0xLjkxOS0xLjM3NS0yLjc3OC0yLjczOC0yLjc3OC0uNDQ0IDAtLjc2Ni4xMjMtLjk4Ni4zNzYtLjIuMjI3LS4yODIuNTMtLjI0My45MzVsLjAzIDEuMjMtMi45MDMgMi45NGMtLjU5My42LS44OTQgMS4yMy0uODk0IDEuODcydjkuNjQ3YS41LjUgMCAwIDAgLjUuNWg3LjY4N2EyLjM4OCAyLjM4OCAwIDAgMCAyLjM0OC0yLjA3bDEuNDQ1LTcuNDUyYTIuNDQgMi40NCAwIDAgMC0uNTc0LTEuODk3Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-																				width="18px" height="18px" class="css-64x8kr"></span><em id="countLike"><c:if test="${commetList.countLike >0}">${commetList.countLike}</c:if><c:if test="${commetList.countLike ==0 }">0</c:if></em>
+																				width="18px" height="18px" class="css-64x8kr"></span><em class="countLike"><c:if test="${commetList.countLike >0}">${commetList.countLike}</c:if><c:if test="${commetList.countLike ==0 }">0</c:if></em>
 																		</div>
 																		<div class="css-hy68ty" >
-																			<button id="cmtLike" onclick="cmtlike()" class="<c:if test="${commetList.checkCmtLike == 1}">css-jj4q3s-StylelessButton-UserActionButton cmtLike</c:if>
+																			<button class="<c:if test="${commetList.checkCmtLike == 1}">css-jj4q3s-StylelessButton-UserActionButton cmtLike</c:if>
 																			<c:if test="${!empty user_num || commetList.checkCmtLike == 0}">css-1h18l7j-StylelessButton cmtLike</c:if>">좋아요</button>
 																		</div>
 																	</div></li>
