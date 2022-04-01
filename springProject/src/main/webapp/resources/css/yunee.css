@@ -91,6 +91,7 @@ div #count_area{ /*글자수체크영역*/
 }
 
 /*모달-공통, 로그인 및 회원가입*/
+
 .align-center{
 	text-align:center;
 	margin: 0 auto;
@@ -98,11 +99,23 @@ div #count_area{ /*글자수체크영역*/
 .align-right{
 	text-align:right;
 }
+/*modal center*/
+#myModal{
+	position: absolute;
+   top: 25%; 
+   margin-top: -100px;
+}
+#myModal2{
+	position: absolute;
+   top: 25%; 
+   margin-top: -100px;
+}
 .modal-login {
 	width: 350px !important;
 	margin: 50px auto !important ;
 	text-align:center !important;
 	font-size:12pt !important;
+	vertical-align: middle;
 }
 .modal-title{
 font-size:13pt;margin: 0 auto;margin-top:5px;font-family: 'BMJUA';
