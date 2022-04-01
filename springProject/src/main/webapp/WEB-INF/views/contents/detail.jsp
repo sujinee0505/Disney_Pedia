@@ -66,24 +66,20 @@
 		}
 		toggle();
 		
-		var checkCmtLike = 0;
-		var comment_num = 0;
 		$(document)
 				.on(
 						'click',
 						'.cmtLike',
 						function(event) {
+							
 							if (user_num == 0) {
 								alert('로그인 한 사용자만 가능합니다.');
 								return;
 							}
 							if (user_num != 0) {
-								comment_num = $(event.target).parent().find(
-										'.comment_num').val();
-								checkCmtLike = $(event.target).parent().find(
-										'.checkCmtLike').val();
-								$
-										.ajax({
+								var comment_num = $(event.target).parent().find('.comment_num').val();
+								var checkCmtLike = $(event.target).parent().find('.checkCmtLike').val();
+										$.ajax({
 											url : 'cmtLike.do',
 											type : 'post',
 											dataType : 'json',
@@ -94,7 +90,7 @@
 											},
 											success : function(param) {
 												if (param.result == 'success') { // 코멘트 좋아요
-													checkCmtLike = 1;
+													$(event.target).parent().find('.checkCmtLike').val(1);
 													$(event.target)
 															.removeClass(
 																	'css-1h18l7j-StylelessButton cmtLike')
@@ -108,7 +104,7 @@
 															.text(
 																	param.countLike);
 												} else if (param.result == 'cancel') { // 코멘트 좋아요 취소
-													checkCmtLike = 0;
+													$(event.target).parent().find('.checkCmtLike').val(0);
 													$(event.target)
 															.removeClass(
 																	'css-jj4q3s-StylelessButton-UserActionButton cmtLike')
