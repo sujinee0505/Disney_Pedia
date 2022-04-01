@@ -49,27 +49,6 @@ $(function(){
 					}
 				});
 				
-		toggle = function() {
-			if (check == 1) {
-				$('#on').show();
-				$('#off').hide();
-			}else if (check==0) {
-				$('#off').show();
-				$('#on').hide();
-			}
-		}
-		toggle();
-		calToggle = function() {
-			if ($('#dateCheck').val() != 'noData') {
-				$('#calOn').show();
-				$('#calOff').hide();
-			} else {
-				$('#calOff').show();
-				$('#calOn').hide();
-			}
-		}
-		calToggle();				
-				
 		/* 캘린더 */	
 		
 		/* 만약 이미 캘린더에 등록되어 있는 상태라면 그 날짜값을 불러온다 */

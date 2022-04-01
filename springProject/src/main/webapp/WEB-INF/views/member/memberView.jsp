@@ -142,7 +142,7 @@ input[type=button] {
 																				class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
 																				★<c:forEach var="star" items="${star}">
 																					<c:if
-																						test="${star.contents_type eq 'tv'&& star.contents_type ne 'movie'}">${star.count }</c:if>
+																							test="${star.contents_type eq 'movie' && star.contents_type ne 'tv' }">${star.count }</c:if>
 																				</c:forEach>
 																			</li>
 																			<li
@@ -171,7 +171,7 @@ input[type=button] {
 																				class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
 																				★<c:forEach var="star" items="${star}">
 																					<c:if
-																						test="${star.contents_type eq 'tv'&& star.contents_type ne 'movie'}">${star.count }</c:if>
+																							test="${star.contents_type eq 'tv'&& star.contents_type ne 'movie'}">${star.count }</c:if>
 																				</c:forEach>
 																			</li>
 																			<li

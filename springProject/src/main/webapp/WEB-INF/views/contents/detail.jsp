@@ -32,7 +32,6 @@
 							},
 							success : function(param) {
 								if (param.result == 'success') { // 보고싶어요
-									check = 1;
 									$('#like')
 											.removeClass(
 													'css-1tc9iuk-StylelessButton-ContentActionButton')
@@ -41,7 +40,6 @@
 									$('#off').hide();
 									$('#on').show();
 								} else if (param.result == 'cancel') { // 보고싶어요 취소
-									check = 0;
 									$('#like')
 											.removeClass(
 													'css-15hndx7-StylelessButton-ContentActionButton')
@@ -73,7 +71,8 @@
 				$('#calOn').hide();
 			}
 		}
-		calToggle();
+		calToggle();	
+		
 	});
 	</script>
 	<div class="css-16jhzm7-Self e1ezac430">
@@ -651,7 +650,7 @@
 																class="ew8mnl61 css-nh9j5x-VisualUl-CommentHorizontalUl">
 																<c:forEach var="commetList" items="${commetList }">
 																<li class="css-1fryc54"><div class="css-17dwc6k">
-																		<div class="css-4obf01">
+																		<div class="css-4obf01" style="flex-direction: row;">
 																			<div class="css-1cvf9dk">
 																				<a title=""
 																					class="css-1f9m1s4-StylelessLocalLink eovgsd01"
@@ -665,11 +664,13 @@
 																						${commetList.name }<span src="" class="css-amcv0d"></span>
 																					</div></a>
 																			</div>
+																			<c:if test="${commetList.star > 0 }">
 																			<div class="css-yqs4xl">
 																				<img
 																					src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM0QTRBNEEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDE3Ljk4bC02LjAxNSA0LjM5MmMtLjUwOC4zNzItMS4xOTQtLjEyNi0uOTk4LS43MjVsMi4zMTctNy4wODEtNi4wMzUtNC4zNjdjLS41MS0uMzY5LS4yNDctMS4xNzUuMzgyLTEuMTc0bDcuNDQ3LjAxNiAyLjI4Ni03LjA5MWMuMTkyLS42IDEuMDQtLjYgMS4yMzMgMGwyLjI4NiA3LjA5IDcuNDQ3LS4wMTVjLjYyOS0uMDAxLjg5LjgwNS4zOCAxLjE3NGwtNi4wMzMgNC4zNjcgMi4zMTYgNy4wOGMuMTk2LjYtLjQ5IDEuMDk4LS45OTkuNzI2TDEyIDE3Ljk4eiIvPgo8L3N2Zz4K"
-																					width="16px" height="16px" alt="star"><span><c:if test="${commetList.star > 0 }">${commetList.star }</c:if> </span>
+																					width="16px" height="16px" alt="star"><span>${commetList.star } </span>
 																			</div>
+																			</c:if>
 																		</div>
 																		<div class="css-ob93md">
 																			<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
@@ -682,10 +683,11 @@
 																		<div class="css-1atijos">
 																			<span
 																				src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgZmlsbD0iIzc4Nzg3OCI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik02Ljc1IDkuNDg1aC0zYTEgMSAwIDAgMC0xIDF2MTBhMSAxIDAgMCAwIDEgMWgzYTEgMSAwIDAgMCAxLTF2LTEwYTEgMSAwIDAgMC0xLTFNMjAuNjU3IDguNTY2YTIuMzYzIDIuMzYzIDAgMCAwLTEuNzc5LS44MTNIMTYuNjJsLjE2NC0uNjI3Yy4xMzctLjUyOC4yMDEtMS4xMi4yMDEtMS44NjMgMC0xLjkxOS0xLjM3NS0yLjc3OC0yLjczOC0yLjc3OC0uNDQ0IDAtLjc2Ni4xMjMtLjk4Ni4zNzYtLjIuMjI3LS4yODIuNTMtLjI0My45MzVsLjAzIDEuMjMtMi45MDMgMi45NGMtLjU5My42LS44OTQgMS4yMy0uODk0IDEuODcydjkuNjQ3YS41LjUgMCAwIDAgLjUuNWg3LjY4N2EyLjM4OCAyLjM4OCAwIDAgMCAyLjM0OC0yLjA3bDEuNDQ1LTcuNDUyYTIuNDQgMi40NCAwIDAgMC0uNTc0LTEuODk3Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-																				width="18px" height="18px" class="css-64x8kr"></span><em>84</em>
+																				width="18px" height="18px" class="css-64x8kr"></span><em><c:if test="${commetList.countLike >0}">${commetList.countLike}</c:if><c:if test="${commetList.countLike ==0 }">0</c:if></em>
 																		</div>
 																		<div class="css-hy68ty">
-																			<button class="css-1h18l7j-StylelessButton">좋아요</button>
+																			<button class="<c:if test="${checkCmtLike == 1}">css-jj4q3s-StylelessButton-UserActionButton cmtLike</c:if>
+																			<c:if test="${!empty user_num || checkCmtLike == 0}">css-1h18l7j-StylelessButton cmtLike</c:if>">좋아요</button>
 																		</div>
 																	</div></li>
 																	</c:forEach>
