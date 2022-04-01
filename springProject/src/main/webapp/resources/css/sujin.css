@@ -5718,7 +5718,7 @@ h1, h3, p, hr {
 
 @media ( min-width : 1023px) {
 	.css-nh9j5x-VisualUl-CommentHorizontalUl>li {
-		width: 50%;
+		width: 40%;
 	}
 }
 
@@ -5944,7 +5944,7 @@ h1, h3, p, hr {
 	border: none;
 	margin: 0;
 	cursor: pointer;
-	color: #ff2f6e;
+	color: #1eb0d9;
 	font-size: 17px;
 	font-weight: 400;
 	-webkit-letter-spacing: -0.7px;
@@ -5954,6 +5954,22 @@ h1, h3, p, hr {
 	line-height: 22px;
 	padding: 2px 8px;
 	cursor: poiner;
+}
+.css-jj4q3s-StylelessButton-UserActionButton:focus {
+    outline: none;
+}
+.css-jj4q3s-StylelessButton-UserActionButton {
+    border: none;
+    margin: 0px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.7px;
+    line-height: 22px;
+    padding: 2px 8px;
+    background:#1eb0d9;
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
 }
 
 .css-30r08r-VisualUl-DeckHorizontalUl {

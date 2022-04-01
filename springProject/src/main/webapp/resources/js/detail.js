@@ -47,7 +47,28 @@ $(function(){
 								.addClass('css-kywn7v-StyledText');
 						$('#status').show();
 					}
-				});	
+				});
+				
+		toggle = function() {
+			if (check == 1) {
+				$('#on').show();
+				$('#off').hide();
+			}else if (check==0) {
+				$('#off').show();
+				$('#on').hide();
+			}
+		}
+		toggle();
+		calToggle = function() {
+			if ($('#dateCheck').val() != 'noData') {
+				$('#calOn').show();
+				$('#calOff').hide();
+			} else {
+				$('#calOff').show();
+				$('#calOn').hide();
+			}
+		}
+		calToggle();				
 				
 		/* 캘린더 */	
 		
@@ -192,5 +213,6 @@ $(function(){
 		        init.activeDTag = e.target;
 		        init.activeDate.setDate(day);
 		    }
-		});			
+		});	
+		
 });

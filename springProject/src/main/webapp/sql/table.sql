@@ -100,47 +100,6 @@ create table dcontents_cal(
 );
 create sequence dcontents_cal_seq;
 
-/* 리스트 테이블 */
-create table dlist(
-  list_num number not null,
-  list_title varchar2(90) not null,
-  list_content clob not null,
-  reg_date date default sysdate not null,
-  modify_date date,
-  mem_num number not null,
-  contents_num number not null,
-  constraint dlist_pk primary key (list_num),
-  constraint dlist_fk foreign key (mem_num) references dmember (mem_num)
-);
-
-create sequence dlist_seq;
-
-/* 리스트 댓글 테이블 */
-create table dlist_reply(
-  re_num number not null,
-  re_content varchar2(900) not null,
-  re_date date default sysdate not null,
-  re_modifydate date,
-  list_num number not null,
-  mem_num number not null,
-  constraint dlist_reply_pk primary key (re_num),
-  constraint dlist_reply_fk1 foreign key (list_num) references dlist (list_num),
-  constraint dlist_reply_fk2 foreign key (mem_num) references dmember (mem_num)
-);
-
-create sequence dlist_reply_seq;
-
-/* 리스트 좋아요 테이블 */
-create table dlist_like(
-  listLike_num number not null,
-  list_num number not null,
-  mem_num number not null,
-  constraint dlist_like_pk primary key (listLike_num),
-  constraint dlist_like_fk1 foreign key (list_num) references dlist (list_num),
-  constraint dlist_like_fk2 foreign key (mem_num) references dmember (mem_num)
-);
-create sequence dlist_like_seq;
-
 /* 채팅방 테이블 */
 create table dchatboard (
   chatboard_num number not null,

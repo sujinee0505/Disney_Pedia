@@ -15,6 +15,7 @@ public class CommentVO {
 	private int count;
 	private double star;
 	private String name;
+	private int countLike;
 
 	public int getComment_num() {
 		return comment_num;
@@ -94,6 +95,14 @@ public class CommentVO {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getCountLike() {
+		return countLike;
+	}
+
+	public void setCountLike(int countLike) {
+		this.countLike = countLike;
 	}
 
 }

@@ -15,15 +15,15 @@ public class CommentServiceImpl implements CommentService {
 
 	@Autowired
 	private CommentMapper commentMapper;
-	
-	//작업완료
+
+	// 작업완료
 	@Override
 	public void insertComment(CommentVO comment) {
 		commentMapper.insertComment(comment);
 	}
-	
+
 	@Override
-	public int checkComment(CommentVO comment) {		
+	public int checkComment(CommentVO comment) {
 		return commentMapper.checkComment(comment);
 	}
 
@@ -32,7 +32,6 @@ public class CommentServiceImpl implements CommentService {
 		return commentMapper.getComment(comment);
 	}
 
-	//작업중
 	@Override
 	public void updateComment(CommentVO comment) {
 		commentMapper.updateComment(comment);
@@ -43,13 +42,10 @@ public class CommentServiceImpl implements CommentService {
 		commentMapper.deleteComment(comment);
 	}
 
-	
-	//작업아직
 	@Override
 	public CommentVO selectComment(int comment_num) {
 		return commentMapper.selectComment(comment_num);
 	}
-
 
 	@Override
 	public List<CommentVO> selectList(CommentVO comment) {
@@ -61,45 +57,35 @@ public class CommentServiceImpl implements CommentService {
 		return commentMapper.selectRowCount(map);
 	}
 
-
-
-
-
-	// 수진
 	@Override
 	public List<CommentVO> getMostCommented(String contents_type) {
 		return commentMapper.getMostCommented(contents_type);
 	}
-	
+
 	@Override
 	public List<CommentVO> selectListByMem_num(int mem_num) {
 		return commentMapper.selectListByMem_num(mem_num);
 	}
 
 	@Override
-	public List<CommentLikeVO> selectListLike(Map<String, Object> map) {
-		return commentMapper.selectListLike(map);
+	public void commentLike(CommentVO comment) {
+		commentMapper.commentLike(comment);
+
 	}
 
 	@Override
-	public int selectRowCountLike(Map<String, Object> map) {
-		return commentMapper.selectRowCountLike(map);
+	public void cancelCmtLike(CommentVO comment) {
+		commentMapper.cancelCmtLike(comment);
 	}
 
 	@Override
-	public CommentLikeVO selectLike(Integer commentlike_num) {
-		return commentMapper.selectLike(commentlike_num);
+	public int checkCmtLike(CommentVO comment) {
+		return commentMapper.checkCmtLike(comment);
 	}
 
 	@Override
-	public void insertLike(CommentVO comment) {
-		commentMapper.insertLike(comment);
-		
-	}
-
-	@Override
-	public void deleteLike(Integer commentlike_num) {
-		commentMapper.deleteLike(commentlike_num);		
+	public Integer getCountLike(int comment_num) {
+		return commentMapper.getCountLike(comment_num);
 	}
 
 	@Override

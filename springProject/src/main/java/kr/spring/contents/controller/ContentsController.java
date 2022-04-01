@@ -48,7 +48,7 @@ public class ContentsController {
 		GetInfoUtil util = new GetInfoUtil();
 		ContentsVO contents = util.getInfoDetail(contents_type, contents_num);
 		List<String> images = util.getImages(contents_type, contents_num);
-		List<CreditsVO> cast =util.getCredits(contents_type, contents_num, "cast");
+		List<CreditsVO> cast = util.getCredits(contents_type, contents_num, "cast");
 		List<CreditsVO> crew = util.getCredits(contents_type, contents_num, "crew");
 		List<ContentsVO> reco = new ArrayList<ContentsVO>();
 
@@ -93,27 +93,35 @@ public class ContentsController {
 
 		Integer user_num = (Integer) session.getAttribute("user_num");
 
-		if (user_num != null) {			
-			//star
+		// CommentVO
+		CommentVO comment = new CommentVO();
+		comment.setContents_num(contents_num);
+		comment.setContents_type(contents_type);
+		List<CommentVO> commetList = commentService.selectList(comment);
+		mav.addObject("commetList", commetList);
+		if (user_num != null) {
+			// star
 			StarVO star = new StarVO();
 			star.setContents_num(contents_num);
 			star.setContents_type(contents_type);
 			star.setMem_num(user_num);
 			StarVO starVO = contentsService.getStar(star);
 			mav.addObject("starVO", starVO);
-			
-			// CommentVO
-			CommentVO comment = new CommentVO();
-			comment.setContents_num(contents_num);
-			comment.setContents_type(contents_type);
+
 			comment.setMem_num(user_num);
+			for (int i = 0; i < commetList.size(); i++) {
+				Integer countLike = commentService.getCountLike(commetList.get(i).getComment_num());
+				if (countLike != null) {
+					commetList.get(i).setCountLike(countLike);
+				}
+			}
+			mav.addObject("commetList", commetList);
 			CommentVO getComment = commentService.getComment(comment);
 			int checkComment = commentService.checkComment(comment);
+			int checkCmtLike = commentService.checkCmtLike(comment);
 			mav.addObject("getComment", getComment);
 			mav.addObject("checkComment", checkComment);
-			// 죄송해요 시험해볼게있어서
-			List<CommentVO> commetList = commentService.selectList(comment);
-			mav.addObject("commetList",commetList);
+			mav.addObject("checkCmtLike", checkCmtLike);
 
 			LikeVO like = new LikeVO();
 			like.setContents_num(contents_num);
@@ -138,6 +146,8 @@ public class ContentsController {
 			mav.addObject("user_num", 0);
 			mav.addObject("check", 0);
 		}
+
+		//
 
 		mav.setViewName("contentsDetail");
 		mav.addObject("contents", contents); // 컨텐츠 상세 정보
