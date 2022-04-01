@@ -10,8 +10,8 @@ $(function() {
 	//let checkId = 0;
 	
 	//아이디 중복 체크
-	$('#checkbtn').click(function() {
-
+	/* $('#checkbtn').click(function() { */
+		$('#id2').keyup(function() {
 		$.ajax({
 			url : '../member/confirmId.do',
 			type : 'post',
@@ -82,8 +82,8 @@ $(function() {
 			placeholder="아이디"  required>			
 			<p>
 			<!-- 중복체크 버튼 부분 -->
-			<input type="button" id="checkbtn" value="중복체크" class="btn btn-default btn-xs"><br>
-			<!-- 중복체크 메시지 부분 -->
+			<!-- <input type="button" id="checkbtn" value="중복체크" class="btn btn-default btn-xs"><br>
+			 --><!-- 중복체크 메시지 부분 -->
 			<span id="message_id"></span>	
 			<p> 
 			</div>
