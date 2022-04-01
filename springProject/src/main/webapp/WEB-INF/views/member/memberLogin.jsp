@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<script type="text/javascript">
+
+$(function() {
+	//커서
+	$('#myModal').on('shown.bs.modal', function() {
+		$('#id').trigger('focus')
+	})
+});
+
+</script>
 <!DOCTYPE html>
 <body>
 <!-- Modal Header -->
