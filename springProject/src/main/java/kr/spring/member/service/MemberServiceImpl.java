@@ -23,11 +23,16 @@ public class MemberServiceImpl implements MemberService {
 		memberMapper.insertMember(member);
 		memberMapper.insertMember_detail(member);
 	}
-
+	
 	@Override
+	public int checkId(String id) {
+		return memberMapper.checkId(id);
+	}
+		
+	/*@Override
 	public MemberVO selectCheckMember(String id) {
 		return memberMapper.selectCheckMember(id);
-	}
+	}*/
 
 	@Override
 	public MemberVO selectMember(Integer mem_num) {

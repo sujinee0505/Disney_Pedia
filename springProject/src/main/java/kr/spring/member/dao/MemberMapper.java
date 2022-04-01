@@ -11,6 +11,10 @@ import kr.spring.member.vo.MemberVO;
 
 public interface MemberMapper {
 	// 사용자
+	
+	@Select("SELECT COUNT(*) FROM dmember where id=#{id}")
+	public int checkId(String id); //회원가입 시 아이디중복체크
+	
 	@Select("SELECT dmember_seq.nextval FROM dual")
 	public int selectMem_num();
 
@@ -19,11 +23,11 @@ public interface MemberMapper {
 
 	@Insert("INSERT INTO dmember_detail (mem_num,name,passwd) VALUES (#{mem_num},#{name},#{passwd})")
 	public void insertMember_detail(MemberVO member); //회원가입(2)
-
+/*
 	@Select("SELECT m.mem_num,m.id,m.auth,d.passwd,d.photo,d.photo_name "
 			+ "FROM dmember m LEFT OUTER JOIN dmember_detail d " + "ON m.mem_num=d.mem_num WHERE m.id=#{id}")
 	public MemberVO selectCheckMember(String id); //아이디중복체크
-
+*/
 	@Select("SELECT * FROM dmember m JOIN dmember_detail d " + "ON m.mem_num=d.mem_num WHERE m.mem_num=#{mem_num}")
 	public MemberVO selectMember(Integer mem_num); //회원정보
 

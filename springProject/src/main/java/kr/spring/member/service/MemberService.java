@@ -5,9 +5,12 @@ import java.util.List;
 import kr.spring.member.vo.MemberVO;
 
 public interface MemberService {
+	
+	public int checkId(String id);
+	
 	public void insertMember(MemberVO member);
 
-	public MemberVO selectCheckMember(String id);
+	//public MemberVO selectCheckMember(String id);
 
 	public MemberVO selectMember(Integer mem_num);
 
