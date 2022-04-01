@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
@@ -24,6 +25,32 @@ public class MemberAjaxController {
 	@Autowired
 	private MemberService memberService;
 	
+	@RequestMapping("/member/confirmId.do")
+	@ResponseBody
+	public Map<String,String> process(@RequestParam String id){
+		
+		logger.info("<<id>> : " + id);
+		
+		Map<String,String> map = new HashMap<String,String>();
+		
+		int checkId = memberService.checkId(id);
+		
+		if(checkId ==1) {//아이디 중복
+			map.put("result","idDuplicated");
+			
+		}else { //아이디 미중복
+			if(!Pattern.matches("^[A-Za-z0-9]{4,12}$", id)) {
+				//패턴 불일치
+				map.put("result", "notMatchPattern");
+			}else {
+				//패턴일치
+				map.put("result", "idNotFound");
+			}
+		}
+		return map;
+	}	
+	
+	/*
 	@RequestMapping("/member/confirmId.do")
 	@ResponseBody
 	public Map<String,String> process(@RequestParam String id){
@@ -48,7 +75,7 @@ public class MemberAjaxController {
 		}
 		return map;
 	}
-	
+	*/
 	@RequestMapping("/member/updateMyPhoto.do")
 	@ResponseBody
 	public Map<String,String> processProfile(MemberVO memberVO,

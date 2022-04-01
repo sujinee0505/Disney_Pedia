@@ -10,7 +10,7 @@ public interface MemberService {
 	
 	public void insertMember(MemberVO member);
 
-	//public MemberVO selectCheckMember(String id);
+	public MemberVO selectCheckMember(String id);
 
 	public MemberVO selectMember(Integer mem_num);
 

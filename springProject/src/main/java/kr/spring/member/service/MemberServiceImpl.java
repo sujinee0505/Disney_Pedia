@@ -29,10 +29,10 @@ public class MemberServiceImpl implements MemberService {
 		return memberMapper.checkId(id);
 	}
 		
-	/*@Override
+	@Override
 	public MemberVO selectCheckMember(String id) {
 		return memberMapper.selectCheckMember(id);
-	}*/
+	}
 
 	@Override
 	public MemberVO selectMember(Integer mem_num) {
