@@ -73,7 +73,6 @@
 			</div>
 		</div>
 	</div>
-	</div>
 	<div class="css-lufi3b">
 		<div class="css-pbseb6-StyledHomeListTitleRow">
 			<p class="css-16qa0p7">최신 공개 순</p>
