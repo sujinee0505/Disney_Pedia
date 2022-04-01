@@ -4,14 +4,14 @@
 <style type="text/css">
 
 #chatting_message {
-	background-color: #f5efe6;
-	border: 1px solid #999;
+ 	background-color: #f5efe6;
+	border: 1px solid #999; 
 	border-radius: 5px;
-	width: 660px;
-	height: 300px;
+	width: 50%;
+	height: 400px;
 	margin: 0 auto;
 	padding: 10px;
-	overflow: auto;
+	/* overflow: auto; */
 	font-size: 13px;
 	color: #333;
 }
@@ -26,11 +26,14 @@
 }
 
 .from-position .item {
-	border-radius: 10px;
+/* 	border-radius: 10px;
 	background-color: #90b494;
 	padding: 10px;
+	display: block; */
 	height: 50px;
-	display: block;
+	position: relative;
+	background: #72c4df;
+	border-radius: 26px;
 }
 
 .to-position {
@@ -53,6 +56,26 @@
 	font-size: 18pt;
 	color: red;
 }
+.item {
+	position: relative;
+	background: #72c4df;
+	border-radius: .4em;
+}
+
+.item:after {
+	content: '';
+	position: absolute;
+	right: 0; /* left: 0; */
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 12px solid transparent;
+	border-left-color: #72c4df; /* border-right-color */
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -6px;
+	margin-right: -10px;/* margin-left */
+}
 </style>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
@@ -66,19 +89,27 @@
       	$('#content').keydown(function(event){
 			if(event.keyCode == 13 && !event.shiftKey) { //.event.keyCode == 13 : 엔터키눌렀을 때 이벤트
 				$('#chatting_form').trigger('submit');
+				$('#loading img').fadeIn();//*
+				setTimeout(function(){
+					$('#loading img').fadeOut();
+					}, 600)
 			}
    		});
       
 		// *** 1)채팅 내용 불러오기 ***
 		selectData = function() {
+			$('#loading').show();
 			$.ajax({
 				url:'getChatting.do',
 				type:'post',
-				data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:${trans_num}}, // 그동안의 채팅 이력들을 불러오기 위해 인자로 chatboard_num, user_num(로그인 한 유저), trans_num(글 작성자)을 전송
+				// 그동안의 채팅 이력들을 불러오기 위해 인자로 chatboard_num/user_num(로그인 한 유저)/trans_num(글 작성자)을 전송
+				data:{chatboard_num:chatboard_num,from_num:${user_num},to_num:${trans_num}}, 
 				dataType:'json',
 				cache:false,
 				timeout:30000,
 				success:function(param){
+					//$('#loading').hide();
+					//$('#loading').show();
 				if(param.result == 'logout'){
 					loop_check = false;
 					alert('로그인 후 사용하세요!');   
@@ -91,17 +122,19 @@
 					scroll_check = true;
 					
 						$('#chatting_message').empty();
-					
+						$('#loading').show();
 						$(param.getChatting).each(function(index,item){
 							let output = '';
 							if(item.from_num == ${user_num}){
 								output += '<div class="from-position">'+item.name;
+								
 							}else{                     
 								output += '<div class="to-position">'+item.name;
 							}
-							output += '<div class="item">';
-							output += /* (item.chatstate_num !=0 ? '<b>①읽기전 </b>' : '') +  */' <span>' + item.content + '</span>';
-							output += '</div>';
+							output += 	'<div class="item">';
+							output +=	 /* (item.chatstate_num !=0 ? '<b>①읽기전 </b>' : '') +  */' <span>' + item.content + '</span>';
+							//output += '<span class="send_date">(날짜) : ' + item.send_date + '</span>';
+							output += 	'</div>';
 							output += '</div>';
 							
 							//문서 객체에 추가
@@ -184,14 +217,18 @@
 					if(param.result == 'logout'){
 						alert('로그인해야 작성할 수 있습니다.');
 					}else if(param.result == 'success'){
-						if (check==0) {
-							$('#모집').text('모집완료');
-							$('#모집').removeClass('bg-light text-dark').addClass('bg-danger');
-							check = 1;
-						}else if (check==1) {
-							$('#모집').text('모집중');
+						<!-- mate_state : 0 모집중/1 모집완료 -->
+						if (check==0) { /* 모집중(0)->모집완료(1)  */
+							alert("모집 완료로 변경되었습니다!")
+							$('#모집').text('모집 완료');
 							$('#모집').removeClass('bg-danger').addClass('bg-light text-dark');
-							check = 0;
+							check = 1; //check변수로 모집 현황을 구분하므로 check값도 바꿔준다.
+							
+						}else if (check==1) { /* 모집완료(1)->모집중(0)  */
+							alert("모집 중으로 변경되었습니다!")
+							$('#모집').text('모집 중');
+							$('#모집').removeClass('bg-light text-dark').addClass('bg-danger');
+							check = 0; //check변수로 모집 현황을 구분하므로 check값도 바꿔준다.
 						}
 					}else{
 						alert('모집완료로 변경시 오류 발생');
@@ -209,18 +246,18 @@
 </script>
 
 <div class="page-main-chat" style="margin-top: 100px;">
-	<c:if test="${user_num != chatboard.mem_num}">
-		<!-- 얘는 왜 chatboard 나중에 통일시키자-->
+	<!-- 1.글작성자와 로그인자가 다른경우 -->
+	<c:if test="${user_num != chatBoard.mem_num}"> 
 		<span id="trans_id"> ${chatBoard.title}의 작성자 <small>${chatBoard.name}</small>님과
 			채팅 ${chatBoard.mate_state}
 		</span>
 	</c:if>
 	<p />
-
+	<!-- 2.글작성자와 로그인자가 같은경우 -->
 	<!-- mate_state : 0 모집중/1 모집완료 -->
 	<c:if test="${user_num == chatBoard.mem_num}">
-		<!-- 얘는 왜 chatBoard -->
-		<span id="trans_id"><b>${member.mem_num}과의 대화</b></span>
+		<span id="trans_id"><b>${member.id}과의 대화</b></span>
+		<span id="trans_id"><b>${chatBoard.name}과의 대화</b></span>
 		<button id="모집"
 			class="badge rounded-pill <c:if test="${chatBoard.mate_state == 0}">bg-light text-dark</c:if><c:if test="${chatBoard.mate_state == 1}">bg-danger</c:if>">
 			<c:if test="${chatBoard.mate_state == 0}">모집중</c:if>
@@ -231,10 +268,11 @@
 	<span id="rev_msg"> <c:if test="${chatBoard.mate_state == 1}">모집완료</c:if>
 	</span>
 
-	<div id="chatting_message"></div>
+	<div id="chatting_message" class="overflow-auto"> </div>
 
 	<form method="post" id="chatting_form"
 		style="width: 660px; background-color: #d8e3d9; border: 1px solid #999; border-radius: 5px;">
+
 		<input type="hidden" id="chatboard_num" name="chatboard_num"
 			value="${chatBoard.chatboard_num}">
 		<c:if test="${user_num != chatBoard.mem_num}">
@@ -242,13 +280,22 @@
 				value="${chatBoard.mem_num}">
 		</c:if>
 		<c:if test="${user_num == chatBoard.mem_num}">
-			<input type="hidden" name="to_num" value="${meber.mem_num}">
+			<input type="hidden" name="to_num" value="${member.mem_num}">
 		</c:if>
-		<ul>
-			<li><label for="content">내용</label> <textarea rows="7" cols="50"
-					name="content" id="content" style="border-radius: 5px;"></textarea>
-				<button type="submit" value="전송" class="btn-chat">전송</button></li>
-		</ul>
+		
+		
+		<div id="loading" >
+				<img style="display:none; position: absolute;" 
+					src="${pageContext.request.contextPath}/resources/images/board/chipNdale.gif">
+			<ul>
+				<li><label for="content">내용</label></li>
+				<li><textarea rows="7" cols="50"
+							name="content" id="content" 
+							style="border-radius: 5px; background-color:transparent"></textarea>
+					<button type="submit" value="전송" class="btn-chat">전송</button>
+				</li>
+			</ul>
+		</div>
 	</form>
 </div>
 

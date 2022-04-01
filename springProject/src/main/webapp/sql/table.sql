@@ -120,27 +120,6 @@ ALTER TABLE dchatboard ADD hit number(5) default 0 not null;
 ALTER TABLE dchatboard ADD mate_state number default 0 not null;
 */
 
-/*채팅 정보 테이블*/
-create table dchatting(
-  dchat_num number not null,
-  chatroom_num number not null,
-  mem_num number not null,--채팅보낸사람
-  opponent_num number not null,--채팅받는사람(게시글작성자)
-  content varchar2(900) not null,
-  send_date date default sysdate,
-  read_date date,
-  read number(1) default 1 not null,--읽기상태(1읽지 않음, 0 읽음) --*
-  constraint dchatting_pk primary key(dchat_num),
-  constraint dchatting_fk1 foreign key(chatroom_num) references Dchatboard(chatboard_num),
-  constraint dchatting_fk2 foreign key(mem_num) references Dmember_detail(mem_num),
-  constraint dchatting_fk3 foreign key(opponent_num) references Dmember_detail(mem_num)
-);
-CREATE SEQUENCE Dchatting_seq;
-/*
-ALTER TABLE dchatting MODIFY read number(1) default 1 not null; 
-*/
-
-/*===============================  테스트   =======================================*/
 /*채팅(chatting) 테이블 영역*/
 CREATE TABLE dchatting(
    chat_num number not null, --채팅번호
@@ -157,18 +136,4 @@ CREATE TABLE dchatting(
    constraint dchatting_fk3 foreign key (chatboard_num) references dchatboard (chatboard_num)
 );
 CREATE SEQUENCE Dchatting_seq;
-
-/* =댓글 테스트 = */
-create table dchatboard_reply(
-	re_num number not null,
-	re_content varchar2(900) not null,
-	re_date date default sysdate not null,
-	re_mdate date,
-	chatboard_num number not null,
-	mem_num number not null,
-	constraint dchatboard_reply_pk primary key(re_num),
-	constraint reply_dchatboard_fk1 foreign key (chatboard_num) references dchatboard(chatboard_num),
-	constraint reply_dmember_fk1 foreign key (mem_num) references dmember(mem_num)
-);
-create sequence dchatreply_seq;
 

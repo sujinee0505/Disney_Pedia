@@ -58,6 +58,7 @@ public class ChattingController {
 		return mav;
 	}
 
+	// *** 2-1)채팅 내용 불러오기 ***
 	// [채팅메서드2. 채팅테이블에 채팅등록 SELECT : getChattingDetail() ]
 	@RequestMapping("/chatboard/getChatting.do")
 	@ResponseBody // chatting.jsp에서 ajax로 넘긴 chatboard_num 등이 알아서 데이터 바인딩 되어서 chattingVO에 저장돼있음
