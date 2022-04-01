@@ -52,18 +52,6 @@ public class MemberController {
 		return "memberRegister";
 	}
 
-	// 회원 등록 처리(기존)
-	/*
-	 * @PostMapping("/member/registerUser.do") public String submit(@Valid MemberVO
-	 * memberVO, BindingResult result) { logger.info("<<회원 가입>> : " + memberVO);
-	 * 
-	 * //유효성 체크 결과 오류가 있으면 폼 호출 if(result.hasErrors()) { return form(); }
-	 * 
-	 * //회원 가입 memberService.insertMember(memberVO);
-	 * 
-	 * return "redirect:/main/main.do"; }
-	 */
-
 	// 회원 등록 처리
 	@PostMapping("/member/registerUser.do")
 	public String submit(MemberVO memberVO) {
@@ -77,17 +65,11 @@ public class MemberController {
 	}
 
 	// 로그인 폼 호출
-
 	@GetMapping("/member/login.do")
 	public String formLogin() {
 		return "memberLogin";
 	}
 
-	// 로그인처리(일반폼태그버전) :
-	/*
-	 * 1) @Valid,BindingResult 제거 2) Model model 추가->유효성체크시 BindingResult 사용x Model에
-	 * 메시지 저장 3) 유효성 체크 결과 오류가 있으면 폼 호출-> 사용x alert창으로 알려줌.(resultView.jsp)
-	 */
 	@PostMapping("/member/login.do")
 	public String loginmodal(MemberVO memberVO, HttpSession session, HttpServletRequest request, Model model) {
 
@@ -302,19 +284,20 @@ public class MemberController {
 		GetInfoUtil util = new GetInfoUtil();
 
 		Integer mem_num = (Integer) session.getAttribute("user_num");
-		
+
 		// 보고싶어요 누른 컨텐츠 목록 불러오기
 		like.setMem_num(mem_num);
 		List<ContentsVO> likeList = new ArrayList<ContentsVO>();
 		List<LikeVO> likeVO = contentsService.getLikeList(like); // 로그인한 유저가 보고싶어요를 누른 컨텐츠를 모두 불러옴
 		for (int i = 0; i < likeVO.size(); i++) {
 			ContentsVO contents_like = new ContentsVO();
-			// 보고싶어요를 누른 컨텐츠들의 상세 정보를 불러옴 (보고싶어요 table에는 contents_num, contents_type만 저장이 되기 때문에 poster등을 불러오기 위함
+			// 보고싶어요를 누른 컨텐츠들의 상세 정보를 불러옴 (보고싶어요 table에는 contents_num, contents_type만 저장이 되기
+			// 때문에 poster등을 불러오기 위함
 			contents_like = util.getInfoDetail(likeVO.get(i).getContents_type(), likeVO.get(i).getContents_num());
 			// 루프를 돌며 contentsVO에 저장 후 list에 넣어줌
 			likeList.add(contents_like);
 		}
-		
+
 		// 평가한 컨텐츠 목록 불러오기
 		List<ContentsVO> starList = new ArrayList<ContentsVO>();
 		StarVO star = new StarVO();
@@ -324,7 +307,8 @@ public class MemberController {
 		for (int i = 0; i < starVO.size(); i++) {
 			ContentsVO contents_star = new ContentsVO();
 			contents_star = util.getInfoDetail(starVO.get(i).getContents_type(), starVO.get(i).getContents_num());
-			contents_star.setStar(starVO.get(i).getStar()); // api를 통해 가져온 평균평점이 아닌, 유저가 평가한 점수가 저장이 되어야 하기 때문에 따로 VO에 셋팅
+			contents_star.setStar(starVO.get(i).getStar()); // api를 통해 가져온 평균평점이 아닌, 유저가 평가한 점수가 저장이 되어야 하기 때문에 따로 VO에
+															// 셋팅
 			starList.add(contents_star);
 		}
 

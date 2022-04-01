@@ -16,6 +16,7 @@ public class CommentVO {
 	private double star;
 	private String name;
 	private int countLike;
+	private int checkCmtLike;
 
 	public int getComment_num() {
 		return comment_num;
@@ -103,6 +104,22 @@ public class CommentVO {
 
 	public void setCountLike(int countLike) {
 		this.countLike = countLike;
+	}
+
+	public int getCheckCmtLike() {
+		return checkCmtLike;
+	}
+
+	public void setCheckCmtLike(int checkCmtLike) {
+		this.checkCmtLike = checkCmtLike;
+	}
+
+	@Override
+	public String toString() {
+		return "CommentVO [comment_num=" + comment_num + ", contents_type=" + contents_type + ", contents_num="
+				+ contents_num + ", content=" + content + ", reg_date=" + reg_date + ", modify_date=" + modify_date
+				+ ", mem_num=" + mem_num + ", count=" + count + ", star=" + star + ", name=" + name + ", countLike="
+				+ countLike + ", checkCmtLike=" + checkCmtLike + "]";
 	}
 
 }

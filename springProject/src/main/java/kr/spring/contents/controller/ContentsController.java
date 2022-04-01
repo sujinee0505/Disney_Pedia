@@ -110,18 +110,20 @@ public class ContentsController {
 
 			comment.setMem_num(user_num);
 			for (int i = 0; i < commetList.size(); i++) {
-				Integer countLike = commentService.getCountLike(commetList.get(i).getComment_num());
+				Integer countLike = commentService.getCountLike(commetList.get(i).getComment_num()); // 코멘트 좋아요 갯수
 				if (countLike != null) {
 					commetList.get(i).setCountLike(countLike);
 				}
+				comment.setComment_num(commetList.get(i).getComment_num());
+				int checkCmtLike = commentService.checkCmtLike(comment);
+				commetList.get(i).setCheckCmtLike(checkCmtLike);
 			}
 			mav.addObject("commetList", commetList);
 			CommentVO getComment = commentService.getComment(comment);
 			int checkComment = commentService.checkComment(comment);
-			int checkCmtLike = commentService.checkCmtLike(comment);
+
 			mav.addObject("getComment", getComment);
 			mav.addObject("checkComment", checkComment);
-			mav.addObject("checkCmtLike", checkCmtLike);
 
 			LikeVO like = new LikeVO();
 			like.setContents_num(contents_num);

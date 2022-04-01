@@ -93,10 +93,9 @@ public class ContentsAjaxController {
 	// 코멘트 좋아요
 	@RequestMapping("/contents/cmtLike.do")
 	@ResponseBody
-	public Map<String, String> commentLike(HttpSession session, CommentVO comment, int checkCmtLike) {
+	public Map<String, Object> commentLike(HttpSession session, CommentVO comment, int checkCmtLike) {
 
-		Map<String, String> map = new HashMap<String, String>();
-
+		Map<String, Object> map = new HashMap<String, Object>();
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		if (user_num == null) {
 			map.put("result", "logout");
@@ -108,6 +107,11 @@ public class ContentsAjaxController {
 				commentService.commentLike(comment);
 				map.put("result", "success");
 			}
+			Integer countLike = commentService.getCountLike(comment.getComment_num());
+			if (countLike == null ) {
+				countLike = 0;
+			}
+			map.put("countLike", countLike);
 		}
 		return map;
 	}
