@@ -4,7 +4,7 @@
 $(function() {
 	//커서
 	$('#myModal').on('shown.bs.modal', function() {
-		$('#uid').trigger('focus')
+		$('#id').trigger('focus')
 	})
 });
 </script>
