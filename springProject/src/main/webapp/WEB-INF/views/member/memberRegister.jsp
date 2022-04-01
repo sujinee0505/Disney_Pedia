@@ -71,17 +71,17 @@ $(function() {
 		role="form" id="signUp_form">
 		
 			<div class="form-group">
-			<input type="text" id="name" name="name" class="form-control" 
+			<input type="text" id="name" name="name" class="form-control blank" 
 			placeholder="이름" autofocus required>
-			</div><p>
+			</div>
 			
 			<div class="form-group">
-			<input type="text" id="id2" name="id" class="form-control" 
+			<input type="text" id="id2" name="id" class="form-control blank" 
 			placeholder="아이디"  required>	
 			</div>		
 			<!-- 중복체크 메시지 부분 -->
 			<span id="message_id"></span>
-			<p>
+			
 						
 			<div class="form-group">
 			<input type="password" id="passwd2" name="passwd" 

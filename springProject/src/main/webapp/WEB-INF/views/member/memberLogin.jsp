@@ -21,8 +21,8 @@ $(function() {
 		<%-- required: 필수입력필드지정->별도 유효성체크 생략 --%>
 		<div class="form-group">
 			<input type="text" id="id" name="id"
-				class="form-control" placeholder="아이디" autofocus required>
-		</div><p>
+				class="form-control blank" placeholder="아이디" autofocus required>
+		</div>
 		
 		<div class="form-group">
 			<input type="password" id="passwd" name="passwd" 
