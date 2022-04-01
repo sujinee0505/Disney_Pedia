@@ -3,6 +3,7 @@
 
 <script type="text/javascript">
 	$(function() {
+		var user_num = ${user_num};
 		$('#calendarModal').on('shown.bs.modal', function() {
 		});
 
@@ -15,15 +16,59 @@
 							if ($('.day-active').text() < 10) {
 								day = '0' + $('.day-active').text();
 							}
+
 							var custom_date = year + '-' + month + '-' + day;
 							$('#custom_date').val(custom_date);
-							if ($('.day').hasClass('day-active') == false) {
-								alert('날짜를 선택해주세요.');
+							if (user_num == 0) {
+								alert('로그인 한 사용자만 가능합니다.');
 								return false;
-							} else if ($('#dateCheck').val() != 'noData') {
-								let choice = confirm('수정하시겠습니까?');
-								if (choice == false) {
+							}
+							if (user_num != 0) {
+								if ($('.day').hasClass('day-active') == false) {
+									alert('날짜를 선택해주세요.');
 									return false;
+								} else if ($('#dateCheck').val() != 'noData') {
+									let choice = confirm('수정하시겠습니까?');
+									if (choice == false) {
+										return false;
+									} else {
+										$
+												.ajax({
+													type : 'post',
+													data : {
+														contents_num : $(
+																'#contents_num')
+																.val(),
+														custom_date : $(
+																'#custom_date')
+																.val(),
+														contents_type : $(
+																'#contents_type')
+																.val(),
+														poster_path : $(
+																'#poster_path')
+																.val()
+													},
+													url : 'updateCal.do',
+													dataType : 'json',
+													cache : false,
+													timeout : 30000,
+													success : function(param) {
+														if (param.result == 'logout') {
+															alert('로그인후 등록할 수 있습니다.');
+														} else if (param.result == 'success') {
+															alert('수정되었습니다.');
+															location
+																	.replace('detail.do?contents_type=${contents.contents_type}&contents_num=${contents.contents_num}');
+														} else {
+															alert('수정시 오류 발생');
+														}
+													},
+													error : function() {
+														alert('네트워크 오류 발생!');
+													}
+												});
+									}
 								} else {
 									$
 											.ajax({
@@ -42,7 +87,7 @@
 															'#poster_path')
 															.val()
 												},
-												url : 'updateCal.do',
+												url : 'insertCal.do',
 												dataType : 'json',
 												cache : false,
 												timeout : 30000,
@@ -50,11 +95,11 @@
 													if (param.result == 'logout') {
 														alert('로그인후 등록할 수 있습니다.');
 													} else if (param.result == 'success') {
-														alert('수정되었습니다.');
+														alert('등록되었습니다.');
 														location
 																.replace('detail.do?contents_type=${contents.contents_type}&contents_num=${contents.contents_num}');
 													} else {
-														alert('수정시 오류 발생');
+														alert('등록시 오류 발생');
 													}
 												},
 												error : function() {
@@ -62,39 +107,6 @@
 												}
 											});
 								}
-							} else {
-								$
-										.ajax({
-											type : 'post',
-											data : {
-												contents_num : $(
-														'#contents_num').val(),
-												custom_date : $('#custom_date')
-														.val(),
-												contents_type : $(
-														'#contents_type').val(),
-												poster_path : $('#poster_path')
-														.val()
-											},
-											url : 'insertCal.do',
-											dataType : 'json',
-											cache : false,
-											timeout : 30000,
-											success : function(param) {
-												if (param.result == 'logout') {
-													alert('로그인후 등록할 수 있습니다.');
-												} else if (param.result == 'success') {
-													alert('등록되었습니다.');
-													location
-															.replace('detail.do?contents_type=${contents.contents_type}&contents_num=${contents.contents_num}');
-												} else {
-													alert('등록시 오류 발생');
-												}
-											},
-											error : function() {
-												alert('네트워크 오류 발생!');
-											}
-										});
 							}
 						});
 		$('.dayMark')
@@ -146,7 +158,8 @@
 <body>
 	<!-- Modal body -->
 	<div class="modal-body calendar-body">
-		<form id="insertCal">
+		<form id="insertCal"
+			style="display: flex; flex-direction: column; align-items: center;">
 			<input type="hidden" value="${dateCheck }" id="dateCheck"> <input
 				type="hidden" value="${contents.contents_num }" id="contents_num">
 			<input type="hidden" value="${contents.contents_type }"

@@ -13,8 +13,9 @@
 	$(function() {
 		var user_num = ${user_num};
 		var check = ${check};
-		like = function() {
-			if (user_num == 0) { 
+		
+	like = function() {
+			if (user_num == 0) {
 				alert('로그인 한 사용자만 가능합니다.');
 				return;
 			}
@@ -58,55 +59,74 @@
 			if (check == 1) {
 				$('#on').show();
 				$('#off').hide();
-			}else if (check==0) {
+			} else if (check == 0) {
 				$('#off').show();
 				$('#on').hide();
 			}
 		}
 		toggle();
-		var checkCmtLike =0;
+		
+	var checkCmtLike = 0;
 		var comment_num = 0;
-		 $(document).on('click', '.cmtLike', function(event) {
-			 if (user_num == 0) { 
-					alert('로그인 한 사용자만 가능합니다.');
-					return;
-				}
-				if (user_num != 0) {
-					comment_num = $(event.target).parent().find('.comment_num').val();
-					checkCmtLike = $(event.target).parent().find('.checkCmtLike').val();
-					$
-							.ajax({
-								url : 'cmtLike.do',
-								type : 'post',
-								dataType : 'json',
-								data : {
-									comment_num : comment_num,
-									mem_num : user_num,
-									checkCmtLike : checkCmtLike
-								},
-								success: function(param) {
-				                    if (param.result == 'success') { // 코멘트 좋아요
-				                    	checkCmtLike = 1;
-				                    	$(event.target)
-				                            .removeClass(
-				                                'css-1h18l7j-StylelessButton cmtLike')
-				                            .addClass(
-				                                'css-jj4q3s-StylelessButton-UserActionButton cmtLike');
-				                    	$(event.target).parent().siblings('.css-1atijos').find('em').text(param.countLike);
-				                    } else if (param.result == 'cancel') { // 코멘트 좋아요 취소
-				                    	checkCmtLike = 0;
-				                    	$(event.target)
-				                            .removeClass(
-				                                'css-jj4q3s-StylelessButton-UserActionButton cmtLike')
-				                            .addClass(
-				                                'css-1h18l7j-StylelessButton cmtLike');
-				                    	$(event.target).parent().siblings('.css-1atijos').find('em').text(param.countLike);
-				                    }
-				                }
-							});
-				}
-		 });
-	
+		$(document)
+				.on(
+						'click',
+						'.cmtLike',
+						function(event) {
+							if (user_num == 0) {
+								alert('로그인 한 사용자만 가능합니다.');
+								return;
+							}
+							if (user_num != 0) {
+								comment_num = $(event.target).parent().find(
+										'.comment_num').val();
+								checkCmtLike = $(event.target).parent().find(
+										'.checkCmtLike').val();
+								$
+										.ajax({
+											url : 'cmtLike.do',
+											type : 'post',
+											dataType : 'json',
+											data : {
+												comment_num : comment_num,
+												mem_num : user_num,
+												checkCmtLike : checkCmtLike
+											},
+											success : function(param) {
+												if (param.result == 'success') { // 코멘트 좋아요
+													checkCmtLike = 1;
+													$(event.target)
+															.removeClass(
+																	'css-1h18l7j-StylelessButton cmtLike')
+															.addClass(
+																	'css-jj4q3s-StylelessButton-UserActionButton cmtLike');
+													$(event.target)
+															.parent()
+															.siblings(
+																	'.css-1atijos')
+															.find('em')
+															.text(
+																	param.countLike);
+												} else if (param.result == 'cancel') { // 코멘트 좋아요 취소
+													checkCmtLike = 0;
+													$(event.target)
+															.removeClass(
+																	'css-jj4q3s-StylelessButton-UserActionButton cmtLike')
+															.addClass(
+																	'css-1h18l7j-StylelessButton cmtLike');
+													$(event.target)
+															.parent()
+															.siblings(
+																	'.css-1atijos')
+															.find('em')
+															.text(
+																	param.countLike);
+												}
+											}
+										});
+							}
+						});
+
 		calToggle = function() {
 			if ($('#dateCheck').val() != 'noData') {
 				$('#calOn').show();
@@ -116,10 +136,9 @@
 				$('#calOn').hide();
 			}
 		}
-		calToggle();	
-		
+		calToggle();
 	});
-	</script>
+</script>
 <div class="css-16jhzm7-Self e1ezac430">
 	<div class="css-1ihluk0-Content e1ezac431">
 		<div class="css-1iyk86f-Background e1ezac432">
@@ -875,7 +894,7 @@
 	</div>
 </div>
 <div class="modal fade" id="calendarModal" tabindex="-1" role="dialog">
-	<div class="modal-dialog modal-dialog-centered modal-comment">
+	<div class="modal-dialog modal-dialog-centered modal-comment" style="width: 450px !important;">
 		<div class="modal-content">
 			<jsp:include page="/WEB-INF/views/contents/calendar.jsp" />
 		</div>

@@ -6104,24 +6104,23 @@ h1, h3, p, hr {
 	white-space: pre-wrap;
 } */
 .my-calendar {
-	/* width: 400px; */
-	margin: 30px 30px 0px 30px;;
-	/* padding: 20px 20px 10px; */
+	width: 400px;
+	margin: 5px 30px 0px 40px;
+	padding: 20px 20px 10px;
 	text-align: center;
 	font-weight: 800;
-	/* border: 1px solid #ddd; */
 	cursor: default;
 }
 
-.my-calendar .clicked-date {
+/* .my-calendar .clicked-date {
 	border-radius: 25px;
 	margin-top: 36px;
 	float: left;
 	width: 42%;
 	padding: 46px 0 26px;
 	background: #ddd;
-}
-/* .my-calendar .calendar-box {
+} 
+ .my-calendar .calendar-box {
   float: right;
   width: 58%;
   padding-left: 30px;
