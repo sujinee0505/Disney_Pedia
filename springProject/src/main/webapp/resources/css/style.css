@@ -264,6 +264,7 @@
 .css-egiga7-Self {
 	background: #F1F3FA;
 	overflow: hidden;
+	min-height: 800px;
 }
 
 @media ( min-width : 719px) {

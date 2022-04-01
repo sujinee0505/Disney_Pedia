@@ -32,14 +32,28 @@
 	<br>
 	<div id="boardView_middle" class=" row ">
 		<div id="boardView_img" class=" col-md-2 ">
-			<c:if test="${empty user_photo}">
-				<img
-					src="${pageContext.request.contextPath}/resources/images/face.png">
-			</c:if>
-			<c:if test="${!empty user_photo}">
-				<img
-					src="${pageContext.request.contextPath}/member/photoView.do?user_num=${chatboard.mem_num}">
-			</c:if>
+			<c:choose>
+				<c:when test="${empty usr_num}">
+					<c:if test="${empty chatboard.photo_name}">
+						<img
+							src="${pageContext.request.contextPath}/resources/images/face.png">
+					</c:if>
+					<c:if test="${!empty chatboard.photo_name}">
+						<img
+							src="${pageContext.request.contextPath}/member/photoView.do?user_num=${chatboard.mem_num}">
+					</c:if>
+				</c:when>
+				<c:when test="${!empty usr_num}">
+					<c:if test="${ empty user_photo}">
+						<img
+							src="${pageContext.request.contextPath}/resources/images/face.png">
+					</c:if>
+					<c:if test="${!empty user_photo}">
+						<img
+							src="${pageContext.request.contextPath}/member/photoView.do?user_num=${chatboard.mem_num}">
+					</c:if>
+				</c:when>
+			</c:choose>
 		</div>
 		<div id="boardView_name" class="col-8  align-self-end ">
 			<b>${chatboard.name}</b>
@@ -66,24 +80,27 @@
 	<div id="boardView_button" class="row">
 		<!-- 글 작성자와 로그인 되어있는 유저 같은 경우 -->
 		<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
-			<button class="btn btn-primary "  id="chat_btn" 
-					onclick="location.href='chattingList.do?chatboard_num=${chatboard.chatboard_num}'">채팅 목록</button>
+			<button class="btn btn-primary " id="chat_btn"
+				onclick="location.href='chattingList.do?chatboard_num=${chatboard.chatboard_num}'">채팅
+				목록</button>
 		</c:if>
-		<!-- 글 작성자와 로그인 되어있는 유저가 다른 경우 / 모집현황에 따른 경우 --><!-- 게시글 작성자의 회원 번호도 함께 전송 -->
+		<!-- 글 작성자와 로그인 되어있는 유저가 다른 경우 / 모집현황에 따른 경우 -->
+		<!-- 게시글 작성자의 회원 번호도 함께 전송 -->
 		<!-- mate_state : 0 모집중/1 모집완료 -->
 		<c:choose>
-			<c:when test="${!empty user_num && user_num != chatboard.mem_num && chatboard.mate_state == 0}">
-				<button class="btn btn-primary "  id="chat_btn" 
-					onclick="location.href='chatting.do?chatboard_num=${chatboard.chatboard_num}&trans_num=${chatboard.mem_num}'"
-					>채팅하기</button>
+			<c:when
+				test="${!empty user_num && user_num != chatboard.mem_num && chatboard.mate_state == 0}">
+				<button class="btn btn-primary " id="chat_btn"
+					onclick="location.href='chatting.do?chatboard_num=${chatboard.chatboard_num}&trans_num=${chatboard.mem_num}'">채팅하기</button>
 			</c:when>
-			<c:when test="${!empty user_num && user_num != chatboard.mem_num && chatboard.mate_state == 1}">
-				<button class="btn btn-primary "  id="chat_btn" 
+			<c:when
+				test="${!empty user_num && user_num != chatboard.mem_num && chatboard.mate_state == 1}">
+				<button class="btn btn-primary " id="chat_btn"
 					onclick="location.href='chatting.do?chatboard_num=${chatboard.chatboard_num}&trans_num=${chatboard.mem_num}'"
-					 disabled="disabled">채팅하기</button>
+					disabled="disabled">채팅하기</button>
 			</c:when>
 		</c:choose>
-		
+
 		<div id="mybtn">
 			<c:if test="${!empty user_num && user_num == chatboard.mem_num}">
 				<button class="btn btn-secondary" id="modify_btn"

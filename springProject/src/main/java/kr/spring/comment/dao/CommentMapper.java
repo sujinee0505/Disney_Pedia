@@ -36,8 +36,7 @@ public interface CommentMapper {
 	public void deleteComment(CommentVO commentVO);
 
 	// 코멘트 상세 정보
-	@Select("SELECT a.*, s.star FROM (SELECT d.name, c.* FROM dmember_detail d JOIN dcomment c ON d.mem_num = c.mem_num) a "
-			+ "LEFT OUTER JOIN dcontents_star s ON s.star_num = a.star_num WHERE a.comment_num =#{comment_num}")
+	@Select("SELECT * FROM dcomment c LEFT OUTER JOIN dcontents_star s ON c.star_num = s.star_num WHERE c.comment_num=#{comment_num}")
 	public CommentVO selectComment(int comment_num);
 
 	@Select("SELECT a.*, s.star FROM (SELECT d.name, d.photo_name, c.* FROM dmember_detail d JOIN dcomment c ON d.mem_num=c.mem_num ) a "

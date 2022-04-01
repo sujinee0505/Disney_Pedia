@@ -7,12 +7,12 @@
 		var user_num = ${user_num};
 		var checkCmtLike = ${checkCmtLike};
 		var comment_num = ${comment.comment_num};
-		cmtlike = function() {
+		
+	cmtlike = function() {
 			if (user_num == 0 || user_num == null) {
 				alert('로그인 한 사용자만 가능합니다.');
-				return;
 			}
-			if (user_num != 0) {
+			if (user_num != 0 && user_num != null) {
 				$
 						.ajax({
 							url : 'cmtLike.do',
@@ -31,7 +31,8 @@
 													'css-135c2b4-StylelessButton-StyledActionButton')
 											.addClass(
 													'css-3w1nnz-StylelessButton-StyledActionButton e19d4hrp0');
-									$('#countLike').text('좋아요 ' + param.countLike);
+									$('#countLike').text(
+											'좋아요 ' + param.countLike);
 									$('#off').hide();
 									$('#on').show();
 								} else if (param.result == 'cancel') { // 코멘트 좋아요 취소
@@ -41,7 +42,8 @@
 													'css-3w1nnz-StylelessButton-StyledActionButton e19d4hrp0')
 											.addClass(
 													'css-135c2b4-StylelessButton-StyledActionButton');
-									$('#countLike').text('좋아요 ' + param.countLike);
+									$('#countLike').text(
+											'좋아요 ' + param.countLike);
 									$('#on').hide();
 									$('#off').show();
 								}
@@ -67,18 +69,25 @@
 			<section class="css-0">
 				<div class="css-1p3jp2v">
 					<div class="css-1cvf9dk">
-						<a title="${comment.name }"
+						<a title="${member.name }"
 							class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 							href="${pageContext.request.contextPath}/member/myPage.do?user_num=${comment.mem_num}">
 							<div class="css-1byz60h">
 								<div class="css-1l9hju7-ProfilePhotoImage">
-									<img width="20" height="20" class="my-photo"
+									<c:if test="${empty member.photo_name}">
+										<img
+											src="${pageContext.request.contextPath}/resources/images/face.png"
+											width="20" height="20" class="my-photo">
+									</c:if>
+									<c:if test="${!empty member.photo_name}">
+										<img width="20" height="20" class="my-photo"
 										src="${pageContext.request.contextPath}/member/photoView.do?user_num=${comment.mem_num}">
+									</c:if>
 								</div>
 							</div>
 							<div class="css-1sg2lsz">
 								<div class="css-a7gqjg">
-									${comment.name }<span
+									${member.name }<span
 										src="${pageContext.request.contextPath}/member/myPage.do?user_num=${comment.mem_num}"
 										class="css-19w3a64"></span>
 								</div>
@@ -125,9 +134,9 @@
 				</div>
 				<div class="css-hkgyal">
 					<div class="css-prw2jl">
-						<span class="css-1n0dvqq" id="countLike">좋아요 <c:if test="${countLike >0}">${countLike}</c:if>
-							<c:if test="${countLike ==0 }">0</c:if></span><span class="css-0">댓글
-							6</span>
+						<span class="css-1n0dvqq" id="countLike">좋아요 <c:if
+								test="${countLike >0}">${countLike}</c:if> <c:if
+								test="${countLike ==0 }">0</c:if></span><span class="css-0">댓글 6</span>
 					</div>
 				</div>
 				<section class="css-0">
@@ -168,7 +177,7 @@
 									</div>
 									좋아요
 								</button>
-								<button
+								<button data-bs-target="#cmtReplyModal" data-bs-toggle="modal"
 									class="css-135c2b4-StylelessButton-StyledActionButton e19d4hrp0">
 									<div class="css-1umclh2-StyledIconContainer e19d4hrp1">
 										<svg viewBox="0 0 20 20" class="css-vkoibk"
@@ -208,3 +217,20 @@
 		</div>
 	</div>
 </section>
+<!--코멘트 모달 틀-->
+<div class="modal fade" id="cmtReplyModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-dialog-centered modal-comment">
+		<div class="modal-content">
+			<jsp:include page="/WEB-INF/views/contents/comment.jsp" />
+		</div>
+	</div>
+</div>
+<!--코멘트 수정폼 모달 틀-->
+<div class="modal fade" id="commentUpdateModal" tabindex="-1"
+	role="dialog">
+	<div class="modal-dialog modal-dialog-centered modal-comment">
+		<div class="modal-content">
+			<jsp:include page="/WEB-INF/views/contents/commentUpdate.jsp" />
+		</div>
+	</div>
+</div>

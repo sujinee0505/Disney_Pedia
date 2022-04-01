@@ -10,12 +10,10 @@ public class CommentVO {
 	private Date reg_date; // 등록날짜
 	private Date modify_date; // 수정날짜
 	private int mem_num; // 회원 번호;
-	private String photo_name;
 
 	// 수진
 	private int count;
 	private double star;
-	private String name;
 	private int countLike;
 	private int checkCmtLike;
 
@@ -91,14 +89,6 @@ public class CommentVO {
 		this.star = star;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public int getCountLike() {
 		return countLike;
 	}
@@ -114,14 +104,5 @@ public class CommentVO {
 	public void setCheckCmtLike(int checkCmtLike) {
 		this.checkCmtLike = checkCmtLike;
 	}
-
-	public String getPhoto_name() {
-		return photo_name;
-	}
-
-	public void setPhoto_name(String photo_name) {
-		this.photo_name = photo_name;
-	}
-
 
 }

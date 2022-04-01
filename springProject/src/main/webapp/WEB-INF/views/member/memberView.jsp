@@ -81,15 +81,32 @@ input[type=button] {
 								<section class="css-q4evg3-MyPage e19zkogf2">
 									<div class="css-ewkqyn-WallPaper e19zkogf3">
 										<ul>
-											<li><c:if test="${empty user_photo}">
-													<img
-														src="${pageContext.request.contextPath}/resources/images/face.png"
-														width="150" height="150" class="my-photo">
-												</c:if> <c:if test="${!empty user_photo}">
-													<img
-														src="${pageContext.request.contextPath}/member/photoView.do?user_num=${member.mem_num}"
-														width="150" height="150" class="my-photo">
-												</c:if></li>
+											<li><c:choose>
+													<c:when test="${empty usr_num}">
+														<c:if test="${empty member.photo_name}">
+															<img
+																src="${pageContext.request.contextPath}/resources/images/face.png"
+																width="150" height="150" class="my-photo">
+														</c:if>
+														<c:if test="${!empty member.photo_name}">
+															<img
+																src="${pageContext.request.contextPath}/member/photoView.do?user_num=${member.mem_num}"
+																width="150" height="150" class="my-photo">
+														</c:if>
+													</c:when>
+													<c:when test="${!empty usr_num}">
+														<c:if test="${ empty user_photo}">
+															<img
+																src="${pageContext.request.contextPath}/resources/images/face.png"
+																width="150" height="150" class="my-photo">
+														</c:if>
+														<c:if test="${!empty user_photo}">
+															<img
+																src="${pageContext.request.contextPath}/member/photoView.do?user_num=${member.mem_num}"
+																width="150" height="150" class="my-photo">
+														</c:if>
+													</c:when>
+												</c:choose></li>
 										</ul>
 									</div>
 									<div class="css-1gkas1x-Grid e1689zdh0">
@@ -109,8 +126,7 @@ input[type=button] {
 													<div class="profile-userbutton">
 														<input type="button" value="프로필수정"
 															onclick="location.href='update.do'"> <a
-															href="myComment.do<%-- ?mem_num${member.mem_num } --%>">
-															<img
+															href="myComment.do?mem_num${member.mem_num }"> <img
 															src="${pageContext.request.contextPath}/resources/images/review.png"
 															width="40" height="40">
 														</a> <a href="myCalendar.do?mem_num=${member.mem_num}"> <img
@@ -142,7 +158,7 @@ input[type=button] {
 																				class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
 																				★<c:forEach var="star" items="${star}">
 																					<c:if
-																							test="${star.contents_type eq 'movie' && star.contents_type ne 'tv' }">${star.count }</c:if>
+																						test="${star.contents_type eq 'movie' && star.contents_type ne 'tv' }">${star.count }</c:if>
 																				</c:forEach>
 																			</li>
 																			<li
@@ -171,7 +187,7 @@ input[type=button] {
 																				class="css-7xoi89-CategoryArchivesRatedCount e19zkogf17">
 																				★<c:forEach var="star" items="${star}">
 																					<c:if
-																							test="${star.contents_type eq 'tv'&& star.contents_type ne 'movie'}">${star.count }</c:if>
+																						test="${star.contents_type eq 'tv'&& star.contents_type ne 'movie'}">${star.count }</c:if>
 																				</c:forEach>
 																			</li>
 																			<li

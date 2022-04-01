@@ -66,7 +66,7 @@
 		}
 		toggle();
 		
-	var checkCmtLike = 0;
+		var checkCmtLike = 0;
 		var comment_num = 0;
 		$(document)
 				.on(

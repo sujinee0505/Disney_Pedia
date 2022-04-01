@@ -30,6 +30,7 @@ import kr.spring.comment.vo.CommentVO;
 import kr.spring.contents.service.ContentsService;
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.StarVO;
+import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.sort.SortByDate;
 import kr.spring.util.GetInfoUtil;
@@ -44,6 +45,9 @@ public class CommentController {
 
 	@Autowired
 	private ContentsService contentsService;
+
+	@Autowired
+	private MemberService memberService;
 
 	// 자바빈(vo) 초기화
 	@ModelAttribute
@@ -146,7 +150,7 @@ public class CommentController {
 	@RequestMapping("/contents/cmtDetail.do")
 	public ModelAndView selectComment(HttpSession session, CommentVO commentVO) {
 		CommentVO comment = commentService.selectComment(commentVO.getComment_num());
-
+		MemberVO member = memberService.selectMember(commentVO.getComment_num());
 		GetInfoUtil util = new GetInfoUtil();
 		ContentsVO contents = util.getInfoDetail(commentVO.getContents_type(), commentVO.getContents_num());
 		Integer countLike = commentService.getCountLike(comment.getComment_num());
@@ -162,6 +166,7 @@ public class CommentController {
 			int checkCmtLike = commentService.checkCmtLike(comment_user);
 			mav.addObject("checkCmtLike", checkCmtLike);
 		} else {
+			mem_num = 0;
 			int checkCmtLike = 0;
 			mav.addObject("checkCmtLike", checkCmtLike);
 		}
@@ -169,7 +174,8 @@ public class CommentController {
 		mav.addObject("comment", comment);
 		mav.addObject("contents", contents);
 		mav.addObject("countLike", countLike);
-
+		mav.addObject("user_num", mem_num);
+		mav.addObject("member", member);
 		return mav;
 	}
 
