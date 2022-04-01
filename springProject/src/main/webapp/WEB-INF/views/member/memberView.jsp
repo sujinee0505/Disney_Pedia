@@ -146,9 +146,9 @@ input[type=button] {
 																class="e19zkogf12 css-i1bo8u-VisualUl-CategoryArchivesUl">
 																<li
 																	class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
-																	<a background="[object Object]"
+																	<a 
 																	class="css-h3f67w-CategoryArchivesLink e19zkogf14"
-																	href="myContents.do?contents_type=movie">
+																	href="myContents.do?contents_type=movie&mem_num=${param.user_num }">
 																		<ul
 																			class="css-reeb92-VisualUl-CategoryArchives e19zkogf15">
 																			<li
@@ -177,7 +177,7 @@ input[type=button] {
 																	class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
 																	<a background="[object Object]"
 																	class="css-1gw6y00-CategoryArchivesLink e19zkogf14"
-																	href="myContents.do?contents_type=tv">
+																	href="myContents.do?contents_type=tv&mem_num=${param.user_num }">
 																		<ul
 																			class="css-1x0nmo-VisualUl-CategoryArchives e19zkogf15">
 																			<li

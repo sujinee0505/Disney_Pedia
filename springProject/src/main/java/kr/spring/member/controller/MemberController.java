@@ -278,17 +278,13 @@ public class MemberController {
 
 	// 내가 보고싶어요를 누른 컨텐츠와 평가한 컨텐츠 출력
 	@GetMapping("/member/myContents.do")
-	public ModelAndView myContents(HttpSession session, LikeVO like) {
+	public ModelAndView myContents(LikeVO like) {
 
 		// api 사용을 위한 util 호출
 		GetInfoUtil util = new GetInfoUtil();
-
-		Integer mem_num = (Integer) session.getAttribute("user_num");
-
 		// 보고싶어요 누른 컨텐츠 목록 불러오기
-		like.setMem_num(mem_num);
 		List<ContentsVO> likeList = new ArrayList<ContentsVO>();
-		List<LikeVO> likeVO = contentsService.getLikeList(like); // 로그인한 유저가 보고싶어요를 누른 컨텐츠를 모두 불러옴
+		List<LikeVO> likeVO = contentsService.getLikeList(like);
 		for (int i = 0; i < likeVO.size(); i++) {
 			ContentsVO contents_like = new ContentsVO();
 			// 보고싶어요를 누른 컨텐츠들의 상세 정보를 불러옴 (보고싶어요 table에는 contents_num, contents_type만 저장이 되기
