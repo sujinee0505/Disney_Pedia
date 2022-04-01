@@ -9,7 +9,8 @@ public class CommentVO {
 	private String content; // 코멘트 내용
 	private Date reg_date; // 등록날짜
 	private Date modify_date; // 수정날짜
-	private int mem_num; // 회원 번호
+	private int mem_num; // 회원 번호;
+	private String photo_name;
 
 	// 수진
 	private int count;
@@ -114,12 +115,13 @@ public class CommentVO {
 		this.checkCmtLike = checkCmtLike;
 	}
 
-	@Override
-	public String toString() {
-		return "CommentVO [comment_num=" + comment_num + ", contents_type=" + contents_type + ", contents_num="
-				+ contents_num + ", content=" + content + ", reg_date=" + reg_date + ", modify_date=" + modify_date
-				+ ", mem_num=" + mem_num + ", count=" + count + ", star=" + star + ", name=" + name + ", countLike="
-				+ countLike + ", checkCmtLike=" + checkCmtLike + "]";
+	public String getPhoto_name() {
+		return photo_name;
 	}
+
+	public void setPhoto_name(String photo_name) {
+		this.photo_name = photo_name;
+	}
+
 
 }

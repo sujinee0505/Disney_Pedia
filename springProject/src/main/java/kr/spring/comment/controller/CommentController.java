@@ -128,7 +128,6 @@ public class CommentController {
 		Integer mem_num = (Integer) session.getAttribute("user_num");
 		List<CommentVO> commentList = new ArrayList<CommentVO>();
 		commentList = commentService.selectListByMem_num(mem_num);
-
 		GetInfoUtil util = new GetInfoUtil();
 		List<ContentsVO> contentsList = new ArrayList<ContentsVO>();
 		for (int i = 0; i < commentList.size(); i++) {

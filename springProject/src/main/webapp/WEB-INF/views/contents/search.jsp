@@ -229,9 +229,6 @@
 													<div class="css-xpswhu">${user_list.introduction }</div>
 												</div>
 											</div>
-											<div>
-												<button class="css-1cekuo0-StylelessButton">팔로우</button>
-											</div>
 										</div></a></li>
 							</c:forEach>
 						</ul>
