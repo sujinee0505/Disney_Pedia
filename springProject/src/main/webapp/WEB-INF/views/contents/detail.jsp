@@ -54,6 +54,15 @@
 						});
 			}
 		}
+		toggle = function() {
+			if (check == 1) {
+				$('#on').show();
+				$('#off').hide();
+			}else if (check==0) {
+				$('#off').show();
+				$('#on').hide();
+			}
+		}
 		var checkCmtLike = $('#checkCmtLike').val();
 		var comment_num = $('#comment_num').val();
 		cmtlike = function() {
@@ -75,7 +84,7 @@
 							success: function(param) {
 			                    if (param.result == 'success') { // 코멘트 좋아요
 			                    	checkCmtLike = 1;
-			                    	$('#cmtLike')
+			                    	$(this)
 			                            .removeClass(
 			                                'css-1h18l7j-StylelessButton cmtLike')
 			                            .addClass(
@@ -83,7 +92,7 @@
 			                    	$('#countLike').text(param.countLike);
 			                    } else if (param.result == 'cancel') { // 코멘트 좋아요 취소
 			                    	checkCmtLike = 0;
-			                    	$('#cmtLike')
+			                    	$(this)
 			                            .removeClass(
 			                                'css-jj4q3s-StylelessButton-UserActionButton cmtLike')
 			                            .addClass(
@@ -94,15 +103,7 @@
 						});
 			}
 		}
-		toggle = function() {
-			if (check == 1) {
-				$('#on').show();
-				$('#off').hide();
-			}else if (check==0) {
-				$('#off').show();
-				$('#on').hide();
-			}
-		}
+		
 		toggle();
 		calToggle = function() {
 			if ($('#dateCheck').val() != 'noData') {
@@ -485,7 +486,7 @@
 													<div class="css-s289sk">
 														<div class="css-1ugqy9j">
 															<button
-																style="color: #ff2f6e; border: none; background: none; cursor: pointer; display: none;"
+																style="color: #1eb0d9; border: none; background: none; cursor: pointer; display: none;"
 																id="status" onclick="more()">더보기</button>
 														</div>
 													</div>
@@ -779,7 +780,7 @@
 													<c:forEach var="reco" items="${reco }" begin="0" end="9"
 														step="1">
 														<li class="css-1hp6p72"><a title="${reco.title }"
-															href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${reco.contents_type }&contents_num=${reco.contents_num}"><div
+															href="detail.do?contents_type=${reco.contents_type }&contents_num=${reco.contents_num}"><div
 																	class="css-1qmeemv">
 																	<div
 																		class=" css-1rdb949-StyledLazyLoadingImage ezcopuc0">
@@ -794,7 +795,7 @@
 																			★${Math.ceil((reco.vote_average)/2*10)/10}</div>
 																		<div class="css-1vvt4am">
 																			<c:if test="${reco.contents_type eq 'movie' }">영화</c:if>
-																			<c:if test="${reco.contents_type eq 'tv' }">시리즈</c:if>
+																			<c:if test="${reco.contents_type eq 'tv' }">TV 시리즈</c:if>
 																		</div>
 																	</div>
 																</div></a></li>

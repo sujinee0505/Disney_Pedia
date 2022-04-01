@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+#main_body {
+	min-height: 800px;
+}
+
 a {
 	color: #74747B;
 }
@@ -3012,7 +3016,8 @@ h1, h3, p, hr {
 	flex-direction: column;
 	-webkit-box-align: center;
 	align-items: center;
-	color: #1eb0d9; font-size : 12px;
+	color: #1eb0d9;
+	font-size: 12px;
 	letter-spacing: -0.1px;
 	line-height: 13px;
 	text-align: center;
@@ -5955,21 +5960,23 @@ h1, h3, p, hr {
 	padding: 2px 8px;
 	cursor: poiner;
 }
+
 .css-jj4q3s-StylelessButton-UserActionButton:focus {
-    outline: none;
+	outline: none;
 }
+
 .css-jj4q3s-StylelessButton-UserActionButton {
-    border: none;
-    margin: 0px;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 400;
-    letter-spacing: -0.7px;
-    line-height: 22px;
-    padding: 2px 8px;
-    background:#1eb0d9;
-    color: rgb(255, 255, 255);
-    border-radius: 3px;
+	border: none;
+	margin: 0px;
+	cursor: pointer;
+	font-size: 17px;
+	font-weight: 400;
+	letter-spacing: -0.7px;
+	line-height: 22px;
+	padding: 2px 8px;
+	background: #1eb0d9;
+	color: rgb(255, 255, 255);
+	border-radius: 3px;
 }
 
 .css-30r08r-VisualUl-DeckHorizontalUl {
@@ -6982,4 +6989,49 @@ h1, h3, p, hr {
 	height: 32px;
 	border-radius: 50%;
 	box-shadow: inset 0 0 0 1px rgb(0 0 0/ 8%);
+}
+
+.css-135c2b4-StylelessButton-StyledActionButton:hover {
+	background-color: rgba(41, 42, 50, 0.08);
+	color: rgb(41, 42, 50);
+}
+
+.css-3w1nnz-StylelessButton-StyledActionButton {
+	background: none;
+	padding: 0;
+	border: none;
+	margin: 0;
+	cursor: pointer;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	position: relative;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	color: #67686a;
+	font-size: 15px;
+	-webkit-letter-spacing: -0.3px;
+	-moz-letter-spacing: -0.3px;
+	-ms-letter-spacing: -0.3px;
+	letter-spacing: -0.3px;
+	line-height: 18px;
+	border-radius: 5px;
+	margin: 3px;
+	color: #1eb0d9;
+}
+
+.css-3w1nnz-StylelessButton-StyledActionButton:hover {
+	background-color: rgba(41, 42, 50, 0.08);
+	color: rgba(41, 42, 50, 1);
+}
+
+.css-3w1nnz-StylelessButton-StyledActionButton svg {
+	margin-right: 5px;
 }

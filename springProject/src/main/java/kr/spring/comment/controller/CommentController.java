@@ -145,16 +145,32 @@ public class CommentController {
 	}
 
 	@RequestMapping("/contents/cmtDetail.do")
-	public ModelAndView selectComment(CommentVO commentVO) {
+	public ModelAndView selectComment(HttpSession session, CommentVO commentVO) {
 		CommentVO comment = commentService.selectComment(commentVO.getComment_num());
-		
+
 		GetInfoUtil util = new GetInfoUtil();
 		ContentsVO contents = util.getInfoDetail(commentVO.getContents_type(), commentVO.getContents_num());
-		
+		Integer countLike = commentService.getCountLike(comment.getComment_num());
+		if (countLike == null) {
+			countLike = 0;
+		}
 		ModelAndView mav = new ModelAndView();
+		Integer mem_num = (Integer) session.getAttribute("user_num");
+		if (mem_num != null) {
+			CommentVO comment_user = new CommentVO();
+			comment_user.setComment_num(comment.getComment_num());
+			comment_user.setMem_num(mem_num);
+			int checkCmtLike = commentService.checkCmtLike(comment_user);
+			mav.addObject("checkCmtLike", checkCmtLike);
+		} else {
+			int checkCmtLike = 0;
+			mav.addObject("checkCmtLike", checkCmtLike);
+		}
 		mav.setViewName("commentDetail");
 		mav.addObject("comment", comment);
 		mav.addObject("contents", contents);
+		mav.addObject("countLike", countLike);
+
 		return mav;
 	}
 
