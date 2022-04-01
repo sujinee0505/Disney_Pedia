@@ -99,6 +99,13 @@ public class ContentsController {
 		comment.setContents_type(contents_type);
 		List<CommentVO> commetList = commentService.selectList(comment);
 		mav.addObject("commetList", commetList);
+		List<MemberVO> cmt_memberList = new ArrayList<MemberVO>();
+		for (int i = 0; i < commetList.size(); i++) {
+			MemberVO cmt_member = new MemberVO();
+			cmt_member = memberService.selectMember(commetList.get(i).getMem_num());
+			cmt_memberList.add(cmt_member);
+		}
+		mav.addObject("cmt_memberList", cmt_memberList);
 		if (user_num != null) {
 			// star
 			StarVO star = new StarVO();
@@ -148,8 +155,6 @@ public class ContentsController {
 			mav.addObject("user_num", 0);
 			mav.addObject("check", 0);
 		}
-
-		//
 
 		mav.setViewName("contentsDetail");
 		mav.addObject("contents", contents); // 컨텐츠 상세 정보

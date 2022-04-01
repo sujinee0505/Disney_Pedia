@@ -734,28 +734,29 @@
 														<div class="css-1y901al-Row emmoxnt0">
 															<ul
 																class="ew8mnl61 css-nh9j5x-VisualUl-CommentHorizontalUl">
-																<c:forEach var="commetList" items="${commetList }">
+																<c:forEach var="commetList" items="${commetList }"
+																	varStatus="status">
 																	<li class="css-1fryc54"><div class="css-17dwc6k">
 																			<div class="css-4obf01" style="flex-direction: row;">
 																				<div class="css-1cvf9dk">
-																					<a title="${commetList.name }의 프로필"
+																					<a title="${cmt_memberList[status.index].name }의 프로필"
 																						class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 																						href="${pageContext.request.contextPath}/member/myPage.do?user_num=${commetList.mem_num}"><div
 																							class="css-107z6xc">
 																							<div class="css-bv6e27-ProfilePhotoImage">
-																								<c:if test="${empty commetList.photo_name}">
+																								<c:if test="${empty cmt_memberList[status.index].photo_name}">
 																									<img
 																										src="${pageContext.request.contextPath}/resources/images/face.png"
 																										width="32" height="32" class="my-photo">
 																								</c:if>
-																								<c:if test="${!empty commetList.photo_name}">
+																								<c:if test="${!empty cmt_memberList[status.index].photo_name}">
 																									<img width="32" height="32" class="my-photo"
 																										src="${pageContext.request.contextPath}/member/photoView.do?user_num=${commetList.mem_num}">
 																								</c:if>
 																							</div>
 																						</div>
 																						<div class="css-1agoci2">
-																							${commetList.name }<span src=""
+																							${cmt_memberList[status.index].name }<span src=""
 																								class="css-amcv0d"></span>
 																						</div></a>
 																				</div>
@@ -795,6 +796,7 @@
 																			<c:if test="${!empty user_num || commetList.checkCmtLike == 0}">css-1h18l7j-StylelessButton cmtLike</c:if>">좋아요</button>
 																			</div>
 																		</div></li>
+
 																</c:forEach>
 																<div class="css-ml096x"></div>
 															</ul>
