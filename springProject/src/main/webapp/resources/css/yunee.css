@@ -91,6 +91,11 @@ div #count_area{ /*글자수체크영역*/
 }
 
 /*모달-공통, 로그인 및 회원가입*/
+#checkbtn{
+	font-size:8pt;
+	border:2px solid #eee;
+	float:left;
+}
 
 .align-center{
 	text-align:center;
