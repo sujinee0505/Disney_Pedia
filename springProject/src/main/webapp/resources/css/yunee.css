@@ -20,75 +20,69 @@
     margin-right: 3px !important;
     margin-top: -20px !important;
 }
-.modal-title2 {
+.modal-title2 { /*콘텐츠제목영역*/
 	float: left;
-	font-size:10pt;
+	font-size:12pt;
 	font-family: 'SUIT-Medium';
 }
-.modal-comment {
-	width: 420px !important;
-	height: 450px !important;
+.modal-comment { 
+	width: 500px !important;
+	height: 520px !important; /*comment-body속성이 제어*/
 	margin: 30px auto !important ;	
 	font-size:12pt !important;
 }
-
-.modal-comment .modal-content{
+.modal-comment .modal-content{ /*모서리둥글게*/
 	border-radius: 15px !important; 
 }
 .comment-body{
-	height: 350px !important; /* background-color:gray; */
+	height: 410px !important; /*comment_form textarea 영역과 연관*/
 	margin-top:-20px;
 }
-#comment_form textarea{
+#comment_form textarea{ /*코멘트폼 text영역*/
 	font-family: 'SUIT-Medium';
-	font-size:10pt;
+	font-size:12pt;
 	 border: none; 
-	 width: 400px !important;height: 280px !important; 
+	 width: 400px !important;
+	 height: 340px !important; 
 	 outline: none !important;
 	 resize: none;
-	 /* background-color:gray;  */
 }
-#commentUpdate_form textarea{
+#commentUpdate_form textarea{/*코멘트수정 text영역*/
 	font-family: 'SUIT-Medium';
-	font-size:10pt;
+	font-size:12pt;
 	 border: none; 
-	 width: 400px !important;height: 280px !important; 
+	 width: 400px !important;
+	 height: 340px !important; 
 	 outline: none !important;
 	 resize: none;
-	 /* background-color:gray;  */
 }
-#cmt_delbtn{
+#cmt_delbtn{ /*삭제버튼*/
 	float: left;
 	padding-top: 6px;
 	height: 26px;
-	/* margin-right:3px; */
-	margin-left:7px;
+	margin-left:12px;
 }
-#comment_btn{
-	width: 90px;
+#comment_btn{ /*등록,수정버튼*/
+	width: 100px;
 	float: left; 
-	border: none; color:white;font-size:10pt;
+	border: none; color:white;font-size:11pt;
 	font-family: 'SUIT-Medium';
-	/* background-color:pink; */
-	margin-left:10px;
+	margin-left:15px;
 }
-div #count_area{
-	float: left;font-size:6pt;
+div #count_area{ /*글자수체크영역*/
+	float: left;font-size:10pt;
 	color:#7d7d7d;
-	/* font-family: 'SUIT-Medium'; */
 	text-align:right;	
 	height:30px;
 	/*텍스트 세로 중앙 정렬*/
 	display: flex !important;
 	align-items:center !important;
-	justify-content:center !important;
-	/* background-color:pink; */
-	
+	justify-content:center !important;	
 }
 .float_right{
 	float: right; 
 }
-.btn-dark-blue {
+.btn-dark-blue { /*버튼style*/
     background: #7474BF;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #348AC7, #7474BF);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -96,7 +90,7 @@ div #count_area{
     border: 3px solid #eee;
 }
 
-/*모달-공통*/
+/*모달-공통, 로그인 및 회원가입*/
 .align-center{
 	text-align:center;
 	margin: 0 auto;
@@ -127,7 +121,6 @@ font-size:13pt;margin: 0 auto;margin-top:5px;font-family: 'BMJUA';
 	 font-family: 'SUIT-Medium'; 
 	 border: none;
 }
-
 .sign-btn{
 color:#ffffff !important;
 font-family: 'BMJUA';
@@ -156,7 +149,9 @@ text-decoration:none !important;
 .btn-3 {
   background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
 }
-/*로그인 타이틀 폰트 후보들*/
+
+
+/*폰트들*/
 @font-face { 
     font-family: 'LeferiPoint-BlackA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
@@ -181,6 +176,7 @@ text-decoration:none !important;
     font-weight: normal;
     font-style: normal;
 }
+
 /*==========별아이콘 설정 시작==========*/
 .star_area { /*별점구역*/
 	margin: 0 auto;
