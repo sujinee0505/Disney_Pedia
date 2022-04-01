@@ -14,18 +14,18 @@
 			<!--날짜 네비게이션  -->
 			<div class="navigation">
 				<a class="before_after_year"
-					href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num${user_num }&year=${today_info.search_year-1}&month=${today_info.search_month-1}">
+					href="myCalendar.do?mem_num${user_num }&year=${today_info.search_year-1}&month=${today_info.search_month-1}">
 					&lt;&lt; <!-- 이전해 -->
 				</a> <a class="before_after_month"
-					href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num${user_num }&year=${today_info.before_year}&month=${today_info.before_month}">
+					href="myCalendar.do?mem_num${user_num }&year=${today_info.before_year}&month=${today_info.before_month}">
 					&lt; <!-- 이전달 -->
 				</a> <span class="this_month"> &nbsp;${today_info.search_year}. <c:if
 						test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
 				</span> <a class="before_after_month"
-					href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num${user_num }&year=${today_info.after_year}&month=${today_info.after_month}">
+					href="myCalendar.do?mem_num${user_num }&year=${today_info.after_year}&month=${today_info.after_month}">
 					<!-- 다음달 --> &gt;
 				</a> <a class="before_after_year"
-					href="${pageContext.request.contextPath}/calendar/calendar.do?mem_num${user_num }&year=${today_info.search_year+1}&month=${today_info.search_month-1}">
+					href="myCalendar.do?mem_num${user_num }&year=${today_info.search_year+1}&month=${today_info.search_month-1}">
 					<!-- 다음해 --> &gt;&gt;
 				</a>
 			</div>
