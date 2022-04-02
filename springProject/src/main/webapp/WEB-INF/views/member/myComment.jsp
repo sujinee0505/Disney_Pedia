@@ -18,7 +18,7 @@
 						<div class="css-usdi1z">
 							<div class="css-9dnzub scroll">
 								<div class="css-174lxc3" style=" text-align: center;">
-									<ul class="css-1bk3hui-VisualUl">
+									<ul class="css-1bk3hui-VisualUl" style=" white-space:normal;">
 										<c:forEach var="commentList" items="${ commentList }" varStatus="status">
 											<li class="css-8y23cj"
 												style="background-color: rgb(242, 242, 242); box-sizing: border-box; padding: 15px 15px 0px 15px; border-radius: 6px; overflow: hidden; margin: 0px 0px 20px; width: 500px !important; text-align: left;" >
@@ -74,6 +74,7 @@
 												</div>
 											</li>
 										</c:forEach>
+									</ul>	
 								</div>
 					</section>
 				</section>

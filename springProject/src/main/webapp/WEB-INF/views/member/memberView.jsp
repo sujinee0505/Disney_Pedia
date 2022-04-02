@@ -55,7 +55,7 @@ ul {
 
 input[type=button] {
 	display: inline-block;
-	width: 250px;
+	width: 350px;
 	outline: none;
 	cursor: pointer;
 	font-weight: 500;
