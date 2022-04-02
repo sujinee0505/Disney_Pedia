@@ -774,6 +774,11 @@
 																					class="countLike"><c:if
 																						test="${commetList.countLike >0}">${commetList.countLike}</c:if>
 																					<c:if test="${commetList.countLike ==0 }">0</c:if></em>
+																				<span
+																					src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM3ODc4NzgiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTkuODU3IDE3Ljc4Nkw2IDIxdi00LjkxYy0xLjg0MS0xLjM3My0zLTMuMzY5LTMtNS41OUMzIDYuMzU4IDcuMDMgMyAxMiAzczkgMy4zNTggOSA3LjVjMCA0LjE0Mi00LjAzIDcuNS05IDcuNS0uNzM5IDAtMS40NTYtLjA3NC0yLjE0My0uMjE0eiIvPgo8L3N2Zz4K"
+																					width="18px" height="18px" class="css-q0vi8"></span><em><c:if
+																						test="${commetList.countReply >0}">${commetList.countReply}</c:if>
+																					<c:if test="${commetList.countReply ==0 }">0</c:if></em>
 																			</div>
 																			<div class="css-hy68ty">
 																				<input type="hidden"
@@ -785,6 +790,7 @@
 																					class="<c:if test="${commetList.checkCmtLike == 1}">css-jj4q3s-StylelessButton-UserActionButton cmtLike</c:if>
 																			<c:if test="${!empty user_num || commetList.checkCmtLike == 0}">css-1h18l7j-StylelessButton cmtLike</c:if>">좋아요</button>
 																			</div>
+																			
 																		</div></li>
 
 																</c:forEach>

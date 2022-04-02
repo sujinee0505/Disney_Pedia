@@ -21,9 +21,9 @@
 			}
 		});
 
-		// 댓글 등록
+	
+	// 댓글 등록
 		$('#comment_form').submit(function() {
-			var user_num = ${user_num};
 			$.ajax({
 				url : 'replyWrite.do',
 				type : 'post',

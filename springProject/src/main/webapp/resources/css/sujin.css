@@ -7026,7 +7026,7 @@ h1, h3, p, hr {
 	top: 100%;
 	right: 0;
 	z-index: 10;
-	display:none;
+	display: none;
 }
 
 .css-6btlr7 {
@@ -7093,4 +7093,14 @@ h1, h3, p, hr {
 	-ms-letter-spacing: -0.3px;
 	letter-spacing: -0.3px;
 	line-height: 18px;
+}
+
+.css-q0vi8 {
+	display: inline-block;
+	background:
+		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM3ODc4NzgiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTkuODU3IDE3Ljc4Nkw2IDIxdi00LjkxYy0xLjg0MS0xLjM3My0zLTMuMzY5LTMtNS41OUMzIDYuMzU4IDcuMDMgMyAxMiAzczkgMy4zNTggOSA3LjVjMCA0LjE0Mi00LjAzIDcuNS05IDcuNS0uNzM5IDAtMS40NTYtLjA3NC0yLjE0My0uMjE0eiIvPgo8L3N2Zz4K)
+		center center/contain no-repeat;
+	width: 18px;
+	height: 18px;
+	margin: 0px 3px 0px 13px;
 }

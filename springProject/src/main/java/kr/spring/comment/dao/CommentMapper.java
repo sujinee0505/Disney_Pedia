@@ -66,8 +66,12 @@ public interface CommentMapper {
 	public int checkCmtLike(CommentVO comment);
 
 	// 코멘트 댓글 목록 불러오기
-	@Select("SELECT r.*, d.name,d.photo_name FROM dcomment_reply r JOIN dmember_detail d ON r.mem_num = d.mem_num  WHERE comment_num=#{comment_num} ORDER BY reply_num DESC")
+	@Select("SELECT r.*, d.name,d.photo_name FROM dcomment_reply r JOIN dmember_detail d ON r.mem_num = d.mem_num  WHERE comment_num=#{comment_num} ORDER BY reply_num ASC")
 	public List<CommentReplyVO> selectListReply(int comment_num);
+
+	// 코멘트 댓글 갯수
+	@Select("SELECT COUNT(*) FROM dcomment_reply WHERE comment_num=#{comment_num}")
+	public int getCountReply(int comment_num);
 
 	// 코멘트 댓글 작성
 	@Insert("INSERT INTO dcomment_reply (reply_num, comment_num, mem_num, content) VALUES (dcomment_reply_seq.nextval, #{comment_num}, #{mem_num}, #{content})")

@@ -149,7 +149,8 @@
 				url : 'replyDelete.do',
 				type : 'post',
 				data : {
-					reply_num :$(event.target).parent().find('.reply_num').val()
+					reply_num :$(event.target).parent().find('.reply_num').val(),
+					comment_num : comment_num
 				},
 				dataType : 'json',
 				cache : false,
@@ -244,7 +245,9 @@
 					<div class="css-prw2jl">
 						<span class="css-1n0dvqq" id="countLike">좋아요 <c:if
 								test="${countLike >0}">${countLike}</c:if> <c:if
-								test="${countLike ==0 }">0</c:if></span><span class="css-0">댓글 6</span>
+								test="${countLike ==0 }">0</c:if></span><span class="css-0"
+							id="countReply">댓글 <c:if test="${countReply >0}">${countReply}</c:if>
+							<c:if test="${countReply ==0 }">0</c:if></span>
 					</div>
 				</div>
 				<section class="css-0">

@@ -93,6 +93,12 @@ public class CommentServiceImpl implements CommentService {
 		return commentMapper.selectListReply(comment_num);
 	}
 
+	// 코멘트 댓글 갯수
+	@Override
+	public int getCountReply(int comment_num) {
+		return commentMapper.getCountReply(comment_num);
+	}
+
 	// 코멘트 댓글 작성
 	@Override
 	public void insertReply(CommentReplyVO reply) {

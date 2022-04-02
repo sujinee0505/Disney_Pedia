@@ -30,7 +30,7 @@ $(function() {
 			}
 		});
 
-		//코멘트 수정
+		//코멘트 댓글
 		$('#commentUpdate_form').submit(function(event) {
 			$.ajax({
 				url : 'replyUpdate.do',
@@ -77,12 +77,7 @@ $(function() {
 			<div id="count_area">
 			<span class="letter-count">0/300</span>
 			</div> 
-			<!-- 삭제 아이콘 -->
-			<a href="#">
-				<img src="${pageContext.request.contextPath}/resources/images/trash.png" id="cmt_delbtn">
-			</a>
 			<button type="submit" id="comment_btn" class="btn btn-dark-blue">수정</button>
-			
 		</div>
 		</form> 		
 	  </div>	    

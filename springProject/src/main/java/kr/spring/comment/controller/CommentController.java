@@ -155,6 +155,7 @@ public class CommentController {
 		GetInfoUtil util = new GetInfoUtil();
 		ContentsVO contents = util.getInfoDetail(commentVO.getContents_type(), commentVO.getContents_num());
 		Integer countLike = commentService.getCountLike(comment.getComment_num());
+		Integer countReply = commentService.getCountReply(comment.getComment_num());
 		if (countLike == null) {
 			countLike = 0;
 		}
@@ -176,6 +177,7 @@ public class CommentController {
 		mav.addObject("comment", comment);
 		mav.addObject("contents", contents);
 		mav.addObject("countLike", countLike);
+		mav.addObject("countReply", countReply);
 		mav.addObject("user_num", mem_num);
 		mav.addObject("member", member);
 		return mav;
@@ -190,9 +192,9 @@ public class CommentController {
 	// 코멘트 댓글 작성
 	@RequestMapping("/contents/replyWrite.do")
 	@ResponseBody
-	public Map<String, String> replySubmit(CommentReplyVO reply, HttpSession session) {
+	public Map<String, Object> replySubmit(CommentReplyVO reply, HttpSession session) {
 
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, Object> map = new HashMap<String, Object>();
 
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		if (user_num == null) {// 로그인이 되지 않은 경우
@@ -200,6 +202,11 @@ public class CommentController {
 		} else {// 로그인 된 경우
 			reply.setMem_num(user_num);
 			// 코멘트 작성
+			Integer countReply = commentService.getCountLike(reply.getComment_num());
+			if (countReply == null) {
+				countReply = 0;
+			}
+			map.put("countReply", countReply);
 			commentService.insertReply(reply);
 			map.put("result", "success");
 		}

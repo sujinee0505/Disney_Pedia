@@ -45,6 +45,9 @@ public interface CommentService {
 	// 코멘트 댓글 목록 불러오기
 	public List<CommentReplyVO> selectListReply(int comment_num);
 
+	// 코멘트 댓글 갯수
+	public int getCountReply(int comment_num);
+
 	// 코멘트 댓글 작성
 	public void insertReply(CommentReplyVO reply);
 

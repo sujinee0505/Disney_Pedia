@@ -104,6 +104,7 @@ public class ContentsController {
 			MemberVO cmt_member = new MemberVO();
 			cmt_member = memberService.selectMember(commetList.get(i).getMem_num());
 			cmt_memberList.add(cmt_member);
+			commetList.get(i).setCountReply(commentService.getCountReply(commetList.get(i).getComment_num()));
 		}
 		mav.addObject("cmt_memberList", cmt_memberList);
 		if (user_num != null) {
