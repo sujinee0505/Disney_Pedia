@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.chat.service.ChatBoardService;
 import kr.spring.chat.vo.ChatBoardVO;
+import kr.spring.chat.vo.ChattingVO;
 import kr.spring.member.service.MemberService;
 import kr.spring.util.PagingUtil;
 import kr.spring.util.StringUtil;
@@ -161,20 +163,6 @@ public class ChatBoardController {
 		mav.addObject("photo_name", chatboard.getPhoto_name());
 		return mav;
 	} 
-	/*
-	//파일 다운로드
-	@RequestMapping("/chatboard/file.do")
-	public ModelAndView download(@RequestParam int chatboard_num) {
-		ChatBoardVO chatboardVO = chatBoardService.selectBoard(chatboard_num);
-		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("downloadView");
-		mav.addObject("downloadFile", chatboardVO.getUploadfile());
-		mav.addObject("filename", chatboardVO.getFilename());
-		
-		return mav;
-	}
-	*/
 	
 	
 	//수정 폼
@@ -230,5 +218,28 @@ public class ChatBoardController {
 		return "redirect:/chatboard/list.do";
 	}
 	
+	
+	// *** 채팅자 수 알림***
+	@RequestMapping("/chatboard/countChatMember.do")
+	@ResponseBody 
+	public Map<String, Object> countChatMember(ChattingVO chattingVO,HttpSession session) {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		//한건의 레코드를 읽어오고
+		int countMember = chatBoardService.countChatMember(chattingVO);
+		
+		Integer mem_num = (Integer) session.getAttribute("user_num");
+		if (mem_num == null) {// 로그인이 되지 않은 경우
+			map.put("result", "logout");
+		} else {// 로그인 된 경우
+				map.put("countMember", countMember);
+			}
+			logger.info("<<수 알림> : " + chattingVO);
+			logger.info("<count> : " + countMember);
+			map.put("result", "success");
+			
+		return map;
+	}
 }
 

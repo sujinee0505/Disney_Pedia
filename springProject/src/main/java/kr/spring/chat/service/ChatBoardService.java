@@ -5,6 +5,7 @@ import java.util.Map;
 
 import kr.spring.chat.vo.ChatBoardReplyVO;
 import kr.spring.chat.vo.ChatBoardVO;
+import kr.spring.chat.vo.ChattingVO;
 
 public interface ChatBoardService {
 	public List<ChatBoardVO> selectList(Map<String,Object> map);
@@ -18,5 +19,6 @@ public interface ChatBoardService {
 	public void deleteFile(Integer chatboard_num);
 	
 	public void update_mateState(Map<String,Object>map);
+	public int countChatMember(ChattingVO chattingVO);
 	
 }

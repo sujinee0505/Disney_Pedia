@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Update;
 
 import kr.spring.chat.vo.ChatBoardReplyVO;
 import kr.spring.chat.vo.ChatBoardVO;
+import kr.spring.chat.vo.ChattingVO;
 
 public interface ChatBoardMapper {
 	
@@ -48,6 +49,11 @@ public interface ChatBoardMapper {
 	//xml
 	public void update_mateState(Map<String, Object> map);
 	
+	//**채팅 온 갯수 (뱃지알림)
+	//작성자는 제외한 from_num카운트하기
+	@Select("SELECT COUNT(DISTINCT FROM_NUM) FROM DCHATTING "
+			+ "WHERE chatboard_num=#{chatboard_num} AND FROM_NUM != #{from_num}")
+	public Integer countChatMember(ChattingVO chattingVO);
 }
 	
 

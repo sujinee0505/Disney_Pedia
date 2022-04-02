@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import kr.spring.chat.dao.ChatBoardMapper;
 import kr.spring.chat.vo.ChatBoardReplyVO;
 import kr.spring.chat.vo.ChatBoardVO;
+import kr.spring.chat.vo.ChattingVO;
 
 @Service
 public class ChatBoardServiceImpl implements ChatBoardService{
@@ -65,6 +66,11 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 	public void update_mateState(Map<String, Object> map) {
 		chatBoardMapper.update_mateState(map);
 	}
+	@Override
+	public int countChatMember(ChattingVO chattingVO) {
+		return chatBoardMapper.countChatMember(chattingVO);
+	}
+
 	
 	
 }
