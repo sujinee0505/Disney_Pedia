@@ -211,11 +211,12 @@
 }
 
 .mylike {
-	margin-inline-start: 85px;
 	margin-inline-end: 85px;
 	margin-bottom: 30px;
 }
-
+.css-8y23cj {
+	width: 30px;
+}
 .passwd {
 	font-size: 15px;
 	background-color: #f2f2f2;
@@ -306,7 +307,7 @@
 
 .css-ewkqyn-WallPaper img {
 	float: none;
-	text-align: center;
+	text-align: center !important;
 	margin-top: 30px !important;
 	-webkit-border-radius: 50% !important;
 	-moz-border-radius: 50% !important;
