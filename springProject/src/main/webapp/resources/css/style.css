@@ -444,3 +444,55 @@
 	padding: 6.9px 11px 26.5px;
 	overflow: hidden;
 }
+
+/*좋아요 코멘트*/
+.css-1y901al-Row {
+    margin: 0px 20px;
+}
+.css-tbg13q-CommentLists {
+    max-width: 640px;
+    margin: 20px auto;
+}
+.css-10n5vg9-VisualUl {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.css-4obf011 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: 1px solid #e5e5e5;
+    overflow: hidden;
+}
+.css-yqs4x12 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    color: rgb(74, 74, 74);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+    line-height: 19px;
+    box-sizing: border-box;
+    min-width: 55px;
+    height: 26px;
+    padding: 0px 8px;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 13px;
+    margin: 15px 0px 0px 16px;
+}
+
+.css-1g78l7j {
+    white-space: pre-wrap;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    line-height: 24px;
+    overflow: hidden;
+    opacity: 1;
+    transition: all 400ms ease 0s;
+}
+
