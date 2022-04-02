@@ -16,8 +16,8 @@
 				<section class="css-9ebwyf-pageMarginStyle">
 					<section class="css-1s4ow07">
 						<div class="css-usdi1z">
-							<div class="css-9dnzub scroll">
-								<div class="css-174lxc3" style=" text-align: center;">
+							<div class="css-9dnzub scroll" style="display: flex; justify-content: space-around;">
+								<div class="css-174lxc3" style="width: 500px;">
 									<ul class="css-1bk3hui-VisualUl" style=" white-space:normal;">
 										<c:forEach var="commentList" items="${ commentList }" varStatus="status">
 											<li class="css-8y23cj"
