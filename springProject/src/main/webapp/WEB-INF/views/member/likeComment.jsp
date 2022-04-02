@@ -45,7 +45,16 @@
 						<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 							href="/ko-KR/comments/8n92VaKJ3vEAJ">
 							<div class="css-1g78l7j">
-								<span>코멘트 내용</span>
+								<img class="css-qhzw1o-StyledImg"
+									style="max-height: 520px; width: 80px;"
+									src="${ contents_List[status.index].poster_path }">
+								<span style="font-size: 14pt;">영화제목</span>		
+							</div>
+							<div class="css-1g78l7j" style="margin-left:85px";">	
+								<span style="font-size: 9pt; color: gray;">컨텐츠 타입(영화orTV)</span>
+							</div>
+							<div class="css-1g78l7j" style="margin-left:85px";">	
+								<span>코멘트 내용이 들어가면 됩니당</span>
 							</div>
 						</a>
 					</div>
