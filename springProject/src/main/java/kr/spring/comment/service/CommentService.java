@@ -14,7 +14,9 @@ public interface CommentService {
 	// 코멘트 작성 여부 확인
 	public int checkComment(CommentVO comment);
 
-	// 코멘트 수정
+	public CommentVO getComment(CommentVO comment);
+
+	// 작업중
 	public void updateComment(CommentVO comment);
 
 	// 코멘트 삭제

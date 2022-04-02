@@ -33,6 +33,11 @@ public class CommentServiceImpl implements CommentService {
 
 	// 코멘트 수정
 	@Override
+	public CommentVO getComment(CommentVO comment) {
+		return commentMapper.getComment(comment);
+	}
+
+	@Override
 	public void updateComment(CommentVO comment) {
 		commentMapper.updateComment(comment);
 	}

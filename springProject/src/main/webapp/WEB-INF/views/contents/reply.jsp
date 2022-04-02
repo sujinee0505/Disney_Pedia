@@ -7,7 +7,7 @@
 			$('#comment').trigger('focus')
 		});
 		//글자수카운트
-		$(document).on('keyup', 'textarea', function() {
+	$(document).on('keyup', 'textarea', function() {
 			//입력한 글자수를 구함
 			let inputLength = $(this).val().length;
 
@@ -18,14 +18,12 @@
 				if ($(this).attr('id') == 'comment') {
 					$('#count_area .letter-count').text(inputLength);
 				}
-				;
 			}
 		});
 
 		// 댓글 등록
 		$('#comment_form').submit(function() {
-			var user_num = $
-			{user_num};
+			var user_num = ${user_num};
 			$.ajax({
 				url : 'replyWrite.do',
 				type : 'post',

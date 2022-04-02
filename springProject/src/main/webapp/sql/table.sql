@@ -43,49 +43,57 @@ create table dcontents_like(
 create sequence dcontents_like_seq;
 
 /* 컨텐츠 평가(별점) */
-create table dcontents_star( /*grade->전부star로 변경*/
+create table dcontents_star( 
   star_num number not null,
   contents_num number not null,
-  contents_type varchar2(5) not null, /*추가*/ 
-  star number(5,1) not null,/*number(1)->number(5,1)*/
+  contents_type varchar2(5) not null, 
+  star number(5,1) not null,
   mem_num number not null,
   constraint dcontents_star_pk primary key (star_num),
   constraint dcontents_star_fk foreign key (mem_num) references dmember (mem_num)
 );
 create sequence dcontents_star_seq;
-/*
-[공지] 테이블변경 부탁드립니다!
-1. sql디벨로퍼에서 dcontents_star 우클릭-편집
-2. star컬럼 삭제(x표시클릭)
-3. 실행: alter table dcontents_star add( star number(5,1) not null);
-*/
 
 /* 코멘트  */
-create table dcomment( /*dreview->dcomment*/
-  comment_num number not null, /*review_num->comment_num*/
+create table dcomment(
+  comment_num number not null, 
   contents_num number not null,
-  contents_type varchar2(5) not null, /*추가*/
-  content string not null, /*===코멘트 내용:다시 content로 설정,clob->string===*/
+  contents_type varchar2(5) not null,
+  content string not null, 
   reg_date date not null,
   modify_date date,
-  star_num number, /*grade_num->star_num/===not null->null허용===*/
+  star_num number, 
   mem_num number not null,
-  constraint dcomment_pk primary key (comment_num), /*review->comment*/
-  constraint dcomment_fk_1 foreign key (star_num) references dcontents_star (star_num), /*grade_num->star_num*/
+  constraint dcomment_pk primary key (comment_num), 
+  constraint dcomment_fk_1 foreign key (star_num) references dcontents_star (star_num), 
   constraint dcomment_fk_2 foreign key (mem_num) references dmember (mem_num) 
 );
-create sequence dcomment_seq; /*dreview_seq->dcomment_seq*/ 
+create sequence dcomment_seq; 
 
 /* 코멘트 좋아요 테이블 */
-create table dcomment_like( /*dreview_like->dcomment_like*/ 
-  commentlike_num number not null, /*rlike_num->commentlike_num*/ 
-  comment_num number not null,  /*review_num->comment_num*/
+create table dcomment_like( 
+  commentlike_num number not null, 
+  comment_num number not null, 
   mem_num number not null,
-  constraint dcomment_like_pk primary key (commentlike_num), /*review->comment, rlike_num->commentlike_num*/
-  constraint dcomment_like_fk_1 foreign key (comment_num) references dcomment (comment_num), /*review_num->comment_num*/
+  constraint dcomment_like_pk primary key (commentlike_num), 
+  constraint dcomment_like_fk_1 foreign key (comment_num) references dcomment (comment_num),
   constraint dcomment_like_fk_2 foreign key (mem_num) references dmember (mem_num)
 );
-create sequence dcomment_like_seq; /*dreview_like_seq->dcomment_like_seq*/
+create sequence dcomment_like_seq; 
+
+/* 코멘트 댓글 테이블*/
+create table dcomment_reply(
+ reply_num number not null,
+ comment_num number not null,
+ mem_num number not null,
+ content varchar2(900) not null,
+ reg_date date default sysdate, 
+ modify_date date,
+ constraint dcomment_reply_pk primary key (reply_num),
+ constraint dcomment_reply_fk_1 foreign key (comment_num) references dcomment (comment_num),
+ constraint dcomment_reply_fk_2 foreign key (mem_num) references dmember (mem_num)
+);
+create sequence dcomment_reply_seq;
 
 /* 컨텐츠 캘린더 테이블 */
 create table dcontents_cal(
@@ -106,19 +114,13 @@ create table dchatboard (
   mem_num number not null,
   title varchar2(150) not null,
   content clob not null,
-  reg_date date default sysdate not null, --*
-  hit number(5) default 0 not null, --*
+  reg_date date default sysdate not null, 
+  hit number(5) default 0 not null, 
   mate_state number default 0 not null, --0 구하는중 / 1 모집완료 --*
   constraint dchatboard_pk primary key(chatboard_num),
   constraint dchatboard_fk1 foreign key(mem_num) references dmember_detail(mem_num)
 );
 create sequence dchatboard_seq;
-/*
-ALTER TABLE dchatboard drop COLUMN reg_date;
-ALTER TABLE dchatboard ADD(reg_date date default SYSDATE not null);
-ALTER TABLE dchatboard ADD hit number(5) default 0 not null;
-ALTER TABLE dchatboard ADD mate_state number default 0 not null;
-*/
 
 /*채팅(chatting) 테이블 영역*/
 CREATE TABLE dchatting(

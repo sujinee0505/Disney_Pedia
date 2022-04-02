@@ -171,7 +171,7 @@ public class CommentController {
 			int checkCmtLike = 0;
 			mav.addObject("checkCmtLike", checkCmtLike);
 		}
-		
+
 		mav.setViewName("commentDetail");
 		mav.addObject("comment", comment);
 		mav.addObject("contents", contents);
@@ -187,7 +187,7 @@ public class CommentController {
 		return "replyWrite";
 	}
 
-	// 코멘트 ajax 등록
+	// 코멘트 댓글 작성
 	@RequestMapping("/contents/replyWrite.do")
 	@ResponseBody
 	public Map<String, String> replySubmit(CommentReplyVO reply, HttpSession session) {
@@ -205,21 +205,50 @@ public class CommentController {
 		}
 		return map;
 	}
-	
-	// 코멘트 ajax 등록
+
+	// 코멘트 댓글 목록
 	@RequestMapping("/contents/listReply.do")
 	@ResponseBody
 	public Map<String, Object> listReply(int comment_num, HttpSession session) {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
+		List<CommentReplyVO> reply = commentService.selectListReply(comment_num);
+		map.put("reply", reply);
+
+		return map;
+	}
+	
+	// 코멘트 댓글 수정
+	@RequestMapping("/contents/replyUpdate.do")
+	@ResponseBody
+	public Map<String, String> replyUpdate(CommentReplyVO reply, HttpSession session) {
+
+		Map<String, String> map = new HashMap<String, String>();
 		Integer user_num = (Integer) session.getAttribute("user_num");
-		if (user_num == null) {// 로그인이 되지 않은 경우
+		if (user_num == null) {
 			map.put("result", "logout");
-		} else {// 로그인 된 경우
-			List<CommentReplyVO> reply = commentService.selectListReply(comment_num); 
-			map.put("reply", reply);
+		} else {
+			commentService.updateReply(reply);
+			map.put("result", "success");
 		}
 		return map;
 	}
+	
+	// 코멘트 댓글 삭제
+		@RequestMapping("/contents/replyDelete.do")
+		@ResponseBody
+		public Map<String, String> replyDelete(HttpSession session, int reply_num) {
+
+			Map<String, String> map = new HashMap<String, String>();
+
+			Integer user_num = (Integer) session.getAttribute("user_num");
+			if (user_num == null) {
+				map.put("result", "logout");
+			} else {
+				commentService.deleteReply(reply_num);
+				map.put("result", "success");
+			}
+			return map;
+		}
 }

@@ -6911,7 +6911,6 @@ h1, h3, p, hr {
 	white-space: normal;
 	width: calc(100% - 40px);
 	margin-top: 4px;
-	margin-bottom: 8px;
 }
 
 .css-1d8juai {
@@ -7027,7 +7026,7 @@ h1, h3, p, hr {
 	top: 100%;
 	right: 0;
 	z-index: 10;
-	visibility: hidden;
+	display:none;
 }
 
 .css-6btlr7 {

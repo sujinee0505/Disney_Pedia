@@ -11,6 +11,9 @@ public class CommentReplyVO {
 	private Date reg_date;
 	private Date modify_date;
 
+	private String name;
+	private String photo_name;
+
 	public int getReply_num() {
 		return reply_num;
 	}
@@ -57,6 +60,22 @@ public class CommentReplyVO {
 
 	public void setModify_date(Date modify_date) {
 		this.modify_date = modify_date;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhoto_name() {
+		return photo_name;
+	}
+
+	public void setPhoto_name(String photo_name) {
+		this.photo_name = photo_name;
 	}
 
 }

@@ -84,13 +84,19 @@
 												
 												let output = '<div class="css-1m1whp6">';
 												output += '<div class="css-ov1ktg">';
-												output += '<a class="css-255jr8" >';
-												output += '<div class="css-ksm2an"></div></a>';
+												output += '<a class="css-255jr8" href="${pageContext.request.contextPath}/member/myPage.do?user_num='+item.mem_num+'">';
+												output += '<div class="css-1l9hju7-ProfilePhotoImage">';
+												if (item.photo_name == null) {
+													output += '<img src="${pageContext.request.contextPath}/resources/images/face.png" width="20" height="20" class="my-photo">';	
+												}else {
+													output += '<img width="32" height="32" class="my-photo" src="${pageContext.request.contextPath}/member/photoView.do?user_num='+item.mem_num+'">';
+												}
+												output +='</div></a>';
 												output += '<div class="css-199ku80">';
 												output += '<div class="css-1sg2lsz" style="justify-content: space-between;">';
-												output += '<a class="css-255jr8" style="text-decoration: none;">';
+												output += '<a class="css-255jr8" href="${pageContext.request.contextPath}/member/myPage.do?user_num='+item.mem_num+'" style="text-decoration: none;">';
 												output += '<div class="css-72k174">'
-														+ item.mem_num
+														+ item.name
 														+ '</div></a></div>';
 												/* if (item.modify_date) {
 													output += '<div class="css-maxfbg">'
@@ -109,14 +115,18 @@
 																	'<br>')
 													+ '</div>';
 												output += '<div class="css-4ygot5">';
-												output += '<div class="Icon more css-1b4hoch-SVG e1282e850">';
-												output += '<div>';
-												output += '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMS4yNTEgNS40MjY3NkMxMS4yNTEgNi4xMTc1OSAxMC42OTEgNi42NzY3NiAxMC4wMDEgNi42NzY3NkM5LjMxMDE0IDYuNjc2NzYgOC43NTA5OCA2LjExNzU5IDguNzUwOTggNS40MjY3NkM4Ljc1MDk4IDQuNzM2NzYgOS4zMTAxNCA0LjE3Njc2IDEwLjAwMSA0LjE3Njc2QzEwLjY5MSA0LjE3Njc2IDExLjI1MSA0LjczNjc2IDExLjI1MSA1LjQyNjc2Wk0xMC4wMDEgOC43NDk5M0M5LjMxMDE0IDguNzQ5OTMgOC43NTA5OCA5LjMwOTkzIDguNzUwOTggOS45OTk5M0M4Ljc1MDk4IDEwLjY5MDggOS4zMTAxNCAxMS4yNDk5IDEwLjAwMSAxMS4yNDk5QzEwLjY5MSAxMS4yNDk5IDExLjI1MSAxMC42OTA4IDExLjI1MSA5Ljk5OTkzQzExLjI1MSA5LjMwOTkzIDEwLjY5MSA4Ljc0OTkzIDEwLjAwMSA4Ljc0OTkzWk0xMC4wMDEgMTMuMzIzMUM5LjMxMDE0IDEzLjMyMzEgOC43NTA5OCAxMy44ODIzIDguNzUwOTggMTQuNTczMUM4Ljc1MDk4IDE1LjI2MzkgOS4zMTAxNCAxNS44MjMxIDEwLjAwMSAxNS44MjMxQzEwLjY5MSAxNS44MjMxIDExLjI1MSAxNS4yNjM5IDExLjI1MSAxNC41NzMxQzExLjI1MSAxMy44ODIzIDEwLjY5MSAxMy4zMjMxIDEwLjAwMSAxMy4zMjMxWiIgZmlsbD0iI0EwQTBBMCIvPgo8L3N2Zz4K" xmlns:xlink="http://www.w3.org/1999/xlink">';
-												output += '<path fill-rule="evenodd" clip-rule="evenodd" d="M11.251 5.42676C11.251 6.11759 10.691 6.67676 10.001 6.67676C9.31014 6.67676 8.75098 6.11759 8.75098 5.42676C8.75098 4.73676 9.31014 4.17676 10.001 4.17676C10.691 4.17676 11.251 4.73676 11.251 5.42676ZM10.001 8.74993C9.31014 8.74993 8.75098 9.30993 8.75098 9.99993C8.75098 10.6908 9.31014 11.2499 10.001 11.2499C10.691 11.2499 11.251 10.6908 11.251 9.99993C11.251 9.30993 10.691 8.74993 10.001 8.74993ZM10.001 13.3231C9.31014 13.3231 8.75098 13.8823 8.75098 14.5731C8.75098 15.2639 9.31014 15.8231 10.001 15.8231C10.691 15.8231 11.251 15.2639 11.251 14.5731C11.251 13.8823 10.691 13.3231 10.001 13.3231Z" fill="#A0A0A0"></path>';
-												output += '</svg></div></div>';
-												output += '<div class="css-aa3xw"><div class="css-6btlr7"><div class="css-ve4kut">';
-												output += '<div class="css-19hkid5">댓글 수정</div><div class="css-19hkid5">댓글 삭제</div></div></div></div>';
-												output += '</div> </div></div></div></div>';
+												if (user_num == item.mem_num) {
+													output += '<button class="Icon more css-1b4hoch-SVG e1282e850" style="border: none; background-color: transparent;">';
+													output += '<div>';
+													output += '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMS4yNTEgNS40MjY3NkMxMS4yNTEgNi4xMTc1OSAxMC42OTEgNi42NzY3NiAxMC4wMDEgNi42NzY3NkM5LjMxMDE0IDYuNjc2NzYgOC43NTA5OCA2LjExNzU5IDguNzUwOTggNS40MjY3NkM4Ljc1MDk4IDQuNzM2NzYgOS4zMTAxNCA0LjE3Njc2IDEwLjAwMSA0LjE3Njc2QzEwLjY5MSA0LjE3Njc2IDExLjI1MSA0LjczNjc2IDExLjI1MSA1LjQyNjc2Wk0xMC4wMDEgOC43NDk5M0M5LjMxMDE0IDguNzQ5OTMgOC43NTA5OCA5LjMwOTkzIDguNzUwOTggOS45OTk5M0M4Ljc1MDk4IDEwLjY5MDggOS4zMTAxNCAxMS4yNDk5IDEwLjAwMSAxMS4yNDk5QzEwLjY5MSAxMS4yNDk5IDExLjI1MSAxMC42OTA4IDExLjI1MSA5Ljk5OTkzQzExLjI1MSA5LjMwOTkzIDEwLjY5MSA4Ljc0OTkzIDEwLjAwMSA4Ljc0OTkzWk0xMC4wMDEgMTMuMzIzMUM5LjMxMDE0IDEzLjMyMzEgOC43NTA5OCAxMy44ODIzIDguNzUwOTggMTQuNTczMUM4Ljc1MDk4IDE1LjI2MzkgOS4zMTAxNCAxNS44MjMxIDEwLjAwMSAxNS44MjMxQzEwLjY5MSAxNS44MjMxIDExLjI1MSAxNS4yNjM5IDExLjI1MSAxNC41NzMxQzExLjI1MSAxMy44ODIzIDEwLjY5MSAxMy4zMjMxIDEwLjAwMSAxMy4zMjMxWiIgZmlsbD0iI0EwQTBBMCIvPgo8L3N2Zz4K" xmlns:xlink="http://www.w3.org/1999/xlink">';
+													output += '<path fill-rule="evenodd" clip-rule="evenodd" d="M11.251 5.42676C11.251 6.11759 10.691 6.67676 10.001 6.67676C9.31014 6.67676 8.75098 6.11759 8.75098 5.42676C8.75098 4.73676 9.31014 4.17676 10.001 4.17676C10.691 4.17676 11.251 4.73676 11.251 5.42676ZM10.001 8.74993C9.31014 8.74993 8.75098 9.30993 8.75098 9.99993C8.75098 10.6908 9.31014 11.2499 10.001 11.2499C10.691 11.2499 11.251 10.6908 11.251 9.99993C11.251 9.30993 10.691 8.74993 10.001 8.74993ZM10.001 13.3231C9.31014 13.3231 8.75098 13.8823 8.75098 14.5731C8.75098 15.2639 9.31014 15.8231 10.001 15.8231C10.691 15.8231 11.251 15.2639 11.251 14.5731C11.251 13.8823 10.691 13.3231 10.001 13.3231Z" fill="#A0A0A0"></path>';
+													output += '</svg></div></button>';
+													
+													output += '<div class="css-aa3xw reply_more"><div class="css-6btlr7"><div class="css-ve4kut">';
+													output += '<button data-bs-target="#replytUpdateModal" data-bs-toggle="modal" class="css-19hkid5 update" style="border: none;">댓글 수정</button>';
+													output += '<input type="hidden" value="'+item.reply_num+'" class="reply_num"><button class="css-19hkid5 delete" style="border: none; background-color: transparent;">댓글 삭제</button></div></div></div>';
+													output += '</div> </div></div></div></div>';
+												}
 												$('.cmtReply').append(output);
 											});
 						},
@@ -129,6 +139,36 @@
 		//초기 데이터(목록) 호출
 		selectData();
 
+		$(document).on('click', '.e1282e850', function() {
+			$(this).siblings('.reply_more').toggle();
+		});
+		
+		//댓글 삭제
+	$(document).on('click', '.delete', function(event) {
+			$.ajax({
+				url : 'replyDelete.do',
+				type : 'post',
+				data : {
+					reply_num :$(event.target).parent().find('.reply_num').val()
+				},
+				dataType : 'json',
+				cache : false,
+				timeout : 30000,
+				success : function(param) {
+					if (param.result == 'logout') {
+						alert('로그인 후 사용하세요');
+					} else if (param.result == 'success') {
+						alert('코멘트를 삭제했습니다.');
+						location.reload(true);
+					} else {
+						alert('코멘트 삭제 오류 발생');
+					}
+				},
+				error : function() {
+					alert('네트워크 오류 발생');
+				}
+			}); //end of comment delete ajax
+		});
 	});
 </script>
 <section class="css-18gwkcr">
@@ -278,12 +318,12 @@
 		</div>
 	</div>
 </div>
-<%-- <!--코멘트 수정폼 모달 틀-->
-<div class="modal fade" id="cmtReplyUpdateModal" tabindex="-1"
+<!--코멘트 수정폼 모달 틀-->
+<div class="modal fade" id="replytUpdateModal" tabindex="-1"
 	role="dialog">
 	<div class="modal-dialog modal-dialog-centered modal-comment">
 		<div class="modal-content">
 			<jsp:include page="/WEB-INF/views/contents/replyUpdate.jsp" />
 		</div>
 	</div>
-</div> --%>
+</div>

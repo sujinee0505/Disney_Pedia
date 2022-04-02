@@ -26,6 +26,10 @@ public interface CommentMapper {
 	@Select("SELECT COUNT(*) FROM dcomment WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
 	public int checkComment(CommentVO comment);
 
+	// 코멘트 한 건 vo로 반환(영화,회원일치하는 레코드)
+	@Select("SELECT * FROM dcomment WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
+	public CommentVO getComment(CommentVO comment);
+
 	// 코멘트 수정
 	@Update("UPDATE dcomment SET content=#{content}, modify_date=SYSDATE WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
 	public void updateComment(CommentVO commentVO);
@@ -62,7 +66,7 @@ public interface CommentMapper {
 	public int checkCmtLike(CommentVO comment);
 
 	// 코멘트 댓글 목록 불러오기
-	@Select("SELECT * FROM dcomment_reply WHERE comment_num=#{comment_num}")
+	@Select("SELECT r.*, d.name,d.photo_name FROM dcomment_reply r JOIN dmember_detail d ON r.mem_num = d.mem_num  WHERE comment_num=#{comment_num} ORDER BY reply_num DESC")
 	public List<CommentReplyVO> selectListReply(int comment_num);
 
 	// 코멘트 댓글 작성
