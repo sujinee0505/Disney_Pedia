@@ -134,7 +134,7 @@ public class CommentServiceImpl implements CommentService {
 
 	// 내가 좋아요한 코멘트 목록
 	@Override
-	public List<CommentLikeVO> selectListLikeByMem_num(int mem_num) {
+	public List<CommentVO> selectListLikeByMem_num(int mem_num) {
 		return commentMapper.selectListLikeByMem_num(mem_num);
 	}
 

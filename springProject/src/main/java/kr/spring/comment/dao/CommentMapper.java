@@ -98,5 +98,5 @@ public interface CommentMapper {
 
 	// 내가 좋아요한 코멘트 목록
 	@Select("SELECT * FROM dcomment_like l JOIN dcomment c ON l.comment_num=c.comment_num WHERE l.mem_num=#{mem_num} ORDER BY c.comment_num DESC")
-	public List<CommentLikeVO> selectListLikeByMem_num(int mem_num);
+	public List<CommentVO> selectListLikeByMem_num(int mem_num);
 }

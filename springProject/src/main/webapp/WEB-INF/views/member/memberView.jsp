@@ -124,11 +124,12 @@ input[type=button] {
 												<c:if
 													test="${param.user_num ==0 || user_num == member.mem_num}">
 													<div class="profile-userbutton">
-														<input type="button" value="프로필수정" onclick="location.href='update.do'">
-															<a href="myCalendar.do?mem_num=${member.mem_num}"> 
-																<img src="${pageContext.request.contextPath}/resources/images/cal.png"
-																width="40" height="40">
-															</a>
+														<input type="button" value="프로필수정"
+															onclick="location.href='update.do'"> <a
+															href="myCalendar.do?mem_num=${member.mem_num}"> <img
+															src="${pageContext.request.contextPath}/resources/images/cal.png"
+															width="40" height="40">
+														</a>
 													</div>
 												</c:if>
 										</div>
@@ -138,8 +139,10 @@ input[type=button] {
 												<div class="css-174lxc3">
 													<div class="css-1gkas1x-Grid e1689zdh0">
 														<div class="css-1y901al-Row emmoxnt0">
-															<ul class="e19zkogf12 css-i1bo8u-VisualUl-CategoryArchivesUl">
-																<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
+															<ul
+																class="e19zkogf12 css-i1bo8u-VisualUl-CategoryArchivesUl">
+																<li
+																	class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
 																	<a class="css-h3f67w-CategoryArchivesLink e19zkogf14"
 																	href="<c:if test="${param.user_num == 0 }">myContents.do?contents_type=movie&mem_num=${user_num }</c:if>
 																<c:if test="${param.user_num != 0 }">myContents.do?contents_type=movie&mem_num=${param.user_num }</c:if>">
@@ -207,17 +210,23 @@ input[type=button] {
 											<div class="mylike">
 												<ul>
 													<h2>코멘트</h2>
-														<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
-															<a href="myComment.do?mem_num${member.mem_num }">
-															<h4>작성한 코멘트 > </h4>
-															</a>
-														</li>
-														<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
-															<a href="likeComment.do?mem_num${member.mem_num }">
-															<h4>좋아한 코멘트 > </h4>
-															</a>
-														</li>	
-												</ul>	
+													<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
+														<a
+														href="<c:if test="${param.user_num == 0 }">myComment.do?mem_num=${user_num }</c:if>
+																<c:if test="${param.user_num != 0 }">myComment.do?mem_num=${param.user_num }</c:if>">
+															<h4>작성한 코멘트 ></h4>
+													</a>
+													</li>
+													<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
+														<a
+														href="<c:if
+																test="${param.user_num == 0 }">likeComment.do?mem_num=${user_num }</c:if>
+															<c:if test="${param.user_num != 0 }">likeComment.do?mem_num=${param.user_num }</c:if>">
+
+															<h4>좋아한 코멘트 ></h4>
+													</a>
+													</li>
+												</ul>
 											</div>
 										</c:if>
 									</div>

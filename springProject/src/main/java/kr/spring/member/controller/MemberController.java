@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.comment.vo.CommentLikeVO;
+import kr.spring.comment.vo.CommentVO;
 import kr.spring.contents.service.ContentsService;
 import kr.spring.contents.vo.ContentsVO;
 import kr.spring.contents.vo.LikeVO;
@@ -314,4 +316,5 @@ public class MemberController {
 		mav.addObject("starList", starList);
 		return mav;
 	}
+	
 }

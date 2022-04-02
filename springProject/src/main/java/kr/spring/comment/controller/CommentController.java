@@ -129,8 +129,7 @@ public class CommentController {
 
 	// 내가 쓴 코멘트 목록
 	@RequestMapping("/member/myComment.do")
-	public ModelAndView myComment(HttpSession session) {
-		Integer mem_num = (Integer) session.getAttribute("user_num");
+	public ModelAndView myComment(int mem_num) {
 		List<CommentVO> commentList = new ArrayList<CommentVO>();
 		commentList = commentService.selectListByMem_num(mem_num);
 		GetInfoUtil util = new GetInfoUtil();
@@ -145,6 +144,29 @@ public class CommentController {
 		mav.setViewName("myComment");
 		mav.addObject("commentList", commentList);
 		mav.addObject("contentsList", contentsList);
+		return mav;
+	}
+
+	// 내가 좋아요 한 코멘트 목록
+	@RequestMapping("/member/likeComment.do")
+	public ModelAndView likeComment(int mem_num) {
+		GetInfoUtil util = new GetInfoUtil();
+		List<CommentVO> cmtLikeList = commentService.selectListLikeByMem_num(mem_num); // 내가 좋아요 누른 코멘트 정보를 불러옴
+		List<MemberVO> member_list = new ArrayList<MemberVO>(); // 코멘트 작성자의 name과 photo 등을 저장할 List
+		List<ContentsVO> contents_list = new ArrayList<ContentsVO>(); // 내가 좋아요 누른 코멘트들의 컨텐츠의 title, poster_path등을 저장할 List
+																		
+		for (int i = 0; i < cmtLikeList.size(); i++) {
+			MemberVO member = new MemberVO();
+			member = memberService.selectMember(cmtLikeList.get(i).getComment_num()); // 불러온 코멘트 정보 중 코멘트 작성자 회원 번호를 이용해서 회원 상세 정보를 불러옴
+			member_list.add(member); // 결과 값이 여러개일 수 있으니 List에 저장
+			ContentsVO contents = new ContentsVO(); // 불러온 코멘트 정보 중 contents_type과 contents_num을 이용해서 컨텐츠 상세 정보를 불러옴
+			contents = util.getInfoDetail(cmtLikeList.get(i).getContents_type(), cmtLikeList.get(i).getContents_num()); // 역시나 결과 값이 여러개일 수 있으니 List에 저장
+			contents_list.add(contents);
+		}
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("likeComment");
+		mav.addObject("member_list", member_list);
+		mav.addObject("contents_list", contents_list);
 		return mav;
 	}
 
@@ -225,7 +247,7 @@ public class CommentController {
 
 		return map;
 	}
-	
+
 	// 코멘트 댓글 수정
 	@RequestMapping("/contents/replyUpdate.do")
 	@ResponseBody
@@ -241,21 +263,21 @@ public class CommentController {
 		}
 		return map;
 	}
-	
+
 	// 코멘트 댓글 삭제
-		@RequestMapping("/contents/replyDelete.do")
-		@ResponseBody
-		public Map<String, String> replyDelete(HttpSession session, int reply_num) {
+	@RequestMapping("/contents/replyDelete.do")
+	@ResponseBody
+	public Map<String, String> replyDelete(HttpSession session, int reply_num) {
 
-			Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new HashMap<String, String>();
 
-			Integer user_num = (Integer) session.getAttribute("user_num");
-			if (user_num == null) {
-				map.put("result", "logout");
-			} else {
-				commentService.deleteReply(reply_num);
-				map.put("result", "success");
-			}
-			return map;
+		Integer user_num = (Integer) session.getAttribute("user_num");
+		if (user_num == null) {
+			map.put("result", "logout");
+		} else {
+			commentService.deleteReply(reply_num);
+			map.put("result", "success");
 		}
+		return map;
+	}
 }

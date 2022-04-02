@@ -5,7 +5,6 @@ public class CommentLikeVO {
 	private int comment_num; //코멘트번호
 	private int mem_num; //회원번호
 	
-	
 	public int getComentlike_num() {
 		return commentlike_num;
 	}

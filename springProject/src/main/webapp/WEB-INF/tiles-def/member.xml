@@ -45,9 +45,9 @@
     	<put-attribute name="title" value="컨텐츠"/>
     	<put-attribute name="body" value="/WEB-INF/views/member/myContents.jsp"/>
     </definition>
-    <definition name="likeComent" extends="main">
+    <definition name="likeComment" extends="main">
     	<put-attribute name="title" value="좋아한코멘트목록"/>
-    	<put-attribute name="body" value="/WEB-INF/views/member/likeComent.jsp"/>
+    	<put-attribute name="body" value="/WEB-INF/views/member/likeComment.jsp"/>
     </definition>
      <definition name="calendar" extends="main">
     	<put-attribute name="title" value="캘린더"/>

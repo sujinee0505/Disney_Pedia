@@ -66,5 +66,5 @@ public interface CommentService {
 	public List<CommentVO> selectListByMem_num(int mem_num);
 
 	// 내가 좋아요 한 코멘트 목록
-	public List<CommentLikeVO> selectListLikeByMem_num(int mem_num);
+	public List<CommentVO> selectListLikeByMem_num(int mem_num);
 }

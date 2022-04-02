@@ -7104,3 +7104,11 @@ h1, h3, p, hr {
 	height: 18px;
 	margin: 0px 3px 0px 13px;
 }
+.css-maxfbg {
+    color: rgb(140, 140, 140);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    line-height: 16px;
+    margin-left: auto;
+}

@@ -1,6 +1,6 @@
 package kr.spring.comment.vo;
 
-import java.util.Date;
+import kr.spring.util.DurationFromNow;
 
 public class CommentReplyVO {
 
@@ -8,8 +8,8 @@ public class CommentReplyVO {
 	private int mem_num;
 	private int comment_num;
 	private String content;
-	private Date reg_date;
-	private Date modify_date;
+	private String reg_date;
+	private String modify_date;
 
 	private String name;
 	private String photo_name;
@@ -46,20 +46,20 @@ public class CommentReplyVO {
 		this.content = content;
 	}
 
-	public Date getReg_date() {
+	public String getReg_date() {
 		return reg_date;
 	}
 
-	public void setReg_date(Date reg_date) {
-		this.reg_date = reg_date;
+	public void setReg_date(String reg_date) {
+		this.reg_date = DurationFromNow.getTimeDiffLabel(reg_date);
 	}
 
-	public Date getModify_date() {
+	public String getModify_date() {
 		return modify_date;
 	}
 
-	public void setModify_date(Date modify_date) {
-		this.modify_date = modify_date;
+	public void setModify_date(String modify_date) {
+		this.modify_date =  DurationFromNow.getTimeDiffLabel(modify_date);
 	}
 
 	public String getName() {
