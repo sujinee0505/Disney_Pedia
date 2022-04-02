@@ -1,11 +1,13 @@
-/* 멤버-회원정보  */
+/*===== member(멤버) : dmember,dmember_detail =====*/
+/* 회원정보  */
 create table dmember(
     mem_num number not null,
     id varchar2(18) unique not null,
     auth number(1) default 2 not null, /*회원등급:0탈퇴회원,1정지회원,2일반회원,3관리자*/
     constraint dmember_pk primary key (mem_num)
 );
-/*멤버 디테일-회원상세정보 */
+
+/* 회원상세정보 */
 create table dmember_detail(
     mem_num number not null,
     name varchar2(18) not null,
@@ -20,17 +22,8 @@ create table dmember_detail(
  );
 create sequence dmember_seq;
 
-/* 팔로우  */
-create table dfollow(
- follow_num number not null,
- active_mem number not null,
- passive_mem number not null,
-constraint dfollow_pk primary key (follow_num),
-constraint dfollow_fk1 foreign key (active_mem) references dmember_detail (mem_num),
-constraint dfollow_fk2 foreign key (passive_mem) references dmember_detail (mem_num)
- );
-create sequence dfollow_seq;
 
+/*=====contents(컨텐츠) : dcontents_like, dcontents_star, dcontents_cal =====*/
 /* 컨텐츠 보고싶어요 */
 create table dcontents_like(
   clike_num number not null,
@@ -54,6 +47,21 @@ create table dcontents_star(
 );
 create sequence dcontents_star_seq;
 
+/* 컨텐츠 캘린더  */
+create table dcontents_cal(
+  cal_num number not null,
+  custom_date date not null,
+  contents_num number not null,
+  contents_type varchar2(5) not null,
+  poster_path clob ,
+  mem_num number not null,
+  constraint dcontents_cal_pk primary key (cal_num),
+  constraint dcontents_cal_fk foreign key (mem_num) references dmember (mem_num)
+);
+create sequence dcontents_cal_seq;
+
+
+/*=====comment(코멘트) : dcomment, dcomment_like, dcomment_reply =====*/
 /* 코멘트  */
 create table dcomment(
   comment_num number not null, 
@@ -71,7 +79,6 @@ create sequence dcomment_seq;
 
  /* ↑↑ 삭제 후 재생성 또는 아래 문장 실행 근데 될지는 잘 모르겠슴다 죄송..*/
 /* ALTER TABLE dcomment DROP CONSTRAINT dcomment_fk_1 CASCADE; */
-
 
 /* 코멘트 좋아요 테이블 */
 create table dcomment_like( 
@@ -100,20 +107,9 @@ create table dcomment_reply(
 );
 create sequence dcomment_reply_seq;
 
-/* 컨텐츠 캘린더 테이블 */
-create table dcontents_cal(
-  cal_num number not null,
-  custom_date date not null,
-  contents_num number not null,
-  contents_type varchar2(5) not null,
-  poster_path clob ,
-  mem_num number not null,
-  constraint dcontents_cal_pk primary key (cal_num),
-  constraint dcontents_cal_fk foreign key (mem_num) references dmember (mem_num)
-);
-create sequence dcontents_cal_seq;
 
-/* 채팅방 테이블 */
+/*=====chatting(채팅) : dchatboard, dchatting =====*/
+/* 채팅방  */
 create table dchatboard (
   chatboard_num number not null,
   mem_num number not null,
@@ -127,7 +123,7 @@ create table dchatboard (
 );
 create sequence dchatboard_seq;
 
-/*채팅(chatting) 테이블 영역*/
+/*채팅(chatting) 영역*/
 CREATE TABLE dchatting(
    chat_num number not null, --채팅번호
    to_num number not null, --메시지수신번호(글작성자회원번호)
@@ -144,3 +140,15 @@ CREATE TABLE dchatting(
 );
 CREATE SEQUENCE Dchatting_seq;
 
+
+/*---안하게된것---*/
+/* 팔로우  */
+create table dfollow(
+ follow_num number not null,
+ active_mem number not null,
+ passive_mem number not null,
+constraint dfollow_pk primary key (follow_num),
+constraint dfollow_fk1 foreign key (active_mem) references dmember_detail (mem_num),
+constraint dfollow_fk2 foreign key (passive_mem) references dmember_detail (mem_num)
+ );
+create sequence dfollow_seq;
