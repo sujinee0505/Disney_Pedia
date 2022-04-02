@@ -9,9 +9,10 @@ $(function() {
 		$('.letter-count').text(LengthNow+'/300');
 	 });
 	
-	 $(document).on('click','.css-19hkid5', function() {
+	 $(document).on('click','.update', function() {
 		var original_content = $(event.target).parent().parent().parent().parent().parent().find('.css-yb0jaq').text();
 		$('#comment2').val(original_content);
+		$('#reply_num').val($(event.target).parent().find('.reply_num').val());
 	}); 
 			 
 	 //글자수카운트
@@ -35,7 +36,8 @@ $(function() {
 				url : 'replyUpdate.do',
 				type : 'post',
 				data : {
-					reply_num : $(event.target).parent().find('.reply_num').val()
+					content : $('#comment2').val(),
+					reply_num : $('#reply_num').val()
 				},
 				dataType : 'json',
 				cache : false,
@@ -67,8 +69,7 @@ $(function() {
       <!-- Modal body -->
       <div class="modal-body comment-body">
       	<form action="" method="post" role="form" id="commentUpdate_form">
-      	<input type="hidden" value="${contents.contents_num}" id="contents_num">
-		<input type="hidden" value="${contents.contents_type}" id="contents_type">	
+      	<input type="hidden" value="" id="reply_num">
       	<textarea autofocus required cols="30" rows="10" id="comment2" name="comment" 
       	placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." ></textarea>
       	<div class="float_right">
