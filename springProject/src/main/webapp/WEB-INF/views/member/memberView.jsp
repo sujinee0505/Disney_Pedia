@@ -146,9 +146,9 @@ input[type=button] {
 																class="e19zkogf12 css-i1bo8u-VisualUl-CategoryArchivesUl">
 																<li
 																	class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
-																	<a 
-																	class="css-h3f67w-CategoryArchivesLink e19zkogf14"
-																	href="myContents.do?contents_type=movie&mem_num=${param.user_num }">
+																	<a class="css-h3f67w-CategoryArchivesLink e19zkogf14"
+																	href="<c:if test="${param.user_num == 0 }">myContents.do?contents_type=movie&mem_num=${user_num }</c:if>
+																<c:if test="${param.user_num != 0 }">myContents.do?contents_type=movie&mem_num=${param.user_num }</c:if>">
 																		<ul
 																			class="css-reeb92-VisualUl-CategoryArchives e19zkogf15">
 																			<li
