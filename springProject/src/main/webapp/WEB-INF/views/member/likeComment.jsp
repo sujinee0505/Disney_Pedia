@@ -27,7 +27,7 @@
 							<div class="css-1cvf9dk">
 								<a title="${memberList[status.index].name}"
 									class="css-1f9m1s4-StylelessLocalLink eovgsd01"
-									href="/ko-KR/users/DgwxAeQYNxrMj">
+									href="${pageContext.request.contextPath}/member/myPage.do?user_num=${memberList[status.index].mem_num}">
 									<div class="css-107z6xc">
 										<div class="css-10h5a7j-ProfilePhotoImage">
 											<c:if test="${empty memberList[status.index].photo_name}">
@@ -37,7 +37,7 @@
 											</c:if>
 											<c:if test="${!empty memberList[status.index].photo_name}">
 												<img width="32" height="32" class="my-photo"
-													src="${pageContext.request.contextPath}/member/photoView.do?user_num=${cmtLikeList.comment_mem}">
+													src="${pageContext.request.contextPath}/member/photoView.do?user_num=${memberList[status.index].mem_num}">
 											</c:if>
 										</div>
 									</div>
@@ -58,7 +58,7 @@
 						</div>
 						<div class="css-4tkoly">
 							<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
-								href="/ko-KR/comments/8n92VaKJ3vEAJ">
+								href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${cmtLikeList.contents_type }&contents_num=${cmtLikeList.contents_num}">
 								<div class="css-1g78l7j" style="display: flex;">
 									<img class="css-qhzw1o-StyledImg"
 										style="max-height: 520px; width: 80px;"
@@ -77,7 +77,10 @@
 											</span>
 										</div>
 										<div class="css-1g78l7j">
-											<span>${cmtLikeList.content}</span>
+											<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
+												href="${pageContext.request.contextPath}/contents/cmtDetail.do?contents_type=${cmtLikeList.contents_type }&contents_num=${cmtLikeList.contents_num }&comment_num=${cmtLikeList.comment_num }">
+												<span>${cmtLikeList.content}</span>
+											</a>
 										</div>
 									</div>
 								</div>
