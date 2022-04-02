@@ -11,7 +11,6 @@ import org.apache.ibatis.annotations.Update;
 import kr.spring.comment.vo.CommentLikeVO;
 import kr.spring.comment.vo.CommentReplyVO;
 import kr.spring.comment.vo.CommentVO;
-import kr.spring.contents.vo.StarVO;
 
 public interface CommentMapper {
 
@@ -39,7 +38,7 @@ public interface CommentMapper {
 	// 코멘트 목록 불러오기
 	@Select("SELECT a.*, s.star FROM (SELECT d.name, d.photo_name, c.* FROM dmember_detail d JOIN dcomment c ON d.mem_num=c.mem_num ) a "
 			+ "LEFT OUTER JOIN dcontents_star s ON a.star_num = s.star_num WHERE a.contents_type=#{contents_type} and a.contents_num=#{contents_num} ORDER BY a.comment_num DESC")
-	public List<CommentVO> selectList(CommentVO comment); // 코멘트전체목록
+	public List<CommentVO> selectList(CommentVO comment); 
 
 	// 코멘트 상세 정보
 	@Select("SELECT c.*, s.star FROM dcomment c LEFT OUTER JOIN dcontents_star s ON c.star_num = s.star_num WHERE c.comment_num=#{comment_num}")

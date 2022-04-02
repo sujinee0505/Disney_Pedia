@@ -4,12 +4,12 @@ public class CommentLikeVO {
 	private int comment_num; // 코멘트번호
 	private int like_mem; // 좋아요를 누른 회원
 	private int comment_mem; // 코멘트 작성 회원
-	private String content;
-	private String contents_type;
-	private int contents_num;
-	private double star;
-	private int countLike;
-	private int countReply;
+	private String content; // 코멘트 내용
+	private String contents_type; // 작성한 코멘트의 컨텐츠 타입
+	private int contents_num; // 작성한 코멘트의 컨텐츠 번호
+	private double star; // 만약 이미 등록한 별점이 존재한다면 별점을 저장할 변수
+	private int countLike; // 코멘트에 눌린 좋아요 갯수
+	private int countReply; // 코멘트에 달린 댓글 갯수
 
 	public int getComment_num() {
 		return comment_num;

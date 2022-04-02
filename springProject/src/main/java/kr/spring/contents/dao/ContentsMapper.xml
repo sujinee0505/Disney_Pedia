@@ -13,10 +13,10 @@
 				 contents_type)
 		VALUES 
 			(
-			 <if test="checkComment == 0">
+			 <if test="checkComment == 0"> <!-- 같은 컨텐츠에 기존에 작성된 코멘트가 없을 경우 -->
 			 	dcontents_star_seq.nextval, 
 			 </if>
-			 <if test="checkComment == 1">
+			 <if test="checkComment == 1"> <!-- 같은 컨텐츠에 기존에 작성된 코멘트가 있을 경우, dcomment 테이블에 저장되어있는 star_num을 끌고와서 입력 -->
 			 	 #{starVO.star_num}, 
 			 </if>
 				 #{starVO.star},

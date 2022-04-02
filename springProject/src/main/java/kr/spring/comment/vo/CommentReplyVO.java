@@ -4,15 +4,14 @@ import kr.spring.util.DurationFromNow;
 
 public class CommentReplyVO {
 
-	private int reply_num;
-	private int mem_num;
-	private int comment_num;
-	private String content;
-	private String reg_date;
-	private String modify_date;
-
-	private String name;
-	private String photo_name;
+	private int reply_num; // 댓글 번호
+	private int mem_num; // 댓글 작성자 번호
+	private int comment_num; // 댓글이 달릴 코멘트 번호
+	private String content; // 댓글 내용
+	private String reg_date; // 댓글 작성일
+	private String modify_date; // 댓글 수정일
+	private String name; // 댓글 작성자 이름
+	private String photo_name; // 댓글 작성자의 프로필 사진 여부 확인용
 
 	public int getReply_num() {
 		return reply_num;
@@ -59,7 +58,7 @@ public class CommentReplyVO {
 	}
 
 	public void setModify_date(String modify_date) {
-		this.modify_date =  DurationFromNow.getTimeDiffLabel(modify_date);
+		this.modify_date = DurationFromNow.getTimeDiffLabel(modify_date);
 	}
 
 	public String getName() {

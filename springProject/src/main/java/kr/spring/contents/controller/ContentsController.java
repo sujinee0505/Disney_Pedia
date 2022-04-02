@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -43,7 +42,7 @@ public class ContentsController {
 
 	@RequestMapping("/contents/detail.do")
 	// 컨텐츠 타입(movie/tv), 컨텐츠 id를 인자로 받음
-	public ModelAndView process(@RequestParam String contents_type, @RequestParam int contents_num,
+	public ModelAndView detail(@RequestParam String contents_type, @RequestParam int contents_num,
 			HttpSession session) {
 		GetInfoUtil util = new GetInfoUtil();
 		ContentsVO contents = util.getInfoDetail(contents_type, contents_num);
@@ -98,7 +97,8 @@ public class ContentsController {
 		comment.setContents_num(contents_num);
 		comment.setContents_type(contents_type);
 		List<CommentVO> commentList = commentService.selectList(comment); // 해당 컨텐츠에 달린 코멘트 리스트 불러오기
-		mav.addObject("commetList", commentList);
+		mav.addObject("commentList", commentList);
+		
 		List<MemberVO> cmt_memberList = new ArrayList<MemberVO>(); // 각각의 코멘트 작성자 정보를 불러오기
 		for (int i = 0; i < commentList.size(); i++) {
 			MemberVO cmt_member = new MemberVO();
@@ -120,14 +120,15 @@ public class ContentsController {
 			StarVO starVO = contentsService.getStar(star); // 로그인한 유저가 해당 컨텐츠를 평가했는지의 정보를 불러옴
 			mav.addObject("starVO", starVO);
 
-			comment.setMem_num(user_num);
+			comment.setMem_num(user_num); // 코멘트에 로그인한 유저가 좋아요를 눌렀는지 확인하기 위해 user_num 셋팅
 			for (int i = 0; i < commentList.size(); i++) {
-				comment.setComment_num(commentList.get(i).getComment_num()); 
-				int checkCmtLike = commentService.checkCmtLike(comment); // 
-				commentList.get(i).setCheckCmtLike(checkCmtLike);
+				comment.setComment_num(commentList.get(i).getComment_num()); // 루프를 돌며 코멘트 넘버 값을 바꿔줌 
+				int checkCmtLike = commentService.checkCmtLike(comment);  // 각각 모든 코멘트들을 확인
+				commentList.get(i).setCheckCmtLike(checkCmtLike); // 좋아요 여부 정보를 각각 저장 ( 0 → 좋아요 안 누름 / 1 → 좋아요 누름 ) 
 			}
 			mav.addObject("commentList", commentList);
-			CommentVO getComment = commentService.getComment(comment); // 해당 컨텐츠의 코멘트 정보
+			
+			CommentVO getComment = commentService.getComment(comment); // 로그인한 유저가 작성한 코멘트 정보
 			int checkComment = commentService.checkComment(comment); // 해당 컨텐츠에 코멘트 작성 여부 확인
 			mav.addObject("getComment", getComment);
 			mav.addObject("checkComment", checkComment);

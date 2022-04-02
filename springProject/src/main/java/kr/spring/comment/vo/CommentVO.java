@@ -10,14 +10,12 @@ public class CommentVO {
 	private String reg_date; // 등록날짜
 	private String modify_date; // 수정날짜
 	private int mem_num; // 회원 번호;
-	private int star_num;
-
-	// 수진
-	private int count;
-	private double star;
-	private int countLike;
-	private int countReply;
-	private int checkCmtLike;
+	private int star_num; // dcontents_star 테이블과 연결할 용도의 star_num
+	private int count; // 코멘트 갯수? 뭔 용도더라 까머금 
+	private double star; //  코멘트랑 세트로 쓰일 별점이 저장될 용도
+	private int countLike; // 코멘트에 눌린 좋아요 갯수
+	private int countReply; // 코멘트에 달린 댓글 갯수
+	private int checkCmtLike; // 코멘트 좋아요 여부 확인 용도의.. 어디서 쓰는거더라
 
 	public int getComment_num() {
 		return comment_num;
@@ -75,6 +73,14 @@ public class CommentVO {
 		this.mem_num = mem_num;
 	}
 
+	public int getStar_num() {
+		return star_num;
+	}
+
+	public void setStar_num(int star_num) {
+		this.star_num = star_num;
+	}
+
 	public int getCount() {
 		return count;
 	}
@@ -113,14 +119,6 @@ public class CommentVO {
 
 	public void setCheckCmtLike(int checkCmtLike) {
 		this.checkCmtLike = checkCmtLike;
-	}
-
-	public int getStar_num() {
-		return star_num;
-	}
-
-	public void setStar_num(int star_num) {
-		this.star_num = star_num;
 	}
 
 }

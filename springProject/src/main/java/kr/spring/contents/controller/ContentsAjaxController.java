@@ -3,7 +3,6 @@ package kr.spring.contents.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.spring.comment.service.CommentService;
-import kr.spring.comment.vo.CommentReplyVO;
 import kr.spring.comment.vo.CommentVO;
 import kr.spring.contents.service.ContentsService;
 import kr.spring.contents.vo.LikeVO;
@@ -31,9 +29,9 @@ public class ContentsAjaxController {
 	// 별점 등록,수정
 	@RequestMapping("/contents/starRating.do")
 	@ResponseBody
-	public Map<String, String> starRating(HttpSession session, StarVO starVO, int checkComment) {
+	public Map<String, Object> starRating(HttpSession session, StarVO starVO, int checkComment) {
 
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Object> insert_map = new HashMap<String, Object>();
 		// 해당 컨텐츠 평가기록 있나 확인
 		int checkStar = contentsService.CheckStar(starVO);
@@ -47,8 +45,11 @@ public class ContentsAjaxController {
 				map.put("result", "success2");
 			} else { // 별점기록없으면 insert
 				insert_map.put("starVO",starVO);
-				insert_map.put("checkComment",checkComment);
+				insert_map.put("checkComment",checkComment); // 같은 컨텐츠에 코멘트를 작성한 적이 있는지 확인용
 				contentsService.insertStar(insert_map);
+				starVO.setMem_num(user_num);
+				contentsService.getStar(starVO); 
+				map.put("star_num", contentsService.getStar(starVO).getStar_num()); // ajax통신이라 새롭게 생긴 star_num이 안넘어가서 강제로 넘겨줌
 				map.put("result", "success");
 			}
 		}

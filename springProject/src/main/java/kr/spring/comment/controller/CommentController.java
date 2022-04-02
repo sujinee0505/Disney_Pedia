@@ -1,26 +1,18 @@
 package kr.spring.comment.controller;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,24 +20,17 @@ import kr.spring.comment.service.CommentService;
 import kr.spring.comment.vo.CommentLikeVO;
 import kr.spring.comment.vo.CommentReplyVO;
 import kr.spring.comment.vo.CommentVO;
-import kr.spring.contents.service.ContentsService;
 import kr.spring.contents.vo.ContentsVO;
-import kr.spring.contents.vo.StarVO;
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
-import kr.spring.sort.SortByDate;
 import kr.spring.util.GetInfoUtil;
-import kr.spring.util.PagingUtil;
 
 @Controller
 public class CommentController {
-	private static final Logger logger = LoggerFactory.getLogger(CommentController.class);
 
 	@Autowired
 	private CommentService commentService;
 
-	@Autowired
-	private ContentsService contentsService;
 
 	@Autowired
 	private MemberService memberService;
@@ -60,7 +45,6 @@ public class CommentController {
 	// 코멘트 등록 폼 호출
 	@GetMapping("/contents/commentWrite.do")
 	public String commentform(HttpServletRequest request) {
-		CommentVO comment = new CommentVO();
 		return "commentWrite";
 	}
 
@@ -79,7 +63,7 @@ public class CommentController {
 			// CommentVO에 회원 번호 셋팅
 			commentVO.setMem_num(user_num); // 코멘트 작성
 			insert_map.put("commentVO", commentVO);
-			insert_map.put("star_num", star_num);
+			insert_map.put("star_num", star_num); // 만약 이미 등록된 별점이 있다면 dcontents_star 테이블에서 해당 star_num을 끌고와서 저장할 예정
 			commentService.insertComment(insert_map);
 			map.put("result", "success");
 		}
@@ -133,12 +117,14 @@ public class CommentController {
 	@RequestMapping("/member/myComment.do")
 	public ModelAndView myComment(int mem_num) {
 		List<CommentVO> commentList = new ArrayList<CommentVO>();
-		commentList = commentService.selectListByMem_num(mem_num);
+		commentList = commentService.selectListByMem_num(mem_num); // 내가 작성한 코멘트 목록 불러오기
+		
 		GetInfoUtil util = new GetInfoUtil();
 		List<ContentsVO> contentsList = new ArrayList<ContentsVO>();
+		
 		for (int i = 0; i < commentList.size(); i++) {
 			ContentsVO contents = new ContentsVO();
-			contents = util.getInfoDetail(commentList.get(i).getContents_type(), commentList.get(i).getContents_num());
+			contents = util.getInfoDetail(commentList.get(i).getContents_type(), commentList.get(i).getContents_num()); // 영화 상세정보 불러오기
 			contentsList.add(contents);
 			commentList.get(i).setCountReply(commentService.getCountReply(commentList.get(i).getComment_num()));
 			Integer countLike = commentService.getCountLike(commentList.get(i).getComment_num()); // 코멘트 좋아요 갯수
@@ -157,21 +143,23 @@ public class CommentController {
 	// 내가 좋아요 한 코멘트 목록
 	@RequestMapping("/member/likeComment.do")
 	public ModelAndView likeComment(int mem_num) {
+		List<CommentLikeVO> cmtLikeList = commentService.selectListLikeByMem_num(mem_num); // 내가 좋아요 한 코멘트 목록 불러오기
+		
 		GetInfoUtil util = new GetInfoUtil();
-		List<CommentLikeVO> cmtLikeList = commentService.selectListLikeByMem_num(mem_num);
+		
 		List<ContentsVO> contentsList = new ArrayList<ContentsVO>();
 		List<MemberVO> memberList = new ArrayList<MemberVO>();
 		for (int i = 0; i < cmtLikeList.size(); i++) {
 			ContentsVO contents = new ContentsVO();
-			contents = util.getInfoDetail(cmtLikeList.get(i).getContents_type(), cmtLikeList.get(i).getContents_num());
+			contents = util.getInfoDetail(cmtLikeList.get(i).getContents_type(), cmtLikeList.get(i).getContents_num()); // 영화 상세정보 불러오기
 			contentsList.add(contents);
 			MemberVO member = new MemberVO();
-			member = memberService.selectMember(cmtLikeList.get(i).getComment_mem());
+			member = memberService.selectMember(cmtLikeList.get(i).getComment_mem()); // 내가 좋아요 한 코멘트의 작성자 상세정보 불러오기
 			memberList.add(member);
 			cmtLikeList.get(i).setCountReply(commentService.getCountReply(cmtLikeList.get(i).getComment_num()));
-			Integer countLike = commentService.getCountLike(cmtLikeList.get(i).getComment_num());
+			Integer countLike = commentService.getCountLike(cmtLikeList.get(i).getComment_num()); // 코멘트 좋아요 갯수
 			if (countLike != null) {
-				cmtLikeList.get(i).setCountLike(countLike);
+				cmtLikeList.get(i).setCountLike(countLike); // 각각의 코멘트의 좋아요 갯수
 			}
 		}
 
@@ -183,26 +171,33 @@ public class CommentController {
 		return mav;
 	}
 
+	// 코멘트 상세페이지
 	@RequestMapping("/contents/cmtDetail.do")
 	public ModelAndView selectComment(HttpSession session, CommentVO commentVO) {
-		CommentVO comment = commentService.selectComment(commentVO.getComment_num());
-		MemberVO member = memberService.selectMember(comment.getMem_num());
+		CommentVO comment = commentService.selectComment(commentVO.getComment_num()); // 코멘트 상세정보 불러오기
+		MemberVO member = memberService.selectMember(comment.getMem_num()); // 코멘트 작성자의 상세정보 불러오기
+		
 		GetInfoUtil util = new GetInfoUtil();
-		ContentsVO contents = util.getInfoDetail(commentVO.getContents_type(), commentVO.getContents_num());
-		Integer countLike = commentService.getCountLike(comment.getComment_num());
-		Integer countReply = commentService.getCountReply(comment.getComment_num());
+		
+		ContentsVO contents = util.getInfoDetail(commentVO.getContents_type(), commentVO.getContents_num()); // 코멘트 컨텐츠의 상세 정보 불러오기
+		Integer countLike = commentService.getCountLike(comment.getComment_num()); // 코멘트 좋아요 갯수
+		Integer countReply = commentService.getCountReply(comment.getComment_num()); // 코멘트의 좋아요 갯수
+		
 		if (countLike == null) {
 			countLike = 0;
 		}
+		
 		ModelAndView mav = new ModelAndView();
+		
 		Integer mem_num = (Integer) session.getAttribute("user_num");
-		if (mem_num != null) {
+		
+		if (mem_num != null) { // 로그인 된 경우
 			CommentVO comment_user = new CommentVO();
 			comment_user.setComment_num(comment.getComment_num());
 			comment_user.setMem_num(mem_num);
-			int checkCmtLike = commentService.checkCmtLike(comment_user);
+			int checkCmtLike = commentService.checkCmtLike(comment_user); // 해당 코멘트에 로그인 한 유저가 댓글을 작성했는지 여부 확인
 			mav.addObject("checkCmtLike", checkCmtLike);
-		} else {
+		} else {  // 로그인이 되지 않은 경우
 			mem_num = 0;
 			int checkCmtLike = 0;
 			mav.addObject("checkCmtLike", checkCmtLike);
@@ -236,12 +231,12 @@ public class CommentController {
 			map.put("result", "logout");
 		} else {// 로그인 된 경우
 			reply.setMem_num(user_num);
-			// 코멘트 작성
-			Integer countReply = commentService.getCountLike(reply.getComment_num());
+			// 댓글 작성
+			Integer countReply = commentService.getCountReply(reply.getComment_num()); // 댓글 갯수 확인
 			if (countReply == null) {
 				countReply = 0;
 			}
-			map.put("countReply", countReply);
+			map.put("countReply", countReply); // 새 댓글 작성 후 댓글 수 업데이트 할 때 필요
 			commentService.insertReply(reply);
 			map.put("result", "success");
 		}
