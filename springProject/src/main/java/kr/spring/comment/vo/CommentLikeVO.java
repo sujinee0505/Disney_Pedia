@@ -1,33 +1,86 @@
 package kr.spring.comment.vo;
 
 public class CommentLikeVO {
-	private int commentlike_num; //코멘트좋아요번호
-	private int comment_num; //코멘트번호
-	private int mem_num; //회원번호
-	
-	public int getComentlike_num() {
-		return commentlike_num;
-	}
-	public void setComentlike_num(int comentlike_num) {
-		this.commentlike_num = comentlike_num;
-	}
-	public int getComent_num() {
+	private int comment_num; // 코멘트번호
+	private int like_mem; // 좋아요를 누른 회원
+	private int comment_mem; // 코멘트 작성 회원
+	private String content;
+	private String contents_type;
+	private int contents_num;
+	private double star;
+	private int countLike;
+	private int countReply;
+
+	public int getComment_num() {
 		return comment_num;
 	}
-	public void setComent_num(int coment_num) {
-		this.comment_num = coment_num;
+
+	public void setComment_num(int comment_num) {
+		this.comment_num = comment_num;
 	}
-	public int getMem_num() {
-		return mem_num;
+
+	public int getLike_mem() {
+		return like_mem;
 	}
-	public void setMem_num(int mem_num) {
-		this.mem_num = mem_num;
+
+	public void setLike_mem(int like_mem) {
+		this.like_mem = like_mem;
 	}
-	
-	
-	@Override
-	public String toString() {
-		return "CommentLikeVO [commentlike_num=" + commentlike_num + ", comment_num=" + comment_num + ", mem_num=" + mem_num
-				+ "]";
+
+	public int getComment_mem() {
+		return comment_mem;
 	}
+
+	public void setComment_mem(int comment_mem) {
+		this.comment_mem = comment_mem;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getContents_type() {
+		return contents_type;
+	}
+
+	public void setContents_type(String contents_type) {
+		this.contents_type = contents_type;
+	}
+
+	public int getContents_num() {
+		return contents_num;
+	}
+
+	public void setContents_num(int contents_num) {
+		this.contents_num = contents_num;
+	}
+
+	public double getStar() {
+		return star;
+	}
+
+	public void setStar(double star) {
+		this.star = star;
+	}
+
+	public int getCountLike() {
+		return countLike;
+	}
+
+	public void setCountLike(int countLike) {
+		this.countLike = countLike;
+	}
+
+	public int getCountReply() {
+		return countReply;
+	}
+
+	public void setCountReply(int countReply) {
+		this.countReply = countReply;
+	}
+
 }

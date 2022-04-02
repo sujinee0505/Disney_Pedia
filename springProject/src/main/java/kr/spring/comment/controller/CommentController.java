@@ -78,8 +78,8 @@ public class CommentController {
 		} else {// 로그인 된 경우
 			// CommentVO에 회원 번호 셋팅
 			commentVO.setMem_num(user_num); // 코멘트 작성
-			insert_map.put("commentVO",commentVO);
-			insert_map.put("star_num",star_num);
+			insert_map.put("commentVO", commentVO);
+			insert_map.put("star_num", star_num);
 			commentService.insertComment(insert_map);
 			map.put("result", "success");
 		}
@@ -140,7 +140,7 @@ public class CommentController {
 			ContentsVO contents = new ContentsVO();
 			contents = util.getInfoDetail(commentList.get(i).getContents_type(), commentList.get(i).getContents_num());
 			contentsList.add(contents);
-			commentList.get(i).setCountReply(commentService.getCountReply(commentList.get(i).getComment_num())); 
+			commentList.get(i).setCountReply(commentService.getCountReply(commentList.get(i).getComment_num()));
 			Integer countLike = commentService.getCountLike(commentList.get(i).getComment_num()); // 코멘트 좋아요 갯수
 			if (countLike != null) {
 				commentList.get(i).setCountLike(countLike); // 각각의 코멘트의 좋아요 갯수
@@ -158,24 +158,28 @@ public class CommentController {
 	@RequestMapping("/member/likeComment.do")
 	public ModelAndView likeComment(int mem_num) {
 		GetInfoUtil util = new GetInfoUtil();
-		List<CommentVO> cmtLikeList = commentService.selectListLikeByMem_num(mem_num); // 내가 좋아요 누른 코멘트 정보를 불러옴
-		List<MemberVO> member_list = new ArrayList<MemberVO>(); // 코멘트 작성자의 name과 photo 등을 저장할 List
-		List<ContentsVO> contents_list = new ArrayList<ContentsVO>(); // 내가 좋아요 누른 코멘트들의 컨텐츠의 title, poster_path등을 저장할
-																		// List
-
+		List<CommentLikeVO> cmtLikeList = commentService.selectListLikeByMem_num(mem_num);
+		List<ContentsVO> contentsList = new ArrayList<ContentsVO>();
+		List<MemberVO> memberList = new ArrayList<MemberVO>();
 		for (int i = 0; i < cmtLikeList.size(); i++) {
+			ContentsVO contents = new ContentsVO();
+			contents = util.getInfoDetail(cmtLikeList.get(i).getContents_type(), cmtLikeList.get(i).getContents_num());
+			contentsList.add(contents);
 			MemberVO member = new MemberVO();
-			member = memberService.selectMember(cmtLikeList.get(i).getComment_num()); // 불러온 코멘트 정보 중 코멘트 작성자 회원 번호를
-																						// 이용해서 회원 상세 정보를 불러옴
-			member_list.add(member); // 결과 값이 여러개일 수 있으니 List에 저장
-			ContentsVO contents = new ContentsVO(); // 불러온 코멘트 정보 중 contents_type과 contents_num을 이용해서 컨텐츠 상세 정보를 불러옴
-			contents = util.getInfoDetail(cmtLikeList.get(i).getContents_type(), cmtLikeList.get(i).getContents_num()); 
-			contents_list.add(contents);
+			member = memberService.selectMember(cmtLikeList.get(i).getComment_mem());
+			memberList.add(member);
+			cmtLikeList.get(i).setCountReply(commentService.getCountReply(cmtLikeList.get(i).getComment_num()));
+			Integer countLike = commentService.getCountLike(cmtLikeList.get(i).getComment_num());
+			if (countLike != null) {
+				cmtLikeList.get(i).setCountLike(countLike);
+			}
 		}
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("likeComment");
-		mav.addObject("member_list", member_list);
-		mav.addObject("contents_list", contents_list);
+		mav.addObject("cmtLikeList", cmtLikeList);
+		mav.addObject("contentsList", contentsList);
+		mav.addObject("memberList", memberList);
 		return mav;
 	}
 
