@@ -97,38 +97,38 @@ public class ContentsController {
 		CommentVO comment = new CommentVO();
 		comment.setContents_num(contents_num);
 		comment.setContents_type(contents_type);
-		List<CommentVO> commetList = commentService.selectList(comment);
-		mav.addObject("commetList", commetList);
-		List<MemberVO> cmt_memberList = new ArrayList<MemberVO>();
-		for (int i = 0; i < commetList.size(); i++) {
+		List<CommentVO> commentList = commentService.selectList(comment); // 해당 컨텐츠에 달린 코멘트 리스트 불러오기
+		mav.addObject("commetList", commentList);
+		List<MemberVO> cmt_memberList = new ArrayList<MemberVO>(); // 각각의 코멘트 작성자 정보를 불러오기
+		for (int i = 0; i < commentList.size(); i++) {
 			MemberVO cmt_member = new MemberVO();
-			cmt_member = memberService.selectMember(commetList.get(i).getMem_num());
-			cmt_memberList.add(cmt_member);
-			commetList.get(i).setCountReply(commentService.getCountReply(commetList.get(i).getComment_num()));
+			cmt_member = memberService.selectMember(commentList.get(i).getMem_num()); // 코멘트 리스트에서 각각의 코멘트 작성자의 mem_num을 통해 상세 정보를 불러와 vo에 저장
+			cmt_memberList.add(cmt_member); // List 타입으로 저장
+			commentList.get(i).setCountReply(commentService.getCountReply(commentList.get(i).getComment_num())); // 각각의 코멘트에 달린 댓글 갯수를 출력하기 위함
+			Integer countLike = commentService.getCountLike(commentList.get(i).getComment_num()); // 코멘트 좋아요 갯수
+			if (countLike != null) {
+				commentList.get(i).setCountLike(countLike); //각각의 코멘트의 좋아요 갯수
+			}
 		}
-		mav.addObject("cmt_memberList", cmt_memberList);
-		if (user_num != null) {
+		mav.addObject("cmt_memberList", cmt_memberList); 
+		if (user_num != null) { // 로그인 된 상태
 			// star
 			StarVO star = new StarVO();
 			star.setContents_num(contents_num);
 			star.setContents_type(contents_type);
 			star.setMem_num(user_num);
-			StarVO starVO = contentsService.getStar(star);
+			StarVO starVO = contentsService.getStar(star); // 로그인한 유저가 해당 컨텐츠를 평가했는지의 정보를 불러옴
 			mav.addObject("starVO", starVO);
 
 			comment.setMem_num(user_num);
-			for (int i = 0; i < commetList.size(); i++) {
-				Integer countLike = commentService.getCountLike(commetList.get(i).getComment_num()); // 코멘트 좋아요 갯수
-				if (countLike != null) {
-					commetList.get(i).setCountLike(countLike);
-				}
-				comment.setComment_num(commetList.get(i).getComment_num());
-				int checkCmtLike = commentService.checkCmtLike(comment);
-				commetList.get(i).setCheckCmtLike(checkCmtLike);
+			for (int i = 0; i < commentList.size(); i++) {
+				comment.setComment_num(commentList.get(i).getComment_num()); 
+				int checkCmtLike = commentService.checkCmtLike(comment); // 
+				commentList.get(i).setCheckCmtLike(checkCmtLike);
 			}
-			mav.addObject("commetList", commetList);
-			CommentVO getComment = commentService.getComment(comment);
-			int checkComment = commentService.checkComment(comment);
+			mav.addObject("commentList", commentList);
+			CommentVO getComment = commentService.getComment(comment); // 해당 컨텐츠의 코멘트 정보
+			int checkComment = commentService.checkComment(comment); // 해당 컨텐츠에 코멘트 작성 여부 확인
 			mav.addObject("getComment", getComment);
 			mav.addObject("checkComment", checkComment);
 

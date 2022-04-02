@@ -1,6 +1,7 @@
 package kr.spring.comment.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.spring.comment.vo.CommentLikeVO;
 import kr.spring.comment.vo.CommentReplyVO;
@@ -9,7 +10,7 @@ import kr.spring.comment.vo.CommentVO;
 public interface CommentService {
 	/* 코멘트 */
 	// 코멘트 작성
-	public void insertComment(CommentVO comment);
+	public void insertComment(Map<String,Object> map);
 
 	// 코멘트 작성 여부 확인
 	public int checkComment(CommentVO comment);

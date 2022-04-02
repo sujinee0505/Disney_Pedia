@@ -10,6 +10,7 @@ public class CommentVO {
 	private String reg_date; // 등록날짜
 	private String modify_date; // 수정날짜
 	private int mem_num; // 회원 번호;
+	private int star_num;
 
 	// 수진
 	private int count;
@@ -112,6 +113,14 @@ public class CommentVO {
 
 	public void setCheckCmtLike(int checkCmtLike) {
 		this.checkCmtLike = checkCmtLike;
+	}
+
+	public int getStar_num() {
+		return star_num;
+	}
+
+	public void setStar_num(int star_num) {
+		this.star_num = star_num;
 	}
 
 }

@@ -59,13 +59,12 @@ create table dcomment(
   comment_num number not null, 
   contents_num number not null,
   contents_type varchar2(5) not null,
-  content string not null, 
+  content varchar2(4000) not null, 
   reg_date date not null,
   modify_date date,
   star_num number, 
   mem_num number not null,
   constraint dcomment_pk primary key (comment_num), 
-  constraint dcomment_fk_1 foreign key (star_num) references dcontents_star (star_num), 
   constraint dcomment_fk_2 foreign key (mem_num) references dmember (mem_num) 
 );
 create sequence dcomment_seq; 

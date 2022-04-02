@@ -24,13 +24,18 @@
  	//코멘트 등록
  	$('#comment_form').submit(function(){
  		 var user_num = ${user_num};
+ 		 var star_num = $('#starnum_star').val();
+ 		 if (star_num == null || star_num=='') {
+ 			star_num = 0;
+		}
 		 $.ajax({
 				url:'commentWrite.do',
 				type:'post',
 				data: {
 					contents_num : $('#contents_num').val(),				
 					contents_type : $('#contents_type').val(),
-					content : $('#comment').val()
+					content : $('#comment').val(),
+					star_num : star_num
 					},
 				dataType: 'json',
 				cache:false,

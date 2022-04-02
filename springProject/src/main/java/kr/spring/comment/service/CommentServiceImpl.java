@@ -21,8 +21,8 @@ public class CommentServiceImpl implements CommentService {
 
 	// 코멘트 작성
 	@Override
-	public void insertComment(CommentVO comment) {
-		commentMapper.insertComment(comment);
+	public void insertComment(Map<String,Object> map) {
+		commentMapper.insertComment(map);
 	}
 
 	// 코멘트 작성 여부 확인(1->기록있음,0->기록없음)

@@ -31,10 +31,10 @@ public class ContentsAjaxController {
 	// 별점 등록,수정
 	@RequestMapping("/contents/starRating.do")
 	@ResponseBody
-	public Map<String, String> starRating(HttpSession session, StarVO starVO) {
+	public Map<String, String> starRating(HttpSession session, StarVO starVO, int checkComment) {
 
 		Map<String, String> map = new HashMap<String, String>();
-
+		Map<String, Object> insert_map = new HashMap<String, Object>();
 		// 해당 컨텐츠 평가기록 있나 확인
 		int checkStar = contentsService.CheckStar(starVO);
 
@@ -46,7 +46,9 @@ public class ContentsAjaxController {
 				contentsService.updateStar(starVO);
 				map.put("result", "success2");
 			} else { // 별점기록없으면 insert
-				contentsService.insertStar(starVO);
+				insert_map.put("starVO",starVO);
+				insert_map.put("checkComment",checkComment);
+				contentsService.insertStar(insert_map);
 				map.put("result", "success");
 			}
 		}

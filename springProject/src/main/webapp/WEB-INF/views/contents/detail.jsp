@@ -208,6 +208,7 @@
 	기록이 있으면(starVO != null) starVO에서 star(별점)을 불러와 점수에 따라 별점 width 변화
 	설정: ContentsController line 104~ --%>
 											<div class="star_area">
+											<input type="hidden" value="${starVO.star_num }" id="starnum_star">
 												<c:if test="${starVO == null}">
 													<div class="rateit" id="starRate"
 														data-contentsid="${contents.contents_num}"
@@ -273,8 +274,10 @@
 			$('.star_area .rateit').bind('rated', function (e) { //rated reset		
 		        var ri = $(this);
 	      
+				var checkComment = ${checkComment};
 		        var user_num = ${user_num};
 				var value = ri.rateit('value'); 
+				var star_num = $('#starnum_comment').val();
 		        /* var contents_num = ri.data('contentsid');  
 		        var contents_type = ${contents.contents_type}; */		
 	    
@@ -284,7 +287,9 @@
 						star: value,
 						contents_num : $('#contents_num').val(), //저장:getInfoUtil/id설정:calendar.jsp
 						contents_type : $('#contents_type').val(),
-						mem_num : user_num
+						mem_num : user_num,
+						checkComment : checkComment,
+						star_num : star_num
 						}, 
 		            dataType : 'json',
 		            type: 'POST',
@@ -724,14 +729,14 @@
 														<div class="css-1y901al-Row emmoxnt0">
 															<ul
 																class="ew8mnl61 css-nh9j5x-VisualUl-CommentHorizontalUl">
-																<c:forEach var="commetList" items="${commetList }"
+																<c:forEach var="commentList" items="${commentList }"
 																	varStatus="status">
 																	<li class="css-1fryc54"><div class="css-17dwc6k">
 																			<div class="css-4obf01" style="flex-direction: row;">
 																				<div class="css-1cvf9dk">
 																					<a title="${cmt_memberList[status.index].name }의 프로필"
 																						class="css-1f9m1s4-StylelessLocalLink eovgsd01"
-																						href="${pageContext.request.contextPath}/member/myPage.do?user_num=${commetList.mem_num}"><div
+																						href="${pageContext.request.contextPath}/member/myPage.do?user_num=${commentList.mem_num}"><div
 																							class="css-107z6xc">
 																							<div class="css-bv6e27-ProfilePhotoImage">
 																								<c:if test="${empty cmt_memberList[status.index].photo_name}">
@@ -741,7 +746,7 @@
 																								</c:if>
 																								<c:if test="${!empty cmt_memberList[status.index].photo_name}">
 																									<img width="32" height="32" class="my-photo"
-																										src="${pageContext.request.contextPath}/member/photoView.do?user_num=${commetList.mem_num}">
+																										src="${pageContext.request.contextPath}/member/photoView.do?user_num=${commentList.mem_num}">
 																								</c:if>
 																							</div>
 																						</div>
@@ -750,20 +755,20 @@
 																								class="css-amcv0d"></span>
 																						</div></a>
 																				</div>
-																				<c:if test="${commetList.star > 0 }">
+																				<c:if test="${commentList.star > 0 }">
 																					<div class="css-yqs4xl">
 																						<img
 																							src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM0QTRBNEEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDE3Ljk4bC02LjAxNSA0LjM5MmMtLjUwOC4zNzItMS4xOTQtLjEyNi0uOTk4LS43MjVsMi4zMTctNy4wODEtNi4wMzUtNC4zNjdjLS41MS0uMzY5LS4yNDctMS4xNzUuMzgyLTEuMTc0bDcuNDQ3LjAxNiAyLjI4Ni03LjA5MWMuMTkyLS42IDEuMDQtLjYgMS4yMzMgMGwyLjI4NiA3LjA5IDcuNDQ3LS4wMTVjLjYyOS0uMDAxLjg5LjgwNS4zOCAxLjE3NGwtNi4wMzMgNC4zNjcgMi4zMTYgNy4wOGMuMTk2LjYtLjQ5IDEuMDk4LS45OTkuNzI2TDEyIDE3Ljk4eiIvPgo8L3N2Zz4K"
-																							width="16px" height="16px" alt="star"><span>${commetList.star }
+																							width="16px" height="16px" alt="star"><span>${commentList.star }
 																						</span>
 																					</div>
 																				</c:if>
 																			</div>
 																			<div class="css-ob93md">
 																				<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
-																					href="cmtDetail.do?contents_type=${param.contents_type }&contents_num=${param.contents_num }&comment_num=${commetList.comment_num }"><div
+																					href="cmtDetail.do?contents_type=${param.contents_type }&contents_num=${param.contents_num }&comment_num=${commentList.comment_num }"><div
 																						class=" css-12rbc09-StyledSelf eb5y16b0">
-																						<div class="css-qxbzku-StyledText">${commetList.content }
+																						<div class="css-qxbzku-StyledText">${commentList.content }
 																						</div>
 																					</div></a>
 																			</div>
@@ -772,23 +777,23 @@
 																					src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgZmlsbD0iIzc4Nzg3OCI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik02Ljc1IDkuNDg1aC0zYTEgMSAwIDAgMC0xIDF2MTBhMSAxIDAgMCAwIDEgMWgzYTEgMSAwIDAgMCAxLTF2LTEwYTEgMSAwIDAgMC0xLTFNMjAuNjU3IDguNTY2YTIuMzYzIDIuMzYzIDAgMCAwLTEuNzc5LS44MTNIMTYuNjJsLjE2NC0uNjI3Yy4xMzctLjUyOC4yMDEtMS4xMi4yMDEtMS44NjMgMC0xLjkxOS0xLjM3NS0yLjc3OC0yLjczOC0yLjc3OC0uNDQ0IDAtLjc2Ni4xMjMtLjk4Ni4zNzYtLjIuMjI3LS4yODIuNTMtLjI0My45MzVsLjAzIDEuMjMtMi45MDMgMi45NGMtLjU5My42LS44OTQgMS4yMy0uODk0IDEuODcydjkuNjQ3YS41LjUgMCAwIDAgLjUuNWg3LjY4N2EyLjM4OCAyLjM4OCAwIDAgMCAyLjM0OC0yLjA3bDEuNDQ1LTcuNDUyYTIuNDQgMi40NCAwIDAgMC0uNTc0LTEuODk3Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
 																					width="18px" height="18px" class="css-64x8kr"></span><em
 																					class="countLike"><c:if
-																						test="${commetList.countLike >0}">${commetList.countLike}</c:if>
-																					<c:if test="${commetList.countLike ==0 }">0</c:if></em>
+																						test="${commentList.countLike >0}">${commentList.countLike}</c:if>
+																					<c:if test="${commentList.countLike ==0 }">0</c:if></em>
 																				<span
 																					src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM3ODc4NzgiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTkuODU3IDE3Ljc4Nkw2IDIxdi00LjkxYy0xLjg0MS0xLjM3My0zLTMuMzY5LTMtNS41OUMzIDYuMzU4IDcuMDMgMyAxMiAzczkgMy4zNTggOSA3LjVjMCA0LjE0Mi00LjAzIDcuNS05IDcuNS0uNzM5IDAtMS40NTYtLjA3NC0yLjE0My0uMjE0eiIvPgo8L3N2Zz4K"
 																					width="18px" height="18px" class="css-q0vi8"></span><em><c:if
-																						test="${commetList.countReply >0}">${commetList.countReply}</c:if>
-																					<c:if test="${commetList.countReply ==0 }">0</c:if></em>
+																						test="${commentList.countReply >0}">${commentList.countReply}</c:if>
+																					<c:if test="${commentList.countReply ==0 }">0</c:if></em>
 																			</div>
 																			<div class="css-hy68ty">
 																				<input type="hidden"
-																					value="${commetList.comment_num }"
+																					value="${commentList.comment_num }"
 																					class="comment_num"> <input type="hidden"
-																					value="${commetList.checkCmtLike }"
+																					value="${commentList.checkCmtLike }"
 																					class="checkCmtLike">
 																				<button
-																					class="<c:if test="${commetList.checkCmtLike == 1}">css-jj4q3s-StylelessButton-UserActionButton cmtLike</c:if>
-																			<c:if test="${!empty user_num || commetList.checkCmtLike == 0}">css-1h18l7j-StylelessButton cmtLike</c:if>">좋아요</button>
+																					class="<c:if test="${commentList.checkCmtLike == 1}">css-jj4q3s-StylelessButton-UserActionButton cmtLike</c:if>
+																			<c:if test="${!empty user_num || commentList.checkCmtLike == 0}">css-1h18l7j-StylelessButton cmtLike</c:if>">좋아요</button>
 																			</div>
 																			
 																		</div></li>

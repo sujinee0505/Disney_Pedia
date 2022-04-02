@@ -18,9 +18,7 @@ public interface CommentMapper {
 	/* 코멘트 */
 
 	// 코멘트 작성
-	@Insert("INSERT INTO dcomment (comment_num,contents_num,contents_type,content,mem_num,reg_date) "
-			+ "VALUES (dcomment_seq.nextval,#{contents_num},#{contents_type},#{content},#{mem_num},SYSDATE)")
-	public void insertComment(CommentVO comment);
+	public void insertComment(Map<String,Object> map);
 
 	// 코멘트 작성 여부 확인(1->기록있음,0->기록없음)
 	@Select("SELECT COUNT(*) FROM dcomment WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
@@ -97,6 +95,6 @@ public interface CommentMapper {
 	public List<CommentVO> selectListByMem_num(int mem_num);
 
 	// 내가 좋아요한 코멘트 목록
-	@Select("SELECT * FROM dcomment_like l JOIN dcomment c ON l.comment_num=c.comment_num WHERE l.mem_num=#{mem_num} ORDER BY c.comment_num DESC")
+	@Select("SELECT c.* FROM dcomment_like l JOIN dcomment c ON l.comment_num=c.comment_num WHERE l.mem_num=#{mem_num} ORDER BY c.comment_num DESC")
 	public List<CommentVO> selectListLikeByMem_num(int mem_num);
 }

@@ -1,6 +1,7 @@
 package kr.spring.contents.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,8 @@ public class ContentsServiceImpl implements ContentsService {
 
 	// 별점
 	@Override
-	public void insertStar(StarVO star) {
-		contentsMapper.insertStar(star);
+	public void insertStar(Map<String,Object> map) {
+		contentsMapper.insertStar(map);
 	}
 
 	@Override

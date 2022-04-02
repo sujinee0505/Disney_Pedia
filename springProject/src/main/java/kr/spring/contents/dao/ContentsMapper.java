@@ -1,6 +1,7 @@
 package kr.spring.contents.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -12,9 +13,13 @@ import kr.spring.contents.vo.LikeVO;
 import kr.spring.contents.vo.StarVO;
 
 public interface ContentsMapper {
-	@Insert("INSERT INTO dcontents_star (star_num,star,mem_num,contents_num,contents_type) "
-			+ "VALUES (dcontents_star_seq.nextval, #{star},#{mem_num}, #{contents_num},#{contents_type})")
-	public void insertStar(StarVO star);
+	/*
+	 * @Insert("INSERT INTO dcontents_star (star_num,star,mem_num,contents_num,contents_type) "
+	 * +
+	 * "VALUES (dcontents_star_seq.nextval, #{star},#{mem_num}, #{contents_num},#{contents_type})"
+	 * )
+	 */
+	public void insertStar(Map<String,Object> map);
 
 	@Select("SELECT COUNT(*) FROM dcontents_star WHERE contents_num=#{contents_num} AND contents_type=#{contents_type} AND mem_num=#{mem_num}")
 	public int CheckStar(StarVO star);
