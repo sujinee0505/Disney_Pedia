@@ -59,7 +59,7 @@ public class ChattingController {
 	}
 
 	// *** 2-1)채팅 내용 불러오기 ***
-	// [채팅메서드2. 채팅테이블에 채팅등록 SELECT : getChattingDetail() ]
+	// [채팅메서드2. 채팅테이블에 등록된 대화기록 SELECT : getChattingDetail() ]
 	@RequestMapping("/chatboard/getChatting.do")
 	@ResponseBody // chatting.jsp에서 ajax로 넘긴 chatboard_num 등이 알아서 데이터 바인딩 되어서 chattingVO에 저장돼있음
 	public Map<String, Object> getChattingDetailCount(ChattingVO chattingVO, HttpSession session) {
@@ -80,7 +80,7 @@ public class ChattingController {
 	}
 
 	// *** 2-2)채팅 메세지 전송 ***
-	// [채팅메서드1. 채팅테이블에 채팅등록 INSERT : insertChat() ]
+	// [채팅메서드1. 채팅테이블에 대화기록 등록 INSERT : insertChat() ]
 	@RequestMapping("/chatboard/writeChat.do")
 	@ResponseBody
 	public Map<String, String> insertChat(ChattingVO chattingVO, HttpSession session) {

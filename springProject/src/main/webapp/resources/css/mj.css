@@ -102,7 +102,6 @@ form#list_search_form{
 	margin:50px auto;
 	margin-bottom:5px;
 	width:100%;
-
 }
 
 div#container_table{
@@ -180,4 +179,176 @@ ul.pagination{
 li.page-link{
 	font-size""
 }
+/* ==============Chatting============== */
+div#bg{
+
+	background-color: #f4fafd;
+}
+div.page-main-chat{
+	margin:200px 10% 200px 10%;
+	display:flex;
+	flex-direction:row;/* 수평  */
+	justify-content: center;
+	flex-wrap: wrap;
+	/* align-items: center; */ 
+}
+div#page-main-chat01{
+	/* outline:1px solid red; */
+	display: flex;
+	/* align-items: center;  */
+	margin-right: 50px;
+}
+div.chat01{
+	background-color: #eeeeee;
+    border-radius: 44px;
+    width:382px;
+    height: 200px;
+    margin-top: 10%;
+    margin-right: 39px;
+    padding: 30px;
+    position: relative;
+}
+div.chat01:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    /* left: 0; */
+    top: 15%;
+    border: 19px solid transparent;
+    border-left-color: #eeeeee;
+    border-right: 0;
+    border-bottom: 0;
+    margin-top: 34px;
+    margin-right: -13px;
+}
+
+div#page-main-chat02{
+	/* outline:1px solid blue; */
+	display: flex;
+	align-items: center; 
+}
+
+div.chat02{
+	/* outline:1px solid purple; */
+	display:flex;
+	flex-direction:column;/* 수직  */
+	justify-content: flex-end;
+	align-items: center;
+	background-color: #fff;
+	padding:10px;
+	margin:25px 30px 25px auto;
+	border-radius: 7px;
+}
+div#chatting_message{
+	font-size: 14px;
+	color: #333;
+	flex-basis:500px;
+	margin-top:20px;
+	/* flex-grow:10%; */
+}
+div#chatting_form{
+	/* outline:2px dotted yellow; */
+	flex-basis:200px;
+	margin-top:10px;
+	/* flex-grow:10%; */
+}
+div#chatting_form form{
+	margin-top:10px;
+}
+div#enter{
+	/* outline:2px dotted green; */
+	display:flex;
+	flex-direction:column;/* 수직  */
+	justify-content: center;
+	align-items: center;
+}
+div#enter img{
+	/* outline:2px dotted green; */
+	display:none; 
+	position: absolute;
+	width:120px;
+	padding-bottom: 40px;	
+}
+div#enter textarea{
+	border-radius: 5px; 
+	background-color:transparent;
+	width: 95%;
+}
+div#enter button{
+	margin-top:10px;
+	width: 95%;
+}
+
+button#mate{
+	margin-top: 10px;
+}
+/* --- 말풍선 ---- */
+
+/* 우측 .from-position */
+span#from_name{
+	padding-left: 230px
+}
+.from-position {
+	width: 300px;
+	margin: 10px 0 10px 330px;
+}
+.from-position .item {
+	position: relative;
+	background: #72c4df;
+	border-radius: 26px;
+    word-break: break-all;
+    padding: 14px;
+    width: 278px;
+}
+#from_item:after {
+	content: '';
+	position: absolute;
+	right: 0; /* left: 0; */
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 12px solid transparent;
+	border-left-color: #72c4df; /* border-right-color */
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -6px;
+	margin-right: -10px;/* margin-left */
+}
+#from_item img{
+	display: none;
+}
+
+/* 좌측.to-position */
+span#to_name{
+    padding-left: 18px;
+}
+.to-position {
+	width: 300px;
+	margin: 10px 0 10px 15px;
+}
+.to-position .item {
+   	position: relative;
+	background: #ffd891;
+	border-radius: 10px;
+	width: 278px;
+	padding: 14px;
+	word-break: break-all;
+}
+#to_item:after {
+	content: '';
+    position: absolute;
+    left: 0;
+    top: 68%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-right-color: #ffd891;
+    border-left: 0;
+    border-bottom: 0;
+    margin-top: -10px;
+    margin-left: -9px;
+}
+
+
+	
 
