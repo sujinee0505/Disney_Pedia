@@ -42,7 +42,7 @@ public interface CommentMapper {
 	public List<CommentVO> selectList(CommentVO comment); // 코멘트전체목록
 
 	// 코멘트 상세 정보
-	@Select("SELECT * FROM dcomment c LEFT OUTER JOIN dcontents_star s ON c.mem_num = s.mem_num WHERE c.comment_num=#{comment_num}")
+	@Select("SELECT c.*, s.star FROM dcomment c LEFT OUTER JOIN dcontents_star s ON c.star_num = s.star_num WHERE c.comment_num=#{comment_num}")
 	public CommentVO selectComment(int comment_num);
 
 	/* 코멘트 좋아요/댓글 */
@@ -90,7 +90,7 @@ public interface CommentMapper {
 	public List<CommentVO> getMostCommented(String contents_type);
 
 	// 내 코멘트 목록
-	@Select("SELECT * FROM (SELECT star, c.mem_num,  c.contents_type, c.contents_num, content FROM dcomment c "
+	@Select("SELECT * FROM (SELECT star, c.mem_num,  c.contents_type, c.contents_num, content, c.comment_num FROM dcomment c "
 			+ "LEFT OUTER JOIN dcontents_star s USING (star_num)) JOIN dmember_detail USING (mem_num) WHERE mem_num = #{mem_num}")
 	public List<CommentVO> selectListByMem_num(int mem_num);
 

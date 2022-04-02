@@ -79,7 +79,6 @@ public class CommentController {
 			// CommentVO에 회원 번호 셋팅
 			commentVO.setMem_num(user_num); // 코멘트 작성
 			insert_map.put("commentVO",commentVO);
-			System.out.println(commentVO.getContent());
 			insert_map.put("star_num",star_num);
 			commentService.insertComment(insert_map);
 			map.put("result", "success");
@@ -141,13 +140,7 @@ public class CommentController {
 			ContentsVO contents = new ContentsVO();
 			contents = util.getInfoDetail(commentList.get(i).getContents_type(), commentList.get(i).getContents_num());
 			contentsList.add(contents);
-			commentList.get(i).setCountReply(commentService.getCountReply(commentList.get(i).getComment_num())); // 각각의
-																													// 코멘트에
-																													// 달린
-																													// 댓글
-																													// 갯수를
-																													// 출력하기
-																													// 위함
+			commentList.get(i).setCountReply(commentService.getCountReply(commentList.get(i).getComment_num())); 
 			Integer countLike = commentService.getCountLike(commentList.get(i).getComment_num()); // 코멘트 좋아요 갯수
 			if (countLike != null) {
 				commentList.get(i).setCountLike(countLike); // 각각의 코멘트의 좋아요 갯수
@@ -176,14 +169,7 @@ public class CommentController {
 																						// 이용해서 회원 상세 정보를 불러옴
 			member_list.add(member); // 결과 값이 여러개일 수 있으니 List에 저장
 			ContentsVO contents = new ContentsVO(); // 불러온 코멘트 정보 중 contents_type과 contents_num을 이용해서 컨텐츠 상세 정보를 불러옴
-			contents = util.getInfoDetail(cmtLikeList.get(i).getContents_type(), cmtLikeList.get(i).getContents_num()); // 역시나
-																														// 결과
-																														// 값이
-																														// 여러개일
-																														// 수
-																														// 있으니
-																														// List에
-																														// 저장
+			contents = util.getInfoDetail(cmtLikeList.get(i).getContents_type(), cmtLikeList.get(i).getContents_num()); 
 			contents_list.add(contents);
 		}
 		ModelAndView mav = new ModelAndView();
@@ -196,7 +182,7 @@ public class CommentController {
 	@RequestMapping("/contents/cmtDetail.do")
 	public ModelAndView selectComment(HttpSession session, CommentVO commentVO) {
 		CommentVO comment = commentService.selectComment(commentVO.getComment_num());
-		MemberVO member = memberService.selectMember(commentVO.getComment_num());
+		MemberVO member = memberService.selectMember(comment.getMem_num());
 		GetInfoUtil util = new GetInfoUtil();
 		ContentsVO contents = util.getInfoDetail(commentVO.getContents_type(), commentVO.getContents_num());
 		Integer countLike = commentService.getCountLike(comment.getComment_num());

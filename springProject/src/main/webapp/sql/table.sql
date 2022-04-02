@@ -65,9 +65,13 @@ create table dcomment(
   star_num number, 
   mem_num number not null,
   constraint dcomment_pk primary key (comment_num), 
-  constraint dcomment_fk_2 foreign key (mem_num) references dmember (mem_num) 
+  constraint dcomment_fk_1 foreign key (mem_num) references dmember (mem_num) 
 );
 create sequence dcomment_seq; 
+
+ /* ↑↑ 삭제 후 재생성 또는 아래 문장 실행 근데 될지는 잘 모르겠슴다 죄송..*/
+/* ALTER TABLE dcomment DROP CONSTRAINT dcomment_fk_1 CASCADE; */
+
 
 /* 코멘트 좋아요 테이블 */
 create table dcomment_like( 
@@ -79,6 +83,8 @@ create table dcomment_like(
   constraint dcomment_like_fk_2 foreign key (mem_num) references dmember (mem_num)
 );
 create sequence dcomment_like_seq; 
+
+ /* ↓↓ 새롭게 생성 기존의 dreview_reply 였나 그건 삭제해주셔도 됩니다.. */
 
 /* 코멘트 댓글 테이블*/
 create table dcomment_reply(

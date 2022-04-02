@@ -174,7 +174,8 @@ input[type=button] {
 																	class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
 																	<a background="[object Object]"
 																	class="css-1gw6y00-CategoryArchivesLink e19zkogf14"
-																	href="myContents.do?contents_type=tv&mem_num=${param.user_num }">
+																	href="<c:if test="${param.user_num == 0 }">myContents.do?contents_type=tv&mem_num=${user_num }</c:if>
+																<c:if test="${param.user_num != 0 }">myContents.do?contents_type=tv&mem_num=${param.user_num }</c:if>">
 																		<ul
 																			class="css-1x0nmo-VisualUl-CategoryArchives e19zkogf15">
 																			<li
