@@ -44,7 +44,7 @@ public interface CommentMapper {
 	public List<CommentVO> selectList(CommentVO comment); // 코멘트전체목록
 
 	// 코멘트 상세 정보
-	@Select("SELECT * FROM dcomment c LEFT OUTER JOIN dcontents_star s ON c.star_num = s.star_num WHERE c.comment_num=#{comment_num}")
+	@Select("SELECT * FROM dcomment c LEFT OUTER JOIN dcontents_star s ON c.mem_num = s.mem_num WHERE c.comment_num=#{comment_num}")
 	public CommentVO selectComment(int comment_num);
 
 	/* 코멘트 좋아요/댓글 */

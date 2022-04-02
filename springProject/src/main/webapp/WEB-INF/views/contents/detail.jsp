@@ -100,7 +100,7 @@
 															.parent()
 															.siblings(
 																	'.css-1atijos')
-															.find('em')
+															.find('.countLike')
 															.text(
 																	param.countLike);
 												} else if (param.result == 'cancel') { // 코멘트 좋아요 취소
@@ -114,7 +114,7 @@
 															.parent()
 															.siblings(
 																	'.css-1atijos')
-															.find('em')
+															.find('.countLike')
 															.text(
 																	param.countLike);
 												}
