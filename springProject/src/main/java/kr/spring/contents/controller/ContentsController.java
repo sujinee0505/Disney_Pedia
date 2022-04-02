@@ -126,10 +126,8 @@ public class ContentsController {
 				commetList.get(i).setCheckCmtLike(checkCmtLike);
 			}
 			mav.addObject("commetList", commetList);
-			CommentVO getComment = commentService.getComment(comment);
 			int checkComment = commentService.checkComment(comment);
 
-			mav.addObject("getComment", getComment);
 			mav.addObject("checkComment", checkComment);
 
 			LikeVO like = new LikeVO();

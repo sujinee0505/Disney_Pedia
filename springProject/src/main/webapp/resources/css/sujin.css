@@ -6880,6 +6880,7 @@ h1, h3, p, hr {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	justify-content: space-between;
 }
 
 .css-5wq3ur {
@@ -6896,17 +6897,6 @@ h1, h3, p, hr {
 .css-199ku80 {
 	width: calc(100% - 40px);
 	margin-left: auto;
-}
-
-.css-1sg2lsz {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-align-items: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
 }
 
 .css-yb0jaq {
@@ -6980,9 +6970,6 @@ h1, h3, p, hr {
 }
 
 .css-ksm2an {
-	background:
-		url(https://an2-img.amz.wtchn.net/image/v2/EqfzGrDmAWfd3LFiDwnn_A.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UQXdlREV3TUNKZExDSndJam9pTDNZeUwzTjBiM0psTDNWelpYSXZVa3BuYTNGc1FqWmhOVmd3WWk5d2NtOW1hV3hsTHpFMk1qazNPVGd5T0RZMk1UZ3dPVFExT1RJaWZRLjFVbVppRGZYSWhvR1k5RXJKeWVQR3ZlM0hKdGc3S08td3BRNWpRay1rQ2c)
-		center no-repeat;
 	background-size: contain;
 	width: 32px;
 	height: 32px;
@@ -7033,4 +7020,78 @@ h1, h3, p, hr {
 
 .css-3w1nnz-StylelessButton-StyledActionButton svg {
 	margin-right: 5px;
+}
+
+.css-aa3xw {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	z-index: 10;
+	visibility: hidden;
+}
+
+.css-6btlr7 {
+	font-size: 15px;
+}
+
+.css-ve4kut {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	background: #fff;
+	box-sizing: border-box;
+	width: 176px;
+	padding: 5px;
+	border-radius: 7px;
+	box-shadow: 0 1px 6px rgb(0 0 0/ 17%);
+}
+
+.css-19hkid5:not(:last-of-type) {
+	margin-bottom: 3px;
+}
+
+.css-19hkid5 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	background: #fff;
+	color: #292a32;
+	box-sizing: border-box;
+	width: 100%;
+	height: 36px;
+	border-radius: 5px;
+	cursor: pointer;
+	padding-left: 7px;
+}
+
+.css-1pfl1eu {
+	position: absolute;
+	top: 100%;
+	right: 0px;
+	z-index: 10;
+	visibility: visible;
+}
+
+.css-4ygot5 {
+	position: relative;
+}
+
+.css-72k174 {
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 14px;
+	font-weight: 700;
+	-webkit-letter-spacing: -0.3px;
+	-moz-letter-spacing: -0.3px;
+	-ms-letter-spacing: -0.3px;
+	letter-spacing: -0.3px;
+	line-height: 18px;
 }

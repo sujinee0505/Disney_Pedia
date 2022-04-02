@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.spring.comment.service.CommentService;
+import kr.spring.comment.vo.CommentReplyVO;
 import kr.spring.comment.vo.CommentVO;
 import kr.spring.contents.service.ContentsService;
 import kr.spring.contents.vo.LikeVO;
@@ -108,11 +109,12 @@ public class ContentsAjaxController {
 				map.put("result", "success");
 			}
 			Integer countLike = commentService.getCountLike(comment.getComment_num());
-			if (countLike == null ) {
+			if (countLike == null) {
 				countLike = 0;
 			}
 			map.put("countLike", countLike);
 		}
 		return map;
 	}
+
 }

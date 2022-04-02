@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.comment.service.CommentService;
 import kr.spring.comment.vo.CommentLikeVO;
+import kr.spring.comment.vo.CommentReplyVO;
 import kr.spring.comment.vo.CommentVO;
 import kr.spring.contents.service.ContentsService;
 import kr.spring.contents.vo.ContentsVO;
@@ -170,6 +171,7 @@ public class CommentController {
 			int checkCmtLike = 0;
 			mav.addObject("checkCmtLike", checkCmtLike);
 		}
+		
 		mav.setViewName("commentDetail");
 		mav.addObject("comment", comment);
 		mav.addObject("contents", contents);
@@ -179,4 +181,45 @@ public class CommentController {
 		return mav;
 	}
 
+	// 코멘트 등록 폼 호출
+	@GetMapping("/contents/replyWrite.do")
+	public String replyForm(HttpServletRequest request) {
+		return "replyWrite";
+	}
+
+	// 코멘트 ajax 등록
+	@RequestMapping("/contents/replyWrite.do")
+	@ResponseBody
+	public Map<String, String> replySubmit(CommentReplyVO reply, HttpSession session) {
+
+		Map<String, String> map = new HashMap<String, String>();
+
+		Integer user_num = (Integer) session.getAttribute("user_num");
+		if (user_num == null) {// 로그인이 되지 않은 경우
+			map.put("result", "logout");
+		} else {// 로그인 된 경우
+			reply.setMem_num(user_num);
+			// 코멘트 작성
+			commentService.insertReply(reply);
+			map.put("result", "success");
+		}
+		return map;
+	}
+	
+	// 코멘트 ajax 등록
+	@RequestMapping("/contents/listReply.do")
+	@ResponseBody
+	public Map<String, Object> listReply(int comment_num, HttpSession session) {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		Integer user_num = (Integer) session.getAttribute("user_num");
+		if (user_num == null) {// 로그인이 되지 않은 경우
+			map.put("result", "logout");
+		} else {// 로그인 된 경우
+			List<CommentReplyVO> reply = commentService.selectListReply(comment_num); 
+			map.put("reply", reply);
+		}
+		return map;
+	}
 }

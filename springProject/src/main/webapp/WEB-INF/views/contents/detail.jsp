@@ -439,9 +439,6 @@
 														</div>
 													</div>
 													코멘트
-													<div class="css-4w39q2-StyledDropdownWrapper e1svyhwg28">
-														<div class="css-ve4kut"></div>
-													</div>
 												</button>
 											</c:if>
 											<c:if test="${checkComment == 1}">
@@ -464,9 +461,6 @@
 														</div>
 													</div>
 													코멘트
-													<div class="css-4w39q2-StyledDropdownWrapper e1svyhwg28">
-														<div class="css-ve4kut"></div>
-													</div>
 												</button>
 											</c:if>
 											<!-- =========캘린더========= -->

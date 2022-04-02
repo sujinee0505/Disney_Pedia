@@ -20,16 +20,21 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/contents/commentUpdate.jsp" />
 	</definition>
-	<definition name="commenList" extends="main">
-		<put-attribute name="title" value="코멘트목록" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/contents/commentList.jsp" />
-	</definition>
 	<definition name="commentDetail" extends="main">
 		<put-attribute name="title" value="코멘트 상세 페이지" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/contents/cmtDetail.jsp" />
 	</definition>
+		<definition name="replyWrite" extends="main">
+		<put-attribute name="title" value="댓글 작성" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/contents/reply.jsp" />
+	</definition>
+<!-- 	<definition name="replyUpdate" extends="main">
+		<put-attribute name="title" value="댓글 수정" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/contents/replyUpdate.jsp" />
+	</definition> -->
 </tiles-definitions>
 
 
