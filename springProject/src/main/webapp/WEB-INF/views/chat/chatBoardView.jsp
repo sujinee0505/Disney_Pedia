@@ -172,7 +172,7 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 		//여기서부터 테스트
 		Swal.fire({
 			title: '정말로 삭제 하시겠습니까?',
-			text: '다시 되돌릴 수 없습니다. 신중하세요.',
+			text: '다시 되돌릴 수 없습니다. 신중하세요!',
 			icon: 'warning', //success,error,warning,info
 			showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
 			confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
@@ -180,20 +180,21 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 			confirmButtonText: '승인', // confirm 버튼 텍스트 지정
 			cancelButtonText: '취소', // cancel 버튼 텍스트 지정
 			reverseButtons: true, // 버튼 순서 거꾸로
-			closeOnClickOutside:false,//창 제외하고 다른 곳 클릭시 창안닫히도록?
-			closeOnEsc:false//esc키 안먹히도록(기본true)?
+			closeOnClickOutside: false,//창 제외하고 다른 곳 클릭시 창안닫히도록?
+			closeOnEsc: false//esc키 안먹히도록(기본true)?
 		}).then(result => {
-			//let url = 'delete.do?board_num=${chatboard.chatboard_num}';
 			// 만약 Promise리턴을 받으면,
 			if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면
 			Swal.fire({
 					title:'삭제가 완료되었습니다.',
 					icon: 'success',
 					showConfirmButton: false});
-	      	}
 	      	setTimeout(function(){
 				location.replace('delete.do?chatboard_num=${chatboard.chatboard_num}');
 				}, 1000);
+	      	}else if (result.iscancel) {
+	      		location.replace('detail.do?chatboard_num=${dchatboard.chatboard_num}');
+	      	}
 	    })
 						
 	};
