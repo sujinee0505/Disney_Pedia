@@ -89,8 +89,8 @@ public interface CommentMapper {
 	public List<CommentVO> getMostCommented(String contents_type);
 
 	// 내 코멘트 목록
-	@Select("SELECT * FROM (SELECT star, c.mem_num,  c.contents_type, c.contents_num, content, c.comment_num FROM dcomment c "
-			+ "LEFT OUTER JOIN dcontents_star s USING (star_num)) JOIN dmember_detail USING (mem_num) WHERE mem_num = #{mem_num}")
+	@Select("SELECT star, c.mem_num,  c.contents_type, c.contents_num, content, c.comment_num FROM dcomment c "
+			+ "LEFT OUTER JOIN dcontents_star s ON c.star_num = s.star_num WHERE c.mem_num = #{mem_num}  ORDER BY c.comment_num DESC" )
 	public List<CommentVO> selectListByMem_num(int mem_num);
 
 	// 내가 좋아요한 코멘트 목록

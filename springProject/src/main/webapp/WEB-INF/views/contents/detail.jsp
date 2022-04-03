@@ -8,133 +8,8 @@
 <script src="${pageContext.request.contextPath}/resources/js/lightbox.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/detail.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/cmtLike.js"></script>
 <link href="${pageContext.request.contextPath}/resources/css/lightbox.css" rel="stylesheet" />
-<script type="text/javascript">
-	$(function() {
-		var user_num = ${user_num};
-		var check = ${check};
-		
-	like = function() {
-			if (user_num == 0) {
-				alert('로그인 한 사용자만 가능합니다.');
-				return;
-			}
-			if (user_num != 0) {
-				$
-						.ajax({
-							url : 'contentsLike.do',
-							type : 'post',
-							dataType : 'json',
-							data : {
-								contents_num : $('#contents_num').val(),
-								contents_type : $('#contents_type').val(),
-								mem_num : user_num,
-								check : check
-							},
-							success : function(param) {
-								if (param.result == 'success') { // 보고싶어요
-									check = 1;
-									$('#like')
-											.removeClass(
-													'css-1tc9iuk-StylelessButton-ContentActionButton')
-											.addClass(
-													'css-15hndx7-StylelessButton-ContentActionButton');
-									$('#off').hide();
-									$('#on').show();
-								} else if (param.result == 'cancel') { // 보고싶어요 취소
-									check = 0;
-									$('#like')
-											.removeClass(
-													'css-15hndx7-StylelessButton-ContentActionButton')
-											.addClass(
-													'css-1tc9iuk-StylelessButton-ContentActionButton');
-									$('#on').hide();
-									$('#off').show();
-								}
-							}
-						});
-			}
-		}
-		toggle = function() {
-			if (check == 1) {
-				$('#on').show();
-				$('#off').hide();
-			} else if (check == 0) {
-				$('#off').show();
-				$('#on').hide();
-			}
-		}
-		toggle();
-		
-		$(document)
-				.on(
-						'click',
-						'.cmtLike',
-						function(event) {
-							
-							if (user_num == 0) {
-								alert('로그인 한 사용자만 가능합니다.');
-								return;
-							}
-							if (user_num != 0) {
-								var comment_num = $(event.target).parent().find('.comment_num').val();
-								var checkCmtLike = $(event.target).parent().find('.checkCmtLike').val();
-										$.ajax({
-											url : 'cmtLike.do',
-											type : 'post',
-											dataType : 'json',
-											data : {
-												comment_num : comment_num,
-												mem_num : user_num,
-												checkCmtLike : checkCmtLike
-											},
-											success : function(param) {
-												if (param.result == 'success') { // 코멘트 좋아요
-													$(event.target).parent().find('.checkCmtLike').val(1);
-													$(event.target)
-															.removeClass(
-																	'css-1h18l7j-StylelessButton cmtLike')
-															.addClass(
-																	'css-jj4q3s-StylelessButton-UserActionButton cmtLike');
-													$(event.target)
-															.parent()
-															.siblings(
-																	'.css-1atijos')
-															.find('.countLike')
-															.text(
-																	param.countLike);
-												} else if (param.result == 'cancel') { // 코멘트 좋아요 취소
-													$(event.target).parent().find('.checkCmtLike').val(0);
-													$(event.target)
-															.removeClass(
-																	'css-jj4q3s-StylelessButton-UserActionButton cmtLike')
-															.addClass(
-																	'css-1h18l7j-StylelessButton cmtLike');
-													$(event.target)
-															.parent()
-															.siblings(
-																	'.css-1atijos')
-															.find('.countLike')
-															.text(
-																	param.countLike);
-												}
-											}
-										});
-							}
-						});
-
-		calToggle = function() {
-			if ($('#dateCheck').val() != 'noData') {
-				$('#calOn').show();
-				$('#calOff').hide();
-			} else {
-				$('#calOff').show();
-				$('#calOn').hide();
-			}
-		}
-		calToggle();
-	});
-</script>
 <div class="css-16jhzm7-Self e1ezac430">
 	<div class="css-1ihluk0-Content e1ezac431">
 		<div class="css-1iyk86f-Background e1ezac432">
@@ -905,3 +780,5 @@
 		</div>
 	</div>
 </div>
+<input type="hidden" value="${user_num}" id="user_num">
+<input type="hidden" value="${check}" id="check">

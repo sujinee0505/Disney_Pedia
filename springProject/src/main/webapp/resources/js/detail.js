@@ -48,6 +48,73 @@ $(function(){
 						$('#status').show();
 					}
 				});
+		
+		var user_num = $('#user_num').val();
+		var check = $('#check').val();
+		
+		like = function() {
+				if (user_num == 0) {
+					alert('로그인 한 사용자만 가능합니다.');
+					return;
+				}
+				if (user_num != 0) {
+					$
+							.ajax({
+								url : 'contentsLike.do',
+								type : 'post',
+								dataType : 'json',
+								data : {
+									contents_num : $('#contents_num').val(),
+									contents_type : $('#contents_type').val(),
+									mem_num : user_num,
+									check : check
+								},
+								success : function(param) {
+									if (param.result == 'success') { // 보고싶어요
+										check = 1;
+										$('#like')
+												.removeClass(
+														'css-1tc9iuk-StylelessButton-ContentActionButton')
+												.addClass(
+														'css-15hndx7-StylelessButton-ContentActionButton');
+										$('#off').hide();
+										$('#on').show();
+									} else if (param.result == 'cancel') { // 보고싶어요 취소
+										check = 0;
+										$('#like')
+												.removeClass(
+														'css-15hndx7-StylelessButton-ContentActionButton')
+												.addClass(
+														'css-1tc9iuk-StylelessButton-ContentActionButton');
+										$('#on').hide();
+										$('#off').show();
+									}
+								}
+							});
+				}
+			}
+		
+		toggle = function() {
+			if (check == 1) {
+				$('#on').show();
+				$('#off').hide();
+			} else if (check == 0) {
+				$('#off').show();
+				$('#on').hide();
+			}
+		}
+		toggle();
+		
+		calToggle = function() {
+			if ($('#dateCheck').val() != 'noData') {
+				$('#calOn').show();
+				$('#calOff').hide();
+			} else {
+				$('#calOff').show();
+				$('#calOn').hide();
+			}
+		}
+		calToggle();
 				
 		/* 캘린더 */	
 		
