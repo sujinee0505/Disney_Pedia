@@ -119,7 +119,7 @@ create table dchatboard (
   hit number(5) default 0 not null, 
   mate_state number default 0 not null, --0 구하는중 / 1 모집완료 --*
   constraint dchatboard_pk primary key(chatboard_num),
-  constraint dchatboard_fk1 foreign key(mem_num) references dmember_detail(mem_num)
+  constraint dchatboard_fk1 foreign key(mem_num) references dmember (mem_num)
 );
 create sequence dchatboard_seq;
 
@@ -139,16 +139,3 @@ CREATE TABLE dchatting(
    constraint dchatting_fk3 foreign key (chatboard_num) references dchatboard (chatboard_num)
 );
 CREATE SEQUENCE Dchatting_seq;
-
-
-/*---안하게된것---*/
-/* 팔로우  */
-create table dfollow(
- follow_num number not null,
- active_mem number not null,
- passive_mem number not null,
-constraint dfollow_pk primary key (follow_num),
-constraint dfollow_fk1 foreign key (active_mem) references dmember_detail (mem_num),
-constraint dfollow_fk2 foreign key (passive_mem) references dmember_detail (mem_num)
- );
-create sequence dfollow_seq;

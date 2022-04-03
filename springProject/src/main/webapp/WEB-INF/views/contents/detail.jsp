@@ -164,8 +164,7 @@
 									</div>
 									<div class="css-r6qxq2-ContentMetaInfoBlock e1svyhwg11">
 										<ul class="css-1v9zk7c-RankingInfoList e1svyhwg14">
-											<li>들어갈<em>내용이</em></li>
-											<li>없는데<em>어쩌죠</em></li>
+											<li><em></em></li>
 										</ul>
 										<h1 class="css-j40qn0-TitleOnPosterBlock e1svyhwg12">평균
 											★${Math.ceil((contents.vote_average)/2*10)/10}</h1>

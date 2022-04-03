@@ -6,12 +6,75 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
+<script type="text/javascript">
+$(function() {
+	var user_num = ${user_num};
+	$(document)
+	.on(
+			'click',
+			'.cmtLike',
+			function(event) {
+				
+				if (user_num == 0) {
+					alert('로그인 한 사용자만 가능합니다.');
+					return;
+				}
+				if (user_num != 0) {
+					var comment_num = $(event.target).parent().find('.comment_num').val();
+					var checkCmtLike = $(event.target).parent().find('.checkCmtLike').val();
+							$.ajax({
+								url : '${pageContext.request.contextPath}/contents/cmtLike.do',
+								type : 'post',
+								dataType : 'json',
+								data : {
+									comment_num : comment_num,
+									mem_num : user_num,
+									checkCmtLike : checkCmtLike
+								},
+								success : function(param) {
+									if (param.result == 'success') { // 코멘트 좋아요
+										$(event.target).parent().find('.checkCmtLike').val(1);
+										$(event.target)
+												.removeClass(
+														'css-1h18l7j-StylelessButton cmtLike')
+												.addClass(
+														'css-jj4q3s-StylelessButton-UserActionButton cmtLike');
+										$(event.target)
+												.parent()
+												.siblings(
+														'.css-1atijos')
+												.find('.countLike')
+												.text(
+														param.countLike);
+									} else if (param.result == 'cancel') { // 코멘트 좋아요 취소
+										$(event.target).parent().find('.checkCmtLike').val(0);
+										$(event.target)
+												.removeClass(
+														'css-jj4q3s-StylelessButton-UserActionButton cmtLike')
+												.addClass(
+														'css-1h18l7j-StylelessButton cmtLike');
+										$(event.target)
+												.parent()
+												.siblings(
+														'.css-1atijos')
+												.find('.countLike')
+												.text(
+														param.countLike);
+									}
+								}
+							});
+				}
+			});
+
+});	
+</script>
 <section class="css-18gwkcr">
 	<section class="css-le8j8b">
 		<div class="css-1jehmiq"
 			style="background: transparent; border-bottom: 1px solid #e3e3e3;">
 			<div class="css-10zg79x-pageMarginStyle"
-				style="font-weight: 700; font-size: 22px; color: black;">좋아한 코멘트</div>
+				style="font-weight: 700; font-size: 22px; color: black;">좋아한
+				코멘트</div>
 		</div>
 	</section>
 </section>
@@ -49,11 +112,13 @@
 									</div>
 								</a>
 							</div>
-							<div class="css-yqs4x12">
-								<img
-									src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM0QTRBNEEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDE3Ljk4bC02LjAxNSA0LjM5MmMtLjUwOC4zNzItMS4xOTQtLjEyNi0uOTk4LS43MjVsMi4zMTctNy4wODEtNi4wMzUtNC4zNjdjLS41MS0uMzY5LS4yNDctMS4xNzUuMzgyLTEuMTc0bDcuNDQ3LjAxNiAyLjI4Ni03LjA5MWMuMTkyLS42IDEuMDQtLjYgMS4yMzMgMGwyLjI4NiA3LjA5IDcuNDQ3LS4wMTVjLjYyOS0uMDAxLjg5LjgwNS4zOCAxLjE3NGwtNi4wMzMgNC4zNjcgMi4zMTYgNy4wOGMuMTk2LjYtLjQ5IDEuMDk4LS45OTkuNzI2TDEyIDE3Ljk4eiIvPgo8L3N2Zz4K"
-									width="16px" height="16px" alt="star"><span>${cmtLikeList.star}</span>
-							</div>
+							<c:if test="${cmtLikeList.star > 0 }">
+								<div class="css-yqs4x12">
+									<img
+										src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM0QTRBNEEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDE3Ljk4bC02LjAxNSA0LjM5MmMtLjUwOC4zNzItMS4xOTQtLjEyNi0uOTk4LS43MjVsMi4zMTctNy4wODEtNi4wMzUtNC4zNjdjLS41MS0uMzY5LS4yNDctMS4xNzUuMzgyLTEuMTc0bDcuNDQ3LjAxNiAyLjI4Ni03LjA5MWMuMTkyLS42IDEuMDQtLjYgMS4yMzMgMGwyLjI4NiA3LjA5IDcuNDQ3LS4wMTVjLjYyOS0uMDAxLjg5LjgwNS4zOCAxLjE3NGwtNi4wMzMgNC4zNjcgMi4zMTYgNy4wOGMuMTk2LjYtLjQ5IDEuMDk4LS45OTkuNzI2TDEyIDE3Ljk4eiIvPgo8L3N2Zz4K"
+										width="16px" height="16px" alt="star"><span>${cmtLikeList.star}</span>
+								</div>
+							</c:if>
 						</div>
 						<div class="css-4tkoly">
 							<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
@@ -89,13 +154,17 @@
 						<div class="css-1atijos">
 							<span
 								src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgZmlsbD0iIzc4Nzg3OCI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik02Ljc1IDkuNDg1aC0zYTEgMSAwIDAgMC0xIDF2MTBhMSAxIDAgMCAwIDEgMWgzYTEgMSAwIDAgMCAxLTF2LTEwYTEgMSAwIDAgMC0xLTFNMjAuNjU3IDguNTY2YTIuMzYzIDIuMzYzIDAgMCAwLTEuNzc5LS44MTNIMTYuNjJsLjE2NC0uNjI3Yy4xMzctLjUyOC4yMDEtMS4xMi4yMDEtMS44NjMgMC0xLjkxOS0xLjM3NS0yLjc3OC0yLjczOC0yLjc3OC0uNDQ0IDAtLjc2Ni4xMjMtLjk4Ni4zNzYtLjIuMjI3LS4yODIuNTMtLjI0My45MzVsLjAzIDEuMjMtMi45MDMgMi45NGMtLjU5My42LS44OTQgMS4yMy0uODk0IDEuODcydjkuNjQ3YS41LjUgMCAwIDAgLjUuNWg3LjY4N2EyLjM4OCAyLjM4OCAwIDAgMCAyLjM0OC0yLjA3bDEuNDQ1LTcuNDUyYTIuNDQgMi40NCAwIDAgMC0uNTc0LTEuODk3Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-								width="18px" height="18px" class="css-64x8kr"></span> <em>${cmtLikeList.countLike}</em>
+								width="18px" height="18px" class="css-64x8kr"></span> <em class="countLike">${cmtLikeList.countLike}</em>
 							<span
 								src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM3ODc4NzgiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTkuODU3IDE3Ljc4Nkw2IDIxdi00LjkxYy0xLjg0MS0xLjM3My0zLTMuMzY5LTMtNS41OUMzIDYuMzU4IDcuMDMgMyAxMiAzczkgMy4zNTggOSA3LjVjMCA0LjE0Mi00LjAzIDcuNS05IDcuNS0uNzM5IDAtMS40NTYtLjA3NC0yLjE0My0uMjE0eiIvPgo8L3N2Zz4K"
 								width="18px" height="18px" class="css-q0vi8"></span> <em>${cmtLikeList.countReply}</em>
 						</div>
 						<div class="css-hy68ty">
-							<button class="css-1h18l7j-StylelessButton">좋아요</button>
+							<input type="hidden" value="${cmtLikeList.comment_num}"
+								class="comment_num"> <input type="hidden" value="1"
+								class="checkCmtLike">
+							<button
+								class="css-jj4q3s-StylelessButton-UserActionButton cmtLike">좋아요</button>
 						</div>
 					</div>
 				</c:forEach>

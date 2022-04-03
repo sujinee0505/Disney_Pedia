@@ -94,7 +94,7 @@ public interface CommentMapper {
 	public List<CommentVO> selectListByMem_num(int mem_num);
 
 	// 내가 좋아요한 코멘트 목록
-	@Select("SELECT a.*, s.star FROM dcontents_star s JOIN "
+	@Select("SELECT a.*, s.star FROM dcontents_star s RIGHT OUTER JOIN "
 			+ "(SELECT l.commentLike_num, l.mem_num like_mem, c.mem_num comment_mem, c.content, c.contents_type, c.contents_num, c.comment_num,c.star_num "
 			+ "FROM dcomment_like l JOIN dcomment c ON l.comment_num=c.comment_num) a ON a.star_num=s.star_num WHERE like_mem = #{mem_num} ORDER BY a.commentLike_num DESC")
 	public List<CommentLikeVO> selectListLikeByMem_num(int mem_num);

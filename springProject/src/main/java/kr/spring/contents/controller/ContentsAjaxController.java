@@ -95,7 +95,7 @@ public class ContentsAjaxController {
 	}
 
 	// 코멘트 좋아요
-	@RequestMapping("/contents/cmtLike.do")
+	@RequestMapping("contents/cmtLike.do")
 	@ResponseBody
 	public Map<String, Object> commentLike(HttpSession session, CommentVO comment, int checkCmtLike) {
 

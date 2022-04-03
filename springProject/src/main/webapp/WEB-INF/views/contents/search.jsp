@@ -214,12 +214,20 @@
 									href="${pageContext.request.contextPath}/member/myPage.do?user_num=${user_list.mem_num}"><div
 											class="css-cssveg">
 											<div class="css-lmg4ew">
+
 												<div class="css-h6h0rq-ProfilePhotoImage">
-													<img width="71" height="71" class="my-photo"
-														src="${pageContext.request.contextPath}/member/photoView.do?user_num=${user_list.mem_num}">
+													<c:if test="${empty user_list.photo_name}">
+														<img width="71" height="71" class="my-photo"
+															src="${pageContext.request.contextPath}/resources/images/face.png">
+													</c:if>
+													<c:if test="${!empty user_list.photo_name}">
+														<img width="71" height="71" class="my-photo"
+															src="${pageContext.request.contextPath}/member/photoView.do?user_num=${user_list.mem_num}">
+													</c:if>
 												</div>
 											</div>
 										</div>
+
 										<div class="css-zoy7di">
 											<div class="css-qkf9j">
 												<div class="css-17vuhtq">
