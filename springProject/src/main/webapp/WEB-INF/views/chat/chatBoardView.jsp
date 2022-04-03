@@ -31,12 +31,23 @@
 					alert('로그인 후 사용하세요!');   
 				
 				}else if(param.result == 'success'){
-					let output ='';
+					let output =''; //뱃지용
+					let noneoutput =''; //채팅리스트용
 					if(param.countMember>0){
 						output +=  param.countMember ;
 						$('#countMember').append(output);
 					}else {
 						$('#badge').remove();
+							noneoutput += '<div class="d-flex w-100 justify-content-between">';
+							noneoutput += '<h5 class="mb-1"></h5>';
+							noneoutput += '<img class="fit-picture" src="${pageContext.request.contextPath}/resources/images/disney.png">';
+							noneoutput += '<small class="text-muted"></small>';
+							noneoutput += '</div>';
+							noneoutput += '<p class="mb-1"> 아직 요청 받은 채팅이 없습니다.</p>';
+							noneoutput += '<small class="text-muted">DisneyPedia</small>';
+							noneoutput += '</a>';
+							
+							$('#noneoutput').append(noneoutput);
 					}
 					
 				}else{
@@ -217,6 +228,7 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 			</div>
 			
 			<div class="list-group" id="output"></div>
+			<div class="list-group" id="noneoutput"></div>
 		</div>
 	  </div>
 	</div>
