@@ -100,7 +100,6 @@ public class MemberController {
 
 				String cp = request.getContextPath();
 				String path = memberVO.getPath().replaceFirst(cp, "");
-				System.out.println("path : " + path);
 				if (path.equals(""))
 					path = "/re/list";
 				return "redirect:" + path;

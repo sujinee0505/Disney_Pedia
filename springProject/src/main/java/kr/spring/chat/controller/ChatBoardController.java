@@ -87,7 +87,7 @@ public class ChatBoardController {
 							@RequestParam(value="keyword",defaultValue="")
 							String keyword,
 							@RequestParam(value="sort",defaultValue="1")
-							int sort) {
+							int sort, HttpSession session) {
 		//데이터 넘기기
 		Map<String,Object> map = new HashMap<String, Object>();
 		map.put("keyfield", keyfield);
@@ -110,6 +110,7 @@ public class ChatBoardController {
 		}
 		logger.info("<<목록테스트2>> : " + list);
 		
+		
 		//데이터가 준비되었으니 데이터를 표시한다.
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("chatBoardList");//tiles설정(definition name)
@@ -118,6 +119,12 @@ public class ChatBoardController {
 		mav.addObject("list", list);
 		mav.addObject("list2", list2);
 		mav.addObject("pagingHtml", page.getPagingHtml());
+		Integer user_num = (Integer) session.getAttribute("user_num");
+		if (user_num == null) {// 로그인이 되지 않은 경우
+			mav.addObject("user_num",0);
+		} else {// 로그인 된 경우
+			mav.addObject("user_num",user_num);
+		}
 		 
 		return mav;
 	}
