@@ -93,7 +93,19 @@
 			  $("#starRate").bind('rated', function (event, value) {
 				  var user_num = ${user_num};
 				  if(user_num==0){ // 비회원상태: user_num=0
-					  alert('평가하시려면 로그인이 필요해요.');
+					  Swal.fire({			
+						  title: ' ',						  
+						  text: '평가하시려면 로그인이 필요해요.',
+						  imageUrl: '${pageContext.request.contextPath}/resources/images/star_icon.png',
+						  imageWidth: 70,
+						  imageHeight: 70,						  
+						  imageAlt: 'Custom image',
+						  confirmButtonColor: '#9ce9ff',
+						  confirmButtonText: '알겠어요',
+						  width: 400,
+						  padding: '2em'
+						  })
+					  //alert('평가하시려면 로그인이 필요해요.');
 					  $('.rateit-selected').css('width',''); //클릭된 별점 reset
 				  };				 
 			  });			
