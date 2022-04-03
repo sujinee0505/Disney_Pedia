@@ -17,22 +17,32 @@ $(function() {
 	width: 764px;
 	border: solid 2px #8bcee3;
 	border-radius: 10px;
-	margin-top: 200px auto 100px;
+	margin: 180px auto 100px;
     padding: 100px;
 }
-
+div#interceptor_logo{
+    margin: 0 auto;
+    width: 283px;
+}
+img#interceptor_logo{
+	height:145px;
+}
+div#interceptor_body {
+    width: 405px;
+    margin: 0 auto;
+}
 </style>
 </head>
 <body>
 <div id="login-border">
 <!-- Modal Header -->
-<div>
-	<img src="${pageContext.request.contextPath}/resources/images/logo.png" height="86px;" class="sign-logo">
-	<h4 class="modal-title">로그인</h4>
+<div id="interceptor_logo">
+	<img src="${pageContext.request.contextPath}/resources/images/logo.png" class="sign-logo" id="interceptor_logo">
+	<!-- <h4 class="modal-title">로그인</h4> -->
 	<div class="blank_10"></div>
 </div>
 <!-- Modal body -->
-<div class="modal-body">
+<div class="modal-body" id="interceptor_body">
 	<form action="${pageContext.request.contextPath}/member/login.do" method="post" class="form-horizontal"
 		role="form" id="login_form">
 
