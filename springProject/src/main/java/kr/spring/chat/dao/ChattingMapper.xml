@@ -11,9 +11,9 @@
 		FROM dchatting c 
 		JOIN dmember_detail m 
 		ON c.from_num=m.mem_num 
-		WHERE chatboard_num=2
-		AND ((from_num=2 AND to_num=1) <!-- 내가 상대방에게 보낸 메세지  -->
-		OR (from_num=1 AND to_num=2))<!-- 상대방이 나에게 보낸 메세지 -->
+		WHERE chatboard_num=#{chatboard_num} 
+		AND ((from_num=#{from_num} AND to_num=#{to_num}) <!-- 내가 상대방에게 보낸 메세지  -->
+		OR (from_num=#{to_num} AND to_num=#{from_num}))<!-- 상대방이 나에게 보낸 메세지 -->
 		ORDER BY send_date ASC
 	</select>
 	

@@ -76,22 +76,23 @@ public class ChattingController {
 			List<ChattingVO> getChatting = new ArrayList<ChattingVO>();
 			getChatting = chattingService.getChattingDetail(chattingVO); // chatboard_num 등 chatting.jsp에서 받아온 값을 인자로
 																			// 넣어서 sql문을 행하여 결과값을 List에 담아준다
+			logger.info("<<채팅확인>> : " + chattingVO);
+
+			map.put("getChatting", getChatting);
+			map.put("result", "success");
+		}
+		return map;
+	}
 //			for (int i = 0; i < getChatting.size(); i++) {
 //				logger.info("<<mate_state변경하기>> : " + getChatting.get(i));
 //			}
-			
+	
 //			String date_time = chattingVO.getDate_time();
 //			StringTokenizer st = new StringTokenizer(date_time," ");
 //			String date = st.nextToken();
 //			String time = st.nextToken();
 //			chattingVO.setDate(date);
 //			chattingVO.setTime(time);
-			
-			map.put("getChatting", getChatting);
-			map.put("result", "success");
-		}
-		return map;
-	}
 
 	// *** 2-2)채팅 메세지 전송 ***
 	// [채팅메서드1. 채팅테이블에 대화기록 등록 INSERT : insertChat() ]
