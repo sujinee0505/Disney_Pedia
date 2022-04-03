@@ -94,12 +94,12 @@ div #count_area{ /*글자수체크영역*/
 
 #myModal{ /*modal 중앙정렬*/
 	position: absolute;
-   top: 21%; 
+   top: 25%; 
    margin-top: -100px;
 }
 #myModal2{
 	position: absolute;
-   top: 21%; 
+   top: 25%; 
    margin-top: -100px;
 }
 
@@ -116,9 +116,11 @@ margin-top:18px;
 }
 .modal-title{ /*헤더 타이틀*/
 font-size:12pt;
-margin: 0 auto;
-margin-top:5px;
+margin: 13px auto;
 font-family: 'BMJUA';
+}
+.blank_10{
+	margin-bottom:10px;
 }
 
 input:focus { /*input blue glow 제거*/
@@ -127,7 +129,7 @@ input:focus { /*input blue glow 제거*/
 /*input 설정*/
 /*여백설정*/
 .blank{
-	margin-bottom:6px;
+	margin-bottom:10px;
 }
 /*placeholder 색상설정*/
 #signUp_form input::placeholder {color:#adadad;}
@@ -170,7 +172,7 @@ height:40px;
 }
 
 .alter{ /*전환 여부 문구*/
-margin: 27px auto 20px;
+margin: 40px auto 40px;
 font-size:10pt;
 font-family: 'SUIT-Medium';
 color:#a8a8a8 !important;

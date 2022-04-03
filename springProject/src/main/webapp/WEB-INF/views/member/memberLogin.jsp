@@ -12,6 +12,7 @@ $(function() {
 <div>
 	<img src="${pageContext.request.contextPath}/resources/images/logo.png" height="86px;" class="sign-logo">
 	<h4 class="modal-title">로그인</h4>
+	<div class="blank_10"></div>
 </div>
 <!-- Modal body -->
 <div class="modal-body">
@@ -44,12 +45,4 @@ $(function() {
 		</div>	<p>
 		<!-- <div class="form-group"> -->		
 	</form>
-</div> <!-- 모달바디끝 -->
-<div class="modal-footer">
-	<div class="social_login align-center">
-			social login
-	</div>
 </div>
-
-</body>
-</html>

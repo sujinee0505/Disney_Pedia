@@ -100,9 +100,4 @@ $(function() {
 			로그인</a>
 			</div>	<p>		
 		</form>
-</div> <!-- 모달바디끝 -->
-<div class="modal-footer">
-	<div class="social_login align-center">
-			social sign up
-	</div>
 </div>
