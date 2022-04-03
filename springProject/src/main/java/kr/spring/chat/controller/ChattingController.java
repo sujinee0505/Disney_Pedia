@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,9 +41,10 @@ public class ChattingController {
 	@Autowired
 	private MemberService memberService;
 	
-	// *** 2-1)채팅 내용 불러오기 ***
+	// *** 2-1)채팅  ***
 	// 보드메서드. 게시물 정보 SELECT : selectBoard(Integer chatboard_num)
 	// 멤버메서드. 회원정보 SELECT : selectMember(Integer mem_num)
+	
 	@GetMapping("/chatboard/chatting.do")
 	public ModelAndView process(@RequestParam int chatboard_num, @RequestParam int trans_num, HttpSession session) {
 
@@ -63,16 +66,27 @@ public class ChattingController {
 	@RequestMapping("/chatboard/getChatting.do")
 	@ResponseBody // chatting.jsp에서 ajax로 넘긴 chatboard_num 등이 알아서 데이터 바인딩 되어서 chattingVO에 저장돼있음
 	public Map<String, Object> getChattingDetailCount(ChattingVO chattingVO, HttpSession session) {
-
 		Map<String, Object> map = new HashMap<String, Object>();
-
 		Integer mem_num = (Integer) session.getAttribute("user_num");
+		
 		if (mem_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
 		} else {// 로그인 된 경우
+			
 			List<ChattingVO> getChatting = new ArrayList<ChattingVO>();
 			getChatting = chattingService.getChattingDetail(chattingVO); // chatboard_num 등 chatting.jsp에서 받아온 값을 인자로
 																			// 넣어서 sql문을 행하여 결과값을 List에 담아준다
+//			for (int i = 0; i < getChatting.size(); i++) {
+//				logger.info("<<mate_state변경하기>> : " + getChatting.get(i));
+//			}
+			
+//			String date_time = chattingVO.getDate_time();
+//			StringTokenizer st = new StringTokenizer(date_time," ");
+//			String date = st.nextToken();
+//			String time = st.nextToken();
+//			chattingVO.setDate(date);
+//			chattingVO.setTime(time);
+			
 			map.put("getChatting", getChatting);
 			map.put("result", "success");
 		}

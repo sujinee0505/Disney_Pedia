@@ -64,19 +64,24 @@ div#boardView_button{
 	margin-top:0;
 }
 button#chat_btn{
-	margin-left:1%;
-	width:50%;
-}
-button#list_btn, button#delete_btn{
-	margin-left:5%;
+    margin-left: 5%;
+    width: 234px;
+    height: 50px;
 }
 button#modify_btn{
 	/* margin-left:20%; */
 }
+button#delete_btn{
+	margin-left:5%;
+}
 div#mybtn{
 	/* outline:2px dotted yellow; */
-	width: 12%;
-	margin-left:27%;
+	width: 160px;
+	margin-left:50%;
+}
+button#list_btn{
+	margin-left:5%;
+	width: 100px;
 }
 div#publicbtn{
 	/* outline:2px dotted red; */
@@ -87,16 +92,31 @@ div#publicbtn{
 div#chatBoardList_main {
 	margin-top: 100px;
 }
+div.carousel-bg{
+/* 	background: linear-gradient( to right, black 10px, #101D54 400px, #33AAD0 60%, black );
+ */	/* background: linear-gradient( -45deg,black 10px, rgba(24, 184, 201, .8), rgba(179, 56, 217, .8)60%, black) fixed; */
+	/* height:500px; */
+	/* margin:100px 0 100px 0; */
+background:linear-gradient( 332deg,black 10px, rgb(4 95 104), rgb(99 84 165 / 93%)60%, black) fixed;
+}
 div.carousel-item img{
 	margin:  auto;
 	max-width: 100%; height: auto; 
 	/* box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 4px; */
 	}
-
-img#woody{filter: drop-shadow(0px -5px 10px #778699);}
+/* div.carousel-item {
+	background-color:#0005;
+	background-blendmode:darken;
+} */
+/* img#woody{filter: drop-shadow(0px -5px 10px #778699);}
 img#disney{filter: drop-shadow(0px -5px 10px #3C376E);}
 img#starwars{filter: drop-shadow(0px -5px 10px #111111);}
-img#marvel{filter: drop-shadow(0px -5px 10px #5C0100);}
+img#marvel{filter: drop-shadow(0px -5px 10px #5C0100);} */
+
+.carousel-item img{
+	-webkit-filter: blur(4px);
+	filter: blur(6px);
+}
 
 form#list_search_form{
 	margin:50px auto;
@@ -204,7 +224,8 @@ div.chat01{
     height: 200px;
     margin-top: 10%;
     margin-right: 39px;
-    padding: 30px;
+    padding-top: 40px;
+    padding-left: 40px;
     position: relative;
 }
 div.chat01:after {
@@ -220,7 +241,29 @@ div.chat01:after {
     margin-top: 34px;
     margin-right: -13px;
 }
-
+div#trans_id {
+	font-size: 18pt;
+}
+div#state_notice span{
+	
+}
+#arrow{
+width: 20px;
+}
+/* .item img{미키 손...읽음처리 못할듯
+width: 16px;
+outline:1px solid red;
+} */
+img#chat01img{
+    width: 91px;
+    left: -40px;
+    top: -38px;
+    position: absolute;
+}
+div#state_notice{
+margin-top:10px;
+	
+}
 div#page-main-chat02{
 	/* outline:1px solid blue; */
 	display: flex;
@@ -280,6 +323,7 @@ div#enter button{
 
 button#mate{
 	margin-top: 10px;
+	size:10px;
 }
 /* --- 말풍선 ---- */
 
@@ -315,6 +359,25 @@ span#from_name{
 }
 #from_item img{
 	display: none;
+}
+
+span#from_position-date{
+/* display: none; */
+    padding-left: 16px;
+    font-size: 8pt;
+    color: #c9c9c9;
+}
+div#from_item:hover{
+	
+}
+span#to_position-date{
+/* display: none; */
+	padding-left: 180px;
+	font-size: 8pt;
+    color: #c9c9c9;
+}
+div#to_item:hover{
+	
 }
 
 /* 좌측.to-position */

@@ -2,57 +2,21 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/mj.css" />
-<style type="text/css">
-
-
-#trans_id {
-	font-size: 18pt;
-}
-
-#rev_msg {
-	font-size: 18pt;
-	color: red;
-}
-.item {
-	position: relative;
-	background: #72c4df;
-	border-radius: .4em;
-}
-
-.item:after {
-	content: '';
-	position: absolute;
-	right: 0; /* left: 0; */
-	top: 50%;
-	width: 0;
-	height: 0;
-	border: 12px solid transparent;
-	border-left-color: #72c4df; /* border-right-color */
-	border-right: 0;
-	border-bottom: 0;
-	margin-top: -6px;
-	margin-right: -10px;/* margin-left */
-}
-.item img{
-width: 16px;
-outline:1px solid red;
-}
-#arrow{
-width: 20px;
-}
-</style>
-
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/mj.css" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 
 <script type="text/javascript">
+
+
+
 let namecount = 0;
    $(function(){
 	let chatboard_num = $('#chatboard_num').val();
     let count=0;
     let scroll_check;
     let loop_check = true;
+    let date_time = '';
+    let date_time2 = '';
    
     	$('#content').keydown (function(event){
 			if(event.keyCode == 13 && !event.shiftKey) { //.event.keyCode == 13 : 엔터키눌렀을 때 이벤트
@@ -81,12 +45,11 @@ let namecount = 0;
 				cache:false,
 				timeout:30000,
 				success:function(param){
-				if(param.result == 'logout'){
-					loop_check = false;
-					alert('로그인 후 사용하세요!');   
-				}else if(param.result == 'success'){
-					scroll_check = true;
-					
+					if(param.result == 'logout'){
+						loop_check = false;
+						alert('로그인 후 사용하세요!');   
+					}else if(param.result == 'success'){
+						scroll_check = true;
 						$('#chatting_message').empty();
 						$(param.getChatting).each(function(index,item){
 							let output2 = '';
@@ -94,44 +57,40 @@ let namecount = 0;
 							
 							if(item.from_num == ${user_num}){ 
 								output += '<div class="from-position">'+'<span id="from_name">'+item.name+'</span>';
+
+								output += 	'<div class="item" id="from_item">';
+								//output +=	 (item.chatstate_num !=1 ? '<img src="${pageContext.request.contextPath}/resources/images/board/chatstate_num.png">' : '') 
+								output +=     item.content;
+								output += 	'</div>';
+								output += 	'<span id="from_position-date" >'+item.date_time+'</span>';
 							
 							//(item.to_num == ${user_num}) {
 							}else{                     
 								output += '<div class="to-position">'+'<span id="to_name">'+item.name+'</span>';
-								if(namecount<1){
-								output2 = '<span id="trans_id"><b>'+item.name+'님과의 대화방입니다.<b></span>';
-								}
-							}
-								if(item.from_num == ${user_num}){ 
-								output += 	'<div class="item" id="from_item">';
-								output +=	 (item.chatstate_num !=1 ? '<img src="${pageContext.request.contextPath}/resources/images/board/chatstate_num.png">' : '') 
-								output +=     item.content;
-								output += 	'</div>';
-								}else{
-									
+								
 								output += 	'<div class="item" id="to_item">';
 								output +=     item.content;
 								output += 	'</div>';
+								output += 	'<span id="to_position-date" >'+item.date_time+'</span>';
+								
+								if(namecount<1){
+									output2 = '<div id="trans_id"><b>'+item.name+'님과의 대화방입니다.<b></div>';
 								}
+							}
 								
 							output += '</div>';
 							
-							
 							//문서 객체에 추가
 							$('#chatting_message').append(output);
-							
 							if(namecount<1){
 								$('#chat01-01').append(output2);
 							}
 							namecount++;
-							console.log(namecount);
-							
 							if(scroll_check){
 								//스크롤를 하단으로 위치시킴
 								//$('#chatting_message').scrollTop($("#chatting_message").scrollHeight); //jQeury방식
 								var scrollDown = document.getElementById("chatting_message"); //js방식
 								scrollDown.scrollTop = scrollDown.scrollHeight;
-
 							}
 						});
 						
@@ -139,18 +98,17 @@ let namecount = 0;
 					loop_check = false;
 					alert('오류가 발생했습니다!');   
 					}
-				},
-				
+				}, //end of success
 				error:function(){
 				loop_check = false;
 				alert('네트워크 오류 발생');
 				}
-			});
+			}); //end of Ajax
 			
-		}
-      
+		} //end of selectData function
+		
 	selectData(); //페이지에서 항상 대화기록을 불러오고 시작
-      
+	    
 		// *** 2)채팅 메세지 전송  ***
 		$('#chatting_form').submit(function(event){
 			if($('#content').val().trim() == ''){
@@ -242,7 +200,9 @@ let namecount = 0;
 			});	//end of ajax	
 		});	//end of click function
 		
+		
 	});   
+	
 </script>
 
 <div id="bg">
@@ -250,7 +210,9 @@ let namecount = 0;
 	<div class="page-main-chat">
 		
 		<div id="page-main-chat01" >
-			<div class="chat01">
+			<div class="chat01 ">
+			<img id="chat01img" src="${pageContext.request.contextPath}/resources/images/board/chatstate_num.png">
+				
 				<!-- 1.글 작성자와 로그인자가 다른 경우 -->
 				<c:if test="${user_num != chatBoard.mem_num}"> 
 					<div id="trans_id"> <small>${chatBoard.title}의 작성자 </small><br>
@@ -262,7 +224,6 @@ let namecount = 0;
 				<!-- mate_state : 0 모집중/1 모집완료 -->
 				<c:if test="${user_num == chatBoard.mem_num}">
 				<div id="chat01-01"></div>
-					<div></div>
 					<button id="mate"
 						class="badge rounded-pill <c:if test="${chatBoard.mate_state == 0}">bg-light text-dark</c:if><c:if test="${chatBoard.mate_state == 1}">bg-danger</c:if>">
 						<c:if test="${chatBoard.mate_state == 0}">모집 중</c:if>
@@ -277,7 +238,7 @@ let namecount = 0;
 					</c:if>
 					<c:if test="${chatBoard.mate_state == 1 && user_num == chatBoard.mem_num}">
 						<img id="arrow" src="${pageContext.request.contextPath}/resources/images/board/arrow.gif">
-						<span>모집 증으로 변경하려면 <b>클릭</b>하세요!</span>
+						<span>모집 중으로 변경하려면 <b>클릭</b>하세요!</span>
 					</c:if>
 				</div>
 			</div>

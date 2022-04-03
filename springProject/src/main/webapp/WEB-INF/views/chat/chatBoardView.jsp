@@ -20,7 +20,7 @@
 		$.ajax({
 			url:'countChatMember.do',
 			type:'post',
-			//채팅 이력들을 불러오기 위해  chatboard_num/user_num(채팅보낸사람) 인자로 전송
+			//채팅리스트 수를 불러오기 위해  chatboard_num/user_num(채팅보낸사람) 인자로 전송
 			data:{chatboard_num:${chatboard.chatboard_num}, from_num:${user_num}}, 
 			dataType:'json',
 			cache:false,

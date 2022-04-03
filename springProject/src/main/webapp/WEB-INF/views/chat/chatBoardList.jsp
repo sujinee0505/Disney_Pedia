@@ -39,6 +39,8 @@
 </script>
 
 <div class="page-main" id="chatBoardList_main">
+		
+	<div class="carousel-bg">
 	
 	<!-- 캐러셀 -->
 	<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -72,42 +74,15 @@
      		</div>
 	    </div>
 	  </div>
-		<!--   <button class="carousel-control-prev w-auto h-auto" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		    <span class="visually-hidden">Previous</span>
-		  </button>
-		  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		    <span class="visually-hidden">Next</span>
-		  </button> -->
 	</div>
 	<!-- 캐러셀 -->
-
+	</div>
+	<div class="test">
+		</div>
 	
 
 <!-- 유효성체크를 자바스크립트로 사용할 것이기에 form HTML태그 사용-->
 <div id="container_table">
-	<!--  
-<div class="container row">
-	<form action="list.do" id="list_search_form" method="get">
-		<ul class="search row">
-			<li class=>
-				<select name="keyfield" id="keyfield" class="form-select" >
-					<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>
-						제목
-					</option>
-					<option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>
-						닉네임
-					</option>
-					<option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>
-						내용
-					</option>
-					<option value="4" <c:if test="${param.keyfield==4}">selected</c:if>>
-						제목+내용
-					</option>
-				</select>
-			</li>
-		-->		
 	<form action="list.do" id="list_search_form" method="get">
 		<ul class="search" id="list_search">
 			<li>

@@ -12,8 +12,37 @@ public class ChattingVO {
 	private int chatboard_num; // 게시글번호
 	private Date send_date; // 발신일 default sysdate
 	// private Date read_date; //수신일 null허용
-
 	private String name;
+//**
+	private String date_time;
+	private String date;
+	private String time;
+
+	public String getDate_time() {
+		return date_time;
+	}
+
+	public void setDate_time(String date_time) {
+		this.date_time = date_time;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+//**
 
 	public int getChat_num() {
 		return chat_num;
@@ -88,7 +117,9 @@ public class ChattingVO {
 	public String toString() {
 		return "ChattingVO [chat_num=" + chat_num + ", to_num=" + to_num + ", from_num=" + from_num + ", chatstate_num="
 				+ chatstate_num + ", content=" + content + ", chatboard_num=" + chatboard_num + ", send_date="
-				+ send_date + ", name=" + name + "]";
+				+ send_date + ", name=" + name + ", date_time=" + date_time + ", date=" + date + ", time=" + time + "]";
 	}
+
+
 
 }

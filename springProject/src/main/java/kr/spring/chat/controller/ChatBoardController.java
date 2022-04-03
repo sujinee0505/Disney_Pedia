@@ -235,10 +235,7 @@ public class ChatBoardController {
 		} else {// 로그인 된 경우
 				map.put("countMember", countMember);
 			}
-			logger.info("<<수 알림> : " + chattingVO);
-			logger.info("<count> : " + countMember);
 			map.put("result", "success");
-			
 		return map;
 	}
 }
