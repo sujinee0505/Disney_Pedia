@@ -88,13 +88,13 @@
 				data-contentsid="${contents.contents_num}"
 				data-rateit-mode="font" style="font-size: 38px;">
 			</div>
-			<script type="text/javascript">			
+			<script type="text/javascript">	
+			/* 비회원 체크 후 alert 호출 */
 			  $("#starRate").bind('rated', function (event, value) {
 				  var user_num = ${user_num};
-				  //alert(user_num);
-				  if(user_num==0){
+				  if(user_num==0){ //비회원상태 user_num=0
 					  alert('평가하시려면 로그인이 필요해요.');
-					  $('.rateit-selected').css('width','');
+					  $('.rateit-selected').css('width',''); //클릭된 별점 reset
 				  };				 
 			  });			
 			</script>
