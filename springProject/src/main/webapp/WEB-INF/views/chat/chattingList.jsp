@@ -2,21 +2,17 @@
 	pageEncoding="UTF-8"%>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&family=Nanum+Myeongjo&display=swap');
-
-
 
 h2 { 
 text-align: center; 
-margin: 40px;
-font-family: 'Hi Melody', cursive;
-font-family: 'Nanum Myeongjo', serif;
+margin: 50px;
+
 }	
 ul.chat-other {
     text-align:center;
 	margin: 0px auto;
 	padding: 0;
-	width: 420px;
+	width: 490px;
 	height: 720px;
 	overflow-y: auto;
 	margin-top: 85px;
@@ -72,7 +68,7 @@ ul.chat-other {
 <div class="page-main-chat" id="main-chat" style="margin-top: 100px;">
 	<h2>
 	    <img class="fit-picture" src="${pageContext.request.contextPath}/resources/images/disney1.png">
-		<br><big>${chatboard.name}</big>님 환영합니다!
+		<br><big><b>${chatboard.name}님 환영합니다!</b></big>
 	</h2>
 	
 	<div class="list-group" id="output"></div>
