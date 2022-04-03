@@ -119,6 +119,18 @@ public class MemberController {
 	}
 
 	// 회원 로그아웃
+	@PostMapping(value = { "/chatboard/logout.do", "/contents/logout.do", "/main/logout.do" })
+	public String processLogout(MemberVO memberVO, HttpSession session, HttpServletRequest request) {
+		// 로그아웃
+		session.invalidate();
+		String cp = request.getContextPath();
+		String path = memberVO.getPath().replaceFirst(cp, "");
+		if (path.equals(""))
+			path = "/re/list";
+		return "redirect:" + path;
+	}
+
+	// 회원 로그아웃
 	@RequestMapping("/member/logout.do")
 	public String processLogout(HttpSession session) {
 		// 로그아웃

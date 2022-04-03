@@ -10,6 +10,15 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+<script type="text/javascript">
+	$(function() {
+		getPath = function() {
+			document.getElementById("path").value = location.pathname
+					+ location.search;
+		}
+		getPath();
+	});
+</script>
 <!-- 상단 시작 -->
 <header class="css-6k8tqb" id="header">
 	<nav>
@@ -74,9 +83,13 @@
 								</div></a></li>
 					</c:if> --%>
 					<c:if test="${!empty user_num && user_num !=0}">
-						<li class="css-bj71cw"><button
-								onclick="location.href='${pageContext.request.contextPath}/member/logout.do'"
-								class="css-fn0ezc-StylelessButton" id="header_logout">로그아웃</button></li>
+						<li class="css-bj71cw"><form action="logout.do"
+								method="post">
+								<input type="hidden" name="path" id="path" />
+								<button class="css-fn0ezc-StylelessButton" id="header_logout"
+									type="submit">로그아웃</button>
+							</form></li>
+
 					</c:if>
 					<c:if test="${!empty user_num &&user_num != 0 && empty user_photo}">
 						<a
