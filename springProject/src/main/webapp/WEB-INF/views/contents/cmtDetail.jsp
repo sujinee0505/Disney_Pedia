@@ -182,7 +182,14 @@
 	});
 </script>
 <section class="css-18gwkcr">
-	<div class="css-fr521c-StyledSectionContainer e1rmcw6u2">
+	<section class="css-le8j8b">
+		<div class="css-1jehmiq"
+			style="background: transparent; border-bottom: 1px solid #e3e3e3;">
+			<div class="css-10zg79x-pageMarginStyle"
+				style="font-weight: 700; font-size: 22px; color: black;">코멘트 상세</div>
+		</div>
+	</section>
+	<div class="css-fr521c-StyledSectionContainer e1rmcw6u2" style="width: 750px; margin: auto;">
 		<div class="css-1d7xpnn-CommentContainer e1rmcw6u3">
 			<section class="css-0">
 				<div class="css-1p3jp2v">
