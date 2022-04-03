@@ -112,7 +112,7 @@ $(function() {
 	<div id="container_table">
 		<form action="list.do" id="list_search_form" method="get">
 			<ul class="search" id="list_search">
-				<li><select name="keyfield" id="keyfield">
+				<li><select name="keyfield" id="keyfield" class="form-control" >
 						<option value="1"
 							<c:if test="${param.keyfield==1}">selected</c:if>>제목</option>
 						<option value="2"
@@ -177,7 +177,8 @@ $(function() {
 
 		<c:if test="${count==0}">
 			<div class="result-display">
-				<div>표시할 게시물이 없습니다</div>
+				<div id="font01">" 앗! "</div>
+				<div id="font02">표시할 게시물이 없습니다</div>
 			</div>
 		</c:if>
 		<!-- !!!!!!!버튼테스트!!!!!!!! -->

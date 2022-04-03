@@ -34,8 +34,10 @@
 					let output ='';
 					if(param.countMember>0){
 						output +=  param.countMember ;
+						$('#countMember').append(output);
+					}else {
+						$('.rounded-pill').remove();
 					}
-							$('#countMember').append(output);
 					
 				}else{
 					alert('등록시 오류 발생');
@@ -121,7 +123,8 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 				채팅 목록 
 				<c:if test="${chatboard.mate_state == 0 }"> <!-- 1-1.아직 모집중이라면 몇명의 채팅이 왔는지 배지알림 -->
 					<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-					<span id="countMember"></span></span>
+					<span id="countMember"></span>
+					</span>
 				</c:if>
 			</button>
 		</c:if>
