@@ -76,4 +76,11 @@
 	<!-- 파일 다운로드 -->
 	<beans:bean id="downloadView" class="kr.spring.view.DownloadView"/>	
 	
+	<!-- 로그인 여부 체크 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/chatboard/detail.do"/>
+			<beans:bean class ="kr.spring.interceptor.LoginCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
 </beans:beans>
