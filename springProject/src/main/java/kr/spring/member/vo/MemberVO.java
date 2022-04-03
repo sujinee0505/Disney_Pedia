@@ -10,11 +10,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class MemberVO {
 	private int mem_num;
-	@Pattern(regexp="^[A-Za-z0-9]{4,12}$")
+	@Pattern(regexp = "^[A-Za-z0-9]{4,12}$")
 	private String id;
 	private int auth;
 	private String name;
-	@Pattern(regexp="^[A-Za-z0-9]{4,12}$")
+	@Pattern(regexp = "^[A-Za-z0-9]{4,12}$")
 	private String passwd;
 	private MultipartFile upload;
 	private byte[] photo;
@@ -22,27 +22,29 @@ public class MemberVO {
 	private String introduction;
 	private Date reg_date;
 	private Date modify_date;
-	private int follow_num; 
+	private int follow_num;
 	private int active_mem;
 	private int passive_mem;
-		
-	//비밀번호 변경시 현재 비빌번호를 저장하는 용도로 사용
-	@Pattern(regexp="^[A-Za-z0-9]{4,12}$")
+	private String path;
+
+	// 비밀번호 변경시 현재 비빌번호를 저장하는 용도로 사용
+	@Pattern(regexp = "^[A-Za-z0-9]{4,12}$")
 	private String now_passwd;
 
-	//비밀번호 일치 여부 체크
+	// 비밀번호 일치 여부 체크
 	public boolean isCheckedPassword(String userPasswd) {
-		if(auth > 1 && passwd.equals(userPasswd)) {
+		if (auth > 1 && passwd.equals(userPasswd)) {
 			return true;
 		}
 		return false;
 	}
-	//이미지 BLOB 처리
-	public void setUpload(MultipartFile upload) throws IOException{
+
+	// 이미지 BLOB 처리
+	public void setUpload(MultipartFile upload) throws IOException {
 		this.upload = upload;
-		//MutipartFile -> byte[]
+		// MutipartFile -> byte[]
 		setPhoto(upload.getBytes());
-		//파일 이름
+		// 파일 이름
 		setPhoto_name(upload.getOriginalFilename());
 	}
 
@@ -157,6 +159,7 @@ public class MemberVO {
 	public void setNow_passwd(String now_passwd) {
 		this.now_passwd = now_passwd;
 	}
+
 	@Override
 	public String toString() {
 		return "MemberVO [mem_num=" + mem_num + ", id=" + id + ", auth=" + auth + ", name=" + name + ", passwd="
@@ -164,7 +167,17 @@ public class MemberVO {
 				+ ", reg_date=" + reg_date + ", modify_date=" + modify_date + ", follow_num=" + follow_num
 				+ ", active_mem=" + active_mem + ", passive_mem=" + passive_mem + ", now_passwd=" + now_passwd + "]";
 	}
-				
-	
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public MultipartFile getUpload() {
+		return upload;
+	}
 
 }

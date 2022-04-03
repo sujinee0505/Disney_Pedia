@@ -98,7 +98,13 @@ public class MemberController {
 				// 로그확인
 				logger.info("<<로그인성공>> : " + member);
 
-				return "redirect:/main/main.do";
+				String cp = request.getContextPath();
+				String path = memberVO.getPath().replaceFirst(cp, "");
+				System.out.println("path : " + path);
+				if (path.equals(""))
+					path = "/re/list";
+				return "redirect:" + path;
+
 			}
 			// 인증 실패
 			throw new AuthCheckException();
@@ -316,5 +322,5 @@ public class MemberController {
 		mav.addObject("starList", starList);
 		return mav;
 	}
-	
+
 }
