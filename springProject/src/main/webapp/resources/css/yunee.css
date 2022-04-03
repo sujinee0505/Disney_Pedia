@@ -94,12 +94,12 @@ div #count_area{ /*글자수체크영역*/
 
 #myModal{ /*modal 중앙정렬*/
 	position: absolute;
-   top: 25%; 
+   top: 23%; 
    margin-top: -100px;
 }
 #myModal2{
 	position: absolute;
-   top: 25%; 
+   top: 23%; 
    margin-top: -100px;
 }
 

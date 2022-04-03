@@ -64,6 +64,7 @@ $(function() {
 <div>
 	<img src="${pageContext.request.contextPath}/resources/images/logo.png" height="86px;" class="sign-logo">
 	<h4 class="modal-title">회원가입</h4>
+	<div class="blank_10"></div>
 </div>
 <!-- Modal body -->
 <div class="modal-body">
