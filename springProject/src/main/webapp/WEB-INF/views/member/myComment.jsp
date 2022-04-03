@@ -119,10 +119,12 @@
 													style="display: flex; justify-content: flex-end;">
 													<button data-bs-target="#commentUpdateModal"
 														data-bs-toggle="modal"
-														class="css-jj4q3s-StylelessButton-UserActionButton"
+														class="css-jj4q3s-StylelessButton-UserActionButton updateBtn"
 														style="margin-right: 5px;">수정</button>
 														<input type="hidden" value="${commentList.contents_type }" class="contents_type">
 														<input type="hidden" value="${commentList.contents_num }" class="contents_num">
+														<input type="hidden" value="${contentsList[status.index].title}" class="contents_title">
+														<input type="hidden" value="${commentList.content}" class="reply_content">
 													<button class="css-jj4q3s-StylelessButton-UserActionButton cmt_delbtn">삭제</button>
 												</div>
 											</li>
@@ -143,3 +145,19 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+$(function() {
+	$(document).on('click','.updateBtn', function(event) {
+		var contents_title = $(event.target).siblings('.contents_title').val();
+		var contents_type = $(event.target).siblings('.contents_type').val();
+		var contents_num = $(event.target).siblings('.contents_num').val();
+		var content = $(event.target).siblings('.reply_content').val();
+		$('.commentUpdateModal').on('shown.bs.modal', function(event) {
+			$(event.target).find('.reply_title').text(contents_title);
+			$(event.target).find('.update_type').val(contents_type);
+			$(event.target).find('.update_num').val(contents_num);
+			$(event.target).find('.comment2').val(content);
+		 });
+	});
+});
+</script>

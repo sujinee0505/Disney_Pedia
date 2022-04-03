@@ -5,9 +5,11 @@
 $(function() {	
 	
 	//글자수 불러오기
-	$('.commentUpdateModal').on('shown.bs.modal', function() {
+	$('.commentUpdateModal').on('shown.bs.modal', function(event) {
 		let LengthNow = $('.comment2').val().length;
 		$('.letter-count').text(LengthNow+'/1000');
+		
+		
 	 });
 			 
 	 //글자수카운트
@@ -32,9 +34,9 @@ $(function() {
 				url:'commentUpdate.do',
 				type:'post',
 				data: {
-					contents_num : $(event.target).parent().find('.contents_num').val(),	 		
-					contents_type : $(event.target).parent().find('.contents_type').val(),
-					content : $('.comment2').val(),
+					contents_num : $(event.target).parent().find('.update_num').val(),	 		
+					contents_type : $(event.target).parent().find('.update_type').val(),
+					content : $(event.target).parent().parent().find('.comment2').val(),
 					mem_num : user_num
 					},
 				dataType: 'json',
@@ -55,39 +57,40 @@ $(function() {
 				}
 		}); //end of comment update ajax
  	}); //end of submit
+ 	
+ 	
+ 	
   });
 </script>
 <!DOCTYPE html>
 <body>
-	<c:forEach var="commentList" items="${ commentList }"
-		varStatus="status">
-		<!-- Modal Header -->
-		<div class="modal-header border-0" id="comment-header">
-			<p class="modal-title2">
-				<b>${contentsList[status.index].title}</b>
-			</p>
-			<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-		</div>
-		<!-- Modal body -->
-		<div class="modal-body comment-body">
-			<form method="post" role="form" id="commentUpdate_form" class="commentUpdate_form">
-				<textarea autofocus required cols="30" rows="10" id="comment2"
-					name="comment" placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="comment2">${commentList.content}</textarea>
-				<div class="float_right">
-					<!-- 글자수 체크 -->
-					<div id="count_area" class="count_area">
-						<span class="letter-count">0/1000</span>
-					</div>
-					<!-- 삭제 아이콘 -->
-					<input type="hidden" value="${contentsList[status.index].contents_num}"
-						class="contents_num"> <input type="hidden"
-						value="${contentsList[status.index].contents_type}" class="contents_type">
-					<button type="submit" id="comment_btn"
-						class="btn btn-dark-blue comment_btn">수정</button>
-
+	<!-- Modal Header -->
+	<div class="modal-header border-0" id="comment-header">
+		<p class="modal-title2">
+			<b class="reply_title"></b>
+		</p>
+		<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+	</div>
+	<!-- Modal body -->
+	<div class="modal-body comment-body">
+		<form method="post" role="form" id="commentUpdate_form"
+			class="commentUpdate_form">
+			<textarea autofocus required cols="30" rows="10" id="comment2"
+				name="comment" placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요."
+				class="comment2"></textarea>
+			<div class="float_right">
+				<!-- 글자수 체크 -->
+				<div id="count_area" class="count_area">
+					<span class="letter-count">0/1000</span>
 				</div>
-			</form>
-		</div>
-	</c:forEach>
+				<!-- 삭제 아이콘 -->
+				<input type="hidden" value="" class="update_num"> <input
+					type="hidden" value="" class="update_type">
+				<button type="submit" id="comment_btn"
+					class="btn btn-dark-blue comment_btn">수정</button>
+
+			</div>
+		</form>
+	</div>
 </body>
 </html>
