@@ -53,6 +53,8 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 
 	@Override
 	public void deleteBoard(Integer chatboard_num) {
+		//글에 채팅이 존재하면 채팅을 우선 삭제하고 게시글을 삭제
+		chatBoardMapper.deleteChatByBoard(chatboard_num);
 		chatBoardMapper.deleteBoard(chatboard_num);
 	}
  

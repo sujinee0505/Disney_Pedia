@@ -43,7 +43,9 @@ public interface ChatBoardMapper {
 	//**글 삭제
 	@Delete("DELETE FROM dchatboard WHERE chatboard_num=#{chatboard_num}")
 	public void deleteBoard(Integer chatboard_num);
-
+	//글 삭제시 해당 글의 채팅이 존재하면 글 삭제 전 채팅 삭제한다
+	@Delete("DELETE FROM DCHATTING WHERE chatboard_num=#{chatboard_num}")
+	public void deleteChatByBoard(Integer chatboard_num);
 	
 	// [ 보드/채팅메서드4. 모집상태 변경 UPDATE : update_mateState() ]
 	//xml
