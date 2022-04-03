@@ -9,7 +9,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/detail.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/cmtLike.js"></script>
-<link href="${pageContext.request.contextPath}/resources/css/lightbox.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/lightbox.css" rel="stylesheet" />		
 <div class="css-16jhzm7-Self e1ezac430">
 	<div class="css-1ihluk0-Content e1ezac431">
 		<div class="css-1iyk86f-Background e1ezac432">
@@ -77,25 +77,33 @@
 													<span id="rating_text"></span>
 												</div>
 											</div>
-											<!--=======별점 부분=======-->
-											<%--평가 기록이 없으면(starVO == null) 평가할수있는 별점 div를 표시, 
+	<!--=======별점 부분=======-->
+	<%--평가 기록이 없으면(starVO == null) 평가할수있는 별점 div를 표시, 
 	기록이 있으면(starVO != null) starVO에서 star(별점)을 불러와 점수에 따라 별점 width 변화
 	설정: ContentsController line 104~ --%>
-											<div class="star_area">
-												<input type="hidden" value="${starVO.star_num }"
-													id="starnum_star">
-												<c:if test="${starVO == null}">
-													<div class="rateit" id="starRate"
-														data-contentsid="${contents.contents_num}"
-														data-rateit-mode="font" style="font-size: 38px;">
-														<%-- letter-spacing:-0.14em; --%>
-													</div>
-												</c:if>
-												<c:if test="${starVO != null}">
-													<div class="rateit" id="starRate"
-														data-contentsid="${contents.contents_num}"
-														data-rateit-mode="font" style="font-size: 38px;"></div>
-													<script type="text/javascript">
+	<div class="star_area">
+		<input type="hidden" value="${starVO.star_num }" id="starnum_star">
+		<c:if test="${starVO == null}"> <%--평가기록 없을때 --%>
+			<div class="rateit" id="starRate"
+				data-contentsid="${contents.contents_num}"
+				data-rateit-mode="font" style="font-size: 38px;">
+			</div>
+			<script type="text/javascript">			
+			  $("#starRate").bind('rated', function (event, value) {
+				  var user_num = ${user_num};
+				  //alert(user_num);
+				  if(user_num==0){
+					  alert('평가하시려면 로그인이 필요해요.');
+					  $('.rateit-selected').css('width','');
+				  };				 
+			  });			
+			</script>
+		</c:if>
+		<c:if test="${starVO != null}"> <%--평가기록 있을때 --%>
+			<div class="rateit" id="starRate"
+				data-contentsid="${contents.contents_num}"
+				data-rateit-mode="font" style="font-size: 38px;"></div>
+			<script type="text/javascript">
 			$(function(){
 				$('#do_rating').hide(); //평가하기문구hide
 				var rate = ${starVO.star};				
@@ -141,19 +149,20 @@
 				}
 			});
 			</script>
-												</c:if>
-											</div>
-											<script type="text/javascript">	
+		</c:if>
+		</div>
+		<script type="text/javascript">	
 		$(function(){
 			//(1)별점입력 및 변경
 			$('.star_area .rateit').bind('rated', function (e) { //rated reset		
 		        var ri = $(this);
 	      
 				var checkComment = ${checkComment};
-		        var user_num = ${user_num};
+		        var user_num = ${user_num};		        
 				var value = ri.rateit('value'); 
 				var star_num = $('#starnum_comment').val();
-	    
+				 
+
 		          $.ajax({
 		            url: 'starRating.do', 
 		            data: { 
@@ -169,9 +178,9 @@
 		            success: function (param) { 
 		            	if(param.result == 'logout'){
 							alert('로그인 후 사용하세요!');
-		            	}else if(param.result == 'success'){
+		            	}else if(param.result == 'success'){ //별점기록없으면 insert
 		            		$('#starnum_star').val(param.star_num);
-		            	}else if(param.result == 'success2'){
+		            	}else if(param.result == 'success2'){ //별점기록있으면  update
 		            	}else{
 							alert('별점입력 오류 발생');
 						}	
@@ -180,9 +189,10 @@
 		            	alert('네트워크 오류 발생');
 		            }
 		        });  //end of ajax
+				
 		    });//별점입력끝 
 		    
-		    //(2)리셋버튼 클릭시 별점 취소
+		    //(2)별점 취소 (0.5점 클릭->취소버튼 노출->취소가능)
 			 $("#starRate").bind('reset', function () { //reset버튼클릭시 이벤트 발생
 				 var user_num = ${user_num};
 			 
@@ -217,6 +227,7 @@
 			    
 			//(3)별점에 따른 평가 문구 설정	    	
 		    $("#starRate").bind('rated', function (event, value) { //rated시 이벤트 발생
+		    	
 		    	$('#do_rating').hide(); //평가하기문구hide
 			   	 if(value === 5 ){ 
 			   	 	$('#rating_text').text('최고예요!');		   

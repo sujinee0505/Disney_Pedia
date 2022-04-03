@@ -42,7 +42,7 @@
 				timeout:30000,
 				success:function(param){
 					if(param.result == 'logout'){
-						alert('평가하시려면 로그인이 필요해요.');					
+						alert('코멘트를 작성하시려면 로그인이 필요해요.');					
 					}else if(param.result == 'success'){
 						alert('코멘트를 등록했습니다.');	 
 					}else{
