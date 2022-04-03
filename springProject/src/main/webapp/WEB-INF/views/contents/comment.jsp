@@ -69,7 +69,7 @@
       	<input type="hidden" value="${contents.contents_num}" id="contents_num">
 		<input type="hidden" value="${contents.contents_type}" id="contents_type">	
       	<textarea autofocus required cols="30" rows="10" id="comment" name="comment" 
-      	placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." ></textarea>
+      	placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." spellcheck="false"></textarea>
       	<div class="float_right">
 			<div id="count_area">
 			<span class="letter-count">0/1000</span>
