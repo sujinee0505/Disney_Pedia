@@ -5,6 +5,39 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//코멘트 삭제
+	 	$('.cmt_delbtn').click(function(event){
+	 		 var user_num = ${user_num};
+			 $.ajax({
+					url:'commentDelete.do',
+					type:'post',
+					data: {
+						contents_num : $(event.target).parent().find('.contents_num').val(),				
+						contents_type : $(event.target).parent().find('.contents_type').val(),
+						mem_num : user_num
+						},
+					dataType: 'json',
+					cache:false,
+					timeout:30000,
+					success:function(param){
+						if(param.result == 'logout'){
+							alert('로그인 후 사용하세요');					
+						}else if(param.result == 'success'){
+							 alert('코멘트를 삭제했습니다.');	 
+							 location.reload(true); 
+						}else{
+							 alert('코멘트 삭제 오류 발생'); 
+						}
+					},
+					error:function(){
+						alert('네트워크 오류 발생');
+					}
+			}); //end of comment delete ajax
+	 	}); //end of click
+	});
+</script>
 <section class="css-18gwkcr">
 	<section class="css-le8j8b" style="min-height: 950px;">
 		<div class="css-1jehmiq"
@@ -28,7 +61,7 @@
 												style="background-color: rgb(242, 242, 242); box-sizing: border-box; padding: 15px 15px 0px 15px; border-radius: 6px; overflow: hidden; margin: 0px 0px 20px; width: 500px !important; text-align: left;">
 												<div class="css-4obf01">
 													<div
-														style="display: flex; justify-content: space-between; align-items: center; margin: 15px 0;">
+														style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
 														<div class="css-1agoci2">
 															<a style="color: #74747B;"
 																href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num}">
@@ -50,7 +83,7 @@
 														</a>
 													</div>
 												</div>
-												<div class="css-4tkoly">
+												<div class="css-4tkoly" style="margin: 12px 0 0;">
 													<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 														href="/ko-KR/comments/6aLMPoKyrZ2Ow">
 														<div class="css-1g78l7j">
@@ -64,7 +97,7 @@
 																	href="${pageContext.request.contextPath}/contents/cmtDetail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num }&comment_num=${commentList.comment_num }"><span
 																	style="overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 3; -webkit-box-orient: vertical; margin-left: 15px;">${commentList.content}</span></a>
 																<div class="css-1atijos"
-																	style="display: flex; justify-content: space-between; border-top: 1px solid #e5e5e5; border-bottom: none;">
+																	style="display: flex; justify-content: space-between; border-top: 1px solid #e5e5e5;">
 																	<div style="display: flex; align-items: center;">
 																		<span
 																			src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgZmlsbD0iIzc4Nzg3OCI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik02Ljc1IDkuNDg1aC0zYTEgMSAwIDAgMC0xIDF2MTBhMSAxIDAgMCAwIDEgMWgzYTEgMSAwIDAgMCAxLTF2LTEwYTEgMSAwIDAgMC0xLTFNMjAuNjU3IDguNTY2YTIuMzYzIDIuMzYzIDAgMCAwLTEuNzc5LS44MTNIMTYuNjJsLjE2NC0uNjI3Yy4xMzctLjUyOC4yMDEtMS4xMi4yMDEtMS44NjMgMC0xLjkxOS0xLjM3NS0yLjc3OC0yLjczOC0yLjc3OC0uNDQ0IDAtLjc2Ni4xMjMtLjk4Ni4zNzYtLjIuMjI3LS4yODIuNTMtLjI0My45MzVsLjAzIDEuMjMtMi45MDMgMi45NGMtLjU5My42LS44OTQgMS4yMy0uODk0IDEuODcydjkuNjQ3YS41LjUgMCAwIDAgLjUuNWg3LjY4N2EyLjM4OCAyLjM4OCAwIDAgMCAyLjM0OC0yLjA3bDEuNDQ1LTcuNDUyYTIuNDQgMi40NCAwIDAgMC0uNTc0LTEuODk3Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
@@ -82,6 +115,16 @@
 														</div>
 													</a>
 												</div>
+												<div class="css-hy68ty"
+													style="display: flex; justify-content: flex-end;">
+													<button data-bs-target="#commentUpdateModal"
+														data-bs-toggle="modal"
+														class="css-jj4q3s-StylelessButton-UserActionButton"
+														style="margin-right: 5px;">수정</button>
+														<input type="hidden" value="${commentList.contents_type }" class="contents_type">
+														<input type="hidden" value="${commentList.contents_num }" class="contents_num">
+													<button class="css-jj4q3s-StylelessButton-UserActionButton cmt_delbtn">삭제</button>
+												</div>
 											</li>
 										</c:forEach>
 									</ul>
@@ -92,3 +135,11 @@
 		</div>
 	</section>
 </section>
+<div class="modal fade commentUpdateModal" id="commentUpdateModal" tabindex="-1"
+	role="dialog">
+	<div class="modal-dialog modal-dialog-centered modal-comment">
+		<div class="modal-content">
+			<jsp:include page="/WEB-INF/views/member/commentUpdate.jsp" />
+		</div>
+	</div>
+</div>

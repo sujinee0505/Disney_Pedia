@@ -72,13 +72,13 @@ public class CommentController {
 
 	// =====코멘트 수정=====
 	// 코멘트 수정 폼 호출
-	@GetMapping("/contents/commentUpdate.do")
+	@GetMapping(value = {"/contents/commentUpdate.do", "/member/commentUpdate.do"})
 	public String commentUpdate() {
 		return "commentUpdate";
 	}
 
 	// 코멘트 ajax 수정
-	@RequestMapping("/contents/commentUpdate.do")
+	@RequestMapping(value = {"/contents/commentUpdate.do", "/member/commentUpdate.do"})
 	@ResponseBody
 	public Map<String, String> commentUpdate(CommentVO commentVO, HttpSession session) {
 
@@ -96,7 +96,7 @@ public class CommentController {
 	}
 
 	// 코멘트 ajax 삭제
-	@RequestMapping("/contents/commentDelete.do")
+	@RequestMapping(value = {"/contents/commentDelete.do","/member/commentDelete.do"})
 	@ResponseBody
 	public Map<String, String> commentDelete(CommentVO commentVO, HttpSession session) {
 

@@ -86,7 +86,7 @@ create table dcomment_like(
   comment_num number not null, 
   mem_num number not null,
   constraint dcomment_like_pk primary key (commentlike_num), 
-  constraint dcomment_like_fk_1 foreign key (comment_num) references dcomment (comment_num),
+  constraint dcomment_like_fk_1 foreign key (comment_num) references dcomment (comment_num) ON DELETE CASCADE,
   constraint dcomment_like_fk_2 foreign key (mem_num) references dmember (mem_num)
 );
 create sequence dcomment_like_seq; 
@@ -102,7 +102,7 @@ create table dcomment_reply(
  reg_date date default sysdate, 
  modify_date date,
  constraint dcomment_reply_pk primary key (reply_num),
- constraint dcomment_reply_fk_1 foreign key (comment_num) references dcomment (comment_num),
+ constraint dcomment_reply_fk_1 foreign key (comment_num) references dcomment (comment_num) ON DELETE CASCADE,
  constraint dcomment_reply_fk_2 foreign key (mem_num) references dmember (mem_num)
 );
 create sequence dcomment_reply_seq;
