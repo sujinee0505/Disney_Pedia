@@ -157,7 +157,7 @@ input[type="password"] { /*클릭시 bgcolor 에러로 별도 지정*/
 	font-size:9pt;
 	font-family: 'SUIT-Medium';
 	float:left;
-	margin:12px 0;
+	margin:4px 0 12px 8px;
 	margin-left:8px;
 	
 }
