@@ -46,9 +46,9 @@ $(function() {
 					if (param.result == 'logout') {
 						alert('로그인 후 사용하세요');
 					} else if (param.result == 'success') {
-						alert('코멘트를 수정했습니다.');
+						alert('댓글을 수정했습니다.');
 					} else {
-						alert('코멘트 수정 오류 발생');
+						alert('댓글 수정 오류 발생');
 					}
 				},
 				error : function() {

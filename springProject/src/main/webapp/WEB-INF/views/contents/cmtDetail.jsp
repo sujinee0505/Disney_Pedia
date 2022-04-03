@@ -168,10 +168,10 @@
 							if (param.result == 'logout') {
 								alert('로그인 후 사용하세요');
 							} else if (param.result == 'success') {
-								alert('코멘트를 삭제했습니다.');
+								alert('댓글을 삭제했습니다.');
 								location.reload(true);
 							} else {
-								alert('코멘트 삭제 오류 발생');
+								alert('댓글 삭제 오류 발생');
 							}
 						},
 						error : function() {
