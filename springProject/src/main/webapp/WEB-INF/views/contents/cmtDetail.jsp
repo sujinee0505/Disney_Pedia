@@ -11,7 +11,19 @@
 
 	cmtlike = function() {
 			if (user_num == 0 || user_num == null) {
-				alert('로그인 한 사용자만 가능합니다.');
+				Swal.fire({			
+					  title: ' ',						  
+					  text: '좋아요를 누르려면 로그인이 필요해요.',
+					  imageUrl: '${pageContext.request.contextPath}/resources/images/like_icon.png',
+					  imageWidth: 70,
+					  imageHeight: 70,						  
+					  imageAlt: 'Custom image',
+					  confirmButtonColor: '#57c6f2',
+					  confirmButtonText: '알겠어요',
+					  width: 400,
+					  padding: '2em'
+					  })
+			return;
 			}
 			if (user_num != 0 && user_num != null) {
 				$
