@@ -43,7 +43,19 @@ $(function() {
 					if(param.result == 'logout'){
 						alert('로그인 후 사용하세요');					
 					}else if(param.result == 'success'){
-						 alert('코멘트를 수정했습니다.');	 
+						// alert('코멘트를 수정했습니다.');	 
+						 Swal.fire({			
+							  title: ' ',						  
+							  text: '코멘트를 수정했습니다.',
+							  imageUrl: '${pageContext.request.contextPath}/resources/images/star_icon.png',
+							  imageWidth: 70,
+							  imageHeight: 70,						  
+							  imageAlt: 'Custom image',
+							  confirmButtonColor: '#57c6f2',
+							  confirmButtonText: '알겠어요',
+							  width: 400,
+							  padding: '2em'
+							  })
 					}else{
 						 alert('코멘트 수정 오류 발생'); 
 					}

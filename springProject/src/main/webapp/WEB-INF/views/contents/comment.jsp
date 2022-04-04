@@ -42,7 +42,19 @@
 				timeout:30000,
 				success:function(param){
 					if(param.result == 'logout'){
-						alert('코멘트를 작성하시려면 로그인이 필요해요.');					
+						Swal.fire({			
+							  title: ' ',						  
+							  text: '코멘트를 작성하시려면 로그인이 필요해요.',
+							  imageUrl: '${pageContext.request.contextPath}/resources/images/star_icon.png',
+							  imageWidth: 70,
+							  imageHeight: 70,						  
+							  imageAlt: 'Custom image',
+							  confirmButtonColor: '#57c6f2',
+							  confirmButtonText: '알겠어요',
+							  width: 400,
+							  padding: '2em'
+							  })
+						//alert('코멘트를 작성하시려면 로그인이 필요해요.');					
 					}else if(param.result == 'success'){
 						alert('코멘트를 등록했습니다.');	 
 					}else{

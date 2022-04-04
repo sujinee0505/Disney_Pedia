@@ -9,7 +9,10 @@
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/detail.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/cmtLike.js"></script>
-<link href="${pageContext.request.contextPath}/resources/css/lightbox.css" rel="stylesheet" />		
+<link href="${pageContext.request.contextPath}/resources/css/lightbox.css" rel="stylesheet" />	
+<script>
+sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
+</script>	
 <style>
 *{
 	font-family: 'SUIT-Medium';
@@ -105,7 +108,7 @@
 						  imageWidth: 70,
 						  imageHeight: 70,						  
 						  imageAlt: 'Custom image',
-						  confirmButtonColor: '#9ce9ff',
+						  confirmButtonColor: '#57c6f2',
 						  confirmButtonText: '알겠어요',
 						  width: 400,
 						  padding: '2em'
