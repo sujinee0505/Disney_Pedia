@@ -25,12 +25,7 @@
 					<tbody>
 						<tr>
 							<td><form:input path="title" type="text" class="form-control" placeholder="제목" name="title" maxlength="50"></form:input></td>
-						</tr>   <div class="valid-feedback">
-        Looks good!
-      </div>
-      <div class="invalid-feedback">
-        이메일 형식으로 입력해야 합니다.
-      </div>
+						</tr>   
 						<tr>
 							<td><form:textarea path="content" class="form-control" placeholder="내용" name="content" maxlength="2048" style="height: 350px;"></form:textarea></td>
 						</tr>
