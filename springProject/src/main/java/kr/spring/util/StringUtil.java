@@ -29,6 +29,15 @@ public class StringUtil {
 				  .replaceAll(">", "&gt;");
 	}
 	
+	//<br>태그 \r로 변경해서 보여지게하기
+	public static String hideBr(String str) {
+		if(str == null) return null;
+		
+		return str.replaceAll("<br>", "\r\n")
+				  .replaceAll("<br>", "\r")
+				  .replaceAll("<br>", "\n");
+	}
+	
 	//특정 문자열 이후에 ...으로 처리
 	public static String shortWords(int length, String content) {
 		if(content == null) return null;
