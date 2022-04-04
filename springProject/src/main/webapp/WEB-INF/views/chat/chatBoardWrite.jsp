@@ -6,12 +6,27 @@
 <style>
 .ck-editor__editable_inline{
 	min-height:250px;
-	
 }
 </style>
+<script type="text/javascript">
+	$(function() { 
+		$('#write_form').submit(function() {
+			if ($('#title').val().trim() == '') {
+				alert('제목을 입력하세요!');
+				$('#title').val('').focus();
+				return false;
+			}
+			if ($('#content').val().trim() == '') {
+				alert('내용을 입력하세요!');
+				$('#content').val('').focus();
+				return false;
+			}
+		})
+	});
+</script>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
-	<form:form modelAttribute="chatBoardVO" action="write.do" id="write_form" > 
+	<form:form modelAttribute="chatBoardVO" action="write.do" id="write_form"> 
 		<form:errors element="div" cssClass="error-color"/>
 		<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 				   <thead>
@@ -27,14 +42,14 @@
 							<td><form:input path="title" type="text" class="form-control" placeholder="제목" name="title" maxlength="50"></form:input></td>
 						</tr>   
 						<tr>
-							<td><form:textarea path="content" class="form-control" placeholder="내용" name="content" maxlength="2048" style="height: 350px;"></form:textarea></td>
+							<td><form:textarea path="content" type="text" class="form-control" placeholder="내용" name="content" maxlength="2048" style="height: 350px;" ></form:textarea></td>
 						</tr>
 					</tbody>
 				</table>
 		<div class="align-center">
 		    <button type="submit" value="등록" onclick="location.href='list.do'" class="btn btn-outline-primary">등록</button>
 			<button type="button"  onclick="location.href='list.do'" class="btn btn-outline-secondary">목록</button>
-		</div>
+		</div>	
 	</form:form>
 </div>
 <!-- 중앙 컨텐츠 끝 -->

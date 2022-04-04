@@ -17,6 +17,11 @@ ul.chat-other {
 	overflow-y: auto;
 	margin-top: 85px;
 }
+
+@font-face{
+font-family: 'SUIT-Medium';
+}
+
 </style>
 	
 <script type="text/javascript"
