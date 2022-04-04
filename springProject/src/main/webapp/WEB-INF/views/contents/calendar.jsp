@@ -32,7 +32,7 @@
 									  imageWidth: 70,
 									  imageHeight: 70,						  
 									  imageAlt: 'Custom image',
-									  confirmButtonColor: '#57c6f2',
+									  confirmButtonColor: '#84d7fa',
 									  confirmButtonText: '알겠어요',
 									  width: 400,
 									  padding: '2em'
