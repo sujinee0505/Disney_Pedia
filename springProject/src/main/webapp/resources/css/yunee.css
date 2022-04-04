@@ -30,7 +30,7 @@
 .clear{ /*float clear*/
 	clear:both;
 }
-#mycmtStar{
+#mycmtStar{ /*마이코멘트 별점 노랗게*/
 	color:#ffa914;
 	font-family: 'SUIT-Medium';
 	/*텍스트 세로 중앙 정렬*/
@@ -38,8 +38,12 @@
 	align-items:center !important;
 	justify-content:center !important;	
 }
-#myCal{
+#myCal{ /*마이페이지 캘린더 아이콘 살짝 위로*/
 	margin-bottom:6px;
+}
+.align-center{ /*채팅방 게시판 배너 글자 가운데 정렬*/
+	top: 34%; 
+   margin-top: -50px;
 }
 
 /*=====모달-콘텐츠=====*/

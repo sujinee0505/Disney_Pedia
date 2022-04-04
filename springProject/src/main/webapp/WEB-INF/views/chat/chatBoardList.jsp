@@ -53,7 +53,7 @@ $(function() {
 	<div class="carousel-bg">
 
 		<!-- 캐러셀 -->
-		<div id="carouselExampleFade" class="carousel slide carousel-fade"
+		<div id="carouselExampleFade" class="carousel slide carousel-fade "
 			data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active carousel-fade"
@@ -61,7 +61,8 @@ $(function() {
 					<img
 						src="${pageContext.request.contextPath}/resources/images/board/1woody_br.jpg"
 						class="img-responsive d-block img-rounded" id="woody">
-					<div class="carousel-caption ">
+				
+					<div class="align-center carousel-caption " >
 						<h2>
 							<b>디즈니 메이트</b>
 						</h2>
@@ -72,7 +73,7 @@ $(function() {
 					<img
 						src="${pageContext.request.contextPath}/resources/images/board/2disney_br.jpg"
 						class="d-block img-rounded" id="disney">
-					<div class="carousel-caption d-none d-md-block ">
+					<div class="align-center carousel-caption d-none d-md-block ">
 						<h2>
 							<b>구해보세요</b>
 						</h2>
@@ -83,7 +84,7 @@ $(function() {
 					<img
 						src="${pageContext.request.contextPath}/resources/images/board/3starwars_br.jpg"
 						class="d-block img-rounded" id="starwars">
-					<div class="carousel-caption d-none d-md-block ">
+					<div class="align-center carousel-caption d-none d-md-block ">
 						<h2>
 							<b>채팅 기능으로 연락해 보세요</b>
 						</h2>
@@ -94,7 +95,7 @@ $(function() {
 					<img
 						src="${pageContext.request.contextPath}/resources/images/board/4marvel_br.jpg"
 						class="d-block img-rounded" id="marvel">
-					<div class="carousel-caption d-none d-md-block ">
+					<div class="align-center carousel-caption d-none d-md-block ">
 						<h2>
 							<b>내가 만들어가는 디즈니 피디아!</b>
 						</h2>
