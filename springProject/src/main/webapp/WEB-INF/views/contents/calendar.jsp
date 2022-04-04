@@ -9,8 +9,7 @@
 					'shown.bs.modal',
 					function() {
 						document.getElementById('path').value = location.pathname
-								+ location.search;
-						
+								+ location.search;						
 					});
 
 		$('#insertCal')
