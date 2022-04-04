@@ -808,3 +808,4 @@
 </div>
 <input type="hidden" value="${user_num}" id="user_num">
 <input type="hidden" value="${check}" id="check">
+<input type="hidden" name="path" id="path" />

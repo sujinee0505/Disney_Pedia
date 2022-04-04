@@ -4,8 +4,14 @@
 <script type="text/javascript">
 	$(function() {
 		var user_num = ${user_num};
-		$('#calendarModal').on('shown.bs.modal', function() {
-		});
+	
+		$('#calendarModal').on(
+					'shown.bs.modal',
+					function() {
+						document.getElementById('path').value = location.pathname
+								+ location.search;
+						
+					});
 
 		$('#insertCal')
 				.submit(
@@ -47,7 +53,8 @@
 																.val(),
 														poster_path : $(
 																'#poster_path')
-																.val()
+																.val(),
+														path : $('#path').val()
 													},
 													url : 'updateCal.do',
 													dataType : 'json',
@@ -58,8 +65,7 @@
 															alert('로그인후 등록할 수 있습니다.');
 														} else if (param.result == 'success') {
 															alert('수정되었습니다.');
-															location
-																	.replace('detail.do?contents_type=${contents.contents_type}&contents_num=${contents.contents_num}');
+															location.replace('/project' + param.path);
 														} else {
 															alert('수정시 오류 발생');
 														}
@@ -85,7 +91,8 @@
 															.val(),
 													poster_path : $(
 															'#poster_path')
-															.val()
+															.val(),
+												    path : $('#path').val()
 												},
 												url : 'insertCal.do',
 												dataType : 'json',
@@ -96,8 +103,7 @@
 														alert('로그인후 등록할 수 있습니다.');
 													} else if (param.result == 'success') {
 														alert('등록되었습니다.');
-														location
-																.replace('detail.do?contents_type=${contents.contents_type}&contents_num=${contents.contents_num}');
+														location.replace('/project' + param.path);
 													} else {
 														alert('등록시 오류 발생');
 													}
@@ -127,7 +133,8 @@
 												contents_type : $(
 														'#contents_type').val(),
 												poster_path : $('#poster_path')
-														.val()
+														.val(),
+												path : $('#path').val()
 											},
 											url : 'deleteCal.do',
 											dataType : 'json',
@@ -138,8 +145,7 @@
 													alert('로그인후 삭제할 수 있습니다.');
 												} else if (param.result == 'success') {
 													alert('삭제되었습니다.');
-													location
-															.replace('detail.do?contents_type=${contents.contents_type}&contents_num=${contents.contents_num}');
+													location.replace('/project' + param.path);
 												} else {
 													alert('삭제시 오류 발생');
 												}

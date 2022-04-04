@@ -128,7 +128,7 @@ public class CalendarController {
 	// 컨텐츠 디테일 페이지에서 캘린더에 추가하기
 	@RequestMapping("/contents/insertCal.do")
 	@ResponseBody
-	public Map<String, String> insertCal(CalendarVO calendarVO, HttpSession session) {
+	public Map<String, String> insertCal(CalendarVO calendarVO, HttpServletRequest request, HttpSession session) {
 
 		Map<String, String> map = new HashMap<String, String>();
 
@@ -139,6 +139,11 @@ public class CalendarController {
 			calendarVO.setMem_num(mem_num);
 			calenderService.insertCalendar(calendarVO);
 			map.put("result", "success");
+			String cp = request.getContextPath();
+			String path = calendarVO.getPath().replaceFirst(cp, "");
+			if (path.equals(""))
+				path = "/re/list";
+			map.put("path", path);
 		}
 		return map;
 	}
@@ -146,7 +151,7 @@ public class CalendarController {
 	// 컨텐츠 디테일 페이지에서 캘린더 날짜 수정하기
 	@RequestMapping("/contents/updateCal.do")
 	@ResponseBody
-	public Map<String, String> updateCal(CalendarVO calendarVO, HttpSession session) {
+	public Map<String, String> updateCal(CalendarVO calendarVO, HttpServletRequest request, HttpSession session) {
 
 		Map<String, String> map = new HashMap<String, String>();
 
@@ -157,6 +162,11 @@ public class CalendarController {
 			calendarVO.setMem_num(mem_num);
 			calenderService.updateCalendar(calendarVO);
 			map.put("result", "success");
+			String cp = request.getContextPath();
+			String path = calendarVO.getPath().replaceFirst(cp, "");
+			if (path.equals(""))
+				path = "/re/list";
+			map.put("path", path);
 		}
 		return map;
 	}
@@ -164,7 +174,7 @@ public class CalendarController {
 	// 컨텐츠 디테일 페이지에서 캘린더 날짜 삭제하기
 	@RequestMapping("/contents/deleteCal.do")
 	@ResponseBody
-	public Map<String, String> deleteCal(CalendarVO calendarVO, HttpSession session) {
+	public Map<String, String> deleteCal(CalendarVO calendarVO, HttpServletRequest request, HttpSession session) {
 
 		Map<String, String> map = new HashMap<String, String>();
 
@@ -175,6 +185,11 @@ public class CalendarController {
 			calendarVO.setMem_num(mem_num);
 			calenderService.deleteCalendar(calendarVO);
 			map.put("result", "success");
+			String cp = request.getContextPath();
+			String path = calendarVO.getPath().replaceFirst(cp, "");
+			if (path.equals(""))
+				path = "/re/list";
+			map.put("path", path);
 		}
 		return map;
 	}

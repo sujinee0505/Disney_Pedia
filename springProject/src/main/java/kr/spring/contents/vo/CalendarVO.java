@@ -8,6 +8,7 @@ public class CalendarVO {
 	private String custom_date;
 	private String contents_type;
 	private String poster_path;
+	private String path;
 
 	public int getCal_num() {
 		return cal_num;
@@ -57,10 +58,11 @@ public class CalendarVO {
 		this.poster_path = poster_path;
 	}
 
-	@Override
-	public String toString() {
-		return "CalendarVO [cal_num=" + cal_num + ", contents_num=" + contents_num + ", mem_num=" + mem_num
-				+ ", custom_date=" + custom_date + ", contents_type=" + contents_type + ", poster_path=" + poster_path
-				+ "]";
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 }

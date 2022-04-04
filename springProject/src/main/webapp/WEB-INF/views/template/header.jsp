@@ -54,34 +54,18 @@
 							</div>
 						</div></li>
 					<c:if test="${empty user_num ||  user_num ==0 }">
-						<!--onclick="location.href='${pageContext.request.contextPath}/member/login.do'"-->
-						<!-- data-target="#myModal" data-toggle="modal" data-remote="${pageContext.request.contextPath}/member/login.do" -->
 						<!-- 로그인 -->
 						<li class="css-bj71cw">
-							<%--<button id="login-btn"
-								onclick="location.href='${pageContext.request.contextPath}/member/login.do'"
-								class="css-fn0ezc-StylelessButton">로그인</button>--%>
 							<button id="login-btn" type="button"
 								class="css-fn0ezc-StylelessButton" data-bs-toggle="modal"
 								data-bs-target="#myModal">로그인</button>
 						</li>
 						<!-- 로그인 -->
 						<li class="css-bj71cw">
-							<%-- <button id="register-btn"
-								onclick="location.href='${pageContext.request.contextPath}/member/registerUser.do'"
-								class="css-139vxi-StylelessButton">회원가입</button></li> --%>
 							<button id="register-btn" type="button" class="css-139vxi-StylelessButton"
 								data-bs-toggle="modal" data-bs-target="#myModal2">회원가입
 							</button>
 					</c:if>
-					<%-- <c:if test="${mem_num != null }">
-						<li class="css-bj71cw"><a href="/ko-KR/review"><span
-								class="css-1kqg656">여기 뭐였죠</span></a></li>
-						<li class="css-bj71cw"><a title="회원 page" href=""><div
-									class="css-ipiine">
-									<div class="css-1wkpkpw-ProfilePhotoImage"></div>
-								</div></a></li>
-					</c:if> --%>
 					<c:if test="${!empty user_num && user_num !=0}">
 						<li class="css-bj71cw"><form action="logout.do"
 								method="post">
