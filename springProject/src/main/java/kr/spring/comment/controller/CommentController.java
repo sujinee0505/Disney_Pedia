@@ -74,7 +74,8 @@ public class CommentController {
 	// =====코멘트 수정=====
 	// 코멘트 수정 폼 호출
 	@GetMapping(value = {"/contents/commentUpdate.do", "/member/commentUpdate.do"})
-	public String commentUpdate() {
+	public String commentUpdate(CommentVO commentVO) {
+		
 		return "commentUpdate";
 	}
 
