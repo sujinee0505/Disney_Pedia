@@ -127,7 +127,7 @@ input[type=button] {
 															onclick="location.href='update.do'"> <a
 															href="myCalendar.do?mem_num=${member.mem_num}"> <img
 															src="${pageContext.request.contextPath}/resources/images/cal.png"
-															width="30" height="30">
+															width="30" height="30" id="myCal">
 														</a>
 													</div>
 												</c:if>

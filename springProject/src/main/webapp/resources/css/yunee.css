@@ -38,6 +38,9 @@
 	align-items:center !important;
 	justify-content:center !important;	
 }
+#myCal{
+	margin-bottom:6px;
+}
 
 /*=====모달-콘텐츠=====*/
 #comment-header{
