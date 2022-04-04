@@ -52,7 +52,7 @@
 				코멘트</div>
 		</div>
 		<div class="css-ipmqep-StyledTabContentContainer e1szkzar3">
-			<div class="css-12hxjcc-StyledHideableBlock e1pww8ij0" style="background:#F1F3FA;">
+			<div class="css-12hxjcc-StyledHideableBlock e1pww8ij0">
 				<section class="css-9ebwyf-pageMarginStyle">
 					<section class="css-1s4ow07">
 						<div class="css-usdi1z">
