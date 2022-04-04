@@ -204,7 +204,6 @@ let namecount = 0;
 	});   
 	
 </script>
-
 <div id="bg">
 <!-- <div class="page-main-chat border border-primary border-2 rounded"> -->
 	<div class="page-main-chat">
@@ -263,7 +262,7 @@ let namecount = 0;
 							
 							<div id="enter" >
 								<img src="${pageContext.request.contextPath}/resources/images/board/chipNdale.gif">
-								<textarea name="content" id="content" class="form-control" cols="70" rows="5" ></textarea>
+								<textarea name="content" id="content" class="form-control no_resize" cols="70" rows="5" ></textarea>
 								<button type="submit" class="btn-chat btn-outline-primary rounded-pill" id="submit_btn">전송</button>
 							</div>
 						</form>

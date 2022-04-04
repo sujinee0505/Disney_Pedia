@@ -451,6 +451,7 @@ body {
 	background-size: cover;
 	width: 100%;
 	height: 100%;
+	
 }
 
 .css-1xl5dyt {
@@ -6607,7 +6608,8 @@ h1, h3, p, hr {
 	font-weight: 400;
 	letter-spacing: -0.2px;
 	line-height: 24px;
-	overflow: hidden;
+	overflow: hidden; 
+	overflow: visible;
 	opacity: 1;
 	transition: all 400ms ease 0s;
 	font-size: 15px;

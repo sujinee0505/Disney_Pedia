@@ -33,6 +33,17 @@
 .float_left{
 	float:left;
 }
+.float_right{
+	float:right;
+}
+.no_resize{
+	resize: none;
+}
+#content textarea:focus{
+	box-shadow:none !important;
+	outline: none !important;
+	border:none;
+}
 #mycmtStar{ /*마이코멘트 별점 노랗게*/
 	color:#ffa914;
 	font-family: 'SUIT-Medium';
@@ -169,6 +180,9 @@ font-family: 'BMJUA';
 
 input:focus { /*input blue glow 제거*/
     box-shadow:none !important;
+}
+textarea:focus{
+	box-shadow:none !important;
 }
 /*input 설정*/
 /*여백설정*/

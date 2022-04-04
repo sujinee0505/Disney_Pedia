@@ -95,7 +95,7 @@
 													<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 														href="/ko-KR/comments/6aLMPoKyrZ2Ow">
 														<div class="css-1g78l7j">
-															<div class="css-1g78l7j">
+															<div class="css-1g78l7j" >
 															<div class="css-1v2z0uj-ProfilePhotoImage">
 																<!-- 포스터 이미지-->															
 																<div class="float_left">
@@ -107,7 +107,7 @@
 																	</a>	
 																</div>		
 																	<!-- 코멘트 내용 -->	
-																<div class="float_left">	
+																<div class="float_left" style="max-width:450px; ">	
 																	<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 																		href="${pageContext.request.contextPath}/contents/cmtDetail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num }&comment_num=${commentList.comment_num }">
 																	${commentList.content}
