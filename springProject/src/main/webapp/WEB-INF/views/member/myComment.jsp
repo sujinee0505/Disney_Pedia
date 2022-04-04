@@ -99,7 +99,7 @@
 																<a
 																	href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num}"><img
 																	class="css-qhzw1o-StyledImg"
-																	style="max-height: 520px; width: 80px; margin-bottom: 15px;"
+																	style="max-height: 520px; width: 100px; margin-bottom: 15px;"
 																	src="${ contentsList[status.index].poster_path }"></a>
 																<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 																	href="${pageContext.request.contextPath}/contents/cmtDetail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num }&comment_num=${commentList.comment_num }"><span
