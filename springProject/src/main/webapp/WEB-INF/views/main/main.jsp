@@ -44,7 +44,7 @@
 													<span>
 														${Math.ceil((vote_average.vote_average)/2*10)/10} </span>
 												</div>
-												<div class="css-u4moi6">인기도 :${vote_average.popularity }
+												<div class="css-u4moi6">인기도 : ${vote_average.popularity }
 												</div>
 											</div></a>
 									</c:forEach></li>

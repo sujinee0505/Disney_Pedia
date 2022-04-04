@@ -45,7 +45,7 @@
 									action="${pageContext.request.contextPath}/contents/search.do"
 									method="get">
 									<label class="css-kyr608" id="label"><input type="text"
-										autocomplete="off" placeholder="콘텐츠를 검색해보세요." name="keyword"
+										autocomplete="off" placeholder="콘텐츠, 인물, 유저를 검색해보세요." name="keyword"
 										value="${param.keyword}" class="css-13i5xe6" id="keyword">
 										<div value="false" class="css-ikj5sk">
 											<span aria-label="clear" role="button" class="css-14vwb0g"></span>
