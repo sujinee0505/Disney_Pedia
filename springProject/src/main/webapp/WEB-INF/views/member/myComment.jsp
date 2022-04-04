@@ -87,7 +87,10 @@
 														</c:if>
 														<c:if
 															test="${empty commentList.star || commentList.star == 0}">
-														평가하기</c:if>
+														<div class="css-yqs4xl" style="margin: 0; color:#68b4ed;font-size:13px;" >
+														&nbsp;평가하기&nbsp;
+														</div>
+														</c:if>
 														</a>
 													</div>
 												</div>
@@ -139,14 +142,14 @@
 													<button data-bs-target="#commentUpdateModal"
 														data-bs-toggle="modal"
 														class="css-jj4q3s-StylelessButton-UserActionButton updateBtn"
-														style="margin-right: 5px; font-size:13px;">
+														style="margin-right: 5px; font-size:13px; background-color:#57c6f2;">
 														&nbsp;&nbsp;수정&nbsp;&nbsp;
 													</button>
 														<input type="hidden" value="${commentList.contents_type }" class="contents_type">
 														<input type="hidden" value="${commentList.contents_num }" class="contents_num">
 														<input type="hidden" value="${contentsList[status.index].title}" class="contents_title">
 														<input type="hidden" value="${commentList.content}" class="reply_content">
-													<button class="css-jj4q3s-StylelessButton-UserActionButton cmt_delbtn" style="font-size:13px;">
+													<button class="css-jj4q3s-StylelessButton-UserActionButton cmt_delbtn" style="font-size:13px;background-color:#a8a8a8;">
 														&nbsp;&nbsp;삭제&nbsp;&nbsp;
 													</button>
 												</div></c:if>
