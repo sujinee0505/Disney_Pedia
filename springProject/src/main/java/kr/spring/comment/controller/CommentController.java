@@ -73,10 +73,27 @@ public class CommentController {
 
 	// =====코멘트 수정=====
 	// 코멘트 수정 폼 호출
-	@GetMapping(value = {"/contents/commentUpdate.do", "/member/commentUpdate.do"})
+	@GetMapping("/contents/commentUpdate.do")
 	public String commentUpdate(CommentVO commentVO) {
 		
 		return "commentUpdate";
+	}
+	
+	@RequestMapping("/member/getComment.do")
+	@ResponseBody
+	public Map<String, String> commentUpdate_member(CommentVO commentVO, HttpSession session) {
+
+		Map<String, String> map = new HashMap<String, String>();
+
+		Integer user_num = (Integer) session.getAttribute("user_num");
+		if (user_num == null) {// 로그인이 되지 않은 경우
+			map.put("result", "logout");
+		} else {// 로그인 된 경우
+			String content = commentService.getComment(commentVO).getContent();
+			map.put("result", "success");
+			map.put("content", content);
+		}
+		return map;
 	}
 
 	// 코멘트 ajax 수정

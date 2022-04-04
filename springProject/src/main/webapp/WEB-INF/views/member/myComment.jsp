@@ -149,6 +149,7 @@
 														<input type="hidden" value="${commentList.contents_num }" class="contents_num">
 														<input type="hidden" value="${contentsList[status.index].title}" class="contents_title">
 														<input type="hidden" value="${commentList.content}" class="reply_content">
+														<input type="hidden" value="0" class="status">
 													<button class="css-jj4q3s-StylelessButton-UserActionButton cmt_delbtn" style="font-size:13px;background-color:#a8a8a8;">
 														&nbsp;&nbsp;삭제&nbsp;&nbsp;
 													</button>
@@ -177,13 +178,43 @@ $(function() {
 		var contents_title = $(event.target).siblings('.contents_title').val();
 		var contents_type = $(event.target).siblings('.contents_type').val();
 		var contents_num = $(event.target).siblings('.contents_num').val();
-		var content = $(event.target).siblings('.reply_content').val();
-		$('.commentUpdateModal').on('shown.bs.modal', function(event) {
-			$(event.target).find('.reply_title').text(contents_title);
-			$(event.target).find('.update_type').val(contents_type);
-			$(event.target).find('.update_num').val(contents_num);
-			$(event.target).find('.comment2').val(content);
-		 });
+		var user_num = ${user_num};
+		
+	$('.commentUpdateModal').on(
+							'shown.bs.modal',
+							function(event) {
+								$(event.target).find('.reply_title').text(
+										contents_title);
+								$(event.target).find('.update_type').val(
+										contents_type);
+								$(event.target).find('.update_num').val(
+										contents_num);
+								$.ajax({
+									type : 'post',
+									data : {
+										contents_num : contents_num,
+										contents_type : contents_type,
+										mem_num : user_num
+									},
+									url : 'getComment.do',
+									dataType : 'json',
+									cache : false,
+									timeout : 30000,
+									success : function(param) {
+										if(param.result == 'logout'){
+											alert('로그인 후 사용하세요');					
+										}else if(param.result == 'success'){
+											$(event.target).find('.comment2').text('');
+											$(event.target).find('.comment2').append(param.content);
+										}else{
+											 alert('수정폼 호출 오류 발생'); 
+										}
+									},
+									error : function() {
+										alert('네트워크 오류 발생!');
+									}
+								});
+							});
+				});
 	});
-});
 </script>
