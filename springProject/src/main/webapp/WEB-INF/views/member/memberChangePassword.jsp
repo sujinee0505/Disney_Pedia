@@ -13,7 +13,7 @@
 
 		$('#cpasswd').keyup(function(){
 			if($('#new_passwd').val() !=$('#cpasswd').val()){
-				$('#message_cpasswd').text('비밀번호 불일치');
+				$('#message_cpasswd').css('color', 'red').text('비밀번호 확인이 올바르지 않습니다.');
 			}else{
 				$('#message_cpasswd').text('');
 			}
@@ -35,11 +35,7 @@
 				$('#cpasswd').val('').focus(); 
 				return false;
 			}
-			if($('#new_passwd').val()!=$('#cpasswd').val()){
-				alert('새비밀번호와 새비밀번호 확인이 불일치');
-				$('#cpasswd').val('').focus();
-				return false;
-			}
+
 		});
 	});
 </script>
@@ -75,6 +71,7 @@ ul li {
 														<li>
 															<form:password class="passwd" path="now_passwd" placeholder="현재 비밀번호를 입력해주세요." /> 
 															<form:errors path="now_passwd" cssClass="error-color" />
+															<span id="message_nowpasswd"></span>
 														</li>
 														<li>
 															<form:password class="passwd" id="new_passwd" path="passwd" placeholder="새 비밀번호를 입력해주세요."/> 
@@ -84,6 +81,7 @@ ul li {
 															<input type="password" id="cpasswd" class="passwd" placeholder="새 비밀번호를 한 번 더 입력해주세요."> 
 															<span id="message_cpasswd"></span>
 														</li>
+														<div class="clear"/>
 													</ul>
 													<div class="profile-userbuttons">
 														<form:button class="modibtn">수정</form:button>
