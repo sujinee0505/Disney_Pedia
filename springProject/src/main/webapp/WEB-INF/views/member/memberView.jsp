@@ -127,7 +127,7 @@ input[type=button] {
 															onclick="location.href='update.do'"> <a
 															href="myCalendar.do?mem_num=${member.mem_num}"> <img
 															src="${pageContext.request.contextPath}/resources/images/cal.png"
-															width="40" height="40">
+															width="30" height="30">
 														</a>
 													</div>
 												</c:if>
@@ -206,14 +206,14 @@ input[type=button] {
 											</div>
 										</div>
 
-										<div class="mylike">
+										<div class="mylike" >
 											<ul>
-												<h2>코멘트</h2>
+												<h2 style="font-size: 22px;">코멘트</h2>
 												<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
 													<a
 													href="<c:if test="${param.user_num == 0 }">myComment.do?mem_num=${user_num }</c:if>
 																<c:if test="${param.user_num != 0 }">myComment.do?mem_num=${param.user_num }</c:if>">
-														<h4>작성한 코멘트 ></h4>
+														<h4 style="font-size: 15px;">작성한 코멘트 ></h4>
 												</a>
 												</li>
 												<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
@@ -222,7 +222,7 @@ input[type=button] {
 																test="${param.user_num == 0 }">likeComment.do?mem_num=${user_num }</c:if>
 															<c:if test="${param.user_num != 0 }">likeComment.do?mem_num=${param.user_num }</c:if>">
 
-														<h4>좋아한 코멘트 ></h4>
+														<h4 style="font-size: 15px;">좋아한 코멘트 ></h4>
 												</a>
 												</li>
 											</ul>
