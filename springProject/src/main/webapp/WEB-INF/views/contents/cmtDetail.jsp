@@ -181,6 +181,11 @@
 				});
 	});
 </script>
+<style>
+*{
+	font-family: 'SUIT-Medium';
+}
+</style>
 <section class="css-18gwkcr">
 	<section class="css-le8j8b">
 		<div class="css-1jehmiq"

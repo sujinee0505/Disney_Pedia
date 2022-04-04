@@ -10,6 +10,11 @@
 <script src="${pageContext.request.contextPath}/resources/js/detail.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/cmtLike.js"></script>
 <link href="${pageContext.request.contextPath}/resources/css/lightbox.css" rel="stylesheet" />		
+<style>
+*{
+	font-family: 'SUIT-Medium';
+}
+</style>
 <div class="css-16jhzm7-Self e1ezac430">
 	<div class="css-1ihluk0-Content e1ezac431">
 		<div class="css-1iyk86f-Background e1ezac432">

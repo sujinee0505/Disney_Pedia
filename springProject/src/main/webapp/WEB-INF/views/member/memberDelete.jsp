@@ -11,6 +11,9 @@ ul li {
 	list-style: none;
 	text-align: center !important;
 }
+*{
+	font-family: 'SUIT-Medium';
+}
 </style>
 <div id="root">
 	<form:form modelAttribute="memberVO" acceptCharset="delete.do" id="delete_form">

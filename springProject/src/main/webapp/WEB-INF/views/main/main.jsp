@@ -5,6 +5,11 @@
 <script
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
+<style>
+*{
+	font-family: 'SUIT-Medium';
+}
+</style>
 <!-- 메인 시작 -->
 <section class="css-7klu3x">
 	<div class="css-lufi3b">

@@ -5,6 +5,11 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
+<style>
+*{
+	font-family: 'SUIT-Medium';
+}
+</style>
 <section class="css-18gwkcr">
 	<section class="css-le8j8b" style="min-height: 950px;">
 		<div class="css-1jehmiq"

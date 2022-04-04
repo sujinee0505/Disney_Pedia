@@ -85,6 +85,9 @@
 	});
 </script>
 <style>
+*{
+	font-family: 'SUIT-Medium';
+}
 body {
 	background: #F1F3FA;
 }

@@ -5,6 +5,11 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
+<style>
+*{
+	font-family: 'SUIT-Medium';
+}
+</style>
 <script type="text/javascript">
 	$(function() {
 		//코멘트 삭제
@@ -39,7 +44,7 @@
 	});
 </script>
 <section class="css-18gwkcr">
-	<section class="css-le8j8b" style="min-height: 950px;">
+	<section class="css-le8j8b">
 		<div class="css-1jehmiq"
 			style="background: transparent; border-bottom: 1px solid #e3e3e3;">
 			<div class="css-10zg79x-pageMarginStyle"
@@ -47,7 +52,7 @@
 				코멘트</div>
 		</div>
 		<div class="css-ipmqep-StyledTabContentContainer e1szkzar3">
-			<div class="css-12hxjcc-StyledHideableBlock e1pww8ij0">
+			<div class="css-12hxjcc-StyledHideableBlock e1pww8ij0" style="background:#F1F3FA;">
 				<section class="css-9ebwyf-pageMarginStyle">
 					<section class="css-1s4ow07">
 						<div class="css-usdi1z">
@@ -58,7 +63,7 @@
 										<c:forEach var="commentList" items="${ commentList }"
 											varStatus="status">
 											<li class="css-8y23cj"
-												style="background-color: rgb(242, 242, 242); box-sizing: border-box; padding: 15px 15px 0px 15px; border-radius: 6px; overflow: hidden; margin: 0px 0px 20px; width: 500px !important; text-align: left;">
+												style="background-color: rgb(242, 242, 242); box-sizing: border-box; padding: 15px 15px 0px 15px; border-radius: 6px; overflow: hidden; margin: 0px 0px 20px; width: 600px !important; text-align: left;">
 												<div class="css-4obf01">
 													<div
 														style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
