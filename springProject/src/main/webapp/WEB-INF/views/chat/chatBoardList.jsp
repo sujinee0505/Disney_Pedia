@@ -29,7 +29,7 @@ $(function() {
 				      icon: 'warning',
 				      title: '검색어를 입력하세요!',
 				      text: '찾을 수가 없네요',
-				  };
+				  });
 				$('#keyword').val('').focus();
 				return false;
 			}); 

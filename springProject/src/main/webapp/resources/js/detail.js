@@ -1,5 +1,9 @@
 $(function(){
-
+	function getContextPath() {
+      return sessionStorage.getItem("contextpath");
+   }
+   let ctx = getContextPath();
+   
 		/* 헤더 투명화 */
 		header = function() {
 		    if ($(this).scrollTop() == 0) {
@@ -54,7 +58,18 @@ $(function(){
 		
 		like = function() {
 				if (user_num == 0) {
-					alert('로그인 한 사용자만 가능합니다.');
+					Swal.fire({			
+							  title: ' ',						  
+							  text: '내 보관함에 작품을 담으려면 로그인이 필요해요.',
+							  imageUrl: ctx + '/resources/images/bookmark_icon.png',
+							  imageWidth: 70,
+							  imageHeight: 70,						  
+							  imageAlt: 'Custom image',
+							  confirmButtonColor: '#57c6f2',
+							  confirmButtonText: '알겠어요',
+							  width: 400,
+							  padding: '2em'
+							  })
 					return;
 				}
 				if (user_num != 0) {

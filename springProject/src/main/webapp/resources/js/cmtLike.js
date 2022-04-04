@@ -12,9 +12,9 @@ $(function() {
 			function(event) {
 				
 				if (user_num == 0) {
-				Swal.fire({			
+					Swal.fire({			
 							  title: ' ',						  
-							  text: '로그인이 필요해요.',
+							  text: '좋아요를 누르려면 로그인이 필요해요.',
 							  imageUrl: ctx + '/resources/images/like_icon.png',
 							  imageWidth: 70,
 							  imageHeight: 70,						  

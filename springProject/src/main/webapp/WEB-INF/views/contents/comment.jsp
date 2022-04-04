@@ -45,7 +45,7 @@
 						Swal.fire({			
 							  title: ' ',						  
 							  text: '코멘트를 작성하시려면 로그인이 필요해요.',
-							  imageUrl: '${pageContext.request.contextPath}/resources/images/star_icon.png',
+							  imageUrl: '${pageContext.request.contextPath}/resources/images/comment_icon.png',
 							  imageWidth: 70,
 							  imageHeight: 70,						  
 							  imageAlt: 'Custom image',
