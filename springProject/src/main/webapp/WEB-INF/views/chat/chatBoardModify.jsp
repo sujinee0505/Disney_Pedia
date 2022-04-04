@@ -52,22 +52,13 @@
 				</tr>
 			</tbody>
 		</table>
-
-		<c:if test="${dchatboard.mate_state==0}">
-			<td style="width: 15%"><span
-				class="badge rounded-pill bg-danger">모집 중!</span></td>
-		</c:if>
-		<c:if test="${dchatboard.mate_state==1}">
-			<td style="width: 15%"><span
-				class="badge rounded-pill bg-light text-dark">모집 마감</span></td>
-		</c:if>
         <div>
 		<input type="radio" name="mate_state" value="0" id="mate_state0">
-			<c:if test="${chatboard.mate_state == 0}">
-								<span class="badge rounded-pill bg-danger">모집 중!</span></td></c:if>
+			<c:if test="${chatboard.mate_state == 0}"></c:if>
+			<span class="badge rounded-pill bg-danger">모집 중!</span></td>
 		<input type="radio" name="mate_state" value="1" id="smate_state1">
-			<c:if test="${chatboard.mate_state == 1}">
-								<span class="badge rounded-pill bg-light text-dark">모집 마감</span></td></c:if>
+			<c:if test="${chatboard.mate_state == 1}"></c:if>
+			<span class="badge rounded-pill bg-light text-dark">모집 마감</span></td>
 		</div>
 		
 		<div class="align-center">
@@ -81,3 +72,7 @@
 </div>
 <section class="css-7klu3x"></section>
 <!-- 중앙 컨텐츠 끝 -->
+
+
+
+	
