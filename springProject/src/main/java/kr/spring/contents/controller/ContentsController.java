@@ -131,8 +131,6 @@ public class ContentsController {
 			
 			CommentVO getComment = commentService.getComment(comment); // 로그인한 유저가 작성한 코멘트 정보
 			int checkComment = commentService.checkComment(comment); // 해당 컨텐츠에 코멘트 작성 여부 확인
-			
-			getComment.setContent(StringUtil.hideBr(getComment.getContent())); //추가) <br>->\r
 		
 			mav.addObject("getComment", getComment);
 			mav.addObject("checkComment", checkComment);
