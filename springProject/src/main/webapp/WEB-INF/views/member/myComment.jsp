@@ -115,6 +115,7 @@
 														</div>
 													</a>
 												</div>
+												<c:if test="${!empty user_num && user_num == param.mem_num}">
 												<div class="css-hy68ty"
 													style="display: flex; justify-content: flex-end;">
 													<button data-bs-target="#commentUpdateModal"
@@ -126,7 +127,7 @@
 														<input type="hidden" value="${contentsList[status.index].title}" class="contents_title">
 														<input type="hidden" value="${commentList.content}" class="reply_content">
 													<button class="css-jj4q3s-StylelessButton-UserActionButton cmt_delbtn">삭제</button>
-												</div>
+												</div></c:if>
 											</li>
 										</c:forEach>
 									</ul>
