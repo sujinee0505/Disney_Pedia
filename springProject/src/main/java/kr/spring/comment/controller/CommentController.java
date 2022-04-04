@@ -24,6 +24,7 @@ import kr.spring.contents.vo.ContentsVO;
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.util.GetInfoUtil;
+import kr.spring.util.StringUtil;
 
 @Controller
 public class CommentController {
@@ -118,7 +119,7 @@ public class CommentController {
 	public ModelAndView myComment(int mem_num) {
 		List<CommentVO> commentList = new ArrayList<CommentVO>();
 		commentList = commentService.selectListByMem_num(mem_num); // 내가 작성한 코멘트 목록 불러오기
-		
+
 		GetInfoUtil util = new GetInfoUtil();
 		List<ContentsVO> contentsList = new ArrayList<ContentsVO>();
 		
@@ -127,10 +128,12 @@ public class CommentController {
 			contents = util.getInfoDetail(commentList.get(i).getContents_type(), commentList.get(i).getContents_num()); // 영화 상세정보 불러오기
 			contentsList.add(contents);
 			commentList.get(i).setCountReply(commentService.getCountReply(commentList.get(i).getComment_num()));
+			commentList.get(i).setContent(StringUtil.useBrHtml(commentList.get(i).getContent())); //추가)코멘트 줄바꿈 적용
 			Integer countLike = commentService.getCountLike(commentList.get(i).getComment_num()); // 코멘트 좋아요 갯수
 			if (countLike != null) {
 				commentList.get(i).setCountLike(countLike); // 각각의 코멘트의 좋아요 갯수
 			}
+			
 		}
 
 		ModelAndView mav = new ModelAndView();
@@ -195,6 +198,8 @@ public class CommentController {
 			CommentVO comment_user = new CommentVO();
 			comment_user.setComment_num(comment.getComment_num());
 			comment_user.setMem_num(mem_num);
+			
+			
 			int checkCmtLike = commentService.checkCmtLike(comment_user); // 해당 코멘트에 로그인 한 유저가 댓글을 작성했는지 여부 확인
 			mav.addObject("checkCmtLike", checkCmtLike);
 		} else {  // 로그인이 되지 않은 경우
