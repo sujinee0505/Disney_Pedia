@@ -30,7 +30,14 @@
 .clear{ /*float clear*/
 	clear:both;
 }
-
+#mycmtStar{
+	color:#ffa914;
+	font-family: 'SUIT-Medium';
+	/*텍스트 세로 중앙 정렬*/
+	display: flex !important;
+	align-items:center !important;
+	justify-content:center !important;	
+}
 
 /*=====모달-콘텐츠=====*/
 #comment-header{
