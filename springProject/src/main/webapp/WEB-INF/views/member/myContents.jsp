@@ -41,7 +41,7 @@
 													</div>
 													<div class="css-ixy093">
 														<div class="css-niy0za">${starList.title }</div>
-														<div class="css-1kcd80z">★ ${starList.star}</div>
+														<div class="css-1kcd80z">평가함 ★ ${starList.star}</div>
 													</div></a></li>
 										</c:forEach>
 										<div class="css-ml096x"></div>
