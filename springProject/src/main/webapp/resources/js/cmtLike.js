@@ -15,7 +15,7 @@ $(function() {
 				Swal.fire({			
 							  title: ' ',						  
 							  text: '로그인이 필요해요.',
-							  imageUrl: ctx + '/resources/images/star_icon.png',
+							  imageUrl: ctx + '/resources/images/like_icon.png',
 							  imageWidth: 70,
 							  imageHeight: 70,						  
 							  imageAlt: 'Custom image',
