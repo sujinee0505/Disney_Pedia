@@ -6,7 +6,7 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
 <style>
-*{
+* {
 	font-family: 'SUIT-Medium';
 }
 </style>
@@ -14,8 +14,11 @@
 	<section class="css-le8j8b" style="min-height: 950px;">
 		<div class="css-1jehmiq"
 			style="background: transparent; border-bottom: 1px solid #e3e3e3;">
-			<div class="css-10zg79x-pageMarginStyle"
-				style="font-weight: 700; font-size: 22px; color: black;">영화</div>
+			<div class="css-10zg79x-pageMarginStyle pageTitle"
+				style="font-weight: 700; font-size: 22px; color: black;">
+				<c:if test="${!empty param.contents_type  && param.contents_type eq 'movie'}">영화</c:if>
+				<c:if test="${!empty param.contents_type  && param.contents_type eq 'tv'}">TV</c:if>
+			</div>
 		</div>
 		<div class="css-15qcwbn-StyledTabBarContainer e1szkzar1 css-1ue9xs6">
 			<h2 class="css-1gwdxtz-VisualUl-StyledTabBarUl e1szkzar2 css-1wtjsst">
