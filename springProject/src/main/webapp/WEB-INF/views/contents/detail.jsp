@@ -10,7 +10,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/detail.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/cmtLike.js"></script>
 <link href="${pageContext.request.contextPath}/resources/css/lightbox.css" rel="stylesheet" />	
-<script>
+<script type="text/javascript">
 sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
 </script>	
 <style>

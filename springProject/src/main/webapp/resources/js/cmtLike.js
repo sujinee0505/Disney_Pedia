@@ -14,7 +14,7 @@ $(function() {
 				if (user_num == 0) {
 				Swal.fire({			
 							  title: ' ',						  
-							  text: '코멘트를 작성하시려면 로그인이 필요해요.',
+							  text: '로그인이 필요해요.',
 							  imageUrl: ctx + '/resources/images/star_icon.png',
 							  imageWidth: 70,
 							  imageHeight: 70,						  
@@ -24,7 +24,6 @@ $(function() {
 							  width: 400,
 							  padding: '2em'
 							  })
-					alert('로그인 한 사용자만 가능합니다.');
 					return;
 				}
 				if (user_num != 0) {
