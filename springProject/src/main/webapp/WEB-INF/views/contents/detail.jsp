@@ -245,7 +245,9 @@
 			//(3)별점에 따른 평가 문구 설정	    	
 		    $("#starRate").bind('rated', function (event, value) { //rated시 이벤트 발생
 		    	
+		    	$('#rateit-reset-2').css("visibility","hidden"); //리셋버튼hide		    	
 		    	$('#do_rating').hide(); //평가하기문구hide
+		    	
 			   	 if(value === 5 ){ 
 			   	 	$('#rating_text').text('최고예요!');		   
 			   	 }
@@ -273,7 +275,7 @@
 			   	 if(value === 1){
 			   		 $('#rating_text').text('싫어요');		   
 			   	 }
-			   	 if(value === 0.5){
+			   	 if(value === 0.5){ 
 			   		 $('#rating_text').text('최악이에요');	
 			   	  //0.5 hover시 리셋버튼 클릭어려워서 0.5클릭 시 리셋버튼 뜨게 설정
 			   	 	$('#rateit-reset-2').css("visibility","visible"); 
