@@ -97,13 +97,23 @@
 														<div class="css-1g78l7j">
 															<div class="css-1g78l7j">
 															<div class="css-1v2z0uj-ProfilePhotoImage">
-																<a href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num}"><img
-																	class="css-qhzw1o-StyledImg"
-																	style="max-height: 520px; width: 100px; margin-bottom: 15px; margin-right:15px;"
-																	src="${ contentsList[status.index].poster_path }" align="left">
-																<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
-																	href="${pageContext.request.contextPath}/contents/cmtDetail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num }&comment_num=${commentList.comment_num }">
-																${commentList.content}</a>
+																<!-- 포스터 이미지-->															
+																<div class="float_left">
+																	<a href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num}">
+																	<img
+																		class="css-qhzw1o-StyledImg"
+																		style="max-height: 520px; width: 100px; margin-bottom: 15px; margin-right:15px;"
+																		src="${ contentsList[status.index].poster_path }">
+																	</a>	
+																</div>		
+																	<!-- 코멘트 내용 -->	
+																<div class="float_left">	
+																	<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
+																		href="${pageContext.request.contextPath}/contents/cmtDetail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num }&comment_num=${commentList.comment_num }">
+																	${commentList.content}
+																	</a>
+																</div>
+																
 																<div class="css-1atijos" style="clear:both; border-top: none; border-bottom: 1px solid #e5e5e5;">
 																	<div style="display: flex; align-items: center;">
 																		<span

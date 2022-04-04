@@ -30,6 +30,9 @@
 .clear{ /*float clear*/
 	clear:both;
 }
+.float_left{
+	float:left;
+}
 #mycmtStar{ /*마이코멘트 별점 노랗게*/
 	color:#ffa914;
 	font-family: 'SUIT-Medium';
