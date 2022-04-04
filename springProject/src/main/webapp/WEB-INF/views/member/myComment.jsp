@@ -95,17 +95,14 @@
 													<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 														href="/ko-KR/comments/6aLMPoKyrZ2Ow">
 														<div class="css-1g78l7j">
+															<div class="css-1g78l7j">
 															<div class="css-1v2z0uj-ProfilePhotoImage">
-																<a
-																	href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num}"><img
+																<a href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num}"><img
 																	class="css-qhzw1o-StyledImg"
-																	style="max-height: 520px; width: 100px; margin-bottom: 15px;"
-																	src="${ contentsList[status.index].poster_path }"></a>
-																<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
-																	href="${pageContext.request.contextPath}/contents/cmtDetail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num }&comment_num=${commentList.comment_num }"><span
-																	style="overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 3; -webkit-box-orient: vertical; margin-left: 15px;">${commentList.content}</span></a>
-																<div class="css-1atijos"
-																	style="display: flex; justify-content: space-between; border-top: none; border-bottom: 1px solid #e5e5e5;">
+																	style="max-height: 520px; width: 100px; margin-bottom: 15px; margin-right:15px;"
+																	src="${ contentsList[status.index].poster_path }" align="left">
+																	${commentList.content}
+																<div class="css-1atijos" style="clear:both;">
 																	<div style="display: flex; align-items: center;">
 																		<span
 																			src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgZmlsbD0iIzc4Nzg3OCI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik02Ljc1IDkuNDg1aC0zYTEgMSAwIDAgMC0xIDF2MTBhMSAxIDAgMCAwIDEgMWgzYTEgMSAwIDAgMCAxLTF2LTEwYTEgMSAwIDAgMC0xLTFNMjAuNjU3IDguNTY2YTIuMzYzIDIuMzYzIDAgMCAwLTEuNzc5LS44MTNIMTYuNjJsLjE2NC0uNjI3Yy4xMzctLjUyOC4yMDEtMS4xMi4yMDEtMS44NjMgMC0xLjkxOS0xLjM3NS0yLjc3OC0yLjczOC0yLjc3OC0uNDQ0IDAtLjc2Ni4xMjMtLjk4Ni4zNzYtLjIuMjI3LS4yODIuNTMtLjI0My45MzVsLjAzIDEuMjMtMi45MDMgMi45NGMtLjU5My42LS44OTQgMS4yMy0uODk0IDEuODcydjkuNjQ3YS41LjUgMCAwIDAgLjUuNWg3LjY4N2EyLjM4OCAyLjM4OCAwIDAgMCAyLjM0OC0yLjA3bDEuNDQ1LTcuNDUyYTIuNDQgMi40NCAwIDAgMC0uNTc0LTEuODk3Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
@@ -120,6 +117,7 @@
 																	</div>
 																</div>
 															</div>
+														</div>
 														</div>
 													</a>
 												</div>
