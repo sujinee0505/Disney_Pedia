@@ -13,7 +13,13 @@
 	margin-right: 20px;
 }
 
-/*비밀번호 확인문구*/
+/*비밀번호 확인*/
+.passtitle{
+	font-family: 'SUIT-Medium';
+}
+.passtitle2{
+	font-family: 'SUIT-Medium';
+}
 #message_cpasswd{ /*새 비밀번호 확인*/
 	font-size:9pt;
 	font-family: 'SUIT-Medium';
