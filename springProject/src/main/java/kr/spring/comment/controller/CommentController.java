@@ -179,6 +179,8 @@ public class CommentController {
 	public ModelAndView selectComment(HttpSession session, CommentVO commentVO) {
 		CommentVO comment = commentService.selectComment(commentVO.getComment_num()); // 코멘트 상세정보 불러오기
 		MemberVO member = memberService.selectMember(comment.getMem_num()); // 코멘트 작성자의 상세정보 불러오기
+
+		comment.setContent(StringUtil.useBrHtml(comment.getContent()));//추가)내용 줄바꿈 출력
 		
 		GetInfoUtil util = new GetInfoUtil();
 		
@@ -198,7 +200,6 @@ public class CommentController {
 			CommentVO comment_user = new CommentVO();
 			comment_user.setComment_num(comment.getComment_num());
 			comment_user.setMem_num(mem_num);
-			
 			
 			int checkCmtLike = commentService.checkCmtLike(comment_user); // 해당 코멘트에 로그인 한 유저가 댓글을 작성했는지 여부 확인
 			mav.addObject("checkCmtLike", checkCmtLike);
