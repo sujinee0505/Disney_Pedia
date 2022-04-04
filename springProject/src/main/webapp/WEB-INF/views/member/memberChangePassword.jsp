@@ -32,7 +32,7 @@
 			}
 			if($('#cpasswd').val().trim() == ''){
 				alert('변경할 비밀번호 확인을 입력하세요!');
-				$('#cpasswd').val('').focus();
+				$('#cpasswd').val('').focus(); 
 				return false;
 			}
 			if($('#new_passwd').val()!=$('#cpasswd').val()){
