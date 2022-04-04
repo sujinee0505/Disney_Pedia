@@ -129,12 +129,16 @@
 													<button data-bs-target="#commentUpdateModal"
 														data-bs-toggle="modal"
 														class="css-jj4q3s-StylelessButton-UserActionButton updateBtn"
-														style="margin-right: 5px;">수정</button>
+														style="margin-right: 5px; font-size:13px;">
+														&nbsp;&nbsp;수정&nbsp;&nbsp;
+													</button>
 														<input type="hidden" value="${commentList.contents_type }" class="contents_type">
 														<input type="hidden" value="${commentList.contents_num }" class="contents_num">
 														<input type="hidden" value="${contentsList[status.index].title}" class="contents_title">
 														<input type="hidden" value="${commentList.content}" class="reply_content">
-													<button class="css-jj4q3s-StylelessButton-UserActionButton cmt_delbtn">삭제</button>
+													<button class="css-jj4q3s-StylelessButton-UserActionButton cmt_delbtn" style="font-size:13px;">
+														&nbsp;&nbsp;삭제&nbsp;&nbsp;
+													</button>
 												</div></c:if>
 											</li>
 										</c:forEach>
