@@ -357,7 +357,9 @@ button#mate{
 
 /* 우측 .from-position */
 span#from_name{
-	padding-left: 230px
+	display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
 }
 .from-position {
 	width: 300px;
