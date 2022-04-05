@@ -249,7 +249,7 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 			cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
 			confirmButtonText: '승인', // confirm 버튼 텍스트 지정
 			cancelButtonText: '취소', // cancel 버튼 텍스트 지정
-			reverseButtons: true, // 버튼 순서 거꾸로
+			//reverseButtons: true, // 버튼 순서 거꾸로
 			closeOnClickOutside: false,//창 제외하고 다른 곳 클릭시 창안닫히도록?
 			closeOnEsc: false//esc키 안먹히도록(기본true)?
 		}).then(result => {
