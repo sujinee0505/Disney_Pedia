@@ -68,13 +68,13 @@
 							<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 								href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${cmtLikeList.contents_type }&contents_num=${cmtLikeList.contents_num}">
 								<div class="css-1g78l7j" style="display: flex;">
-									<!-- 포스터 이미지 -->
+									<!-- 포스터 이미지 영역 -->
 									<div class="float_left">
 										<img class="css-qhzw1o-StyledImg"
 											style="max-height: 520px; width: 80px;"
 											src="${ contentsList[status.index].poster_path }">
 									</div>	
-									<!-- 코멘트 내용쪽 -->
+									<!-- 코멘트 내용 영역 -->
 									<div class="float_left" style="max-width:450px; ">	
 									<div style="margin-left: 10px;">
 										<span style="font-size: 14pt;">${ contentsList[status.index].title }</span>
@@ -94,11 +94,10 @@
 												href="${pageContext.request.contextPath}/contents/cmtDetail.do?contents_type=${cmtLikeList.contents_type }&contents_num=${cmtLikeList.contents_num }&comment_num=${cmtLikeList.comment_num }">
 												<span>${cmtLikeList.content}</span>
 											</a>
-										</div>	
-											
-											
+										</div>																							
 										</div>
 									</div>
+									<!-- 코멘트 내용 영역 끝 -->
 								</div>
 
 							</a>
