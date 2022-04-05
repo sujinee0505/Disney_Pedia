@@ -25,7 +25,7 @@ $(function() {
 	  }); //end of count
 
  	//코멘트 수정
- 	$('#commentUpdate_form').submit(function(){
+ 	cmtUpdate=function(){
  		 var user_num = ${user_num};
 		 $.ajax({
 				url:'commentUpdate.do',
@@ -43,7 +43,22 @@ $(function() {
 					if(param.result == 'logout'){
 						alert('로그인 후 사용하세요');					
 					}else if(param.result == 'success'){
-						 alert('코멘트를 수정했습니다.');	 
+						Swal.fire({			
+							  title: ' ',						  
+							  text: '코멘트를 수정했습니다.',
+							  imageUrl: '${pageContext.request.contextPath}/resources/images/ok_icon.png',
+							  imageWidth: 100,
+							  imageHeight: 100,						  
+							  imageAlt: 'Custom image',
+							  confirmButtonColor: '#84d7fa',
+							  confirmButtonText: '확인',
+							  width: 400,
+							  padding: '2em'
+							  }).then((result) => {
+							      if (result.isConfirmed) {
+								    	 location.reload(true);
+								      }
+								    })
 
 					}else{
 						 alert('코멘트 수정 오류 발생'); 
@@ -53,7 +68,7 @@ $(function() {
 					alert('네트워크 오류 발생');
 				}
 		}); //end of comment update ajax
- 	}); //end of submit
+ 	}; //end of submit
  	
  	//코멘트 삭제
  	$('#cmt_delbtn').click(function(){
@@ -111,7 +126,7 @@ $(function() {
 			<a href="#">
 				<img src="${pageContext.request.contextPath}/resources/images/trash.png" id="cmt_delbtn">
 			</a>
-			<button type="submit" id="comment_btn" class="btn btn-dark-blue">수정</button>
+			<button type="button" onclick="cmtUpdate()" id="comment_btn" class="btn btn-dark-blue">수정</button>
 			
 		</div>
 		</form> 		
