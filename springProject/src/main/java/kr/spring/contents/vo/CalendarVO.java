@@ -8,7 +8,6 @@ public class CalendarVO {
 	private String custom_date;
 	private String contents_type;
 	private String poster_path;
-	private String path;
 
 	public int getCal_num() {
 		return cal_num;
@@ -56,13 +55,5 @@ public class CalendarVO {
 
 	public void setPoster_path(String poster_path) {
 		this.poster_path = poster_path;
-	}
-
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
 	}
 }

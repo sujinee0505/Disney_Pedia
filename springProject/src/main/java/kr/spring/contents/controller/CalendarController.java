@@ -139,11 +139,6 @@ public class CalendarController {
 			calendarVO.setMem_num(mem_num);
 			calenderService.insertCalendar(calendarVO);
 			map.put("result", "success");
-			String cp = request.getContextPath();
-			String path = calendarVO.getPath().replaceFirst(cp, "");
-			if (path.equals(""))
-				path = "/re/list";
-			map.put("path", path);
 		}
 		return map;
 	}
@@ -162,11 +157,6 @@ public class CalendarController {
 			calendarVO.setMem_num(mem_num);
 			calenderService.updateCalendar(calendarVO);
 			map.put("result", "success");
-			String cp = request.getContextPath();
-			String path = calendarVO.getPath().replaceFirst(cp, "");
-			if (path.equals(""))
-				path = "/re/list";
-			map.put("path", path);
 		}
 		return map;
 	}
@@ -185,11 +175,6 @@ public class CalendarController {
 			calendarVO.setMem_num(mem_num);
 			calenderService.deleteCalendar(calendarVO);
 			map.put("result", "success");
-			String cp = request.getContextPath();
-			String path = calendarVO.getPath().replaceFirst(cp, "");
-			if (path.equals(""))
-				path = "/re/list";
-			map.put("path", path);
 		}
 		return map;
 	}
