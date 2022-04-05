@@ -19,8 +19,19 @@ $(function() {
 	
 	if(${user_num}==0){ //비회원시 글쓰기버튼안보이게
 		$('#write_btn').hide();
-	}
+	};
 	
+	$('#list_search_form').submit(function () {				
+		if($('#keyword').val()==''){
+			//alert('검색어필수');
+			 Swal.fire({
+			      icon: 'warning',
+			      title: '검색어를 입력하세요!',
+			      text: '찾을 수가 없네요',
+			  }); 
+			return false;
+		}
+	});//end of search submit
 });//end of function	
 </script>
 
