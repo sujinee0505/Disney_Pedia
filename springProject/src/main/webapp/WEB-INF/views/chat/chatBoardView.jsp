@@ -105,7 +105,11 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 		selectData(); 
 	});
 </script>
-
+<style>
+*{
+	font-family: 'SUIT-Medium';
+}
+</style>
 <div class="page-main border border-primary border-2" id="boardView" style="margin-bottom: 130px">
 	<div>
 		<h2>

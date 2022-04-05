@@ -24,7 +24,7 @@ $(function() {
 <script type="text/javascript">
  	$(function () {
 		$('#list_search_btn').submit(function () {
-			if($('#keyword').val().trim()==''){
+			/* if($('#keyword').val().trim()==''){
 				Swal.fire({
 				      icon: 'warning',
 				      title: '검색어를 입력하세요!',
@@ -32,7 +32,7 @@ $(function() {
 				  });
 				$('#keyword').val('').focus();
 				return false;
-			}); 
+			});  */
 		}); 
 	  
 	
@@ -48,7 +48,11 @@ $(function() {
 
 	
 </script>
-
+<style>
+*{
+	font-family: 'SUIT-Medium';
+}
+</style>
 <div class="page-main" id="chatBoardList_main">
 	<div class="carousel-bg">
 

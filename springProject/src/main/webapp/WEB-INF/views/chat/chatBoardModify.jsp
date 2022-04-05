@@ -20,6 +20,9 @@ $(function() {
 .ck-editor__editable_inline {
 	min-height: 250px;
 }
+*{
+	font-family: 'SUIT-Medium';
+}
 </style>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main ">
