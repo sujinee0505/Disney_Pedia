@@ -813,7 +813,7 @@ closeOnClickOutside: false;
 	<div class="modal-dialog modal-dialog-centered modal-comment" style="width: 450px !important;">
 		<div class="modal-content">
 			<jsp:include page="/WEB-INF/views/contents/calendar.jsp" />
-		</div>
+		</div> 
 	</div>
 </div>
 <input type="hidden" value="${user_num}" id="user_num">
