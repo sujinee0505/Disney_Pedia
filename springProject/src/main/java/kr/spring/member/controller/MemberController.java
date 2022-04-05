@@ -125,6 +125,11 @@ public class MemberController {
 		session.invalidate();
 		String cp = request.getContextPath();
 		String path = memberVO.getPath().replaceFirst(cp, "");
+		if (path.contains("chatting")) {
+			return "redirect:/chatboard/list.do";
+		}else if (path.contains("myPage.do?user_num=0") || path.contains("member/update.do") || path.contains("myCalendar.do")) {
+			return "redirect:/main/main.do";
+		}
 		if (path.equals(""))
 			path = "/re/list";
 		return "redirect:" + path;
