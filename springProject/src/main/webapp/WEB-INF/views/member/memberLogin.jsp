@@ -13,11 +13,6 @@
 
 	});
 </script>
-<style>
-*{
-	font-family: 'SUIT-Medium';
-}
-</style>
 <!-- Modal Header -->
 <div>
 	<img src="${pageContext.request.contextPath}/resources/images/logo.png"

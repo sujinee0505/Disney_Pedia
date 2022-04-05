@@ -11,7 +11,7 @@
 	href="${pageContext.request.contextPath}/resources/css/mj.css" />
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
 
 <script type="text/javascript">
 //let membercount=0;

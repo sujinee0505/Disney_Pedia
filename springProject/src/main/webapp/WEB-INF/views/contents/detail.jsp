@@ -14,14 +14,9 @@
 sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
 </script>	
 <style>
-.swal2-popup {
-   font-family: 'BMJUA' !important;
-closeOnClickOutside: false;
-}
 *{
 	font-family: 'SUIT-Medium';
 }
-
 </style>
 <div class="css-16jhzm7-Self e1ezac430">
 	<div class="css-1ihluk0-Content e1ezac431">
