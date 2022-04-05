@@ -5950,7 +5950,7 @@ h1, h3, p, hr {
 	border: none;
 	margin: 0;
 	cursor: pointer;
-	color: #1eb0d9;
+	color: #57c6f2;
 	font-size: 17px;
 	font-weight: 400;
 	-webkit-letter-spacing: -0.7px;
@@ -5975,7 +5975,7 @@ h1, h3, p, hr {
 	letter-spacing: -0.7px;
 	line-height: 22px;
 	padding: 2px 8px;
-	/* background: #1eb0d9; */
+	background: #57c6f2;
 	color: rgb(255, 255, 255);
 	border-radius: 3px;
 }

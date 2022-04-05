@@ -23,7 +23,8 @@
 
 	
 	// 댓글 등록
-		$('#comment_form').submit(function() {
+	
+	cmt_submit = function() {
 			$.ajax({
 				url : 'replyWrite.do',
 				type : 'post',
@@ -47,9 +48,13 @@
 							  confirmButtonText: '알겠어요',
 							  width: 400,
 							  padding: '2em'
-							  })
+						 }).then((result) => {
+						      if (result.isConfirmed) {
+						    	 location.reload(true);
+						      }
+						    })
 					} else if (param.result == 'success') {
-						alert('댓글을 등록했습니다.');
+						location.reload(true);
 					} else {
 						alert('댓글 등록 오류 발생');
 					}
@@ -58,7 +63,7 @@
 					alert('네트워크 오류 발생');
 				}
 			});
-		});
+		}
 	});
 </script>
 <!DOCTYPE html>
@@ -78,7 +83,7 @@
 			<div id="count_area">
 			<span class="letter-count">0/300</span>
 			</div> 
-			<button type="submit" id="comment_btn" class="btn btn-dark-blue">저장</button>
+			<button type="button" id="comment_btn" class="btn btn-dark-blue" onclick="cmt_submit()">등록</button>
 		</div>
 		</form> 		
 	  </div>	    

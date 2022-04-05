@@ -142,7 +142,7 @@
 													<button data-bs-target="#commentUpdateModal"
 														data-bs-toggle="modal"
 														class="css-jj4q3s-StylelessButton-UserActionButton updateBtn"
-														style="margin-right: 5px; font-size:13px; background-color:#57c6f2;">
+														style="margin-right: 5px; font-size:13px;">
 														&nbsp;&nbsp;수정&nbsp;&nbsp;
 													</button>
 														<input type="hidden" value="${commentList.contents_type }" class="contents_type">
