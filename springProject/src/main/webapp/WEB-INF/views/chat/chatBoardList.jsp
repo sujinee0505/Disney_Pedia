@@ -16,6 +16,7 @@ $(function() {
 			document.getElementById('login-btn').click();
 		}
 	})
+	
 	if(${user_num}==0){ //비회원시 글쓰기버튼안보이게
 		$('#write_btn').hide();
 	}
