@@ -299,15 +299,14 @@ div#page-main-chat02{
 }
 
 div.chat02{
-	/* outline:1px solid purple; */
-	display:flex;
-	flex-direction:column;/* 수직  */
-	justify-content: flex-end;
-	align-items: center;
-	background-color: #fff;
-	padding:10px;
-	margin:25px 30px 25px auto;
-	border-radius: 7px;
+    /* outline: 1px solid purple; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #fff;
+    padding: 10px;
+    margin: 25px 30px 25px auto;
+    border-radius: 7px;
 }
 div#chatting_message{
 	font-size: 14px;
@@ -411,9 +410,9 @@ div#to_item:hover{
 }
 
 /* 좌측.to-position */
-span#to_name{
+/* span#to_name{
     padding-left: 18px;
-}
+} */
 .to-position {
 	width: 300px;
 	margin: 10px 0 10px 15px;
