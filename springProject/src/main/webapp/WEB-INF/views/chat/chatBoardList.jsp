@@ -23,30 +23,19 @@ $(function() {
 <!-- 중앙 컨텐츠 시작 -->
 <script type="text/javascript">
  	$(function () {
-		$('#list_search_btn').submit(function () {
-			/* if($('#keyword').val().trim()==''){
+		$('#list_search_form').submit(function () {				
+			if($('#keyword').val()==''){
 				Swal.fire({
 				      icon: 'warning',
 				      title: '검색어를 입력하세요!',
 				      text: '찾을 수가 없네요',
 				  });
-				$('#keyword').val('').focus();
-				return false;
-			});  */
-		}); 
-	  
-	
-	$(function () {
-		$('#list_search_form').submit(function () {
-			if($('#keyword').val().trim()==''){
-				alert('검색어를 입력하세요');
+				//alert('검색어를 입력하세요');
 				$('#keyword').val('').focus();
 				return false;
 			}
-		});
-	});
-
-	
+		});//end of search submit
+	});//end of function	
 </script>
 <style>
 *{
