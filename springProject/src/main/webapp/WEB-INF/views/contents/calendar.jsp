@@ -53,13 +53,13 @@
 													type : 'post',
 													data : {
 														contents_num : $(
-																'#contents_num')
+																'#contents_num_calendar')
 																.val(),
 														custom_date : $(
 																'#custom_date')
 																.val(),
 														contents_type : $(
-																'#contents_type')
+																'#contents_type_calendar')
 																.val(),
 														poster_path : $(
 																'#poster_path')
@@ -91,13 +91,13 @@
 												type : 'post',
 												data : {
 													contents_num : $(
-															'#contents_num')
+															'#contents_num_calendar')
 															.val(),
 													custom_date : $(
 															'#custom_date')
 															.val(),
 													contents_type : $(
-															'#contents_type')
+															'#contents_type_calendar')
 															.val(),
 													poster_path : $(
 															'#poster_path')
@@ -177,9 +177,9 @@
 		<form id="insertCal"
 			style="display: flex; flex-direction: column; align-items: center;">
 			<input type="hidden" value="${dateCheck }" id="dateCheck"> <input
-				type="hidden" value="${contents.contents_num }" id="contents_num">
+				type="hidden" value="${contents.contents_num }" id="contents_num_calendar">
 			<input type="hidden" value="${contents.contents_type }"
-				id="contents_type"> <input type="hidden"
+				id="contents_type_calendar"> <input type="hidden"
 				value="${contents.poster_path }" id="poster_path"> <input
 				type="hidden" value="" id="custom_date">
 			<div class="my-calendar clearfix">

@@ -814,3 +814,5 @@ sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
 <input type="hidden" value="${user_num}" id="user_num">
 <input type="hidden" value="${check}" id="check">
 <input type="hidden" name="path" id="path" />
+<input type="hidden" value="${contents.contents_num}" id="contents_num">
+<input type="hidden" value="${contents.contents_type}" id="contents_type">	

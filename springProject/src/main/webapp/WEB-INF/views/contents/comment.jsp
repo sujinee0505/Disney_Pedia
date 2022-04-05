@@ -32,8 +32,8 @@
 				url:'commentWrite.do',
 				type:'post',
 				data: {
-					contents_num : $('#contents_num').val(),				
-					contents_type : $('#contents_type').val(),
+					contents_num : $('#contents_num_comment').val(),				
+					contents_type : $('#contents_type_comment').val(),
 					content : $('#comment').val(),
 					star_num : star_num
 					},
@@ -78,8 +78,8 @@
       <!-- Modal body -->
       <div class="modal-body comment-body">
       	<form action="" method="post" role="form" id="comment_form">
-      	<input type="hidden" value="${contents.contents_num}" id="contents_num">
-		<input type="hidden" value="${contents.contents_type}" id="contents_type">	
+      	<input type="hidden" value="${contents.contents_num}" id="contents_num_comment">
+		<input type="hidden" value="${contents.contents_type}" id="contents_type_comment">	
       	<textarea autofocus required cols="30" rows="10" id="comment" name="comment" 
       	placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." spellcheck="false"></textarea>
       	<div class="float_right">
