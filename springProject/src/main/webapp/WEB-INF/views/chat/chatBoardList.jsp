@@ -18,32 +18,31 @@ $(function() {
 			document.getElementById('login-btn').click();
 		}
 	})
-});
-</script>
-<!-- 중앙 컨텐츠 시작 -->
-<script type="text/javascript">
- 	$(function () {
-		$('#list_search_form').submit(function () {				
+	
+	$('#chatsearch_btn').click(function () {				
 			if($('#keyword').val()==''){
-				Swal.fire({
+				//alert('검색어필수');
+				/* Swal.fire({
 				      icon: 'warning',
 				      title: '검색어를 입력하세요!',
 				      text: '찾을 수가 없네요',
-				  });
-				$('#keyword').val('').focus();
+				  }); */
+				//$('#keyword').val('').focus();
 				return false;
 			}
 		});//end of search submit
-	});//end of function	
+		
+});//end of function	
 </script>
+
 <style>
 *{
 	font-family: 'SUIT-Medium';
 }
 </style>
+<!-- 중앙 컨텐츠 시작 -->
 <div class="page-main" id="chatBoardList_main">
 	<div class="carousel-bg">
-
 		<!-- 캐러셀 -->
 		<div id="carouselExampleFade" class="carousel slide carousel-fade "
 			data-bs-ride="carousel">
@@ -101,7 +100,7 @@ $(function() {
 	<div class="test"></div>
 
 
-	<!-- 유효성체크를 자바스크립트로 사용할 것이기에 form HTML태그 사용-->
+	<!--======검색창======= :  유효성체크를 자바스크립트로 사용할 것이기에 form HTML태그 사용-->
 	<div id="container_table">
 		<form action="list.do" id="list_search_form" method="get">
 			<ul class="search" id="list_search">
@@ -122,8 +121,9 @@ $(function() {
 					<input type="search" class="col-sm-2 form-control" name="keyword"
 					id="keyword" value="${param.keyword}">
 				</li>
+				<!-- =====검색버튼===== -->
 				<li>
-					<button type="submit" class="btn btn-outline-primary">검색</button>
+					<button type="submit" class="btn btn-outline-primary" id="chatsearch_btn">검색</button>
 				</li>
 				<li>
 					<button type="button" class="btn btn-outline-secondary"
@@ -158,12 +158,16 @@ $(function() {
 					</select>
 				</form>
 			</div>
-			
+			<!-- ======글쓰기버튼====== -->
 			<div id="sort02">
-			<c:if test="${!empty user_num}">
+			<%-- <c:if test="${!empty user_num}"> --%>
 				<button class="btn btn-primary" id="write_btn"
-					onclick="location.href='write.do'">게시글 작성</button>
-			</c:if>
+					onclick="location.href='write.do'"
+					>
+					게시글 작성
+					</button>
+			<%-- </c:if> --%>
+			
 			</div>
 		</div>
 
