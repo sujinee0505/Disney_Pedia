@@ -106,52 +106,61 @@ div#chatList {
 
 /* ==============chatBoardList============== */
 div#chatBoardList_main {
-	margin-top: 100px;
+	margin-top: 61.996px;
 }
 div.carousel-bg{
-/* 	background: linear-gradient( to right, black 10px, #101D54 400px, #33AAD0 60%, black );
- */	/* background: linear-gradient( -45deg,black 10px, rgba(24, 184, 201, .8), rgba(179, 56, 217, .8)60%, black) fixed; */
-	/* height:500px; */
-	/* margin:100px 0 100px 0; */
-background:linear-gradient( 332deg,black 10px, rgb(4 95 104), rgb(99 84 165 / 93%)60%, black) fixed;
+	background:linear-gradient(
+	 332deg,black 10px, rgb(4 95 104), rgb(99 84 165 / 93%)60%, black) fixed;
 }
 div.carousel-item img{
 	margin:  auto;
 	max-width: 100%; height: auto; 
-	/* box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 4px; */
 	}
-/* div.carousel-item {
-	background-color:#0005;
-	background-blendmode:darken;
-} */
 /* img#woody{filter: drop-shadow(0px -5px 10px #778699);}
 img#disney{filter: drop-shadow(0px -5px 10px #3C376E);}
 img#starwars{filter: drop-shadow(0px -5px 10px #111111);}
-img#marvel{filter: drop-shadow(0px -5px 10px #5C0100);} */
-
+img#marvel{filter: drop-shadow(0px -5px 10px #5C0100);} 
+*/
 .carousel-item img{
 	-webkit-filter: blur(4px);
 	filter: blur(6px);
 }
-
 form#list_search_form{
 	margin:50px auto;
 	margin-bottom:5px;
 	width:100%;
 }
-
 div#container_table{
-	width: 90%;
+	/* width: 90%; */
+	width: 1400px;
 	margin: 0 auto;
 }
-
-form#table_sort{
-	/* outline:1px dotted green; */
-	/* width:20px; */
+div#row_write{
+	display: flex;
+	justify-content: center;
+	/* flex-wrap: wrap; */
+}
+div#sort01 {
+    /* padding-right: 477px;
+    margin-left: -229px; */
+    /* padding-left: 180px; */
+}
+div#sort02{
+	/* padding-left: 100px; */
+	padding-left: 873px;
+}
+select#form-control{
+	/* padding-right: 477px; */
+}
+select#form-control{
+	/* width: 100px; */
+	/* flex-basis: 100px; */
 }
 button#write_btn{
-	/* margin-left:20px; */
-}
+/* 	margin-left:20px;
+	width: 100px; */
+	
+} 
 ul#list_search{
 	padding-left: 0 30%;
 	text-align:center; /*li 가로정렬  */
@@ -160,13 +169,7 @@ ul.search li{
 	list-style: none;
 	display:inline-block; /*li 가로정렬  */
 }
-div#row_write{
-	/* outline:1px dotted green; */
-	/* margin-bottom:0; */
-}
-div#row_write{
-	padding-left: 100px;
-}
+
 div#table_header{
 	padding-top:20px;
 }

@@ -154,24 +154,25 @@ $(function() {
 
 
 		<!-- 정렬과 게시글 작성 -->
-		<div class="row" id="row_write">
-			<form action="list.do" id="table_sort " method="post"
-				class="col-sm-1 offset-sm-1">
-				<select name="sort" class="form-control "
-					onchange="this.form.submit()">
-					<option value="1" <c:if test="${param.sort == 1}">selected</c:if>>
-						최신순</option>
-					<option value="2" <c:if test="${param.sort == 2}">selected</c:if>>
-						인기순</option>
-				</select>
-			</form>
-
+		<div id="row_write">
+			<div id="sort01">
+				<form action="list.do" id="table_sort " method="post" class="">
+					<select name="sort" class="form-control" id="form-control"
+						onchange="this.form.submit()">
+						<option value="1" <c:if test="${param.sort == 1}">selected</c:if>>
+							최신순</option>
+						<option value="2" <c:if test="${param.sort == 2}">selected</c:if>>
+							인기순</option>
+					</select>
+				</form>
+			</div>
+			
+			<div id="sort02">
 			<c:if test="${!empty user_num}">
-				<!-- <li class="col-md-4 "> -->
-				<button class="col-sm-1 offset-sm-7 btn btn-primary" id="write_btn"
+				<button class="btn btn-primary" id="write_btn"
 					onclick="location.href='write.do'">게시글 작성</button>
-				<!-- </li> -->
 			</c:if>
+			</div>
 		</div>
 
 
