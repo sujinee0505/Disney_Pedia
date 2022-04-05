@@ -171,7 +171,7 @@ public class ContentsController {
 
 	// 검색 결과 목록 출력
 	@RequestMapping("/contents/search.do")
-	public ModelAndView process(@RequestParam String keyword,
+	public ModelAndView process(@RequestParam String keyword_header,
 			@RequestParam(value = "category", defaultValue = "contents") String category) {
 
 		ModelAndView mav = new ModelAndView();
@@ -189,7 +189,7 @@ public class ContentsController {
 			movie = util.getInfoList("movie");
 			for (int i = 0; i < movie.size(); i++) {
 				// 전체 영화 목록 중 제목과 줄거리에 keyword가 포함되는 vo객체만 따로 추출
-				if (movie.get(i).getTitle().contains(keyword) || movie.get(i).getOverview().contains(keyword)) {
+				if (movie.get(i).getTitle().contains(keyword_header) || movie.get(i).getOverview().contains(keyword_header)) {
 					// 저장을 위한 새로운 ContentsVO생성
 					ContentsVO contents = new ContentsVO();
 					// 조건에 해당하는 경우에만 vo에 저장
@@ -202,7 +202,7 @@ public class ContentsController {
 			List<ContentsVO> tv = null;
 			tv = util.getInfoList("tv");
 			for (int i = 0; i < tv.size(); i++) {
-				if (tv.get(i).getTitle().contains(keyword) || tv.get(i).getOverview().contains(keyword)) {
+				if (tv.get(i).getTitle().contains(keyword_header) || tv.get(i).getOverview().contains(keyword_header)) {
 					ContentsVO contents = new ContentsVO();
 					contents = tv.get(i);
 					search_result.add(contents);
@@ -216,7 +216,7 @@ public class ContentsController {
 			// 검색 대상이 user일 경우
 		} else if (category.equals("users")) {
 			List<MemberVO> user_list = new ArrayList<MemberVO>();
-			String name = keyword;
+			String name = keyword_header;
 			user_list = memberService.searchUsers(name);
 			mav.addObject("user_list", user_list);
 		}
