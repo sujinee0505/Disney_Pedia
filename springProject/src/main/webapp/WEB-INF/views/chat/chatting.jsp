@@ -26,6 +26,12 @@ let namecount = 0;
 					}, 600)
 			}
    		});
+    	$('#chatting_form').submit(function() {
+    		$('#enter img').fadeIn();
+			setTimeout(function(){
+				$('#enter img').fadeOut();
+				}, 600)
+		});
 /*
  * to_num; > 메시지수신번호(글 작성자 회원번호) / {trans_num}
  * from_num; > 메시지발신번호(선 채팅자 회원번호) / {user_num}
