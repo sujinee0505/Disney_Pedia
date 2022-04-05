@@ -307,18 +307,21 @@ div.chat02{
     padding: 10px;
     margin: 25px 30px 25px auto;
     border-radius: 7px;
+    min-width: 650px;
 }
 div#chatting_message{
 	font-size: 14px;
 	color: #333;
 	flex-basis:500px;
 	margin-top:20px;
+	min-width: 650px;
 	/* flex-grow:10%; */
 }
 div#chatting_form{
 	/* outline:2px dotted yellow; */
 	flex-basis:200px;
 	margin-top:10px;
+	width: 100%;
 	/* flex-grow:10%; */
 }
 div#chatting_form form{
