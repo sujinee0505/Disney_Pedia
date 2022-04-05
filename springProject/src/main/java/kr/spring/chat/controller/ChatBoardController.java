@@ -208,10 +208,10 @@ public class ChatBoardController {
 		chatBoardService.updateBoard(chatboardVO);
 		
 		//view에 표시할 메시지
-		model.addAttribute("content", "글 수정이 완료되었습니다.");
-		model.addAttribute("url", request.getContextPath() + "/chatboard/list.do");
+		//model.addAttribute("content", "글 수정이 완료되었습니다.");
+		//model.addAttribute("url", request.getContextPath() + "/chatboard/list.do");
 		
-		return "common/resultView";
+		return "redirect:/chatboard/list.do";
 	}
 	 
 	
