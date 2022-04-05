@@ -3,27 +3,25 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dain.css">
+<script type="text/javascript">
+	$(function() { 
+		 $('#write_form').submit(function() {
+			if ($('#title_chat').val() == '') {
+				alert('제목을 입력하세요!');		
+				return;
+			}
+			if ($('#content_chat').val() == '') {
+				alert('내용을 입력하세요!');
+				return;
+			}	
+		}) 
+	});
+</script>
 <style>
 .ck-editor__editable_inline{
 	min-height:250px;
 }
 </style>
-<script type="text/javascript">
-	$(function() { 
-		$('#write_form').submit(function() {
-			if ($('#title').val().trim() == '') {
-				alert('제목을 입력하세요!');
-				$('#title').val('').focus();
-				return false;
-			}
-			if ($('#content').val().trim() == '') {
-				alert('내용을 입력하세요!');
-				$('#content').val('').focus();
-				return false;
-			}
-		})
-	});
-</script>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
 	<form:form modelAttribute="chatBoardVO" action="write.do" id="write_form"> 
@@ -39,10 +37,10 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><form:input path="title" type="text" class="form-control" placeholder="제목" name="title" maxlength="50"></form:input></td>
+							<td><form:input id="title_chat" path="title" type="text" class="form-control" placeholder="제목" name="title" maxlength="50"></form:input></td>
 						</tr>   
 						<tr>
-							<td><form:textarea path="content" type="text" class="form-control" placeholder="내용" name="content" maxlength="2048" style="height: 350px;" ></form:textarea></td>
+							<td><form:textarea id="content_chat" path="content" type="text" class="form-control" placeholder="내용" name="content" maxlength="2048" style="height: 350px;" ></form:textarea></td>
 						</tr>
 					</tbody>
 				</table>
@@ -52,6 +50,7 @@
 		</div>	
 	</form:form>
 </div>
+
 <!-- 중앙 컨텐츠 끝 -->
 <section class="css-7klu3x"></section>
 
