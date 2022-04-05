@@ -211,7 +211,7 @@ input[type=button] {
 												<h2 style="font-size: 22px;">코멘트</h2>
 												<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
 													<a
-													href="<c:if test="${param.user_num == 0 }">myComment.do?mem_num=${user_num }</c:if>
+													href="<c:if test="${!empty user_num && param.user_num == 0 }">myComment.do?mem_num=${user_num }</c:if>
 																<c:if test="${param.user_num != 0 }">myComment.do?mem_num=${param.user_num }</c:if>">
 														<h4 style="font-size: 15px;">작성한 코멘트 ></h4>
 												</a>
@@ -219,8 +219,8 @@ input[type=button] {
 												<li class="css-1u4jvye-CategoryArchivesListItem e19zkogf13">
 													<a
 													href="<c:if
-																test="${param.user_num == 0 }">likeComment.do?mem_num=${user_num }</c:if>
-															<c:if test="${param.user_num != 0 }">likeComment.do?mem_num=${param.user_num }</c:if>">
+																test="${!empty user_num && param.user_num == 0 }">likeComment.do?mem_num=${user_num }</c:if>
+															<c:if test="${param.user_num != 0}">likeComment.do?mem_num=${param.user_num }</c:if>">
 
 														<h4 style="font-size: 15px;">좋아한 코멘트 ></h4>
 												</a>
