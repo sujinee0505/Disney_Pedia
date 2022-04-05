@@ -27,6 +27,7 @@ public class ChattingVO {
 	}
 
 	public String getDate() {
+		if(date_time!=null) date = date_time.split(" ")[0];
 		return date;
 	}
 
@@ -35,6 +36,7 @@ public class ChattingVO {
 	}
 
 	public String getTime() {
+		if(date_time!=null) time = date_time.split(" ")[1];
 		return time;
 	}
 
@@ -117,7 +119,7 @@ public class ChattingVO {
 	public String toString() {
 		return "ChattingVO [chat_num=" + chat_num + ", to_num=" + to_num + ", from_num=" + from_num + ", chatstate_num="
 				+ chatstate_num + ", content=" + content + ", chatboard_num=" + chatboard_num + ", send_date="
-				+ send_date + ", name=" + name + ", date_time=" + date_time + ", date=" + date + ", time=" + time + "]";
+				+ send_date + ", name=" + name + ", date_time=" + date_time + ", date=" + getDate() + ", time=" + getTime() + "]";
 	}
 
 

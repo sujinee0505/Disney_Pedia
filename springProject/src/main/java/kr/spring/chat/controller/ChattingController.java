@@ -76,7 +76,7 @@ public class ChattingController {
 			List<ChattingVO> getChatting = new ArrayList<ChattingVO>();
 			getChatting = chattingService.getChattingDetail(chattingVO); // chatboard_num 등 chatting.jsp에서 받아온 값을 인자로
 																			// 넣어서 sql문을 행하여 결과값을 List에 담아준다
-			logger.info("<<채팅확인>> : " + chattingVO);
+			logger.info("<<채팅확인>> : " + getChatting);
 
 			map.put("getChatting", getChatting);
 			map.put("result", "success");
