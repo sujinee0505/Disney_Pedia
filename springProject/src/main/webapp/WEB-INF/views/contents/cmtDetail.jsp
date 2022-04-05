@@ -224,10 +224,12 @@ $(function() {
 		<div class="css-1jehmiq"
 			style="background: transparent; border-bottom: 1px solid #e3e3e3;">
 			<div class="css-10zg79x-pageMarginStyle"
-				style="font-weight: 700; font-size: 22px; color: black;">코멘트 상세</div>
+				style="font-weight: 700; font-size: 22px; color: black;">코멘트
+				상세</div>
 		</div>
 	</section>
-	<div class="css-fr521c-StyledSectionContainer e1rmcw6u2" style="width: 750px; margin: auto;">
+	<div class="css-fr521c-StyledSectionContainer e1rmcw6u2"
+		style="width: 750px; margin: auto;">
 		<div class="css-1d7xpnn-CommentContainer e1rmcw6u3">
 			<section class="css-0">
 				<div class="css-1p3jp2v">
@@ -254,9 +256,7 @@ $(function() {
 										src="${pageContext.request.contextPath}/member/myPage.do?user_num=${comment.mem_num}"
 										class="css-19w3a64"></span>
 								</div>
-								<div class="css-1hy7aba">
-									${comment.reg_date }
-								</div>
+								<div class="css-1hy7aba">${comment.reg_date }</div>
 							</div>
 						</a><a title="${contents.title}"
 							class="css-1f9m1s4-StylelessLocalLink eovgsd01"
@@ -361,8 +361,7 @@ $(function() {
 				</section>
 			</section>
 			<section class="css-1r5nwql">
-				<div class="cmtReply">
-				</div>
+				<div class="cmtReply"></div>
 			</section>
 		</div>
 	</div>
