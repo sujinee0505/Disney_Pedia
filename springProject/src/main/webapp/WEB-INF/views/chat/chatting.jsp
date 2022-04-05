@@ -63,6 +63,8 @@ let namecount = 0;
 								output +=     item.content;
 								output += 	'</div>';
 								output += 	'<span id="from_position-date" >'+item.date_time+'</span>';
+								//output += 	'<span id="from_position-date2" >'+item.date+'</span>';
+								//output += 	'<span id="from_position-date3" >'+item.time+'</span>';
 							
 							//(item.to_num == ${user_num}) {
 							}else{                     
@@ -204,6 +206,7 @@ let namecount = 0;
 	});   
 	
 </script>
+
 <div id="bg">
 <!-- <div class="page-main-chat border border-primary border-2 rounded"> -->
 	<div class="page-main-chat">
