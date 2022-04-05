@@ -13,7 +13,6 @@
 $(function() {
 	$("#update_form").submit(function(){
 		alert("수정완료");
-
 	});
 });
 </script>
