@@ -465,6 +465,7 @@
     display: flex;
     border-bottom: 1px solid #e5e5e5;
     overflow: hidden;
+    padding-top:-10px;
 }
 .css-yqs4x12 {
     display: flex;

@@ -45,7 +45,7 @@ closeOnClickOutside: false;
 	outline: none !important;
 	border:none;
 }
-#mycmtStar{ /*마이코멘트 별점 노랗게*/
+#myPageStar{ /*마이코멘트 별점 노랗게*/
 	color:#ffa914;
 	font-family: 'SUIT-Medium';
 	/*텍스트 세로 중앙 정렬*/
