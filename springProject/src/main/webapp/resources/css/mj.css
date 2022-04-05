@@ -126,7 +126,7 @@ img#starwars{filter: drop-shadow(0px -5px 10px #111111);}
 img#marvel{filter: drop-shadow(0px -5px 10px #5C0100);} 
 */
 img#woody, img#starwars{
-	filter: brightness(110%) blur(6px); 
+	filter: brightness(100%) blur(6px); 
 }
 .carousel-item img{
 	filter: blur(6px);
