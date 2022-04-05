@@ -16,11 +16,7 @@ $(function() {
 			document.getElementById('login-btn').click();
 		}
 	})
-	
-	if(user_num==0){ //비회원시 글쓰기버튼안보이게
-		$('#write_btn').hide();
-	};
-	
+		
 	$('#list_search_form').submit(function () {				
 		if($('#keyword').val()==''){
 			//alert('검색어필수');
@@ -146,7 +142,7 @@ $(function() {
 
 
 		<!-- 정렬과 게시글 작성 -->
-		<div id="row_write">
+		<div  class="col-md-9 mx-auto row_write">
 			<div id="sort01">
 				<form action="list.do" id="table_sort " method="post" class="">
 					<select name="sort" class="form-control" id="form-control"
@@ -158,10 +154,11 @@ $(function() {
 					</select>
 				</form>
 			</div>
+			
 			<!-- ======글쓰기버튼====== -->
 			<div id="sort02">
 				<button class="btn btn-primary" id="write_btn"
-					onclick="location.href='write.do'">
+					onclick="location.href='write.do'" style="<c:if test="${empty user_num || user_num == 0}">display : none;</c:if>">
 					게시글 작성
 				</button> 
 			</div>

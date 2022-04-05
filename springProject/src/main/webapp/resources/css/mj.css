@@ -165,39 +165,10 @@ div#container_table {
 	margin: 0 auto;
 }
 
-div#row_write {
+.row_write {
 	display: flex;
-	justify-content: center;
-	/* flex-wrap: wrap; */
-}
-
-div#sort01 {
-	/* padding-right: 477px;
-    margin-left: -229px; */
-	/* padding-left: 180px; */
-	
-}
-
-div#sort02 {
-	/* padding-left: 100px; */
-	padding-left: 873px;
-}
-
-select#form-control {
-	/* padding-right: 477px; */
-	
-}
-
-select#form-control {
-	/* width: 100px; */
-	/* flex-basis: 100px; */
-	
-}
-
-button#write_btn {
-	/* 	margin-left:20px;
-	width: 100px; */
-	
+	justify-content: space-between;
+	padding: 0 4px;
 }
 
 ul#list_search {
@@ -486,11 +457,12 @@ div#to_item:hover {
 }
 
 /* 좌측.to-position */
- span#to_name{
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 10px;
-} 
+span#to_name {
+	display: flex;
+	justify-content: flex-start;
+	padding-left: 10px;
+}
+
 .to-position {
 	display: flex;
 	margin-left: 10px;
