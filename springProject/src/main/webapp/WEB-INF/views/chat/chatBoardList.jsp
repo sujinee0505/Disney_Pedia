@@ -119,21 +119,18 @@ $(function() {
 				</li>
 				<!-- =====검색버튼===== -->
 				<li>
-					<button type="submit" class="btn btn-outline-primary">검색</button>
+					<button type="submit" class="btn btn-outline-primary"
+					style="margin-top:-4px;font-size: 14px; height:38px;">
+						검색
+					</button>
 				</li>
 				<li>
 					<button type="button" class="btn btn-outline-secondary"
-						onclick="location.href='list.do'">목록</button>
+						onclick="location.href='list.do'"
+						style="margin-top:-4px;font-size: 14px; height:38px;">
+						목록
+					</button>
 				</li>
-				<!--  
-			<li>
-				<c:if test="${!empty user_num}">
-				<button class="btn  btn-primary"  
-							id="write_btn" 
-							onclick="location.href='write.do'">게시글 작성</button>
-				</c:if>
-			</li>
-			-->
 			</ul>
 		</form>
 		<br>
