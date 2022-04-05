@@ -66,21 +66,19 @@ let namecount = 0;
 							}
 							//우측
 							if(item.from_num == ${user_num}){ 
-								output += '<div class="from-position">'+'<span id="from_name">'+item.name+'</span>';
-
-								output += 	'<div class="item" id="from_item">';
-								output +=     item.content;
-								output += 	'</div>';
-								output += '<span class="from_position-date" >'+item.time+'</span>';
+								output += '<div style="display: flex; justify-content: flex-end; flex-direction: column;">';
+								output += '<div style="display: flex; justify-content: flex-end; "><span id="from_name">'+item.name+'</span></div>';
+								output += 	'<div class="from-position"><div class="item" id="from_item">';
+								output +=   '<span>' + item.content +'</span>';
+								output += 	'</div><span class="from_position-date" >'+item.time+'</span></div>';
 							
 							//좌측(item.to_num == ${user_num}) 
 							}else{   
-								output += '<div class="to-position">'+'<span id="to_name">'+item.name+'</span>';
-								
-								output += 	'<div class="item" id="to_item">';
-								output +=     item.content;
-								output += 	'</div>';
-								output += 	'<span id="to_position-date" >'+item.time+'</span>';
+								output += '<div style="display: flex; justify-content: flex-start; flex-direction: column;">';
+								output += '<div style="display: flex; justify-content: flex-start; "><span id="to_name">'+item.name+'</span></div>';
+								output += 	'<div class="to-position"><div class="item" id="to_item">';
+								output +=   '<span>' + item.content +'</span>';
+								output += 	'</div><span id="to_position-date" >'+item.time+'</span></div>';
 								if(namecount<1){//메세지쪽 말고 왼쪽 상단
 									output2 = '<div id="trans_id"><b>'+item.name+'님과의 대화방입니다.<b></div>';
 								}
