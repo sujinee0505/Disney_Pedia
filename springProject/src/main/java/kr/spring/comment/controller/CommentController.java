@@ -178,6 +178,9 @@ public class CommentController {
 			member = memberService.selectMember(cmtLikeList.get(i).getComment_mem()); // 내가 좋아요 한 코멘트의 작성자 상세정보 불러오기
 			memberList.add(member);
 			cmtLikeList.get(i).setCountReply(commentService.getCountReply(cmtLikeList.get(i).getComment_num()));
+			
+			cmtLikeList.get(i).setContent(StringUtil.useBrHtml(cmtLikeList.get(i).getContent())); //추가)코멘트 줄바꿈 적용
+			
 			Integer countLike = commentService.getCountLike(cmtLikeList.get(i).getComment_num()); // 코멘트 좋아요 갯수
 			if (countLike != null) {
 				cmtLikeList.get(i).setCountLike(countLike); // 각각의 코멘트의 좋아요 갯수
