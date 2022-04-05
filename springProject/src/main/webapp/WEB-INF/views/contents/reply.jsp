@@ -36,7 +36,18 @@
 				timeout : 30000,
 				success : function(param) {
 					if (param.result == 'logout') {
-						alert('댓글을 남기시려면 로그인이 필요해요.');
+						Swal.fire({			
+							  title: ' ',						  
+							  text: '댓글을 작성하시려면 로그인이 필요해요.',
+							  imageUrl: '${pageContext.request.contextPath}/resources/images/comment_icon.png',
+							  imageWidth: 70,
+							  imageHeight: 70,						  
+							  imageAlt: 'Custom image',
+							  confirmButtonColor: '#84d7fa',
+							  confirmButtonText: '알겠어요',
+							  width: 400,
+							  padding: '2em'
+							  })
 					} else if (param.result == 'success') {
 						alert('댓글을 등록했습니다.');
 					} else {
