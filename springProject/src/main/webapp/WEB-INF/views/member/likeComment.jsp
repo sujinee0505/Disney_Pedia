@@ -7,6 +7,11 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/cmtLike.js"></script>
+<style>
+*{
+	font-family: 'SUIT-Medium';
+}
+</style>
 <section class="css-18gwkcr">
 	<section class="css-le8j8b">
 		<div class="css-1jehmiq"
@@ -63,9 +68,14 @@
 							<a class="css-1f9m1s4-StylelessLocalLink eovgsd01"
 								href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${cmtLikeList.contents_type }&contents_num=${cmtLikeList.contents_num}">
 								<div class="css-1g78l7j" style="display: flex;">
-									<img class="css-qhzw1o-StyledImg"
-										style="max-height: 520px; width: 80px;"
-										src="${ contentsList[status.index].poster_path }">
+									<!-- 포스터 이미지 -->
+									<div class="float_left">
+										<img class="css-qhzw1o-StyledImg"
+											style="max-height: 520px; width: 80px;"
+											src="${ contentsList[status.index].poster_path }">
+									</div>	
+									<!-- 코멘트 내용쪽 -->
+									<div class="float_left" style="max-width:450px; ">	
 									<div style="margin-left: 10px;">
 										<span style="font-size: 14pt;">${ contentsList[status.index].title }</span>
 										<div class="css-1g78l7j">
@@ -84,6 +94,9 @@
 												href="${pageContext.request.contextPath}/contents/cmtDetail.do?contents_type=${cmtLikeList.contents_type }&contents_num=${cmtLikeList.contents_num }&comment_num=${cmtLikeList.comment_num }">
 												<span>${cmtLikeList.content}</span>
 											</a>
+										</div>	
+											
+											
 										</div>
 									</div>
 								</div>

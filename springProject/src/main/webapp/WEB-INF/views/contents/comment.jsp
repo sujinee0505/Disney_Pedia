@@ -61,7 +61,23 @@
 								    })
 						//alert('코멘트를 작성하시려면 로그인이 필요해요.');					
 					}else if(param.result == 'success'){
-						alert('코멘트를 등록했습니다.');	 
+						Swal.fire({			
+							  title: ' ',						  
+							  text: '코멘트를 등록했습니다.',
+							  imageUrl: '${pageContext.request.contextPath}/resources/images/comment_icon.png',
+							  imageWidth: 70,
+							  imageHeight: 70,						  
+							  imageAlt: 'Custom image',
+							  confirmButtonColor: '#84d7fa',
+							  confirmButtonText: '확인',
+							  width: 400,
+							  padding: '2em'
+							  }).then((result) => {
+							      if (result.isConfirmed) {
+								    	 location.reload(true);
+								      }
+								    })
+						//alert('코멘트를 등록했습니다.');	 
 					}else{
 						alert('코멘트 등록 오류 발생');
 					}
@@ -73,8 +89,6 @@
  	}
   });
 </script>
-<!DOCTYPE html>
-<body>
       <!-- Modal Header -->
       <div class="modal-header border-0" id="comment-header">
         <p class="modal-title2"><b>${contents.title }</b></p>
@@ -96,6 +110,3 @@
 		</div>
 		</form> 		
 	  </div>	    
-	 
-</body>
-</html>
