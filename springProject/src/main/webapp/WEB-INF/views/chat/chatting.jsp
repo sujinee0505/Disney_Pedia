@@ -228,7 +228,7 @@ let namecount = 0;
 				<c:if test="${user_num == chatBoard.mem_num}">
 				<div id="chat01-01"></div>
 					<button id="mate"
-						class="badge rounded-pill <c:if test="${chatBoard.mate_state == 0}">bg-light text-dark</c:if><c:if test="${chatBoard.mate_state == 1}">bg-danger</c:if>">
+						class="badge rounded-pill <c:if test="${chatBoard.mate_state == 0}">bg-danger</c:if><c:if test="${chatBoard.mate_state == 1}">bg-light text-dark</c:if>">
 						<c:if test="${chatBoard.mate_state == 0}">모집 중</c:if>
 						<c:if test="${chatBoard.mate_state == 1}">모집 완료</c:if>
 					</button>
