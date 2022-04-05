@@ -118,7 +118,7 @@
 								class="comment_num"> <input type="hidden" value="1"
 								class="checkCmtLike">
 							<button	class="css-jj4q3s-StylelessButton-UserActionButton cmtLike" 
-							style="margin-left: 5px; font-size:13px;">&nbsp;&nbsp;좋아요&nbsp;&nbsp;</button>
+							style="margin-left: 5px; font-size:13px;">&nbsp;좋아요&nbsp;</button>
 						</div>
 					</div>
 				</c:forEach>
