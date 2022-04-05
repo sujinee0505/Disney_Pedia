@@ -15,9 +15,8 @@ let namecount = 0;
     let count=0;
     let scroll_check;
     let loop_check = true;
-    let date_time = '';
-    let date_time2 = '';
-   
+    let date = '';
+    
     	$('#content').keydown (function(event){
 			if(event.keyCode == 13 && !event.shiftKey) { //.event.keyCode == 13 : 엔터키눌렀을 때 이벤트
 				$('#chatting_form').trigger('submit');
@@ -54,33 +53,35 @@ let namecount = 0;
 						$(param.getChatting).each(function(index,item){
 							let output2 = '';
 							let output = '';
-							
+							//날짜
+							if(item.date!=date){
+								output += 	'<div class="item-date">'+item.date+'</div>';
+								date =item.date;
+							}
+							//우측
 							if(item.from_num == ${user_num}){ 
 								output += '<div class="from-position">'+'<span id="from_name">'+item.name+'</span>';
 
 								output += 	'<div class="item" id="from_item">';
-								//output +=	 (item.chatstate_num !=1 ? '<img src="${pageContext.request.contextPath}/resources/images/board/chatstate_num.png">' : '') 
 								output +=     item.content;
 								output += 	'</div>';
-								output += 	'<span id="from_position-date" >'+item.date_time+'</span>';
-								//output += 	'<span id="from_position-date2" >'+item.date+'</span>';
-								//output += 	'<span id="from_position-date3" >'+item.time+'</span>';
+								output += '<span class="from_position-date" >'+item.time+'</span>';
 							
-							//(item.to_num == ${user_num}) {
-							}else{                     
+							//좌측(item.to_num == ${user_num}) 
+							}else{   
 								output += '<div class="to-position">'+'<span id="to_name">'+item.name+'</span>';
 								
 								output += 	'<div class="item" id="to_item">';
 								output +=     item.content;
 								output += 	'</div>';
-								output += 	'<span id="to_position-date" >'+item.date_time+'</span>';
-								
-								if(namecount<1){
+								output += 	'<span id="to_position-date" >'+item.time+'</span>';
+								if(namecount<1){//메세지쪽 말고 왼쪽 상단
 									output2 = '<div id="trans_id"><b>'+item.name+'님과의 대화방입니다.<b></div>';
 								}
 							}
 								
 							output += '</div>';
+						
 							
 							//문서 객체에 추가
 							$('#chatting_message').append(output);

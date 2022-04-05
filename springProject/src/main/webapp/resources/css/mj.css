@@ -126,7 +126,7 @@ img#starwars{filter: drop-shadow(0px -5px 10px #111111);}
 img#marvel{filter: drop-shadow(0px -5px 10px #5C0100);} 
 */
 img#woody, img#starwars{
-	filter: brightness(100%) blur(6px); 
+	filter: brightness(110%) blur(6px); 
 }
 .carousel-item img{
 	filter: blur(6px);
@@ -389,7 +389,7 @@ span#from_name{
 	display: none;
 }
 
-span#from_position-date{
+span#from_position-date, span.from_position-date{
 /* display: none; */
     padding-left: 16px;
     font-size: 8pt;
@@ -400,7 +400,7 @@ div#from_item:hover{
 }
 span#to_position-date{
 /* display: none; */
-	padding-left: 180px;
+    padding-left: 240px;
 	font-size: 8pt;
     color: #c9c9c9;
 }
@@ -437,6 +437,12 @@ span#to_name{
     border-bottom: 0;
     margin-top: -10px;
     margin-left: -9px;
+}
+
+.item-date {
+    color: rgb(63 113 157 / 35%);
+    font-size: 12px;
+    text-align: center;
 }
 
 
