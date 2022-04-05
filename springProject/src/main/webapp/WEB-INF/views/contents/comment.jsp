@@ -22,7 +22,8 @@
 	  }); //end of count
 
  	//코멘트 등록
- 	$('#comment_form').submit(function(){
+ 	cmtSubmit = function() {
+		  
  		 var user_num = ${user_num};
  		 var star_num = $('#starnum_star').val();
  		 if (star_num == null || star_num=='') {
@@ -53,7 +54,11 @@
 							  confirmButtonText: '알겠어요',
 							  width: 400,
 							  padding: '2em'
-							  })
+							  }).then((result) => {
+							      if (result.isConfirmed) {
+								    	 location.reload(true);
+								      }
+								    })
 						//alert('코멘트를 작성하시려면 로그인이 필요해요.');					
 					}else if(param.result == 'success'){
 						alert('코멘트를 등록했습니다.');	 
@@ -65,7 +70,7 @@
 					alert('네트워크 오류 발생');
 				}
 		}); //end of comment ajax
- 	}); //end of submit
+ 	}
   });
 </script>
 <!DOCTYPE html>
@@ -86,7 +91,7 @@
 			<div id="count_area">
 			<span class="letter-count">0/1000</span>
 			</div> 
-			<button type="submit" id="comment_btn" class="btn btn-dark-blue">저장</button>
+			<button type="button" id="comment_btn" onclick="cmtSubmit()" class="btn btn-dark-blue">저장</button>			
 			<!-- btn-hover color-9 -->
 		</div>
 		</form> 		
