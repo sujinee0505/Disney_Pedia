@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><!-- jstl -->
-
-<link
+<!-- <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-	crossorigin="anonymous">
-
+	crossorigin="anonymous"> -->
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/mj.css" />
 <script type="text/javascript">
@@ -18,20 +16,10 @@ $(function() {
 			document.getElementById('login-btn').click();
 		}
 	})
+	if(${user_num}==0){ //비회원시 글쓰기버튼안보이게
+		$('#write_btn').hide();
+	}
 	
-	$('#chatsearch_btn').click(function () {				
-			if($('#keyword').val()==''){
-				//alert('검색어필수');
-				/* Swal.fire({
-				      icon: 'warning',
-				      title: '검색어를 입력하세요!',
-				      text: '찾을 수가 없네요',
-				  }); */
-				//$('#keyword').val('').focus();
-				return false;
-			}
-		});//end of search submit
-		
 });//end of function	
 </script>
 
@@ -123,7 +111,7 @@ $(function() {
 				</li>
 				<!-- =====검색버튼===== -->
 				<li>
-					<button type="submit" class="btn btn-outline-primary" id="chatsearch_btn">검색</button>
+					<button type="submit" class="btn btn-outline-primary">검색</button>
 				</li>
 				<li>
 					<button type="button" class="btn btn-outline-secondary"
@@ -160,14 +148,10 @@ $(function() {
 			</div>
 			<!-- ======글쓰기버튼====== -->
 			<div id="sort02">
-			<%-- <c:if test="${!empty user_num}"> --%>
 				<button class="btn btn-primary" id="write_btn"
-					onclick="location.href='write.do'"
-					>
+					onclick="location.href='write.do'">
 					게시글 작성
-					</button>
-			<%-- </c:if> --%>
-			
+				</button> 
 			</div>
 		</div>
 
