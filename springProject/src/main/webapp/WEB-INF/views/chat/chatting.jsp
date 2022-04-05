@@ -175,19 +175,35 @@ let namecount = 0;
 						let stateNotice = '';
 						<!-- mate_state : 0 모집중/1 모집완료 -->
 						if (check==0) { /* 모집중(0)->모집완료(1)  */
-							stateNotice = '<span>'+'모집 중으로 변경하려면 <b>클릭</b>하세요!'+'</span>';
 						
-							alert("모집 완료로 변경되었습니다!")
-							$('#mate').text('모집 완료');
-							$('#mate').removeClass('bg-danger').addClass('bg-light text-dark');
-							check = 1; //check변수로 모집 현황을 구분하므로 check값도 바꿔준다.
+							stateNotice = '<span>'+'모집 중으로 변경하려면 <b>클릭</b>하세요!'+'</span>';
+							Swal.fire({
+								title:'모집 완료로 변경되었습니다!',
+								icon: 'success',
+								showConfirmButton: false,
+								backdrop: false,
+								timer:1000
+								});
+							
+								$('#mate').text('모집 완료');
+								$('#mate').removeClass('bg-danger').addClass('bg-light text-dark');
+								check = 1; //check변수로 모집 현황을 구분하므로 check값도 바꿔준다.
 						
 						}else if (check==1) { /* 모집완료(1)->모집중(0)  */
+							
 							stateNotice = '<span>'+'모집 완료로 변경하려면 <b>클릭</b>하세요!'+'</span>';
-							alert("모집 중으로 변경되었습니다!")
-							$('#mate').text('모집 중');
-							$('#mate').removeClass('bg-light text-dark').addClass('bg-danger');
-							check = 0; //check변수로 모집 현황을 구분하므로 check값도 바꿔준다.
+							Swal.fire({
+								title:'모집 중으로 변경되었습니다!',
+								icon: 'success',
+								showConfirmButton: false,
+								backdrop: false,
+								timer:1000
+								});
+							
+								$('#mate').text('모집 중');
+								$('#mate').removeClass('bg-light text-dark').addClass('bg-danger');
+								check = 0; //check변수로 모집 현황을 구분하므로 check값도 바꿔준다.
+							
 						}else{
 							alert("check오류");
 						}
