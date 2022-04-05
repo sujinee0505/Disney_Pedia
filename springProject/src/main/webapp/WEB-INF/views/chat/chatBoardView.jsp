@@ -106,8 +106,7 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 	});
 </script>
 
-<div class="page-main border border-primary border-2 rounded"
-		id="boardView">
+<div class="page-main border border-primary border-2" id="boardView" style="margin-bottom: 130px">
 	<div>
 		<h2>
 			<c:if test="${chatboard.mate_state==0}">
@@ -145,10 +144,10 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 				</c:when>
 			</c:choose>
 		</div>
-		<div id="boardView_name" class="col-8  align-self-end ">
+		<div id="boardView_name" class="col-6  align-self-end ">
 			<b>${chatboard.name}</b>
 		</div>
-		<div id="boardView_date" class="col-2 offset-1  align-self-end ">
+		<div id="boardView_date" class="align-self-end ">
 			작성일 | ${chatboard.reg_date}</div>
 	</div>
 

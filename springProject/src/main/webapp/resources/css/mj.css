@@ -2,9 +2,10 @@
 /* 상 우 하 좌/상 좌우 하/상하 좌우 */
 div#boardView{
 	/* outline:1px solid red; */
-	margin:200px auto;
-	width:70%;
-	padding:40px;
+	margin: 125px auto;
+    width: 1024px;
+    padding: 40px;
+	border-radius: 25px;
 }
 div#boardView h2{
 	margin:10px auto;
@@ -16,7 +17,7 @@ div#boardView_middle{
 }
 div#boardView_img{
 /* 	outline:2px dotted green; */
-	margin-left:1%;
+	margin-left:2%;
 	width: 60px;
 	height: 60px;
 	margin-right: 2%;
@@ -38,6 +39,10 @@ div#boardView_name{
 div#boardView_date{
 	/* margin-left:47%; */
 	font-size: 15px;
+	margin-left: 199px;
+    font-size: 15px;
+    width: 170px;
+
 }
 div#boardView_content{
 	/* outline:1px dotted green; */
@@ -46,7 +51,7 @@ div#boardView_content{
 	border-radius: 1%; 
 	margin:0 2%;
 	padding:2%;
-	height: 400px;
+	height: 300px;
 }
 div#boardView_hit{
 /* 	outline:2px dotted yellow; */
@@ -61,31 +66,30 @@ img#eye_img{
 	opacity: 70%;
 }
 div#boardView_button{
-	margin-top:0;
+    margin-top: 29px;
 }
 button#chat_btn{
-    margin-left: 5%;
+    margin-left: 29px;
     width: 234px;
-    height: 50px;
 }
 button#modify_btn{
 	/* margin-left:20%; */
 }
 button#delete_btn{
-	margin-left:5%;
+	margin-left:16px;
 }
 div#mybtn{
 	/* outline:2px dotted yellow; */
-	width: 160px;
-	margin-left:50%;
+	width: 152px;
+    margin-left: 425px;
 }
 button#list_btn{
-	margin-left:5%;
-	width: 100px;
+	/* margin-left:5%; */
+	width: 82px;
 }
 div#publicbtn{
 	/* outline:2px dotted red; */
-	width: 9%;
+    width: 114px;
 }
 /*-----------채팅리스트-----------*/
 div.chatList-main{
