@@ -5,11 +5,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
-<script type="text/javascript">
-$(function() {
-	alert(${param.category});
-});
-</script>
 <section class="css-18gwkcr">
     <section class="css-le8j8b">
         <div class="css-1jehmiq">
@@ -18,14 +13,12 @@ $(function() {
         </div>
         <div class="css-15qcwbn-StyledTabBarContainer e1szkzar1" style="height: 50px;">
             <ul class="css-1gwdxtz-VisualUl-StyledTabBarUl e1szkzar2" style="width: 100%; margin: 0px auto;">
-                <li><a class="<c:if
-					test=" ${param.category eq 'contents' || empty param.category }">css-s8lqsd-StyledTab e1szkzar0</c:if>
+                <li><a class="<c:if test="${param.category eq 'contents'}">css-s8lqsd-StyledTab e1szkzar0</c:if>
                         <c:if test="${param.category ne 'contents' }">css-4tchbd-StyledTab e1szkzar0</c:if>"
                         href="${pageContext.request.contextPath}/contents/search.do?keyword_header=${param.keyword_header }&category=contents">콘텐츠
                     </a>
                 </li>
-                <li><a class="<c:if
-					test=" ${param.category eq 'users' }">css-s8lqsd-StyledTab e1szkzar0</c:if>
+                <li><a class="<c:if test="${param.category eq 'users'}">css-s8lqsd-StyledTab e1szkzar0</c:if>
                         <c:if test="${param.category ne 'users' }">css-4tchbd-StyledTab e1szkzar0</c:if>"
                         href="${pageContext.request.contextPath}/contents/search.do?keyword_header=${param.keyword_header }&category=users">유저
                     </a></li>
