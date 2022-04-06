@@ -147,7 +147,7 @@ public class ChatBoardController {
 		
 		//한건의 레코드를 ModelAndView에 넘기는데 생성자를 통해서 하나만 넘긴다.
 		return new ModelAndView("chatBoardView","chatboard",chatboard);
-									//tiles설정,  	 속성명, 	 	속성값
+		 							//tiles설정,  	 속성명, 	 	속성값
 		
 		/*ModelAndView mav = new ModelAndView();
 		mav.setViewName("chatBoardView");//tiles설정
