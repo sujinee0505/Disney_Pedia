@@ -265,15 +265,14 @@ div#page-main-chat01 {
 }
 
 div.chat01 {
-	background-color: #eeeeee;
-	border-radius: 44px;
-	width: 382px;
-	height: 200px;
-	margin-top: 10%;
-	margin-right: 39px;
-	padding-top: 40px;
-	padding-left: 40px;
-	position: relative;
+    background-color: #eeeeee;
+    border-radius: 44px;
+    width: 382px;
+    height: 200px;
+    margin-top: 10%;
+    margin-right: 39px;
+    position: relative;
+    padding: 40px 15px 15px 36px;
 }
 
 div.chat01:after {
@@ -332,6 +331,7 @@ div.chat02 {
 	margin: 25px 30px 25px auto;
 	border-radius: 7px;
 	min-width: 550px;
+	width: 575px;
 }
 
 div#chatting_message {
