@@ -192,6 +192,7 @@ public class CommentController {
 		mav.addObject("cmtLikeList", cmtLikeList);
 		mav.addObject("contentsList", contentsList);
 		mav.addObject("memberList", memberList);
+		mav.addObject("mem_num", mem_num);
 		return mav;
 	}
 
