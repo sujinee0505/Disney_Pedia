@@ -10,7 +10,11 @@
 		//코멘트 삭제
 		$('.cmt_delbtn').click(
 				function(event) {
-					var user_num = ${user_num};
+					var user_num = $
+					{
+						user_num
+					}
+					;
 					$.ajax({
 						url : 'commentDelete.do',
 						type : 'post',
@@ -73,7 +77,11 @@
 														<div class="css-1agoci2">
 															<a style="color: #74747B;"
 																href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${commentList.contents_type }&contents_num=${commentList.contents_num}">
-																${contentsList[status.index].title} <span
+																${contentsList[status.index].title} :: <span><c:if
+																	test="${commentList.contents_type eq 'movie' }">영화</c:if>
+																<c:if
+																	test="${commentList.contents_type eq 'tv' }">TV 시리즈</c:if></span>
+																<span
 																src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQuNzcwNDYgMC41NjI0NTlDNS4yNDMyOCAtMC4xNTY0MzIgNi4zMTE0NyAtMC4xOTMwNyA2LjgzNTM1IDAuNDkyMTU1QzcuMTczMzcgMC45MzM3ODggNy43NzM4NSAxLjEwMTEzIDguMzAxODEgMC45MDAxMjFDOS4xMTk4IDAuNTg4MjA1IDEwLjAwNjIgMS4xNjc0OCAxMC4wMTQ0IDIuMDIxMDRDMTAuMDE5NSAyLjU2OTYxIDEwLjQwNTUgMy4wNDc4OCAxMC45NTM5IDMuMTg1NTJDMTEuODA0NiAzLjM5OTQxIDEyLjE3MDIgNC4zNzQ3NiAxMS42NjA2IDUuMDY4OUMxMS4zMzE4IDUuNTE2NDggMTEuMzUzMiA2LjEyMTQ5IDExLjcxMzcgNi41NDYyOUMxMi4yNzIzIDcuMjA0NzggMTEuOTc3MiA4LjIwMTkyIDExLjE0MzggOC40NzIyNUMxMC42MDY3IDguNjQ3NTIgMTAuMjU3NCA5LjE1MDU0IDEwLjI5MTEgOS42OTkxMkMxMC4zNDQyIDEwLjU0OTcgOS41MDE3NCAxMS4xODc0IDguNjYzMzIgMTAuOTMxOUM4LjEyMjA4IDEwLjc2NzYgNy41MzQ4OCAxMC45NzQ1IDcuMjI5NTQgMTEuNDM3OUM2Ljc1NjcyIDEyLjE1NjggNS42ODc1MSAxMi4xOTI1IDUuMTY0NjUgMTEuNTA4MkM0LjgyNjYzIDExLjA2NTYgNC4yMjYxNSAxMC44OTgzIDMuNjk4MTkgMTEuMTAwM0MyLjg4MDIgMTEuNDEyMiAxLjk5Mzc4IDEwLjgzMTkgMS45ODQ1OSA5Ljk4MDM0QzEuOTgwNTEgOS40Mjk3OCAxLjU5NTUxIDguOTUyNSAxLjA0NjEgOC44MTM4N0MwLjE5NTQyOCA4LjU5OTk5IC0wLjE3MDE2NiA3LjYyNjYxIDAuMzM5NDE5IDYuOTMyNDdDMC42NjgyNDkgNi40ODM5MSAwLjY0NjgwNCA1Ljg3NzkgMC4yODYzMTYgNS40NTMxQy0wLjI3MjI4NyA0Ljc5NDYxIDAuMDIyODQzIDMuNzk5NDUgMC44NTYxNTIgMy41MjcxNUMxLjM5MzMxIDMuMzUyODcgMS43NDM1OSAyLjg1MDgzIDEuNzA4ODYgMi4zMDEyN0MxLjY1NTc2IDEuNDUwNjggMi40OTgyNiAwLjgxMTk5MiAzLjMzNjY4IDEuMDY4NDZDMy44Nzc5MiAxLjIzMjgzIDQuNDY1MTIgMS4wMjU4OCA0Ljc3MDQ2IDAuNTYyNDU5WiIgZmlsbD0iIzBFMEYxMCIvPgogIDxwYXRoIGQ9Ik03LjY5NzMzIDIuNDUwMkw3LjI4NjEyIDcuNzkzOTJMNy4xNzc3NCA3Ljc5ODI4TDYuNDUyMjYgMy45Nzk3NUg1LjI2MTIzTDQuNjY1NTggNy44OTE1N0w0LjUzNTc1IDcuODk2OEwzLjk1MDk2IDMuOTc5NzVIMi41TDMuODEwMjcgOS43MTU4Mkw1LjMxNTI4IDkuNjE0MzlMNS44NDU3NCA1Ljk3MTdINS45NjQ5OEw2LjU2MDM1IDkuNTMwMTFMOC4wNzY1MSA5LjQyNzIzTDkuMTA1MTEgMi40NTAySDcuNjk3MzNaIiBmaWxsPSIjRkYwNTU4Ii8+Cjwvc3ZnPgo="
 																class="css-amcv0d"> </span>
 														</div>
@@ -83,9 +91,7 @@
 																<%-- <img
 																	src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM0QTRBNEEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDE3Ljk4bC02LjAxNSA0LjM5MmMtLjUwOC4zNzItMS4xOTQtLjEyNi0uOTk4LS43MjVsMi4zMTctNy4wODEtNi4wMzUtNC4zNjdjLS41MS0uMzY5LS4yNDctMS4xNzUuMzgyLTEuMTc0bDcuNDQ3LjAxNiAyLjI4Ni03LjA5MWMuMTkyLS42IDEuMDQtLjYgMS4yMzMgMGwyLjI4NiA3LjA5IDcuNDQ3LS4wMTVjLjYyOS0uMDAxLjg5LjgwNS4zOCAxLjE3NGwtNi4wMzMgNC4zNjcgMi4zMTYgNy4wOGMuMTk2LjYtLjQ5IDEuMDk4LS45OTkuNzI2TDEyIDE3Ljk4eiIvPgo8L3N2Zz4K"
 																	width="16px" height="16px" alt="star"><span>${commentList.star }</span> --%>
-																<div id="myPageStar">
-																★ ${commentList.star}
-																</div>
+																<div id="myPageStar">★ ${commentList.star}</div>
 															</div>
 														</c:if>
 														<c:if
@@ -184,57 +190,80 @@
 </div>
 <script type="text/javascript">
 	$(function() {
-		$(document).on(
-				'click',
-				'.updateBtn',
-				function(event) {
-					var contents_title = $(event.target).siblings(
-							'.contents_title').val();
-					var contents_type = $(event.target).siblings(
-							'.contents_type').val();
-					var contents_num = $(event.target)
-							.siblings('.contents_num').val();
-					var user_num = ${user_num};
+		$(document)
+				.on(
+						'click',
+						'.updateBtn',
+						function(event) {
+							var contents_title = $(event.target).siblings(
+									'.contents_title').val();
+							var contents_type = $(event.target).siblings(
+									'.contents_type').val();
+							var contents_num = $(event.target).siblings(
+									'.contents_num').val();
+							var user_num = $
+							{
+								user_num
+							}
+							;
 
-					$('.commentUpdateModal').on(
-							'shown.bs.modal',
-							function(event) {
-								$(event.target).find('.reply_title').text(
-										contents_title);
-								$(event.target).find('.update_type').val(
-										contents_type);
-								$(event.target).find('.update_num').val(
-										contents_num);
-								$.ajax({
-									type : 'post',
-									data : {
-										contents_num : contents_num,
-										contents_type : contents_type,
-										mem_num : user_num
-									},
-									url : 'getComment.do',
-									dataType : 'json',
-									cache : false,
-									timeout : 30000,
-									success : function(param) {
-										if (param.result == 'logout') {
-											alert('로그인 후 사용하세요');
-										} else if (param.result == 'success') {
-											$(event.target).find('.comment2')
-													.text('');
-											$(event.target).find('.comment2')
-													.append(param.content);
-											let LengthNow = param.content.length;
-									        $('.letter-count').text(LengthNow + '/1000');
-										} else {
-											alert('수정폼 호출 오류 발생');
-										}
-									},
-									error : function() {
-										alert('네트워크 오류 발생!');
-									}
-								});
-							});
-				});
+							$('.commentUpdateModal')
+									.on(
+											'shown.bs.modal',
+											function(event) {
+												$(event.target).find(
+														'.reply_title').text(
+														contents_title);
+												$(event.target).find(
+														'.update_type').val(
+														contents_type);
+												$(event.target).find(
+														'.update_num').val(
+														contents_num);
+												$
+														.ajax({
+															type : 'post',
+															data : {
+																contents_num : contents_num,
+																contents_type : contents_type,
+																mem_num : user_num
+															},
+															url : 'getComment.do',
+															dataType : 'json',
+															cache : false,
+															timeout : 30000,
+															success : function(
+																	param) {
+																if (param.result == 'logout') {
+																	alert('로그인 후 사용하세요');
+																} else if (param.result == 'success') {
+																	$(
+																			event.target)
+																			.find(
+																					'.comment2')
+																			.text(
+																					'');
+																	$(
+																			event.target)
+																			.find(
+																					'.comment2')
+																			.append(
+																					param.content);
+																	let LengthNow = param.content.length;
+																	$(
+																			'.letter-count')
+																			.text(
+																					LengthNow
+																							+ '/1000');
+																} else {
+																	alert('수정폼 호출 오류 발생');
+																}
+															},
+															error : function() {
+																alert('네트워크 오류 발생!');
+															}
+														});
+											});
+						});
 	});
 </script>
