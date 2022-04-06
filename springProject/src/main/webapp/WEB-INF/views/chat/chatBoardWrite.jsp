@@ -5,7 +5,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dain.css">
 <script type="text/javascript">
 	$(function() { 
-		 $('#write_form').submit(function() {
+		/*  aaa = function() { */
+		  $('#write_form').submit(function() {
 			if ($('#title_chat').val() == '') {
 				alert('제목을 입력하세요!');		
 				return;
@@ -13,14 +14,32 @@
 			if ($('#content_chat').val() == '') {
 				alert('내용을 입력하세요!');
 				return;
-			}	
-		}) 
-	});
+			}			
+			/* 
+			Swal.fire({
+	            title: ' ',
+	            text: '게시글을 작성했습니다.',
+	            imageUrl: '${pageContext.request.contextPath}/resources/images/ok_icon.png',
+	            imageWidth: 100,
+	            imageHeight: 100,
+	            imageAlt: 'Custom image',
+	            confirmButtonColor: '#84d7fa',
+	            confirmButtonText: '확인',
+	            width: 400,
+	            padding: '2em'
+	        }).then((result) => {
+	            if (result.isConfirmed) {
+	            	location.href='list.do'
+	            }
+	        })//end of swal
+		 }//end of aaa 
+		  */
+			alert('글등록완료');
+		})  //end of submit
+		
+	});//end of function
 </script>
 <style>
-.ck-editor__editable_inline{
-	min-height:250px;
-}
 *{
 	font-family: 'SUIT-Medium';
 }
@@ -48,7 +67,7 @@
 					</tbody>
 				</table>
 		<div class="align-center">
-		    <button type="submit" value="등록" onclick="location.href='list.do'" class="btn btn-outline-primary">등록</button>
+		    <button type="submit" value="등록" onclick="location.href='list.do'" id="chatwritebtn" class="btn btn-outline-primary">등록</button>
 			<button type="button"  onclick="location.href='list.do'" class="btn btn-outline-secondary">목록</button>
 		</div>	
 	</form:form>

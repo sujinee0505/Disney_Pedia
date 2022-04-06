@@ -12,7 +12,7 @@
 <script type="text/javascript">
 $(function() {
 	$("#update_form").submit(function(){
-		alert("수정완료");
+		alert("수정완료"); 
 	});
 });
 </script>
