@@ -142,6 +142,8 @@ public class ChatBoardController {
 
 		//타이틀 HTML 불허
 		chatboard.setTitle(StringUtil.useNoHtml(chatboard.getTitle()));
+		//줄바꿈 처리
+		chatboard.setContent(StringUtil.useBrHtml(chatboard.getContent()));
 		
 		//한건의 레코드를 ModelAndView에 넘기는데 생성자를 통해서 하나만 넘긴다.
 		return new ModelAndView("chatBoardView","chatboard",chatboard);
