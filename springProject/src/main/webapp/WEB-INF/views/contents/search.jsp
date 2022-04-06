@@ -5,10 +5,15 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
+<script type="text/javascript">
+$(function() {
+	alert(${param.category});
+});
+</script>
 <section class="css-18gwkcr">
     <section class="css-le8j8b">
         <div class="css-1jehmiq">
-            <div class="css-10zg79x-pageMarginStyle">"${param.keyword }"의
+            <div class="css-10zg79x-pageMarginStyle">"${param.keyword_header }"의
                 검색결과</div>
         </div>
         <div class="css-15qcwbn-StyledTabBarContainer e1szkzar1" style="height: 50px;">
@@ -16,13 +21,13 @@
                 <li><a class="<c:if
 					test=" ${param.category eq 'contents' || empty param.category }">css-s8lqsd-StyledTab e1szkzar0</c:if>
                         <c:if test="${param.category ne 'contents' }">css-4tchbd-StyledTab e1szkzar0</c:if>"
-                        href="${pageContext.request.contextPath}/contents/search.do?keyword=${param.keyword }&category=contents">콘텐츠
+                        href="${pageContext.request.contextPath}/contents/search.do?keyword_header=${param.keyword_header }&category=contents">콘텐츠
                     </a>
                 </li>
                 <li><a class="<c:if
 					test=" ${param.category eq 'users' }">css-s8lqsd-StyledTab e1szkzar0</c:if>
                         <c:if test="${param.category ne 'users' }">css-4tchbd-StyledTab e1szkzar0</c:if>"
-                        href="${pageContext.request.contextPath}/contents/search.do?keyword=${param.keyword }&category=users">유저
+                        href="${pageContext.request.contextPath}/contents/search.do?keyword_header=${param.keyword_header }&category=users">유저
                     </a></li>
             </ul>
         </div>
@@ -176,7 +181,7 @@
                     <div class="css-1djzg97">
                         <ul class="css-paz4zm-VisualUl">
                             <c:forEach var="user_list" items="${user_list }">
-                                <li class="css-1tmgvat"><a title="${param.keyword }" class="css-1aaqvgs-InnerPartOfListWithImage" href="${pageContext.request.contextPath}/member/myPage.do?user_num=${user_list.mem_num}">
+                                <li class="css-1tmgvat"><a title="${param.keyword_header }" class="css-1aaqvgs-InnerPartOfListWithImage" href="${pageContext.request.contextPath}/member/myPage.do?user_num=${user_list.mem_num}">
                                         <div class="css-cssveg">
                                             <div class="css-lmg4ew">
 
