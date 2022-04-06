@@ -1,10 +1,7 @@
 package kr.spring.contents.service;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +37,11 @@ public class CalendarServiceImpl implements CalendarService {
 	@Override
 	public String checkDate(CalendarVO calendarVO) {
 		return calendarMapper.checkDate(calendarVO);
+	}
+
+	@Override
+	public int getCountCalendar(CalendarVO calendarVO) {
+		return calendarMapper.getCountCalendar(calendarVO);
 	}
 
 }

@@ -15,4 +15,6 @@ public interface CalendarService {
 	public ArrayList<CalendarVO> selectList(int mem_num, String db_startDate, String db_endDate, DateUtil dateData);
 
 	public String checkDate(CalendarVO calendarVO);
+	
+	public int getCountCalendar(CalendarVO calendarVO);
 }

@@ -29,4 +29,7 @@ public interface CalendarMapper {
 
 	@Select("SELECT TO_CHAR(custom_date, 'YYYYMMDD') custom_date FROM dcontents_cal WHERE contents_num = #{contents_num} AND contents_type = #{contents_type} AND mem_num = #{mem_num}")
 	public String checkDate(CalendarVO calendarVO);
+
+	@Select("SELECT COUNT(*) FROM dcontents_cal WHERE mem_num=#{mem_num} AND custom_date =#{custom_date}")
+	public int getCountCalendar(CalendarVO calendarVO);
 }

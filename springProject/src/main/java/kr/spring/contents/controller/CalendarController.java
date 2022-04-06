@@ -136,8 +136,14 @@ public class CalendarController {
 			map.put("result", "logout");
 		} else {
 			calendarVO.setMem_num(mem_num);
-			calenderService.insertCalendar(calendarVO);
-			map.put("result", "success");
+			int checkCount = calenderService.getCountCalendar(calendarVO);
+			if (checkCount >= 4) {
+				map.put("result", "count_over");
+			} else {
+				calenderService.insertCalendar(calendarVO);
+				map.put("result", "success");
+			}
+
 		}
 		return map;
 	}
