@@ -10,11 +10,7 @@
 		//코멘트 삭제
 		$('.cmt_delbtn').click(
 				function(event) {
-					var user_num = $
-					{
-						user_num
-					}
-					;
+					var user_num = ${user_num};
 					$.ajax({
 						url : 'commentDelete.do',
 						type : 'post',
@@ -189,81 +185,52 @@
 	</div>
 </div>
 <script type="text/javascript">
-	$(function() {
-		$(document)
-				.on(
-						'click',
-						'.updateBtn',
-						function(event) {
-							var contents_title = $(event.target).siblings(
-									'.contents_title').val();
-							var contents_type = $(event.target).siblings(
-									'.contents_type').val();
-							var contents_num = $(event.target).siblings(
-									'.contents_num').val();
-							var user_num = $
-							{
-								user_num
-							}
-							;
+    $(function() {
+    	 $(document) .on('click',
+    		     '.updateBtn',
+    		     function(event) {
+                    	var contents_title=$(event.target).siblings('.contents_title').val();
+                    	var contents_type=$(event.target).siblings('.contents_type').val();
+                    	var contents_num=$(event.target).siblings('.contents_num').val();
 
-							$('.commentUpdateModal')
-									.on(
-											'shown.bs.modal',
-											function(event) {
-												$(event.target).find(
-														'.reply_title').text(
-														contents_title);
-												$(event.target).find(
-														'.update_type').val(
-														contents_type);
-												$(event.target).find(
-														'.update_num').val(
-														contents_num);
-												$
-														.ajax({
-															type : 'post',
-															data : {
-																contents_num : contents_num,
-																contents_type : contents_type,
-																mem_num : user_num
-															},
-															url : 'getComment.do',
-															dataType : 'json',
-															cache : false,
-															timeout : 30000,
-															success : function(
-																	param) {
-																if (param.result == 'logout') {
-																	alert('로그인 후 사용하세요');
-																} else if (param.result == 'success') {
-																	$(
-																			event.target)
-																			.find(
-																					'.comment2')
-																			.text(
-																					'');
-																	$(
-																			event.target)
-																			.find(
-																					'.comment2')
-																			.append(
-																					param.content);
-																	let LengthNow = param.content.length;
-																	$(
-																			'.letter-count')
-																			.text(
-																					LengthNow
-																							+ '/1000');
-																} else {
-																	alert('수정폼 호출 오류 발생');
-																}
-															},
-															error : function() {
-																alert('네트워크 오류 발생!');
-															}
-														});
-											});
-						});
-	});
+                        var user_num = ${user_num};
+
+                        $('.commentUpdateModal') .on('shown.bs.modal',
+                        	    function(event) {
+                        	  		$(this).find('form')[0].reset();
+                        	  		
+                        	        $(event.target).find('.reply_title').text(contents_title);
+                        	        $(event.target).find('.update_type').val(contents_type);
+                        	        $(event.target).find('.update_num').val(contents_num);
+
+                        	        $.ajax({
+                        	                type: 'post',
+                        	                data: {
+                        	                    contents_num: contents_num,
+                        	                    contents_type: contents_type,
+                        	                    mem_num: user_num
+                        	                },
+                        	                url: 'getComment.do',
+                        	                dataType: 'json',
+                        	                cache: false,
+                        	                timeout: 30000,
+                        	                success: function(param) {
+                        	                    if (param.result=='logout') {
+                        	                        alert('로그인 후 사용하세요');
+                        	                    } else if (param.result=='success') {
+                        	                        $(event.target).find('.comment2').text('');
+                        	                        $(event.target).find('.comment2').append(param.content);
+                        	                        let LengthNow=param.content.length;
+                        	                        $('.letter-count').text(LengthNow + '/1000');
+                        	                    } else {
+                        	                        alert('수정폼 호출 오류 발생');
+                        	                    }
+                        	                },
+                        	                error: function() {
+                        	                    alert('네트워크 오류 발생!');
+                        	                }
+                        	            });
+                        	  });
+                 });
+        });
 </script>
