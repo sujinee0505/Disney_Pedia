@@ -7,15 +7,6 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/cmtLike.js"></script>
-<script type="text/javascript">
-$(function(){
-	var user_num = ${user_num}
-	var mem_num = ${mem_num}
-	if(user_num != mem_num){
-		$('#cmtlikebtn1').hide();
-	};	
-});
-</script>
 <style>
 * {
 	font-family: 'SUIT-Medium';
@@ -120,16 +111,28 @@ $(function(){
 								src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM3ODc4NzgiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTkuODU3IDE3Ljc4Nkw2IDIxdi00LjkxYy0xLjg0MS0xLjM3My0zLTMuMzY5LTMtNS41OUMzIDYuMzU4IDcuMDMgMyAxMiAzczkgMy4zNTggOSA3LjVjMCA0LjE0Mi00LjAzIDcuNS05IDcuNS0uNzM5IDAtMS40NTYtLjA3NC0yLjE0My0uMjE0eiIvPgo8L3N2Zz4K"
 								width="18px" height="18px" class="css-q0vi8"></span> <em>${cmtLikeList.countReply}</em>
 						</div>
-						<div class="css-hy68ty"id="cmtlikebtn1">
-							<input type="hidden" value="${cmtLikeList.comment_num}"
-								class="comment_num"> <input type="hidden" value="1"
-								class="checkCmtLike">
-							<button 
-								class="css-jj4q3s-StylelessButton-UserActionButton cmtLike"
-								style="margin-left: 5px; font-size: 13px;" 
-								>&nbsp;좋아요&nbsp;</button>
-								
-						</div>
+						<c:if test="${param.mem_num == user_num }">
+							<div class="css-hy68ty">
+								<input type="hidden" value="${cmtLikeList.comment_num}"
+									class="comment_num"> <input type="hidden" value="1"
+									class="checkCmtLike">
+								<button
+									class="css-jj4q3s-StylelessButton-UserActionButton cmtLike"
+									style="margin-left: 5px; font-size: 13px;">&nbsp;좋아요&nbsp;</button>
+							</div>
+						</c:if>
+						<c:if test="${param.mem_num != user_num }">
+							<div class="css-hy68ty">
+								<input type="hidden" value="${cmtLikeList.comment_num}"
+									class="comment_num"> <input type="hidden"
+									value="${checkCmtLike[status.index]}" class="checkCmtLike">
+								<button
+									class="<c:if test="${checkCmtLike[status.index] == 1}">css-jj4q3s-StylelessButton-UserActionButton cmtLike</c:if>
+																			<c:if test="${checkCmtLike[status.index] == 0}">css-1h18l7j-StylelessButton cmtLike</c:if>"
+									style="margin-left: 5px; font-size: 13px;">&nbsp;좋아요&nbsp;</button>
+
+							</div>
+						</c:if>
 					</div>
 				</c:forEach>
 		</div>
@@ -138,4 +141,3 @@ $(function(){
 	</div>
 </div>
 <input type="hidden" value="${user_num}" id="user_num">
-<input type="hidden" value="${mem_num}">

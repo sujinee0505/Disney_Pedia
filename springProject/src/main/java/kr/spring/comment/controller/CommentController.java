@@ -163,13 +163,17 @@ public class CommentController {
 
 	// 내가 좋아요 한 코멘트 목록
 	@RequestMapping("/member/likeComment.do")
-	public ModelAndView likeComment(int mem_num) {
+	public ModelAndView likeComment(int mem_num, HttpSession session) {
 		List<CommentLikeVO> cmtLikeList = commentService.selectListLikeByMem_num(mem_num); // 내가 좋아요 한 코멘트 목록 불러오기
 		
 		GetInfoUtil util = new GetInfoUtil();
 		
 		List<ContentsVO> contentsList = new ArrayList<ContentsVO>();
 		List<MemberVO> memberList = new ArrayList<MemberVO>();
+		
+		Integer user_num = (Integer) session.getAttribute("user_num");
+		List<Integer> checkCmtLike = new ArrayList<Integer>();
+		
 		for (int i = 0; i < cmtLikeList.size(); i++) {
 			ContentsVO contents = new ContentsVO();
 			contents = util.getInfoDetail(cmtLikeList.get(i).getContents_type(), cmtLikeList.get(i).getContents_num()); // 영화 상세정보 불러오기
@@ -178,13 +182,20 @@ public class CommentController {
 			member = memberService.selectMember(cmtLikeList.get(i).getComment_mem()); // 내가 좋아요 한 코멘트의 작성자 상세정보 불러오기
 			memberList.add(member);
 			cmtLikeList.get(i).setCountReply(commentService.getCountReply(cmtLikeList.get(i).getComment_num()));
-			
 			cmtLikeList.get(i).setContent(StringUtil.useBrHtml(cmtLikeList.get(i).getContent())); //추가)코멘트 줄바꿈 적용
 			
 			Integer countLike = commentService.getCountLike(cmtLikeList.get(i).getComment_num()); // 코멘트 좋아요 갯수
 			if (countLike != null) {
 				cmtLikeList.get(i).setCountLike(countLike); // 각각의 코멘트의 좋아요 갯수
 			}
+			if (user_num != null) {
+				if (user_num != mem_num) {
+					CommentVO comment = new CommentVO();
+					comment.setComment_num(cmtLikeList.get(i).getComment_num());
+					comment.setMem_num(user_num);
+					checkCmtLike.add(commentService.checkCmtLike(comment));
+				}
+			} 
 		}
 
 		ModelAndView mav = new ModelAndView();
@@ -193,6 +204,7 @@ public class CommentController {
 		mav.addObject("contentsList", contentsList);
 		mav.addObject("memberList", memberList);
 		mav.addObject("mem_num", mem_num);
+		mav.addObject("checkCmtLike", checkCmtLike);
 		return mav;
 	}
 
