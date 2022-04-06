@@ -12,7 +12,7 @@ $(function() {
     $(document).on('click', '.update', function() {
         var original_content = $(event.target).parent().parent().parent().parent().parent().find('.css-yb0jaq').text();
         $('#comment2').val(original_content);
-        $('#reply_num').val($(event.target).parent().find('.reply_num').val());
+        $('#reply_num').val($(event.target).parent().parent().find('.reply_num').val());
     });
 
     //글자수카운트

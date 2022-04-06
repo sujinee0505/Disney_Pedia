@@ -2,220 +2,233 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+.dropdown-menu.show {
+	display: block;
+}
+.btn:focus, .btn:hover {
+	box-shadow: 0 0 0 0.25rem rgb(30 176 217 / 25%);
+}
+</style>
 <script type="text/javascript">
-$(function() {
-	
-    let user_num = $('#user_num').val();
-    let checkCmtLike = $('#checkCmtLike').val();
-    let comment_num = $('#comment_num').val();
+	$(function() {
 
-    // 좋아요
-    cmtlike = function() {
-    	
-    	// 로그인 안된 상태
-        if (user_num == 0 || user_num == null) {
-            Swal.fire({
-                title: ' ',
-                text: '좋아요를 누르려면 로그인이 필요해요.',
-                imageUrl: '${pageContext.request.contextPath}/resources/images/like_icon.png',
-                imageWidth: 70,
-                imageHeight: 70,
-                imageAlt: 'Custom image',
-                confirmButtonColor: '#84d7fa',
-                confirmButtonText: '알겠어요',
-                width: 400,
-                padding: '2em'
-            }) // sweet alert 끝
-            return;
-        }
-    	
-    	// 로그인 된 상태
-        if (user_num != 0 && user_num != null) {
-            $
-                .ajax({
-                    url: 'cmtLike.do',
-                    type: 'post',
-                    dataType: 'json',
-                    data: {
-                        comment_num: comment_num,
-                        mem_num: user_num,
-                        checkCmtLike: checkCmtLike
-                    },
-                    success: function(param) {
-                    	
-                    	// 코멘트 좋아요
-                        if (param.result == 'success') { 
-                        	
-                        	// 반복해서 이벤트가 발생할 경우 계속해서 데이터가 입력되지 않도록 강제로 checkCmtLike의 값을 1로 설정해준다
-                            checkCmtLike = 1;
-                        	
-                         // 좋아요 버튼의 css 스타일 변경
-                            $('#cmtLike')
-                                .removeClass(
-                                    'css-135c2b4-StylelessButton-StyledActionButton')
-                                .addClass(
-                                    'css-3w1nnz-StylelessButton-StyledActionButton e19d4hrp0');
-                            
-                            // 좋아요 갯수 새롭게 반영
-                            $('#countLike').text(
-                                '좋아요 ' + param.countLike);
-                            
-                            // 좋아요 아이콘 변경
-                            $('#off').hide();
-                            $('#on').show();
-                            
-                        // 코멘트 좋아요 취소    
-                        } else if (param.result == 'cancel') { 
-                            checkCmtLike = 0;
-                            $('#cmtLike')
-                                .removeClass(
-                                    'css-3w1nnz-StylelessButton-StyledActionButton e19d4hrp0')
-                                .addClass(
-                                    'css-135c2b4-StylelessButton-StyledActionButton');
-                            $('#countLike').text(
-                                '좋아요 ' + param.countLike);
-                            $('#on').hide();
-                            $('#off').show();
-                        }
-                    }
-                }); // ajax 끝
-        } // if 끝
-    } // 함수 선언 끝
-    
-    // 좋아요 아이콘 변경
-    toggle = function() {
-        if (checkCmtLike == 1) {
-            $('#on').show();
-            $('#off').hide();
-        } else if (checkCmtLike == 0) {
-            $('#off').show();
-            $('#on').hide();
-        }
-    }
-    toggle();
+		let user_num = $('#user_num').val();
+		let checkCmtLike = $('#checkCmtLike').val();
+		let comment_num = $('#comment_num').val();
 
+		// 좋아요
+		cmtlike = function() {
 
-    //댓글 목록 호출
-    selectData = function() {
-        $
-            .ajax({
-                type: 'post',
-                data: {
-                    comment_num: comment_num
-                },
-                url: 'listReply.do',
-                dataType: 'json',
-                cache: false,
-                timeout: 30000,
-                success: function(param) {
-                    //댓글 목록 작업
-                    $(param.reply)
-                        .each(
-                            function(index, item) {
+			// 로그인 안된 상태
+			if (user_num == 0 || user_num == null) {
+				Swal
+						.fire({
+							title : ' ',
+							text : '로그인이 필요한 기능이에요',
+							imageUrl : '${pageContext.request.contextPath}/resources/images/like_icon.png',
+							imageWidth : 70,
+							imageHeight : 70,
+							imageAlt : 'Custom image',
+							confirmButtonColor : '#84d7fa',
+							confirmButtonText : '알겠어요',
+							width : 400,
+							padding : '2em'
+						}) // sweet alert 끝
+				return;
+			}
 
-                                let output = '<div class="css-1m1whp6">';
-                                output += '<div class="css-ov1ktg">';
-                                output += '<a class="css-255jr8" href="${pageContext.request.contextPath}/member/myPage.do?user_num=' +
-                                    item.mem_num + '">';
-                                output += '<div class="css-1l9hju7-ProfilePhotoImage">';
-                                if (item.photo_name == null) {
-                                    output += '<img src="${pageContext.request.contextPath}/resources/images/face.png" width="20" height="20" class="my-photo">';
-                                } else {
-                                    output += '<img width="32" height="32" class="my-photo" src="${pageContext.request.contextPath}/member/photoView.do?user_num=' +
-                                        item.mem_num +
-                                        '">';
-                                }
-                                output += '</div></a>';
-                                output += '<div class="css-199ku80">';
-                                output += '<div class="css-1sg2lsz" style="justify-content: space-between;">';
-                                output += '<a class="css-255jr8" href="${pageContext.request.contextPath}/member/myPage.do?user_num=' +
-                                    item.mem_num +
-                                    '" style="text-decoration: none;">';
-                                output += '<div class="css-72k174">' +
-                                    item.name +
-                                    '</div></a>';
-                                if (item.modify_date) {
-                                    output += '<div class="css-maxfbg">' +
-                                        item.modify_date +
-                                        '</div></div>';
-                                } else {
-                                    output += '<div class="css-maxfbg">' +
-                                        item.reg_date +
-                                        '</div></div>';
-                                }
-                                output += '<div class="css-ov1ktg" style="margin-top: 8px;">';
-                                output += '<div class="css-yb0jaq">' +
-                                    item.content
-                                    .replace(
-                                        /\r\n/g,
-                                        '<br>') +
-                                    '</div>';
-                                output += '<div class="css-4ygot5">';
-                                if (user_num == item.mem_num) {
-                                    output += '<button class="Icon more css-1b4hoch-SVG e1282e850" style="border: none; background-color: transparent;">';
-                                    output += '<div>';
-                                    output += '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMS4yNTEgNS40MjY3NkMxMS4yNTEgNi4xMTc1OSAxMC42OTEgNi42NzY3NiAxMC4wMDEgNi42NzY3NkM5LjMxMDE0IDYuNjc2NzYgOC43NTA5OCA2LjExNzU5IDguNzUwOTggNS40MjY3NkM4Ljc1MDk4IDQuNzM2NzYgOS4zMTAxNCA0LjE3Njc2IDEwLjAwMSA0LjE3Njc2QzEwLjY5MSA0LjE3Njc2IDExLjI1MSA0LjczNjc2IDExLjI1MSA1LjQyNjc2Wk0xMC4wMDEgOC43NDk5M0M5LjMxMDE0IDguNzQ5OTMgOC43NTA5OCA5LjMwOTkzIDguNzUwOTggOS45OTk5M0M4Ljc1MDk4IDEwLjY5MDggOS4zMTAxNCAxMS4yNDk5IDEwLjAwMSAxMS4yNDk5QzEwLjY5MSAxMS4yNDk5IDExLjI1MSAxMC42OTA4IDExLjI1MSA5Ljk5OTkzQzExLjI1MSA5LjMwOTkzIDEwLjY5MSA4Ljc0OTkzIDEwLjAwMSA4Ljc0OTkzWk0xMC4wMDEgMTMuMzIzMUM5LjMxMDE0IDEzLjMyMzEgOC43NTA5OCAxMy44ODIzIDguNzUwOTggMTQuNTczMUM4Ljc1MDk4IDE1LjI2MzkgOS4zMTAxNCAxNS44MjMxIDEwLjAwMSAxNS44MjMxQzEwLjY5MSAxNS44MjMxIDExLjI1MSAxNS4yNjM5IDExLjI1MSAxNC41NzMxQzExLjI1MSAxMy44ODIzIDEwLjY5MSAxMy4zMjMxIDEwLjAwMSAxMy4zMjMxWiIgZmlsbD0iI0EwQTBBMCIvPgo8L3N2Zz4K" xmlns:xlink="http://www.w3.org/1999/xlink">';
-                                    output += '<path fill-rule="evenodd" clip-rule="evenodd" d="M11.251 5.42676C11.251 6.11759 10.691 6.67676 10.001 6.67676C9.31014 6.67676 8.75098 6.11759 8.75098 5.42676C8.75098 4.73676 9.31014 4.17676 10.001 4.17676C10.691 4.17676 11.251 4.73676 11.251 5.42676ZM10.001 8.74993C9.31014 8.74993 8.75098 9.30993 8.75098 9.99993C8.75098 10.6908 9.31014 11.2499 10.001 11.2499C10.691 11.2499 11.251 10.6908 11.251 9.99993C11.251 9.30993 10.691 8.74993 10.001 8.74993ZM10.001 13.3231C9.31014 13.3231 8.75098 13.8823 8.75098 14.5731C8.75098 15.2639 9.31014 15.8231 10.001 15.8231C10.691 15.8231 11.251 15.2639 11.251 14.5731C11.251 13.8823 10.691 13.3231 10.001 13.3231Z" fill="#A0A0A0"></path>';
-                                    output += '</svg></div></button>';
+			// 로그인 된 상태
+			if (user_num != 0 && user_num != null) {
+				$
+						.ajax({
+							url : 'cmtLike.do',
+							type : 'post',
+							dataType : 'json',
+							data : {
+								comment_num : comment_num,
+								mem_num : user_num,
+								checkCmtLike : checkCmtLike
+							},
+							success : function(param) {
 
-                                    output += '<div class="css-aa3xw reply_more"><div class="css-6btlr7"><div class="css-ve4kut">';
-                                    output += '<button data-bs-target="#replytUpdateModal" data-bs-toggle="modal" class="css-19hkid5 update" style="border: none;">댓글 수정</button>';
-                                    output += '<input type="hidden" value="' + item.reply_num + '" class="reply_num"><button class="css-19hkid5 delete" style="border: none; background-color: transparent;">댓글 삭제</button></div></div></div>';
-                                    output += '</div> </div></div></div></div></div>';
-                                }
-                                $('.cmtReply').append(output);
-                            });
-                },
-                error: function() {
-                    alert('네트워크 오류 발생!');
-                }
-            }); // ajax 끝
+								// 코멘트 좋아요
+								if (param.result == 'success') {
 
-    }
-    
-    //초기 데이터(목록) 호출
-    selectData();
+									// 반복해서 이벤트가 발생할 경우 계속해서 데이터가 입력되지 않도록 강제로 checkCmtLike의 값을 1로 설정해준다
+									checkCmtLike = 1;
 
-    // 더보기 버튼 (수정, 삭제 버튼)
-    $(document).on('click', '.e1282e850', function() {
-        $(this).siblings('.reply_more').toggle();
-    });
+									// 좋아요 버튼의 css 스타일 변경
+									$('#cmtLike')
+											.removeClass(
+													'css-135c2b4-StylelessButton-StyledActionButton')
+											.addClass(
+													'css-3w1nnz-StylelessButton-StyledActionButton e19d4hrp0');
 
-    //댓글 삭제
-    $(document).on(
-        'click',
-        '.delete',
-        function(event) {
-            $.ajax({
-                url: 'replyDelete.do',
-                type: 'post',
-                data: {
-                    reply_num: $(event.target).parent().find(
-                        '.reply_num').val(),
-                    comment_num: comment_num
-                },
-                dataType: 'json',
-                cache: false,
-                timeout: 30000,
-                success: function(param) {
-                    if (param.result == 'logout') {
-                        alert('로그인 후 사용하세요');
-                    } else if (param.result == 'success') {
-                        location.reload(true);
-                    } else {
-                        alert('댓글 삭제 오류 발생');
-                    }
-                },
-                error: function() {
-                    alert('네트워크 오류 발생');
-                }
-            }); // ajax 끝
-        }); // 함수 선언 끝
-});
+									// 좋아요 갯수 새롭게 반영
+									$('#countLike').text(
+											'좋아요 ' + param.countLike);
+
+									// 좋아요 아이콘 변경
+									$('#off').hide();
+									$('#on').show();
+
+									// 코멘트 좋아요 취소    
+								} else if (param.result == 'cancel') {
+									checkCmtLike = 0;
+									$('#cmtLike')
+											.removeClass(
+													'css-3w1nnz-StylelessButton-StyledActionButton e19d4hrp0')
+											.addClass(
+													'css-135c2b4-StylelessButton-StyledActionButton');
+									$('#countLike').text(
+											'좋아요 ' + param.countLike);
+									$('#on').hide();
+									$('#off').show();
+								}
+							}
+						}); // ajax 끝
+			} // if 끝
+		} // 함수 선언 끝
+
+		// 좋아요 아이콘 변경
+		toggle = function() {
+			if (checkCmtLike == 1) {
+				$('#on').show();
+				$('#off').hide();
+			} else if (checkCmtLike == 0) {
+				$('#off').show();
+				$('#on').hide();
+			}
+		}
+		toggle();
+
+		//댓글 목록 호출
+		selectData = function() {
+			$
+					.ajax({
+						type : 'post',
+						data : {
+							comment_num : comment_num
+						},
+						url : 'listReply.do',
+						dataType : 'json',
+						cache : false,
+						timeout : 30000,
+						success : function(param) {
+							//댓글 목록 작업
+							$(param.reply)
+									.each(
+											function(index, item) {
+
+												let output = '<div class="css-1m1whp6">';
+												output += '<div class="css-ov1ktg">';
+												output += '<a class="css-255jr8" href="${pageContext.request.contextPath}/member/myPage.do?user_num='
+														+ item.mem_num + '">';
+												output += '<div class="css-1l9hju7-ProfilePhotoImage">';
+												if (item.photo_name == null) {
+													output += '<img src="${pageContext.request.contextPath}/resources/images/face.png" width="30" height="30" class="my-photo">';
+												} else {
+													output += '<img width="32" height="32" class="my-photo" src="${pageContext.request.contextPath}/member/photoView.do?user_num='
+															+ item.mem_num
+															+ '">';
+												}
+												output += '</div></a>';
+												output += '<div class="css-199ku80">';
+												output += '<div class="css-1sg2lsz" style="justify-content: space-between;">';
+												output += '<a class="css-255jr8" href="${pageContext.request.contextPath}/member/myPage.do?user_num='
+														+ item.mem_num
+														+ '" style="text-decoration: none;">';
+												output += '<div class="css-72k174">'
+														+ item.name
+														+ '</div></a>';
+												if (item.modify_date) {
+													output += '<div class="css-maxfbg">'
+															+ item.modify_date
+															+ '</div></div>';
+												} else {
+													output += '<div class="css-maxfbg">'
+															+ item.reg_date
+															+ '</div></div>';
+												}
+												output += '<div class="css-ov1ktg" style="margin-top: 8px;">';
+												output += '<div class="css-yb0jaq">'
+														+ item.content
+																.replace(
+																		/\r\n/g,
+																		'<br>')
+														+ '</div>';
+												output += '<div class="css-4ygot5">';
+												if (user_num == item.mem_num) {
+													output += '<div class="btn-group">';
+													output += '<button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0;">';
+													output += '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMS4yNTEgNS40MjY3NkMxMS4yNTEgNi4xMTc1OSAxMC42OTEgNi42NzY3NiAxMC4wMDEgNi42NzY3NkM5LjMxMDE0IDYuNjc2NzYgOC43NTA5OCA2LjExNzU5IDguNzUwOTggNS40MjY3NkM4Ljc1MDk4IDQuNzM2NzYgOS4zMTAxNCA0LjE3Njc2IDEwLjAwMSA0LjE3Njc2QzEwLjY5MSA0LjE3Njc2IDExLjI1MSA0LjczNjc2IDExLjI1MSA1LjQyNjc2Wk0xMC4wMDEgOC43NDk5M0M5LjMxMDE0IDguNzQ5OTMgOC43NTA5OCA5LjMwOTkzIDguNzUwOTggOS45OTk5M0M4Ljc1MDk4IDEwLjY5MDggOS4zMTAxNCAxMS4yNDk5IDEwLjAwMSAxMS4yNDk5QzEwLjY5MSAxMS4yNDk5IDExLjI1MSAxMC42OTA4IDExLjI1MSA5Ljk5OTkzQzExLjI1MSA5LjMwOTkzIDEwLjY5MSA4Ljc0OTkzIDEwLjAwMSA4Ljc0OTkzWk0xMC4wMDEgMTMuMzIzMUM5LjMxMDE0IDEzLjMyMzEgOC43NTA5OCAxMy44ODIzIDguNzUwOTggMTQuNTczMUM4Ljc1MDk4IDE1LjI2MzkgOS4zMTAxNCAxNS44MjMxIDEwLjAwMSAxNS44MjMxQzEwLjY5MSAxNS44MjMxIDExLjI1MSAxNS4yNjM5IDExLjI1MSAxNC41NzMxQzExLjI1MSAxMy44ODIzIDEwLjY5MSAxMy4zMjMxIDEwLjAwMSAxMy4zMjMxWiIgZmlsbD0iI0EwQTBBMCIvPgo8L3N2Zz4K" xmlns:xlink="http://www.w3.org/1999/xlink">';
+													output += '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMS4yNTEgNS40MjY3NkMxMS4yNTEgNi4xMTc1OSAxMC42OTEgNi42NzY3NiAxMC4wMDEgNi42NzY3NkM5LjMxMDE0IDYuNjc2NzYgOC43NTA5OCA2LjExNzU5IDguNzUwOTggNS40MjY3NkM4Ljc1MDk4IDQuNzM2NzYgOS4zMTAxNCA0LjE3Njc2IDEwLjAwMSA0LjE3Njc2QzEwLjY5MSA0LjE3Njc2IDExLjI1MSA0LjczNjc2IDExLjI1MSA1LjQyNjc2Wk0xMC4wMDEgOC43NDk5M0M5LjMxMDE0IDguNzQ5OTMgOC43NTA5OCA5LjMwOTkzIDguNzUwOTggOS45OTk5M0M4Ljc1MDk4IDEwLjY5MDggOS4zMTAxNCAxMS4yNDk5IDEwLjAwMSAxMS4yNDk5QzEwLjY5MSAxMS4yNDk5IDExLjI1MSAxMC42OTA4IDExLjI1MSA5Ljk5OTkzQzExLjI1MSA5LjMwOTkzIDEwLjY5MSA4Ljc0OTkzIDEwLjAwMSA4Ljc0OTkzWk0xMC4wMDEgMTMuMzIzMUM5LjMxMDE0IDEzLjMyMzEgOC43NTA5OCAxMy44ODIzIDguNzUwOTggMTQuNTczMUM4Ljc1MDk4IDE1LjI2MzkgOS4zMTAxNCAxNS44MjMxIDEwLjAwMSAxNS44MjMxQzEwLjY5MSAxNS44MjMxIDExLjI1MSAxNS4yNjM5IDExLjI1MSAxNC41NzMxQzExLjI1MSAxMy44ODIzIDEwLjY5MSAxMy4zMjMxIDEwLjAwMSAxMy4zMjMxWiIgZmlsbD0iI0EwQTBBMCIvPgo8L3N2Zz4K" xmlns:xlink="http://www.w3.org/1999/xlink">';
+													output += '<path fill-rule="evenodd" clip-rule="evenodd" d="M11.251 5.42676C11.251 6.11759 10.691 6.67676 10.001 6.67676C9.31014 6.67676 8.75098 6.11759 8.75098 5.42676C8.75098 4.73676 9.31014 4.17676 10.001 4.17676C10.691 4.17676 11.251 4.73676 11.251 5.42676ZM10.001 8.74993C9.31014 8.74993 8.75098 9.30993 8.75098 9.99993C8.75098 10.6908 9.31014 11.2499 10.001 11.2499C10.691 11.2499 11.251 10.6908 11.251 9.99993C11.251 9.30993 10.691 8.74993 10.001 8.74993ZM10.001 13.3231C9.31014 13.3231 8.75098 13.8823 8.75098 14.5731C8.75098 15.2639 9.31014 15.8231 10.001 15.8231C10.691 15.8231 11.251 15.2639 11.251 14.5731C11.251 13.8823 10.691 13.3231 10.001 13.3231Z" fill="#A0A0A0"></path></svg>';
+													output += '</button> <ul class="dropdown-menu">';
+													output += '<input type="hidden" value="' + item.reply_num + '" class="reply_num">';
+													output += '<li><button class="dropdown-item update" data-bs-target="#replytUpdateModal" data-bs-toggle="modal" href="#">댓글 수정</button></li>';
+													output += '<li><button class="dropdown-item delete" href="#">댓글 삭제</button></li></ul></div>';
+												}
+												$('.cmtReply').append(output);
+											});
+						},
+						error : function() {
+							alert('네트워크 오류 발생!');
+						}
+					}); // ajax 끝
+
+		}
+
+		//초기 데이터(목록) 호출
+		selectData();
+
+		//댓글 삭제
+		$(document).on(
+				'click',
+				'.delete',
+				function(event) {
+					$.ajax({
+						url : 'replyDelete.do',
+						type : 'post',
+						data : {
+							reply_num : $(event.target).parent().parent().find('.reply_num').val(),
+							comment_num : comment_num
+						},
+						dataType : 'json',
+						cache : false,
+						timeout : 30000,
+						success : function(param) {
+							if (param.result == 'logout') {
+								Swal
+				                .fire({
+				                    title: ' ',
+				                    text: '로그인이 필요한 기능이에요',
+				                    imageUrl: '${pageContext.request.contextPath}/resources/images/comment_icon.png',
+				                    imageWidth: 70,
+				                    imageHeight: 70,
+				                    imageAlt: 'Custom image',
+				                    confirmButtonColor: '#84d7fa',
+				                    confirmButtonText: '알겠어요',
+				                    width: 400,
+				                    padding: '2em'
+				                }) // sweet alert 끝
+				            	return false;
+							} else if (param.result == 'success') {
+								location.reload(true);
+							} else {
+								alert('댓글 삭제 오류 발생');
+							}
+						},
+						error : function() {
+							alert('네트워크 오류 발생');
+						}
+					}); // ajax 끝
+				}); // 함수 선언 끝
+	});
 </script>
 <style>
-*{
+* {
 	font-family: 'SUIT-Medium';
 }
 </style>
