@@ -4,12 +4,6 @@
 <script type="text/javascript">
 $(function() {
 
-    //글자수 불러오기
-    $('.commentUpdateModal').on('shown.bs.modal', function(event) {
-        let LengthNow = $('.comment2').val().length;
-        $('.letter-count').text(LengthNow + '/1000');
-    });
-
     //글자수카운트
     $(document).on('keyup', 'textarea', function() {
         //입력한 글자수를 구함
@@ -27,9 +21,7 @@ $(function() {
 
     //코멘트 수정
     $('.commentUpdate_form').submit(function(event) {
-        var user_num = $ {
-            user_num
-        };
+        var user_num = ${user_num};
         $.ajax({
             url: 'commentUpdate.do',
             type: 'post',

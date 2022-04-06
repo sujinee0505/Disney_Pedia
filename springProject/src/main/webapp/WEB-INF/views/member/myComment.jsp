@@ -224,6 +224,8 @@
 													.text('');
 											$(event.target).find('.comment2')
 													.append(param.content);
+											let LengthNow = param.content.length;
+									        $('.letter-count').text(LengthNow + '/1000');
 										} else {
 											alert('수정폼 호출 오류 발생');
 										}
