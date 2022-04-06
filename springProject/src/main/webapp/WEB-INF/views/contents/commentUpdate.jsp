@@ -71,7 +71,7 @@ $(function() {
     }; //end of submit
 
     //코멘트 삭제
-    $('#cmt_delbtn').click(function() {
+    cmtDel = function() {
     	let user_num = $('#user_num').val();
         $.ajax({
             url: 'commentDelete.do',
@@ -88,8 +88,24 @@ $(function() {
                 if (param.result == 'logout') {
                     alert('로그인 후 사용하세요');
                 } else if (param.result == 'success') {
-                    alert('코멘트를 삭제했습니다.');
-                    location.reload(true);
+                	Swal.fire({
+                        title: ' ',
+                        text: '코멘트를 삭제했습니다.',
+                        imageUrl: '${pageContext.request.contextPath}/resources/images/ok_icon.png',
+                        imageWidth: 100,
+                        imageHeight: 100,
+                        imageAlt: 'Custom image',
+                        confirmButtonColor: '#84d7fa',
+                        confirmButtonText: '확인',
+                        width: 400,
+                        padding: '2em'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload(true);
+                        }
+                    })
+                   // alert('코멘트를 삭제했습니다.');
+                    //location.reload(true);
                 } else {
                     alert('코멘트 삭제 오류 발생');
                 }
@@ -98,7 +114,7 @@ $(function() {
                 alert('네트워크 오류 발생');
             }
         }); //end of comment delete ajax
-    }); //end of click
+    }; //end delete
 
 });
 </script>
@@ -122,8 +138,10 @@ $(function() {
                     <span class="letter-count">0/1000</span>
                 </div>
                 <!-- 삭제 아이콘 -->
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/resources/images/trash.png" id="cmt_delbtn">
+                <a>
+                    <img src="${pageContext.request.contextPath}/resources/images/trash.png" 
+                    onclick="cmtDel()"
+                    id="cmt_delbtn">
                 </a>
                 <button type="button" onclick="cmtUpdate()" id="comment_btn" class="btn btn-dark-blue">수정</button>
 
