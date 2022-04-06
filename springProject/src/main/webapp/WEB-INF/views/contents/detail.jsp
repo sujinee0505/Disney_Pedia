@@ -705,9 +705,9 @@ sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
 																						class="comment_num"> <input type="hidden"
 																						value="${commentList.checkCmtLike }"
 																						class="checkCmtLike">
-																					<button
+																					<button style="font-size: 13px;"
 																						class="<c:if test="${commentList.checkCmtLike == 1}">css-jj4q3s-StylelessButton-UserActionButton cmtLike</c:if>
-																			<c:if test="${!empty user_num || commentList.checkCmtLike == 0}">css-1h18l7j-StylelessButton cmtLike</c:if>">좋아요</button>
+																			<c:if test="${!empty user_num || commentList.checkCmtLike == 0}">css-1h18l7j-StylelessButton cmtLike</c:if>">&nbsp;좋아요&nbsp;</button>
 																				</div>
 
 																			</div></li>
