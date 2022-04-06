@@ -4,7 +4,11 @@
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/mj.css" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
-
+<style>
+*{
+	 font-family: 'SUIT-Medium' ;
+}
+</style>
 <script type="text/javascript">
 
 
