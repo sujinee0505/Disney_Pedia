@@ -34,7 +34,6 @@
 			            	 location.href='list.do';
 			            }
 			        }) 
-				
 			}
 		}
 	})
@@ -75,10 +74,10 @@
 			</tbody>
 		</table>
 		<div class="align-center">
-			<button type="button" value="등록" id="chatwritebtn" onclick="write_action()"
-				class="btn btn-outline-primary">등록</button>
-			<a href="#" onclick="location.href='list.do'"
-				class="btn btn-outline-secondary">목록</a>
+			<button type="button" value="등록" id="chatwritebtn"
+				onclick="write_action()" class="btn btn-outline-primary">등록</button>
+			<button type="button" onclick="location.href='list.do'"
+				class="btn btn-outline-secondary">목록</button>
 		</div>
 	</form:form>
 </div>
