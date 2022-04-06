@@ -118,8 +118,6 @@ $(function() {
 
 });
 </script>
-<!DOCTYPE html>
-<body>
     <!-- Modal Header -->
     <div class="modal-header border-0" id="comment-header">
         <p class="modal-title2"><b>${contents.title }</b></p>
@@ -148,6 +146,3 @@ $(function() {
             </div>
         </form>
     </div>
-
-</body>
-</html>
