@@ -19,14 +19,14 @@ a:visited {
 }
 
 a:active {
-   font-size: 9pt;
+  /*  font-size: 9pt; */
    font-family: "돋움";
    color: #1f6feb;
    text-decoration: none;
 }
 
 a:hover {
-   font-size: 9pt;
+  /*  font-size: 9pt; */
    font-family: "돋움";
    color: #1f6feb;
    text-decoration: none;

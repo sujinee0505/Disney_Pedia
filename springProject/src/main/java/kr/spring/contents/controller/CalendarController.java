@@ -66,7 +66,6 @@ public class CalendarController {
 					int date_check = Integer.parseInt(String.valueOf(contents_list.get(i - 1).getCustom_date())
 							.substring(String.valueOf(contents_list.get(i - 1).getCustom_date()).length() - 2,
 									String.valueOf(contents_list.get(i - 1).getCustom_date()).length()));
-
 					// i번째 컨텐츠 등록 날짜와 i-1번째 컨텐츠 등록 날짜가 같을 경우
 					// 즉, 같은 날에 등록된 컨텐츠 갯수가 1개 이상일 경우
 					if (date_check == date) {

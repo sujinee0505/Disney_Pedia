@@ -5,6 +5,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/calendar.css">
+<style>
+.dropdown-menu.show {
+	display: flex;
+}
+
+.dropdown:hover>.dropdown-menu {
+	display: flex;
+}
+</style>
 <body>
 	<form name="calendarFrm" id="calendarFrm" action="" method="GET">
 		<input type="hidden" name="year" value="${today_info.search_year}" />
@@ -70,11 +79,10 @@
 								</c:otherwise>
 								</c:choose>
 								${dateList.date}
-							</div>
-							<div style="display: flex; justify-content: center;">
+							</div> <%-- 	<div style="display: flex; justify-content: center;">
 								<c:forEach var="contents_list"
 									items="${dateList.contents_data_arr}"
-									varStatus="contents_data_arr_status" begin="0" end="0">
+									varStatus="contents_data_arr_status" begin="0" end="4">
 									<a
 										href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${contents_list.contents_type }&contents_num=${contents_list.contents_num}">
 										<div style="width: 100px;">
@@ -82,6 +90,51 @@
 										</div>
 									</a>
 								</c:forEach>
+							</div> --%>
+							<div style="display: flex; justify-content: center;">
+								<c:forEach var="contents_list"
+									items="${dateList.contents_data_arr}" varStatus="status"
+									begin="0" end="0">
+									<c:if test="${!empty contents_list.poster_path }">
+										<a
+											href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${contents_list.contents_type }&contents_num=${contents_list.contents_num}">
+											<div style="width: 100px; position: relative;">
+												<img src="${contents_list.poster_path }"
+													style="width: 100%; max-height: 140px;">
+											</div>
+										</a>
+									</c:if>
+								</c:forEach>
+								<c:forEach var="contents_list"
+									items="${dateList.contents_data_arr}" varStatus="status"
+									begin="1" end="1">
+									<c:if test="${!empty contents_list.poster_path }">
+										<div class="dropdown" data-hover="dropdown"
+											style="position: absolute; transform: translate(100%, 313%);">
+											<a class="btn dropdown-toggle" href="#" role="button"
+												id="dropdownMenuLink" data-bs-toggle="dropdown"
+												aria-expanded="false"
+												style="border-radius: 100%; background: white;">+</a>
+									</c:if>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+										<c:forEach var="contents_list"
+											items="${dateList.contents_data_arr}" varStatus="status"
+											begin="1">
+											<c:if test="${!empty contents_list.poster_path }">
+												<li><a class="dropdown-item"
+													href="${pageContext.request.contextPath}/contents/detail.do?contents_type=${contents_list.contents_type }&contents_num=${contents_list.contents_num}">
+														<div style="width: 100px; position: relative;">
+															<img src="${contents_list.poster_path }"
+																style="width: 100%; max-height: 140px;">
+														</div>
+												</a></li>
+
+											</c:if>
+										</c:forEach>
+								</c:forEach>
+								</ul>
+							</div>
+
 							</div>
 						</td>
 						</c:forEach>
