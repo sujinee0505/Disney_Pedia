@@ -296,6 +296,7 @@ body {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	caret-color: #353535;
+	color:#74747b;
 }
 
 .css-13i5xe6:focus {

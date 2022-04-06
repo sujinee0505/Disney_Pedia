@@ -10,7 +10,7 @@ $(function() {
             $('#header').removeClass('css-6k8tqb').addClass('css-5brfx4');
             $('.css-q65tx9-StylelessButton').css('color',
                 'rgba(255, 255, 255, 0.7)');
-            $('#keyword').removeClass('css-13i5xe6')
+            $('#keyword_header').removeClass('css-13i5xe6')
                 .addClass('css-1sc5b20');
             $('#label').removeClass('css-kyr608').addClass('css-y4utrt');
             $('#login-btn').removeClass('css-fn0ezc-StylelessButton')
@@ -20,7 +20,7 @@ $(function() {
         } else {
             $('#header').removeClass('css-5brfx4').addClass('css-6k8tqb');
             $('.css-q65tx9-StylelessButton').css('color', '#7e7e7e');
-            $('#keyword').removeClass('css-1sc5b20')
+            $('#keyword_header').removeClass('css-1sc5b20')
                 .addClass('css-13i5xe6');
             $('#label').removeClass('css-y4utrt').addClass('css-kyr608');
             $('#login-btn').removeClass('css-1n4uax5-StylelessButton')
