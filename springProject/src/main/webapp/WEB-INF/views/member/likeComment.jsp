@@ -128,7 +128,8 @@
 									value="${checkCmtLike[status.index]}" class="checkCmtLike">
 								<button
 									class="<c:if test="${checkCmtLike[status.index] == 1}">css-jj4q3s-StylelessButton-UserActionButton cmtLike</c:if>
-																			<c:if test="${checkCmtLike[status.index] == 0}">css-1h18l7j-StylelessButton cmtLike</c:if>"
+																			<c:if test="${checkCmtLike[status.index] == 0}">css-1h18l7j-StylelessButton cmtLike</c:if>
+																			<c:if test="${empty user_num || user_num  == 0}">css-1h18l7j-StylelessButton cmtLike</c:if>"
 									style="margin-left: 5px; font-size: 13px;">&nbsp;좋아요&nbsp;</button>
 
 							</div>
