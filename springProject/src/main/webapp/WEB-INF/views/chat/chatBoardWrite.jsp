@@ -36,7 +36,7 @@
 		  */
 			alert('글등록완료');
 		})  //end of submit
-		
+		 
 	});//end of function
 </script>
 <style>
