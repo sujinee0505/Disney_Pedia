@@ -330,7 +330,7 @@
 				</div>
 			</div>
 			<div style="display: flex; justify-content: center;">
-				<input class="css-1ukikc-StylelessButton" type="button" value="등록" onclick="insertCal();">
+				<input class="btn btn-dark-blue"" type="button" value="등록" onclick="insertCal();"style="color: white;">
 			</div>
 		</form>
 	</div>

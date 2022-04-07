@@ -5,6 +5,7 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/scroll.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/cmtLike.js"></script>
 <script type="text/javascript">
 	$(function() {
 		//코멘트 삭제
@@ -104,11 +105,13 @@
 																<div id="myPageStar">★ ${commentList.star}</div>
 															</div>
 														</c:if>
-														<c:if
-															test="${empty commentList.star || commentList.star == 0}">
-															<div class="css-yqs4xl"
-																style="margin: 0; color: #68b4ed; font-size: 13px;">
-																&nbsp;평가하기&nbsp;</div>
+														<c:if test="${param.mem_num == user_num }">
+															<c:if
+																test="${empty commentList.star || commentList.star == 0}">
+																<div class="css-yqs4xl"
+																	style="margin: 0; color: #68b4ed; font-size: 13px;">
+																	&nbsp;평가하기&nbsp;</div>
+															</c:if>
 														</c:if>
 														</a>
 													</div>
@@ -153,6 +156,20 @@
 																				<c:if test="${commentList.countReply ==0 }">0</c:if></em>
 																		</div>
 																	</div>
+																	<c:if test="${param.mem_num != user_num || empty user_num}">
+																		<div class="css-hy68ty">
+																			<input type="hidden"
+																				value="${commentList.comment_num}"
+																				class="comment_num"> <input type="hidden"
+																				value="${checkCmtLike[status.index]}"
+																				class="checkCmtLike">
+																			<button
+																				class="<c:if test="${checkCmtLike[status.index] == 1}">css-jj4q3s-StylelessButton-UserActionButton cmtLike</c:if>
+																			<c:if test="${checkCmtLike[status.index] == 0 || empty user_num}">css-1h18l7j-StylelessButton cmtLike</c:if>"
+																				style="margin-left: 5px; font-size: 13px;">&nbsp;좋아요&nbsp;</button>
+
+																		</div>
+																	</c:if>
 																</div>
 															</div>
 														</div>
@@ -207,7 +224,7 @@
                     	var contents_type=$(event.target).siblings('.contents_type').val();
                     	var contents_num=$(event.target).siblings('.contents_num').val();
 
-                        var user_num = ${user_num};
+                    	var user_num = $('#user_num').val();
 
                         $('.commentUpdateModal') .on('shown.bs.modal',
                         	    function(event) {
@@ -248,3 +265,4 @@
                  });
         });
 </script>
+<input type="hidden" value="${user_num}" id="user_num">

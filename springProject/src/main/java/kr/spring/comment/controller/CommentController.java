@@ -136,12 +136,17 @@ System.out.println(commentVO);
 
 	// 내가 쓴 코멘트 목록
 	@RequestMapping("/member/myComment.do")
-	public ModelAndView myComment(int mem_num) {
+	public ModelAndView myComment(int mem_num, HttpSession session) {
 		List<CommentVO> commentList = new ArrayList<CommentVO>();
 		commentList = commentService.selectListByMem_num(mem_num); // 내가 작성한 코멘트 목록 불러오기
 
 		GetInfoUtil util = new GetInfoUtil();
 		List<ContentsVO> contentsList = new ArrayList<ContentsVO>();
+		
+		Integer user_num = (Integer) session.getAttribute("user_num");
+		List<Integer> checkCmtLike = new ArrayList<Integer>();
+		
+		ModelAndView mav = new ModelAndView();
 		
 		for (int i = 0; i < commentList.size(); i++) {
 			ContentsVO contents = new ContentsVO();
@@ -153,10 +158,18 @@ System.out.println(commentVO);
 			if (countLike != null) {
 				commentList.get(i).setCountLike(countLike); // 각각의 코멘트의 좋아요 갯수
 			}
+			if (user_num != null) {
+				if (user_num != mem_num) {
+					CommentVO comment = new CommentVO();
+					comment.setComment_num(commentList.get(i).getComment_num());
+					comment.setMem_num(user_num);
+					checkCmtLike.add(commentService.checkCmtLike(comment));
+					mav.addObject("checkCmtLike", checkCmtLike);
+				}
+			} 
 			
 		}
 
-		ModelAndView mav = new ModelAndView();
 		mav.setViewName("myComment");
 		mav.addObject("commentList", commentList);
 		mav.addObject("contentsList", contentsList);
@@ -175,6 +188,8 @@ System.out.println(commentVO);
 		
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		List<Integer> checkCmtLike = new ArrayList<Integer>();
+		
+		ModelAndView mav = new ModelAndView();
 		
 		for (int i = 0; i < cmtLikeList.size(); i++) {
 			ContentsVO contents = new ContentsVO();
@@ -196,17 +211,17 @@ System.out.println(commentVO);
 					comment.setComment_num(cmtLikeList.get(i).getComment_num());
 					comment.setMem_num(user_num);
 					checkCmtLike.add(commentService.checkCmtLike(comment));
+					mav.addObject("checkCmtLike", checkCmtLike);
 				}
 			} 
 		}
-
-		ModelAndView mav = new ModelAndView();
+		
 		mav.setViewName("likeComment");
 		mav.addObject("cmtLikeList", cmtLikeList);
 		mav.addObject("contentsList", contentsList);
 		mav.addObject("memberList", memberList);
 		mav.addObject("mem_num", mem_num);
-		mav.addObject("checkCmtLike", checkCmtLike);
+		
 		return mav;
 	}
 
