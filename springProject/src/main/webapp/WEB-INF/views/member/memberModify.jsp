@@ -63,7 +63,7 @@
 						
 						Swal.fire({
 				            title: ' ',
-				            text: '프로필을 수정했습니다.',
+				            text: '프로필 사진 변경 완료.',
 				            imageUrl: '${pageContext.request.contextPath}/resources/images/ok_icon.png',
 				            imageWidth: 70,
 				            imageHeight: 70,

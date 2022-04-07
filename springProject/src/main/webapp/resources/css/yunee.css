@@ -210,7 +210,15 @@ textarea:focus{
 input[type="password"] { /*클릭시 bgcolor 에러로 별도 지정*/
    background-color:#f2f2f2 !important;
 }
-
+#now_passwd{ 
+   padding-left:10px;
+}
+#new_passwd{ 
+   padding-left:10px;
+}
+#cpasswd{ 
+   padding-left:10px;
+}
 #message_id{ /*중복체크 메시지*/
 	font-size:9pt;
 	font-family: 'SUIT-Medium';
