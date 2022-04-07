@@ -2,7 +2,12 @@
 	pageEncoding="UTF-8"%>
 <script type="text/javascript">
 	$(function() {
-	    
+		$('#calendarModal').on('shown.bs.modal', function() {
+			  if ($('.day').hasClass('day-active')) {
+				  $('.day').removeClass('day-active');
+			  }
+		});
+		
 	    let user_num = $('#user_num').val();
 
 		// 캘린더 등록    
@@ -66,7 +71,9 @@
 	                    title: ' ',
 	                    text: '수정하시겠습니까?',
 	                    confirmButtonColor: '#84d7fa',
-	                    confirmButtonText: '확인',
+	                    showCancelButton: true,
+	                    confirmButtonText: '예',
+	                    cancelButtonText: '아니오',
 	                    width: 400,
 	                    padding: '2em'
 	                }).then((result) => {
@@ -219,7 +226,9 @@
 	            title: ' ',
 	            text: '삭제하시겠습니까?',
 	            confirmButtonColor: '#84d7fa',
-	            confirmButtonText: '확인',
+	            showCancelButton: true,
+	            confirmButtonText: '예',
+	            cancelButtonText: '아니오',
 	            width: 400,
 	            padding: '2em'
 	        }).then((result) => {
