@@ -19,19 +19,55 @@
 			}
 		});
 		
+		//유효성체크alert
 		$('#change_form').submit(function(){
 			if($('#now_passwd').val().trim() == ''){
-				alert(' 현재 비밀번호를 입력하세요!');
+				Swal.fire({
+                    title: ' ',
+                    text: '현재 비밀번호를 입력하세요!',
+                    imageUrl: '${pageContext.request.contextPath}/resources/images/warning_icon.png',
+                    imageWidth: 70,
+                    imageHeight: 70,
+                    imageAlt: 'Custom image',
+                    confirmButtonColor: '#84d7fa',
+                    confirmButtonText: '알겠어요',
+                    width: 400,
+                    padding: '2em'
+                })
 				$('#now_passwd').val('').focus();
 				return false;
 			}
 			if($('#new_passwd').val().trim() == ''){
-				alert('변경할 비밀번호를 입력하세요!');
+				Swal.fire({
+                    title: ' ',
+                    text: '변경할 비밀번호를 입력하세요!',
+                    imageUrl: '${pageContext.request.contextPath}/resources/images/warning_icon.png',
+                    imageWidth: 70,
+                    imageHeight: 70,
+                    imageAlt: 'Custom image',
+                    confirmButtonColor: '#84d7fa',
+                    confirmButtonText: '알겠어요',
+                    width: 400,
+                    padding: '2em'
+                })
+				//alert('변경할 비밀번호를 입력하세요!');
 				$('#new_passwd').val('').focus();
 				return false;
 			}
 			if($('#cpasswd').val().trim() == ''){
-				alert('변경할 비밀번호 확인을 입력하세요!');
+				Swal.fire({
+                    title: ' ',
+                    text: '변경할 비밀번호 확인을 입력하세요!',
+                    imageUrl: '${pageContext.request.contextPath}/resources/images/warning_icon.png',
+                    imageWidth: 70,
+                    imageHeight: 70,
+                    imageAlt: 'Custom image',
+                    confirmButtonColor: '#84d7fa',
+                    confirmButtonText: '알겠어요',
+                    width: 400,
+                    padding: '2em'
+                })
+				//alert('변경할 비밀번호 확인을 입력하세요!');
 				$('#cpasswd').val('').focus(); 
 				return false;
 			}
@@ -69,7 +105,7 @@ ul li {
 													</div>
 													<ul>
 														<li>
-															<form:password class="passwd" path="now_passwd" placeholder="현재 비밀번호를 입력해주세요." /> 
+															<form:password class="passwd" path="now_passwd" placeholder="현재 비밀번호를 입력해주세요."/> 
 															<form:errors path="now_passwd" cssClass="error-color" />
 															<span id="message_nowpasswd"></span>
 														</li>
