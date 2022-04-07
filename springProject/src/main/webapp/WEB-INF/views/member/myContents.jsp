@@ -97,7 +97,7 @@
 													</div>
 													<div class="css-ixy093">
 														<div class="css-niy0za">${likeList.title }</div>
-														<div class="css-1kcd80z">★
+														<div class="css-1kcd80z" style="color: #555765;">평균 ★
 															${Math.ceil((likeList.vote_average)/2*10)/10}</div>
 													</div></a></li>
 										</c:forEach>
