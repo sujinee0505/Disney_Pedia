@@ -94,8 +94,20 @@
 	                            success: function(param) {
 	                            
 	                                if (param.result == 'logout') {
-	                                    alert('로그인후 등록할 수 있습니다.');
-	                                    
+	                                	 Swal
+	     	         	                .fire({
+	     	         	                    title: ' ',
+	     	         	                    text: '로그인이 필요한 기능이에요',
+	     	         	                    imageUrl: '${pageContext.request.contextPath}/resources/images/cal_icon2.png',
+	     	         	                    imageWidth: 70,
+	     	         	                    imageHeight: 70,
+	     	         	                    imageAlt: 'Custom image',
+	     	         	                    confirmButtonColor: '#84d7fa',
+	     	         	                    confirmButtonText: '알겠어요',
+	     	         	                    width: 400,
+	     	         	                    padding: '2em'
+	     	         	                }) // sweet alert 끝
+	     	         	              	location.reload(true);
 	                                } else if (param.result == 'success') {
 	                                    Swal.fire({
 	                                        title: ' ',

@@ -102,12 +102,13 @@ public class CommentController {
 	public Map<String, String> commentUpdate(CommentVO commentVO, HttpSession session) {
 
 		Map<String, String> map = new HashMap<String, String>();
-
+System.out.println(commentVO);
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		if (user_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
 		} else {// 로그인 된 경우
 			// 업데이트
+			commentVO.setMem_num(user_num);
 			commentService.updateComment(commentVO);
 			map.put("result", "success");
 		}
@@ -126,6 +127,7 @@ public class CommentController {
 			map.put("result", "logout");
 		} else {// 로그인 된 경우
 			// 삭제
+			commentVO.setMem_num(user_num);
 			commentService.deleteComment(commentVO);
 			map.put("result", "success");
 		}

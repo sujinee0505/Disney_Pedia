@@ -28,8 +28,22 @@
 							if (param.result == 'logout') {
 								alert('로그인 후 사용하세요');
 							} else if (param.result == 'success') {
-								alert('코멘트를 삭제했습니다.');
-								location.reload(true);
+								Swal.fire({
+                                    title: ' ',
+                                    text: '성공적으로 삭제했습니다.',
+                                    imageUrl: '${pageContext.request.contextPath}/resources/images/ok_icon.png',
+                                    imageWidth: 100,
+                                    imageHeight: 100,
+                                    imageAlt: 'Custom image',
+                                    confirmButtonColor: '#84d7fa',
+                                    confirmButtonText: '확인',
+                                    width: 400,
+                                    padding: '2em'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        location.reload(true);
+                                    }
+                                }) // sweet alert 끝
 							} else {
 								alert('코멘트 삭제 오류 발생');
 							}

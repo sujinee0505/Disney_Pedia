@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function() {
 
@@ -20,26 +21,48 @@ $(function() {
     }); //end of count
 
     //코멘트 수정
-    $('.commentUpdate_form').submit(function(event) {
-        var user_num = ${user_num};
+     cmtUpdate = function() {
+    	var data = $('.commentUpdate_form').serialize();
         $.ajax({
             url: 'commentUpdate.do',
             type: 'post',
-            data: {
-                contents_num: $(event.target).parent().find('.update_num').val(),
-                contents_type: $(event.target).parent().find('.update_type').val(),
-                content: $(event.target).parent().parent().find('.comment2').val(),
-                mem_num: user_num
-            },
+            data:  data,
             dataType: 'json',
             cache: false,
             timeout: 30000,
             success: function(param) {
                 if (param.result == 'logout') {
-                    alert('로그인 후 사용하세요');
+                	Swal
+	                .fire({
+	                    title: ' ',
+	                    text: '로그인이 필요한 기능이에요',
+	                    imageUrl: '${pageContext.request.contextPath}/resources/images/cal_icon2.png',
+	                    imageWidth: 70,
+	                    imageHeight: 70,
+	                    imageAlt: 'Custom image',
+	                    confirmButtonColor: '#84d7fa',
+	                    confirmButtonText: '알겠어요',
+	                    width: 400,
+	                    padding: '2em'
+	                }) // sweet alert 끝
+	            	return false;
                 } else if (param.result == 'success') {
-                    alert('코멘트를 수정했습니다.');
-                    location.reload(true);
+                	Swal.fire({
+                        title: ' ',
+                        text: '코멘트를 수정했습니다.',
+                        imageUrl: '${pageContext.request.contextPath}/resources/images/ok_icon.png',
+                        imageWidth: 100,
+                        imageHeight: 100,
+                        imageAlt: 'Custom image',
+                        confirmButtonColor: '#84d7fa',
+                        confirmButtonText: '확인',
+                        width: 400,
+                        padding: '2em'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload(true);
+                        }
+                    })
                 } else {
                     alert('코멘트 수정 오류 발생');
                 }
@@ -47,8 +70,8 @@ $(function() {
             error: function() {
                 alert('네트워크 오류 발생');
             }
-        }); //end of comment update ajax
-    }); //end of submit
+        });
+	} 
 });
 </script>
 <!DOCTYPE html>
@@ -63,15 +86,15 @@ $(function() {
     <!-- Modal body -->
     <div class="modal-body comment-body">
         <form method="post" role="form" id="commentUpdate_form" class="commentUpdate_form">
-            <textarea autofocus required cols="30" rows="10" id="comment2" name="comment" placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="comment2"></textarea>
+            <textarea autofocus required cols="30" rows="10" id="comment2" name="content" placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="comment2"></textarea>
             <div class="float_right">
                 <!-- 글자수 체크 -->
                 <div id="count_area" class="count_area">
                     <span class="letter-count">0/1000</span>
                 </div>
                 <!-- 삭제 아이콘 -->
-                <input type="hidden" value="" class="update_num"> <input type="hidden" value="" class="update_type">
-                <button type="submit" id="comment_btn" class="btn btn-dark-blue comment_btn">수정</button>
+                <input type="hidden" value="" class="update_num" name="contents_num"> <input type="hidden" value="" class="update_type" name="contents_type">
+                <button type="button" id="comment_btn" class="btn btn-dark-blue comment_btn" onclick="cmtUpdate()">수정</button>
 
             </div>
         </form>
