@@ -30,32 +30,44 @@ $(function() {
         }
     });
 
-    //코멘트 댓글
-    $('#commentUpdate_form').submit(function(event) {
-        $.ajax({
-            url: 'replyUpdate.do',
-            type: 'post',
-            data: {
-                content: $('#comment2').val(),
-                reply_num: $('#reply_num').val()
-            },
-            dataType: 'json',
-            cache: false,
-            timeout: 30000,
-            success: function(param) {
-                if (param.result == 'logout') {
-                    alert('로그인 후 사용하세요');
-                } else if (param.result == 'success') {
-                    alert('댓글을 수정했습니다.');
-                } else {
-                    alert('댓글 수정 오류 발생');
-                }
-            },
-            error: function() {
-                alert('네트워크 오류 발생');
-            }
-        }); //end of comment update ajax
-    }); //end of submit
+    cmtUpdate = function() {
+    	 $.ajax({
+             url: 'replyUpdate.do',
+             type: 'post',
+             data: {
+                 content: $('#comment2').val(),
+                 reply_num: $('#reply_num').val()
+             },
+             dataType: 'json',
+             cache: false,
+             timeout: 30000,
+             success: function(param) {
+                 if (param.result == 'logout') {
+                	 Swal
+   	                .fire({
+   	                    title: ' ',
+   	                    text: '로그인이 필요한 기능이에요',
+   	                    imageUrl: '${pageContext.request.contextPath}/resources/images/cal_icon2.png',
+   	                    imageWidth: 70,
+   	                    imageHeight: 70,
+   	                    imageAlt: 'Custom image',
+   	                    confirmButtonColor: '#84d7fa',
+   	                    confirmButtonText: '알겠어요',
+   	                    width: 400,
+   	                    padding: '2em'
+   	                }) // sweet alert 끝
+   	               return false;
+                 } else if (param.result == 'success') {
+                	 location.reload(true);
+                 } else {
+                     alert('댓글 수정 오류 발생');
+                 }
+             },
+             error: function() {
+                 alert('네트워크 오류 발생');
+             }
+         }); //end of comment update ajax
+	}
 
 });
 </script>
@@ -76,7 +88,7 @@ $(function() {
                 <div id="count_area">
                     <span class="letter-count">0/300</span>
                 </div>
-                <button type="submit" id="comment_btn" class="btn btn-dark-blue">수정</button>
+                <button type="button" id="comment_btn" class="btn btn-dark-blue" onclick="cmtUpdate()">수정</button>
             </div>
         </form>
     </div>
