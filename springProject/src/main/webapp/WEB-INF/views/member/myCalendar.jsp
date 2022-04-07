@@ -7,6 +7,9 @@
 	href="${pageContext.request.contextPath}/resources/css/calendar.css">
 
 <style>
+*{
+	font-family: 'SUIT-Medium';
+}
 .dropdown-menu.show {
 	display: flex;
 }
