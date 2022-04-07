@@ -60,7 +60,24 @@
 					if (param.result == 'logout') {
 						alert('로그인 후 사용하세요'); 
 					} else if (param.result == 'success') {
-						alert('프로필 사진이 수정되었습니다.');
+						
+						Swal.fire({
+				            title: ' ',
+				            text: '프로필을 수정했습니다.',
+				            imageUrl: '${pageContext.request.contextPath}/resources/images/ok_icon.png',
+				            imageWidth: 70,
+				            imageHeight: 70,
+				            imageAlt: 'Custom image',
+				            confirmButtonColor: '#84d7fa',
+				            confirmButtonText: '확인',
+				            width: 400,
+				            padding: '2em'
+				        }).then((result) => {
+				        	if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+				        }) //swal end
+				        
 						photo_path = $('.my-photo').attr('src');
 						$('#upload').val('');
 						$('#photo_choice').hide();
