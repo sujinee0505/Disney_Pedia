@@ -17,8 +17,10 @@
 		<div class="css-1jehmiq"
 			style="background: transparent; border-bottom: 1px solid #e3e3e3;">
 			<div class="css-10zg79x-pageMarginStyle"
-				style="font-weight: 700; font-size: 22px; color: black;">좋아한
-				코멘트</div>
+				style="font-weight: 700; font-size: 22px; color: black;">
+				<c:if test="${param.mem_num == user_num }">좋아한 코멘트</c:if>
+				<c:if test="${param.mem_num != user_num }">${name }님이 좋아한 코멘트</c:if>
+			</div>
 		</div>
 	</section>
 </section>
