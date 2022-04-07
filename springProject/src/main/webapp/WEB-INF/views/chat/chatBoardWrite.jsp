@@ -8,11 +8,35 @@
 	$(function() {
 		write_action = function() {
 			if ($('#title_chat').val() == '') {
-				alert('제목을 입력하세요!');		
+				 Swal.fire({
+			            title: ' ',
+			            text: '제목을 입력하세요!',
+			            imageUrl: '${pageContext.request.contextPath}/resources/images/warning_icon.png',
+			            imageWidth: 70,
+			            imageHeight: 70,
+			            imageAlt: 'Custom image',
+			            confirmButtonColor: '#84d7fa',
+			            confirmButtonText: '확인',
+			            width: 400,
+			            padding: '2em'
+			        })
+				//alert('제목을 입력하세요!');		
 				return;
 			}
 			if ($('#content_chat').val() == '') {
-				alert('내용을 입력하세요!');
+				 Swal.fire({
+			            title: ' ',
+			            text: '내용을 입력하세요!',
+			            imageUrl: '${pageContext.request.contextPath}/resources/images/warning_icon.png',
+			            imageWidth: 70,
+			            imageHeight: 70,
+			            imageAlt: 'Custom image',
+			            confirmButtonColor: '#84d7fa',
+			            confirmButtonText: '확인',
+			            width: 400,
+			            padding: '2em'
+			        })
+				//alert('내용을 입력하세요!');
 				return;
 			}
 			if ($('#title_chat').val() != '' && $('#content_chat').val()!= '' ) {
