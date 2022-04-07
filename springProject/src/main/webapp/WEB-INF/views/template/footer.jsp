@@ -7,11 +7,12 @@
 			<div class="css-7sb2y7-FooterLeft e19unuxw4">
 				<ul class="css-r41819-VisualUl-StyledTermsAndPolicy e19unuxw9">
 					<li
-						class="css-1i0sjqh-StyledTermsAndPolicyList-StyledTermsAndPolicyList e19unuxw10">어쩌구
-						저쩌구</li>
+						class="css-1i0sjqh-StyledTermsAndPolicyList-StyledTermsAndPolicyList e19unuxw10">
+						서비스 이용약관</li>
 					<li
-						class="css-m13hby-StyledTermsAndPolicyList-StyledCompanyInfoList e19unuxw16">뭐라고
-						할까요</li>
+						class="css-m13hby-StyledTermsAndPolicyList-StyledCompanyInfoList e19unuxw16">
+						개인정보 처리방침</li>
+
 				</ul>
 				<ul
 					class="css-lixodn-VisualUl-StyledTermsAndPolicy-StyledCS e19unuxw11">
@@ -39,10 +40,11 @@
 						class="css-1viwtk8-StyledTermsAndPolicyList-StyledTermsAndPolicyList-StyledCompanyInfoList e19unuxw16">디즈니
 						피디아</li>
 					<li
-						class="css-1viwtk8-StyledTermsAndPolicyList-StyledTermsAndPolicyList-StyledCompanyInfoList e19unuxw16">1조
-						화이팅</li>
+						class="css-1viwtk8-StyledTermsAndPolicyList-StyledTermsAndPolicyList-StyledCompanyInfoList e19unuxw16">
+						1조 화이팅
+						</li>
 					<li
-						class="css-m13hby-StyledTermsAndPolicyList-StyledCompanyInfoList e19unuxw16">서울
+						class="css-m13hby-StyledTermsAndPolicyList-StyledCompanyInfoList e19unuxw16">
 						마포구 월드컵북로 21 2층 풍성빌딩</li>
 				</ul>
 				<ul style="margin-top: 2px; display: flex; align-items: center;"
@@ -52,7 +54,7 @@
 						width="70px"></a>
 					<li style="margin-left: 7px; line-height: 20px"
 						class="css-m13hby-StyledTermsAndPolicyList-StyledCompanyInfoList e19unuxw16">©
-						2022 by 1조, Inc. All rights reserved.</li>
+						2022 by 1조 박다인 박수진 이진주 장윤이 허민정</li>
 				</ul>
 			</div>
 			<div class="css-dj9uhj-FooterRight e19unuxw5"
