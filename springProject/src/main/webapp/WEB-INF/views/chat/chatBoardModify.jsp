@@ -81,7 +81,7 @@ div#main_body{
 				<tr>
 					<td><form:textarea path="content" class="form-control" id="content_chat"
 							placeholder="내용" name="content" maxlength="2048"
-							style="height: 350px;"></form:textarea></td>
+							style="height: 350px;resize:none;"></form:textarea></td>
 				</tr>
 			</tbody>
 		</table>

@@ -58,7 +58,7 @@
 				processData : false,
 				success : function(param) {
 					if (param.result == 'logout') {
-						alert('로그인 후 사용하세요');
+						alert('로그인 후 사용하세요'); 
 					} else if (param.result == 'success') {
 						alert('프로필 사진이 수정되었습니다.');
 						photo_path = $('.my-photo').attr('src');
@@ -146,7 +146,8 @@ ul li {
 														<li><form:label path="name">이름</form:label> <form:input
 																class="form1" path="name" /> <form:errors path="name"
 																cssClass="error-color" /></li>
-														<li><form:label path="introduction">소개</form:label> <form:textarea
+														<li><form:label path="introduction">소개</form:label> 
+														<form:textarea style="resize:none;"
 																class="form2" path="introduction" /> <form:errors
 																path="introduction" cssClass="error-color" /></li>
 														<li><form:label path="passwd">비밀번호</form:label> <input
