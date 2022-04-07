@@ -41,6 +41,11 @@
 * {
 	font-family: 'SUIT-Medium';
 }
+
+div#main_body{
+	padding: 35px;
+	height: 500px
+}
 </style>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
@@ -68,7 +73,7 @@
 				<tr>
 					<td><form:textarea id="content_chat" path="content"
 							type="text" class="form-control" placeholder="내용" name="content"
-							maxlength="2048" style="height: 350px;"></form:textarea></td>
+							maxlength="2048" style="height: 350px; resize: none;"></form:textarea></td>
 				</tr>
 			</tbody>
 		</table>

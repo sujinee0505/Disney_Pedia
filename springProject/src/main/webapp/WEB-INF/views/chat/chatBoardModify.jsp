@@ -50,6 +50,11 @@
 *{
 	font-family: 'SUIT-Medium';
 }
+
+div#main_body{
+	padding: 35px;
+	height: 500px
+}
 </style>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main ">
@@ -82,10 +87,10 @@
 		</table>
 		<!-- 모집중,모집마감 radio -->
         <div>
-		<input type="radio" name="mate_state" value="0" id="mate_state0">
+		<input type="radio" name="mate_state" value="0" id="mate_state0" <c:if test="${chatboard.mate_state == 0}">checked</c:if>>
 			<c:if test="${chatboard.mate_state == 0}"></c:if>
 			<span class="badge rounded-pill bg-danger">모집 중!</span>
-		<input type="radio" name="mate_state" value="1" id="smate_state1">
+		<input type="radio" name="mate_state" value="1" id="smate_state1" <c:if test="${chatboard.mate_state == 0}">checked</c:if>>
 			<c:if test="${chatboard.mate_state == 1}"></c:if>
 			<span class="badge rounded-pill bg-light text-dark">모집 마감</span>
 		</div>
