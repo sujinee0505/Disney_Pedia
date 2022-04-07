@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dain.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <!-- 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -10,11 +11,37 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
  -->
 <script type="text/javascript">
-$(function() {
-	$("#update_form").submit(function(){
-		alert("수정완료"); 
+	$(function() {
+		update_action = function() {
+			if ($('#title_chat').val() == '') {
+				alert('제목을 입력하세요!');		
+				return;
+			}
+			if ($('#content_chat').val() == '') {
+				alert('내용을 입력하세요!');
+				return;
+			}
+			if ($('#title_chat').val() != '' && $('#content_chat').val()!= '' ) {
+				 Swal.fire({
+			            title: ' ',
+			            text: '게시글을 수정했습니다.',
+			            imageUrl: '${pageContext.request.contextPath}/resources/images/ok_icon.png',
+			            imageWidth: 100,
+			            imageHeight: 100,
+			            imageAlt: 'Custom image',
+			            confirmButtonColor: '#84d7fa',
+			            confirmButtonText: '확인',
+			            width: 400,
+			            padding: '2em'
+			        }).then((result) => {
+			            if (result.isConfirmed) {
+			            	 $('#update_form').submit();
+			            }
+			        }) 
+				
+			}
+		}
 	});
-});
 </script>
 <style>
 .ck-editor__editable_inline {
@@ -43,11 +70,11 @@ $(function() {
 			</thead>
 			<tbody>
 				<tr>
-					<td><form:input path="title" type="text" class="form-control"
+					<td><form:input path="title" type="text" class="form-control" id="title_chat"
 							placeholder="제목" name="title" maxlength="50"></form:input></td>
 				</tr>
 				<tr>
-					<td><form:textarea path="content" class="form-control"
+					<td><form:textarea path="content" class="form-control" id="content_chat"
 							placeholder="내용" name="content" maxlength="2048"
 							style="height: 350px;"></form:textarea></td>
 				</tr>
@@ -64,7 +91,7 @@ $(function() {
 		</div>
 		<!-- 수정 삭제 버튼 -->		
 		<div class="align-center">		
-			<button type="submit" value="수정하기" id="chat_modi"onclick="location.href='main.do'"
+			<button type="button" id="chat_modi"onclick="update_action()"
 				class="btn btn-outline-primary">수정하기</button>
 			<button type="button" onclick="location.href='list.do'"
 				class="btn btn-outline-secondary">수정취소</button>	
