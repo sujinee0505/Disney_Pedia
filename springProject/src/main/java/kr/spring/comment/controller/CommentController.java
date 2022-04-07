@@ -166,14 +166,15 @@ System.out.println(commentVO);
 					checkCmtLike.add(commentService.checkCmtLike(comment));
 					mav.addObject("checkCmtLike", checkCmtLike);
 					
-					MemberVO member = memberService.selectMember(mem_num);
-					String name = member.getName();
-					mav.addObject("name", name);
 				}
 			} 
 			
 		}
 
+		MemberVO member = memberService.selectMember(mem_num);
+		String name = member.getName();
+		mav.addObject("name", name);
+		
 		mav.setViewName("myComment");
 		mav.addObject("commentList", commentList);
 		mav.addObject("contentsList", contentsList);
@@ -216,13 +217,12 @@ System.out.println(commentVO);
 					comment.setMem_num(user_num);
 					checkCmtLike.add(commentService.checkCmtLike(comment));
 					mav.addObject("checkCmtLike", checkCmtLike);
-					
-					MemberVO memberVO = memberService.selectMember(mem_num);
-					String name = memberVO.getName();
-					mav.addObject("name", name);
 				}
 			} 
 		}
+		MemberVO memberVO = memberService.selectMember(mem_num);
+		String name = memberVO.getName();
+		mav.addObject("name", name);
 		
 		mav.setViewName("likeComment");
 		mav.addObject("cmtLikeList", cmtLikeList);

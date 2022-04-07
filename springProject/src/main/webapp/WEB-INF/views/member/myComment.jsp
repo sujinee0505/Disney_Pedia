@@ -68,7 +68,7 @@
 			<div class="css-10zg79x-pageMarginStyle"
 				style="font-weight: 700; font-size: 22px; color: black;">
 				<c:if test="${param.mem_num == user_num }">마이 코멘트</c:if>
-				<c:if test="${param.mem_num != user_num }">${name }님의 코멘트</c:if>
+				<c:if test="${empty user_num || param.mem_num != user_num }">${name }님의 코멘트</c:if>
 				</div>
 		</div>
 		<div class="css-ipmqep-StyledTabContentContainer e1szkzar3">
