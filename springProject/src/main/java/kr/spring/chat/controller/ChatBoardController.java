@@ -95,8 +95,13 @@ public class ChatBoardController {
 		map.put("sort",sort);
 		//글의 총갯수 또는 검색된 글의 갯수		
 		int count = chatBoardService.selectRowCount(map);
+		
+		String addKey = "";
+		if (sort == 2) {
+			addKey = "&sort=2";
+		}
 		//페이지 처리
-		PagingUtil page = new PagingUtil(keyfield,keyword,currentPage,count,10,10,"list.do");
+		PagingUtil page = new PagingUtil(keyfield,keyword,currentPage,count,10,10,"list.do",addKey);
 											//int totalCount, int rowCount,int pageCount,String pageUrl
 											//rowcount 한 화면에 몇개 게시물을 띄울지/ pagecount =페이지 아래 몇개의 페이지(숫자)를 띄우게 할지
 		map.put("start",page.getStartCount());
