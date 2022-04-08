@@ -19,6 +19,21 @@
 		getPath();
 	});
 </script>
+<style>
+* {
+	font-family: 'SUIT-Medium';
+}
+
+.modal-open {
+	padding: 0 !important;
+}
+
+.modal {
+	padding: 0 !important;
+	overflow-x: hidden; 
+    overflow-y: hidden;
+}
+</style>
 <!-- 상단 시작 -->
 <header class="css-6k8tqb" id="header">
 	<nav>
