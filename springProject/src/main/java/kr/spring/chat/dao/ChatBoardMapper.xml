@@ -2,10 +2,6 @@
 <!DOCTYPE mapper   
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
-    
-	<!-- 		["kr.spring.chat.dao.ChatBoardMapper"]	
-		public List<ChatBoardVO> selectList(Map<String,Object> map);
-		id:메서드명과 일치시킴 / parameterType:전달타입 / resultType:반환타입-->
 <mapper namespace="kr.spring.chat.dao.ChatBoardMapper">  
 	<select id="selectList" parameterType="map" resultType="chatBoardVO"> 
 		SELECT
@@ -40,13 +36,13 @@
 			
 			<choose>
 				<when test="sort == 1" ><!-- 최신순 -->
-					ORDER BY b.reg_date DESC)a)
+					ORDER BY b.chatboard_num DESC)a)
 				</when>
 				<when test="sort == 2" ><!-- 인기순 -->
 					ORDER BY b.mate_state ASC,b.hit DESC)a)
 				</when>
 				<otherwise><!-- 설정 안했을 때(기본일 때) -->
-					ORDER BY b.reg_date DESC)a)
+					ORDER BY b.chatboard_num DESC)a)
 				</otherwise>
 			</choose>
 			
@@ -55,43 +51,6 @@
 		]]>
 	
 	</select>
-	
-	<!-- 조회수(인기)순 + "모집중"상태 우선순위 -->
-	<select id="selectListHit" parameterType="map" resultType="chatBoardVO"> 
-		SELECT
-		 * 
-		FROM (SELECT 
-		        a.*, rownum rnum 
-		        FROM (SELECT
-				b.chatboard_num,
-				b.title,
-				b.hit,
-				b.reg_date,
-				m.name,
-				b.mate_state
-			FROM dchatboard b
-			JOIN dmember_detail m
-			ON b.mem_num = m.mem_num
-			<where>
-				<if test="keyword !='' and keyfield == 1">
-					b.title LIKE '%' || #{keyword} || '%'
-				</if>
-				<if test="keyword != '' and keyfield == 2">
-					m.name LIKE '%' || #{keyword} || '%'
-				</if>
-				<if test="keyword != '' and keyfield == 3">
-					b.content LIKE '%' || #{keyword} || '%'
-				</if>
-				<if test="keyword != '' and keyfield == 4">
-					b.title LIKE '%' || #{keyword} || '%' or
-					b.content LIKE '%' || #{keyword} || '%' 
-				</if>
-			</where>
-			ORDER BY b.hit DESC)a)
-		<![CDATA[
-		WHERE rnum >= #{start} AND rnum <= #{end}
-		]]>
-	</select>	
 	
 	<!--** 페이지 처리를 위한 작업 -->
 		<!-- public int selectRowCount(Map<String,Object> map); -->

@@ -6,8 +6,23 @@
 .dropdown-menu.show {
 	display: block;
 }
+
 .btn:focus, .btn:hover {
-	box-shadow: 0 0 0 0.25rem rgb(30 176 217 / 25%);
+	box-shadow: 0 0 0 0.25rem rgb(30 176 217/ 25%);
+}
+
+* {
+	font-family: 'SUIT-Medium';
+}
+
+.modal-open {
+	padding: 0 !important;
+}
+
+.modal {
+	padding: 0 !important;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 </style>
 <script type="text/javascript">

@@ -108,10 +108,8 @@ public class ChatBoardController {
 		map.put("end",page.getEndCount());
 
 		List<ChatBoardVO> list = null;
-		List<ChatBoardVO> list2 = null;
 		if(count>0) {
 			list = chatBoardService.selectList(map);
-			list2 = chatBoardService.selectListHit(map);
 		}
 		logger.info("<<목록테스트2>> : " + list);
 		
@@ -122,7 +120,6 @@ public class ChatBoardController {
 
 		mav.addObject("count",count);
 		mav.addObject("list", list);
-		mav.addObject("list2", list2);
 		mav.addObject("pagingHtml", page.getPagingHtml());
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		if (user_num == null) {// 로그인이 되지 않은 경우

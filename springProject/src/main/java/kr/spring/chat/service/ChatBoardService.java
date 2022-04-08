@@ -9,7 +9,6 @@ import kr.spring.chat.vo.ChattingVO;
 
 public interface ChatBoardService {
 	public List<ChatBoardVO> selectList(Map<String,Object> map);
-	public List<ChatBoardVO> selectListHit(Map<String,Object> map); 
 	public int selectRowCount(Map<String,Object>map);
 	public void insertBoard(ChatBoardVO chatboard);//*
 	public ChatBoardVO selectBoard(Integer chatboard_num);

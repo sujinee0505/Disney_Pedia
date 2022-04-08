@@ -17,7 +17,6 @@ public interface ChatBoardMapper {
 	//**글 목록
 	//xml
 	public List<ChatBoardVO> selectList(Map<String,Object> map); 
-	public List<ChatBoardVO> selectListHit(Map<String,Object> map); 
 	//xml
 	public int selectRowCount(Map<String,Object> map);
 

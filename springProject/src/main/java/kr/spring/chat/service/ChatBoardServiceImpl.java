@@ -21,10 +21,6 @@ public class ChatBoardServiceImpl implements ChatBoardService{
 	public List<ChatBoardVO> selectList(Map<String, Object> map) {
 		return chatBoardMapper.selectList(map);
 	}
-	@Override 
-	public List<ChatBoardVO> selectListHit(Map<String, Object> map) {
-		return chatBoardMapper.selectListHit(map);
-	}
 	
 	@Override
 	public int selectRowCount(Map<String, Object> map) {

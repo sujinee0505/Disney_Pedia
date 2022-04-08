@@ -102,7 +102,6 @@ public class CommentController {
 	public Map<String, String> commentUpdate(CommentVO commentVO, HttpSession session) {
 
 		Map<String, String> map = new HashMap<String, String>();
-System.out.println(commentVO);
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		if (user_num == null) {// 로그인이 되지 않은 경우
 			map.put("result", "logout");
