@@ -86,7 +86,7 @@ $(function() {
     <!-- Modal body -->
     <div class="modal-body comment-body">
         <form method="post" role="form" id="commentUpdate_form" class="commentUpdate_form">
-            <textarea autofocus required cols="30" rows="10" id="comment2" name="content" placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="comment2"></textarea>
+            <textarea autofocus required cols="30" rows="10" id="comment2" name="content" placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="comment2" spellcheck="false"></textarea>
             <div class="float_right">
                 <!-- 글자수 체크 -->
                 <div id="count_area" class="count_area">
