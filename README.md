@@ -85,7 +85,8 @@ Spring FrameWork를 사용한 왓챠피디아 클론 코딩 프로젝트
   </ul>
 <p dir="auto"><code>장윤이</code></p>
   <ul dir="auto">
-    <li>작성해주세요</li>
+    <li>회원가입 · 로그인 : 기능 및 유효성 검사, 모달창 UI 구현</li>
+    <li>컨텐츠 상세 페이지 : 별점 기능 및 UI 구현, 코멘트 기능 및 모달창 UI 구현</li>
   </ul>
 <p dir="auto"><code>허민정</code></p>
   <ul dir="auto">
