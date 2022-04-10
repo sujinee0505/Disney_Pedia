@@ -83,16 +83,6 @@ public class ChattingController {
 		}
 		return map;
 	}
-//			for (int i = 0; i < getChatting.size(); i++) {
-//				logger.info("<<mate_state변경하기>> : " + getChatting.get(i));
-//			}
-	
-//			String date_time = chattingVO.getDate_time();
-//			StringTokenizer st = new StringTokenizer(date_time," ");
-//			String date = st.nextToken();
-//			String time = st.nextToken();
-//			chattingVO.setDate(date);
-//			chattingVO.setTime(time);
 
 	// *** 2-2)채팅 메세지 전송 ***
 	// [채팅메서드1. 채팅테이블에 대화기록 등록 INSERT : insertChat() ]
@@ -124,7 +114,8 @@ public class ChattingController {
 		return mav;
 	}
 	
-	// [채팅메서드3. 채팅메시지 갯수 SELECT : getChattingList() ]
+	// *** 1-1)채팅 리스트 ***
+	// [채팅메서드3. 채팅목록의 메시지 갯수 SELECT : getChattingList() ]
 	@RequestMapping("/chatboard/chattingList.do")
 	@ResponseBody
 	public Map<String, Object> getChattingList(ChattingVO chattingVO, HttpSession session) {

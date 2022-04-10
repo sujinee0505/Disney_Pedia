@@ -10,17 +10,15 @@
 }
 </style>
 <script type="text/javascript">
+let namecount = 0; //메세지쪽 말고 왼쪽 상단에 name이 한번만 나오게 하기 위해서
 
-
-
-let namecount = 0;
    $(function(){
 	let chatboard_num = $('#chatboard_num').val();
     let count=0;
     let scroll_check;
     let loop_check = true;
-    let date = '';
-    
+    let date = ''; //날짜가 중복되지않고 한번만 나오게 하기 위해서 
+    	//전송버튼이벤트(엔터전송)
     	$('#content').keydown (function(event){
 			if(event.keyCode == 13 && !event.shiftKey) { //.event.keyCode == 13 : 엔터키눌렀을 때 이벤트
 				$('#chatting_form').trigger('submit');
@@ -30,6 +28,8 @@ let namecount = 0;
 					}, 600)
 			}
    		});
+    	
+    	//전송버튼이벤트
     	$('#chatting_form').submit(function() {
     		$('#enter img').fadeIn();
 			setTimeout(function(){
@@ -49,7 +49,7 @@ let namecount = 0;
 				url:'getChatting.do',
 				type:'post',
 				//채팅 이력들을 불러오기 위해  chatboard_num/user_num(로그인 한 유저:채팅보낸사람)/trans_num(글 작성자)을 인자로 전송
-				data:{chatboard_num:chatboard_num, from_num:${user_num}, to_num:${trans_num}}, 
+				data:{chatboard_num:chatboard_num, from_num:${user_num}, to_num:${trans_num}}, //상단에 let chatboard_num = $('#chatboard_num').val(); 변수 지정했음
 				dataType:'json',
 				cache:false,
 				timeout:30000,
