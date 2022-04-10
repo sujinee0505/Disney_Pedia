@@ -14,16 +14,6 @@
 * {
 	font-family: 'SUIT-Medium';
 }
-
-.modal-open {
-	padding: 0 !important;
-}
-
-.modal {
-	padding: 0 !important;
-	overflow-x: hidden;
-	overflow-y: hidden;
-}
 </style>
 <script type="text/javascript">
 	$(function() {
