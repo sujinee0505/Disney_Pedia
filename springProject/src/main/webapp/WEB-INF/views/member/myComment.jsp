@@ -100,7 +100,7 @@
 														<c:if
 															test="${!empty commentList.star && commentList.star != 0}">
 															<div class="css-yqs4xl" style="margin: 0;" >
-																<div id="myPageStar" style="<c:if test="${memberList[status.index].mem_num != user_num }">color:#4a4a4a !important;</c:if>">★ ${commentList.star}</div>
+																<div id="myPageStar" style="<c:if test="${param.mem_num != user_num }">color:#4a4a4a !important;</c:if>">★ ${commentList.star}</div>
 															</div>
 														</c:if>
 														<c:if test="${param.mem_num == user_num }">
