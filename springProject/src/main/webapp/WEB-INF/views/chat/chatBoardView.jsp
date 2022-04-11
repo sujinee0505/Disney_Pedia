@@ -14,7 +14,6 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
 
 <script type="text/javascript">
-//let membercount=0;
 	
 	countChatMember = function() {
 		$.ajax({
@@ -69,47 +68,48 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 		   $('#output').empty();
 		   
 		   $.ajax({
-		      url:'chattingList.do',
-		      type:'post',
-		      data:{chatboard_num:${param.chatboard_num}},
-		      dataType:'json',
-		      cache:false,
-		      timeout:30000,
-		      success:function(param){
-		         if(param.result == 'logout'){
-		            alert('로그인해야 채팅 목록을 볼 수 있습니다.');
-		         }else if(param.result == 'success'){
-		            $(param.chattingList).each(function(index,item){
-		            	let output = '<a href="chatting.do?chatboard_num=${chatboard.chatboard_num}&trans_num='+item.from_num+'" class="list-group-item list-group-item-action">';
-			               output += '<div class="d-flex w-100 justify-content-between">';
-			               output += '<h5 class="mb-1"></h5>';
-			               output += '<img class="fit-picture" src="${pageContext.request.contextPath}/resources/images/disney.png">';
-			               output += '<small class="text-muted"></small>';
-			               output += '</div>';
-			               output += '<p class="mb-1">' + item.name + '님과 대화해 보세요.</p>';
-			               output += '<small class="text-muted">DisneyPedia</small>';
-			               output += '</a>';
-		               
-		               //문서 객체에 추가
-		               $('#output').append(output);
-		            });
-		         }
-		         
-		      },
-		      error:function(){
-		         alert('네트워크 오류 발생');
-		      }
+		    	url:'chattingList.do',
+		      	type:'post',
+				data:{chatboard_num:${param.chatboard_num}},
+				dataType:'json',
+				cache:false,
+				timeout:30000,
+				success:function(param){
+					if(param.result == 'logout'){
+						alert('로그인해야 채팅 목록을 볼 수 있습니다.');
+					}else if(param.result == 'success'){
+						$(param.chattingList).each(function(index,item){
+							let output = '<a href="chatting.do?chatboard_num=${chatboard.chatboard_num}&trans_num='+item.from_num+'" class="list-group-item list-group-item-action">';
+							output += '<div class="d-flex w-100 justify-content-between">';
+							output += '<h5 class="mb-1"></h5>';
+							output += '<img class="fit-picture" src="${pageContext.request.contextPath}/resources/images/disney.png">';
+							output += '<small class="text-muted"></small>';
+							output += '</div>';
+							output += '<p class="mb-1">' + item.name + '님과 대화해 보세요.</p>';
+							output += '<small class="text-muted">DisneyPedia</small>';
+							output += '</a>';
+						
+						//문서 객체에 추가
+						$('#output').append(output);
+						});
+					}
+				},
+				error:function(){
+					alert('네트워크 오류 발생');
+				}
 		   });
 		   
 		}
 		selectData(); 
 	});
 </script>
+
 <style>
 *{
 	font-family: 'SUIT-Medium';
 }
 </style>
+
 <div class="page-main border border-primary border-2" id="boardView" style="margin-bottom: 130px">
 	<div>
 		<h2>
@@ -160,7 +160,8 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 	<br>
 
 	<div id="boardView_content" class="overflow-auto">
-		${chatboard.content}</div>
+		${chatboard.content}
+	</div>
 
 	<div id="boardView_hit" class="offset-11">
 		<img id="eye_img"
@@ -240,10 +241,6 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 	let delete_btn = document.getElementById('delete_btn'); //delete_btn에 접근
 	 
 	delete_btn.onclick=function(){
-		//let choice = confirm('삭제하시겠습니까?');
-		//if(choice){ //choice가true면
-		//	location.replace('delete.do?chatboard_num=${chatboard.chatboard_num}');
-		//여기서부터 테스트
 		Swal.fire({
 			title: '정말로 삭제 하시겠습니까?',
 			text: '다시 되돌릴 수 없습니다. 신중하세요!',
@@ -254,10 +251,9 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 			confirmButtonText: '승인', // confirm 버튼 텍스트 지정
 			cancelButtonText: '취소', // cancel 버튼 텍스트 지정
 			//reverseButtons: true, // 버튼 순서 거꾸로
-			closeOnClickOutside: false,//창 제외하고 다른 곳 클릭시 창안닫히도록?
-			closeOnEsc: false//esc키 안먹히도록(기본true)?
+			closeOnClickOutside: false,//창 제외하고 다른 곳 클릭시 창안닫히도록
+			closeOnEsc: false//esc키 안먹히도록(기본true)
 		}).then(result => {
-			// 만약 Promise리턴을 받으면,
 			if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면
 			Swal.fire({
 					title:'삭제가 완료되었습니다.',
@@ -270,7 +266,6 @@ countChatMember(); //페이지에서 항상 채팅카운트 후 배지알림
 	      		location.replace('detail.do?chatboard_num=${dchatboard.chatboard_num}');
 	      	}
 	    })
-						
 	};
 </script>
 

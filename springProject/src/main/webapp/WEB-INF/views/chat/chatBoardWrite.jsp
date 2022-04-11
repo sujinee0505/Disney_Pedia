@@ -61,23 +61,24 @@
 		}
 	});
 </script>
+
 <style>
 * {
 	font-family: 'SUIT-Medium';
 }
-
 div#main_body{
 	padding: 35px;
 	height: 500px
 }
 </style>
+
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
-	<form:form modelAttribute="chatBoardVO" action="write.do"
-		id="write_form">
+	<form:form modelAttribute="chatBoardVO" action="write.do" id="write_form">
 		<form:errors element="div" cssClass="error-color" />
+		
 		<table class="table table-striped"
-			style="text-align: center; border: 1px solid #dddddd">
+				style="text-align: center; border: 1px solid #dddddd">
 			<thead>
 				<tr>
 					<th colspan="2"
@@ -91,16 +92,21 @@ div#main_body{
 			</thead>
 			<tbody>
 				<tr>
-					<td><form:input id="title_chat" path="title" type="text"
-							class="form-control" placeholder="제목" name="title" maxlength="50"></form:input></td>
+					<td>
+						<form:input id="title_chat" path="title" type="text"
+							class="form-control" placeholder="제목" name="title" maxlength="50"></form:input>
+					</td>
 				</tr>
 				<tr>
-					<td><form:textarea id="content_chat" path="content"
+					<td>
+						<form:textarea id="content_chat" path="content"
 							type="text" class="form-control" placeholder="내용" name="content"
-							maxlength="2048" style="height: 350px; resize: none;"></form:textarea></td>
+							maxlength="2048" style="height: 350px; resize: none;"></form:textarea>
+					</td>
 				</tr>
 			</tbody>
 		</table>
+		
 		<div class="align-center">
 			<button type="button" onclick="write_action()" id="chatwritebtn"
 				class="btn btn-outline-primary">등록</button>
@@ -109,6 +115,4 @@ div#main_body{
 		</div>
 	</form:form>
 </div>
-
-<!-- <section class="css-7klu3x"></section> -->
 <!-- 중앙 컨텐츠 끝 -->

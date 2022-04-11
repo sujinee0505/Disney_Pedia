@@ -4,12 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dain.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
-<!-- 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
- -->
 <script type="text/javascript">
 	$(function() {
 		update_action = function() {
@@ -38,11 +32,12 @@
 			            	 $('#update_form').submit();
 			            }
 			        }) 
-				
 			}
 		}
+		
 	});
 </script>
+
 <style>
 .ck-editor__editable_inline {
 	min-height: 250px;
@@ -50,12 +45,12 @@
 *{
 	font-family: 'SUIT-Medium';
 }
-
 div#main_body{
 	padding: 35px;
 	height: 500px
 }
 </style>
+
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main ">
 	<form:form modelAttribute="chatboard" action="update.do" id="update_form">
@@ -88,10 +83,8 @@ div#main_body{
 		<!-- 모집중,모집마감 radio -->
         <div>
 		<input type="radio" name="mate_state" value="0" id="mate_state0" <c:if test="${chatboard.mate_state == 0}">checked</c:if>>
-			<c:if test="${chatboard.mate_state == 0}"></c:if>
 			<span class="badge rounded-pill bg-danger">모집 중!</span>
-		<input type="radio" name="mate_state" value="1" id="smate_state1" <c:if test="${chatboard.mate_state == 0}">checked</c:if>>
-			<c:if test="${chatboard.mate_state == 1}"></c:if>
+		<input type="radio" name="mate_state" value="1" id="smate_state1" <c:if test="${chatboard.mate_state == 1}">checked</c:if>>
 			<span class="badge rounded-pill bg-light text-dark">모집 마감</span>
 		</div>
 		<!-- 수정 삭제 버튼 -->		
@@ -104,4 +97,3 @@ div#main_body{
 	</form:form>
 </div>
 <!-- 중앙 컨텐츠 끝 -->	
-<!-- <section class="css-7klu3x"></section> -->

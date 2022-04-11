@@ -10,7 +10,7 @@
 }
 </style>
 <script type="text/javascript">
-let namecount = 0; //메세지쪽 말고 왼쪽 상단에 name이 한번만 나오게 하기 위해서
+let namecount = 0; //메세지 쪽 말고, 왼쪽 상단에 name이 한번만 나오게 하기 위해서
 
    $(function(){
 	let chatboard_num = $('#chatboard_num').val();
@@ -227,18 +227,15 @@ let namecount = 0; //메세지쪽 말고 왼쪽 상단에 name이 한번만 나�
 			});	//end of ajax	
 		});	//end of click function
 		
-		
 	});   
-	
 </script>
 
 <div id="bg">
-<!-- <div class="page-main-chat border border-primary border-2 rounded"> -->
 	<div class="page-main-chat">
-		
 		<div id="page-main-chat01" >
+
 			<div class="chat01 ">
-			<img id="chat01img" src="${pageContext.request.contextPath}/resources/images/board/chatstate_num.png">
+				<img id="chat01img" src="${pageContext.request.contextPath}/resources/images/board/chatstate_num.png">
 				
 				<!-- 1.글 작성자와 로그인자가 다른 경우 -->
 				<c:if test="${user_num != chatBoard.mem_num}"> 
@@ -250,7 +247,7 @@ let namecount = 0; //메세지쪽 말고 왼쪽 상단에 name이 한번만 나�
 				<!-- 2.글 작성자와 로그인자가 같은 경우 -->
 				<!-- mate_state : 0 모집중/1 모집완료 -->
 				<c:if test="${user_num == chatBoard.mem_num}">
-				<div id="chat01-01"></div>
+					<div id="chat01-01"></div>
 					<button id="mate"
 						class="badge rounded-pill <c:if test="${chatBoard.mate_state == 0}">bg-danger</c:if><c:if test="${chatBoard.mate_state == 1}">bg-light text-dark</c:if>">
 						<c:if test="${chatBoard.mate_state == 0}">모집 중</c:if>
@@ -296,9 +293,9 @@ let namecount = 0; //메세지쪽 말고 왼쪽 상단에 name이 한번만 나�
 						</form>
 					</div>
 				</div>
-				</div>
+			</div>
+
 		</div>
-		
 	</div>
 </div>
 
