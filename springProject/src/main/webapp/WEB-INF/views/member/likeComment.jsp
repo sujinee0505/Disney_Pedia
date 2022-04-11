@@ -146,28 +146,6 @@
 								</c:if>
 							</c:if>
 						</div>
-						<c:if
-							test="${!empty user_num && memberList[status.index].mem_num == user_num}">
-							<div class="css-hy68ty"
-								style="display: flex; justify-content: flex-end;">
-								<button data-bs-target="#commentUpdateModal"
-									data-bs-toggle="modal"
-									class="css-jj4q3s-StylelessButton-UserActionButton updateBtn"
-									style="margin-right: 5px; font-size: 13px;">
-									&nbsp;&nbsp;수정&nbsp;&nbsp;</button>
-								<input type="hidden" value="${commentList.contents_type }"
-									class="contents_type"> <input type="hidden"
-									value="${commentList.contents_num }" class="contents_num">
-								<input type="hidden" value="${contentsList[status.index].title}"
-									class="contents_title"> <input type="hidden"
-									value="${commentList.content}" class="reply_content"> <input
-									type="hidden" value="0" class="status">
-								<button
-									class="css-jj4q3s-StylelessButton-UserActionButton cmt_delbtn"
-									style="font-size: 13px; background-color: #a8a8a8;">
-									&nbsp;&nbsp;삭제&nbsp;&nbsp;</button>
-							</div>
-						</c:if>
 					</div>
 				</c:forEach>
 		</div>
