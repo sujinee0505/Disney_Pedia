@@ -68,7 +68,11 @@ Spring FrameWork를 사용한 왓챠피디아 클론 코딩 프로젝트
 </h2>
 <p dir="auto"><code>박다인</code></p>
   <ul dir="auto">
-    <li>작성해주세요</li>
+    <li>채팅 페이지 : 채팅 게시판 CRUD 및 UI 구현 </li>
+    <li>채팅 게시판 등록 BE&FE  </li>
+    <li>채팅 게시판 수정 BE&FE  </li>
+    <li>채팅 게시판 글 상세 BE  </li>
+    <li>채팅 목록 리스트 BE&FE  </li>
   </ul>
 <p dir="auto"><code>박수진</code></p>
   <ul dir="auto">
