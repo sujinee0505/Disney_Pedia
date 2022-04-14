@@ -85,19 +85,19 @@ sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
 													<span id="rating_text"></span>
 												</div>
 											</div>
-											<!--=======별점 부분=======-->
-											<%--평가 기록이 없으면(starVO == null) 평가할수있는 별점 div를 표시, 
+	<!--=======별점 부분=======-->
+   <%--평가 기록이 없으면(starVO == null) 평가할수있는 별점 div를 표시, 
 	기록이 있으면(starVO != null) starVO에서 star(별점)을 불러와 점수에 따라 별점 width 변화
 	설정: ContentsController --%>
-											<div class="star_area">
-												<input type="hidden" value="${starVO.star_num }"
-													id="starnum_star">
-												<c:if test="${starVO == null}">
-													<%--평가기록 없을때 --%>
-													<div class="rateit" id="starRate"
-														data-contentsid="${contents.contents_num}"
-														data-rateit-mode="font" style="font-size: 38px;"></div>
-													<script type="text/javascript">	
+	<div class="star_area">
+		<input type="hidden" value="${starVO.star_num }"
+			id="starnum_star">
+		<%--평가기록 없을때 --%>
+		<c:if test="${starVO == null}">
+			<div class="rateit" id="starRate"
+				data-contentsid="${contents.contents_num}"
+				data-rateit-mode="font" style="font-size: 38px;"></div>
+			<script type="text/javascript">	
 			/* 비회원 체크 후 alert 호출  */
 			  $("#starRate").bind('rated', function (event, value) {
 				  var user_num = ${user_num};
@@ -119,13 +119,13 @@ sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
 				  };				 
 			  });			
 			</script>
-												</c:if>
-												<c:if test="${starVO != null}">
-													<%--평가기록 있을때 --%>
-													<div class="rateit" id="starRate"
-														data-contentsid="${contents.contents_num}"
-														data-rateit-mode="font" style="font-size: 38px;"></div>
-													<script type="text/javascript">
+		</c:if>
+		<%--평가기록 있을때 --%>
+		<c:if test="${starVO != null}">
+			<div class="rateit" id="starRate"
+				data-contentsid="${contents.contents_num}"
+				data-rateit-mode="font" style="font-size: 38px;"></div>
+			<script type="text/javascript">
 			$(function(){
 				$('#do_rating').hide(); //평가하기문구hide
 				var rate = ${starVO.star};				
@@ -171,9 +171,9 @@ sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
 				}
 			});
 			</script>
-												</c:if>
-											</div>
-											<script type="text/javascript">	
+		</c:if>
+	</div>
+	<script type="text/javascript">	
 		$(function(){
 			//(1)별점입력 및 변경
 			$('.star_area .rateit').bind('rated', function (e) { //rated reset		
@@ -281,19 +281,14 @@ sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
 			   		 $('#rating_text').text('싫어요');		   
 			   	 }
 			   	 if(value === 0.5){ 
-			   		 $('#rating_text').text('최악이에요');	
-			  
-												//0.5 hover시 리셋버튼 클릭어려워서 0.5클릭 시 리셋버튼 뜨게 설정
-																			$(
-																					'#rateit-reset-2')
-																					.css(
-																							"visibility",
-																							"visible");
-																		}
-																	});//평가문구끝
-												});
-											</script>
-											<!--======별점 부분 끝======-->
+			   		 $('#rating_text').text('최악이에요');				  
+				//0.5 hover시 리셋버튼 클릭어려워서 0.5클릭 시 리셋버튼 뜨게 설정
+				$('#rateit-reset-2').css("visibility","visible");
+				}
+			});//평가문구끝
+		});
+		</script>
+		<!--======별점 부분 끝======-->
 										</div>
 										<div class="css-s5x9hn-ContentActionDivider e1svyhwg21"></div>
 										<div class="css-12uh5q5-ButtonBlock e1svyhwg22">
