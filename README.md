@@ -102,7 +102,6 @@ Spring FrameWork를 사용한 왓챠피디아 클론 코딩 프로젝트
   <ul dir="auto">
     <li>채팅 게시판 페이지 : 게시판 목록 페이징 처리 BE & FE </li>
     <li>채팅 게시판 페이지 : 게시글 CRUD BE & FE </li>
-    <li>채팅 게시판 페이지 : 상세 페이지 BE & FE </li>
     <li>채팅 게시판 페이지 : 채팅 알림 BE </li>
     <li>채팅 페이지 : 날짜 및 채팅 FE </li> 
     <li>채팅 페이지 : 모집 상태 변경 BE & FE </li>
